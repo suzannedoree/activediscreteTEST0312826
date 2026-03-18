@@ -1,0 +1,1827 @@
+<section xml:id="sec_arith_triangle">
+  <title>The Arithmetic Triangle</title>
+  <introduction>
+    <p>
+      <xref ref="ch_counting">In</xref>,
+      we saw three counting techniques:
+      steps (where we multiply), cases
+      (where we add),
+      and subsets
+      (where we use binomial coefficients).
+      <xref ref="sec_model_sum_prod">In</xref>
+      and <xref ref="sec_sum_conj"></xref>,
+      we worked with sums and products.
+      In this section, we revisit the binomial coefficients,
+      defined in <xref ref="defn_binomial_coeff"></xref>, which are
+      <me>
+        \binom{n}{k} = \text{ the number of ways to select a subset of }  k \text{ elements from a set of }  n \text{ elements }
+      </me>
+      for nonnegative integers <m>n</m> and <m>k</m>.
+      We introduce the arithmetic triangle.<fn>
+      The arithmetic triangle was formerly known as Pascal's triangle,
+      and the generic name honors that the arithmetic triangle was known in Asia,
+      the middle East,
+      and Europe countries centuries before Pascal lived.
+      </fn> We examine the recursion that generates the arithmetic triangle,
+      which is useful for computation,
+      and search for patterns among the binomial coefficients,
+      including summations.
+      We also explain the origin of the name
+      <q>binomial coefficient</q>
+      and we derive an explicit formula for the binomial coefficients which is of theoretical use.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_arith_triangle">
+    <title>\subarithtri</title>
+    <p>
+      How do we calculate the value of <m>\binom{n}{k}</m>?
+      Let's first look at an example using the definition.
+    </p>
+    <example xml:id="exam_eval_7choose4">
+      <title>Evaluating a binomial coefficient by listing subsets</title>
+      <statement>
+        <p>
+          Evaluate <m>\binom{7}{4}</m> without using computational technology.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <xref ref="defn_binomial_coeff">By</xref>,
+          we can count all 4-element subsets of a set with seven elements,
+          say <m>\{1,2,3,4,5,6,7\}</m>.
+          We list these subsets in <xref ref="table_subset_list_7choose4"></xref>.
+          There are 35 subsets, so <m>\binom{7}{4}=35</m>.
+        </p>
+        <table xml:id="table_subset_list_7choose4">
+          <title>The 4-element subsets of the set <m>\{1,2,3,4,5,6,7\}</m></title>
+          <tabular>
+            <row>
+              <cell><m>\{1,2,3,4\}</m></cell>
+              <cell><m>\{1,2,3,5\}</m></cell>
+              <cell><m>\{1,2,3,6\}</m></cell>
+              <cell><m>\{1,2,3,7\}</m></cell>
+              <cell><m>\{1,2,4,5\}</m></cell>
+            </row>
+            <row>
+              <cell><m>\{1,2,4,6\}</m></cell>
+              <cell><m>\{1,2,4,7\}</m></cell>
+              <cell><m>\{1,2,5,6\}</m></cell>
+              <cell><m>\{1,2,5,7\}</m></cell>
+              <cell><m>\{1,2,6,7\}</m></cell>
+            </row>
+            <row>
+              <cell><m>\{1,3,4,5\}</m></cell>
+              <cell><m>\{1,3,4,6\}</m></cell>
+              <cell><m>\{1,3,4,7\}</m></cell>
+              <cell><m>\{1,3,5,6\}</m></cell>
+              <cell><m>\{1,3,5,7\}</m></cell>
+            </row>
+            <row>
+              <cell><m>\{1,3,6,7\}</m></cell>
+              <cell><m>\{1,4,5,6\}</m></cell>
+              <cell><m>\{1,4,5,7\}</m></cell>
+              <cell><m>\{1,4,6,7\}</m></cell>
+              <cell><m>\{1,5,6,7\}</m></cell>
+            </row>
+            <row>
+              <cell><m>\{2,3,4,5\}</m></cell>
+              <cell><m>\{2,3,4,6\}</m></cell>
+              <cell><m>\{2,3,4,7\}</m></cell>
+              <cell><m>\{2,3,5,6\}</m></cell>
+              <cell><m>\{2,3,5,7\}</m></cell>
+            </row>
+            <row>
+              <cell><m>\{2,3,6,7\}</m></cell>
+              <cell><m>\{2,4,5,6\}</m></cell>
+              <cell><m>\{2,4,5,7\}</m></cell>
+              <cell><m>\{2,4,6,7\}</m></cell>
+              <cell><m>\{2,5,6,7\}</m></cell>
+            </row>
+            <row>
+              <cell><m>\{3,4,5,6\}</m></cell>
+              <cell><m>\{3,4,5,7\}</m></cell>
+              <cell><m>\{3,4,6,7\}</m></cell>
+              <cell><m>\{3,5,6,7\}</m></cell>
+              <cell><m>\{4,5,6,7\}</m></cell>
+            </row>
+          </tabular>
+        </table>
+      </solution>
+    </example>
+    <p>
+      There are some values of binomial coefficients that we can compute from the definition.
+    </p>
+    <example xml:id="exam_border_values_binom_coeffs">
+      <title>Border values of binomial coefficients</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Explain why <m>\binom{n}{0}=1</m> and
+                <m>\binom{n}{n}=1</m> using the definition of the binomial coefficients.
+                <solution>
+                  <p>
+                    Given a set with <m>n</m> elements,
+                    there is only one 0-element subsets,
+                    namely the empty set <m>\varnothing</m>.
+                    Similarly, there is only one <m>n</m>-element subset, namely the set itself.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why <m>\binom{n}{1}=n</m> using the definition of the binomial coefficients.
+                <solution>
+                  <p>
+                    Given a set with <m>n</m> elements,
+                    there are <m>n</m> 1-element subsets,
+                    one for each element of the set.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Listing the <m>k</m>-element subsets of a set with <m>n</m> elements is tedious,
+      even for small values of <m>n</m> and <m>k</m>,
+      and it is impractical for any larger values.
+      We would like a more efficient way to calculate the values of
+      <m>\binom{n}{k}</m> by hand for small values of <m>n</m> and <m>k</m>.
+      For larger values,
+      we seek a recursive definition to compute the values.
+      We begin with a way to list binomial coefficients in a triangular array.
+    </p>
+    <definition xml:id="defn_arith_triangle">
+      <title>The arithmetic triangle</title>
+      <statement>
+        <p>
+          The <term>arithmetic triangle</term>
+          is an array of binomial coefficients,
+          where each row has, in order,
+          the values <m>\binom{n}{k}</m>,
+          for <m>k=0,1,2, \ldots, n</m>.
+          For example,
+          the first row has a single value, <m>\binom{0}{0}=1</m>.
+          The second row has, in order,
+          the values <m>\binom{1}{0}=1</m> and <m>\binom{1}{1}=1</m>.
+          The third row has, in order,
+          the values <m>\binom{2}{0}=1</m>,
+          <m>\binom{2}{1}=2</m>, and <m>\binom{2}{2}=1</m>.
+          END<xref ref="figure_arith_tri_expanded"></xref>
+          shows the first eight rows of the expanded version of the arithmetic triangle that includes the binomial coefficients and their values.
+          <xref ref="figure_arith_tri_standard"></xref>
+          shows the first eight rows of the standard version that lists only the values.
+        </p>
+        <figure xml:id="figure_arith_tri_expanded">
+          <caption>The first eight rows of the  arithmetic triangle in expanded format.</caption>
+          <me>
+            \binom{0}{0}=1
+          </me>
+          <me>
+            \binom{1}{0}=1 \hspace{.23in} \binom{1}{1}=1
+          </me>
+          <me>
+            \binom{2}{0}=1 \hspace{.23in} \binom{2}{1}=2 \hspace{.23in} \binom{2}{2}=1
+          </me>
+          <me>
+            \binom{3}{0}=1 \hspace{.23in} \binom{3}{1}=3 \hspace{.23in} \binom{3}{2}=3\hspace{.23in} \binom{3}{3}=1
+          </me>
+          <me>
+            \binom{4}{0}=1 \hspace{.23in} \binom{4}{1}=4 \hspace{.23in} \binom{4}{2}=6 \hspace{.23in} \binom{4}{3}=4\hspace{.23in} \binom{4}{4}=1
+          </me>
+          <me>
+            \binom{5}{0}=1 \hspace{.23in} \binom{5}{1}=5 \hspace{.23in} \binom{5}{2}=10 \hspace{.23in} \binom{5}{3}=10\hspace{.23in} \binom{5}{4}=5\hspace{.23in} \binom{5}{5}=1
+          </me>
+          <me>
+            \binom{6}{0}=1 \hspace{.23in} \binom{6}{1}=6\hspace{.23in} \binom{6}{2}=15 \hspace{.23in} \binom{6}{3}=20\hspace{.23in} \binom{6}{4}=15\hspace{.23in} \binom{6}{5}=6\hspace{.23in} \binom{6}{6}=1
+          </me>
+          <me>
+            \binom{7}{0}=1 \hspace{.23in} \binom{7}{1}=7\hspace{.23in} \binom{7}{2}=21 \hspace{.23in} \binom{7}{3}=35\hspace{.23in} \binom{7}{4}=35\hspace{.23in} \binom{7}{5}=21\hspace{.23in} \binom{7}{6}=7\hspace{.23in} \binom{7}{7}=1
+          </me>
+        </figure>
+        <figure xml:id="figure_arith_tri_standard">
+          <caption>The first eight rows of the  arithmetic triangle in standard format.</caption>
+          <me>
+            1
+          </me>
+          <me>
+            1 \hspace{.23in} 1
+          </me>
+          <me>
+            1 \hspace{.23in} 2 \hspace{.23in} 1
+          </me>
+          <me>
+            1 \hspace{.23in} 3 \hspace{.23in} 3\hspace{.23in} 1
+          </me>
+          <me>
+            1 \hspace{.23in} 4 \hspace{.23in} 6 \hspace{.23in} 4\hspace{.23in}1
+          </me>
+          <me>
+            1 \hspace{.23in} 5 \hspace{.23in} 10 \hspace{.23in} 10\hspace{.23in} 5\hspace{.23in} 1
+          </me>
+          <me>
+            1 \hspace{.23in} 6\hspace{.23in} 15 \hspace{.23in} 20\hspace{.23in}15\hspace{.23in} 6\hspace{.23in} 1
+          </me>
+          <me>
+            1 \hspace{.23in} 7\hspace{.23in} 21 \hspace{.23in} 35\hspace{.23in} 35\hspace{.23in}21\hspace{.23in} 7\hspace{.23in} 1
+          </me>
+        </figure>
+      </statement>
+    </definition>
+    <p>
+      We can use the arithmetic triangle to evaluate binomial coefficients.
+    </p>
+    <example xml:id="exam_using_arith_tri_eval">
+      <title>Using the arithmetic triangle to evaluate binomial coefficients</title>
+      <statement>
+        <p>
+          Use the arithmetic triangle drawn in <xref ref="figure_arith_tri_standard"></xref>
+          to evaluate each binomial coefficient.
+          If you are not sure where to look in the triangle,
+          refer to <xref ref="figure_arith_tri_expanded"></xref>.
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>\displaystyle \binom{4}{2}</m>.
+                <solution>
+                  <p>
+                    The row that starts with 1, 4 lists
+                    <me>
+                      \binom{4}{0}=1, \binom{4}{1}=4, \binom{4}{2}=6, \ldots
+                    </me>.
+                    This answer agrees with our list of the 2-element subsets of
+                    <m>\{1,2,3,4\}</m> from <xref ref="exam_four_choose_k"></xref>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\displaystyle \binom{6}{4}</m>.
+                <solution>
+                  <p>
+                    The row that starts with 1, 6 lists
+                    <m>\displaystyle \binom{6}{k}</m> for <m>k=0, 1, 2, 3, 4, \ldots</m>.
+                    Because the list begins at <m>k=0</m>,
+                    the fifth number in that row gives
+                    <me>
+                      \displaystyle \binom{6}{4}=15
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with the arithmetic triangle.
+    </p>
+    <activity xml:id="act_arith_tri">
+      <title>The arithmetic triangle</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Copy the first eight rows of the arithmetic triangle.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the arithmetic triangle to evaluate each of the following binomial coefficients and circle the corresponding entries in the triangle.
+              <me>
+                \binom{5}{4}, \binom{7}{5}, \binom{3}{0}, \binom{6}{1}, \binom{2}{2}
+              </me>.
+            </p>
+          </li>
+          <li xml:id="part_arith_tri_from6to7">
+            <p>
+              There is a way to calculate the row that starts with 1, 7 from the row above it.
+              Can you see how? (Do not spoil the surprise for others if you already know the answer.) Hint: Each entry of the row is calculated using two nearby entries from the previous row.
+            </p>
+          </li>
+          <li xml:id="part_arith_tri_from7to8">
+            <p>
+              Use the pattern from <xref ref="part_arith_tri_from6to7"/> to write the next row that starts with 1, 8.
+            </p>
+          </li>
+          <li xml:id="part_eval_8choosek">
+            <p>
+              Use your new row to evaluate each of the following binomial coefficients:
+              <me>
+                \binom{8}{2}, \binom{8}{4}, \binom{8}{5}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write a formula for how to calculate the row that stars <m>1, n</m> from the row above it.
+              Your formula should be in the form <m>\displaystyle \binom{n}{k} =</m>.
+              Hint: The entries from the row above will involve <m>n-1</m> and <m>k</m>s.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Make sure to <xref ref="act_arith_tri">complete</xref>
+      before reading on because we are going to share the key observation.
+    </p>
+    <remark xml:id="rem_generating_arith_triangle">
+      <title>Generating the arithmetic triangle</title>
+      <p>
+        We can generate the arithmetic triangle as follows.
+        <ol>
+          <li>
+            <p>
+              The first row is 1.
+            </p>
+          </li>
+          <li>
+            <p>
+              The entry in each subsequent row is the sum of the two entries above it in the previous row,
+              with the understanding that a missing entry equals zero.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+    <p>
+      We state this recursion formally.
+    </p>
+    <theorem xml:id="thm_pascals_recursion">
+      <title>Recursive definition of the binomial coefficients</title>
+      <statement>
+        <p>
+          The binomial coefficients can be defined recursively by <m>\binom{n}{0}=\binom{n}{n}=1</m> and
+          <me>
+            \binom{n}{k}=\binom{n-1}{k-1} + \binom{n-1}{k}
+          </me>
+          for any nonnegative integer <m>n</m> and integer <m>k=1, \ldots, n-1</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's see this formula in action.
+    </p>
+    <example xml:id="exam_arith_tri_row9">
+      <title>Adding another row to the arithmetic triangle</title>
+      <statement>
+        <p>
+          <xref ref="thm_pascals_recursion">Use</xref>
+          to write the row of the arithmetic triangle that begins with 1, 8.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We begin with a copy of the row that begins with 1, 7 from <xref ref="figure_arith_tri_standard"></xref>.
+          We add neighboring entries to calculate the entries of the next row:
+          <me>
+            0+1=1  1+7=8 7 +21 = 28 21+35 = 56 35+35=70
+          </me>
+          <me>
+            35+21 = 56 21+7 = 28 7+1 = 8 1 + 0 = 1
+          </me>
+        </p>
+        <p>
+          The result is shown in <xref ref="fig_arith_triangle_recursion"></xref>.
+        </p>
+        <figure xml:id="fig_arith_triangle_recursion">
+          <caption>Generating another row of the arithmetic triange.</caption>
+          image type not recognized
+        </figure>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_pascal_patterns">
+    <title>\subpascalpatterns</title>
+    <p>
+      There are many patterns that involve binomial coefficients.
+    </p>
+    <activity xml:id="act_pascals_patterns">
+      <title>Looking for patterns in the arithmetic triangle</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_arith_tri_sym_conj">
+            <p>
+              Do you notice a symmetry in the arithmetic triangle?
+              State your observation as a conjecture of the form <m>\binom{n}{k}=\binom{n}{}</m>.
+            </p>
+          </li>
+          <li xml:id="part_find_row_sum_arith_tri">
+            <p>
+              Calculate the sum of the entries in each of row of the arithmetic triangle.
+              What did you notice?
+              State your observation as a conjecture,
+              using summation notation for the sum.
+            </p>
+          </li>
+          <li xml:id="part_alt_row_sum_arith_tri">
+            <p>
+              Conjecture an explicit formula for the sum
+              <me>
+                \sum_{k=0}^n(-1)^k\binom{n}{k}
+              </me>
+              for <m>n \ge 0</m>.
+              Hint:  Calculate the sum when <m>n=3</m> and <m>n=4</m> first.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at the first two patterns from <xref ref="act_pascals_patterns"></xref>.
+      We begin with the left-right symmetry.
+    </p>
+    <theorem xml:id="thm_sym_arith_triangle">
+      <title>Symmetry in the arithmetic triangle</title>
+      <statement>
+        <p>
+          For nonnegative integers <m>n</m> and <m>k</m>, we have
+          <me>
+            \binom{n}{k} = \binom{n}{n-k}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We can use this theorem to evaluate binomial coefficients.
+    </p>
+    <example xml:id="exam_using_sym_arith_triangle">
+      <title>Using the symmetry in the arithmetic triangle</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>\binom{n}{n-1}</m> for a integer <m>n\ge 1</m>.
+                <solution>
+                  <p>
+                    We saw in <xref ref="exam_border_values_binom_coeffs"></xref> that <m>\binom{n}{1}=1</m>.
+                    Using symmetry <xref ref="thm_sym_arith_triangle"/>, we get
+                    <me>
+                      \binom{n}{n-1} = \binom{n}{n-(n-1)} = \binom{n}{1} = n
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why <m>\binom{n}{n-2} = \binom{n}{2}</m>.
+                <solution>
+                  <p>
+                    Using symmetry <xref ref="thm_sym_arith_triangle"/>, we get
+                    <me>
+                      \binom{n}{n-2} = \binom{n}{n-(n-2)}=\binom{n}{2}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Next, let's look at the row sums.
+    </p>
+    <example xml:id="exam_sum_rows_arith_triangle">
+      <title>Sums of rows of the arithmetic triangle</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Calculate the sum of the entries in the eighth row of the arithmetic triangle.
+                <solution>
+                  <p>
+                    We add the entries to get
+                    <me>
+                      1+7+21+35+35+21+7+1 =128
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What did you notice?
+                Conjecture an explicit formula for the sum.
+                <solution>
+                  <p>
+                    We notice that
+                    <me>
+                      \sum_{k=0}^7\binom{7}{k} = 1+7+21+35+35+21+7+1 =128 = 2^7
+                    </me>.
+                  </p>
+                  <p>
+                    We conjecture that
+                    <me>
+                      \sum_{k=0}^n\binom{n}{k}=2^n
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's state our conjecture.
+      We prove it in <xref ref="exer_bin_thm_find_row_sum"></xref>
+      and using a different method in <xref ref="sec_sum_proofs"></xref>.
+    </p>
+    <theorem xml:id="thm_sum_rows_arith_triangle">
+      <title>Sums of rows of the arithmetic triangle</title>
+      <statement>
+        <p>
+          For nonnegative integers <m>n</m> we have
+          <me>
+            \sum_{k=0}^n\binom{n}{k}=2^n
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Here is another summation pattern that involves the binomial coefficients.
+    </p>
+    <example xml:id="exam_hockey_stick">
+      <title>Hockey stick</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_hockey_stick2">
+              <p>
+                Use the arithmetic triangle to evaluate <m>\displaystyle \sum_{k=2}^5 \binom{k}{2}</m>.
+                <solution>
+                  <me>
+                    \sum_{k=2}^5 \binom{k}{2} = \binom{2}{2} + \binom{3}{2} + \binom{4}{2} + \binom{5}{2} = 1 + 3 + 6 + 10 = 20
+                  </me>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_hockey_stick3">
+              <p>
+                Use the arithmetic triangle to evaluate <m>\displaystyle \sum_{k=3}^7 \binom{k}{3}</m>.
+                <solution>
+                  <me>
+                    \sum_{k=3}^7 \binom{k}{3} = \binom{3}{3} + \binom{4}{3} + \binom{5}{3} + \binom{6}{3} + \binom{7}{3} = 1 + 4 + 10 + 20 + 35 = 70
+                  </me>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Conjecture an explicit formula for the sum <m>\displaystyle \sum_{k=m}^n \binom{k}{m}</m>.
+                <solution>
+                  <p>
+                    From <xref ref="part_hockey_stick2"/> we know
+                    <me>
+                      \sum_{k=2}^5 \binom{k}{2} = 20 = \binom{6}{3}
+                    </me>.
+                    From <xref ref="part_hockey_stick3"/> we know
+                    <me>
+                      \sum_{k=3}^7 \binom{k}{3} = 70 = \binom{8}{4}
+                    </me>.
+                    Based on these two examples, it is reasonable to conjecture that
+                    <me>
+                      \sum_{k=m}^n \binom{k}{m} = \binom{n+1}{m+1}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Why is this called the
+                <q>hockey stick</q>
+                theorem?
+                <solution>
+                  <p>
+                    For example,
+                    the sum from <xref ref="part_hockey_stick2"/> is highlighted in <xref ref="fig_hockey_stick"></xref>.
+                    The shape of the encircling polygon looks like a hockey stick.
+                  </p>
+                  <figure xml:id="fig_hockey_stick">
+                    <caption>An example of a hockey stick sum.</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_binom_thm">
+    <title>\subbinomthm</title>
+    <p>
+      The binomial coefficients get their name from polynomials involving two variables that have the binomial coefficients as their coefficients.<fn>
+      The word
+      <q>binomial</q>
+      literally means two names, like <m>x</m> and <m>y</m>.
+      </fn> In our first activity,
+      we look at polynomials in one variable.
+    </p>
+    <activity xml:id="act_powers_nplus1">
+      <title>Powers of <m>n+1</m></title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_nplus1_squared">
+            <p>
+              Expand and simplify <m>(n+1)^2</m>.
+              Hint: Start by writing <m>(n+1)^2=(n+1)(n+1)</m>.
+            </p>
+          </li>
+          <li xml:id="part_nplus1_cubed">
+            <p>
+              Expand and simplify <m>(n+1)^3</m>.
+              Hint: Multiply <m>(n+1)</m> times your answer to <xref ref="part_nplus1_squared"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Check that you found the first two formulas listed here:
+              <md>
+                <mrow>(n+1)^2 \amp  =n^2+2n+1</mrow>
+                <mrow>(n+1)^3 \amp  =n^3 +3n^2+3n+1</mrow>
+                <mrow>(n+1)^4 \amp =n^4+4n^3+6n^2+4n+1</mrow>
+              </md>
+              We provided the third equation so that you have another example.
+              Based on these examples,
+              what is the connection between <m>(n+1)^m</m> and the binomial coefficients?
+              Explain in words.
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture a formula for <m>(n+1)^m</m> using summation notation.
+              Hint: The powers on <m>n</m> decrease,
+              so try using <m>x^{m-k}</m> in your formula.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      <xref ref="act_powers_nplus1">In</xref>,
+      we observe that the coefficients of <m>(n+1)^m</m> are the binomial coefficients.
+    </p>
+    <remark xml:id="rem_special_case_binomial_formula">
+      <title>Special case of the binomial formula</title>
+      <p>
+        For any integer <m>n</m> and nonnegative integer <m>m</m>, we have
+        <me>
+          (n+1)^m = \sum_{k=0}^m \binom{m}{k}n^{m-k}
+        </me>
+      </p>
+    </remark>
+    <p>
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_using_special_case_binom_formula">
+      <title>Using the special case of the binomial formula</title>
+      <statement>
+        <p>
+          Expand <m>(n+1)^7</m> <xref ref="rem_special_case_binomial_formula">using</xref>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We get
+          <md>
+            <mrow>(n+1)^7 \amp  = \sum_{k=0}^7n^{7-k}</mrow>
+            <mrow>\amp  = \binom{7}{0}n^7 + \binom{7}{1}n^6 + \binom{7}{2} n^5 + \binom{7}{3}n^4 + \binom{7}{4} n^3 + \binom{7}{5}n^2+ \binom{7}{6}n + \binom{7}{7}</mrow>
+            <mrow>\amp  = n^7 + 7n^6 + 21n^5 + 35n^4 + 35n^3 + 21 n^2 + 7n+1</mrow>
+          </md>.
+        </p>
+        <p>
+          The coefficients 1, 7, 21, 35, 35, 21, 7, and 1 come from the eighth row of the arithmetic triangle <xref ref="figure_arith_tri_standard"/>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The pattern works for the sum of two real numbers,
+      <m>x</m> and <m>y</m>, raised to a nonnegative integer power.
+    </p>
+    <theorem xml:id="thm_binomial_thm">
+      <title>The binomial theorem</title>
+      <statement>
+        <p>
+          For any real numbers <m>x</m> and <m>y</m> and any nonnegative integer <m>m</m>, we have
+          <me>
+            (x+y)^m = \sum_{k=0}^m\binom{m}{k}x^{m-k}y^k
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Notice that if <m>x=n</m> and <m>y=1</m>,
+      then we have the special case in <xref ref="rem_special_case_binomial_formula"></xref>.
+      Let's practice using this theorem.
+    </p>
+    <example xml:id="exam_practice_binom_thm">
+      <title>Practice using binomial theorem</title>
+      <statement>
+        <p>
+          Use the binomial theorem <xref ref="thm_binomial_thm"/> to expand <m>(x-2)^3</m> and simplify your answer.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Our coefficients come from the row beginning 1, 3 in <xref ref="figure_arith_tri_standard"></xref>.
+          We use <m>m=3</m>, <m>x=x</m>,
+          and <m>y=-2</m> in the binomial theorem to get
+          <me>
+            (x+2)^3=1x^3(-2)^0+3x^3(-2)^1+3x^2(-2)^2+1x^0(-2)^3= n^3-6n^2+12n-8
+          </me>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can use the Binomial Theorem to prove an explicit formula for a summation.
+    </p>
+    <example xml:id="exam_bin_thm_proof">
+      <title>Using the Binomial Theorem to prove a sum formula</title>
+      <statement>
+        <p>
+          Use the Binomial Theorem <xref ref="thm_binomial_thm"/> to prove our conjecture from <xref ref="act_pascals_patterns"></xref>
+          <xref ref="part_alt_row_sum_arith_tri"/>:
+          <me>
+            \sum_{k=0}^n(-1)^k\binom{n}{k}=0
+          </me>
+          for <m>n \ge 0</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We use <m>x=1</m>, <m>y=-1</m>, and <m>m=n</m> to get
+          <me>
+            (1+(-1))^n=\sum_{k=0}^n\binom{n}{k}1^{n-k}(-1)^k
+          </me>.
+          When we simplify each side we get
+          <me>
+            0=\sum_{k=0}^n(-1)^k\binom{n}{k}
+          </me>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_factorial_binomial">
+    <title>\subfactorialbinom</title>
+    <p>
+      When we count,
+      we often leave binomial coefficients in our answers.
+      If we need an exact value, then we can use computational technology.
+      The fastest way to evaluate binomial coefficients by hand and the method that computational technology uses is the recursive formula <xref ref="thm_pascals_recursion"/>.
+    </p>
+    <p>
+      There is also an explicit formula for binomial coefficients.
+      Although this formula is impractical for large values of <m>n</m> and <m>k</m>,
+      it can be useful for theoretical purposes.
+      Let's derive that explicit formula.
+    </p>
+    <activity xml:id="act_formula_binom_coeffs">
+      <title>Explicit formula for binomial coefficients</title>
+      <p>
+        Suppose there are 100 movies and we want to rank our top ten as movie #1, movie #2, <ellipsis/>, movie #10.
+        <ol>
+          <li>
+            <p>
+              One option is to choose movie #1, and then choose movie #2, and so on.
+              How many ways are there to rank the movies this way?
+              It is okay to have <ellipsis/> in your answer.
+            </p>
+          </li>
+          <li xml:id="part_top_movies_choose_in_order">
+            <p>
+              Rewrite your answer as a fraction where the numerator is <m>100!</m> and the denominator is another factorial.
+            </p>
+          </li>
+          <li xml:id="part_top_movies_choose_then_order">
+            <p>
+              An alternative way to pick your top ten movies would be to first select the ten movies you like best (Step 1),
+              and then to order them from #1 to #10 (Step 2).
+              How many ways are there to rank the movies this way?
+            </p>
+          </li>
+          <li>
+            <p>
+              Since we are counting the same quantity,
+              the answers you found in <xref ref="part_top_movies_choose_in_order"/> and <xref ref="part_top_movies_choose_then_order"/> must be equal.
+              Write that equation here.
+            </p>
+          </li>
+          <li>
+            <p>
+              Solve your equation for <m>\binom{100}{10}</m>.
+              What formula did we just prove?
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture the explicit formula for <m>\binom{n}{k}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Test your formula by using it to check by hand that <m>\binom{7}{4} = 35</m>,
+              as we saw in <xref ref="table_subset_list_7choose4"></xref>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      <xref ref="act_formula_binom_coeffs">In</xref>
+      we derived an explicit formula for the binomial coefficients.
+    </p>
+    <theorem xml:id="thm_binom_coeffs_formula">
+      <title>Explicit formula for binomial coefficients</title>
+      <statement>
+        <p>
+          For integers <m>0 \le k \le n</m>, we have
+          <me>
+            \binom{n}{k} = \frac{n!}{k!(n-k)!}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's look at how we might <xref ref="thm_binom_coeffs_formula">prove</xref> using a combinatorial proof.
+    </p>
+    <example xml:id="exam_proof_explicit_binom">
+      <title>Combinatorial proof of the explicit formula for the binomial coefficients</title>
+      <statement>
+        <p>
+          Use a combinatorial proof <xref ref="pff_comb_proof"/> to <xref ref="thm_binom_coeffs_formula">prove</xref>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Proof.</em> We use a combinatorial proof.
+          Consider the following situation there are <m>n</m> movies.
+          How many ways are there to rank our top <m>k</m> as movie #1, movie #2, <ellipsis/>, movie #<m>k</m>?
+        </p>
+        <p>
+          First, we have <m>n</m> choices for movie #1, and then <m>n-1</m> choices for movie #2, and so on until <m>n-(k-1)</m> choices for movie #<m>k</m>.
+          Note that <m>n-0, n-1, \ldots,
+          n-(k-1)</m> is a list of <m>k</m> rankings.
+          Since steps multiply <xref ref="thm_steps_multiply"/>, there are
+          <me>
+            n(n-1)\ldots(n-(k-1))
+          </me>
+          ways to rank our top <m>k</m> movies.
+          We can write this product in terms of factorials.
+          There are
+          <me>
+            n(n-1)\ldots(n-(k-1)) = \frac{n(n-1)\ldots(n-(k-1))(n-k)\ldots(3)(2)(1)} {(n-k)\ldots(3)(2)(1)} = \frac{n!}{(n-k)!}
+          </me>
+          ways to rank our top <m>k</m> movies.
+        </p>
+        <p>
+          On the other hand, we can first pick the <m>k</m> movies as a set in
+          <m>\binom{n}{k}</m> ways and then rank these <m>k</m> movies in <m>k(k-1)\ldots(3)(2)(1) = k!</m> ways.
+          Since steps multiply <xref ref="thm_steps_multiply"/>, there are
+          <me>
+            \binom{n}{k}k!
+          </me>
+          ways to rank our top <m>k</m> movies.
+        </p>
+        <p>
+          Since we counted the same quantity in two different ways,
+          it follows that
+          <me>
+            \frac{n!}{(n-k)!}=\binom{n}{k}k!
+          </me>
+        </p>
+        <p>
+          Dividing each side of this equation by <m>k!</m> we get
+          <me>
+            \binom{n}{k} = \frac{n!}{k!(n-k)!}
+          </me>
+          as desired.
+        </p>
+      </solution>
+    </example>
+    <p>
+      This formula is primarily useful for theoretical examples.
+    </p>
+    <example xml:id="exam_using_formula_binom_coeffs">
+      <title>Using the explicit formula for binomial coefficients</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Use the explicit formula for the binomial coefficients <xref ref="thm_binom_coeffs_formula"/> to evaluate <m>\binom{8}{4}</m>.
+                <solution>
+                  <p>
+                    We have <m>n=8</m>, <m>k=4</m> and <m>n-k=8-4=4</m> and so
+                    <me>
+                      \binom{8}{4} = \frac{8!}{4! 4!} = \frac{8\cdot 7 \cdot 6 \cdot 5 \cdot \cancel{4} \cdot \cancel{3} \cdot \cancel{2} \cdot \cancel{1}} {4 \cdot 3 \cdot 2 \cdot 1 \cdot \cancel{4} \cdot \cancel{3} \cdot \cancel{2} \cdot \cancel{1}} = \frac{\cancel{8}\cdot 7 \cdot 6 \cdot 5}{\cancel{4} \cdot 3 \cdot \cancel{2} \cdot 1} = \frac{7 \cdot 6 \cdot 5}{3} =7 \cdot 2 \cdot 5 =70
+                    </me>
+                  </p>
+                  <p>
+                    Looking back <xref ref="exam_arith_tri_row9">at</xref>
+                    we confirm <m>\binom{8}{4}=70</m>.
+                    Remember that the index begins at <m>k=0</m> so the 5th entry corresponds to <m>k=4</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_nchoose2_formula_again">
+              <p>
+                Use the explicit formula for the binomial coefficients <xref ref="thm_binom_coeffs_formula"/> to show that
+                <me>
+                  \binom{n}{2} = \frac{n(n-1)}{2}
+                </me>.
+                <solution>
+                  <p>
+                    We have <m>k=2</m> and <m>n-k = n-2</m>.
+                    It is useful to note that
+                    <me>
+                      n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
+                    </me>
+                  </p>
+                  <p>
+                    Thus,
+                    <me>
+                      \binom{n}{2} = \frac{n!}{2!(n-2)!} = \frac{n(n-1)(n-2)!}{2(n-2)!} = \frac{n(n-1)\cancel{(n-2)!}}{2\cancel{(n-2)!}} = \frac{n(n-1)}{2}
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the explicit formula for the binomial coefficients <xref ref="thm_binom_coeffs_formula"/> to prove algebraically that
+                <me>
+                  \binom{2n}{2} = 2\binom{n}{2} + n^2
+                </me>
+                <solution>
+                  <p>
+                    First,
+                    <me>
+                      \displaystyle \binom{2n}{2} = \frac{(2n)!}{2!(2n-2)!} = \frac{(2n)(2n-1)\cancel{(2n-2)!}}{2\cancel{(2n-2)!}} =\frac{\cancel{2}n(2n-1)}{\cancel{2}} = n(2n-1)
+                    </me>
+                  </p>
+                  <p>
+                    Next, using <xref ref="part_nchoose2_formula_again"/> we have
+                    <me>
+                      2\binom{n}{2} + n^2 = \cancel{2} \frac{n(n-1)}{\cancel{2}} + n^2 = n(n-1)+ n^2 = n^2-n+n^2=2n^2-n = n(2n-1)
+                    </me>
+                  </p>
+                  <p>
+                    Since we got the same answer,
+                    it follows that <m>\displaystyle \binom{2n}{2} = 2\binom{n}{2} + n^2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_arith_triangle">for</xref> \subarithtri</title>
+      <exercise xml:id="exer_arith_tri_eval_small">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use the arithmetic triangle from <xref ref="figure_arith_tri_standard"></xref>
+            and the next row found in <xref ref="exam_arith_tri_row9"></xref>
+            to evaluate the following binomial coefficients:
+            <me>
+              \binom{8}{1}, \binom{7}{2}, \binom{4}{3}, \binom{4}{4}, \binom{2}{0}, \binom{5}{3}
+            </me>.
+            Hint: If you are not sure where to look,
+            <xref ref="figure_arith_tri_expanded">consult</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_arith_tri_more_rows">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_arith_tri_11rows">
+                <p>
+                  Draw the arithmetic triangle from <xref ref="figure_arith_tri_standard"></xref>
+                  and <xref ref="thm_pascals_recursion">use</xref>
+                  to continue the triangle through the row that begins with 1, 10.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your answer to <xref ref="part_arith_tri_11rows"/> to evaluate the following binomial coefficients and circle the corresponding entries in the triangle.
+                  <me>
+                    \binom{9}{4}, \binom{9}{7}, \binom{10}{4}, \binom{10}{5}
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_seq_binom_coeffs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate the first six terms of each sequence.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle a_n= \binom{n}{3}</m> for <m>n \ge 3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle b_k = \binom{2k}{3}</m> for <m>k \ge 2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle c_m = \binom{m+4}{m}</m> for <m>m \ge 0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_nte_binom_coeffs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Hint: Write each term as a binomial coefficient.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>1, 3, 6, 10, 15, 21, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins <m>1, 4, 10, 20, 35, 56, \ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_arith_tri">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the binomial coefficients count?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to create the first 7-10 rows of the arithmetic triangle <xref ref="thm_pascals_recursion">using</xref>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which row of the arithmetic triangle and which entry in that row to use to evaluate <m>\binom{n}{k}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate or model with sequences involving binomial coefficients?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_nte_binom_coeffs_harder">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Hint: Write each term as a binomial coefficient.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>1, 2, 6, 20, 70, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>d</m> begins <m>1, 15, 70, 210, \ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pascal_patterns">for</xref> \subpascalpatterns</title>
+      <exercise xml:id="exer_sums_row4_arith_tri">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/> Use the arithmetic triangle to evaluate each sum.
+            <ol>
+              <li xml:id="part_sum_sq_row4_arith_tri">
+                <p>
+                  <m>\displaystyle \sum_{k=0}^4\binom{4}{k}^2</m>
+                </p>
+              </li>
+              <li xml:id="part_sum_ktimes_row4_arith_tri">
+                <p>
+                  <m>\displaystyle \sum_{k=0}^4k\binom{4}{k}</m>
+                </p>
+              </li>
+              <li xml:id="part_sum_ktimes_sq_row4_arith_tri">
+                <p>
+                  <m>\displaystyle \sum_{k=0}^4k\binom{4}{k}^2</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_div_arith_triangle">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Check that <m>\displaystyle 7\mid \binom{7}{k}</m> for <m>0 \lt k \lt 7</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does <m>\displaystyle 3\mid \binom{3}{k}</m> for <m>0 \lt k \lt 3</m>?
+                  Justify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does <m>\displaystyle 4\mid \binom{4}{k}</m> for <m>0 \lt k \lt 4</m>?
+                  Justify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does <m>\displaystyle 5\mid \binom{5}{k}</m> for <m>0 \lt k \lt 5</m>?
+                  Justify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which integers <m>n</m> have
+                  <m>\displaystyle n \mid \binom{n}{k}</m> for all <m>0 \lt k \lt n</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sums_sq_rows_arith_tri">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Calculate the first four partial sums of <m>\displaystyle \sum_{k=0}^n\binom{n}{k}^2</m>.
+                  Caution: Since the terms we are adding depend on <m>n</m>,
+                  you need to find each partial sum on its own.
+                  You cannot using the previous partial sum.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about an explicit formula for the sum <m>\displaystyle \sum_{k=0}^n\binom{n}{k}^2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sums_ktimes_rows_arith_tri">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Calculate the first four partial sums of <m>\displaystyle \sum_{k=0}^nk\binom{n}{k}</m>.
+                  Caution: Since the terms we are adding depend on <m>n</m>,
+                  you need to find each partial sum on its own.
+                  You cannot using the previous partial sum.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about an explicit formula for the sum <m>\displaystyle \sum_{k=0}^nk\binom{n}{k}</m>.
+                  Hint: Factor <m>n</m> to see the pattern.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sums_ktimes_sq_rows_arith_tri">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Calculate the first four partial sums of <m>\displaystyle \sum_{k=0}^nk\binom{n}{k}^2</m>.
+                  Caution: Since the terms we are adding depend on <m>n</m>,
+                  you need to find each partial sum on its own.
+                  You cannot using the previous partial sum.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about an explicit formula for the sum <m>\displaystyle \sum_{k=0}^nk\binom{n}{k}^2</m>.
+                  Hint: Factor <m>n</m> to see the pattern.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_arith_tri_patterns">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Why the arithmetic triangle has left-right symmetry?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate sums involving binomial coefficients?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use partial sums to conjecture an explicit formula for a sum?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the sum of the entries of a row of the arithmetic triangle equals?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_sum_in_arith_tri">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The Fibonacci numbers appear as the sum of integers in the arithmetic triangle.
+            Find them and express your answer as <m>F_n=</m> a sum involving binomial coefficients.
+            Hint: Look at an angle.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_binom_thm">for</xref> \subbinomthm</title>
+      <exercise xml:id="exer_expand_nplus1_tothe4">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="act_powers_nplus1">In</xref>,
+            we found that <m>(n+1)^3=n^3+3n^2+3n+1</m>.
+            <ol>
+              <li>
+                <p>
+                  Expand and simplify <m>(n+1)^4</m>.
+                  Hint:
+                  <me>
+                    (n+1)^4=(n+1)(n+1)^3=(n+1)(n^3+3n^2+3n+1)
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The coefficients of your answer are in a row of the arithmetic triangle.
+                  Which row?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_binom_thm">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the binomial theorem <xref ref="thm_binomial_thm"/> to expand <m>(n+1)^8</m> and simplify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the binomial theorem <xref ref="thm_binomial_thm"/> to expand <m>(n-1)^4</m> and simplify your answer.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bin_thm_proof_row_sum_pascal">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use the Binomial Theorem to prove
+            <me>
+              \sum_{k=0}^n \binom{n}{k} = 2^n
+            </me>
+            for <m>n \ge 0</m>.
+            Hint: Expand <m>(1+1)^n</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bin_thm_find_row_sum">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use the Binomial Theorem to find an explicit formula for <m>\displaystyle \sum_{k=0}^n 2^k\binom{n}{k}</m> for <m>n \ge 0</m>.
+            Hint: Expand <m>(1+2)^n</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_binom_thm_xplush">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use the binomial theorem <xref ref="thm_binomial_thm"/> to expand the power and simplify your answer.
+            <ol>
+              <li>
+                <p>
+                  <m>(x+h)^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(x+h)^3</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(x+h)^4</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_binom_thm">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the binomial theorem says?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use the binomial theorem to expand expressions such as <m>(n+1)^4</m> or <m>(n-1)^4</m> without multiplying out by hand?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use the binomial theorem to prove explicit formulas for sums involving binomial coefficients?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_diff_quo">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            If you have <xref ref="exer_binom_thm_xplush">completed</xref>,
+            then you may use those answers here.
+            For each function, evaluate and simplify the difference quotient
+            <me>
+              \frac{f(x+h)-f(x)}{h}
+            </me>
+            so that there are no fractions.
+            Next, evaluate your answer when <m>h=0</m>.
+            Your final answer should be an expression involving <m>x</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>f: \mathbb{R} \to \mathbb{R}</m> defined by <m>f(x) = x^2</m>.
+                  <nbsp/><nbsp/> Hint:  Your work should begin
+                  <me>
+                    \frac{f(x+h)-f(x)}{h}=\frac{(x+h)^2-(x)^2}{h}=
+                  </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f: \mathbb{R} \to \mathbb{R}</m> defined by <m>f(x) = x^3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f: \mathbb{R} \to \mathbb{R}</m> defined by <m>f(x) = x^4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For readers who have studied calculus,
+                  explain why these answers are correct.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_factorial_binomial">for</xref> \subfactorialbinom</title>
+      <exercise xml:id="exer_eval_binom_formula">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="thm_binom_coeffs_formula">Use</xref>
+            to evaluate each binomial coefficient by hand.
+            Show work.
+            You may use computational technology to check.
+            <ol>
+              <li>
+                <p>
+                  <m>\binom{12}{3}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\binom{12}{4}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_simplify_binom_formula">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Simplify each binomial coefficient <xref ref="thm_binom_coeffs_formula">using</xref>.
+            <ol>
+              <li>
+                <p>
+                  <m>\binom{n}{n}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\binom{n}{1}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\binom{n}{n-1}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\binom{n}{3}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_factorial_proof_sym_recursion_pascal">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Prove each identity algebraically <xref ref="thm_binom_coeffs_formula">using</xref>.
+            <ol>
+              <li>
+                <p>
+                  <xref ref="thm_sym_arith_triangle"></xref>:
+                  <me>
+                    \binom{n}{k} = \binom{n}{n-k}
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <xref ref="thm_pascals_recursion"></xref>:
+                  <me>
+                    \binom{n}{k} = \binom{n-1}{k-1} + \binom{n}{k}
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_arith_tri_prove_sym">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a combinatorial proof of <xref ref="thm_sym_arith_triangle"></xref>
+            <xref ref="pff_comb_proof">using</xref>:
+            <me>
+              \binom{n}{k} = \binom{n}{n-k}
+            </me>.
+            Hint: Out of a group of <m>n</m> people,
+            pick a group of <m>k</m> people.
+            A less direct way to pick the group is to say who is not in the group.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_binom_formula">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the explicit formula for <m>\binom{n}{k}</m> is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use the explicit formula to evaluate
+                  <m>\binom{n}{k}</m> for small values of <m>n</m> and <m>k</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the steps are in a combinatorial proof <xref ref="pff_comb_proof"/>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_comb_pf_recursion_arith_tri">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Write a combinatorial proof of <xref ref="thm_pascals_recursion"></xref>
+            <xref ref="pff_comb_proof">using</xref>:
+            <me>
+              \binom{n}{k} = \binom{n-1}{k-1} + \binom{n}{k}
+            </me>.
+            Hint: How many <m>k</m>-elements subsets does the set <m>\{1,2,\ldots,n\}</m> have?
+            For a less direct count,
+            consider cases based on whether or not <m>n</m> is in the subset.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_binom_coeffs_verify_using_factorials">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <xref ref="thm_binom_coeffs_formula">Use</xref>
+            to prove each identity algebraically.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle (n-m)\binom{n}{m} = n \binom{n-1}{m}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \binom{n}{m}\binom{m}{2}=\binom{n}{2}\binom{n-2}{m-2}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_arith_tri_eval_small"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are <m>1, 1, 4, 8, 10</m>, and 21.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_arith_tri_more_rows"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are <m>36, 126, 210</m>, and 252.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_seq_binom_coeffs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The second term is 4.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The third term is 56.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The fifth term is 126.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_nte_binom_coeffs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer is of the form
+            <m>\binom{}{2}</m> where the upper number depends on <m>n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is of the form
+            <m>\binom{}{3}</m> where the upper number depends on <m>n</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sums_row4_arith_tri"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are 32, 70, and 140.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_div_arith_triangle"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Check <m>7 \mid 7</m>, <m>7 \mid 21</m>, and <m>7 \mid 35</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: No
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What do 3, 5, and 7 have in common?
+            What other integers does it work for?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sums_sq_rows_arith_tri"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The third partial sum is 6.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is a binomial coefficient.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sums_ktimes_rows_arith_tri"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The fourth partial sum is 12.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It involves a power of two, but not <m>2^n</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_expand_nplus1_tothe4"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The answer is in <xref ref="act_powers_nplus1"></xref>.
+        Make sure you show work.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_binom_thm"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer begins <m>n^8+8n^7+26n^6+\ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer begins <m>n^4-4n^3+ \ldots</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bin_thm_proof_row_sum_pascal"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: <m>1+1 = 2</m> and <m>1^k=1</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bin_thm_find_row_sum"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: <m>1+2=3</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_binom_formula"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The number is just over 200.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is just less than 500.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_comb_pf_recursion_arith_tri"></xref> Select Answers and Hints</title>
+      <p>
+        Hints: Make sure you follow the proof format.
+        You can use the hint to write the story.
+        First, explain why the answer is <m>\binom{n}{k}</m>.
+        Next, follow the hint to break it into cases.
+        Explain why one case gives
+        <m>\binom{n-1}{k-1}</m> and why the other case gives <m>\binom{n-1}{k}</m>.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

@@ -1,0 +1,1489 @@
+<section xml:id="sec_counting_subsets">
+  <title>Counting Subsets</title>
+  <introduction>
+    <p>
+      <xref ref="sec_counting_steps_cases">In</xref>
+      we counted strings and other ordered objects.
+      How might we count the number of ways to choose some items from a set when we do not care about the order,
+      like a group of students to work on a project?
+      In this section,
+      we discuss subsets and introduce the binomial coefficients that count subsets.
+      We combine counting subsets with our other rules for counting:
+      steps <xref ref="thm_steps_multiply"/>, cases <xref ref="thm_cases_add"/>,
+      and counting the opposite <xref ref="thm_count_complement"/>.
+      We also introduce our first proof format,
+      which is for combinatorial proof.
+    </p>
+    <p>
+      Before we learn any new rules,
+      try the following activity.
+    </p>
+    <activity xml:id="act_adopting_two_cats">
+      <title>Adopting two cats</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_list_two_cats">
+            <p>
+              There are five cats (<c>c1</c>,
+              <c>c2</c>,
+              <c>c3</c>,
+              <c>c4</c>,
+              <c>c5</c>) waiting to be adopted at the animal shelter.
+              You want to adopt two of the cats.
+              Make a list of possibilities.
+              Notice that the order in which we choose the cats does not matter.
+              For example,
+              choosing <c>c2</c> and <c>c5</c> is the same as choosing <c>c5</c> and <c>c2</c>.
+              For that reason, we use set notation to indicate a choice,
+              such as <m>\{\str{c2}, \str{c5}\}</m>.
+            </p>
+          </li>
+          <li xml:id="part_choose_two_cats">
+            <p>
+              In how many ways can you choose two cats to adopt?
+            </p>
+          </li>
+          <li>
+            <p>
+              Betelehem tried to answer <xref ref="part_choose_two_cats"/> without making a list.
+              Here is her work.
+              <solution>
+                <p>
+                  We will count the possibilities using steps.
+                </p>
+                <p>
+                  Step 1: Choose the first cat. (5 ways)
+                </p>
+                <p>
+                  Step 2: Choose the second cat.
+                  Note that the second cat must be a different cat from the first cat. (4 ways)
+                </p>
+                <p>
+                  Since steps multiply <xref ref="thm_steps_multiply"/>,
+                  there must be <m>5 \times 4 = 20</m> ways to adopt two cats.
+                </p>
+              </solution>
+              Uh oh!
+              The correct answer is ten, so Betelehem's answer is incorrect.
+              (Hint: If you also had 20, you should go back and fix your work.)
+              What went wrong?
+              Explain.
+              Hint: Betelehem's answer is exactly twice (<m>\times 2</m>) the correct answer,
+              so she must have <term>double counted</term>
+              (counted each pair twice).
+            </p>
+          </li>
+          <li xml:id="part_kchoose2_cats">
+            <p>
+              If there were <m>k</m> cats and you wanted to adopt two cats,
+              how many possibilities are there?
+              Hint: You can use Betelehem's approach as long as you remember that you will get twice the correct answer.
+              Another hint: handshakes!
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </introduction>
+  <subsection xml:id="sub_subsets_choose">
+    <title>\subsubsetschoose</title>
+    <p>
+      In many situations, we want to select some of the elements of a set.
+      We can think of a set as corralling<fn>
+      The word <term>corral</term> means to collect and contain.
+      A common usage is in reference to fencing in animals such as horses or sheep.
+      </fn> its elements inside a rope.
+      For example,
+      the set <m>A=\{1,2,3,7,8\}</m> is drawn in <xref ref="fig_subset_corral"></xref>.
+      If we corral some, all, or none of the elements within <m>A</m>,
+      we get a subset of <m>A</m>.
+      For example, <xref ref="fig_subset_corral"></xref>
+      shows the subset <m>\{2,8\}</m> shaded in gray.
+    </p>
+    <figure xml:id="fig_subset_corral">
+      <caption>The subset <m>\{2,8\}</m> corrals some of the elements of the set <m>A=\{1,2,3,7,8\}</m>.</caption>
+      image type not recognized
+    </figure>
+    <p>
+      We formally define a subset.
+    </p>
+    <definition xml:id="defn_subsets">
+      <title>Subsets</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>subset</term> of the set <m>A</m> is a set consisting of some of the elements of <m>A</m>,
+                where the word
+                <q>some</q>
+                is understood to be any number of elements<ndash/> from none to all.
+                That is, the set <m>T</m> is a subset of the set <m>A</m>,
+                denoted <m>T \subseteq A</m> if every element of <m>T</m> is also an element of <m>A</m>.
+                For example,
+                <m>\{2,8\} \subseteq \{1,2,3,7,8\}</m> and <m>\{3\} \subseteq \{1,2,3,7,8\}</m>.
+                Note that the set <m>A</m> is a subset of itself.
+                For example, <m>\{1,2,3,7,8\} \subseteq \{1,2,3,7,8\}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <em>empty set</em> <m>\varnothing</m> is the set with no elements.
+                That is <m>\varnothing=\{ ~\}</m>.
+                Note that <m>\varnothing</m> is a subset of any set.
+                Imagine corralling no elements or drawing a shaded shape within <m>A</m> that contains none of the elements of <m>A</m>.
+                For example, <m>\varnothing \subseteq \{1,2,3,7,8\}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <remark xml:id="rem_notation_zero">
+      <title>Notation for zero</title>
+      <p>
+        Computer scientists often write the number zero with a slash to avoid confusion with the letter <m>O</m>,
+        so the zero symbol in computer science looks similar to the empty set symbol <m>\varnothing</m>.
+        In this textbook,
+        we write <m>0</m> for zero without a slash and save
+        <m>\varnothing</m> to mean the empty set.
+      </p>
+    </remark>
+    <p>
+      <xref ref="act_adopting_two_cats">In</xref>,
+      we chose two cats from a set of five cats.
+      It is useful to have a name for the number of ways to select exactly <m>k</m> objects from a set of <m>n</m> distinct objects.
+    </p>
+    <definition xml:id="defn_binomial_coeff">
+      <title>Binomial coefficient</title>
+      <statement>
+        <p>
+          For non-negative integers <m>k</m> and <m>n</m>,
+          <ol>
+            <li>
+              <p>
+                The number of ways to select a subset of <m>k</m> elements from a set of <m>n</m> elements is the
+                <term>binomial coefficient</term>
+                <m>\binom{n}{k}</m> which is pronounced
+                <q><m>n</m> choose <m>k</m>.</q>
+                For example,
+                <q>5 choose 2</q>
+                is <m>\binom{5}{2} = 10</m> because we saw in <xref ref="act_adopting_two_cats"></xref>
+                that there are 10 ways to select two cats from a set of five cats.
+              </p>
+            </li>
+            <li>
+              <p>
+                Note that if <m>k>n</m>, then <m>\binom{n}{k}=0</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The simplest way to evaluate a binomial coefficient is to search for it on the Internet or ask a virtual assistant.
+      For example, search for
+      <q>five choose two</q>
+      and you will get ten.
+      You can also evaluate binomial coefficients using some calculators and spreadsheet programs.
+      Therefore, it is perfectly acceptable to leave binomial coefficients in an answer to a counting problem.
+    </p>
+    <remark xml:id="rem_not_eval_counts_3">
+      <title>Not evaluating counts, version 3</title>
+      <p>
+        Unless stated otherwise,
+        when counting you may leave any answer greater than twenty in a format that could easily be evaluated on a calculator.
+        In particular, your answer may involve addition,
+        subtraction, multiplication,
+        division, factorials, binomial coefficients, and parentheses.
+      </p>
+    </remark>
+    <p>
+      For small values,
+      we can evaluate binomial coefficients by listing the possible subsets.
+      As usual, working with small values can help us to understand the concept.
+    </p>
+    <example xml:id="exam_four_choose_k">
+      <title>Four choose <m>k</m></title>
+      <statement>
+        <p>
+          Evaluate <m>\binom{4}{k}</m> for each nonnegative integer <m>k</m> by listing the <m>k</m>-element subsets of <m>\{1,2,3,4\}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          When <m>k=0</m>, the only 0-element subset is
+          <m>\varnothing</m> and so <m>\binom{4}{0}=1</m>.
+        </p>
+        <p>
+          When <m>k=1</m>, the 1-element subsets are
+          <m>\{1\}, \{2\}, \{3\}, \{4\}</m> and so <m>\binom{4}{1}=4</m>.
+        </p>
+        <p>
+          When <m>k=2</m>, the 2-element subsets are
+          <m>\{1,2\}, \{1,3\}, \{1,4\}, \{2,3\}, \{2,4\}, \{3,4\}</m> and so <m>\binom{4}{2}=6</m>.
+        </p>
+        <p>
+          When <m>k=3</m>, the 3-element subsets are
+          <m>\{1,2,3\}, \{1,2,4\}, \{1,3, 4\}, \{2,3,4\}</m> and so <m>\binom{4}{3}=4</m>.
+        </p>
+        <p>
+          When <m>k=4</m>, the only 4-element subset is
+          <m>\{1,2,3,4\}</m> and so <m>\binom{4}{4}=1</m>.
+        </p>
+        <p>
+          When <m>k >4</m> we have <m>\binom{4}{k}=0 \text{ for } k>4</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      It is your turn to use subsets to evaluate some small binomial coefficients.
+    </p>
+    <activity xml:id="act_eval_6choosek">
+      <title>Six choose <m>k</m></title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Evaluate <m>\binom{6}{0}</m>, <m>\binom{6}{1}</m>,
+              and <m>\binom{6}{6}</m> by listing subsets of <m>\{1,2,\ldots,6\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture the values of <m>\binom{n}{0}</m>, <m>\binom{n}{1}</m>,
+              and <m>\binom{n}{n}</m> where <m>n</m> is a positive integer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>\binom{6}{5}</m> by listing subsets of <m>\{1,2,\ldots,6\}</m>.
+              Hint: stay organized by considering which integer is not in the set.
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture the value of <m>\binom{n}{n-1}</m> where <m>n</m> is a positive integer.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_combine_count">
+    <title>\subcombinecount</title>
+    <p>
+      Many counting problems require a combination of techniques we have learned,
+      including cases, steps, opposites, and subsets.
+    </p>
+    <example xml:id="exam_team_leader">
+      <title>Team and leader</title>
+      <statement>
+        <p>
+          There are 25 students in the coding club,
+          ten of whom are first-year students.
+          For the coding competition,
+          we need a team of four students that includes exactly one first-year student.
+          How many different teams are possible?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since ten of the 25 students are first-year students,
+          the other <m>25-10=15</m> are not first-year students.
+          To make a team of four with exactly one first-year student,
+          we will also need three students who are not first-year.
+        </p>
+        <p>
+          Step 1: Choose the first-year student.
+          We want one first-year student out of ten,
+          so there are <m>\binom{10}{1} = 10</m> ways to do this step.
+        </p>
+        <p>
+          Step 2: Choose the other three students.
+          We want three students who are not first year out of 15,
+          so there are <m>\binom{15}{3}</m> ways to do this step.
+        </p>
+        <p>
+          Since steps multiply <xref ref="thm_steps_multiply"/>, there are a total of
+          <me>
+            \binom{10}{1}\binom{15}{3} = 10\binom{15}{3} = \text{ 4,550 }
+          </me>
+          ways to choose a team.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Try your hand at combining these techniques.
+    </p>
+    <activity xml:id="act_adopting_two_animals">
+      <title>Adopting two animals</title>
+      <p>
+        There are five cats and 12 dogs waiting to be adopted.
+        <ol>
+          <li xml:id="part_two_animals">
+            <p>
+              In how many ways can you choose two animals to adopt?
+              Hint: How many animals are there?
+            </p>
+          </li>
+          <li xml:id="part_two_cats">
+            <p>
+              In how many ways can you choose two animals to adopt if they are both cats?
+              Write your answer as a binomial coefficient. (Yes,
+              we made a list and counted this same number in <xref ref="act_adopting_two_cats"></xref>).
+            </p>
+          </li>
+          <li xml:id="part_two_dogs">
+            <p>
+              In how many ways can you choose two animals to adopt if they are both dogs?
+            </p>
+          </li>
+          <li xml:id="part_cat_dog">
+            <p>
+              In how many ways can you choose two animals to adopt if you choose one cat and one dog?
+            </p>
+          </li>
+          <li>
+            <p>
+              How are your answers to <xref ref="part_two_cats"/>, <xref ref="part_two_dogs"/>,
+              and <xref ref="part_cat_dog"/> related to your answer to <xref ref="part_two_animals"/>?
+              Use technology to evaluate the binomial coefficients.
+            </p>
+          </li>
+          <li>
+            <p>
+              Why?
+              Hint: Use cases.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Several exercises in this section refer to a 52-card deck of playing cards,
+      shown in <xref ref="fig_52card_deck"></xref>.
+      The key facts to know are stated in the following definition.
+    </p>
+    <definition xml:id="defn_52-card_deck">
+      <title>52-card deck of playing cards</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>hand</term> is a set of cards, without regard to order.
+                The name comes from the fact that in many card games you hold the cards in your hand.
+                The number of cards in a hand varies depending on the game.
+                Poker is a family of card games that often uses hands with five or seven cards,
+                whereas Bridge is a card game that uses hands with thirteen cards.
+              </p>
+            </li>
+            <li>
+              <p>
+                Each card in the deck has one of thirteen
+                <term>denominations</term>: Ace (A), 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), or King (K).
+              </p>
+            </li>
+            <li>
+              <p>
+                Each card in the deck also has one of four
+                <term>suits</term> clubs <m>\clubsuit</m>,
+                diamonds <m>\diamondsuit</m>,
+                hearts <m>\heartsuit</m>, or spades <m>\spadesuit</m>.
+                For example, a card might be the Jack of hearts,
+                denoted J<m>\heartsuit</m>.
+                Note that for each choice of denomination and suit,
+                there is exactly one card with that denomination and suit.
+                For example,
+                there is exactly one card that is J<m>\heartsuit</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The cards with clubs and spades are <term>black cards</term>.
+                The cards with diamonds and hearts are <term>red cards</term>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <figure xml:id="fig_52card_deck">
+      <caption>A 52-card deck of playing cards (source: Pixabay).</caption>
+      <image width="75%" source="images/52-card_deck_Pixabay.png"/>
+    </figure>
+    <p>
+      Here is an example of counting hands.
+    </p>
+    <example xml:id="exam_4ofakind">
+      <title>Three-of-a-kind</title>
+      <statement>
+        <p>
+          In a 52-card deck of playing cards,
+          as shown in <xref ref="fig_52card_deck"></xref>,
+          how many 5-card hands have a <term>three-of-a-kind</term>,
+          which is three cards of one denomination,
+          a fourth card of a different denomination,
+          and fifth card of another denomination.<fn>
+          The fourth or fifth cards cannot be the same denomination as the three-of-a-kind because that is a
+          <term>four-of-a-kind</term>.
+          The fourth and fifth cards cannot be the same denomination as each other because that is a <term>full house</term>.
+          </fn> How many different 5-card hands have a three-of-a-kind?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's build such a hand through a series of steps.
+        </p>
+        <p>
+          Step 1: Select the denomination of the three-of-a-kind.
+          Since there are 13 denominations,
+          there are <m>\binom{13}{1} = 13</m> ways to complete this step.
+        </p>
+        <p>
+          Step 2: Select the cards for the three-of-a-kind.
+          There are four cards in the denomination we chose in Step 1 and we want three of them,
+          so there are <m>\binom{4}{3} = 4</m> ways to complete this step.
+        </p>
+        <p>
+          Step 3: Select the denominations of the other two cards.
+          Since there are <m>13-1=12</m> remaining denominations and we want two of them,
+          there are <m>\binom{12}{2}</m> ways to complete this step.
+        </p>
+        <p>
+          Step 4: Select the cards in the other two denominations.
+          Since there are four cards in each denomination chosen in Step 3, there are <m>\binom{4}{1}</m> ways to choose each.
+          Since there are two cards and steps multiply <xref ref="thm_steps_multiply"/>,
+          there are <m>\binom{4}{1}\binom{4}{1} = 4 \times 4 = 16</m> ways to complete this step,
+          which finishes building our hand.
+        </p>
+        <p>
+          Since steps multiply <xref ref="thm_steps_multiply"/>, there are
+          <me>
+            \binom{13}{1}\binom{4}{3}\binom{13}{2}\binom{4}{1}\binom{4}{1} = (13)(4)\binom{13}{2}(4)(4) =4^3(13)\binom{12}{2}=\text{ 64,896 }
+          </me>
+          ways.
+          (Any of those formats of the answer is acceptable.)
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_proofs_count_nosums">
+    <title>\subproofscountnosums</title>
+    <p>
+      Jarrett and Xueqing solve the same counting problem,
+      but they use two different methods.
+      They should still get the same answer, right?
+      This observation can lead to a way to prove that two quantities are equal: Jarrett's answer = Xueqing's answer.
+      This strategy might remind you of the saying
+      <q>six of one, half dozen of the other</q>
+      which sounds like two different quantities,
+      but because a dozen is twelve, half a dozen is also six.
+    </p>
+    <p>
+      There are many different types of proof.
+      A <term>proof format</term> is a structure or outline of a particular type of proof.
+      Our first proof format is <term>combinatorial proof</term>,
+      a <term>proof that counts</term>,
+      in which we prove that two quantities are equal by counting the same situation using two different methods.
+    </p>
+    <proof>
+    <p>
+      Prove: <m>N=M</m> using a combinatorial proof.
+    </p>
+    <proof>
+      <p>
+        We use a combinatorial proof.
+        Consider the following situation <ellipsis/>.
+      </p>
+      <p>
+        How many ways are there to <ellipsis/>?
+      </p>
+      <p>
+        First, (explain how to count using one method to get <m>N</m>.)
+      </p>
+      <p>
+        On the other hand, (explain how to count using a different method to get <m>M</m>.)
+      </p>
+      <p>
+        Since we counted the same quantity in two different ways,
+        it follows that <m>N=M</m>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      Whenever we introduce a new proof format,
+      we present an example of such a proof and then ask you to write a very similar proof by copying the example proof
+      <em>mutatis mutandis (mm)</em>,
+      which means changing what needs to be changed.
+    </p>
+    <activity xml:id="act_comb_proof_two_animals">
+      <title>Combinatorial proof <mdash/> choosing two animals</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_comb_proof_read">
+            <p>
+              Copy the following example of a combinatorial proof.
+              Yes, that means copy every word.
+              Use a combinatorial proof to prove for any positive integers <m>m</m> and <m>n</m> that
+              <me>
+                \binom{m+n}{2} = \binom{m}{2} + \binom{n}{2} + mn
+              </me>
+              <em>Proof</em>  We use a combinatorial proof.
+              Consider the following situation:
+              there are <m>m</m> cats and <m>n</m> dogs and we want to adopt two animals.
+              How many ways are there to choose the two animals?
+              First, since there are a total of <m>m+n</m> animals and we want to choose two of them,
+              the answer is <m>\binom{m+n}{2}</m>.
+              On the other hand, we can consider three cases.
+              Case 1: Choose two cats.
+              In this case, we want two out of <m>m</m> cats,
+              and so there are <m>\binom{m}{2}</m> ways to choose the two animals.
+              Case 2: Choose two dogs.
+              In this case, we want two out of <m>n</m> dogs,
+              and so there are <m>\binom{n}{2}</m> ways to choose the two animals.
+              Case 3: The only remaining case is that we choose one cat and one dog.
+              In this case,
+              we want one out of <m>m</m> cats (<m>m</m> ways) and then one out of <m>n</m> dogs
+              (<m>n</m> ways).
+              Since steps multiply
+              (by <xref ref="thm_steps_multiply"></xref>),
+              there are <m>mn</m> ways to choose the two animals.
+              Since cases add
+              (by <xref ref="thm_cases_add"></xref>),
+              there is a total of <m>\binom{m}{2} + \binom{n}{2} + mn</m> ways to choose two animals.
+              Since we counted the same quantity in two different ways,
+              it follows that <m>\binom{m+n}{2} =\binom{m}{2} + \binom{n}{2} + mn</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof you copied in <xref ref="part_comb_proof_read"/>,
+              changing what needs to be changed to prove for any positive integer <m>n</m> that
+              <me>
+                \binom{2n}{2} = 2\binom{n}{2} + n^2
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Here is another example of a combinatorial proof.
+    </p>
+    <example xml:id="exam_comb_proof_teamandleader">
+      <title>Combinatorial proof <mdash/> team and leader</title>
+      <statement>
+        <p>
+          Use a combinatorial proof to prove that
+          <me>
+            \displaystyle 7\binom{10}{7} = 10 \binom{9}{6}
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <nbsp/> <em>Proof.</em> We use a combinatorial proof.
+          Consider the following situation:
+          there is a group of ten employees.
+          How many ways are there to choose seven employees to be on a project team where one member of the team is the project leader?
+        </p>
+        <p>
+          First, we can choose the seven-person project team from the group of ten employees.
+          There are <m>\binom{10}{7}</m> ways to do this step.
+          Then we need to choose one of those seven people on the project team to be the project leader.
+          There are seven ways to do this step.
+          (You could think of it as <m>\binom{7}{1}</m> ways,
+          but <m>\binom{7}{1}= 7</m> and that is simpler.)
+          Since steps multiply <xref ref="thm_steps_multiply"/>, the answer is <m>7\binom{10}{7}</m>.
+        </p>
+        <p>
+          On the other hand, we can make the choices in reverse order.
+          We can start by choosing the project leader, one of the ten people.
+          There are ten ways to do this step.
+          Then we need to choose the rest of the project team.
+          Since we already chose the project leader,
+          we only need six more people out of the nine remaining people.
+          There are <m>\binom{9}{6}</m> ways to do this step.
+          Since steps multiply <xref ref="thm_steps_multiply"/>, the answer is also <m>10 \binom{9}{6}</m>.
+        </p>
+        <p>
+          Since we counted the same quantity in two different ways,
+          it follows that <m>7\binom{10}{7} = 10\binom{9}{6}</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      <xref ref="act_eval_6choosek">In</xref>
+      we calculated <m>\binom{6}{0}=\binom{6}{6}=1</m> and <m>\binom{6}{1}=\binom{6}{5}=6</m>.
+      We conjectured that for any integer <m>n</m> we have<m>\binom{n}{0}=\binom{n}{n}=1</m> and <m>\binom{n}{1}=\binom{n}{n-1}=n</m>.
+      In the next proof,
+      we use a combinatorial proof to show the symmetry of the binomial coefficients,
+      in general.
+    </p>
+    <theorem xml:id="thm_sym_binom">
+      <title>Symmetry of the binomial coefficients</title>
+      <statement>
+        <p>
+          For any positive integers <m>n</m> and <m>k</m> we have
+          <me>
+            \binom{n}{k}=\binom{n}{n-k}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's look at a combinatorial proof of this theorem.
+    </p>
+    <example xml:id="exam_comb_pf_sym_arith_tri">
+      <title>Combinatorial proof <mdash/> symmetry of the binomial coefficients</title>
+      <statement>
+        <p>
+          Give a combinatorial proof of <xref ref="thm_sym_binom"></xref>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Proof</em> We use a combinatorial proof.
+          Consider the following situation:
+          there are <m>n</m> people who auditioned for a play,
+          and we want to choose <m>k</m> people to be in the play.
+          How many ways are there to do this?
+        </p>
+        <p>
+          First, since we want to choose <m>k</m> out of <m>n</m> people,
+          there are <m>\binom{n}{k}</m> ways to select who is in the play.
+        </p>
+        <p>
+          On the other hand, instead of deciding who will be in the play,
+          we can choose which people will not be in the play.
+          There are <m>n-k</m> people who auditioned but will not be in the play,
+          so there are <m>\binom{n}{n-k}</m> ways to select who will be in the play in this way.
+        </p>
+        <p>
+          Since we counted the same quantity in two different ways,
+          it follows that <m>\binom{n}{k} = \binom{n}{n-k}</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_subsets_choose">for</xref> \subsubsetschoose</title>
+      <exercise xml:id="exer_eval_binomial_coeffs_list_subsets">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\binom{3}{k}</m> for
+                  <m>k = 0, 1, 2, 3</m> by listing the subsets of <m>\{1,2,3\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\binom{2}{k}</m> for
+                  <m>k = 0, 1, 2</m> by listing the subsets of <m>\{1,2\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\binom{1}{k}</m> for
+                  <m>k = 0, 1</m> by listing the subsets of <m>\{1\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\binom{0}{k}</m> for <m>k = 0</m> by listing the subsets of <m>\varnothing</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_course_selection">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            There are five courses that I would like to take this semester: Architectural drawing (A), bioinformatics (B), computational theory (C), differential equations (D), and ecological models (E).
+            <ol>
+              <li>
+                <p>
+                  If I can take three of these courses, what are my options?
+                  List them.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If I can take four of these courses, what are my options?
+                  List them.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Based on your answers, evaluate <m>\binom{5}{3}</m> and
+                  <m>\binom{5}{4}</m> and check your answers using technology.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_library_books">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The library's new arrivals section offers 24 mystery novels, 50 young adult novels, 17 biographies,
+            and 46 fantasy novels.
+            In each part of this problem,
+            your answer should be a binomial coefficient.
+            <ol>
+              <li>
+                <p>
+                  In how many ways can I choose two young adult novels for my niece?
+                </p>
+              </li>
+              <li>
+                <p>
+                  In how many ways can I choose three mystery novels to take on vacation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  My brother likes to read biographies,
+                  but he also likes fantasy novels.
+                  In how many ways can I choose four books to bring him?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_edge_binomial_coeffs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Explain how to evaluate each quantity involving a positive integer <m>n</m> by explicitly discussing the subsets of <m>S = \{1,2,3,4,\ldots, n\}</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>\binom{n}{0}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\binom{n}{1}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\binom{n}{n}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_binomial_coeffs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to pronounce <m>\binom{n}{k}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What <m>\binom{n}{k}</m> counts?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate <m>\binom{n}{k}</m> for small values of <m>n</m> by listing subsets?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_combine_count">for</xref> \subcombinecount</title>
+      <exercise xml:id="exer_5card_hands">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            This problem refers to the 52-card deck of playing cards in <xref ref="defn_52-card_deck"></xref>.
+            <ol>
+              <li>
+                <p>
+                  How many different ways are there to deal a hand of five cards?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many different hands have all five cards of the same suit?
+                  Hint: First choose one of the four suits and then choose the cards.
+                  There are 13 cards in each suit.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_volleyball">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            There are usually 16 players on a Division III volleyball team.
+            Of those, six players are starters,
+            which means that they are on the court when the game starts.
+            This year, 21 students tried out for the volleyball team.
+            <ol>
+              <li>
+                <p>
+                  How many different ways are there to choose the players from the group that tried out?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Once we have chosen the team,
+                  how many ways are there to choose the starters?
+                </p>
+              </li>
+              <li>
+                <p>
+                  In total, how many ways are there to choose the players and then the starters?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many ways are there to choose the players,
+                  then the starters, and then one of the starters to be captain?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_library_books_complicated">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            As in <xref ref="exer_library_books"></xref>,
+            the library's new arrivals section offers 24 mystery novels, 50 young adult novels, 17 biographies,
+            and 46 fantasy novels.
+            <ol>
+              <li>
+                <p>
+                  In how many ways can I choose three books to read if I want two mystery novels and one fantasy novel?
+                </p>
+              </li>
+              <li>
+                <p>
+                  In how many ways can I choose four books for my son if he wants two young adult novels and two biographies?
+                </p>
+              </li>
+              <li>
+                <p>
+                  My mother would like two mystery novels,
+                  two biographies, and two fantasy novels.
+                  In how many ways can I choose books for her?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_pizza_options">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Our local pizza parlor has a long list of toppings you can add to your pizza:
+            five meats, three cheeses, and 12 vegetables.
+            How many different
+            <q>build your own</q>
+            pizzas can you make if you want
+            <ol>
+              <li>
+                <p>
+                  (Exactly) three toppings?
+                </p>
+              </li>
+              <li>
+                <p>
+                  One meat, one cheese, and one vegetable?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Two meats, one cheese, and three vegetables?
+                </p>
+              </li>
+              <li>
+                <p>
+                  (Exactly) three toppings,
+                  including at least one meat and at least one cheese?
+                  Hint: Consider cases based on the number of meats, cheeses,
+                  and vegetables.
+                  For example, one case has one meat,
+                  two cheeses, and no vegetables.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_unbounded">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            There are 27 students in our Math Club.
+            <ol>
+              <li>
+                <p>
+                  We need five students to run Pi Day activities.
+                  How many ways are there to pick five students?
+                </p>
+              </li>
+              <li>
+                <p>
+                  A team for the Problem Contest consists of three or four students.
+                  In how many different ways could we select a Problem Contest team?
+                </p>
+              </li>
+              <li>
+                <p>
+                  The club has four officers: President, Secretary, Treasurer,
+                  and Information Officer.
+                  In how many ways can we pick officers?
+                </p>
+              </li>
+              <li>
+                <p>
+                  We need a group of three students to write the annual report.
+                  Usually one of the officers volunteers and then two students who are not officers help.
+                  In how many ways could we form the group to write the annual report?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_combining_counting">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  When to use <m>n</m> choose <m>k</m> versus steps or cases?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to combine counting subsets with steps and cases?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_full_house">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            This problem refers to the 52-card deck of playing cards in <xref ref="defn_52-card_deck"></xref>.
+            <ol>
+              <li>
+                <p>
+                  A hand is <term>aces-over-eights</term>
+                  if it has three aces and two eights.
+                  How many different aces over eights are possible?
+                </p>
+              </li>
+              <li>
+                <p>
+                  A <term>full house</term> is a hand of five cards with three cards of one denomination (a
+                  <term>triple</term>) and two cards of a different denomination (a <term>pair</term>).
+                  Aces-over-eights is an example of a full house.
+                  How many different full houses are there?
+                  Hint: first choose the denomination for the triple,
+                  then choose a different denomination for the pair,
+                  and then choose the actual cards.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bridge_hands">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            This problem refers to the 52-card deck of playing cards in <xref ref="defn_52-card_deck"></xref>.
+            A <term>bridge hand</term> has thirteen cards.
+            <ol>
+              <li>
+                <p>
+                  How many bridge hands are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bridge hands have a 6-card spade suit,
+                  which means that exactly six of the thirteen cards are spades?
+                </p>
+              </li>
+              <li xml:id="part_5spades_5hearts">
+                <p>
+                  How many bridge hands have a 5-card spade suit and a 5-card heart suit,
+                  which means that the remaining three cards are diamonds or clubs.
+                </p>
+              </li>
+              <li xml:id="part_Yarborough">
+                <p>
+                  A <term>yarborough</term> is a bridge hand with no ten,
+                  jack, queen, king, or ace.
+                  How many yarboroughs are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which is more common <mdash/> a bridge hand with a 5-card space suit and a 5-card heart suit or a yarborough?
+                  Use technology to evaluate your answers to <xref ref="part_5spades_5hearts"/> and <xref ref="part_Yarborough"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_proofs_count_nosums">for</xref> \subproofscountnosums</title>
+      <exercise xml:id="exer_comb_proof_teamandleader_revisited">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Copy the proof in <xref ref="exam_comb_proof_teamandleader"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Change what needs to be changed to prove that
+                  <me>
+                    4\binom{12}{4}=12\binom{11}{3}
+                  </me>
+                  instead.
+                  You may edit the proof you copied instead of writing it out again.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use technology to confirm this equation.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_comb_proof_teamandleader_generalized">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Copy the proof in <xref ref="exam_comb_proof_teamandleader"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Change what needs to be changed to prove that
+                  <me>
+                    k\binom{n}{k}=n\binom{n-1}{k-1}
+                  </me>
+                  for any positive integers <m>n</m> and <m>k</m> instead.
+                  You may edit the proof you copied instead of writing it out again.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_outside_chair">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> Give a combinatorial proof that
+            <me>
+              \displaystyle 3\binom{10}{7} = 10 \binom{9}{7}
+            </me>.
+            Hint: from a group of 10 people,
+            choose a committee of 7 people, and its (outside) chair.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_outside_chair_generalized">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> Give a combinatorial proof that
+            <me>
+              \displaystyle (n-k)\binom{n}{k} = n \binom{n-1}{k}
+            </me>
+            for any positive integers <m>n</m> and <m>k</m>.
+          </p>
+          <p>
+            Hint: This equation <xref ref="exer_outside_chair">generalizes</xref>,
+            so use the same hint.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_chair_secretary">
+        <title>Chair and Secretary</title>
+        <statement>
+          <p>
+            Give a combinatorial proof that
+            <me>
+              \displaystyle k(k-1)\binom{n}{k} = n(n-1)\binom{n-2}{k-2}
+            </me>
+            for any positive integers <m>n</m> and <m>k</m>.
+          </p>
+          <p>
+            Hint: Choose a project team where one member of the team is the project manager and another member of the team is the lead analyst.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_team_starter">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Give a combinatorial proof that
+            <me>
+              \displaystyle \binom{n}{m}\binom{m}{k}=\binom{n}{k}\binom{n-k}{m-k}
+            </me>
+            for any integers <m>n</m> , <m>m</m>, and <m>k</m>.
+          </p>
+          <p>
+            Hint: of <m>n</m> people who show up to try-outs,
+            we will select <m>m</m> players for our team,
+            of whom <m>k</m> will be starters.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pff_comb_pf">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Why a combinatorial proof works?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When we can use a combinatorial proof?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the proof format for a combinatorial proof is?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_expand_binomial_coeffs">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use a combinatorial argument to expand
+                  <m>\displaystyle \binom{3n}{2}</m> in terms of <m>n</m> for any positive integer <m>n</m>.
+                  Your answer may involve <m>\binom{n}{2}</m> and <m>n</m>.
+                  Hint: Suppose that there are <m>n</m> cats,
+                  <m>n</m> dogs, and <m>n</m> birds.
+                  No justification required.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use a combinatorial argument to expand
+                  <m>\displaystyle \binom{n+m}{3}</m> in terms of <m>n</m> and <m>m</m> for any positive integers <m>n</m> and <m>m</m>.
+                  Your answer may involve <m>\binom{n}{2}</m>,
+                  <m>\binom{m}{2}</m>, <m>n</m>, and <m>m</m>.
+                  No justification required.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_eval_binomial_coeffs_list_subsets"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            When <m>k=0</m>, the only 0-element subset is <m>\varnothing</m>,
+            and so <m>\binom{3}{0}=1</m>.
+            When <m>k=1</m>, the 1-element subsets are <m>\{1\}</m>,
+            <m>\{2\}</m>, and <m>\{3\}</m>,
+            and so <m>\binom{3}{1}=3</m>.
+            When <m>k-2</m>, the 2-element subsets are <m>\{1,2\}</m>,
+            <m>\{1,3\}</m>, and <m>\{2,3\}</m>,
+            and so <m>\binom{3}{2}=3</m>.
+            When <m>k=3</m>, the only 3-element subset is <m>\{1,2,3\}</m>,
+            and so <m>\binom{3}{3}=1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You should get <m>\binom{2}{0}=1</m>,
+            <m>\binom{2}{1}=2</m>, and <m>\binom{2}{2}=1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The only subsets of <m>\{1\}</m> are <m>\varnothing</m> and <m>\{1\}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The only subset of <m>\varnothing</m> is <m>\varnothing</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_library_books"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\binom{50}{2}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\binom{24}{3}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: choose four out of <m>17 + 46 = 63</m> books.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_edge_binomial_coeffs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The only 0-element subset is <m>\varnothing</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\binom{n}{1}=n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The only <m>n</m>-element subset is <m>S</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_5card_hands"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Choose five out of 52.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>4\binom{13}{5}</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_volleyball"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\binom{21}{16}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Choose six out of 16.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Step 1 choose the players as in (a) and then step 2 choose the starter as in (b).
+            Recall that by <xref ref="thm_steps_multiply"></xref>,
+            we multiply the answers of each step.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Now there is a third step.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_library_books_complicated"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\binom{24}{2}\binom{46}{1}</m>,
+            or just <m>46\binom{24}{2}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are two steps.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are three steps.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_pizza_options"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: there are a total of
+            <m>5+3+12=20</m> toppings and we want to choose three.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>(5)(3)(12)</m> Note: It would also be correct to have <m>\binom{5}{1}\binom{3}{1}\binom{12}{1}</m>,
+            but since <m>\binom{n}{1}=n</m>,
+            it is simpler to write the numbers.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\binom{5}{2}\binom{3}{1}\binom{12}{3}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are three cases.
+            Case 1 is one meat, two cheeses, and no vegetables.
+            Case 2 is two meats, one cheese, and no vegetables.
+            Case 3 is one meat, one cheese,
+            and one vegetable as in (b).
+            In each case, the steps multiply and then,
+            by <xref ref="thm_cases_add"></xref>,
+            add the answers from the three cases.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_unbounded"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\binom{27}{5}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The word
+            <q>or</q>
+            indicates cases.
+            Find the answer in each case and then add them together.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>(27)(26)(25)(24)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Choose one officer and then choose two students who are not officers.
+            Your answer should involve the number 23.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_comb_proof_teamandleader_generalized"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: in (b) start with ``Consider a group of <m>n</m> employees.
+        How many ways are there to choose <m>k</m> employees to be on a project team where one member of the team is the project manager?
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_team_starter"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Follow the hint.
+        The first way to count is the usual order:
+        choose the players, and then choose the starters.
+        The second way to count is the reverse order:
+        choose the starters,
+        and then choose the rest of the players from the rest of the students who tried out.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_expand_binomial_coeffs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>3n^2+3\binom{n}{2}</m> Hint: Consider six cases and then simplify the answer.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Suppose that there are <m>n</m> cats and <m>m</m> dogs and we want to choose three pets.
+            Consider cases and simplify your final answer.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

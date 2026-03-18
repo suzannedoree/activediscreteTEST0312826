@@ -1,0 +1,2142 @@
+<section xml:id="sec_equiv_relations">
+  <title>Equivalence Relations</title>
+  <introduction>
+    <p>
+      We have seen examples of equivalence in this textbook,
+      including logical equivalence and isomorphic graphs.
+      You may have seen geometric equivalences such as congruent or similar triangles.
+      In this section,
+      we formalize the notion of equivalence by defining an equivalence relation and equivalence classes.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_properties_relations">
+    <title>\subrelppty</title>
+    <p>
+      There are three properties that an relation needs to satisfy in order to be an equivalence relation.
+    </p>
+    <definition xml:id="defn_equiv_rel">
+      <title>Equivalence Relation</title>
+      <statement>
+        <p>
+          Consider a relation <m>R</m> on a set <m>X</m>.
+          <ol>
+            <li>
+              <p>
+                The relation <m>R</m> is <term>reflexive</term>
+                if <m>(x,x) \in R</m> for all <m>x \in X</m>.
+                If the relation is defined by <m>\sim</m>,
+                then we need <m>x \sim x</m> for all <m>x \in X</m>.
+                For example, the relation
+                <me>
+                  R=\{ (a,b) \mid a, b\in \mathbb{Z} \text{ and }  ab \ge 0\}
+                </me>
+                is reflexive on <m>\mathbb{Z}</m>,
+                because for any <m>a \in \mathbb{Z}</m> we have <m>aa=a^2 \ge 0</m>.
+                Thus <m>(a,a) \in R</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The relation <m>R</m> is <term>symmetric</term>
+                if whenever <m>(x,y) \in R</m>,
+                then also <m>(y,x)\in R</m> for all <m>x,y \in X</m>.
+                If the relation is defined by <m>\sim</m>,
+                then we need if <m>x \sim y</m>,
+                then <m>y \sim x</m> for all <m>x,y \in X</m>.
+                For example, the relation
+                <me>
+                  R=\{ (a,b) \mid a, b\in \mathbb{Z} \text{ and }  ab = 0\}
+                </me>
+                is symmetric on <m>\mathbb{Z}</m>,
+                because for any <m>a,b \in \mathbb{Z}</m> with <m>(a,b) \in R</m> we have <m>ab=0</m>.
+                Thus <m>ba=0</m> and so <m>(b,a) \in R</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The relation <m>R</m> is <term>transitive</term>
+                if whenever <m>(x,y) \in R</m> and <m>(y,z) \in R</m>,
+                then <m>(x,z)\in R</m> for all <m>x,y,z \in X</m>.
+                If the relation is defined by <m>\sim</m>,
+                then we need if <m>x \sim y</m> and <m>y \sim z</m>,
+                then <m>x \sim z</m> for all <m>x,y,z \in X</m>.
+                For example, the relation
+                <me>
+                  R=\{ (a,b) \mid a, b\in \mathbb{Z} \text{ and }  a \le b\}
+                </me>
+                is transitive on <m>\mathbb{Z}</m>,
+                because for any <m>a,b,c \in \mathbb{Z}</m> with <m>(a,b) \in R</m> and
+                <m>(b,c) \in R</m> we have <m>a \le b</m> and <m>b \le c</m>.
+                Thus <m>a \le c</m> and so <m>(a,c) \in R</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The relation <m>R</m> is an <term>equivalence relation</term> if it is reflexive,
+                symmetric, and transitive.
+                For example, The relation
+                <me>
+                  R=\{ (a,b) \mid a, b\in \mathbb{Z} \text{ and }  a^2=b^2\}
+                </me>
+                is an equivalence relation.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at an example of relations on a finite set.
+    </p>
+    <example xml:id="exam_ppty_rel_finite">
+      <title>Properties of Relations on a Finite Set</title>
+      <statement>
+        <p>
+          Consider the relation <m>R</m> whose directed graph is drawn in <xref ref="fig_rel_finite_ppty"></xref>.
+        </p>
+        <figure xml:id="fig_rel_finite_ppty">
+          <caption>The relation <m>R</m> is transitive but not reflexive and not symmetric.</caption>
+          image type not recognized
+        </figure>
+        <ol>
+          <li>
+            <p>
+              Is <m>R</m> reflexive?
+              Justify your answer.
+              <solution>
+                <p>
+                  No, while there is a loop at 1, there are no loops at 2 or 3.
+                  Thus <m>(1,1)\in R</m>, but
+                  <m>(2,2)\notin R</m> and <m>(3,3) \notin R</m>.
+                  To be reflexive, we'd need a loop at every point.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>R</m> symmetric?
+              Justify your answer.
+              <solution>
+                <p>
+                  No, we have single-headed arrows.
+                  For example,
+                  there is an arrow from 2 to 1 but no arrow from 1 to 2.
+                  Thus <m>(1,2) \in R</m>, but <m>(2,1) \in R</m>.
+                  To be symmetric, we'd need only double-headed arrows and loops.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>R</m> transitive?
+              Justify your answer.
+              <solution>
+                <p>
+                  Yes.
+                  We need to check if <m>(x,y) \in R</m> and
+                  <m>(y,z) \in R</m>, then <m>(x,z) \in R</m>.
+                  It turns out that there are four <m>(x,y)</m>,
+                  <m>(y,z)</m> pairs to check as shown in <xref ref="tab_rel_finite_trans"></xref>.
+                  Since for all four pairs <m>(x,z) \in R</m>,
+                  the relation is transitive.
+                </p>
+                <table xml:id="tab_rel_finite_trans">
+                  <title>Justifying that the relation <m>R</m> drawn in <xref ref="fig_rel_finite_ppty"></xref> is transitive</title>
+                  <tabular>
+                    <row>
+                      <cell><m>(x,y)</m></cell>
+                      <cell><m>(y,z)</m></cell>
+                      <cell><m>(x,z)</m></cell>
+                      <cell>in <m>R</m>?</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>(1,1)</m></cell>
+                      <cell><m>(1,1)</m></cell>
+                      <cell><m>(1,1)</m></cell>
+                      <cell>Yes</cell>
+                    </row>
+                    <row>
+                      <cell><m>(1,1)</m></cell>
+                      <cell><m>(1,3)</m></cell>
+                      <cell><m>(1,3)</m></cell>
+                      <cell>Yes</cell>
+                    </row>
+                    <row>
+                      <cell><m>(2,1)</m></cell>
+                      <cell><m>(1,1)</m></cell>
+                      <cell><m>(2,1)</m></cell>
+                      <cell>Yes</cell>
+                    </row>
+                    <row>
+                      <cell><m>(2,1)</m></cell>
+                      <cell><m>(1,3)</m></cell>
+                      <cell><m>(2,3)</m></cell>
+                      <cell>Yes</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      Your turn to work with properties of relations
+    </p>
+    <activity xml:id="act_ppty_rel">
+      <title>Properties of relations</title>
+      <p>
+        For parts <xref ref="part_act_rel_ppty_reflexive"/>-<xref ref="part_act_rel_ppty_not_trans"/>,
+        consider the relations on <m>X = \{1,2,3\}</m> defined by
+        <m>T = \{(1,1),(1,2), (2,2), (2,3),(3,1),(3,3)\}</m> and <m>V = \{(1,1), (2,3), (3,2)\}</m>.
+        <xref ref="fig_TandV"></xref> shows their directed graph.
+      </p>
+      <figure xml:id="fig_TandV">
+        <caption>The relations <m>T</m> and <m>V</m> from <xref ref="act_ppty_rel"></xref>.</caption>
+        image type not recognized
+      </figure>
+      <ol>
+        <li xml:id="part_act_rel_ppty_reflexive">
+          <p>
+            Give a counterexample to show that <m>V</m> is not reflexive.
+            Is <m>T</m> reflexive?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            Give a counterexample to show that <m>T</m> is not symmetric.
+            Is <m>V</m> symmetric?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            Give a counterexample to show that <m>T</m> is not transitive.
+          </p>
+        </li>
+        <li xml:id="part_act_rel_ppty_not_trans">
+          <p>
+            Give a counterexample to show that <m>V</m> is not transitive.
+            Hint: The values of <m>x</m>, <m>y</m>,
+            and <m>z</m> do not need to be distinct.
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider the relation on <m>\mathbb{Z}</m> defined by
+            <me>
+              \{(a,b) \mid a, b \in \mathbb{Z} \text{ and } \fn{gcd}(a,b)=1\}
+            </me>.
+            Decide which properties <m>R</m> has:
+            reflexive, symmetric, transitive.
+            No justification is required if the relation has the property,
+            but provide a counterexample if not.
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider the relation <m>\sim</m> on <m>\mathbb{R}^2</m> defined by
+            <m>(x_1,y_1) \sim (x_2,y_2)</m> if <m>y_2-y_1=3(x_2-x_1)</m>.
+            Check that <m>\sim</m> is an equivalence relation.
+            Hint: For transitive, note that <m>(y_3-y_2)+(y_2-y_1)=y_3-y_1</m>.
+          </p>
+        </li>
+      </ol>
+    </activity>
+    <p>
+      Each of the relations <m>T</m> and <m>V</m> in <xref ref="act_ppty_rel"></xref> was not transitive,
+      but for fundamentally different reasons.
+      Let's take a closer look at transitivity of relations on a finite set.
+    </p>
+    <example xml:id="exam_rel_finite_not_trans">
+      <title>When is a relation on finite set transitive?</title>
+      <statement>
+        <p>
+          We saw in <xref ref="exam_ppty_rel_finite"></xref>
+          how to use the directed graph of a relation on a finite set to determine whether the relation is reflexive or symmetric.
+          How can we use the directed graph of a relation on a finite set to determine whether the relation is transitive?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Suppose <m>R</m> is a relation on a finite set <m>X</m> and that
+          <m>(x,y) \in R</m> and <m>(y,z) \in R</m>.
+          There are four cases,
+          as drawn in <xref ref="fig_shortcuts_barbells"></xref>.
+        </p>
+        <figure xml:id="fig_shortcuts_barbells">
+          <caption>Shortcuts and barbells: checking transitivity on finite relation.</caption>
+          image type not recognized
+        </figure>
+        <p>
+          Case 1: First, consider when <m>x</m>, <m>y</m>,
+          and <m>z</m> are three distinct elements of <m>X</m>.
+          Then the directed graph has arrows from <m>x</m> to <m>y</m> and from <m>y</m> to <m>z</m>.
+          We need to check if <m>(x,z) \in R</m>,
+          indicated by the dashed arrow from <m>x</m> to <m>z</m> in our diagram.
+          To be transitive,
+          any time we have a two-step path in the directed graph,
+          we must also have the <term>shortcut (vector sum)</term>.
+        </p>
+        <p>
+          Case 2: Next, consider when <m>x=y</m> or <m>y=z</m>.
+          If <m>x=y</m>, then <m>(x,z) =(y,z)\in R</m>.
+          If <m>y=z</m>, then <m>(x,z) =(x,y)\in R</m>.
+          In either case <m>(x,z)</m> is automatically in <m>R</m> so we can ignore this case.
+        </p>
+        <p>
+          Case 3: The remaining case is when <m>x = z</m>.
+          We need to check <m>(x,x)=(x,z) \in R</m>.
+          Swapping order, we also need to check <m>(z,z)=(z,x)\in R</m>.
+          That is, any time there is a double-headed arrow in the graph,
+          we need to have a loop at each end,
+          or <term>barbells</term>, which we draw in our diagram with dashed loops.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Equivalence relations can be defined on all types of discrete objects.
+    </p>
+    <example xml:id="exam_equiv_rel_graphs">
+      <title>Examples of equivalence relations on graphs</title>
+      <statement>
+        <p>
+          Consider the set <m>G_6</m>, the set of all graphs on six vertices.
+          Give some examples of equivalence relations on <m>G_6</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          There are many different examples.
+          Here are a few:
+          <ul>
+            <li>
+              <p>
+                <m>G \sim H</m> if <m>G</m> and <m>H</m> have the same number of edges.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>G \sim H</m> if <m>G</m> and <m>H</m> have the same degree sequence.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>G \sim H</m> if <m>G</m> and <m>H</m> contain the same number of 3-cycles.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>G \sim H</m> if <m>G \cong H</m>,
+                where <m>\cong</m> denotes that the graphs are isomorphic.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_equiv_classes">
+    <title>\subequivclass</title>
+    <p>
+      An important construction in advanced theoretical mathematics is to take a set <m>X</m> and an equivalence relation <m>\sim</m> on <m>X</m> and define a new set consisting of the equivalence classes of <m>X</m> under <m>R</m>.
+      We begin with the definitions.
+    </p>
+    <definition xml:id="defn_equiv_class">
+      <title>Equivalence classes</title>
+      <statement>
+        <p>
+          Consider a set <m>X</m> and an equivalence relation <m>R</m>
+          (or <m>\sim</m>)
+          on <m>X</m>.
+          <ol>
+            <li>
+              <p>
+                For any element <m>a \in X</m>,
+                the <term>equivalence class containing</term> <m>a</m> is the set
+                <me>
+                  [a]=\{b \in X \mid (a,b) \in R\} = \{b \in X \mid a \sim b\}
+                </me>.
+                For example, for the relation
+                <me>
+                  R=\{ (a,b) \mid a, b\in \mathbb{Z} \text{ and }  a^2 =b^2 \}
+                </me>,
+                the equivalence class of <m>3</m> is <m>[3] = \{3,-3\}</m>.
+                Note that <m>[-3]=\{3,-3\}</m> is the same set.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>quotient space</term>,
+                denoted <m>X/R</m> and pronounced
+                <q><m>X</m> mod <m>R</m></q>, is the set of all equivalence classes.
+                For example,
+                for the relation <m>R = \{(a,b) \mid a, b\in \mathbb{Z} \text{ and } a+b \text{ is even } \}</m>,
+                there are two equivalence classes:
+                <m>[0]=</m> the even integers and <m>[1]=</m> the odd integers.
+                Thus <m>\mathbb{Z}/R = \{[0],[1]\}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_equiv_classes_12345">
+      <title>Equivalence classes for an equivalence relation on <m>\{1,2,3,4,5\}</m></title>
+      <statement>
+        <p>
+          Consider the equivalence relation <m>R</m> on
+          <m>X = \{1,2,3,4,5\}</m> defined by the directed graph drawn in <xref ref="fig_equiv_rel_12345"></xref>.
+        </p>
+        <figure xml:id="fig_equiv_rel_12345">
+          <caption>An equivalence relation on <m>\{1,2,3,4,5\}</m>.</caption>
+          image type not recognized
+        </figure>
+        <ol>
+          <li>
+            <p>
+              Calculate <m>[1]</m>.
+              <solution>
+                <p>
+                  There are three arrows out of 1 or,
+                  equivalently,
+                  three ordered pairs of the form <m>(1,\underline{~})</m>,
+                  namely <m>(1,1)</m>, <m>(1,3)</m>, and <m>(1,4)</m>.
+                  Thus <m>[1]=\{1,3,4\}</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              Calculate <m>[2]</m>.
+              <solution>
+                <p>
+                  There are two arrows out of 2 or, equivalently,
+                  two ordered pairs of the form <m>(2,\underline{~})</m>,
+                  namely <m>(2,2)</m> and <m>(2,5)</m>.
+                  Thus <m>[2]=\{2,5\}</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              How many different equivalence classes are there?
+              <solution>
+                <p>
+                  We can check that <m>[3]=\{1,3,4\}</m>,
+                  <m>[4]=\{1,3,4\}</m>, and <m>[5]=\{2,5\}</m>.
+                  Therefore, there are only two equivalence classes:
+                  <m>\{1,3,4\}</m> and <m>\{2,5\}</m>.
+                  It is convenient to refer to these equivalence classes using the smallest possible representative as <m>[1]</m> and <m>[2]</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              Describe the quotient space <m>X/R</m>.
+              <solution>
+                <p>
+                  The quotient space consists of two equivalence classes:
+                  <m>X/R=\{[1],[2]\}</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      Try working with equivalence classes.
+    </p>
+    <activity xml:id="act_equiv_classes">
+      <title>Equivalence classes</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Consider the relation <m>R</m> on
+              <m>\{1,2,3,4\}</m> defined by <m>R= \{(1,1),(1,2),(2,1),(2,2),(3,3),(4,4)\}</m>.
+              Identify the equivalence classes <m>[1]</m>,
+              <m>[2]</m>, <m>[3]</m>, and <m>[4]</m>.
+              How many distinct equivalence classes are there?
+            </p>
+          </li>
+          <li xml:id="part_equiv_rel_given_partition">
+            <p>
+              Draw the directed graph of the equivalence relation on
+              <m>\{1,2,3,4,5,6\}</m> with equivalence classes <m>\{1,2,3\}</m>,
+              <m>\{4\}</m>, and <m>\{5,6\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the equivalence relation <m>R</m> on <m>\mathbb{Z}</m> defined by
+              <me>
+                R=\{ (a,b) \mid a, b\in \mathbb{Z} \text{ and }  a^2 =b^2 \}
+              </me>.
+              Calculate <m>[2]</m>, <m>[-4]</m>, and <m>[0]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the equivalence relation <m>\sim</m> on <m>\mathbb{R}^2</m> defined by
+              <m>(x_1,y_1) \sim (x_2,y_2)</m> if <m>y_2-y_1=3(x_2-x_1)</m>.
+              Describe the equivalence class <m>[(0,2)]</m>.
+            </p>
+          </li>
+          <li xml:id="part_bs5_start_same3">
+            <p>
+              Let <m>\mathbb{B}_5</m> be the set of all bit strings of length 5.
+              Consider the equivalence relation on <m>\mathbb{B}_5</m> defined by
+              <m>b \sim c</m> if the bit strings <m>b</m> and <m>c</m> start with the same three bits.
+              For example,
+              <m>\bs{11111} \sim \bs{11100}</m> and <m>\bs{10111} \sim \bs{10110}</m>.
+              Calculate <m>[11111]</m> and <m>[10111]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Continuing with the relation <m>\sim</m> on
+              <m>\mathbb{B}_5</m> defined in <xref ref="part_bs5_start_same3"/>.
+              How many (distinct) equivalence classes are there and how many bit strings are in each equivalence class?
+            </p>
+          </li>
+          <li>
+            <p>
+              Give an example of an equivalence relation on <m>\mathbb{B}_5</m>,
+              the bit strings of length 5, that has exactly two equivalence classes.
+              Now give a different one.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      <xref ref="exam_equiv_classes_12345">In</xref>,
+      we had an equivalence relation on the set
+      <m>\{1,2,3,4,5\}</m> and the equivalence classes were <m>\{1,3,4\}</m> and <m>\{2,5\}</m>.
+      Note that <m>\{1,3,4\} \cup \{2,5\}</m> is a partition of the set <m>\{1,2,3,4,5\}</m>,
+      as defined in <xref ref="defn_partition"></xref>.
+      Conversely, in <xref ref="act_equiv_classes"></xref>
+      ( <xref ref="part_equiv_rel_given_partition"></xref>,
+      we had a partition <m>\{1,2,3\} \cup \{4\} \cup \{5,6\}</m> of the set
+      <m>\{1,2,3,4,5,6\}</m> and we determined the directed graph of an equivalence relation <m>R</m> on
+      <m>\{1,2,3,4,5,6\}</m> having those subsets as equivalence classes.
+      This connection between equivalence classes and partitions of a set holds in general.
+    </p>
+    <remark xml:id="rem_equiv_class_partition">
+      <title>Equivalence classes and partitions</title>
+      <p>
+        Let <m>X</m> be a set.
+        <ol>
+          <li>
+            <p>
+              If <m>R</m> is an equivalence relation on <m>X</m>,
+              then the distinct equivalence classes under <m>R</m> form a partition of the set <m>X</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>T_1 \cup T_2 \cup \cdots \cup T_k</m> is a partition of <m>X</m>,
+              then the relation on <m>R</m> defined by
+              <m>(x,y) \in R</m> if <m>x</m> and <m>y</m> are both in the same set <m>T_i</m> for some <m>i</m> is an equivalence relation.
+              Moreover, its equivalence classes are exactly <m>T_1, T_2, \ldots, T_k</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+  </subsection>
+  <subsection xml:id="sub_cong_modn">
+    <title>\subcongmod</title>
+    <p>
+      An important equivalence relation on
+      <m>\mathbb{Z}</m> is defined using <m>\fn{mod}</m>.
+    </p>
+    <definition xml:id="defn_cong_modn">
+      <title>Congruence mod <m>n</m></title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For a positive integer <m>n</m>,
+                the integers <m>a</m> and <m>b</m>
+                <term>are congruent modulo</term> <m>n</m>,
+                denoted <m>a \equiv b ~(\fn{mod} ~n)</m>,
+                if <m>a \fn{~mod~} n = b \fn{~mod~} n</m>, that is,
+                if <m>a</m> and <m>b</m> have the same remainder when divided by <m>n</m>.
+                For example, <m>73 \equiv 13 ~(\fn{mod} ~10)</m> because
+                <m>73 \fn{~mod~} 10 = 3</m> and <m>73 \fn{~mod~} 10 = 3</m>.
+                As another example, for any integer <m>a</m>,
+                if <m>a ~\fn{mod}~ n=r</m>, then that <m>a \equiv r ~(\fn{mod} ~n)</m>.
+                For example, <m>73 \equiv 3 ~(\fn{mod} ~10)</m>.
+                It turns out that congruence modulo <m>n</m> is an equivalence relation.
+              </p>
+            </li>
+            <li>
+              <p>
+                For a positive integer <m>n</m>,
+                the <term>congruence class mod <m>n</m></term> of <m>a</m> is
+                <me>
+                  [a]_n = \{ b \in \mathbb{Z} \mid a \equiv b ~(\fn{mod} ~n)\}
+                </me>.
+                Note that the congruence class is the equivalence class under the congruence relation.
+                For example,
+                <me>
+                  [3]_{10} = \{\ldots, -17, -7, 3, 13, 23, 33, 43, \ldots\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>integers mod</term> <m>n</m> introduced in <xref ref="sec_mod_arith"></xref> is formally defined as
+                <me>
+                  \mathbb{Z}_n = \{[0]_n, [1]_n, \ldots, [n-1]_n\}
+                </me>.
+                For example, <m>\mathbb{Z}_3 = \{[0]_3, [1]_3, [2]_3\}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Note that if <m>a \fn{ mod } n = b \fn{ mod } n</m>,
+      then <m>a</m> and <m>b</m> end at the same number on the <m>\fn{mod } n</m> clock.
+      Therefore, <m>a</m> and <m>b</m> differ by some number of complete rotations,
+      which is multiple of <m>n</m>.
+      We have the following result.
+    </p>
+    <theorem xml:id="thm_cong_modn">
+      <title>Alternate characterization of congruence \fn{mod} <m>n</m></title>
+      <statement>
+        <p>
+          Let <m>a</m>,
+          <m>b</m>, and <m>n</m> be integers with <m>n > 1</m>.
+          Then <m>a \equiv b ~(\fn{mod } n)</m> if and only if <m>n | (a-b)</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's look at some examples.
+    </p>
+    <example xml:id="exam_alt_defn_cong">
+      <title>Using the alternate characterization of congruence \fn{mod} <m>n</m></title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                <xref ref="thm_cong_modn">Use</xref>
+                to show that <m>73 \equiv 13 ~(\fn{mod } 10)</m>.
+                <solution>
+                  <p>
+                    We can check that <m>73-13 = 60 = 10(6)</m> and so <m>10 \mid (73-13)</m>.
+                    Thus <m>73 \equiv 13 ~(\fn{mod } 10)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_proof_cong">
+              <p>
+                Prove that if <m>a \equiv b ~(\fn{mod } n)</m>,
+                then <m>2a \equiv 2b ~(\fn{mod } n)</m> for any integers <m>a</m>,
+                <m>b</m>,
+                and <m>n</m> with <m>n > 1</m>.
+                <solution>
+                  <p>
+                    Since we are proving a conditional statement,
+                    we <xref ref="pff_if_then_direct">use</xref>.
+                  </p>
+                  <p>
+                    <em>Proof</em> Let <m>a</m>,
+                    <m>b</m>, and <m>n</m> be integers with <m>n > 1</m>.
+                    Assume <m>a \equiv b ~(\fn{mod } n)</m>.
+                    <xref ref="thm_cong_modn">By</xref>,
+                    it follows that <m>n \mid (a-b)</m>.
+                    <xref ref="defn_divides">By</xref>,
+                    we can write <m>a-b = nk</m> for some integer <m>k</m>.
+                    Then
+                    <me>
+                      2a - 2b = 2(a-b) = 2(nk) = n(2k) = nk'
+                    </me>
+                    where <m>k' = 2k</m> is an integer.
+                    <xref ref="defn_divides">By</xref>,
+                    it follows that <m>n \mid (2a-2b)</m>.
+                    <xref ref="thm_cong_modn">By</xref>,
+                    it follows that <m>2a \equiv 2b ~(\fn{mod } n)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                State the converse of the statement from <xref ref="part_proof_cong"/> and construct a counterexample to show that the converse is false.
+                <solution>
+                  <p>
+                    The converse is: if <m>2a \equiv 2b ~(\fn{mod } n)</m>,
+                    then <m>a \equiv b ~(\fn{mod } n)</m> for any integers <m>a</m>,
+                    <m>b</m>,
+                    and <m>n</m> with <m>n > 1</m>.
+                    For a counterexample we need integers <m>a</m>, <m>b</m>,
+                    and <m>n</m> with <m>n > 1</m> such that the promise is broken.
+                    That is, we want <m>2a \equiv 2b ~(\fn{mod } n)</m> but <m>a \not\equiv b ~(\fn{mod } n)</m>.
+                    A counterexample is <m>a=2</m> and <m>b=7</m> because
+                    <m>4 \equiv 14 ~(\fn{mod } 10)</m> but <m>2 \not\equiv 7 ~(\fn{mod } 10)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with congruence mod <m>n</m>.
+    </p>
+    <activity xml:id="act_cong_modn">
+      <title>Congruence \fn{mod} <m>n</m></title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              True or false?
+              <m>73 \equiv 13 ~(\fn{mod } 2)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              True or false?
+              <m>73 \equiv 13 ~(\fn{mod } 3)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              True or false?
+              <m>73 \equiv 13 ~(\fn{mod } 4)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              True or false?
+              <m>73 \equiv 13 ~(\fn{mod } 5)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a counterexample to the statement
+              <m>73 \equiv 13 ~(\fn{mod } n)</m> for all integers <m>n >1</m>.
+              Hint: <m>73-13=60</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Describe the integers in <m>[0]_2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Describe the integers in <m>[0]_3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              How many congruence classes are there <c>mod</c> 10?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why congruence <c>mod</c> <m>n</m> is reflexive,
+              symmetric, and transitive.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_properties_relations">for</xref>
+      \subrelppty</title>
+      <exercise xml:id="exer_Cex_rel_on_integers">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Construct a counterexample to show the relation <m>\{ (a,b) \mid a, b \in \mathbb{Z} \text{ and } a \lt b \}</m> is not reflexive.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a counterexample to show the relation <m>\{ (a,b) \mid a, b \in \mathbb{Z}^+ \text{ and } a \mid b \}</m> is not symmetric.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a counterexample to show the relation
+                  <m>\{ (a,b) \mid a, b \in \mathbb{Z} \text{ and } ab = 0 \}</m> is is not transitive.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_Cex_rel_on_reals">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Construct a counterexample to show the relation <m>\{ (x,y) \mid x, y \in \mathbb{R} \text{ and } x + y = 5 \}</m> is not reflexive.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a counterexample to show the relation <m>\{ (x,y) \mid x, y \in \mathbb{R} \text{ and } x \ge y \}</m> is not symmetric.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a counterexample to show the relation <m>\{ (x,y) \mid x, y \in \mathbb{R} \text{ and } |x - y | \lt 3 \}</m> is not transitive.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_finite_rel_transitive">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Construct a counterexample to show that the relation <m>\{(0,0), (0,1), (1,1), (1,2), (2,0), (2,2)\}</m> is not transitive.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a counterexample to show that the relation <m>\{(0,0), (0,1), (1,0), (2,2)\}</m> is not transitive.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show how to check that the relation <m>\{(0,0), (0,1), (1,1), (1,2), (0,2), (2,2)\}</m> is transitive.
+                  Note: It is okay to not check loops.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ppty_finite_rel">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For each relation, draw the directed graph on
+            <m>\{0,1,2\}</m> and then decide if the relation is reflexive,
+            symmetric, and transitive.
+            For each part,
+            no justification required if the relation has the property,
+            but provide counterexample if not.
+            <ol>
+              <li>
+                <p>
+                  <m>\{(0,0), (0,1), (1,0), (1,1), (1,2), (2,2)\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{(0,0), (0,1), (0,2), (1,1), (1,2), (2,2)\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{(0,0), (0,1), (1,0), (1,1), (2,2)\}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ppty_rel01">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            On this problem, no justification is required.
+            <ol>
+              <li>
+                <p>
+                  Draw the directed graph for each relation on <m>\{0,1\}</m> that is reflexive.
+                </p>
+              </li>
+              <li xml:id="part_01_sym_and_refl">
+                <p>
+                  Draw the directed graph for each relation on <m>\{0,1\}</m> that is symmetric and reflexive.
+                </p>
+              </li>
+              <li xml:id="part_01_not_trans">
+                <p>
+                  Draw the directed graph for each relation on <m>\{0,1\}</m> that
+                  <em>not</em> transitive.
+                  Hint: Barbells
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the directed graph for each equivalence relations on <m>\{0,1\}</m>.
+                  Hint: Use your lists from <xref ref="part_01_sym_and_refl"/> and <xref ref="part_01_not_trans"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_name_empty_complete_rel">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>X</m> be a nonempty set.
+            For each relation, decide whether it is reflexive,
+            whether it is symmetric, and whether it is transitive.
+            No justification required if the relation has the property,
+            but provide counterexample if not.
+            <ol>
+              <li>
+                <p>
+                  The relation <m>\varnothing</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The relation <m>X^2</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ppty_rel_on_integers">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For each relation, decide whether it is reflexive,
+            whether it is symmetric, and whether it is transitive.
+            No justification required if relation has the property,
+            but provide counterexample if not.
+            <ol>
+              <li>
+                <p>
+                  <m>\{(a,b) \mid a,b \in \mathbb{Z}^+ \text{ and } ab \text{ is even } \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{(a,b) \mid a,b \in \mathbb{Z}^+ \text{ and } ab \text{ is odd } \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{(a,b) \mid a,b \in \mathbb{Z}^+ \text{ and } \fn{gcd}(a,b)\neq1~ \}</m> As usual,
+                  <m>\fn{gcd}</m> denotes the greatest common divisor,
+                  as defined in <xref ref="defn_gcd"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ppty_rel_unit_circle">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the unit circle
+            <me>
+              U=\{(x,y) \mid x, y \in \mathbb{R} \text{ and }  x^2+y^2=1\}
+            </me>
+            which is drawn in <xref ref="fig_unit_circle_verticallinetest"></xref>.
+            For each part,
+            no justification is required if <m>U</m> has the property,
+            but provide counterexample if not.
+            <ol>
+              <li>
+                <p>
+                  Is <m>U</m> reflexive?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>U</m> symmetric?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>U</m> transitive?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ppty_distance_le5">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the relation defined on
+            <m>\mathbb{R}^2</m> by <m>(x_1,y_1) \sim (x_2,y_2)</m> if
+            <me>
+              \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2} \le 5
+            </me>.
+            <ol>
+              <li>
+                <p>
+                  Is <m>(1,2) \sim (1,7)</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>(1,2) \sim (5,0)</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\sim</m> reflexive?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a counterexample to show that <m>\sim</m> is not transitive.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ppty_rel_bs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For each relation, decide whether it is transitive.
+            Explain briefly if it is transitive and construct a counterexample if not transitive.
+            <ol>
+              <li>
+                <p>
+                  As usual <m>\mathbb{B}^*</m> denotes the set of all (non-empty) bit strings.
+                  Define a relation on <m>\mathbb{B}^*</m> by <m>b \sim c</m> if <m>b</m> is a
+                  <em>substring</em> of <m>c</m>;
+                  that is, if the bit string <m>b</m> appears in consecutive order within the bit string <m>c</m>.
+                  For example,
+                  <m>\bs{101} \sim \bs{111010}</m> as we can see <m>\bs{11}\underline{\bs{101}}\bs{0}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the set <m>\mathbb{B}_3</m>,
+                  the set of all bit strings of length 3.
+                  Define the relation <m>b \sim c</m> if the bit strings <m>b</m> and <m>c</m> differ in exactly one bit.
+                  For example, <m>100 \sim 110</m> and <m>100 \sim 000</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ppty_rel_power_set">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the following relations on <m>\mathscr{P}(\{1,2,3\})</m>.
+            <ol>
+              <li>
+                <p>
+                  Give a counterexample to show that <m>\{(A,B) \mid ~ A \cup B = S ~ \}</m> is not reflexive.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to show that <m>\{(A,B) \mid ~ A \subseteq B~ \}</m> is not symmetric.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to show that <m>\{(A,B) \mid ~ A \cap B = \varnothing ~ \}</m> is not transitive.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_same_size_set_equiv_rel">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For the set <m>\mathscr{P}(\{1,2,3, \ldots,
+            n\})</m>, define <m>A \sim B</m> if <m>|A| = |B|</m>
+            (meaning <m>A</m> and <m>B</m> have the same number of elements).
+            Check that <m>\sim</m> is an equivalence relation.
+            Show how to check each property in general.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_ppty_rel">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to decide if a relation is reflexive, symmetric, or transitive?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to construct a counterexample to show that a relation is not reflexive,
+                  not symmetric, or not transitive?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_defn_antisym">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            A relation <m>R</m> on a set <m>X</m> is
+            <term>antisymmetric</term>
+            if whenever <m>(x,y) \in R</m> with
+            <m>x \neq y</m> we have <m>(y,x) \notin R</m>.
+            No justification required if "yes", but provide counterexample if "no".
+            <ol>
+              <li>
+                <p>
+                  Is the relation R on <m>\{(0,0), (0,1), (1,0), (2,2)\}</m> antisymmetric?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is the relation <m>\{(0,0), (0,1), (1,1), (1,2), (0,2), (2,2)\}</m> antisymmetric?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is the relation <m>\{ (a,b) \mid a, b \in \mathbb{Z} \text{ and } a \lt b \}</m> antisymmetric?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is the relation <m>\{ (a,b) \mid a, b \in \mathbb{Z}^+ \text{ and } a \mid b \}</m> antisymmetric?
+                  As usual, <m>\mid</m> denotes divides,
+                  as defined in <xref ref="defn_divides"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ppty_rel_sym_vs_antisym">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <xref ref="exer_defn_antisym">In</xref> we defined antisymmetric.
+            In each part, give an example of a relation on
+            <m>\{0,1,2,3\}</m> meeting the conditions.
+            No justification required.
+            <ol>
+              <li>
+                <p>
+                  Antisymmetric and not symmetric.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Symmetric and not antisymmetric.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Neither symmetric nor antisymmetric.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Both symmetric and antisymmetric.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_defn_partial_order">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            A relation <m>R</m> on a set <m>X</m> is a
+            <term>partial order</term>
+            if <m>R</m> is reflexive,
+            antisymmetric, and transitive.
+            Prove that the relation <m>\{ (x,y) \mid x, y \in \mathbb{R} \text{ and } x \le y \}</m> is a partial order on <m>\mathbb{R}</m>. (By the way,
+            some other examples of partial orders are <m>\le</m> or <m>\ge</m> on any sets of real numbers,
+            <m>\mid</m> (divides) on the positive integers,
+            <m>\subseteq</m> on the power set of any set,
+            and contains as a substring on the set of all (non-empty) bit strings,
+            as in <xref ref="exer_ppty_rel_bs"></xref>.)
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_equiv_classes">for</xref>
+      \subequivclass</title>
+      <exercise xml:id="exer_equiv_classes_1234567">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the equivalence relation on <m>\{1,2,3,4,5,6,7\}</m> defined by
+            <me>
+              R=\{(1,1), (1,2), (1,5), (2,1), (2,2), (2,5), (3,3),(3,4)
+            </me>
+            <me>
+              (4,3), (4,4), (5,1), (5,2), (5,5), (6,6), (6,7), (7,6), (7,7)\}
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>[5]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>[6]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many distinct equivalence classes are there?
+                  Explain briefly.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the directed graph of a new equivalence relation on
+                  <m>\{1,2,3,4,5,6,7\}</m> with exactly two distinct equivalence classes:
+                  <m>\{1,2,3,4\}</m> and <m>\{5,6,7\}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_classes_floor">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For each equivalence relation on <m>\mathbb{R}^+</m>
+            (the positive real numbers),
+            describe the equivalence class [7.3]. Hint: If you are not sure where to start,
+            find examples of real numbers <m>y</m> such that <m>7.3 \sim y</m>.
+            <ol>
+              <li xml:id="part_integer_part">
+                <p>
+                  The equivalence relation defined by
+                  <m>x \sim y</m> if <m>\lfloor x \rfloor = \lfloor y \rfloor</m>.
+                </p>
+              </li>
+              <li xml:id="part_fractional_part">
+                <p>
+                  The equivalence relation defined by
+                  <m>x \sim y</m> if <m>x-\lfloor x \rfloor = y-\lfloor y \rfloor</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Restate the relation from <xref ref="part_integer_part"/> in the form ``<m>x \sim y</m> if <m>x</m> and <m>y</m> have the same <m>\underline{\hspace{1in}}</m>.
+                  Repeat for the relation from <xref ref="part_fractional_part"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_classes_slope3">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the equivalence relation defined on
+            <m>\mathbb{R}^2</m> by <m>(x_1,y_1) \sim (x_2,y_2)</m> if
+            <m>y_2-y_1=3(x_2-x_1)</m> that we saw in <xref ref="sec_relations"></xref>
+            <xref ref="exer_slope_relation"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Describe <m>[(0,0)]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe <m>[(1,0)]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In general, describe each equivalence class.
+                  Hint: It is a set in the <m>xy</m>-plane.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_classes_first_coord">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the equivalence relation defined on
+            <m>\mathbb{R}^2</m> by <m>(x_1,y_1) \sim (x_2,y_2)</m> if <m>x_1=x_2</m>
+            <ol>
+              <li>
+                <p>
+                  Describe <m>[(0,0)]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe <m>[(1,0)]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In general, describe each equivalence class.
+                  Hint: It is a set in the <m>xy</m>-plane.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_all_equiv_classes_small_finite">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw the directed graphs for both equivalence relation on
+                  <m>X = \{1,2\}</m> and list the equivalence classes for each.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Repeat for <m>X = \{1,2,3\}</m>.
+                  Hint: There are five different equivalence relations.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many different equivalence relations are there on <m>X = \{1,2,3,4\}</m>?
+                  Explain your count.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_rel_equality">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  For any set <m>X</m>, <term>equality</term>
+                  <m>E = \{(x,y) \mid x=y\}</m> is the smallest possible equivalence relation.If <m>X</m> is finite,
+                  what does the directed graph of <m>E</m> look like?
+                  Describe the equivalence classes of <m>E</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  At the other extreme,
+                  <m>X^2</m> itself is an equivalence relation on <m>X</m>.
+                  If <m>X</m> is finite,
+                  what does the directed graph of <m>X^2</m> look like?
+                  How many equivalence classes are there?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bs_equiv_same_weight">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the set <m>\mathbb{B}_5</m>,
+            the set of all bit strings of length 5.
+            Define the equivalence relation on <m>\mathbb{B}_5</m> by
+            <m>b \sim c</m> if the bit strings <m>b</m> and <m>c</m> have the same weight,
+            that is if <m>b</m> and <m>c</m> have the same number of <c>1</c> s.
+            For example,
+            <m>\bs{00111} \sim \bs{11010}</m> and only <m>\bs{11111} \sim \bs{11111}</m>.
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>[\bs{00111}]</m> and <m>[\bs{11111}]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many (distinct) equivalence classes are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  For each equivalence class,
+                  state how many bit strings are in that equivalence class.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bs_equiv_same_2bits">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the set <m>\mathbb{B}_5</m>,
+            the set of all bit strings of length 5.
+            Define the equivalence relation
+            <m>b \sim c</m> if the bit strings <m>b</m> and <m>c</m> start with the same two bits.
+            For example,
+            <m>11111 \sim 11000</m> and <m>10111 \sim 10101</m>.
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>[11111]</m> and <m>[10111]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many (distinct) equivalence classes are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bit strings are in each equivalence class?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_classes_same_size_sets">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For <m>\mathscr{P}(\{1,2,3,4,5\})</m>,
+            we saw in <xref ref="exer_prove_same_size_set_equiv_rel"></xref>
+            that the relation <m>A \sim B</m> if <m>|A| = |B|</m>,
+            meaning that <m>A</m> and <m>B</m> have the same number of elements,
+            is an equivalence relation.
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>[\{1,3\}]</m> and [<m>\phi</m>].
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many (distinct) equivalence classes are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  For each equivalence class,
+                  state how many subsets are in that equivalence class.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Comment on how this exercise relates to <xref ref="exer_bs_equiv_same_weight"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_classes_fns">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For any set <m>X</m> and any function <m>f:X \to X</m>,
+            the relation on <m>X</m> defined by <m>x_1 \sim x_2</m> if
+            <m>f(x_1) = f(x_2)</m> is always an equivalence relation.
+            <ol>
+              <li>
+                <p>
+                  For readers who are familiar with trigonometry,
+                  describe <m>[0]</m> where <m>f: \mathbb{R} \to \mathbb{R}</m> is defined by <m>f(x) = \fn{sin}(x)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = n^2</m>,
+                  explain why the equivalence classes are
+                  <me>
+                    \{0\}, \{1,-1\}, \{2,-2\}, \{3,-3\}, \{4,-4\}, \ldots
+                  </me>
+                  Now give two more examples of functions with the same equivalence classes.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can we say about a function <m>f</m> if each equivalence class is a
+                  <term>singleton</term> (one element set)?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_classes_2part">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Define an equivalence relation on <m>\mathbb{Z}</m> by
+            <m>a \sim b</m> if <m>a</m> and <m>b</m> have the same 2-part, that is,
+            <m>a \sim b</m> if <m>a = 2^km</m> and <m>b=2^kn</m> for some nonnegative integer <m>k</m> and odd integers <m>m</m> and <m>n</m>.
+            <ol>
+              <li>
+                <p>
+                  Verify that <m>12 \sim 20</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Verify that <m>35 \sim 11</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the equivalence class <m>[1]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the equivalence class <m>[2]</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_classes_rationals">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Define the equivalence relation on <m>\mathbb{Z} \times\mathbb{Z}^\ast</m> by
+            <m>(a_1,b_1) \sim (a_2,b_2)</m> if <m>a_1b_2 = a_2b_1</m>.
+            By the way, the rational numbers
+            <m>\mathbb{Q}</m> is the quotient space <m>\mathbb{Z}/\sim</m>.
+            <ol>
+              <li>
+                <p>
+                  Verify that <m>(4,6) \sim (2,3)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the equivalence class <m>[(2,3)]</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_equiv_rel">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What three properties a relation needs to satisfy in order to be an equivalence relation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find the equivalence class of an element under a relation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What we mean by
+                  <q>distinct</q>
+                  equivalence classes?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the connection is between equivalence classes and partitions of a set?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_2x2_GW-grids">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the set <m>X</m> consisting of all
+            <m>2 \times 2</m> grids where each of the four smaller squares is colored either gray or white.
+            An example is drawn in <xref ref="fig_2x2_GW_grid"></xref>.
+          </p>
+          <figure xml:id="fig_2x2_GW_grid">
+            <caption>An example of a <m>2 \times 2</m> gray-and-white grid <xref ref="exer_2x2_GW-grids">for</xref>.</caption>
+            <image width="10%" source="images/2x2_gray_and_white.png"/>
+          </figure>
+          <ol>
+            <li>
+              <p>
+                How many different <m>2 \times 2</m> grids are there?
+                Note that any number of the squares can be gray or white,
+                not necessarily two of each as shown.
+              </p>
+            </li>
+            <li>
+              <p>
+                For grids <m>G</m> and <m>H</m>,
+                define an equivalence relation on <m>X</m> by
+                <m>G \sim H</m> if we can rotate <m>G</m> to obtain <m>H</m>.
+                Calculate <m>[G]</m> where <m>G</m> is the square drawn in <xref ref="fig_2x2_GW_grid"></xref>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Under <m>\sim</m>,
+                how many different equivalence classes of <m>2 \times 2</m> grids are there?
+                Draw one <m>2 \times 2</m> grid from each equivalence class.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_class_derivative">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            For readers who have studied calculus,
+            consider the set <m>X</m> of all differentiable functions <m>f: \mathbb{R} \to \mathbb{R}</m>.
+            Define an equivalence relation on <m>X</m> by <m>f \sim g</m> if <m>f' = g'</m>,
+            meaning <m>f'(x) = g'(x)</m> for all <m>x \in \mathbb{R}</m>.
+            That is, two functions are equivalent if they have the same derivative function.
+            <ol>
+              <li>
+                <p>
+                  Describe <m>[f]</m> where <m>f: \mathbb{R} \to \mathbb{R}</m> is defined by <m>f(x) = 3x+1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe <m>[g]</m> where <m>g: \mathbb{R} \to \mathbb{R}</m> is defined by <m>g(x) = xe^x</m>.
+                  Hint: you do not need to know what <m>g'(x)</m> is,
+                  just which functions have the same derivative as <m>g</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_cong_modn">for</xref>
+      \subcongmod</title>
+      <exercise xml:id="exer_check_congruent_modn">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Briefly justify your answers.
+            <ol>
+              <li>
+                <p>
+                  Is <m>70 \equiv 34 ~(\fn{mod }5)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>70 \equiv 34 ~(\fn{mod }6)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>70 \equiv 34 ~(\fn{mod }11)</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_converse_cex_cong_modn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            State the converse <xref ref="defn_converse"/> of each statement and then prove that the converse is false by constructing a counterexample.
+            Each statement refers to all integers <m>a</m>,
+            <m>b</m>, and <m>n</m> with <m>n>1</m>.
+            <ol>
+              <li>
+                <p>
+                  If <m>a \equiv b ~(\fn{mod }n)</m>,
+                  then <m>3a \equiv 3b\text{ (mod } n)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>a \equiv b \text{ (mod } n)</m>,
+                  then <m>a^2 \equiv b^2\text{ (mod } n)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>a \equiv 0 ~(\fn{mod }n)</m> or <m>b \equiv 0 ~(\fn{mod }n)</m>,
+                  then <m>ab \equiv 0 ~(\fn{mod }n)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_cong_modn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>a</m>,
+            <m>b</m>, and <m>n</m> be integers with <m>n>1</m>.
+            Prove each of the following statements <xref ref="thm_cong_modn">using</xref>.
+            Hint: Copy and edit the proof in <xref ref="exam_alt_defn_cong"></xref>
+            <xref ref="part_proof_cong"/> .
+            <ol>
+              <li>
+                <p>
+                  If <m>a \equiv b ~(\fn{mod }n)</m>,
+                  then <m>3a \equiv 3b\text{ (mod } n)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>a \equiv b \text{ (mod } n)</m>,
+                  then <m>a+2 \equiv b+2\text{ (mod } n)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>a \equiv b \text{ (mod } n)</m>,
+                  then <m>a^2 \equiv b^2\text{ (mod } n)</m>.
+                  Hint: <m>a^2-b^2=(a+b)(a-b)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_cong_modn">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What <m>a \equiv b ~(\fn{mod}~n)</m> means?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove statements involving congruences?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find counterexamples to false statements involving congruences?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How the congruence class <c>mod</c> <m>n</m> is defined?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_Cex_rel_on_integers"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: One possible counterexample is <m>(5,5)</m> because <m>5\lt 5</m> is false.
+            Provide a different counterexample.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find integers <m>a</m> and <m>b</m> where
+            <m>a \mid b</m> but <m>b \nmid a</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use one of <m>a</m> or <m>b</m> equal to 0.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_Cex_rel_on_reals"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: One possible counterexample is <m>(2,2)</m> because <m>2+2 \neq 5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find real numbers <m>x</m> and <m>y</m> with <m>x \ge y</m> but not <m>y \ge x</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try some examples.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_finite_rel_transitive"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Find a missing shortcut.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Barbells
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: For example,
+            check <m>(0,1)</m> and <m>(1,2)</m> are in the relation and <m>(0,2)</m> is too.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ppty_finite_rel"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: It is reflexive, but not symmetric and not transitive.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It has two of the three properties.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is an equivalence relation.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ppty_rel_on_integers"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: It is not reflexive and not transitive.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The only way <m>ab</m> is odd is if <m>a</m> is odd and <m>b</m> is odd.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is not reflexive but there's only one possible counterexample.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ppty_distance_le5"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Yes
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: No
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try using <m>(0,0)</m> as the second ordered pair to construct a counterexample.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ppty_rel_bs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: It is transitive.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is not transitive.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ppty_rel_power_set"></xref> Select Answers and Hints</title>
+      <p>
+        Recall that <m>\mathscr{P}(\{1,2,3\})</m> is the power set of <m>\{1,2,3\}</m>,
+        the set of all subsets of <m>\{1,2,3\}</m>.
+        <ol>
+          <li>
+            <p>
+              Hint: One counterexample is <m>(\{1,2\},\{1,2\})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Find subsets <m>A</m> and <m>B</m> where
+              <m>A \subseteq B</m> but not <m>B \subseteq A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Start with subsets <m>A</m> and <m>B</m> such that <m>A \cap B = \varnothing</m>.
+              Then try to find a set <m>C</m> with
+              <m>B \cap C = \varnothing</m> but <m>A \cap C \neq \varnothing</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_equiv_classes_1234567"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\{1,2,5\}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are two elements in <m>[6]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Calculate <m>[3]</m>.
+            Then count the distinct ones.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure you have included all the necessary loops and double-headed arrows.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_equiv_classes_slope3"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            It is the line <m>y = 3x</m> which has slope 3 and <m>y</m>-intercept 0.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is a different line.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What do the lines have in common?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_equiv_classes_first_coord"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            It is the line <m>x=0</m> which is the <m>y</m>-axis.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is a different line.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What do the lines have in common?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bs_equiv_same_weight"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are ten bit strings in
+            <m>[\bs{00111}]</m> but only one bit string in <m>[\bs{11111}]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is not five.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Different classes may contain different number of bit strings.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bs_equiv_same_2bits"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>[\bs{11111}] = \{\bs{11000}, \bs{11001}, \ldots, \bs{11111}\}</m> and
+            <m>[\bs{10111}]</m> contains the same number of bit strings.
+          </p>
+        </li>
+        <li>
+          <p>
+            Four
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: They each contain the same number of bit strings.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_2x2_GW-grids"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Count using steps with Step 1 is deciding if the upper left-hand corner is gray or white.
+            Then continue with each of the four squares.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are four squares in <m>[G]</m>,
+            one of which is <m>G</m> itself.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Draw one <m>2 \times 2</m> grid from each equivalence class,
+            being sure that no two grids you draw are equivalent.
+            Then count how many grids you drew.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_check_congruent_modn"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Two answers are no.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_converse_cex_cong_modn"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Make <m>n</m> a multiple of 3.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try <m>n=10</m> because <c>mod</c> 10 is easy to compute (just the last digit)
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try <m>n=10</m> again.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

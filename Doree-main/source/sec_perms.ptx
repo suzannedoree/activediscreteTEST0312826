@@ -1,0 +1,1691 @@
+<section xml:id="sec_perms">
+  <title>Excursion: Permutations, Inverse Functions, and Uniqueness</title>
+  <introduction>
+    <p>
+      We start this section by looking at permutations,
+      which are bijections between a set and itself,
+      and discuss the composition of permutations.
+      Next, building on our examples with permutations,
+      we define function composition and function inverses, in general.
+      Lastly, we explore how to prove that a function is one-to-one and,
+      more generally,
+      a proof format for uniqueness proofs as well as existence and uniqueness proofs.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_permutations">
+    <title>\subperms</title>
+    <p>
+      Permutations are used in many applications.
+      For example,
+      they are used to describe the shuffling of a deck of cards,
+      analyze sorting algorithms, and model gene sequencing.
+      They are used in encryption and error-correction algorithms and for games such as anagrams,
+      the sliding 15 puzzle,
+      and Rubik's Cube{\texttrademark}. We start with the definition.
+    </p>
+    <definition xml:id="defn_permutation">
+      <title>Permutation</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>permutation</term> is a function
+                <m>f:X \to X</m> for some set <m>X</m> such that <m>f</m> is onto and one-to-one.
+                In other words, a permutation is a bijection from a set to itself.
+                Equivalently,
+                a permutation is a function whose rule is a pairing of a set with itself.
+                For example,
+                the function <m>h: \mathbb{R} \to \mathbb{R}</m> defined by <m>h(x) = 3x</m> is a permutation,
+                as we saw in <xref ref="exam_bijections"></xref>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We are often interested in a permutation of the set
+                <m>\{1,2,\ldots,n\}</m> for some positive integer <m>n</m>.
+                We can describe such permutations by listing the values,
+                drawing the standard dot diagram,
+                or using <term>2-line notation</term>
+                <me>
+                  \alpha = \left(\begin{array}{ccc cc} 1 \amp  2 \amp  3 \amp  \ldots \amp  n \\ \alpha(1) \amp  \alpha(2) \amp  \alpha(3) \amp  \ldots \amp  \alpha(n) \end{array}  \right)
+                </me>
+                For example,
+                if <m>\sigma: \{1,2,3,4\} \to \{1,2,3,4\}</m> is the permutation defined by <m>\sigma(1)=2</m>,
+                <m>\sigma(2)=3</m>,
+                <m>\sigma(3)=4</m>, and <m>\sigma(4)=1</m>, then we write
+                <me>
+                  \sigma = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4 \\ 2 \amp  3 \amp  4 \amp  1 \end{array}  \right)
+                </me>.
+                In the 2-line notation, the first line is always
+                <m>1 2 3 \ldots n</m> and the second line contains each of <m>1, 2, 3, \ldots,
+                n</m> exactly once.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Permutations are often named with lowercase Greek letters.
+    </p>
+    <remark xml:id="rem_Greek_letters">
+      <title>Greek letters</title>
+      <p>
+        <xref ref="table_lowercase_greek"></xref>
+        lists a few lowercase Greek letters commonly used for permutations.
+      </p>
+      <table xml:id="table_lowercase_greek">
+        <title>A few lowercase Greek letters commonly used for permutations</title>
+        <tabular>
+          <row>
+            <cell><m>\alpha=</m> alpha</cell>
+            <cell><m>\beta=</m> beta</cell>
+            <cell><m>\gamma=</m> gamma</cell>
+            <cell><m>\delta=</m> delta</cell>
+            <cell><m>\epsilon=</m> epsilon</cell>
+            <cell><m>\mu=</m> mu</cell>
+          </row>
+          <row>
+            <cell><m>\nu=</m> nu</cell>
+            <cell><m>\rho=</m> rho</cell>
+            <cell><m>\sigma=</m> sigma</cell>
+            <cell><m>\tau=</m> tau</cell>
+            <cell><m>\psi=</m> psi</cell>
+            <cell><m>\chi=</m> chi</cell>
+          </row>
+        </tabular>
+      </table>
+    </remark>
+    <p>
+      Let's look more closely at permutations on <m>\{1,2,3,4\}</m>.
+    </p>
+    <example xml:id="exam_perm_fns1234">
+      <title>Permutations on <m>\{1,2,3,4\}</m></title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Draw the dot diagram for the permutation <m>\sigma = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4 \\ 2 \amp  3 \amp  4 \amp  1 \end{array}  \right)</m>.
+                <solution>
+                  <p>
+                    <xref ref="fig_perm_sigma"></xref>
+                    shows two versions of the dot diagram <mdash/> the standard version on the left and an unlabeled version on the right.
+                  </p>
+                </solution>
+                <figure xml:id="fig_perm_sigma">
+                  <caption>The dot diagram and unlabeled dot diagram for <m>\sigma = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4  2 \amp  3 \amp  4 \amp  1 \end{array}  \right)</m>.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Is the identity function a permutation on <m>\{1,2,3,4\}</m>?
+                <solution>
+                  <p>
+                    The identity permutation <m>i: \{1,2,3,4\} \to \{1,2,3,4\}</m> is defined by <m>i(n)=n</m>.
+                    END<xref ref="fig_perm_id"></xref>
+                    shows the dot diagram of <m>i</m>.
+                    Since the function <m>i</m> is both onto and one-to-one with domain and codomain of <m>\{1,2,3,4\}</m>,
+                    the identity function <m>i</m> is a permutation.
+                    We can write
+                    <me>
+                      i = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4 \\ 1 \amp  2 \amp  3 \amp  4 \end{array}  \right)
+                    </me>
+                  </p>
+                </solution>
+                <figure xml:id="fig_perm_id">
+                  <caption>The dot diagram and unlabeled dot diagram for <m>i = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4  1 \amp  2 \amp  3 \amp  4 \end{array}  \right)</m>.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many permutations on <m>\{1,2,3,4\}</m> are there?
+                Explain how you count.
+                <solution>
+                  <p>
+                    There are four choices for where the permutation maps one.
+                    Since permutations are one-to-one,
+                    there are three choices left for where the permutation maps two.
+                    Similarly, there are only two choices left for where the permutation maps three and then one choice for where the permutation maps four.
+                    Therefore there are <m>4!</m> permutations on the set <m>\{1,2,3,4\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      <xref ref="exam_perm_fns1234">In</xref>,
+      we drew an unlabeled version of the dot diagrams where we omitted the vertex labels (always 1, 2, <ellipsis/> <m>n</m> from top to bottom) and the arrows
+      (always left-to-right).
+      The unlabeled version can save writing and so we use it in our examples,
+      but feel free to stick with the standard dot diagram if you prefer.
+    </p>
+    <p>
+      There is a natural way to combine permutations.
+    </p>
+    <definition xml:id="defn_perm_composition">
+      <title>Permutation composition</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For any permutations <m>\alpha</m> and <m>\beta</m> on <m>\{1,2,3, \ldots,n\}</m>,
+                their <em>composite</em> <m>\gamma</m> is defined by <m>\gamma(x) = \alpha(\beta(x))</m>.
+                We often write <m>\alpha \circ \beta</m> instead of <m>\gamma</m>;
+                that is, <m>(\alpha \circ \beta)(x) = \alpha(\beta(x))</m>.
+                Notice in the composite <m>\alpha \circ \beta</m> that <m>\beta</m> is applied first and <m>\alpha</m> is applied second,
+                which feels backward but is correct.
+                For example, let
+                <me>
+                  \sigma = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 2 \amp  3 \amp  4 \amp  1 \end{array}  \right ) \text{ and }  \tau= \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4\\ 2 \amp  1 \amp  4 \amp  3 \end{array}  \right )
+                </me>.
+                Then
+                <me>
+                  \sigma \circ \tau = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 3 \amp  2 \amp  1 \amp  4 \end{array}  \right )
+                </me>,
+                as we see in <xref ref="exam_composing_perms"></xref>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For a permutation <m>\alpha</m>,
+                the <term>(<m>n</m>th) iterate</term>
+                of <m>\alpha</m> is the composite
+                <me>
+                  \alpha^n=\underbrace{\alpha \circ \alpha \circ \alpha \cdots \circ \alpha}_{n \text{ times } }
+                </me>.
+                For example,
+                for that permutation <m>\sigma</m>, it turns out that
+                <me>
+                  \sigma^2=\sigma \circ \sigma = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 3 \amp  4 \amp  1 \amp  2 \end{array}  \right )
+                </me>,
+                as we see in <xref ref="exam_composing_perms"></xref>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's check the examples from <xref ref="defn_perm_composition"></xref>.
+    </p>
+    <example xml:id="exam_composing_perms">
+      <title>Composing permutations</title>
+      <statement>
+        <p>
+          Consider the permutations
+          <me>
+            \sigma = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 2 \amp  3 \amp  4 \amp  1 \end{array}  \right ) \text{ and } \tau= \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4\\ 2 \amp  1 \amp  4 \amp  3 \end{array}  \right )
+          </me>
+          <ol>
+            <li xml:id="part_sigma_of_tau">
+              <p>
+                Calculate <m>\sigma \circ \tau</m>.
+                <solution>
+                  <p>
+                    We have
+                    <md>
+                      <mrow>(\sigma \circ \tau)(1) \amp = \sigma(\tau(1))=\sigma(2)=3</mrow>
+                      <mrow>(\sigma \circ \tau)(2) \amp = \sigma(\tau(2))=\sigma(1)=2</mrow>
+                      <mrow>(\sigma \circ \tau)(3) \amp = \sigma(\tau(3))=\sigma(4)=1</mrow>
+                      <mrow>(\sigma \circ \tau)(4) \amp = \sigma(\tau(4))=\sigma(3)=4</mrow>
+                    </md>
+                  </p>
+                  <p>
+                    Thus
+                    <me>
+                      \sigma \circ \tau = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 3 \amp  2 \amp  1 \amp  4 \end{array}  \right )
+                    </me>.
+                    There is a quicker way to compute this composite using the unlabeled dot diagrams shown in <xref ref="fig_sigma_of_tau"></xref>.
+                    To read this diagram,
+                    start with the uppermost dot on the left which represents 1.
+                    Moving right,
+                    follow the path to end on the third dot on the right which represents 3.
+                    Thus the composite maps 1 to 3.
+                    Repeat with each dot on the left following the path.
+                  </p>
+                  <figure xml:id="fig_sigma_of_tau">
+                    <caption>The unlabeled dot diagram used to compute <m>\sigma \circ \tau</m> from <xref ref="exam_composing_perms"></xref> <xref ref="part_sigma_of_tau"/>.</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_tau_of_sigma">
+              <p>
+                Calculate <m>\tau \circ \sigma</m>.
+                <solution>
+                  <p>
+                    Following the paths in <xref ref="fig_tau_of_sigma"></xref> we get
+                    <me>
+                      \tau \circ \sigma = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 1 \amp  4 \amp  3 \amp  2 \end{array}  \right )
+                    </me>.
+                    Notice that the order mattered,
+                    in that <m>\sigma \circ \tau \ne \tau \circ \sigma</m>.
+                    That is, composition of permutations is not commutative.
+                  </p>
+                  <figure xml:id="fig_tau_of_sigma">
+                    <caption>The unlabeled dot diagram used to compute <m>\tau \circ \sigma</m> from <xref ref="exam_composing_perms"></xref> <xref ref="part_tau_of_sigma"/>.</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_sigma_sq">
+              <p>
+                Calculate <m>\sigma^2=\sigma \circ \sigma</m>.
+                <solution>
+                  <p>
+                    Following the paths in <xref ref="fig_sigma_sq"></xref> we get
+                    <me>
+                      \sigma^2=\sigma \circ \sigma = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 3 \amp  4 \amp  1 \amp  2 \end{array}  \right )
+                    </me>
+                  </p>
+                  <figure xml:id="fig_sigma_sq">
+                    <caption>The unlabeled dot diagram used to compute <m>\sigma \circ \sigma</m> from <xref ref="exam_composing_perms"></xref> <xref ref="part_sigma_sq"/>.</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_tau_sq">
+              <p>
+                Calculate <m>\tau^2=\tau \circ \tau</m>.
+                <solution>
+                  <p>
+                    Following the paths in <xref ref="fig_tau_sq"></xref> we get
+                    <me>
+                      \tau^2=\tau \circ \tau = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 1 \amp  2 \amp  3 \amp  4 \end{array}  \right ) = i
+                    </me>,
+                    the identity permutation.
+                  </p>
+                  <figure xml:id="fig_tau_sq">
+                    <caption>The unlabeled dot diagram used to compute <m>\tau \circ \tau</m> from <xref ref="exam_composing_perms"></xref> <xref ref="part_tau_sq"/>.</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Notice that the composite of two permutations is another permutation.
+      Now, it is your turn to work with permutations.
+    </p>
+    <activity xml:id="act_perms">
+      <title>Permutations</title>
+      <p>
+        Consider the permutations
+        <me>
+          \alpha = \left ( \begin{array}{ccc cc} 1 \amp  2 \amp  3 \amp  4 \amp  5  \\ 2 \amp  1 \amp  4 \amp  5 \amp  3 \end{array}  \right )\text{ and } \mu=  \left ( \begin{array}{ccc cc} 1 \amp  2 \amp  3 \amp  4 \amp  5  \\ 1 \amp  4 \amp  2 \amp  3 \amp  5 \end{array}  \right )
+        </me>
+        <ol>
+          <li xml:id="part_muofalpha_of4">
+            <p>
+              Evaluate <m>\alpha(5)</m>, <m>\mu(3)</m>,
+              and <m>\mu \circ \alpha(5)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw the dot diagram for <m>\alpha</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Add the dot diagram for <m>\mu</m> to your diagram,
+              using the codomain of <m>\alpha</m> as the domain for <m>\mu</m>.
+            </p>
+          </li>
+          <li xml:id="part_muofalphs_dotdiagram">
+            <p>
+              Use your dot diagrams to calculate <m>\mu \circ \alpha</m>.
+              Remember that <m>\alpha</m> goes first.
+              Report your answer in 2-line notation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Check that your answers to <xref ref="part_muofalpha_of4"/> and <xref ref="part_muofalphs_dotdiagram"/> agree.
+            </p>
+          </li>
+          <li xml:id="part_inv_perm">
+            <p>
+              Use dot diagrams to find a permutation <m>\beta</m> such that
+              <m>\beta \circ \alpha= i</m>, the identity permutation.
+              Remember that <m>\alpha</m> goes first.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_inverses">
+    <title>\subinverses</title>
+    <p>
+      How often have you done something on a computer,
+      decided it was a mistake, and hit undo?
+      As you may have learned
+      (the hard way),
+      some operations are invertible,
+      meaning that they can be undone, and others are not.
+      Let's make this concept formal.
+    </p>
+    <definition xml:id="defn_inverse_fn">
+      <title>Inverse function</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A function <m>f: X \to Y</m> is <term>invertible</term>
+                if the equation <m>f(x) = y</m> has exactly one solution for each value of <m>y</m> in <m>Y</m>.
+                For example,
+                the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by
+                <m>f(n) = n+1</m> is invertible because the equation
+                <m>f(n) = m</m> is really <m>n+1=m</m> which has one solution,
+                namely <m>n=m-1</m>.
+                On the other hand,
+                the function <m>\fn{trim}: \mathbb{B}^* \to \mathbb{B}</m> defined by
+                <m>\fn{trim}(b) =</m> the bit string <m>b</m> without its last bit is not invertible because,
+                for example, <m>\fn{trim}(b) = \bs{101}</m> has two solutions,
+                namely <m>b</m>=<c>1011</c> and <m>b</m>=<c>1010</c>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For an invertible function <m>f: X \to Y</m>,
+                the <term>inverse function</term>
+                <m>f^{-1}: Y \to X</m> is defined by
+                <m>f^{-1}(y)</m> is the unique solution of <m>f(x)=y</m>.
+                That is, <m>f^{-1}(y)=x</m> exactly when <m>f(x) = y</m>.
+                In this way, <m>f^{-1}</m> undoes <m>f</m>.
+                Note that <m>f^{-1}</m> is pronounced as
+                <q><m>f</m> inverse</q>. For example,
+                if <m>f: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>f(n) = n+1</m>,
+                then <m>f^{-1}: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>f^{-1}(m) = m-1</m>.
+                We can think of the function <m>f</m> as adding one,
+                and so its inverse <m>f^{-1}</m> undoes that operation by subtracting one.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      A function <m>f: X \to Y</m> is invertible if the equation
+      <m>f(x) = y</m> has exactly one solution for each value of <m>y</m> in <m>Y</m>.
+      That is, if for each element <m>y</m> in <m>Y</m> there is exactly one element <m>x</m> in <m>X</m> such that <m>f(x) = y</m>,
+      which means <m>f</m> is one-to-one and onto.
+      Thus, <m>f</m> is invertible if
+      (and only if)
+      it is a bijection.
+      We state this result as a theorem.
+    </p>
+    <theorem xml:id="thm_invertible_fn">
+      <title>Invertible Functions</title>
+      <statement>
+        <p>
+          For sets <m>X</m> and <m>Y</m>,
+          a function <m>f: X \to Y</m> is invertible if and only if <m>f</m> is a bijection (one-to-one and onto) or,
+          equivalently,
+          if and only if the rule for <m>f</m>,
+          <m>x \leftrightarrow f(x)</m>, is a pairing.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Since any permutation is a bijection,
+      any permutation is invertible.
+      Let's find the inverse of a permutation.
+    </p>
+    <example xml:id="exam_inverse_perm">
+      <title>Inverse of a permutation</title>
+      <statement>
+        <p>
+          Consider the permutation
+          <me>
+            \sigma = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4 \\ 2 \amp  3 \amp  4 \amp  1 \end{array}  \right)
+          </me>.
+          Since <m>\sigma</m> is a permutation,
+          it is one-to-one and onto.
+          Thus, <m>\sigma</m> is invertible.
+          <ol>
+            <li>
+              <p>
+                Find the inverse <m>\sigma^{-1}</m>.
+                <solution>
+                  <p>
+                    We display our work in <xref ref="tab_inv_perm"></xref>.
+                    Thus
+                    <me>
+                      \sigma^{-1} = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4 \\ 4 \amp  1 \amp  2 \amp  3 \end{array}  \right)
+                    </me>
+                  </p>
+                </solution>
+                <table xml:id="tab_inv_perm">
+                  <title>Calculating the inverse of a permutation</title>
+                  <tabular>
+                    <row>
+                      <cell>We know that</cell>
+                      <cell>We conclude that</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>\sigma(1) = 2</m></cell>
+                      <cell><m>\sigma^{-1}(2)=1</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>\sigma(2) = 3</m></cell>
+                      <cell><m>\sigma^{-1}(3)=2</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>\sigma(3) = 4</m></cell>
+                      <cell><m>\sigma^{-1}(4)=3</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>\sigma(4) = 1</m></cell>
+                      <cell><m>\sigma^{-1}(1)=4</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculate <m>\sigma^{-1} \circ \sigma</m> using the dot diagrams.
+                <solution>
+                  <p>
+                    We show the dot diagrams in <xref ref="fig_perms_sigma_inv"></xref>.
+                    Thus, <m>\sigma^{-1} \circ \sigma = \left(\begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 1 \amp 2 \amp 3 \amp 4 \end{array} \right) = i</m>.
+                  </p>
+                </solution>
+                <figure xml:id="fig_perms_sigma_inv">
+                  <caption>Calculating <m>\sigma^{-1} \circ \sigma</m> using dot diagrams.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to work with inverse functions.
+    </p>
+    <activity xml:id="act_inv_fns">
+      <title>Invertible functions</title>
+      <p>
+        Consider the permutations
+        <me>
+          \alpha = \left ( \begin{array}{ccc cc} 1 \amp  2 \amp  3 \amp  4 \amp  5  \\ 2 \amp  1 \amp  4 \amp  5 \amp  3 \end{array}  \right ) \text{ and }  \rho = \left ( \begin{array}{ccc cc} 1 \amp  2 \amp  3 \amp  4 \amp  5  \\ 2 \amp  3 \amp  4 \amp  5 \amp  1 \end{array}  \right )
+        </me>
+        <ol>
+          <li>
+            <p>
+              Use that <m>\alpha(4)=5</m> to calculate <m>\alpha^{-1}(5)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write <m>\alpha^{-1}</m> in 2-line notation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use dot diagrams to confirm that <m>\alpha^{-1} \circ \alpha = i</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use dot diagrams to calculate <m>\rho^2</m>, <m>\rho^3</m>,
+              <m>\rho^4</m>, and <m>\rho^5</m>.
+              Report each answer in 2-line notation.
+              (You can just keep adding to the same diagram.)
+            </p>
+          </li>
+          <li>
+            <p>
+              Find <m>\rho^{-1}</m> and compare your answer to the powers of <m>\rho</m>.
+              What do you notice?
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>\delta</m> is a permutation and <m>\delta^{10}=i</m>,
+              what can you say about <m>\delta^{-1}</m>?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      It is not a coincidence that
+      <m>\sigma^{-1} \circ \sigma = i</m>, the identity function.
+      After all, the inverse function undoes the function.
+      To state the general result,
+      we first define the composition of the functions in general.
+      (If you have seen calculus,
+      the chain rule helped us take the derivative of the composite of functions.)
+    </p>
+    <definition xml:id="defn_fn_composition">
+      <title>Function composition</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Consider functions <m>f: X \to Y</m> and <m>g: Y \to Z</m>.
+                Their <em>composite function</em>
+                <m>h: X \to Z</m> is defined by <m>h(x) = g(f(x))</m>.
+                We often write <m>g \circ f</m> instead of <m>h</m>; that is,
+                <me>
+                  (g \circ f)(x) = g(f(x))
+                </me>.
+                For example,
+                if <m>v: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>v(n) = n-1</m> and
+                <m>w: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>w(n) = 2n</m>, then
+                <me>
+                  (w \circ v)(n) = w(v(n)) = w(n-1) = 2(n-1) = 2n-2
+                </me>.
+                Note that
+                <me>
+                  (v \circ w)(n) = v(w(n)) = v(2n) = 2n-1
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If a function <m>f:X \to X</m> has the same set for its domain and codomain,
+                then the <term>(<m>n</m>th) iterate</term>
+                of <m>f</m> is the composite
+                <me>
+                  f^n=\underbrace{f \circ f \circ f \cdots \circ f}_{n \text{ times } }
+                </me>.
+                For example,
+                if <m>v: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>v(n) = n-1</m>,
+                then <m>v^2: \mathbb{Z} \to \mathbb {Z}</m> is defined by
+                <me>
+                  v^2(n) = v(v(n))=v(n-1) = (n-1)-1 = n-2
+                </me>
+                and <m>v^3: \mathbb{Z} \to \mathbb {Z}</m> is defined by
+                <me>
+                  v^3(n) = v(v^2(n)) = v(n-2) = (n-2)-1 = n-3
+                </me>.
+                By the way, it is reasonable to conjecture that <m>v^k: \mathbb{Z} \to \mathbb {Z}</m> is defined by
+                <m>v^k(n) = n-k</m> for any positive integer <m>k</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      For any invertible function <m>f</m>,
+      <m>f^{-1} \circ f=i_X</m> where <m>i_X</m> is the identity function on the set <m>X</m> because
+      <me>
+        (f^{-1} \circ f)(x)=f^{-1}(f(x)) = f^{-1}(y) = x
+      </me>.
+      Similarly, <m>f \circ f^{-1}=i_Y</m>,
+      where <m>i_Y</m> is the identity function on the set <m>Y</m>, because
+      <me>
+        (f \circ f^{-1})(y) = f(f^{-1}(y)) = f(x) = y
+      </me>.
+      We state this result.
+    </p>
+    <theorem xml:id="thm_inv_fn_comp">
+      <title>Inverses and function composition</title>
+      <statement>
+        <p>
+          If <m>f:X \to Y</m> is an invertible function,
+          then <m>f^{-1} \circ f=i_X</m>,
+          where <m>i_X</m> is the identity function on <m>X</m>,
+          and <m>f \circ f^{-1}=i_Y</m>,
+          where <m>i_Y</m> is the identity function on <m>Y</m>.
+        </p>
+      </statement>
+    </theorem>
+  </subsection>
+  <subsection xml:id="sub_pff_unique">
+    <title>\subpffunique</title>
+    <p>
+      How do we prove that a function
+      <m>f: X \to Y</m> is one-to-one or that a function is invertible?
+      In this section,
+      we look at how to prove uniqueness and also how to prove existence and uniqueness.
+    </p>
+    <p>
+      Ironically, there are two different proof formats for proving uniqueness.
+      The first is direct.
+    </p>
+    <proof>
+      <p>
+        (Uniqueness,
+        direct) Prove: There is at most one <m>n</m> with <m>P(n)</m>.
+      </p>
+      <p>
+        <em>Proof.</em> Assume <m>P(n)</m>.
+      </p>
+      <p>
+        <nbsp/>(Explain why <m>n = k</m>.)
+      </p>
+      <p>
+        <nbsp/>Thus, if <m>P(n)</m>, then <m>n = k</m>.
+        It follows that <m>k</m> is the only possible value of <m>n</m>.
+      </p>
+      <p>
+        <nbsp/>Therefore, there is at most one <m>n</m> with <m>P(n)</m>.
+      </p>
+    </proof>
+    <p>
+      There is an indirect method to prove uniqueness that does not require us to find <m>k</m>.
+      How can we do that?
+      An intuitive approach would be a proof by contradiction <xref ref="pff_contradiction"/>.
+      That is, we would suppose that <m>P(n_1)</m> and <m>P(n_2)</m> with
+      <m>n_1 \neq n_2</m> and derive a contradiction.
+      However, such proofs typically do not use the assumption that <m>n_1 \neq n_2</m>,
+      and therefore can be rewritten without using contradiction.
+      That is, we can prove if <m>P(n_1)</m> and <m>P(n_2)</m>,
+      then <m>n_1=n_2</m>.
+    </p>
+    <proof>
+      <p>
+        (Uniqueness,
+        indirect) Prove: There is at most one <m>n</m> with <m>P(n)</m>.
+      </p>
+      <p>
+        <em>Proof.</em> Assume <m>P(n_1)</m> and <m>P(n_2)</m>.
+      </p>
+      <p>
+        <nbsp/>(Explain why <m>n_1 = n_2</m>.)
+      </p>
+      <p>
+        <nbsp/>Therefore, there is at most one <m>n</m> with <m>P(n)</m>.
+      </p>
+    </proof>
+    <p>
+      As usual, when we present new proof formats,
+      we give you examples to copy and edit.
+    </p>
+    <activity xml:id="act_uniqueness">
+      <title>Uniqueness proofs</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_unique_direct_2xplus1is7">
+            <p>
+              Copy the following direct proof.
+              For a fixed integer <m>a</m>,
+              prove that the equation <m>2x+1 = a</m> has at most one integer solution.
+              <em>Proof.</em> Assume <m>2x+1 = a</m>.
+              Subtract one from each side of the equation to get <m>2x = a-1</m>.
+              Divide each side of the equation by two to get <m>x = \frac{a-1}{2}</m>.
+              Thus, if <m>x</m> is a solution,
+              then <m>x = \frac{a-1}{2}</m>.
+              It follows that <m>x = \frac{a-1}{2}</m> is the only possible solution.
+              Therefore, the equation <m>2x+1=a</m> has at most one integer solution.
+              <m>\Box</m> Note: There will be one solution if <m>a</m> is odd and <m>\frac{a-1}{2}</m> is an integer.
+              There will be no solutions if <m>a</m> is even and <m>\frac{a-1}{2}</m> is not an integer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof from <xref ref="part_unique_direct_2xplus1is7"/> to prove that the equation <m>3x-4=b</m> has at most one integer solution.
+            </p>
+          </li>
+          <li xml:id="part_unique_indirect_2xplus1is7">
+            <p>
+              Copy the following indirect proof.
+              For a fixed integer <m>a</m>,
+              prove that the equation <m>2x+1 = a</m> has at most one integer solution.
+              <em>Proof.</em> Assume that the integers <m>n_1</m> and <m>n_2</m> are each a solution of <m>2x+1=a</m>.
+              Then <m>2n_1+1=a</m> and <m>2n_2+1=a</m>.
+              Equating these expressions we get <m>2n_1+1 = 2n_2+1</m>.
+              Subtract one from each side of the equation to get <m>2n_1 = 2n_2</m>.
+              Divide each side of the equation by two to get <m>n_1 = n_2</m>.
+              Therefore, the equation <m>2x+1=a</m> has at most one integer solution.
+              <m>\Box</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof from <xref ref="part_unique_indirect_2xplus1is7"/> to prove that the equation <m>3x-4=b</m> has at most one integer solution.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Recall that the one-to-one property was the uniqueness part of the definition of pairing <xref ref="defn_pairing"/>.
+      Thus, we can <xref ref="pff_unique_indirect">use</xref>
+      to prove that a function is one-to-one.
+      Recall from <xref ref="defn_onetoone"></xref> that a function
+      <m>f: X \to Y</m> is <term>one-to-one</term>
+      if for each element <m>y</m> of <m>Y</m>,
+      there is at most one element <m>x \in X</m> such that <m>f(x) =y</m>.
+      Using the indirect approach from <xref ref="pff_unique_indirect"></xref>,
+      we can prove that a function is one-to-one by showing if <m>f(x_1) = y</m> and
+      <m>f(x_2)=y</m>, then <m>x_1=x_2</m>.
+      There is no reason to mention <m>y</m>.
+      We can prove that a function is one-to-one by showing if
+      <m>f(x_1) = f(x_2)</m>, then <m>x_1=x_2</m>.
+      We can restate the definition of one-to-one using this observation.
+    </p>
+    <remark xml:id="rem_alt_defn_onetoone">
+      <title>Alternative definition of one-to-one</title>
+      <p>
+        Let <m>f: X \to Y</m> be a function.
+        Then <m>f</m> is one-to-one exactly when it satisfies the following condition.
+        For all elements <m>x_1</m> and <m>x_2</m> in <m>X</m>,
+        if <m>f(x_1) = f(x_2)</m>, then <m>x_1 = x_2</m>.
+      </p>
+    </remark>
+    <example xml:id="exam_prove_onetoone">
+      <title>Prove function is one-to-one</title>
+      <statement>
+        <p>
+          Prove that the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = 2n+1</m> is one-to-one,
+          <xref ref="rem_alt_defn_onetoone">using</xref>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Proof.</em> Let <m>n_1</m> and <m>n_2</m> be integers.
+          Assume <m>f(n_1) = f(n_2)</m>.
+          By the definition of <m>f</m>,
+          it follows that <m>2n_1+1=2n_2+1</m>.
+          Subtract one from each side of the equation to get
+          <me>
+            2n_1 = 2n_2
+          </me>.
+        </p>
+        <p>
+          Divide each side of the equation by two to get
+          <me>
+            n_1 = n_2
+          </me>.
+        </p>
+        <p>
+          Therefore, the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = 2n+1</m> is one-to-one.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can combine proof formats for existence and uniqueness to prove that there exists a unique value of <m>n</m> such that <m>P(n)</m>.
+      We begin with a quick notation.
+    </p>
+    <remark xml:id="rem_notation_unique">
+      <title>Notation for uniqueness</title>
+      <p>
+        There exists a unique value of <m>n</m> such that <m>P(n)</m> is denoted <m>\exists ! n ~ P(n)</m>.
+      </p>
+    </remark>
+    <p>
+      To prove that <m>\exists ! n ~ P(n)</m> we need to prove two things <mdash/> first,
+      that there is at least one <m>n</m> with <m>P(n)</m> and second,
+      that there is at most one <m>n</m> with <m>P(n)</m>.
+      The first proves existence,
+      which we can do <xref ref="pff_exists">using</xref>.
+      The second proves uniqueness,
+      which we can do directly <xref ref="pff_unique_direct">using</xref>.
+    </p>
+    <proof>
+      <p>
+        Prove: <m>\exists ! n ~ P(n)</m>
+      </p>
+      <p>
+        Proof: First, consider <m>n=</m>
+        (example).
+      </p>
+      <p>
+        (Explain why <m>P(n)</m>.)
+      </p>
+      <p>
+        Therefore, <m>P(n)</m> is true for some
+        (describe type of object),
+        namely <m>n=</m>
+        (example).
+      </p>
+      <p>
+        Next, assume <m>P(n)</m>.
+      </p>
+      <p>
+        (Explain why <m>n=</m> example.)
+      </p>
+      <p>
+        Thus, if <m>P(n)</m>, then <m>n=</m> example.
+      </p>
+      <p>
+        Therefore <m>n=</m> example is the unique
+        (describe type of object)
+        such that <m>P(n)</m>, namely <m>n=</m> example.
+      </p>
+    </proof>
+    <p>
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_exist_unique">
+      <title>Proof that there exists a unique</title>
+      <statement>
+        <p>
+          Prove that there exists a unique graph with three vertices and three edges.
+        </p>
+        <p>
+          <em>Proof.</em> First, consider the cycle <m>C_3</m>.
+          Note that <m>C_3</m> has three vertices and three edges.
+        </p>
+        <p>
+          Next, let <m>G</m> be a graph with three vertices and three edges.
+          Say the vertices are <m>u</m>, <m>v</m>, and <m>w</m>.
+          There are only three possible edges between these vertices:
+          <m>uv</m>, <m>uw</m>, and <m>vw</m>.
+          Since <m>G</m> has three edges,
+          it must have exactly those edges.
+          Thus <m>G = C_3</m>.
+          Therefore, there is at most one graph with three vertices and three edges,
+          namely <m>C_3</m>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_permutations">for</xref> \subperms</title>
+      <exercise xml:id="exer_perm_rho">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the permutation with 2-line notation
+            <me>
+              \rho = \displaystyle \left ( \begin{array}{ccc ccc} 1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6 \\ 3 \amp  4 \amp  1 \amp  6 \amp  5 \amp  2 \end{array}  \right )
+            </me>
+            <ol>
+              <li>
+                <p>
+                  List <m>\rho(1), \rho(2), \rho(3), \rho(4), \rho(5), \rho(6)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagram for <m>\rho</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_perm_compose_dg">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Calculate the composite <m>\delta \circ \gamma</m> where
+            <me>
+              \delta = \left ( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 1 \amp  3 \amp  2 \end{array}  \right ) \text{ and }  \gamma= \left ( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 3 \amp  1 \amp  2 \end{array}  \right )
+            </me>
+            <ol>
+              <li>
+                <p>
+                  First calculate the composite by evaluating <m>\delta \circ \gamma(1)</m>,
+                  <m>\delta \circ \gamma(2)</m>,
+                  and <m>\delta \circ \gamma(3)</m>.
+                  Write your answer in 2-line notation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Confirm your answer using the unlabeled dot diagrams.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_perms_compose">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use dot diagrams to compose the permutations written in 2-line notation.
+            Report your answer in 2-line notation.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 1 \amp 2 \amp 4 \amp 3 \end{array} \right ) \circ \displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 1 \amp 3 \amp 2 \amp 4 \end{array} \right )</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 3 \amp 4 \amp 1 \amp 2 \end{array} \right ) \circ \displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 2 \amp 3 \amp 4 \amp 1 \end{array} \right )</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 2 \amp 3 \amp 4 \amp 1 \end{array} \right ) \circ \displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 4 \amp 1 \amp 2 \amp 3 \end{array} \right )</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 4 \amp 2 \amp 1 \amp 3 \end{array} \right ) \circ \displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\1 \amp 2 \amp 3 \amp 4 \end{array} \right )</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_iterate_rho">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use dot diagrams to calculate <m>\rho^2</m> and <m>\rho^3</m> when
+            <me>
+              \displaystyle \rho = \left ( \begin{array}{ccc ccc} 1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6 \\ 3 \amp  4 \amp  1 \amp  6 \amp  5 \amp  2 \end{array}  \right )
+            </me>.
+            Write the answers in 2-line notation.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_iterations_perms">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Find an example of a nonidentity permutation on
+            <m>\{1,2,3,4,5\}</m> that satisfies the stated condition,
+            where <m>i</m> is the identity permutation on <m>\{1,2,3,4,5\}</m>.
+            State your answer in 2-line notation.
+            <ol>
+              <li>
+                <p>
+                  <m>\alpha^2=i</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\beta^3 = i</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\gamma^4=i</m> but <m>\gamma^2 \neq i</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\delta^5 =i</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_permutations">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What a permutation is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to draw the standard and unlabeled dot diagram for a permutation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to write permutation in 2-line notation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to compose permutations using their dot diagram?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which permutation is applied first in <m>\sigma \circ \tau</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the notation <m>\sigma^k</m> means?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_transpositions">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            A <term>transposition</term> is a permutation that only switches two elements.
+            For example <m>\delta = \left ( \begin{array}{ccc} 1 \amp 2 \amp 3 \\ 1 \amp 3 \amp 2 \end{array} \right )</m> is a transposition on <m>\{1,2,3\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Find the two other transpositions on <m>\{1,2,3\}</m>.
+                  Write your answers in 2-line notation and draw their dot diagrams.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagrams for each the transpositions on <m>\{1,2,3,4\}</m>..
+                </p>
+              </li>
+              <li>
+                <p>
+                  How can you tell from the dot diagram if a permutation is a transposition?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many transpositions on <m>\{1,2,3, \ldots, n\}</m> are there?
+                  Explain briefly.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_inverses">for</xref> \subinverses</title>
+      <exercise xml:id="exer_perms_inverse">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use dot diagrams to calculate the inverse of each permutation.
+            Write the answer in 2-line notation.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle \delta = \left ( \begin{array}{ccc} 1 \amp 2 \amp 3 \\ 1 \amp 3 \amp 2 \end{array} \right )</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\gamma= \left ( \begin{array}{ccc} 1 \amp 2 \amp 3 \\ 3 \amp 1 \amp 2 \end{array} \right )</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\mu= \displaystyle \left ( \begin{array}{ccc cc} 1 \amp 2 \amp 3 \amp 4 \amp 5 \\ 1 \amp 4 \amp 2 \amp 3 \amp 5 \end{array} \right )</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \rho = \left ( \begin{array}{ccc ccc} 1 \amp 2 \amp 3 \amp 4 \amp 5 \amp 6 \\ 3 \amp 4 \amp 1 \amp 6 \amp 5 \amp 2 \end{array} \right )</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_compose_fns_at3">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the functions <m>p:\mathbb{N} \to \mathbb{N}</m> defined by <m>p(n) = 10^n</m> and
+            <m>q:\mathbb{N} \to \mathbb{N}</m> defined by <m>q(n) = 2n</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate and simplify <m>(p \circ q)(3)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate and simplify <m>(q \circ p)(3)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_symmetric_group3">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw dot diagrams for each of the six permutations on <m>\{1,2,3\}</m>.
+                  You do not need to label your dot diagrams.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For each of those six permutations,
+                  state what its inverse permutation is.
+                  Hint: A permutation can be its own inverse.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_compose_bs_functions">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the functions <m>\fn{trim}: \mathbb{B}^* \to \mathbb{B}</m> defined by
+            <m>\fn{trim}(b) =</m> the bit sting <m>b</m> without its last bit and
+            <m>\fn{append}:\mathbb{B} \to \mathbb{B}^*</m> defined by <m>\fn{append}(b)=b\bs{1}</m>,
+            literally the bit string <m>b</m> with a <c>1</c> added to the right.
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>(\fn{append} \circ \fn{trim})(\bs{1010})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  When is <m>(\fn{append} \circ \fn{trim})(b)=b</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>(\fn{trim} \circ \fn{append})(\bs{1010})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  When is <m>(\fn{trim} \circ \fn{append})(b)=b</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_inverse_piecewise">
+        <title>\exerU inverse of piecewise function</title>
+        <statement>
+          <p>
+            Consider the function <m>f: \mathbb{N} \to \mathbb{N}</m> defined by
+            <me>
+              f(n) =\left\{ \begin{array}{cl} n+1 \amp  \text{ if }  n \text{ is even }  \\ n-1 \amp  \text{ if }  n \text{ is odd } \end{array}  \right
+            </me>.
+            The dot diagram for <m>f</m> is shown in <xref ref="fig_nonid_pair_naturals"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>f^2(3)</m> and <m>f^2(6)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  It turns out that <m>f</m> is a bijection.
+                  What is its inverse function?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_iterates_linear">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  The function <m>g: \mathbb{R} \to \mathbb{R}</m> is defined by <m>g(x) = ax</m>,
+                  where <m>a</m> is a nonzero constant.
+                  Calculate <m>g^2(x)</m>, <m>g^3(x)</m>,
+                  and <m>g^4(x)</m> and make a conjecture about <m>g^k(x)</m> in general.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>f: \mathbb{Z} \to \mathbb{Z}</m> is defined by
+                  <m>f(n) = n + c</m> where <m>c</m> is constant.
+                  Calculate and simplify <m>f^2(n)</m>,
+                  <m>f^3(n)</m>, and <m>f^4(n)</m>.
+                  Make a conjecture about <m>f^k(n)</m> in general.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_inverses">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  When a function is invertible?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What <m>f^{-1}(5)</m> equals if <m>f(2)=5</m> for an invertible function <m>f</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find the inverse of a permutation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to compose functions?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the notation <m>f^k</m> means?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why <m>f^{-1} \circ f</m> is the identity function for any invertible function <m>f</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_inverses_of_finite_order_fns">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Suppose <m>f:X \to X</m> is a bijection and, as usual,
+            write <m>i:X \to X</m> for the identity function on <m>X</m>.
+            <ol>
+              <li>
+                <p>
+                  If <m>f^2=i</m>, what does that tell you about <m>f^{-1}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>f^3=i</m>, what does that tell you about <m>f^{-1}</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_unique">for</xref> \subpffunique</title>
+      <exercise xml:id="exer_direct_unique">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Give a direct proof <xref ref="pff_unique_direct"/> that the equation <m>2x+3=a</m> has at most one integer solution.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_onetoone">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Prove that the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = n+ 3</m> is one-to-one,
+            <xref ref="rem_alt_defn_onetoone">using</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_uniq_soln">
+        <statement>
+          <p>
+            {Understand} Prove there exists a unique rational solution to the equation
+            <m>2x + a = 2b</m> for any integers <m>a</m> and <m>b</m>.
+            Hint: <xref ref="pff_exists_unique">Use</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pff_unique">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How we prove there is at most one of something (uniqueness)?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove that a function is one-to-one?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove there exists a unique object?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_div_alg_prove_uniqueness">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In this exercise,
+            we prove the uniqueness of the remainder in the Division Algorithm <xref ref="thm_div_alg"/>.
+            To start the proof, we assume that
+            <m>a = nq_1+r_1</m> and <m>a = nq_2 + r_2</m> for some integers
+            <m>a,n,q_1,r_1,q_2,r_2</m> with <m>n \ne4q 0</m>,
+            <m>0 \le r_1 \lt n</m>, and <m>0 \le r_2\lt n</m>.
+            It is not a loss of generality to assume <m>r_1 \ge r_2</m>.
+            <ol>
+              <li xml:id="part_pf_div_alg_uniq_1">
+                <p>
+                  Set the two expressions for <m>a</m> equal to each other and solve to prove that <m>n \div (r_1-r_2)</m>.
+                </p>
+              </li>
+              <li xml:id="part_pf_div_alg_uniq_2">
+                <p>
+                  Explain why <m>0 \le r_1-r_2 \lt n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How can parts <xref ref="part_pf_div_alg_uniq_1"/> and <xref ref="part_pf_div_alg_uniq_2"/> both be true?
+                  What does your conclusion tell you about <m>r_1</m> and <m>r_2</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_perm_rho"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The list begins 3, 4, 1, <ellipsis/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The dot diagram should have an arrow from 1 to 3 and an arrow from 3 to 1.
+            There is also an arrow straight across from 5 to 5.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_perm_compose_dg"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Make sure to follow the instructions in each part.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_perms_compose"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 1 \amp 4 \amp 2 \amp 3 \end{array} \right )</m> Hint: If you got <m>\displaystyle \left ( \begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 1 \amp 3 \amp 4 \amp 2 \end{array} \right )</m> that is not correct.
+            You composed the permutations in the opposite order.
+            Remember, the one on the right goes first.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The second line of the answer begins with 4.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is the identity permutation.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The second line of the answer begins with 4.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_iterate_rho"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: <m>\displaystyle \rho^2 = \left ( \begin{array}{ccc ccc} 1 \amp 2 \amp 3 \amp 4 \amp 5 \amp 6 \\ 1 \amp 6 \amp . \amp . \amp . \amp . \end{array} \right )</m> and <m>\displaystyle \rho^3 = \left ( \begin{array}{ccc ccc} 1 \amp 2 \amp 3 \amp 4 \amp 5 \amp 6 \\ 3 \amp 2 \amp . \amp . \amp . \amp . \end{array} \right )</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_iterations_perms"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\alpha</m> should swap two numbers,
+            such as <m>1 \to 2</m> and <m>2 \to 1</m>.
+            Send the other numbers to themselves.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\beta</m> should rotate three numbers cyclically,
+            such as <m>1 \to 2</m>, <m>2 \to 3</m>, and <m>3 \to 4</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\gamma</m> should rotate four numbers cyclically
+            (and not just be swaps).
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\delta</m> should rotate all five numbers cyclically.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_transpositions"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Another is <m>\left ( \begin{array}{ccc} 1 \amp 2 \amp 3 \\ 2 \amp 1 \amp 3 \end{array} \right )</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are six of them.
+            Think about which pair of numbers is switched.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Most of the lines are horizontal.
+            What else do you see in the dot diagram?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: How many ways are there to choose the two numbers out of <m>n</m> to swap?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_perms_inverse"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\delta</m> is its own inverse.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\displaystyle \gamma^{-1} = \left ( \begin{array}{ccc} 1 \amp 2 \amp 3 \\ 2 \amp 3 \amp 1 \end{array} \right )</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Check your answer by composing <m>\mu^{-1} \circ \mu</m>.
+            You should get the identity.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Check your answer by composing <m>\rho^{-1} \circ \rho</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_compose_fns_at3"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            1,000,000
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is much smaller than the answer as (a).
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_symmetric_group3"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are two that send <m>1 \to 1</m>,
+            two that send <m>1 \to 2</m>,
+            and two that send <m>1 \to 3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Four of them are their own inverses.
+            The remaining two are inverses of each other.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_compose_bs_functions"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: You should not get <c>1010</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It depends on the last bit of <m>b</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You should get <c>1010</c>.
+            Make sure you show work.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Figure out what <m>\fn{append}(b)</m> is first.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_inverse_piecewise"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>f^2(3) = f(f(3))=f(2)=</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What is <m>f^2</m>?
+            That tells you what <m>f \circ f</m> equals.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_iterates_linear"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>g^2(x) =g(g(x))=g(ax)=a(ax) =</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>f^2(n)=f(f(n))=f(n+c)=(n+c)+c=</m>?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_direct_unique"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from <xref ref="act_uniqueness"></xref>
+        <xref ref="part_unique_direct_2xplus1is7"/>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_onetoone"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from <xref ref="exam_prove_onetoone"></xref>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_uniq_soln"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Before writing the proof,
+        solve for <m>x</m> in terms of <m>a</m> and <m>b</m>.
+        The proof has two parts.
+        In the first part, consider <m>x =</m>
+        (the answer you found).
+        Evaluate <m>2x + a</m> when <m>x=</m> your answer and simplify to get <m>2b</m>.
+        In the second part, show how you solved the equation.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

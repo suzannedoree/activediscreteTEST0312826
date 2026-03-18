@@ -1,0 +1,1422 @@
+<section xml:id="sec_subgraph_isomorphic">
+  <title>Subgraphs and Isomorphic Graphs</title>
+  <introduction>
+    <p>
+      There are many different ways to draw a graph.
+      Suppose that you and I each draw a graph and our graph drawings look different.
+      How do we know if our graphs are actually the same graph (isomorphic)?
+      For example, are any of the graphs <m>G_1</m>, <m>G_2</m>,
+      and <m>G_3</m> drawn in <xref ref="fig_G1G2G3"></xref> the same (isomorphic)?
+    </p>
+    <figure xml:id="fig_G1G2G3">
+      <caption>Are any of the graphs <m>G_1</m>, <m>G_2</m>, <m>G_3</m> isomorphic?</caption>
+      image type not recognized
+    </figure>
+    <p>
+      Recognizing when two apparently different objects are,
+      for all mathematical purposes,
+      the same or different is a powerful skill.
+      For example,
+      suppose that we are modeling a problem and encounter a new graph <m>G</m>,
+      a graph that we know nothing about.
+      But then we realize that <m>G</m> is isomorphic to a graph <m>H</m> that we know well.
+      Then everything that is true about the known graph <m>H</m> is automatically true for the new graph <m>G</m> as well.
+      The concept of isomorphic occurs throughout mathematics.
+    </p>
+    <p>
+      There is no known efficient algorithm for determining if two graphs are isomorphic.
+      We begin this section with a visualization tool that can help and close this section by introducing vocabulary about graphs that live within other graphs (subgraphs),
+      which can also offer clues about whether two graphs are isomorphic.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_planarity">
+    <title>\subplanarity</title>
+    <p>
+      When we draw a graph,
+      it is acceptable to have edges that cross each other.
+      Any point of intersection of those edges in the drawing is <em>not</em> a vertex.
+      For example,
+      the complete graph <m>K_5</m> is typically drawn with many edges crossing,
+      as in <xref ref="fig_K5"></xref>.
+    </p>
+    <figure xml:id="fig_K5">
+      <caption>The standard drawing of the complete graph <m>K_5</m> with many edges crossing.</caption>
+      image type not recognized
+    </figure>
+    <p>
+      In some situations,
+      we might prefer to draw a graph without edges crossing.
+      For example, if the graph were modeling a physical system,
+      such as train tracks or electrical wires,
+      we might want to avoid edge crossings,
+      or at least find a drawing with as few edge crossings as possible.
+      It is reasonable to ask whether a graph can be drawn without crossings.
+      For example,
+      can you find a way to draw <m>K_5</m> without any edge crossings?
+    </p>
+    <p>
+      We formalize this idea with a definition.
+    </p>
+    <definition xml:id="defn_planar">
+      <title>Planar graph</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                An <term>edge crossing</term> in the drawing of a graph is a point of intersection of two edges other than at a vertex.
+              </p>
+            </li>
+            <li>
+              <p>
+                A graph is <term>planar</term> if it can be drawn in the plane without any edge crossings.
+                For example,
+                consider the graph <m>G</m> drawn in <xref ref="fig_four_drawings_K4_minus_edge"></xref>.
+                In the fourth drawing of <m>G</m>,
+                the edges <m>\{3,4\}</m> and <m>\{1,2\}</m> cross,
+                but no edges cross in the first three drawings of <m>G</m>.
+                Thus, <m>G</m> is planar.
+              </p>
+            </li>
+            <li>
+              <p>
+                A graph is <term>nonplanar</term>
+                if it cannot be drawn in the plane without any edge crossings.
+                For example,
+                it turns out that the complete graph <m>K_5</m> is nonplanar.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at an activity redrawing planar graphs without edge crossings.
+    </p>
+    <activity xml:id="act_planarity_puzzle">
+      <title>Planarity puzzle</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              The online Planarity game by Jason Davies<fn>
+              \url{https://www.jasondavies.com/planarity/}
+              </fn> gives you the opportunity to try your hand at moving planar graphs around until they appear without edge crossings.
+              Play the game at level five and then at level eight.
+            </p>
+          </li>
+          <li>
+            <p>
+              Redraw the complete graph <m>K_4</m> without edge crossings,
+              using the vertex labels from <xref ref="fig_K4_standard"></xref>.
+              <figure xml:id="fig_K4_standard">
+                <caption>The complete graph <m>K_4</m> drawn with an edge crossing.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li>
+            <p>
+              Redraw the complete bipartite graph <m>K_{2,5}</m> without edge crossing,
+              using the vertex labels from <xref ref="fig_K2b5_standard"></xref>.
+              <figure xml:id="fig_K2b5_standard">
+                <caption>The complete graph <m>K_{2,5}</m> drawn with multiple edge crossings.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li>
+            <p>
+              Redraw the Harary graph <m>H_{4,6}</m> without edge crossings,
+              using the vertex labels from <xref ref="fig_H4b6_standard"></xref>.
+              Note: It is possible to draw <m>H_{4,6}</m> without edge crossings using only straight lines for edges,
+              but you are welcome to use curves to represent edges instead.
+              <figure xml:id="fig_H4b6_standard">
+                <caption>The Harary graph <m>H_{4,6}</m> drawn with multiple edge crossings.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_isomorphic_graphs">
+    <title>\subisograph</title>
+    <p>
+      The three graphs in <xref ref="fig_G1G2G3"></xref> have many common properties.
+      For example, each graph has six vertices, five edges,
+      and degree sequence 3, 2, 2, 1, 1, 1.
+      They also all have chromatic number two.
+      But they are not all isomorphic.
+    </p>
+    <p>
+      Here is the formal definition.
+    </p>
+    <definition xml:id="defn_ism_graphs">
+      <title>Isomorphic Graphs</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Two graphs <m>G</m> and <m>H</m> are
+                <term>isomorphic</term>, denoted <m>G \cong H</m>,
+                if it is possible to label the vertices of <m>G</m> and the vertices of <m>H</m> in such a way that <m>G</m> and <m>H</m> have the same set of vertices and the same set of edges.
+                For example,
+                the graphs <m>G_1</m> and <m>G_2</m> in <xref ref="fig_G1G2G3"></xref> are isomorphic.
+                We show a common vertex labeling in <xref ref="fig_G1G2_labeled"></xref>.
+                You can check that each graph has the vertex set
+                <me>
+                  \{a, b, c, d, e, x\}
+                </me>
+                and the edge set
+                <me>
+                  \{\{a,b\}, \{b,c\}, \{c,d\}, \{d,e\}, \{c,x\}\}
+                </me>.
+                (By the way,
+                it is acceptable to abbreviate edges using strings.
+                For example <m>\{a,b\}</m> may be abbreviated <m>ab</m> when clear from context.)
+                <figure xml:id="fig_G1G2_labeled">
+                  <caption>Isomorphic graphs</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term>planarity-style move</term>
+                on a graph drawing consists of moving one vertex <m>v</m> to a different location and redrawing the edges from <m>v</m> in its new location to each of <m>v</m>'s neighbors.<fn>
+                These moves are named for the game
+                <q>Planarity</q>
+                from <xref ref="act_planarity_puzzle"></xref>.
+                </fn>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      These moves give us another way to work with graph isomorphism.
+    </p>
+    <remark xml:id="rem_planarity_moves">
+      <title>Planarity-style moves</title>
+      <p>
+        Graphs <m>G</m> and <m>H</m> are isomorphic exactly when we can transform a graph drawing of <m>G</m> into a graph drawing of <m>H</m> using a sequence of planarity-style moves.
+        While visualizing such a transformation is a useful way to <em>decide</em>
+        if two graphs are isomorphic,
+        to <em>prove</em> that two graphs are isomorphic,
+        you need to label the vertices according to the definition.
+        If you can see the transformation,
+        just follow the vertices to see what the labels should be.
+        For example,
+        we can think of transforming the graph <m>G_1</m> into the graph <m>G_2</m> from <xref ref="defn_ism_graphs"></xref>
+        by shifting the vertex <m>x</m> up and to the right and the vertices <m>d</m> and <m>e</m> down and to the left.
+      </p>
+    </remark>
+    <p>
+      When two graphs are complicated,
+      it can be useful to compare their complements instead.
+      Note that if <m>G</m> and <m>H</m> are isomorphic and labeled with the same vertices and edges,
+      then that labeling shows that <m>\overline{G}</m> and
+      <m>\overline{H}</m> have the same vertices and edges and so
+      <m>\overline{G}</m> and <m>\overline{G}</m> are also isomorphic.
+      We have the following result.
+    </p>
+    <theorem xml:id="thm_ism_complement">
+      <title>Isomorphic Complements</title>
+      <statement>
+        <p>
+          For graphs <m>G</m> and <m>H</m> we have
+          <m>G \cong H</m> exactly when <m>\overline{G} \cong \overline{H}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Here is an example of using the complement to prove that two graphs are isomorphic.
+    </p>
+    <example xml:id="exam_prove_ism_complements">
+      <title>Using complements to prove isomorphic graphs</title>
+      <statement>
+        <p>
+          Consider the graphs <m>G</m> and <m>H</m> drawn in <xref ref="fig_ism_Ham6"></xref>.
+        </p>
+        <figure xml:id="fig_ism_Ham6">
+          <caption>Are the graphs <m>G</m> and <m>H</m> isomorphic?</caption>
+          image type not recognized
+        </figure>
+        <ol>
+          <li>
+            <p>
+              Draw their complements.
+              <solution>
+                <p>
+                  The complements <m>\overline{G}</m> and
+                  <m>\overline{H}</m> are drawn in <xref ref="fig_ism_Ham6_comp"></xref>.
+                </p>
+                <figure xml:id="fig_ism_Ham6_comp">
+                  <caption>Complements of graphs from <xref ref="fig_ism_Ham6"></xref>.</caption>
+                  image type not recognized
+                </figure>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              Label the vertices of the complements to show <m>\overline{G} \cong \overline{H}</m>.
+              <solution>
+                <p>
+                  We label the isolated vertex <m>z</m>,
+                  the degree 3 vertex <m>a</m>,
+                  and the degree 2 vertex <m>b</m>.
+                  There is one leaf adjacent to <m>b</m> which we label <m>c</m>.
+                  Last, we label the other two leaves <m>u</m> and <m>v</m>
+                  (in either order).
+                  <xref ref="fig_ism_Ham6_comp_labeled"></xref>
+                  shows these complements labeled as well as a simplified graph drawing of the complement.
+                </p>
+                <figure xml:id="fig_ism_Ham6_comp_labeled">
+                  <caption>Labeling the complements from <xref ref="fig_ism_Ham6_comp"></xref>.</caption>
+                  image type not recognized
+                </figure>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>G \cong H</m>?
+              Explain.
+              <solution>
+                <p>
+                  Yes, by <xref ref="thm_ism_complement"></xref>
+                  since <m>\overline{G} \cong \overline{H}</m>,
+                  it follows that <m>G \cong H</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+    <p>
+      Practice showing graphs are isomorphic.
+    </p>
+    <activity xml:id="act_show_isomorphic">
+      <title>Show two graphs are isomorphic</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_ism_act_trees">
+            <p>
+              Show the trees drawn in <xref ref="fig_ism_trees"></xref>
+              are isomorphic by labeling the vertices of each and listing the edges.
+              Choose your labeling carefully.
+              <figure xml:id="fig_ism_trees">
+                <caption>Isomorphic trees <xref ref="act_show_isomorphic">for</xref> <xref ref="part_ism_act_trees"/>.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li xml:id="part_ism_act_Ham6">
+            <p>
+              Show the two graphs drawn in <xref ref="fig_ism_notK33"></xref>
+              are isomorphic by labeling the vertices of each and listing the edges.
+              Choose your labeling carefully.
+              <figure xml:id="fig_ism_notK33">
+                <caption>Isomorphic graphs <xref ref="act_show_isomorphic">for</xref> <xref ref="part_ism_act_Ham6"/>.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li xml:id="part_ism_act_comp">
+            <p>
+              Show that the graphs drawn in <xref ref="fig_act_ism_comp"></xref>
+              are isomorphic by showing their complements are isomorphic.
+              Label the complements and list the edges.
+              <figure xml:id="fig_act_ism_comp">
+                <caption>Isomorphic graphs <xref ref="act_show_isomorphic">for</xref> <xref ref="part_ism_act_comp"/>.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li xml:id="part_petersen">
+            <p>
+              Show that the graphs drawn in <xref ref="fig_ism_petersen"></xref>
+              are isomorphic by labeling the vertices so they have the same edges.
+              Hint: start with a 6-cycle in the graph on the left.
+              <figure xml:id="fig_ism_petersen">
+                <caption>Two drawings of the Petersen graph <xref ref="act_show_isomorphic">for</xref> <xref ref="part_petersen"/> and <xref ref="exer_petersen"></xref>.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_subgraph_tree">
+    <title>\subgraphtrees</title>
+    <p>
+      A common type of graph used to store information in a computer is a <term>tree</term>.
+      We saw examples of possibility trees in <xref ref="sec_listing"></xref>.
+      Trees are defined using the concepts of subgraph and connectivity,
+      so we start there.
+    </p>
+    <definition xml:id="defn_subgraph">
+      <title>Subgraph</title>
+      <statement>
+        <p>
+          The graph <m>H</m> is a <term>subgraph</term>
+          of the graph <m>G</m> if each vertex of <m>H</m> is a vertex of <m>G</m> and each edge of <m>H</m> is an edge of <m>G</m>.
+          Note that since <m>H</m> is a graph,
+          each edge of <m>H</m> necessarily contains two vertices of <m>H</m>.
+          For example, in <xref ref="fig_subgraph_order6"></xref>,
+          the graph on the left is a subgraph of the graph on the right.
+        </p>
+        <figure xml:id="fig_subgraph_order6">
+          <caption>The graph <m>H</m> is a subgraph of the graph <m>G</m>.</caption>
+          image type not recognized
+        </figure>
+      </statement>
+    </definition>
+    <p>
+      <xref ref="fig_subgraph_order6">In</xref>,
+      we draw the vertices of the subgraph <m>H</m> in the same position as they appeared in <m>G</m>,
+      but that is not required.
+    </p>
+    <example xml:id="exam_less_obvious_subgraphs">
+      <title>Less obvious subgraphs</title>
+      <statement>
+        <p>
+          Consider the graph <m>G</m> from <xref ref="fig_subgraph_order6"></xref>.
+          Which of the following graphs are subgraphs of <m>G</m>?
+          <ol>
+            <li xml:id="part_cycle_subgraph">
+              <p>
+                The cycle <m>C</m> drawn in <xref ref="fig_less_obv_cycle"></xref>.
+                <figure xml:id="fig_less_obv_cycle">
+                  <caption>The graph <m>C</m> from <xref ref="exam_less_obvious_subgraphs"></xref>.</caption>
+                  image type not recognized
+                </figure>
+                <solution>
+                  <p>
+                    The cycle <m>C</m> is a subgraph of <m>G</m> because each of <m>C</m>'s vertices (<m>b</m>,
+                    <m>c</m>,
+                    <m>d</m>,
+                    and <m>e</m>) and each of <m>C</m>'s edges (<m>\{b,c\}</m>,
+                    <m>\{c,d\}</m>,
+                    <m>\{d,e\}</m>, and <m>\{e,b\}</m>) are in <m>G</m>.
+                    Note that <m>C</m> is the cycle <m>C_4</m>,
+                    so we say <m>C_4</m> is a subgraph of <m>G</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_path_subgraph">
+              <p>
+                The path <m>P</m> drawn in <xref ref="fig_less_obv_path"></xref>.
+                <figure xml:id="fig_less_obv_path">
+                  <caption>The graph <m>P</m> from <xref ref="exam_less_obvious_subgraphs"></xref>.</caption>
+                  image type not recognized
+                </figure>
+                <solution>
+                  <p>
+                    The path <m>P</m> is a subgraph of <m>F</m> because each of <m>P</m>'s vertices (<m>a</m>,
+                    <m>c</m>, <m>d</m>, <m>e</m>,
+                    and <m>f</m>) and each of <m>P</m>'s edges (\{f,c\}, \{c,b\}, \{b,e\}, and \{e,a\}) are in <m>F</m>.
+                    Note that <m>P</m> is the path <m>P_5</m>,
+                    so we say <m>P_5</m> is a subgraph of <m>G</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The graph <m>J</m> drawn in <xref ref="fig_less_obv_clique"></xref>.
+                <figure xml:id="fig_less_obv_clique">
+                  <caption>The graph <m>J</m> from <xref ref="exam_less_obvious_subgraphs"></xref>.</caption>
+                  image type not recognized
+                </figure>
+                <solution>
+                  <p>
+                    The graph <m>J</m> is not a subgraph of <m>G</m> because <m>\{a,d\}</m> is an edge in <m>J</m> but not in <m>G</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The graph <m>D</m> drawn in <xref ref="fig_less_obv_subgraph"></xref>.
+                <figure xml:id="fig_less_obv_subgraph">
+                  <caption>The graph <m>D</m> from <xref ref="exam_less_obvious_subgraphs"></xref>.</caption>
+                  image type not recognized
+                </figure>
+                <solution>
+                  <p>
+                    The graph <m>D</m> is a subgraph of <m>F</m> since each vertex and edge in <m>D</m> is in <m>G</m>,
+                    even though <m>D</m> has two separate pieces.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We introduce a bit more vocabulary about subgraphs.
+    </p>
+    <definition xml:id="defn_cyclic_subgraphs">
+      <title>Cyclic subgraphs</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>cyclic subgraph</term> of a graph is a subgraph that is a copy of <m>C_s</m> for some integer <m>s \ge 3</m>.
+                For example,
+                the graph <m>C</m> from <xref ref="exam_less_obvious_subgraphs"></xref>
+                was a cyclic subgraph of the graph <m>G</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A graph <m>G</m> <term>contains an <m>s</m> cycle</term>
+                if <m>C_s</m> is a subgraph for some <m>s \ge 3</m>.
+                For example,
+                the graph <m>G</m> in <xref ref="fig_subgraph_order6"></xref> contains several 3-cycles,
+                a couple of 4-cycles, and 5-cycle.
+              </p>
+            </li>
+            <li>
+              <p>
+                A graph is <term>acyclic</term> if it does not contain any cyclic subgraphs.
+                For example, the path graphs <m>P_s</m> are acyclic.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's count all the cycles in a graph.
+    </p>
+    <example xml:id="exam_count_cycles">
+      <title>Counting cycles</title>
+      <statement>
+        <p>
+          Count all the cycles in the graph <m>G</m> in <xref ref="fig_subgraph_order6"></xref>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, there are three 3-cycles:
+          one with vertices <m>a</m>, <m>b</m>, and <m>e</m>;
+          a second with vertices <m>b</m>, <m>d</m>, and <m>e</m>;
+          and a third with vertices <m>b</m>, <m>c</m>, and <m>d</m>.
+        </p>
+        <p>
+          Next, there are two 4-cycles:
+          one with vertices <m>a</m>, <m>b</m>, <m>d</m>,
+          and <m>e</m> and the other with vertices <m>b</m>,
+          <m>c</m>, <m>d</m>, and <m>e</m>.
+        </p>
+        <p>
+          Lastly, there is one 5-cycle with vertices <m>a</m>, <m>b</m>,
+          <m>c</m>, <m>d</m>, and <m>e</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      In most networks, we want to maintain connectivity.
+      Casually speaking,
+      a graph is connected if there are no separate pieces,
+      which is difficult to define directly.
+      We give a formal definition of connected here.
+    </p>
+    <definition xml:id="defn_path_connected">
+      <title>Paths and connectivity</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>path</term> in a graph is a subgraph that is a copy of <m>P_s</m> for some integer <m>s \ge 1</m>.
+                For example,
+                the graph <m>P</m> from <xref ref="exam_less_obvious_subgraphs"></xref>
+                was a path in the graph <m>G</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term><m>uv</m>-path</term> is a path with endpoints <m>u</m> and <m>v</m>.
+                For example,
+                the graph <m>P</m> from <xref ref="exam_less_obvious_subgraphs"></xref> is a <m>fa</m>-path
+                (or an <m>af</m>-path)
+                in the graph <m>G</m>.
+                A single vertex <m>u</m> is considered a <m>uu</m>-path.
+              </p>
+            </li>
+            <li>
+              <p>
+                A graph <m>G</m> is <term>connected</term>
+                if for all vertices <m>u</m>,
+                <m>v</m> there exists a <m>uv</m>-path in <m>G</m>.
+                For example,
+                the graph <m>G</m> in <xref ref="fig_subgraph_order6"></xref> is connected,
+                as are its subgraphs <m>C</m> and <m>P</m> from <xref ref="exam_less_obvious_subgraphs"></xref>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A graph <m>G</m> that is not connected is
+                <term>disconnected</term>.
+                For example,
+                the subgraph <m>D</m> in <xref ref="exam_less_obvious_subgraphs"></xref> was disconnected because,
+                for example, there does not exist a <m>cd</m>-path in <m>D</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_finding_paths">
+      <title>Finding paths</title>
+      <statement>
+        <p>
+          Consider the graph <m>G</m> drawn in <xref ref="fig_house_with_tails"></xref>.
+          Find an <m>hd</m>-path in <m>G</m>.
+          Is it unique?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          One <m>hd</m>-path is <m>hcd</m>.
+          It is not unique.
+          For example <m>hjibcd</m> is another <m>hd</m>-path as is <m>hibcd</m>.
+        </p>
+      </solution>
+    </example>
+    <figure xml:id="fig_house_with_tails">
+      <caption>The graph <m>G</m> from <xref ref="exam_finding_paths"></xref>.</caption>
+      image type not recognized
+    </figure>
+    <p>
+      We can now define a tree.
+      Many applications of graph theory in computer science use trees.
+    </p>
+    <definition xml:id="defn_tree">
+      <title>Tree</title>
+      <statement>
+        <p>
+          A <term>tree</term> is an connected acyclic graph.
+          For example,
+          the path graphs <m>P_s</m> are trees for <m>s \ge 1</m>.
+          The graph <m>T</m> drawn in <xref ref="fig_tree_defn"></xref> is also a tree.
+        </p>
+        <figure xml:id="fig_tree_defn">
+          <caption>An example of a tree <m>T</m>.</caption>
+          image type not recognized
+        </figure>
+      </statement>
+    </definition>
+    <p>
+      A tree needs to be connected and acyclic.
+      If either condition fails in a graph,
+      then that graph is not a tree.
+    </p>
+    <example xml:id="exam_not_a_tree">
+      <title>Not a tree</title>
+      <statement>
+        <p>
+          Explain why each graph is not a tree.
+          <ol>
+            <li>
+              <p>
+                The graph <m>G</m> drawn in <xref ref="fig_house_with_tails"></xref>.
+                <solution>
+                  <p>
+                    The graph <m>G</m> is connected,
+                    but it is not a tree because it is not acyclic.
+                    For example,
+                    <m>G</m> contains a 3-cycle with vertices <m>i</m>, <m>j</m>,
+                    and <m>h</m>.
+                    By the way, <m>G</m> also contains a 4-cycle with vertices <m>b</m>, <m>c</m>,
+                    <m>h</m>,
+                    and <m>i</m> and a 5-cycle with vertices <m>b</m>, <m>c</m>,
+                    <m>h</m>, <m>i</m>, and <m>j</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The graph <m>D</m> drawn in <xref ref="fig_less_obv_subgraph"></xref>.
+                <solution>
+                  <p>
+                    The graph <m>D</m> is acyclic,
+                    but it is not a tree because it is disconnected.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with subgraphs and trees.
+    </p>
+    <activity xml:id="act_subgraphs_trees">
+      <title>Subgraphs and trees</title>
+      <p>
+        Consider the graphs <m>G</m>, <m>H</m>,
+        and <m>K</m> drawn in <xref ref="fig_subgraphs_trees"></xref>.
+      </p>
+      <figure xml:id="fig_subgraphs_trees">
+        <caption>The graphs <m>G</m>, <m>H</m>, and <m>K</m> from <xref ref="act_subgraphs_trees"></xref></caption>
+        image type not recognized
+      </figure>
+      <ol>
+        <li>
+          <p>
+            Confirm that <m>H</m> is a subgraph of <m>G</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why <m>K</m> is not a subgraph of <m>G</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find an <m>az</m>-path in <m>G</m>.
+            Is it unique?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            List the 3-cycles in <m>G</m> by listing the three vertices in each 3-cycle.
+            Hint: There are four of them.
+          </p>
+        </li>
+        <li>
+          <p>
+            List four 4-cycles in <m>G</m> by listing the four vertices in each cycle in the order you would go around the cycle.
+            Hint: One looks like an X.
+          </p>
+        </li>
+        <li>
+          <p>
+            How many 5-cycles does <m>G</m> have?
+          </p>
+        </li>
+        <li>
+          <p>
+            Check that <m>K</m> is a tree.
+          </p>
+        </li>
+        <li>
+          <p>
+            How are the number of vertices of <m>K</m> and the number of edges of <m>K</m> related?
+          </p>
+        </li>
+      </ol>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_planarity">for</xref>
+      \subplanarity</title>
+      <exercise xml:id="exer_K2bn_planar">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Explain how to draw the complete bipartite graph <m>K_{2,t}</m> in the plane without edge crossings.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_play_planarity">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Play planarity at \url{https://www.jasondavies.com/planarity/}. Submit a screenshot of your solution to level eight of the puzzle in under two minutes.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_planarity">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What an edge crossing is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What a planar graph is?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_play_planarity_higher_level">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Play planarity at \url{https://www.jasondavies.com/planarity/}. Submit a screenshot of your solution to Level 16 of the puzzle.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_isomorphic_graphs">for</xref>
+      \subisograph</title>
+      <exercise xml:id="exer_show_tree_ism">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Prove the trees drawn in <xref ref="fig_ism_trees_easy"></xref>
+            are isomorphic by labeling the vertices of each tree so that they have the same set of vertices and edges.
+          </p>
+          <figure xml:id="fig_ism_trees_easy">
+            <caption>Isomorphic trees <xref ref="exer_show_tree_ism">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_graph_ism">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Prove the graphs drawn in <xref ref="fig_ism_Ham5"></xref>
+            are isomorphic by labeling the vertices of each graph so that they have the same set of vertices and edges.
+          </p>
+          <figure xml:id="fig_ism_Ham5">
+            <caption>Isomorphic graphs <xref ref="exer_show_graph_ism">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_graph_ism_using_comp">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Prove the graphs drawn in <xref ref="fig_ism_H4b7"></xref>
+            are isomorphic by showing that their complements are isomorphic.
+          </p>
+          <figure xml:id="fig_ism_H4b7">
+            <caption>Isomorphic graphs <xref ref="exer_show_graph_ism_using_comp">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_petersen">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Show that the graphs drawn in <xref ref="fig_ism_petersen"></xref>
+            are isomorphic by labeling the vertices so that they have the same edges.
+            Hint: Start with a 6-cycle in the graph on the left.
+            Yes, this exercise <xref ref="act_show_isomorphic">repeats</xref> <xref ref="part_petersen"/>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_ism_graphs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What it means when we say that two graphs are isomorphic?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show that two graphs are isomorphic (by labeling the vertices)?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use complements to show that two graphs are isomorphic?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use planarity-style moves to decide if two graphs are isomorphic?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_selfcomp_graph">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            A graph <m>G</m> is <term>self-complementary</term>
+            if it isomorphic to its complement.
+            That is, if <m>G \cong \overline{G}</m>.
+            <ol>
+              <li>
+                <p>
+                  Show that the path <m>P_4</m> is self-complementary.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that the cycle <m>C_5</m> is self-complementary.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_edges_selfcomp_graphs">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            We defined self-complementary in <xref ref="exer_selfcomp_graph"></xref>.
+            <ol>
+              <li>
+                <p>
+                  If <m>G</m> is a self-complementary graph with four vertices,
+                  how many edges must it have?
+                  Explain.
+                  Hint: How many edges does the complete graph <m>K_4</m> have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>G</m> is a self-complementary graph with five vertices,
+                  how many edges must it have?
+                  Explain.
+                  Hint: How many edges does the complete graph <m>K_5</m> have?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_subgraph_tree">for</xref>
+      \subgraphtrees</title>
+      <exercise xml:id="exer_subgraphs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the graphs <m>A</m>, <m>B</m>,
+            and <m>C</m> drawn in <xref ref="fig_C8_plus_edges"></xref>.
+          </p>
+          <figure xml:id="fig_C8_plus_edges">
+            <caption>From left-to-right, the graphs  <m>A</m>, <m>B</m>, and <m>C</m>.</caption>
+            image type not recognized
+          </figure>
+          <ol>
+            <li>
+              <p>
+                Show how to check that <m>B</m> is a subgraph of <m>A</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why <m>C</m> is not a subgraph of <m>A</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cyclic_subgraphs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Again, consider the graphs <m>A</m>, <m>B</m>,
+            and <m>C</m> drawn in <xref ref="fig_C8_plus_edges"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Draw a 4-cycle that is a subgraph of <m>A</m>.
+                  Include the vertex labels.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a 5-cycle
+                  (other than <m>B</m>)
+                  that is a subgraph of <m>A</m>.
+                  Include the vertex labels.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a 6-cycle that is a subgraph of <m>A</m>.
+                  Include the vertex labels.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw an 8-cycle that is a subgraph of <m>A</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_not_trees">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Consider the graph in <xref ref="fig_twisted_disconnected"></xref>.
+                  Find a <m>cu</m>-path.
+                  Is it unique?
+                  <figure xml:id="fig_twisted_disconnected">
+                    <caption>A graph that's not connected.</caption>
+                    image type not recognized
+                  </figure>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that the graph in <xref ref="fig_twisted_disconnected"></xref>
+                  is not connected by listing the vertices that are not connected by a path to the vertex <m>c</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that the graph in <xref ref="fig_twisted_cycle"></xref>
+                  is not acyclic by finding a cyclic subgraph.
+                  <figure xml:id="fig_twisted_cycle">
+                    <caption>A graph that's not acyclic.</caption>
+                    image type not recognized
+                  </figure>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_size_trees">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  How many vertices and how many edges does the tree <m>T</m> in <xref ref="fig_tree_defn"></xref> have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  The paths <m>P_s</m> are trees for <m>s \ge 1</m>.
+                  How many vertices and how many edges does the path <m>P_{100}</m> have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  The stars <m>K_{1,t}</m> are trees for <m>t \ge 1</m>.
+                  How many vertices and how many edges does the star <m>K_{1,100}</m> have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture how the number of edges in a tree is related to the number of vertices.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_path_subgraphs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Again, consider the graphs <m>A</m>, <m>B</m>,
+            and <m>C</m> drawn in <xref ref="fig_C8_plus_edges"></xref>.
+            List seven different <m>bh</m>-paths in <m>A</m>.
+            Hint: Some begin <m>ba\ldots</m> and some begin <m>bc\ldots</m>.
+            Note: There are more than seven <mdash/> can you find them all?
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_which_cycles">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Which size cycles does the Harary graph <m>H_{4,6}</m> shown in <xref ref="fig_H4b6_standard"></xref> contain?
+            Copy the graph and highlight one cycle of each possible size.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_subgraph_examples">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example of a graph having six vertices and seven edges that contains a 6-cycle but does not contain a 5-cycle.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a tree with degree sequence <m>4,4,2,1,1,1,1,1,1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a planar graph that has a vertex of degree ten.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_subgraphs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to decide whether one graph is a subgraph of another graph?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find cycle subgraphs of a graph?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What an acyclic graph is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find a path between two vertices in a graph or determine that there is no path?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to determine whether a graph is connected?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What a tree is?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_caterpillars">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            A <term>caterpillar</term> is a tree such that if we remove each leaf and its corresponding edge,
+            then we get a path.
+            For example,
+            the graph drawn on the far right in <xref ref="fig_subgraphs_trees"></xref>
+            is a caterpillar because when we remove the leaves (<m>z</m>,
+            <m>a</m>,
+            and <m>c</m>) and their corresponding edges,
+            we get the path <m>by</m>.
+            <ol>
+              <li>
+                <p>
+                  Is the graph <m>T</m> drawn in <xref ref="fig_tree_defn"></xref> a caterpillar?
+                  Justify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the smallest possible tree that is not a caterpillar?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_distance_graph">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In a connected graph <m>G</m>,
+            the <term>distance between vertices <m>v</m> and <m>w</m></term>,
+            denoted <m>\fn{d}(v,w)</m>,
+            is the number of edges of the shortest <m>vw</m>-path in <m>G</m>.
+            <ol>
+              <li>
+                <p>
+                  Find each distance in the graph <m>G</m> drawn in <xref ref="fig_ladder_cross_color"></xref>
+                  (in <xref ref="exer_graph_color_algorithm"></xref>
+                  of <xref ref="sec_std_graphs"></xref>):
+                  <m>\fn{d}(v_1,v_8)</m>, <m>\fn{d}(v_1,v_5)</m>,
+                  <m>\fn{d}(v_4,v_6)</m>, <m>\fn{d}(v_3,v_3)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the distance between any pair of white vertices in the complete bipartite <m>K_{2,5}</m> drawn in <xref ref="fig_K2b5_standard"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you say about a connected graph with <m>s</m> vertices if every pair of vertices has distance one?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a graph where the maximum distance between two vertices is three.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title>Select Answers and Hints  <xref ref="sub_robots">for</xref> \subrobots</title>
+      <p>
+        None provided.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_tree_ism"></xref> Select Answers and Hints</title>
+      <p>
+        One solution is <xref ref="fig_ism_trees_easy_answer">shown</xref>.
+        (The only other solution switches <m>y</m> and <m>z</m>.)
+      </p>
+      <figure xml:id="fig_ism_trees_easy_answer">
+        <caption>Showing two trees are isomorphic.</caption>
+        image type not recognized
+      </figure>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_graph_ism"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There is one vertex of degree four,
+        so label that vertices <m>x</m> in each graph.
+        The other four vertices <m>a</m>, <m>b</m>,
+        <m>c</m>, and <m>d</m> form a 4-cycle in each graph.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_graph_ism_using_comp"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The complements are drawn in <xref ref="fig_ism_H4b7_comp"></xref>.
+      </p>
+      <figure xml:id="fig_ism_H4b7_comp">
+        <caption>Compare the complements in <xref ref="exer_show_graph_ism_using_comp"></xref>.</caption>
+        image type not recognized
+      </figure>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_petersen"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Once you have labeled the vertices,
+        make a list of the edges in each graph to check that your labeling produces the same graph.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_selfcomp_graph"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The path <m>P_4</m> is the graph <m>G</m> shown in <xref ref="fig_3comp"></xref>.
+            Its complement is shown in <xref ref="fig_three_comp_answer"></xref>,
+            but you will need to re-label it to match <m>P_4</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The cycle <m>C_5</m> is the graph <m>H</m> shown in <xref ref="fig_3comp"></xref>.
+            Its complement is shown in <xref ref="fig_three_comp_answer"></xref>,
+            but you will need to re-label it to match <m>C_5</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_edges_selfcomp_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Three
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use that the complement and the graph would have to have the same number of edges.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_subgraphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: List the edges of <m>B</m> and verify that they are the edges of <m>A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The graph <m>C</m> contains the edge <m>\{a,g\}</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_cyclic_subgraphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: One such 4-cycle has vertices <m>a</m>,
+            <m>d</m>, <m>e</m>, and <m>f</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One such 5-cycle has vertices <m>a</m>, <m>b</m>,
+            <m>c</m>, <m>g</m>, and <m>h</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You need six out of the eight vertices.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It includes all of the eight vertices.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_not_trees"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>ctywu</m> and it is unique.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>d</m>, <m>z</m>, <ellipsis/>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>uwy\ldots u</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_size_trees"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            12 vertices, 11 edges
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: 99 edges
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There is an edge from the hub vertex to each of the other 100 vertices.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your conjecture should say
+            <q>A tree with <m>s</m> vertices has
+            <em><nbsp/><nbsp/><nbsp/></em> edges.</q>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_which_cycles"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are 3-cycles, 4-cycles, 5-cycles, and a 6-cycle.
+        Highlight one of each.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_subgraph_examples"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: You can draw a 6-cycle with a chord
+            (edge going across),
+            but make sure that it does not form a 5-cycle.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One possibility is that the degree two vertex has two degree four neighbors.
+            Fill in the degree one vertices.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Start with a vertex of degree ten and add vertices making sure no edges cross.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_caterpillars"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The leaves are <m>n</m>, <m>p</m>,
+            <m>q</m>, <m>r</m>, <m>t</m>, <m>v</m>, and <m>z</m>.
+            Decide if what remains when they are removed is a path.
+            If so, then the tree is a caterpillar.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It has seven vertices.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

@@ -1,0 +1,2083 @@
+<section xml:id="sec_listing">
+  <title>Organized Listing</title>
+  <introduction>
+    <p>
+      It is often helpful to have a list.
+      We might be trying to solve a problem by looking for a pattern among a list of examples.
+      Or, we might want to check for every possibility using a list of all possible examples.
+      In this section, we practice listing.
+    </p>
+    <p>
+      We begin this section by giving you the opportunity to list on your own,
+      so that you can appreciate the challenges.
+      Try not to get frustrated, just try your best.
+      Later in the section,
+      we describe a few strategies to help create organized lists,
+      including considering cases and constructing possibility trees,
+      that can make the process a little less frustrating.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_squares_dominoes">
+    <title>\subsqdom</title>
+    <p>
+      We begin with a puzzle.
+    </p>
+    <activity xml:id="act_squares_dominoes">
+      <title>Squares and Dominoes Puzzle</title>
+      <p>
+        You have a large supply of
+        <m>1 \times 1</m> (striped) squares and
+        <m>1 \times 2</m> (gray) dominoes with which to <term>tile</term>
+        a <m>1 \times n</m> board.
+        That is, you want to cover every square on the board with either a square or a domino so that there is no overlap.
+        For example, there are three different ways to tile a
+        <m>1 \times 3</m> board shown in <xref ref="fig_sq_dom3"></xref>.
+        Notice that the order of the tiles matters.
+      </p>
+      <figure xml:id="fig_sq_dom3">
+        <caption>Three ways to tile the <m>1 \times 3</m> board with squares and dominoes.</caption>
+        <image width="50%" source="images/SqDom.png"/>
+      </figure>
+      <p>
+        We write a dot (<m>\bullet</m>) for each square and a dash (<m>\boldsymbol{-}</m>) for each domino to obtain the shorthand listed below each tiling.
+        <ol>
+          <li>
+            <p>
+              There is one way to tile the <m>1\times 1</m> board.
+              What is it?
+              Use our shorthand.
+            </p>
+          </li>
+          <li>
+            <p>
+              There are two ways to tile the <m>1\times 2</m> board.
+              List them using our shorthand.
+            </p>
+          </li>
+          <li>
+            <p>
+              We have already seen that there are three ways to tile the <m>1\times 3</m>.
+              You might expect there to be four ways to tile the <m>1\times 4</m> board,
+              but there are actually five ways.
+              List them.
+            </p>
+          </li>
+          <li>
+            <p>
+              List the ways to tile the <m>1 \times 5</m> board.
+              How many ways are there?
+            </p>
+          </li>
+          <li>
+            <p>
+              List all the ways to tile the <m>1\times 6</m> board.
+              Hint: first list all the ways that start with a square (<m>\bullet</m>) and then list all the ways that start with a domino
+              (<m>\boldsymbol{-}</m>).
+            </p>
+          </li>
+          <li>
+            <p>
+              Make a table to record the number of ways to tile the
+              <m>1 \times n</m> board for <m>n=1,2,3,4,5,6</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture the number of ways to tile a <m>1\times 10</m> board.
+              Explain your reasoning and show your work.
+              Your answer should be a specific number.
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture the number of ways to tile a <m>1\times n</m> board.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Make sure that you have <xref ref="act_squares_dominoes">tried</xref> before reading on.
+    </p>
+    <example xml:id="exam_sq_dom6">
+      <title>Squares and dominoes tiling of a <m>1 \times 6</m> board</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                As in <xref ref="act_squares_dominoes"></xref>,
+                list all the ways to tile a
+                <m>1 \times 6</m> board with squares and dominoes by first listing the ways that start with a square (<m>\bullet</m>) and then listing all the ways that start with a domino
+                (<m>\boldsymbol{-}</m>).
+                <solution>
+                  <p>
+                    First, we list the ways that start with a square.
+                    After the square,
+                    there is effectively a <m>1 \times 5</m> board to tile.
+                    Therefore, we copy all the ways to tile the <m>1 \times 5</m> board
+                    (shown with a square bracket)
+                    and put a square in front of each,
+                    as shown in <xref ref="fig_sq_dom6_start1"></xref>.
+                  </p>
+                  <figure xml:id="fig_sq_dom6_start1">
+                    <caption>Tiling the <m>1 \times 6</m> board starting with a square.</caption>
+                    <me>
+                      \bullet \underbracket{\bullet \bullet \bullet \bullet \bullet~}~, \bullet \underbracket{\bullet \bullet \bullet \boldsymbol{-}~}~, \bullet \underbracket{\bullet \bullet \boldsymbol{-} \bullet~}~, \bullet \underbracket{\bullet \boldsymbol{-} \bullet \bullet~}~, \bullet \underbracket{\bullet \boldsymbol{-} \boldsymbol{-}~}~, \bullet \underbracket{\boldsymbol{-} \bullet \bullet \bullet~}~, \bullet \underbracket{\boldsymbol{-}  \bullet \boldsymbol{-}~}~, \bullet \underbracket{\boldsymbol{-}  \boldsymbol{-}\bullet~}
+                    </me>
+                  </figure>
+                  <p>
+                    Next, we list the ways that start with a domino.
+                    After the domino,
+                    there is effectively a <m>1 \times 4</m> board to tile.
+                    Therefore, we copy all the ways to tile the <m>1 \times 4</m> board
+                    (shown with a square bracket)
+                    and put a domino in front of each,
+                    as shown in <xref ref="fig_sq_dom6_start2"></xref>.
+                  </p>
+                  <figure xml:id="fig_sq_dom6_start2">
+                    <caption>Tiling the <m>1 \times 6</m> board starting with a domino.</caption>
+                    <me>
+                      \boldsymbol{-} \underbracket{\bullet \bullet \bullet \bullet~}~, \boldsymbol{-} \underbracket{\bullet \bullet \boldsymbol{-}~}~, \boldsymbol{-} \underbracket{\bullet \boldsymbol{-} \bullet~}~, \boldsymbol{-} \underbracket{\boldsymbol{-} \bullet \bullet~}~, \boldsymbol{-} \underbracket{\boldsymbol{-} \boldsymbol{-}~}
+                    </me>
+                  </figure>
+                  <p>
+                    Since every tiling of a <m>1 \times 6</m> board either starts with a square or with a domino,
+                    we have listed all ways to tile a <m>1 \times 6</m> board.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many ways are there to tile a <m>1 \times 6</m> board?
+                Explain how your answer related to the number of ways to tile a
+                <m>1 \times 5</m> board and the number of ways to tile a <m>1 \times 4</m> board.
+                <solution>
+                  <p>
+                    We listed a total of 13 ways to tile a <m>1 \times 6</m> board.
+                    Because we get one tiling of a <m>1 \times 6</m> board for each of the eight ways to tile a <m>1 \times 5</m> board and we get one tiling of a <m>1 \times 6</m> board for each of the five ways to tile a
+                    <m>1 \times 4</m> board, , the number of ways to tile a
+                    <m>1 \times 6</m> board equals the sum of the number of ways to tile a
+                    <m>1 \times 5</m> board plus the number of ways to tile a <m>1 \times 4</m> board.
+                    That is, there are <m>8+5=13</m> ways to tile a <m>1 \times 6</m> board.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      <xref ref="act_squares_dominoes">In</xref>
+      and <xref ref="exam_sq_dom6"></xref>,
+      we saw our first example of a <term>recusive</term>
+      solution where we use tilings of smaller boards to tile a larger board.
+      Specifically, we can tile a
+      <m>1 \times n</m> board using the tilings for the next two smaller boards:
+      a <m>1 \times (n-1)</m> board and a <m>1 \times (n-2)</m> board.
+      We study recursions in <xref ref="ch_recursion_induction"></xref> Recursion and Induction.
+      We can use this recursion to count the number of tilings on a <m>1 \times n</m> board.
+    </p>
+    <example xml:id="exam_sq_dom8">
+      <title>Counting squares and dominoes tilings of a <m>1 \times 8</m> board</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Based on the recursive solution to tile a
+                <m>1 \times n</m> board using squares and dominoes in <xref ref="exam_sq_dom6"></xref>,
+                how many ways can we tile a <m>1 \times 8</m> board?
+                <solution>
+                  <p>
+                    We saw in <xref ref="exam_sq_dom6"></xref>
+                    that there are <m>8+5=13</m> ways to tile a <m>1 \times 6</m> board:
+                    eight are obtained by putting a square in front of each tiling of a
+                    <m>1 \times 5</m> board and five are obtained by putting a domino in front of each tiling of a <m>1 \times 4</m> board.
+                  </p>
+                  <p>
+                    Similarly, there are <m>13+8=21</m> ways to tile a
+                    <m>1 \times 7</m> board: 13 are obtained by placing a square in front of each tiling of a
+                    <m>1 \times 6</m> board and eight are obtained by placing a domino in front of each tiling of a <m>1 \times 5</m> board.
+                  </p>
+                  <p>
+                    Continuing this reasoning,
+                    there are <m>21+13 = 34</m> tilings of a <m>1 \times 8</m> board.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Conjecture the number of ways to tile a <m>1 \times n</m> board.
+                <solution>
+                  <p>
+                    The one-shorter board is <m>1 \times (n-1)</m> and the two-shorter board is <m>1 \times (n-2)</m>.
+                    Since we got one tiling of the
+                    <m>1 \times n</m> board for each tiling of a
+                    <m>1 \times (n-1)</m> board and for each tiling of a <m>1 \times (n-2)</m> board,
+                    the number of tilings of a
+                    <m>1 \times n</m> equals the sum of the number of tilings of a
+                    <m>1 \times (n-1)</m> board and the number of tilings of a <m>1 \times (n-2)</m> board.
+                    That last sentence is a mouthful.
+                    Using sequence notation,
+                    which we introduce formally in <xref ref="sec_explicitly_defined_sequences"></xref>,
+                    we might write
+                    <me>
+                      b_n=b_{n-1}+b_{n-2}
+                    </me>
+                    where the subscript on <m>b_k</m> represents the number of ways to tile a <m>1 \times k</m> board.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The number of ways to tile a
+      <m>1 \times n</m> board with squares and dominoes is a <term>Fibonacci</term>
+      number<ndash/> it is the sum of the previous two Fibonacci numbers,
+      usually starting with <m>0,1</m>.
+      We revisit the Fibonacci numbers again in <xref ref="sec_fibonacci_higher"></xref>.
+      The first few Fibonacci numbers are
+      <me>
+        0,1,1,2,3,5,8,13,21,34,55,89,\ldots
+      </me>
+    </p>
+  </subsection>
+  <subsection xml:id="sub_sets_digits">
+    <title>\subsetsdigits</title>
+    <p>
+      Throughout this course, we use mathematical structures.
+      One structure is a <term>set</term>,
+      which is understood to be an unordered collection of <term>elements</term>.
+      For example,
+      the set <m>\{1,4,5\}</m> has three elements: 1, 4, and 5.
+      The set <m>\{4,1,5\}</m> is the same as the set <m>\{1,4,5\}</m> because
+      <m>\{4,1,5\}</m> has the same three elements: 1, 4, and 5.
+      That is, the order in which we list the elements in a set does not matter.
+      There is no need to repeat elements within a set because it does not change the set.
+      For example,
+      the set <m>\{2,7,2\}</m> is the same as the set <m>\{2,7\}</m> because each set has two elements: 2 and 7.
+      Sets are very important in mathematics.
+      In fact, we might say that
+    </p>
+    <blockquote>
+      Sets are the most fundamental structure of mathematics because all of mathematics can be defined using sets.
+    </blockquote>
+    <p>
+      Since discrete mathematics comes from all areas of mathematics,
+      it should not be surprising that this textbook uses a large mathematical vocabulary.
+      Some words in that vocabulary are not defined.
+      For example, the words
+      <q>set</q>
+      or
+      <q>element</q>
+      are not defined in the previous paragraph,
+      although we hope that their meaning is clear from the narrative.
+      It turns out that any vocabulary must be built on a set of undefined words because you have to start somewhere.
+      We try to keep the list of undefined terms as short as possible.
+    </p>
+    <p>
+      When we can,
+      we give a formal mathematical <term>definition</term>
+      of a new word that states what the word means in mathematics.
+      We sometimes add a quick example or note,
+      but those additions are not officially part of the definition.
+      Definitions in mathematics also serve another purpose.
+      There might be several different,
+      but equivalent, ways to explain the meaning of a word.
+      In such situations,
+      a definition establishes an agreement on which of those different explanations is the official mathematical definition of the word.
+    </p>
+    <p>
+      Here are a few examples of definitions.
+      First, there are a few ways to refer to types of numbers.
+    </p>
+    <definition xml:id="defn_integers">
+      <title>Integers</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The numbers <m>\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots</m> are <term>integers</term>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The numbers <m>0, 1, 2, 3, \ldots</m> are
+                <term>natural numbers</term>
+                (or <term>non-negative integers</term>)<fn>
+                You may find that other mathematics classes have the natural numbers starting with <m>1</m>
+                </fn>.
+                For example, the phrase
+                <q>for any natural number <m>n</m></q>
+                means
+                <q>for any integer <m>n \ge 0</m></q>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The numbers <m>1, 2, 3, \ldots</m> are
+                <term>positive integers</term>.
+                For example, the phrase
+                <q>for any positive integer <m>n</m></q>
+                means
+                <q>for any integer <m>n \ge 1</m></q>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The integers <m>0,1,2,3,4,5,6,7,8,9</m> have a special name.
+    </p>
+    <definition xml:id="defn_digit">
+      <title>Digit</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Each of the integers <m>0,1,2,3,4,5,6,7,8,9</m> is a <term>digit</term>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Two digits (or two integers) are
+                <term>distinct</term> if they are not equal.
+              </p>
+            </li>
+            <li>
+              <p>
+                A digit (or an integer) is <term>nonzero</term>
+                if it does not equal zero.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We also have a name for the result of adding,
+      subtracting, or multiplying two integers.
+    </p>
+    <definition xml:id="defn_sum_product">
+      <title>Sum, difference, and product</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The <term>sum</term>
+                (or <term>total</term>)
+                of two integers <m>n</m> and <m>k</m> is <m>n+k</m>.
+                For example,
+                the sum of 2 and 3 is 5 and the sum of 3 and <m>t</m> is <m>3+t</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In any sum, <term>terms</term> are the integers that are added.
+                For example, in the sum <m>3+t</m>,
+                the terms are 3 and <m>t</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>negative</term> of the integer <m>s</m> is the integer
+                <me>
+                  -s=(-1)s
+                </me>.
+                Note that <m>-s</m> could be positive, negative, or 0.
+                For example, the negative of 5 is <m>-5</m>,
+                the negative of <m>-17</m> is <m>17</m>,
+                and the negative of 0 is 0.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>difference</term> of the integers <m>n</m> and <m>s</m>,
+                in that order, is the integer
+                <me>
+                  n-s=n+(-s)
+                </me>.
+                Note that if we subtract in the opposite order, we get the negative.
+                For example, <m>7-4=3</m> and <m>4-7=-3</m>.
+                That is, <m>n-s</m> and <m>s-n</m> are negatives of each other.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>product</term> of the integers <m>n</m> and <m>s</m> is <m>n \times s</m>,
+                which is normally written as <m>ns</m>.
+                For example,
+                the product of 2 and 3 is 6 and the product of 5 and <m>k</m> is <m>5k</m>.
+                Multiplication is shorthand for addition, so officially
+                <me>
+                  ns = \underbracket{s+s+\ldots+s.}_{n \text{ times } }
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                In any product, the <term>factors</term>
+                are the integers being multiplied.
+                For example, in the product <m>5k</m>,
+                the factors are 5 and <m>k</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here is an example that uses these definitions.
+    </p>
+    <example xml:id="exam_two_digit_sets">
+      <title>2-digit sets</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                List all sets of two distinct nonzero digits where the sum of the digits is 14.
+                <solution>
+                  <p>
+                    Since <m>5+9=14</m> and <m>6+8=14</m>,
+                    two such sets are <m>\{5,9\}</m> and <m>\{6,8\}</m>.
+                    Notice that <m>7+7=14</m>, but the digits that are added are not distinct.
+                    There are no other sets because the largest digit is 9, and so the smallest digit we might use is <m>14-9=5</m>.
+                    The final list is <m>\{5,9\}</m> and <m>\{6,8\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                List all sets of two distinct digits where the product of the digits is 12.
+                <solution>
+                  <p>
+                    Start with the smallest digit 1.
+                    We know <m>1 \times 12 = 12</m>, but 12 is not a digit.
+                    The next digit is 2 and <m>2 \times 6 = 12</m>.
+                    Thus, one set is <m>\{2,6\}</m>.
+                    Next, we have the digit 3 and <m>3 \times 4 = 12</m>.
+                    Thus, another set is <m>\{3,4\}</m>.
+                    The final list is <m>\{2,6\}</m>, <m>\{3,4\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with sets.
+    </p>
+    <activity xml:id="act_digit_sum">
+      <title>Digit sums</title>
+      <p>
+        Be sure to write sets in set notation using curly brackets.
+        <ol>
+          <li>
+            <p>
+              List all sets of two distinct nonzero digits where the sum of the digits is seven.
+            </p>
+          </li>
+          <li xml:id="part_3sum_is9">
+            <p>
+              List all sets of three distinct nonzero digits where the sum of the digits is nine.
+            </p>
+          </li>
+          <li>
+            <p>
+              List all sets of four distinct nonzero digits where the sum of the digits is 21.
+            </p>
+          </li>
+          <li>
+            <p>
+              How might you organize your lists to avoid accidentally listing the same set twice,
+              to make it easy to compare answers with a classmate,
+              and to determine if you included all the possibilities?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      As we saw in <xref ref="act_squares_dominoes"></xref>
+      and <xref ref="act_digit_sum"></xref>,
+      there are two key challenges to making a list.
+      <ul>
+        <li>
+          <p>
+            How do we know if our list includes all the possibilities?
+          </p>
+        </li>
+        <li>
+          <p>
+            How can we avoid accidentally listing the same object twice?
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The short version of the answer is that we try to be organized,
+      and if possible, we try to write the list in a standard order.
+      For example, in <xref ref="act_squares_dominoes"></xref>
+      you might have organized your list based on whether the tiling started with a square or a domino,
+      or you might have organized your list based on the number of dominoes.
+      <xref ref="act_digit_sum">In</xref>
+      you might have organized your work by considering the smallest or largest element in your set.
+      In general, we can create an organized list by breaking the problem into special cases.
+    </p>
+    <example xml:id="exam_kakuro_12in4">
+      <title>Using cases to list digit sums</title>
+      <statement>
+        <p>
+          Use cases based on the largest digit to list all sets of four distinct nonzero digits where the sum of the digits is 17.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We consider cases based on the largest digit in the set.
+        </p>
+        <p>
+          Case 1: The largest digit is 9.
+          The other three distinct nonzero digits must be less than 9 and have a sum of <m>17-9=8</m>,
+          either <m>5+2+1 = 8</m> or <m>4+3+1=8</m>.
+          The two sets in this case are
+          <m>\{1,2,5,9\}</m> and <m>\{1,3,4,9\}</m>.
+        </p>
+        <p>
+          Case 2: The largest digit is 8.
+          The other three distinct nonzero digits must be less than 8 and have a sum of <m>17-8=9</m>,
+          either <m>5+3+1 = 9</m> or <m>4+3+2=9</m>.
+          The two sets in this case are
+          <m>\{1,3,5,8\}</m> and <m>\{2,3,4,8\}</m>.
+        </p>
+        <p>
+          Case 3: The largest digit is 7.
+          The other three distinct nonzero digits must be less than 7 and have a sum of <m>17-7=10</m>,
+          either <m>5+4+1 = 10</m> or <m>5+3+2=10</m>.
+          The two sets in this case are
+          <m>\{1,4,5,7\}</m> and <m>\{2,3,5,7\}</m>.
+        </p>
+        <p>
+          Case 4: The largest digit is 6.
+          The other three distinct nonzero digits must be less than 6 have a sum of <m>17-6=11</m> which must be <m>5+4+2 = 11</m>.
+          The only set in this case is <m>\{2,4,5,6\}</m>.
+        </p>
+        <p>
+          Note that the largest digit cannot be 5 because we cannot find three distinct nonzero digits that are less than 5 and add to <m>17-5=12</m>.
+          The largest sum of three distinct nonzero less than 5 is <m>4+3+2=9\lt 12</m>.
+        </p>
+        <p>
+          We have found all seven sets of four distinct nonzero digits where the sum of the digits is 17.
+          They are <m>\{1,2,5,9\}</m>,
+          <m>\{1,3,4,9\}</m>, <m>\{1,3,5,8\}</m>, <m>\{2,3,4,8\}</m>,
+          <m>\{1,4,5,7\}</m>, <m>\{2,3,5,7\}</m>, and <m>\{2,4,5,6\}</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_strings">
+    <title>\substrings</title>
+    <p>
+      Another example of a mathematical structure is a string.
+      Your passwords are probably all strings.
+      We represented a tiling of a
+      <m>1 \times n</m> board with squares and dominoes as a string of dots (<m>\bullet</m>) and dashes (<m>\boldsymbol{-}</m>) in <xref ref="act_squares_dominoes"></xref>.
+      Here is the definition of string and more vocabulary about strings.
+    </p>
+    <definition xml:id="defn_characters_and_strings">
+      <title>Characters and strings</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                An <term>alpha-numeric character</term> is either a digit,
+                a lowercase English letter, or an uppercase (capital) English letter.
+                There are 26 letters in the English alphabet and each letter has a lower and upper case.
+              </p>
+            </li>
+            <li>
+              <p>
+                In this textbook
+                (and most of mathematics and computer science),
+                all alphanumeric characters are
+                <term>case-sensitive</term>.
+                For example,
+                <c>A</c> and <c>a</c> are different characters.
+                There are, <m>10+26+26 = 62</m> alphanumeric characters
+              </p>
+            </li>
+            <li>
+              <p>
+                Any other single symbol,
+                such as <c>&amp;</c> or <c>></c>,
+                that is typically found on a keyboard key is a
+                <term>special character</term>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term>character</term> is either an alphanumeric character or a special character.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term>string</term> is a finite sequence of characters.
+                For example, <c>A0y2%0</c> is a string.
+                Note that characters may be repeated within a string and the order matters.
+                For example, <c>00%2Ay</c> is a different string.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>length of a string</term>
+                is the total number of characters in the string.
+                For example, <c>A0y2%0</c> is a string of length six.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      In our next example,
+      we highlight two organizational strategies for creating lists:
+      considering cases or drawing a <term>possibility tree</term><fn>
+      Possibility trees get their name from natural trees because they have branches.
+      </fn>.
+    </p>
+    <example xml:id="exam_2strings">
+      <title>2-strings</title>
+      <statement>
+        <p>
+          List all strings of length two where the first character is <c>a</c>,
+          <c>b</c>,
+          or <c>c</c> and the second character is <c>2</c> or <c>6</c>.
+          <ol>
+            <li>
+              <p>
+                Construct your list by considering cases based on the first character.
+                <solution>
+                  <p>
+                    Let's consider cases based on the first character.
+                  </p>
+                  <p>
+                    Case 1: If the first character is <c>a</c>,
+                    then we have <c>a2</c> or <c>a6</c>.
+                  </p>
+                  <p>
+                    Case 2: If the first character is <c>b</c>,
+                    then we have <c>b2</c> and <c>b6</c>.
+                  </p>
+                  <p>
+                    Case 3: If the first character is <c>c</c>,
+                    then we have <c>c2</c> and <c>c6</c>.
+                  </p>
+                  <p>
+                    The strings are <c>a2</c>,
+                    <c>a6</c>,
+                    <c>b2</c>,
+                    <c>b6</c>,
+                    <c>c2</c>,
+                    <c>c6</c>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Construct your list by drawing a possibility tree.
+                <solution>
+                  <p>
+                    <xref ref="fig_tree_2strings">In</xref>,
+                    we begin by drawing a starting point <m>\bullet</m> on the left.
+                    We draw three branches to nodes <c>a</c>,
+                    <c>b</c>,
+                    <c>c</c> which are the possibilities for the first character in the string.
+                  </p>
+                  <p>
+                    If the first character is <c>a</c>,
+                    then the second character is either <c>2</c> or <c>6</c>,
+                    and so we draw two branches from <c>a</c> to <c>a2</c> and from <c>a</c> to <c>a6</c>.
+                    Similarly we draw branches from <c>b</c> to <c>b2</c>,
+                    from <c>b</c> to <c>b6</c>,
+                    from <c>c</c> to <c>c2</c>,
+                    and from <c>c</c> to <c>c6</c>.
+                    As before, the strings are:
+                    <c>a2</c>,
+                    <c>a6</c>,
+                    <c>b2</c>,
+                    <c>b6</c>,
+                    <c>c2</c>,
+                    and <c>c6</c>.
+                  </p>
+                  <p>
+                    There is a shorthand way to draw the tree where we only list the new character in each spot instead as shown in <xref ref="fig_tree_2strings_shorthand"></xref>.
+                    In this case,
+                    it takes a little less work to draw the tree but a little more work to write out the final list.
+                  </p>
+                </solution>
+                <figure xml:id="fig_tree_2strings">
+                  <caption>A possibility tree for 2-strings.</caption>
+                  image type not recognized
+                </figure>
+                <figure xml:id="fig_tree_2strings_shorthand">
+                  <caption>A possibility tree for 2-strings, shorthand version.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Notice in <xref ref="exam_2strings"></xref>
+      that we considered the letters in
+      <term>alphabetical order</term>,
+      the order of the English alphabet:
+      <c>a</c>, <c>b</c>, <c>c</c>, <c>d</c>, <c>e</c>, <c>f</c>, <c>g</c>, <c>h</c>, <c>i</c>, <c>j</c>, <c>k</c>, <c>l</c>, <c>m</c>, <c>n</c>,
+      <c>o</c>,
+      <c>p</c>,
+      <c>q</c>,
+      <c>r</c>,
+      <c>s</c>, <c>t</c>,
+      <c>u</c>,
+      <c>v</c>,
+      <c>w</c>,
+      <c>x</c>,
+      <c>y</c>,
+      <c>z</c>
+    </p>
+    <p>
+       <c>A</c>, <c>B</c>, <c>C</c>, <c>D</c>, <c>E</c>, <c>F</c>, <c>G</c>, <c>H</c>, <c>I</c>, <c>J</c>, <c>K</c>, <c>L</c>, <c>M</c>, <c>N</c>, <c>O</c>, <c>P</c>, <c>Q</c>,
+       <c>R</c>,
+       <c>S</c>,
+       <c>T</c>,
+       <c>U</c>,
+       <c>V</c>, <c>W</c>,
+       <c>X</c>,
+       <c>Y</c>,
+       <c>Z</c> For strings beginning with <c>a</c>,
+       we first list the string ending in <c>2</c> and then the string ending in <c>6</c>.
+       That is, we considered the digits in
+       <term>numerical order</term>, from smallest to largest.
+    </p>
+    <p>
+      Practice using possibility trees to create lists.
+    </p>
+    <activity xml:id="act_listing_strings">
+      <title>Listing strings</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_strings_abc">
+            <p>
+              Use a possibility tree to list all strings of length two where each character is <c>a</c>,
+              <c>b</c>,
+              or <c>c</c>.
+            </p>
+          </li>
+          <li xml:id="part_perms_abc">
+            <p>
+              Let's change the rules.
+              Use a possibility tree to list all strings of length three where each character is <c>a</c>,
+              <c>b</c>,
+              <c>c</c> if repetitions are not allowed,
+              meaning that each letter is used exactly once.
+            </p>
+          </li>
+          <li>
+            <p>
+              Look back at the tree you drew in <xref ref="part_strings_abc"/>.
+              How many strings of length <m>10</m> are there where each character is <c>a</c>,
+              <c>b</c>,
+              or <c>c</c>?
+              Repetition is allowed.
+              Conjecture without writing a list or drawing a tree.
+            </p>
+          </li>
+          <li>
+            <p>
+              Look back at the tree you drew in <xref ref="part_perms_abc"/>.
+              How many strings of length ten are there where each character is <c>a</c>,
+              <c>b</c>,
+              <c>c</c>,<ellipsis/>, <c>j</c> and repetition is not allowed?
+              Conjecture without writing a list or drawing a tree.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      In the possibility trees that we have drawn so far,
+      each branch is of the same length.
+      Let's look at an example where the branches are different lengths.
+    </p>
+    <example xml:id="exam_sq_dom5_tree">
+      <title>Tiling a <m>1 \times 5</m> board with squares and dominoes</title>
+      <statement>
+        <p>
+          Draw the possibility tree to list the ways to tile a
+          <m>1 \times 5</m> board using squares (<m>\bullet</m>) and dominoes (<m>\boldsymbol{-}</m>) as in <xref ref="act_squares_dominoes"></xref>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The tree in <xref ref="fig_sq_dom5"></xref>
+          shows all eight possibilities.
+          Notice that we changed the root symbol to <m>\circ</m> to avoid confusion with the square symbol
+          (<m>\bullet</m>).
+          Reading across the top row, for example,
+          gives the all-square tiling
+          <m>\bullet\bullet\bullet\bullet\bullet</m> and reading the next path from branch to leaf gives the tiling <m>\bullet\bullet\bullet\boldsymbol{-}</m>.
+        </p>
+        <figure xml:id="fig_sq_dom5">
+          <caption>Tiling the <m>1 \times 5</m> board with squares and dominos.</caption>
+          image type not recognized
+        </figure>
+        <p>
+          As we build a tiling of length five, we have to be careful.
+          If we have a tiling of length four,
+          then the only option to finish the tiling is a square because a domino would make length six.
+          For example, the branch that begins
+          <m>\bullet\boldsymbol{-}\bullet</m> can only be followed by <m>\bullet</m>.
+          Once we have a tiling of length five, the branch ends.
+          For example,
+          the branch <m>\boldsymbol{-}\bullet\boldsymbol{-}</m> ends after three tiles.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_integer_algebra">
+    <title>\subintalgebra</title>
+    <p>
+      Often, the numbers we consider in this textbook are integers.
+      For example,
+      we might make a conjecture that involves an unknown integer.
+      Historically,
+      integers were commonly named using the letters <m>i,j,k,l,m</m>,
+      or <m>n</m> because some computer programming languages,
+      such as Fortran,
+      used to reserve these letters for integer quantities
+      (perhaps because the word
+      <q>integer</q>
+      begins with <m>i</m> and then <m>n</m>).
+      In this textbook, we use a variety of letters for integers,
+      although we tend to save the letters <m>x</m>,
+      <m>y</m>, and <m>z</m> for real-valued (decimal) quantities.
+    </p>
+    <p>
+      When you studied algebra,
+      you probably worked a lot with quantities named <m>x</m>,
+      occasionally with quantities named <m>y</m>,
+      <m>z</m>, or <m>t</m>, and rarely with quantities named <m>n</m>,
+      <m>m</m>, <m>k</m>, or other common letters for integers.
+      The rules of algebra remain the same for whatever letters we use,
+      but it can take some practice to be comfortable working with a variety of letters.
+      In this section, we discuss integer arithmetic.
+      To start with,
+      it is useful to name various arithmetic properties of the integers.
+    </p>
+    <definition xml:id="defn_integer_algebra_order_operations">
+      <title>Integer algebra and the order of operations</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_order_operations">
+              <p>
+                When several operations are involved in a single calculation,
+                we need to know the <term>order of operations (PEMDAS)</term>,
+                the priority ranking for arithmetic operations.
+                The order is
+                <tabular>
+                  <row>
+                    <cell>First, calculate anything inside <em>P</em>arentheses.</cell>
+                  </row>
+                  <row>
+                    <cell>Next, calculate <em>E</em>xponents <m>\wedge</m>, in order from left to right.</cell>
+                  </row>
+                  <row>
+                    <cell>Then, <em>M</em>ultiply <times/> and <em>D</em>ivide <m>\div</m>, in order from left to right.</cell>
+                  </row>
+                  <row>
+                    <cell>Last, <em>A</em>dd <m>+</m> and <em>S</em>ubtract <m>-</m>, in order from left to right.</cell>
+                  </row>
+                </tabular>
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>commutative properties</term>
+                of the integers tell us that
+                <me>
+                  n+s=s+n \ \ \text{ and  }  sn=ns
+                </me>.
+                We often use the commutative property to rewrite sums or products in standard order.
+                For example,
+                products are usually written alphabetically (<m>ns</m> is standard,
+                not <m>sn</m>) and in products numbers come before letters
+                (<m>2k</m> is standard, not <m>k2</m>).
+                In sums, numbers often come after letters
+                (<m>n+1</m> is common, although <m>1+n</m> is also acceptable).
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>associative properties</term>
+                of the integers tells us that
+                <me>
+                  (n+s)+t = n+(s+t) \ \ \text{ and  }  (ns)t = n(st)
+                </me>.
+                We often use the associative property to write an expression such as <m>n+3k+2</m> without parentheses,
+                since the location of parentheses would not change the sum.
+              </p>
+            </li>
+            <li>
+              <p>
+                We <term>factor</term> an integer by writing it as a product of two integers.
+                For example, we can factor <m>6</m> as
+                <m>2 \times 3</m> which we could write as <m>6=2 \times 3</m> or <m>6=(2)(3)</m>.
+                Although it is correct to factor <m>6</m> as <m>1 \times 6</m>,
+                if an activity or exercise asks you to
+                <q>factor,</q>
+                the answer should not use the factor <m>1</m>.
+                Notice that
+                <q>factor</q>
+                can be a noun,
+                which means the quantity we are multiplying, or a verb,
+                which means write as a product.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>distributive property</term>
+                of the integers tells us that
+                <me>
+                  n(s+t)=ns+nt
+                </me>.
+                Reading this equation from left to right tells us how to <term>expand</term>
+                (or <term>distribute</term> or <term>multiply out</term>).
+                For example,
+                <me>
+                  2(n+4) = (2)(n) + (2)(4) = 2n + 8
+                </me>.
+                Equations tell us that two things are equal,
+                so we can equally well read this equation from right to left
+                <me>
+                  ns+nt=n(s+t)
+                </me>
+                which tells us how to factor.
+                For example,
+                <me>
+                  5n-10 = (5)(n) + (5)(-2) = 5(n+(-2)) = 5(n-2)
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's practice working with the vocabulary factor and term.
+    </p>
+    <example xml:id="exam_factors_terms">
+      <title>Factors and terms</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Describe the quantity <m>2(n+1)</m> using factors and terms.
+                <solution>
+                  <p>
+                    There are two factors: 2 and <m>n+1</m>.
+                    The second factor has two terms: <m>n</m> and 1.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe the quantity <m>2n+1</m> using factors and terms.
+                <solution>
+                  <p>
+                    There are two terms: <m>2n</m> and 1.
+                    The first term has two factors: 2 and <m>n</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We can use the distributive propensity to combine <term>like terms</term>,
+      which means terms having a common factor.
+    </p>
+    <example xml:id="exam_combining_like_terms">
+      <title>Combining like terms</title>
+      <statement>
+        <p>
+          Simplify the expression <m>2n+3n</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          You have seen <m>2x+3x=5x</m>.
+          You might have learned that this equation is analogous to saying that if I have 2 apples plus another 3 apples,
+          then I have a total of 5 apples.
+          In the same way, <m>2n+3n=5n</m>.
+        </p>
+        <p>
+          Alternatively, we can use the definition of the product.
+          Since <m>2n = n+n</m> and <m>3n = n+n+n</m>, together we have
+          <me>
+            2n + 3n = \underbracket{(n+n)}_{2 \text{ times } } +\underbracket{(n+n+n)}_{3 \text{ times } } = \underbracket{n+n+n+n+n}_{5 \text{ times } } = 5n
+          </me>
+        </p>
+        <p>
+          Yet another way of thinking about this simplification is to use the distributive property to factor
+          <me>
+            2n+3n=(2+3)n=5n
+          </me>
+        </p>
+        <p>
+          Each of these approaches is useful.
+          So, even if you favor one approach,
+          learn the other methods as well.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Now it is your turn to practice some integer algebra.
+    </p>
+    <activity xml:id="act_integer_algebra">
+      <title>Integer algebra</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Simplify <m>n+n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Simplify <m>m+7m</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Expand and simplify <m>2(n-1)+1</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Factor <m>3k+6</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_squares_dominoes">for</xref> \subsqdom</title>
+      <exercise xml:id="exer_sq_dom7">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Using the strategy in <xref ref="exam_sq_dom8"></xref>,
+                  conjecture the number of ways to tile a <m>1 \times 12</m> board.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Using the strategy and results in <xref ref="exam_sq_dom6"></xref>,
+                  list all 21 ways to tile a
+                  <m>1 \times 7</m> board using squares and dominoes.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_trominoes_examples">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Suppose we have <m>1 \times 1</m> squares (<m>\bullet</m>),
+            <m>1 \times 2</m> dominoes (<m>\boldsymbol{-}</m>),
+            and new <m>1 \times 3</m> trominoes
+            (<m>\thicksim</m>).
+            <ol>
+              <li>
+                <p>
+                  List the ways to tile <m>1 \times 1</m>,
+                  <m>1 \times 2</m>, <m>1 \times 3</m>,
+                  and <m>1 \times 4</m> boards using squares, dominoes, and trominoes.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the ways to tile <m>1 \times 1</m>,
+                  <m>1 \times 2</m>, <m>1 \times 3</m>,
+                  and <m>1 \times 4</m> boards using only squares and trominoes.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_sq_dom">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What does it mean to tile a
+                  <m>1 \times n</m> board with squares and tiles?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to create a list of ways to tile a
+                  <m>1 \times n</m> board with squares and dominoes using the lists from the next two smaller boards?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the phrase "recursive solution" means?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to generate a list of Fibonacci numbers?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_trominoes_conjectures">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Suppose we have squares, dominoes,
+            and trominoes, as in <xref ref="exer_trominoes_examples"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Conjecture the number of ways to tile a
+                  <m>1 \times n</m> board with squares, dominoes, and trominoes.
+                  Explain your reasoning and make sure you get the correct number when <m>n=1,2,3,4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture the number of ways to tile a
+                  <m>1 \times n</m> board with only squares and trominoes.
+                  Explain your reasoning and make sure you get the correct number when <m>n=1,2,3,4</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_sets_digits">for</xref> \subsetsdigits</title>
+      <exercise xml:id="exer_3digit_sums">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  List all sets of three distinct nonzero digits where the sum of the digits is 10.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List all sets of three distinct nonzero digits where the sum of the digits is 18.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prime_products">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            We define the term <term>prime</term> later in the course.
+            For this problem,
+            you only need to know that the first few primes are
+            <me>
+              2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+            </me>.
+          </p>
+          <p>
+            List all positive integers less than 50 that are the product of two distinct primes.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_kakuro23">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  The only set of two distinct nonzero digits whose sum is 16 is <m>\{7,9\}</m>.
+                  Find all other integers <m>n</m> where there is exactly one set of two distinct nonzero digits whose sum is <m>n</m> and list the corresponding set.
+                  Hint: the smallest possible value is
+                  <m>n=1+2 = 3</m> and the largest possible value is <m>n =8+9=17</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a number <m>m</m> where there is exactly one set of three distinct nonzero digits where the sum of the digits is <m>m</m>.
+                  Are there other examples?
+                  Can you list all possible examples?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_digits_sets">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to decide if two sets are equal?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What an integer is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the name of the result of adding integers?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the name of the result of multiplying integers?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which integers are digits?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why we want to be organized when listing?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to organize lists by considering cases?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_play_Kakuro">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            A Kakuro puzzle is like a crossword puzzle but with digits instead of letters.
+            The clues are written within the puzzle.
+            The number in an upper triangle tells you the sum of the digits in the row to the right of the clue,
+            and the number in a lower triangle tells you the sum of the digits in the column below the clue.
+            Each box can be filled in with any digit from 1 to 9, except that no digit is repeated within an answer.
+            <ol>
+              <li>
+                <p>
+                  Play Kakuro online at \url{https://www.kakuroconquest.com/} and take a screenshot of your solution to the largest puzzle that you can solve.
+                  Try to figure out what each cell must be without any guessing and don't overuse the
+                  <q>CHECK</q>
+                  feature.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Play Kakuro online at \url{https://www.kakuro.com/index.php} and take a screenshot of your solution to the puzzle of the highest difficulty that you can solve.
+                  Try to figure out what each cell must be without any guessing.
+                  The
+                  <q>Use Pencil</q>
+                  option allows you to list the possibilities for each cell.
+                  Click on
+                  <q>Use Pencil</q>
+                  again to enter your guesses.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_explore_kakuro">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            This exercise is based on the Kakuro puzzle introduced in <xref ref="exer_play_Kakuro"></xref>.
+            We use the shorthand clue
+            <q>n-in-k</q>
+            to mean a set of <m>k</m> digits 1-9 without repeats whose sum is <m>n</m>.
+            For example,
+            <q>20-in-3</q>
+            could be
+            <me>
+              \{3, 8, 9\}, \{4, 7, 9\},  \{5, 6, 9\}, \text{ or }  \{5,7,8\}
+            </me>.
+            We cannot use that <m>8 + 8 + 4 = 20</m> because <m>8</m> would repeat.
+            In the actual puzzle,
+            the digits would be filled in the cells in some order,
+            such as 479 or 947.
+          </p>
+          <p>
+            A <em>kakuro</em> is a clue having only one possible set.
+            For example,
+            <q>17-in-2</q>
+            is a kakuro because the only set is <m>\{8,9\}</m> while
+            <q>20-in-3</q>
+            is not a kakuro because there were four possible sets.
+            Kakuros are very helpful for solving Kakuro puzzles.
+            We found kakuros of the form <m>n</m>-in-2 and <m>n</m>-in-3 in <xref ref="exer_kakuro23"></xref>.
+            <ol>
+              <li>
+                <p>
+                  What is the only digit that the kakuros
+                  <q>3-in-2</q>
+                  and
+                  <q>4-in-2</q>
+                  have in common?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the only digit that the kakuros
+                  <q>15-in-5</q>
+                  and
+                  <q>29-in-4</q>
+                  have in common?
+                </p>
+              </li>
+              <li>
+                <p>
+                  List all kakuros of the form
+                  <q><m>n</m>-in-4.</q>
+                </p>
+              </li>
+              <li>
+                <p>
+                  List all kakuros of the form
+                  <q><m>n</m>-in-8.</q>
+                  Hint: what is <m>1+2+3+4+5+6+7+8+9</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_strings">for</xref> \substrings</title>
+      <exercise xml:id="exer_string_vocab">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Calculate the length of the string <c>8fG#tt8</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Are there special characters in the string <c>8fG#tt8</c>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many times does the digit <c>8</c> appear in the string <c>8fG#tt8</c>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many times does the letter <c>g</c> appear in the string <c>8fG#tt8</c>?
+                  Be careful.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_4strings_norepeat">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Look back at the tree you drew in <xref ref="act_listing_strings"></xref>
+                  <xref ref="part_perms_abc"/>.
+                  Conjecture the number of strings of length four where each character is <c>a</c>,
+                  <c>b</c>,
+                  <c>c</c>,
+                  or <c>d</c> and repetition is not allowed.
+                </p>
+              </li>
+              <li xml:id="part_tree_perms_abcd">
+                <p>
+                  Use a possibility tree to list all strings of length four where each character is <c>a</c>,
+                  <c>b</c>,
+                  <c>c</c>,
+                  or <c>d</c> and repetition is not allowed.
+                  Do not forget to state the final list.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many strings are in your list in part <xref ref="part_tree_perms_abcd"/>?
+                  Compare your answer to your conjecture.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_tree_3-strings">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> Use a possibility tree to list all strings of length three where each character is <c>a</c>,
+            <c>b</c>,
+            or <c>c</c> if repetition is allowed,
+            but not consecutively.
+            For example,
+            <c>aba</c> is allowed but <c>baa</c> is not.
+            Do not forget to state the final list.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_tree_mytodolist">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            There are four tasks on my to-do list:
+            laundry (L), cleaning (C), grocery shopping (G), and exercise (E).
+            I plan to complete two of the four tasks today.
+            Use a possibility tree to list all possible ordered list of tasks in each situation.
+            <ol>
+              <li>
+                <p>
+                  I do one task this morning and then a different task this afternoon.
+                </p>
+              </li>
+              <li>
+                <p>
+                  I do laundry or clean in the morning and then have a different task in the afternoon.
+                </p>
+              </li>
+              <li>
+                <p>
+                  I do one task this morning and then a different task this afternoon,
+                  but I refuse to do laundry and cleaning on the same day.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sq_dom4_tree">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Draw a possibility tree showing the ways to tile a
+            <m>1 \times 4</m> board using squares and dominoes,
+            as described in <xref ref="act_squares_dominoes"></xref>.
+            Hint: Look <xref ref="exam_sq_dom5_tree">at</xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_strings_trees">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What is the distinction between a set and a string?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Whether <c>y</c> and <c>Y</c> are considered the same character?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to calculate the length of a string or construct a string of a given length?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to create an organized list using alphabetical or numerical order?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to create an organized list by considering cases?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to draw a possibility tree and how to use a possibility tree to create an organized list?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_perm_trees">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            A <term>permutation of the set</term>
+            <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> is a string of length four using each of the digits <c>1</c>,
+            <c>2</c>,
+            <c>3</c>,
+            and <c>4</c> exactly once.
+            <ol>
+              <li>
+                <p>
+                  Use a possibility tree to list all permutations of the set
+                  <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> starting with <c>1</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use a possibility tree to list all permutations of the set
+                  <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> starting with <c>2</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Based on your answer to the previous parts,
+                  make a conjecture about the total number of permutations of the set <m>\{\str{1},\str{2},\str{3},\str{4}\}</m>.
+                  Explain your reasoning using cases.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_restricted_perms">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In each part, use a possibility tree to list the permutations of
+            <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> meeting the given condition.
+            <ol>
+              <li>
+                <p>
+                  The first first two characters are odd (<c>1</c> or <c>3</c>) and the second two characters are even
+                  (<c>2</c> or <c>4</c>).
+                  For example,
+                  we might have the string <c>1342</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The <c>1</c> appears before <c>2</c> and <c>3</c> appears before <c>4</c>.
+                  For example,
+                  we might have the string <c>3142</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  There is only one <term>decrease</term>,
+                  meaning that there is only one place in the permutation of the set where a digit is followed by a smaller digit.
+                  For example,
+                  <c>1324</c> is allowed because <c>32</c> is the only decrease,
+                  but <c>3142</c> is not allowed because both <c>31</c> and <c>42</c> are decreases.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_integer_algebra">for</xref> \subintalgebra</title>
+      <exercise xml:id="exer_integer_algebra">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Expand and simplify <m>2(3m+1)-3</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Factor <m>2n-4</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_3ways_combine_like_terms">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Explain how to simplify <m>5n+n</m> using each of the three methods from <xref ref="exam_combining_like_terms"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_alg_orderops">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Which algebraic property of the integers allows us to write sums and products in either order?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which algebraic property helps us expand and factor integers?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to combine like terms using the definition of multiplication?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to combine like terms by factoring?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_square_algebra">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The <term>square</term> of the integer <m>n</m> is
+            <me>
+              n^2 = n \times n
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Use this definition to calculate <m>3^2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Simplify <m>k \times k</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Simplify <m>2k \times 3k</m>.
+                  Hint: first,
+                  use the associative property to write the product as <m>(2 \times 3) \times (k \times k)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Expand <m>n(2n-1)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Factor <m>3n^2+9</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Factor <m>3n^2+2n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Factor <m>k^2 - k</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_sq_dom7"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            233
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The eight ways that start with a domino are <m>\boldsymbol{-}\bullet\bullet\bullet\bullet\bullet</m>,
+            <m>\boldsymbol{-}\bullet\bullet\bullet\boldsymbol{-}</m>,
+            <m>\boldsymbol{-}\bullet\bullet\boldsymbol{-}\bullet</m>,
+            <m>\boldsymbol{-}\bullet\boldsymbol{-}\bullet\bullet</m>,
+            <m>\boldsymbol{-}\bullet\boldsymbol{-}\boldsymbol{-}</m>,
+            <m>\boldsymbol{-}\boldsymbol{-}\bullet\bullet\bullet</m>,
+            <m>\boldsymbol{-}\boldsymbol{-}\bullet\boldsymbol{-}</m>,
+            and <m>\boldsymbol{-}\boldsymbol{-}\boldsymbol{-}\bullet</m>.
+            Each is a domino followed by a way to tile a <m>1 \times 6</m> board.
+            There are also 13 ways to start with a square.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_trominoes_examples"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The <m>1 \times 1</m>, <m>1 \times 2</m>,
+            and <m>1 \times 3</m> only involve squares and dominoes,
+            so you should have the same list as before.
+            For <m>1 \times 4</m>, the list is:
+            <m>\bullet\bullet\bullet\bullet</m>,
+            <m>\bullet\bullet\boldsymbol{-}</m>,
+            <m>\bullet\boldsymbol{-}\bullet</m>,
+            <m>\bullet\thicksim</m>, <m>\boldsymbol{-}\bullet\bullet</m>,
+            <m>\boldsymbol{-}\boldsymbol{-}</m>,
+            and <m>\thicksim\bullet</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Now there is one way for <m>1 \times 1</m>,
+            one way for <m>1 \times 2</m>,
+            two ways for <m>1 \times 3</m>,
+            and three ways for <m>1 \times 4</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_3digit_sums"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\{1,2,7\}</m>, <m>\{1,3,6\}</m>,
+            <m>\{1,4,5\}</m>, and there is one more that does not use 1.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\{1,8,9\}</m>, <m>\{2,7,9\}</m>,
+            <m>\{3,6,9\}</m>, <m>\{3,7,8\}</m>, and three more.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prime_products"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The list includes <m>2 \times 3</m>,
+        <m>2 \times 5</m>,
+        <ellipsis/>, <m>2 \times 23</m>, <m>3 \times 5</m>,
+        <ellipsis/>, <m>3 \times 13</m>, and <m>5 \times 7</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_kakuro23"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            3, 4, 16, and 17
+          </p>
+        </li>
+        <li>
+          <p>
+            One example is <m>m=6</m> where the only set is <m>\{1,2,3\}</m>.
+            Yes, there are others.
+            Hint: There are four such numbers <m>m</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_string_vocab"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Seven
+          </p>
+        </li>
+        <li>
+          <p>
+            Yes, #
+          </p>
+        </li>
+        <li>
+          <p>
+            Two
+          </p>
+        </li>
+        <li>
+          <p>
+            Zero.
+            Note that <c>G</c> is different from <c>g</c>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_4strings_norepeat"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            24
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The first branches go to <m>\str{a}</m>,
+            <m>\str{b}</m>, <m>\str{c}</m>,
+            and <m>\str{d}</m>, but after that the list narrows.
+            For example, from <m>\str{a}</m>,
+            there are branches only to <m>\str{b}</m>,
+            <m>\str{c}</m>, and <m>\str{d}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You should get 24 again.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_tree_3-strings"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: the list begins <c>aba</c>,
+        <c>abc</c>,
+        <c>aca</c>,
+        <c>acb</c>,
+        <ellipsis/>, <c>cbc</c>.
+        There are 12 possible strings.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_tree_mytodolist"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The possible to-do lists are: LC, LG, LE, CL, CG, CE, GL, GC, GE, EL, EC, EG, where the first letter represents the morning chore and the second letter represents the afternoon chore.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: only keep the to-do lists that start with L or C.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Keep all possible to-do lists except for LC and CL.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sq_dom4_tree"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Your tree should look like the tree in <xref ref="fig_sq_dom5"></xref>,
+        but only for length four
+        (not length five).
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_perm_trees"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your tree should produce the list <m>\str{1234}</m>,
+            <m>\str{1243}</m>, <m>\str{1324}</m>,
+            <m>\str{1342}</m>, <m>\str{1423}</m>, <m>\str{1432}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You should again get six permutations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use case 1: starts with <c>1</c>, case 2:
+            starts with <c>2</c>, case 3:
+            starts with <c>3</c>,
+            and case 4:
+            starts with <c>4</c>.
+            There are six permutations in each case.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_restricted_perms"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The first branches go to <c>1</c> and <c>3</c>.
+            From <c>1</c> there is a single branch to <c>3</c> and vice versa.
+            Next, there is a branch from each endpoint to <c>2</c> and <c>4</c>.
+            Lastly, from each <c>2</c> there is a single branch to <c>4</c> and vice versa.
+            In all, there are four such permutations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The permutation must begin with <c>1</c> or <c>3</c>.
+            There are three such permutations in each case.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Consider cases.
+            Case 1: The decrease happens from first to second digits.
+            There are three such strings:
+            <c>2134</c>,
+            <c>3124</c>,
+            and <c>4123</c>.
+            Case 2: The decrease happens from second to third digit.
+            There are five such strings
+            (list them).
+            Case 3: The decrease happens from third to fourth digit.
+            There are three such strings
+            (list them).
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_integer_algebra"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>6m-1</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Factor out the two.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_3ways_combine_like_terms"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Follow the methods in <xref ref="exam_combining_like_terms"></xref>.
+        In each case, your answer should simplify to <m>6n</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_square_algebra"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Nine
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>k^2</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: See the hint.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer begins with <m>2n^2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Factor out the three.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Factor out <m>n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>k(k-1)</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

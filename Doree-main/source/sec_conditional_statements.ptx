@@ -1,0 +1,1721 @@
+<section xml:id="sec_conditional_statements">
+  <title>Conditional Statements</title>
+  <introduction>
+    <p>
+      Most statements in mathematics and computer science involve conditionals:
+      if one thing happens, then another thing happens.
+      Consider, for example,
+      a database that tracks patients who have scheduled follow-up visits
+      (or not).
+      We might want to send a reminder to patients who have not yet scheduled their follow-up visits.
+      That is, if the patient has not scheduled their follow-up visit,
+      then we want to send them a reminder.
+    </p>
+    <p>
+      In this section,
+      we study conditional statements and how to prove that they are true.
+      We also look at their negations and construct counterexamples.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_if_then">
+    <title>\subifthen</title>
+    <p>
+      We begin with a definition.
+    </p>
+    <definition xml:id="defn_conditional">
+      <title>Conditional statements</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For statements <m>P</m> and <m>Q</m>, the statement
+                <q><term>if</term> <m>P</m>, <term>then</term> <m>Q</m></q>, denoted <m>P \to Q</m>, is a <term>conditional</term> statement.
+                We also say <m>P</m> <term>implies</term> <m>Q</m>.
+                The statement <m>P \to Q</m> promises that if <m>P</m> is true,
+                then <m>Q</m> must also be true.
+                For example,
+                consider the following statement: For any integer <m>k</m>,
+                if <m>k=3</m>, then <m>k^2=9</m>.
+                This statement is true because when <m>k=3</m> we have <m>k^2 = 3^2 = 9</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the statement <m>P \to Q</m>,
+                the statement <m>P</m> is the <term>hypothesis</term>
+                and <m>Q</m> is the <term>conclusion</term>.
+                For example,
+                consider the following statement: If a graph is a tree,
+                then it has a leaf.
+                The hypothesis is that a graph is a tree.
+                The conclusion is that it has a leaf.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      For <m>P \to Q</m> to be true,
+      it must be the case that if <m>P</m> is true,
+      then <m>Q</m> is 100% guaranteed to also be true.
+      It might be the case that <m>P</m> causes <m>Q</m>, for example,
+      if <m>P</m>: Tova dropped her glove in a puddle and <m>Q</m>: Tova's glove got wet. then <m>P \to Q</m>: If Tova dropped her glove in a puddle,
+      then Tova's glove got wet. is true.
+      In this example, <m>P</m> caused <m>Q</m>.
+    </p>
+    <p>
+      Alternatively,
+      it might be the case that <m>Q</m> had to happen in order for <m>P</m> to happen.
+      For example,
+      if <m>P</m>: Derek got an A in Algorithms class and <m>Q</m>: Derek took the Algorithms class. then <m>P \to Q</m>:
+      if Derek got an A in Algorithms class,
+      then Derek took the Algorithms class. is true.
+      In this example, <m>Q</m> would have to happen before <m>P</m>.
+    </p>
+    <p>
+      Let's look more closely at when a conditional is true or false.
+    </p>
+    <example xml:id="exam_understand_ifthen_true">
+      <title>Understanding when a conditional is true</title>
+      <statement>
+        <p>
+          Consider the following conditional statement <m>S</m>: If you show up to class every day and do all of the homework on time,
+        </p>
+        <p>
+          then you will get an A in this class.
+          <ol>
+            <li>
+              <p>
+                Is <m>S</m> true or false if you show up to class every day and do all of the homework on time and you get an A in this class?
+                <solution>
+                  <p>
+                    It is true.
+                    When both the hypothesis and the conclusion are true, we have kept the promise.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>S</m> true or false if you show up to class every day and do all of the homework on time but you do not get an A in this class?
+                <solution>
+                  <p>
+                    It is false.
+                    When the hypothesis is true but the conclusion is false,
+                    we have broken the promise.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>S</m> true or false if I do not always show up to class and do not always get my homework in on time,
+                but I still get an A in this class?
+                <solution>
+                  <p>
+                    It is true.
+                    When the hypothesis is false but the conclusion is false,
+                    we have not broken the promise.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>S</m> true or false if I do not always show up to class and do not always get my homework in on time and I get a C in this class?
+                <solution>
+                  <p>
+                    It is true.
+                    When the hypothesis and the conclusion are false,
+                    we have not broken the promise.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We summarize our analysis from <xref ref="exam_understand_ifthen_true"></xref> using a truth table.
+    </p>
+    <example xml:id="exam_truthtable_conditionals">
+      <title>Truth table for if/then</title>
+      <statement>
+        <p>
+          Construct a truth table for <m>P \to Q</m>.
+        </p>
+        <solution>
+          <p>
+            The truth table is shown in <xref ref="table_truthtable_conditional"></xref>.
+          </p>
+        </solution>
+        <table xml:id="table_truthtable_conditional">
+          <title>Truth table for the logical connective <term>implies</term></title>
+          <tabular>
+            <row>
+              <cell><m>P</m></cell>
+              <cell><m>Q</m></cell>
+              <cell><m>P \to Q</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+            </row>
+            <row>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+            </row>
+            <row>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+            </row>
+            <row>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </example>
+    <p>
+      It is important to note the case where the hypothesis of a conditional is false.
+    </p>
+    <remark xml:id="rem_false_implies_is_true">
+      <title>False implies anything is true</title>
+      <p>
+        The statement <m>P \to Q</m> is true when <m>P</m> is false,
+        no matter what <m>Q</m> is.
+      </p>
+    </remark>
+    <p>
+      Practice working with more complicated conditional statements.
+    </p>
+    <activity xml:id="act_promises">
+      <title>Promises</title>
+      <p>
+        In many parts of this activity,
+        you are asked to construct a truth table.
+        You may start a new truth table for each part,
+        but consider adding columns to your existing truth table instead.
+        <ol>
+          <li>
+            <p>
+              Copy the truth table for <m>P \to Q</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Add a column for <m>\neg P</m> and another column for <m>\neg P \to Q</m>.
+            </p>
+          </li>
+          <li xml:id="part_truthtable_converse">
+            <p>
+              Add a column for <m>Q \to P</m>.
+            </p>
+          </li>
+          <li xml:id="part_truthtable_simplification">
+            <p>
+              Use your truth table to show that
+              <m>(P \land Q) \to P</m> is a tautology by adding a column for
+              <m>P \land Q</m> and another column for <m>(P \land Q) \to P</m>.
+            </p>
+          </li>
+          <li xml:id="part_truthtable_implication">
+            <p>
+              Add a column for <m>\neg P \lor Q</m>.
+              What do you notice?
+              Discuss why that makes sense.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Make sure that you have <xref ref="act_promises">completed</xref>
+      because we are about to reveal some of the answers.
+    </p>
+    <example xml:id="exam_truthtable_compound_conditionals">
+      <title>Truth tables for statements involving conditionals</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Construct a truth table for <m>Q \to P</m>.
+                <solution>
+                  <p>
+                    <xref ref="table_truthtable_converse"></xref> shows the truth table.
+                    Note that the hypothesis is now <m>Q</m> and the conclusion is now <m>P</m>.
+                    The only time <m>Q \to P</m> is false is when the hypothesis <m>Q</m> is true but the conclusion <m>P</m> is false.
+                  </p>
+                  <table xml:id="table_truthtable_converse">
+                    <title>Truth table for the converse <m>Q \to P</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>P</m></cell>
+                        <cell><m>Q</m></cell>
+                        <cell><m>Q \to P</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_truthtable_simplification2">
+              <p>
+                Use a truth table to show that <m>(P \land Q) \to P</m> is a tautology.
+                <solution>
+                  <p>
+                    <xref ref="table_truthtable_simplification"></xref> shows the truth table.
+                    Because the last column is all true,
+                    we can conclude that <m>(P \land Q) \to P</m> is a tautology.
+                  </p>
+                  <table xml:id="table_truthtable_simplification">
+                    <title>Truth table showing the tautology for the simplification inference <m>(P \land Q) \to P</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>P</m></cell>
+                        <cell><m>Q</m></cell>
+                        <cell><m>(P \land Q)</m></cell>
+                        <cell><m>(P \land Q) \to P</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Construct a truth table for <m>\neg P \lor Q</m>.
+                What do you notice?
+                <solution>
+                  <p>
+                    <xref ref="table_truthtable_implication"></xref> shows the truth table.
+                    Because the last column is the same as the truth table for <m>P \to Q</m> in <xref ref="table_truthtable_conditional"></xref>,
+                    we can conclude that they are logically equivalent.
+                    That is, <m>\neg P \lor Q \equiv P \to Q</m>.
+                  </p>
+                  <table xml:id="table_truthtable_implication">
+                    <title>Truth table showing the implication equivalence <m>P \to Q \equiv \neg P \lor Q</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>P</m></cell>
+                        <cell><m>Q</m></cell>
+                        <cell><m>\neg P</m></cell>
+                        <cell><m>\neg P \lor Q</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Note the new equivalence we found in <xref ref="act_promises"></xref>
+      <xref ref="part_truthtable_implication"/>.
+    </p>
+    <theorem xml:id="thm_implication">
+      <title>Implication equivalence</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For statements <m>P</m> and <m>Q</m>,
+                <me>
+                  P \to Q \equiv \neg P \lor Q
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Equivalently, for statements <m>R</m> and <m>Q</m>,
+                <me>
+                  R \lor Q \equiv \neg R \to Q
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Note that the second statement of <xref ref="thm_implication"></xref>
+      follows from the first by substituting
+      <m>R = \neg P</m> and therefore <m>P = \neg R</m>.
+    </p>
+    <p>
+      A common use of if/then in computer programming is the if/then/else construction.
+    </p>
+    <example xml:id="exam_if_then_else">
+      <title>
+      <q>If, then, else</q>
+      construction</title>
+      <statement>
+        <p>
+          A common command in computer programming is a statement of the form
+          <q>If <m>P</m>, then <m>Q</m>, else <m>R</m>.</q>
+          This statement tells the computer that if <m>P</m> is true,
+          then do what <m>Q</m> says and if <m>P</m> is false,
+          then do what <m>R</m> says.
+          <ol>
+            <li>
+              <p>
+                Write the statement if <m>P</m>, then <m>Q</m>,
+                else <m>R</m> in logical notation.
+                <solution>
+                  <p>
+                    The statement says if <m>P</m>,
+                    then <m>Q</m> and also if <m>\neg P</m>, then <m>R</m> so we have
+                    <me>
+                      (P \to Q) \land (\neg P \to R)
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Consider the following statement:
+                for any integer <m>n</m>, if <m>n</m> is even,
+                then the answer is <m>\frac{n}{2}</m>,
+                else the answer is <m>3n+1</m>.
+                What is the answer when <m>n=30</m>?
+                What is the answer when <m>n = 7</m>?
+                <solution>
+                  <p>
+                    When <m>n=30</m> the statement <m>n</m> is even is true and so the answer is <m>\frac{n}{2}=\frac{30}{2} = 15</m>.
+                    On the other hand,
+                    when <m>n=7</m> the statement <m>n</m> is even is false and so the answer is <m>3n+1 = 3(7)+1 = 22</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_pff_if_then">
+    <title>\subpffifthen</title>
+    <p>
+      Since <m>P \to Q</m> promises that if <m>P</m> is true,
+      then <m>Q</m> is true,
+      our proof format begins by assuming that <m>P</m> is true and concludes once we have shown that <m>Q</m> is true.
+      The proof does not mention the case where <m>P</m> is false since <m>P \to Q</m> is automatically true if that happens,
+      as stated in <xref ref="rem_false_implies_is_true"></xref>.
+    </p>
+    <proof>
+    <p>
+      Prove: <m>P \to Q</m>
+    </p>
+    <proof>
+      <p>
+        Assume <m>P</m> is true.
+      </p>
+      <p>
+        (Explain why it follows that <m>Q</m> is true.)
+      </p>
+      <p>
+        Thus <m>Q</m> is true.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      As usual, when we introduce a new proof format,
+      we present an example and ask you to edit it to prove a similar statement.
+    </p>
+    <activity xml:id="act_pffifthen">
+      <title>Direct proof of a conditional statement</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_if_then_direct">
+            <p>
+              Copy the following proof of a direct proof of a conditional statement.
+              Note that we are <xref ref="pff_forall">using</xref>
+              because the statement is universally quantified as well <xref ref="pff_if_then_direct">as</xref>.
+              Prove for any integer <m>m</m>,
+              if <m>m</m> is odd then <m>3m</m> is odd.
+              <proof>
+                <p>
+                  Let <m>m</m> be an integer.
+                  Assume that <m>m</m> is odd.
+                  By the definition of odd <xref ref="defn_even_odd"/> we can write <m>m=2k+1</m> for some integer <m>k</m>.
+                  Then
+                  <me>
+                    3m=3(2k+1)=6k+3
+                  </me>.
+                </p>
+                <p>
+                  (Side note: to show that <m>3m</m> is odd,
+                  we need to write <m>6k+3</m> in the form <m>2()+1</m>.)
+                </p>
+                <p>
+                  Note that
+                  <me>
+                    6k+3 = 6k+2+1 = 2(3k+1) + 1
+                  </me>.
+                </p>
+                <p>
+                  Since <m>3k+1</m> is an integer,
+                  it follows from the definition of odd that <m>3m</m> is odd.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_if_then_direct"/> to prove that for any integer <m>m</m> if <m>m</m> is odd,
+              then <m>5m</m> is odd.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_neg_conditional">
+    <title>\subnegcond</title>
+    <p>
+      We have just seen how to prove that a conditional statement is true.
+      How do we construct a counterexample involving a conditional statement to prove that it is false?
+    </p>
+    <activity xml:id="act_cex_conditionals">
+      <title>Counterexamples involving conditional statements</title>
+      <p>
+        Show that each the statements (a)-(c) is false by finding a counterexample for each statement.
+        <ol>
+          <li xml:id="part_chromatic4_notK4">
+            <p>
+              If a graph has chromatic number four,
+              then it must be the complete graph <m>K_4</m>.
+            </p>
+          </li>
+          <li xml:id="part_cex_cond_xplusy">
+            <p>
+              Given real numbers <m>x</m> and <m>y</m>,
+              if <m>x + y = 2</m>, then <m>x \le 1</m> and <m>y \le 1</m>.
+            </p>
+          </li>
+          <li xml:id="part_cex_cond_abmult6">
+            <p>
+              For any integers <m>a</m> and <m>b</m>,
+              if <m>6 \mid ab</m>, then <m>6 \mid a</m> or <m>6 \mid b</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              What do we need to be true in order to show that <m>P \to Q</m> is false?
+            </p>
+          </li>
+          <li>
+            <p>
+              Construct a truth table for <m>\neg (P \to Q)</m>.
+              Include an intermediate column for <m>P \to Q</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\neg (P \to Q)</m> is logically equivalent to a statement involving <m>\land</m>.
+              What is it?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Make sure that you have <xref ref="act_cex_conditionals">completed</xref>
+      because we are about to reveal the answers.
+    </p>
+    <example xml:id="exam_cex_conditionals">
+      <title>Counterexamples involving conditional statements</title>
+      <statement>
+        <p>
+          For each statement from <xref ref="act_cex_conditionals"></xref> (a)-(c),
+          find a counterexample to show the statement is false.
+          <ol>
+            <li>
+              <p>
+                If a graph has chromatic number four,
+                then it must be the complete graph <m>K_4</m>.
+                <solution>
+                  <p>
+                    One possible counterexample is the wheel <m>W_5</m>,
+                    drawn in <xref ref="fig_W4W5"></xref>.
+                    (By the way,
+                    we could not use <m>W_3</m> as a counterexample because <m>W_3 \cong K_4</m>.)
+                    Notice that our counterexample has the hypothesis true and the conclusion false.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Given real numbers <m>x</m> and <m>y</m>,
+                if <m>x + y = 2</m>, then <m>x \le 1</m> and <m>y \le 1</m>.
+                <solution>
+                  <p>
+                    One possible counterexample is <m>x = 0.8</m> and <m>y=1.2</m>.
+                    While it is true that <m>x=0.8 \le 1</m>,
+                    because <m>y = 1.2 > 1</m> it follows that the conclusion that <m>x \le 1</m> and <m>y \le 1</m> is false.
+                    Notice that our counterexample has the hypothesis true and the conclusion false.
+                    To insure that the conclusion was false,
+                    we used DeMorgan's Laws <xref ref="thm_demorgans"/> <m>\neg(P \land Q) \equiv \neg P \lor \neg Q</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                For any integers <m>a</m> and <m>b</m>,
+                if <m>6 \mid ab</m>, then <m>6 \mid a</m> or <m>6 \mid b</m>.
+                <solution>
+                  <p>
+                    One possible counterexample would be <m>a = 3</m> and <m>b = 4</m> because then <m>6 \mid 12 = ab</m> but
+                    <m>6 \nmid 3</m> and <m>6 \nmid 4</m>.
+                    Notice that our counterexample has the hypothesis true and the conclusion false.
+                    To insure that the conclusion was false,
+                    we used DeMorgan's Laws <xref ref="thm_demorgans"/> <m>\neg(P \lor Q) \equiv \neg P \land \neg Q</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      As we saw in <xref ref="act_cex_conditionals"></xref>
+      and <xref ref="exam_cex_conditionals"></xref>,
+      a counterexample to <m>P \to Q</m> must have <m>P</m> true and <m>Q</m> false.
+      After all, that is the only way to break the promise.
+    </p>
+    <theorem xml:id="thm_broken_promise">
+      <title>Broken promise</title>
+      <statement>
+        <p>
+          The negation of
+          <q>If <m>P</m>, then <m>Q</m></q>
+          is the <term>broken promise</term>
+          <q><m>P</m> but not <m>Q</m></q>. That is,
+          <me>
+            \neg(P \to Q) \equiv P \land \neg Q
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's look at an example of writing the negation of conditional statements.
+    </p>
+    <example xml:id="exam_neg_ifthen">
+      <title>Negating conditional statements</title>
+      <statement>
+        <p>
+          Write the negation of each statement in a sentence.
+          Hint: The negation should be true for your counterexample.
+          <ol>
+            <li>
+              <p>
+                If a graph has chromatic number four,
+                then it must be the complete graph <m>K_4</m>.
+                <solution>
+                  <p>
+                    Note that this statement does not state a specific quantifier,
+                    so <xref ref="rem_default_universal">following</xref>,
+                    we interpret this statement as universally quantified.
+                    <xref ref="thm_neg_quants">Using</xref>
+                    and <xref ref="thm_broken_promise"></xref>
+                    we get the following negation: There exists a graph that has chromatic number four but is not the complete graph <m>K_4</m>.
+                    Our counterexample from <xref ref="exam_cex_conditionals"></xref>
+                    found a graph, namely <m>W_5</m>,
+                    that has chromatic number four but is not the complete graph <m>K_4</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Given real numbers <m>x</m> and <m>y</m>,
+                if <m>x + y = 2</m>, then <m>x \le 1</m> and <m>y \le 1</m>.
+                <solution>
+                  <p>
+                    We <xref ref="thm_neg_quants">use</xref>
+                    and <xref ref="thm_broken_promise"></xref>
+                    to find the following awkwardly-stated draft of the negation: There are real numbers <m>x</m> and <m>y</m> such that <m>x+y=2</m> but it is not the case that <m>x \le 1</m> and <m>y \le 1</m>.
+                    We can eliminate the awkward
+                    <q>it is not the case</q>
+                    by using DeMorgan's law <xref ref="thm_demorgans"/>.
+                    Our negation is the following statement: There are real numbers <m>x</m> and <m>y</m> such that <m>x+y=2</m> but either <m>x > 1</m> or <m>y > 1</m>.
+                    Our counterexample from <xref ref="exam_cex_conditionals"></xref>
+                    found real numbers <m>x = 0.8</m> and <m>y = 1.2</m> where <m>x+y=2</m> but <m>y > 1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                For any integers <m>a</m> and <m>b</m>,
+                if <m>6 \mid ab</m>, then <m>6 \mid a</m> or <m>6 \mid b</m>.
+                <solution>
+                  <p>
+                    We <xref ref="thm_neg_quants">use</xref>
+                    and <xref ref="thm_broken_promise"></xref>
+                    to find the following awkwardly-stated draft of the negation: There are integers <m>a</m> and <m>b</m> such that
+                    <m>6 \mid ab</m> but it is not the case that <m>6 \mid a</m> or <m>6 \mid b</m>.
+                    We can eliminate the awkward
+                    <q>it is not the case</q>
+                    by using DeMorgan's law <xref ref="thm_demorgans"/>.
+                    Our negation is the following statement: There are integers <m>a</m> and <m>b</m> such that <m>6 \mid ab</m> but
+                    <m>6 \nmid a</m> and <m>6 \nmid b</m>.
+                    Our counterexample from <xref ref="exam_cex_conditionals"></xref>
+                    found integers <m>a = 3</m> and <m>b = 4</m> where <m>6 \mid 12</m> but
+                    <m>6 \nmid 3</m> and <m>6 \nmid 4</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_pff_or_implication">
+    <title>\subpfforimplication</title>
+    <p>
+      The implication equivalence <xref ref="thm_implication"/> gives us a new way to prove an
+      <q>or</q>
+      statement, which we saw earlier using cases in <xref ref="pff_or_by_cases"></xref>.
+      That is, to prove <m>R \lor Q</m> we can prove <m>\neg R \to Q</m>.
+    </p>
+    <proof>
+    <p>
+      Prove: <m>R \lor Q</m>
+    </p>
+    <proof>
+      <p>
+        Assume <m>R</m> is false.
+      </p>
+      <p>
+        (Explain why it follows that <m>Q</m> is true.)
+      </p>
+      <p>
+        Thus <m>Q</m> is true.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      As usual, when we introduce a new proof format,
+      we present an example and ask you to edit it to prove a similar statement.
+    </p>
+    <activity xml:id="act_pff_implication">
+      <title>Direct proof of an
+      <q>or</q>
+      statement using an equivalent conditional</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_or_implication">
+            <p>
+              Copy the following proof of proof of an
+              <q>or</q>
+              statement using the implication equivalence.
+              Note that we are <xref ref="pff_forall">using</xref>
+              because the statement is universally quantified as well <xref ref="pff_or_implication">as</xref>.
+              Prove that for any positive real numbers <m>a</m> and <m>b</m> such that <m>ab=100</m>,
+              either <m>a \le 10</m> or <m>b \lt 10</m>.
+              <proof>
+                <p>
+                  Let <m>a</m> and <m>b</m> be positive real numbers such that <m>ab = 100</m>.
+                  Assume <m>a > 10</m>.
+                  Multiplying each side of this equation by the positive number <m>b</m> we get <m>100=ab > 10b</m>.
+                  Dividing each side of this equation by 10 we get <m>b \lt 10</m>.
+                  Thus either <m>a \le 10</m> or <m>b \lt 10</m>.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_or_implication"/> to prove that for any positive real numbers <m>a</m> and <m>b</m> such that <m>ab=5</m>,
+              either <m>a \le \sqrt{5}</m> or <m>b \lt \sqrt{5}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      A common concern about proving an
+      <q>or</q>
+      statement using the implication equivalence is that we have proved that if <m>P</m> is false,
+      then <m>Q</m> is true,
+      but it feels like we are missing a proof that if <m>Q</m> is false,
+      then <m>P</m> is true.
+      It is not missing.
+      Let's look at how to better <xref ref="pff_or_implication">understand</xref>
+      by comparing it to proof by cases.
+    </p>
+    <example xml:id="exam_implication_vs_cases_proof_or">
+      <title>Compare proving an
+      <q>or</q>
+      statement using implication versus proof by cases</title>
+      <statement>
+        <p>
+          <nbsp/> <xref ref="pff_or_implication">Explain</xref>
+          by considering how to prove
+          <m>P \lor Q</m> using cases <xref ref="pff_or_by_cases"/> with the cases are <m>P</m> or <m>\neg P</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Prove: <m>P \lor Q</m> using cases <xref ref="pff_or_by_cases"/> with the cases <m>P</m> or <m>\neg P</m>.
+        </p>
+        <blockquote>
+          <proof>
+            <p>
+              We consider two cases.
+            </p>
+            <p>
+              Case 1: Assume <m>P</m>.
+              Thus, <m>P</m>.
+            </p>
+            <p>
+              Case 2: Assume <m>\neg P</m>.
+              (Explain why <m>Q</m> follows.)
+              Thus, <m>Q</m>.
+            </p>
+            <p>
+              In either case, <m>P \lor Q</m>.
+            </p>
+          </proof>
+        </blockquote>
+        <p>
+          When we cross out the obvious lines of the proof we get the following proof:
+        </p>
+        <blockquote>
+          <proof>
+            <p>
+              \st{We consider two cases.}
+            </p>
+            <p>
+              \st{Case 1: Assume <m>P</m>.
+              Thus, <m>P</m>.}
+            </p>
+            <p>
+              \st{Case 2:} Assume <m>\neg P</m>.
+              (Explain why <m>Q</m> follows.)
+              Thus, <m>Q</m>.
+            </p>
+            <p>
+              \st{In either case, <m>P \lor Q</m>.}
+            </p>
+          </proof>
+        </blockquote>
+        <p>
+          This proof is <xref ref="pff_or_implication">the</xref>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_if_then">for</xref> \subifthen</title>
+      <exercise xml:id="exer_explain_cond_true">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Explain why each conditional statement is true.
+            <ol>
+              <li>
+                <p>
+                  For any integer <m>k</m>, if <m>k=3</m>, then <m>2k+5 = 11</m>.
+                  Hint: Plug in.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any integer <m>k</m>, if <m>2k+5 = 11</m>, then <m>k=3</m>.
+                  Hint: Solve.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_verify_addition">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use a truth table to verify that <m>P \to (P \lor Q)</m> is a tautology.
+            Include an intermediate column for <m>P \lor Q</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_truthtable_PimpliesnegQ">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Construct a truth table for <m>P \to \neg Q</m>.
+                  Include an intermediate column for <m>\neg Q</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a truth table for <m>Q \to \neg P</m>.
+                  Include an intermediate column for <m>\neg P</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do you notice?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_truthtable_mp">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Construct a truth table to show that <m>(P \land (P \to Q)) \to Q</m> is a tautology.
+            This logical equivalence justifies <em>modus ponens</em>,
+            a key logical inference we discuss in <xref ref="sec_inference"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_truthtable_compound_conditionals">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Construct a truth table for each statement.
+            Include intermediate columns.
+            <ol>
+              <li>
+                <p>
+                  <m>P \to (Q \lor R)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(P \to Q) \land (\neg P \to R)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_truthtable_proof_cases">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Construct a truth table to show that
+            <me>
+              (P \to R) \land (Q \to R) \equiv (P \lor Q) \to R
+            </me>.
+            Include appropriate intermediate columns.
+            This logical equivalence <xref ref="pff_cases">justifies</xref>
+            (for 2 cases).
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rewrite_implication">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the implication equivalence <xref ref="thm_implication"/> to rewrite the following statement as a conditional: Either you take a break from playing that video game or I will take away your controller for a week.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the implication equivalence <xref ref="thm_implication"/> to rewrite the following statement using
+                  <q>or</q>: If you do not text me by 6 PM, then I will text you.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_iften">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the symbol <m>\to</m> means in this logic context?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the statement if <m>P</m>, then <m>Q</m> promises?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When a conditional statement is true and when it is false?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to draw truth tables that involve conditional statements?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why <m>P \to Q \equiv \neg P \lor Q</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use a truth table to verify that a logical equivalence is valid?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_PtoQtoR">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Is <m>P \lor (Q \to R)</m> logically equivalent to <m>(P \lor Q) \to R</m>?
+            Use a truth table to justify your answer.
+            Include appropriate intermediate columns.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_if_then">for</xref> \subpffifthen</title>
+      <exercise xml:id="exer_prove_cond_true">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="pff_forall">Use</xref>
+            and <xref ref="pff_if_then_direct"></xref>
+            to prove each statement from <xref ref="exer_explain_cond_true"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Prove for any integer <m>k</m>,
+                  if <m>k=3</m>, then <m>2k+5 = 11</m>.
+                  Hint: Plug in.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove for any integer <m>k</m>,
+                  if <m>2k+5 = 11</m>, then <m>k=3</m>.
+                  Hint: Solve.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_odd_sq_is_odd">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="pff_forall">Use</xref>,
+            <xref ref="pff_if_then_direct"></xref>,
+            and <xref ref="defn_even_odd"></xref>
+            to prove that for any integer <m>n</m>,
+            if <m>n</m> is odd, then <m>n^2</m> is odd.
+            Hint: Write <m>n=2k+1</m>.
+            Next, simplify <m>n^2</m> and write it as <m>2(~)+1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_mult6_is_mult3">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="pff_forall">Use</xref>,
+            <xref ref="pff_if_then_direct"></xref>,
+            and <xref ref="defn_divides"></xref>
+            to prove that for any integer <m>n</m>,
+            if <m>6 \mid n</m>, then <m>3 \mid n</m>.
+            Hint: Write <m>n = 6k</m> for some integer <m>k</m>.
+            How can you write <m>n = 3(~)</m>?
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_divides_square_proof">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/> <xref ref="pff_forall">Use</xref>,
+            <xref ref="pff_if_then_direct"></xref>,
+            and <xref ref="defn_divides"></xref> to prove if <m>a \mid b</m>,
+            then <m>a \mid b^2</m> for any integers <m>a</m> and <m>b</m>.
+            Hint: Write <m>b = ak</m> for some integer <m>k</m>.
+            Next, simplify <m>b^2</m> and write it as <m>a(~)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_sums_prod_even_odd">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> <xref ref="pff_forall">Use</xref>,
+            <xref ref="pff_and"></xref>,
+            and <xref ref="pff_if_then_direct"></xref>
+            to prove for any integers <m>a</m> and <m>b</m> if <m>a</m> is even and <m>b</m> is odd,
+            then <m>a+b</m> is odd and <m>ab</m> is even.
+            Hint: Write <m>a = 2k_1</m> and
+            <m>b = 2k_2+1</m> for some integers <m>k_1</m> and <m>k_2</m>.
+            (You cannot use the same integer <m>k</m> for both.)
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_divides_transitive">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> <xref ref="pff_forall">Use</xref>,
+            <xref ref="pff_if_then_direct"></xref>,
+            and <xref ref="defn_divides"></xref>
+            to prove that if <m>a \mid b</m> and <m>b \mid c</m>,
+            then <m>a \mid c</m> for any integers <m>a</m>, <m>b</m>,
+            and <m>c</m>.
+            Hint: Write <m>b=ak_1</m> and <m>c=bk_2</m> for some integers <m>k_1</m> and <m>k_2</m>.
+            You cannot use the same integer <m>k</m> for both.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pffifthen">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Why we only need to consider when <m>P</m> is true when proving <m>P \to Q</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What we assume at the beginning of the direct proof that <m>P \to Q</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove <m>P \to Q</m> directly?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_last_digit_even_odd">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Prove that for any integer <m>n</m> and digit <m>s</m> that if <m>s</m> is even,
+            then <m>10n+s</m> is even and if <m>s</m> is odd, then <m>10n+s</m> is odd.
+            <xref ref="pff_forall">Use</xref>,
+            <xref ref="pff_and"></xref>,
+            <xref ref="pff_if_then_direct"></xref>,
+            and <xref ref="defn_even_odd"></xref>.
+          </p>
+          <p>
+            It follows from this exercise that if the last digit of an integer is even,
+            then that integer is even and if the last digit of an integer is odd,
+            then that integer is odd.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_EAthm_recursion">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In this exercise,
+            we <xref ref="thm_Euclidean_algorithm">prove</xref>
+            <xref ref="part_EAthm_recursion"/>.
+            Let <m>a</m>, <m>n</m>, <m>q</m>,
+            and <m>r</m> be integers such that <m>a = nq + r</m>.
+            (We are most interested in the case where <m>r = a</m> <c>mod</c> <m>n</m>,
+            but the result holds in general.)
+            <ol>
+              <li xml:id="part_EAthm_implies">
+                <p>
+                  <xref ref="pff_forall">Use</xref>,
+                  <xref ref="pff_if_then_direct"></xref>,
+                  and <xref ref="defn_divides"></xref>
+                  to prove that for any integer <m>d</m>,
+                  if <m>d \mid n</m> and <m>d \mid r</m>, then <m>d \mid a</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What does <xref ref="part_EAthm_implies"/> tell you is true about any common divisor of <m>n</m> and <m>r</m>?
+                </p>
+              </li>
+              <li xml:id="part_EAthm_converse">
+                <p>
+                  <xref ref="pff_forall">Use</xref>,
+                  <xref ref="pff_if_then_direct"></xref>,
+                  and <xref ref="defn_divides"></xref>
+                  to prove that for any integer <m>d</m>,
+                  if <m>d \mid a</m> and <m>d \mid n</m>, then <m>d \mid r</m>.
+                  Hint: Solve for <m>r</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What does <xref ref="part_EAthm_converse"/> tell you is true about any common divisor of <m>a</m> and <m>n</m>?
+                </p>
+              </li>
+              <li xml:id="part_EAthm_commondivs">
+                <p>
+                  Explain why it follows from <xref ref="part_EAthm_implies"/> and <xref ref="part_EAthm_converse"/> that the list of common divisors of <m>a</m> and <m>n</m> is the same as the list of common divisors of <m>n</m> and <m>r</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why it follows from <xref ref="part_EAthm_commondivs"/> that <c>gcd</c><m>(a,n) =</m> <c>gcd</c> <m>(n,r)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_neg_conditional">for</xref> \subnegcond</title>
+      <exercise xml:id="exer_cex_graphs_cond">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            Find a counterexample to each statement.
+            <ol>
+              <li>
+                <p>
+                  If a graph contains a 5-cycle, then contains a 4-cycle.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If two graphs <m>G</m> and <m>H</m> have the same degree sequence,
+                  then they are isomorphic.
+                  Hint: Try 3-regular graph with six vertices.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any vertices <m>v</m> and <m>w</m> in the path <m>P_6</m>,
+                  if <m>v</m> and <m>w</m> are adjacent,
+                  then <m>v</m> and <m>w</m> have the same degree.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_truthtable_neg_conditional">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use a truth table to verify the equivalence in <xref ref="thm_broken_promise"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_product_divides12">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            Find a counterexample to each statement.
+            <ol>
+              <li>
+                <p>
+                  For any integers <m>a</m> and <m>b</m>,
+                  if <m>a \mid 12</m> and <m>b \mid 12</m>, then <m>ab \mid 12</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any integers <m>a</m> and <m>b</m>,
+                  if <m>12 \mid ab</m>, then <m>12 \mid a</m> or <m>12 \mid b</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_negation_ifthen_graphs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="thm_broken_promise">Use</xref>
+            to write the negation of each statement in a sentence.
+            <ol>
+              <li>
+                <p>
+                  If a graph contains a 5-cycle, then contains a 4-cycle.
+                  Note that by <xref ref="rem_default_universal"></xref>,
+                  this statement is universally quantified so <xref ref="thm_neg_quants">use</xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If two graphs <m>G</m> and <m>H</m> have the same degree sequence,
+                  then they are isomorphic.
+                  Again, <xref ref="thm_neg_quants">use</xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any vertices <m>v</m> and <m>w</m> in the path <m>P_6</m>,
+                  if <m>v</m> and <m>w</m> are adjacent,
+                  then <m>v</m> and <m>w</m> have the same degree.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_negation_ifthen_even">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            First, find a counterexample and then <xref ref="thm_broken_promise">use</xref>
+            to write the negation of each statement in a sentence.
+            Hint: Use DeMorgan's laws <xref ref="thm_demorgans"/>.
+            <ol>
+              <li>
+                <p>
+                  For any integers <m>a</m> and <m>b</m>,
+                  if <m>a+b</m> is even, then <m>a</m> is even or <m>b</m> is even.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any integers <m>a</m> and <m>b</m>,
+                  if <m>ab</m> is even, then <m>a</m> is even and <m>b</m> is even.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_neg_conditional">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to use the idea of a broken promise to find a counterexample to <m>P \to Q</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the negation of <m>P \to Q</m> is?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_or_implication">for</xref> \subpfforimplication</title>
+      <exercise xml:id="exer_integer_or_next_is_even">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the following statement <m>S</m>: For any integer <m>n</m>,
+            either <m>n</m> is even or <m>n+1</m> is even.
+            <ol>
+              <li>
+                <p>
+                  <xref ref="thm_implication">Use</xref>
+                  to rewrite <m>S</m> as a conditional statement without the word
+                  <q>or</q>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <xref ref="pff_forall">Use</xref>
+                  and <xref ref="pff_or_implication"></xref> to prove <m>S</m>.
+                  Recall that if <m>n</m> is not even, then <m>n</m> is odd.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_no_zd_integers">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_equiv_or_conclusion">
+                <p>
+                  Use a truth table to verify that
+                  <m>P \to (Q \lor R)</m> is equivalent to <m>(P \land \neg Q) \to R</m>.
+                </p>
+              </li>
+              <li xml:id="part_zd_without_or">
+                <p>
+                  Consider the following conditional statement <m>S</m>: For any integers <m>a</m> and <m>b</m>,
+                  if <m>ab=0</m>, then <m>a=0</m> or <m>b=0</m>.
+                  Use <xref ref="part_equiv_or_conclusion"/> to rewrite <m>S</m> without
+                  <q>or</q>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_no_zd_integers">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> Consider the following conditional statement <m>S</m> from <xref ref="exer_no_zd_integers"></xref>: For any integers <m>a</m> and <m>b</m>,
+            if <m>ab=0</m>, then <m>a=0</m> or <m>b=0</m>.
+            <xref ref="pff_forall">Use</xref>,
+            <xref ref="pff_if_then_direct"></xref>,
+            and <xref ref="pff_or_implication"></xref> to prove <m>S</m>.
+            Hint: if <m>a \neq 0</m>,
+            then you may divide each side of the equation <m>ab=0</m> by <m>a</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pfforimplication">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to prove <m>P \lor Q</m> using the implication equivalence?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why we only need to consider when <m>P</m> is false when proving <m>P \lor Q</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_explain_cond_true"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            When <m>k=3</m> we have <m>2k+5 = 2(3) + 5 = 11</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Now explain how to solve the equation.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_verify_addition"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The truth table should have four columns:
+        <m>P</m>, <m>Q</m>, <m>P \lor Q</m>, <m>P \to (P \lor Q)</m>.
+        The truth table should also have four rows,
+        as in <xref ref="exam_truthtable_conditionals"></xref>.
+        To show that the statement is a tautology,
+        the last column of your truth table should be all <c>T</c> s.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_truthtable_proof_cases"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Your truth table should have eight columns:
+        <m>P</m>, <m>Q</m>, <m>R</m>,
+        <m>P \to R</m>, <m>Q \to R</m>,
+        <m>(P \to R) \land (Q \to R)</m>, <m>P \lor Q</m>,
+        and <m>(P \lor Q) \to R</m>.
+        Your truth table should also have eight rows,
+        as in <xref ref="exam_distributive_equiv"></xref>.
+        The sixth and eighth columns should be the same.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rewrite_implication"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            If you do not take a break from playing that video game,
+            then I will take away your controller for a week.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your answer should not have any negative words
+            (like
+            <q>not</q>).
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_mult6_is_mult3"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The proof begins
+      </p>
+      <blockquote>
+        <em>Proof.</em>  Let <m>n</m> be an integer.  Assume <m>6 \mid n</m>.  By definition of divides, \ldots
+      </blockquote>
+      <p>
+        Then use the hint.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_sums_prod_even_odd"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Here is an outline of the proof.
+      </p>
+      <blockquote>
+        <em>Proof.</em>  Let <m>a</m> and <m>b</m> be integers.  Assume \ldots.
+        By the definitions of even and odd, we can write \ldots (use hint)
+        Then, first, <m>a+b=</m> \ldots. Thus, \ldots.
+        Next, <m>ab =</m> \ldots. Thus, \ldots.
+      </blockquote>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_divides_transitive"></xref> Select Answers and Hints</title>
+      <blockquote>
+        <em>Proof.</em>  Let <m>a</m>, <m>b</m>, and <m>c</m> be integers.  Assume <m>a \mid b</m> and <m>b \mid c</m>. By the definitions of divides, we can write <m>b=ak_1</m> and <m>c=bk_2</m> for some integers <m>k_1</m> and <m>k_2</m>. Then,
+        <me>
+          c = bk_2 = (ak_1)k_2 = a(k_1k_2) = ak
+        </me>
+        where <m>k = k_1k_2</m> is an integer.  Thus, by definition of divides, <m>a \mid c</m>.  <m>\Box</m>
+      </blockquote>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_last_digit_even_odd"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Here is an outline of the proof.
+      </p>
+      <blockquote>
+        <em>Proof.</em>  Let <m>n</m> be an integer and let <m>s</m> be a digit.
+        First, assume <m>s</m> is even.  By definition of even we can write <m>s=</m> \ldots.  Then
+        <me>
+          10n+s = \ldots = 2k'
+        </me>
+        where <m>k' = \ldots</m> is an integer.  Thus <m>10n+s</m> is even.
+        Next, assume <m>s</m> is odd.  By definition of odd we can write <m>s=</m> \ldots.  Then
+        <me>
+          10n+s = \ldots = 2k'+1
+        </me>
+        where <m>k' = \ldots</m> is an integer.  Thus <m>10n+s</m> is odd.
+      </blockquote>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_cex_graphs_cond"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your graph should contain a 5-cycle.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your graphs should not be isomorphic.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: To show the counterexample,
+            draw <m>P_6</m> and label two of the vertices <m>v</m> and <m>w</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_product_divides12"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: One possible counterexample is <m>a = 6</m> and <m>b = 4</m>.
+            Try to find a different counterexample.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Check that your counterexample has <m>12 \mid ab</m>,
+            <m>12 \nmid a</m>, and <m>12 \nmid b</m>.
+            (We used DeMorgan's laws.)
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_negation_ifthen_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            There is a graph that contains a 5-cycle but does not contain a 4-cycle.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your negation should not include the word
+            <q>if</q>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your negation should not include the word
+            <q>if</q>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_negation_ifthen_even"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            For some integers <m>a</m> and <m>b</m>,
+            <m>a+b</m> is even, but <m>a</m> is odd and <m>b</m> is odd.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure you understand how we got the answer to part (a).
+            Your negation should not include the words
+            <q>if</q>
+            or
+            <q>and</q>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

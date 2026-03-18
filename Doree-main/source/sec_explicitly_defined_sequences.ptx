@@ -1,0 +1,3265 @@
+<section xml:id="sec_explicitly_defined_sequences">
+  <title>Explicitly-defined Sequences</title>
+  <introduction>
+    <p>
+      We began our exploration of discrete mathematics by listing and counting objects.
+      But what exactly is a
+      <q>list</q>
+      when the list is infinite such as
+      <me>
+        1,3,5,7,9,11,\ldots?
+      </me>
+    </p>
+    <p>
+      In this section,
+      we define such infinite lists (sequences) using functions,
+      look at examples of evaluating sequences,
+      and practice modeling with sequences.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_defn_seq">
+    <title>\subdefnseq</title>
+    <p>
+      We begin with a formal definition.
+    </p>
+    <definition xml:id="defn_seq">
+      <title>Sequence</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_defn_seq">
+              <p>
+                A <term>sequence</term> is a function whose domain is a set of the form
+                <m>\{s,s+1,s+2,s+3,\ldots\}</m> where <m>s</m> is an integer.
+                Note that when <m>s=0</m> this set is
+                <m>\mathbb{N}</m> and when <m>s=1</m> this set is <m>\mathbb{Z}^+</m>.
+                For example,
+                the function <m>f: \mathbb{N} \to \mathbb{Q}</m> defined by
+                <me>
+                  f(n) = \frac{n-1}{n+1}
+                </me>
+                is a sequence.
+              </p>
+            </li>
+            <li>
+              <p>
+                A sequence <term>starts at</term>
+                <m>s</m> if its domain is <m>\{s,s+1,s+2,s+3,\ldots\}</m>.
+                For example,
+                the sequence from <xref ref="part_defn_seq"/> starts at 0 because the domain is <m>\mathbb{N}</m>.
+                We primarily consider sequences that start at 0 or 1.
+              </p>
+            </li>
+            <li>
+              <p>
+                As a shorthand, we use <term>sequence notation</term>
+                to write <m>a_n=f(n)</m> for <m>n \ge s</m>.
+                For example,
+                the sequence from <xref ref="part_defn_seq"/> can be defined by
+                <me>
+                  a_n = \frac{n-1}{n+1} \text{ for } n \ge 0
+                </me>.
+                This notation specifies the domain and rule for the function but not the codomain and so it should only be used when the codomain is clear from the context or stated separately.
+              </p>
+            </li>
+            <li>
+              <p>
+                A sequence can be described using a
+                <term>list</term> of its terms:
+                <me>
+                  a_s, a_{s+1}, a_{s+2}, \ldots
+                </me>.
+                For example,
+                in the sequence from <xref ref="part_defn_seq"/> we calculate
+                <md>
+                  <mrow>a_0 \amp  = \frac{0-1}{0+1}=\frac{-1}{1}=-1</mrow>
+                  <mrow>a_1 \amp  = \frac{1-1}{1+1}=\frac{0}{2}=0</mrow>
+                  <mrow>a_2 \amp  = \frac{2-1}{2+1}=\frac{1}{3}</mrow>
+                  <mrow>a_3 \amp  = \frac{3-1}{3+1}=\frac{2}{4}=\frac{1}{2}</mrow>
+                  <mrow>a_4 \amp  = \frac{4-1}{4+1}=\frac{3}{5}</mrow>
+                  <mrow>a_5 \amp  = \frac{5-1}{5+1}=\frac{4}{6}=\frac{2}{3}</mrow>
+                </md>
+                and so the sequence corresponds to the list beginning
+                <me>
+                  -1, 0, \frac{1}{3}, \frac{1}{2}, \frac{3}{5}, \ldots
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We can list the first few terms of a sequence using a <term>table</term>,
+                as in <xref ref="tab_seq_in_table"></xref>.
+                <table xml:id="tab_seq_in_table">
+                  <title>Displaying a sequence in a table</title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell><m>s</m></cell>
+                      <cell><m>s+1</m></cell>
+                      <cell><m>s+2</m></cell>
+                      <cell><m>s+3</m></cell>
+                      <cell><m>s+4</m></cell>
+                      <cell><m>s+5</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>a_n</m></cell>
+                      <cell><m>a_s</m></cell>
+                      <cell><m>a_{s+1}</m></cell>
+                      <cell><m>a_{s+2}</m></cell>
+                      <cell><m>a_{s+3}</m></cell>
+                      <cell><m>a_{s+4}</m></cell>
+                      <cell><m>a_{s+5}</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+                For example, we can list the first terms of
+                <m>a_n = \frac{n-1}{n+1}</m> for <m>n \ge 0</m> in <xref ref="tab_seq_in_table_frac"></xref>.
+                <table xml:id="tab_seq_in_table_frac">
+                  <title>The first few terms of the sequence <m>a</m> defined by <m>a_n = \frac{n-1}{n+1}</m> for <m>n \ge 0</m></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell><m>0</m></cell>
+                      <cell><m>1</m></cell>
+                      <cell><m>2</m></cell>
+                      <cell><m>3</m></cell>
+                      <cell><m>4</m></cell>
+                      <cell><m>5</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>a_n</m></cell>
+                      <cell><m>-1</m></cell>
+                      <cell><m>0</m></cell>
+                      <cell><m>\frac{1}{3}</m></cell>
+                      <cell><m>\frac{1}{2}</m></cell>
+                      <cell><m>\frac{3}{5}</m></cell>
+                      <cell><m>\frac{2}{3}</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                The expression <m>a_n</m> is pronounced
+                <q><m>a</m> sub <m>n</m></q>. The (input) value of <m>n</m> is the <term>index</term>
+                of the term and the (output) value of <m>a_n</m> is the
+                <term>term</term> of the sequence.
+                For example, in the sequence from <xref ref="part_defn_seq"/>,
+                the term <m>a_3</m> is <m>\frac{1}{2}</m> and its index is <m>3</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A sequence is <term>explicitly-defined</term>
+                (or <term>in closed form</term>)
+                if there is a rule for <m>a_n</m> that depends only on <m>n</m> and constants.
+                For example,
+                the sequence from <xref ref="part_defn_seq"/> is explicitly-defined.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at some examples of sequences.
+    </p>
+    <example xml:id="exam_eval_seq">
+      <title>Evaluating explicitly-defined sequences</title>
+      <statement>
+        <p>
+          For each sequence,
+          evaluate the first four terms and evaluate the 100th term.
+          <ol>
+            <li xml:id="part_eval_seq_linear">
+              <p>
+                The sequence <m>a</m> is defined by <m>a_n= 2n</m> for <m>n \ge 0</m>.
+                <solution>
+                  <p>
+                    We calculate <m>a_0 = 2(0) = 0</m>,
+                    <m>a_1 = 2(1) = 1</m>, <m>a_2 = 2(2) = 4</m>,
+                    and <m>a_3 = 2(3) = 6</m>.
+                    The first four terms are <m>0, 2, 4, 6</m>.
+                    To find <m>a_{100}</m> we calculate <m>a_{100}= 2(100) = 200</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_eval_seq_exponential">
+              <p>
+                The sequence <m>b</m> is defined by <m>b_k = 2^k</m> for <m>k \ge 0</m>.
+                <solution>
+                  <p>
+                    We calculate <m>b_0 = 2^0 = 1</m>,
+                    <m>b_1 = 2^1 = 2</m>, <m>b_2 = 2^2 = 4</m>, and <m>b_3 = 2^3 = 8</m>.
+                    The first four terms are <m>1,2,4,8</m>.
+                    To find <m>b_{100}</m> we calculate <m>b_{100}= 2^{100}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_eval_seq_factorial">
+              <p>
+                The sequence <m>c</m> is defined by <m>c_m = 10m!</m> for <m>m \ge 0</m>.
+                <solution>
+                  <p>
+                    We calculate <m>c_0 = 10\cdot0! = 10\cdot1= 10</m>,
+                    <m>c_1 = 10\cdot1! = 10\cdot1= 10</m>,
+                    <m>c_2 = 10\cdot2! = 10\cdot2= 20</m>,
+                    and <m>c_3 = 10\cdot3! = 10\cdot6= 60</m>.
+                    The first four terms are <m>10, 10, 20, 60</m>.
+                    To find <m>c_{100}</m> we calculate <m>c_{100}= 10\cdot(100!)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_eval_seq_hs">
+              <p>
+                The sequence <m>h</m> is defined by <m>h_n = \frac{n(n-1)}{2}</m> for <m>n \ge 1</m>.
+                <solution>
+                  <p>
+                    We calculate <m>h_1 = \frac{1(1-1)}{2}= \frac{0}{2} = 0</m>,
+                    <m>h_2 = \frac{2(2-1)}{2}= \frac{2}{2} = 1</m>,
+                    <m>h_3 = \frac{3(3-1)}{2}= \frac{6}{2} = 3</m>,
+                    and <m>h_4 = \frac{4(4-1)}{2}= \frac{12}{2} = 6</m>.
+                    The first four terms are <m>0,1,3,6</m>.
+                    To find <m>h_{100}</m> we calculate <m>h_{100}=\frac{100(100-1)}{2}= \frac{9900}{2} = 4950</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_eval_seq_alt_sq">
+              <p>
+                The sequence <m>t</m> is defined by <m>t_j=\frac{(-1)^j}{j^2}</m> for <m>j \ge 1</m>.
+                <solution>
+                  <p>
+                    We calculate <m>t_1 = \frac{(-1)^1}{1^2}=\frac{-1}{1}=-1</m>,
+                    <m>t_2 \frac{(-1)^2}{2^2}= \frac{1}{4}</m>,
+                    <m>t_3 \frac{(-1)^3}{3^2}= ^-\frac{1}{9}</m>,
+                    and <m>t_4 \frac{(-1)^4}{4^2} = \frac{1}{16}</m>.
+                    The first four terms are <m>-1, \frac{1}{4}, ^-\frac{1}{9}, \frac{1}{16}</m>.
+                    To find <m>t_{100}</m> we calculate <m>s_{100}=\frac{(-1)^{200}}{200^2} = \frac{1}{40000}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_eval_seq_poly">
+              <p>
+                The sequence <m>u</m> is defined by <m>u_m = m(2m-1)</m> for <m>m \ge 1</m>.
+                <solution>
+                  <p>
+                    We calculate <m>u_1 = 1(2(1)-1)=1(1)=1</m>,
+                    <m>u_2 = 2(2(2)-1)=2(3)=6</m>,
+                    <m>u_3 =3(2(3)-1)=3(5)=15</m>,
+                    and <m>u_4 =4(2(4)-1)=4(7)=28</m>.
+                    The first four terms are <m>1, 6, 15, 28</m>.
+                    To find <m>u_{100}</m> we calculate <m>u_{100}= 100(2(100)-1)=100(199)=19900</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The sequence <m>v</m> is defined by <m>v_i = \left\lfloor \frac{i}{2} \right \rfloor</m> for <m>i \ge 0</m>.
+                <solution>
+                  <p>
+                    We calculate <m>v_0 = \left\lfloor \frac{0}{2} \right \rfloor = \left\lfloor 0 \right \rfloor= 0</m>,
+                    <m>v_1 = \left\lfloor \frac{1}{2} \right \rfloor = \left\lfloor 0.5 \right \rfloor= 0</m>,
+                    <m>v_2 = \left\lfloor \frac{2}{2} \right \rfloor = \left\lfloor 1 \right \rfloor= 1</m>,
+                    and <m>v_3 = \left\lfloor \frac{3}{2} \right \rfloor = \left\lfloor 1.5 \right \rfloor= 1</m>, . The first four terms are <m>0, 0, 1, 1</m>.
+                    To find <m>v_{100}</m> we calculate <m>v_{100}= \left\lfloor \frac{100}{2} \right \rfloor = \left\lfloor 50 \right \rfloor= 50</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Like any function,
+      a sequence can have a rule defined in words and can involve discrete objects.
+    </p>
+    <example xml:id="exam_eval_seq_words">
+      <title>Evaluating sequences with rules defined in words</title>
+      <statement>
+        <p>
+          For each sequence, evaluate the first seven terms.
+          <ol>
+            <li>
+              <p>
+                The sequence <m>d</m> is defined by <m>d_k =</m> the number of digits in <m>2^k</m> for <m>k \ge 1</m>.
+                <solution>
+                  <p>
+                    First, <m>d_1</m> is the number of digits in <m>2^1=2</m> and so <m>d_1=1</m>.
+                    Next, <m>d_2</m> is the number of digits in <m>2^2=4</m> and so <m>d_2=1</m>.
+                    Then, <m>d_3</m> is the number of digits in <m>2^3=8</m> and so,
+                    once again,
+                    <m>d_3=1</m>.
+                    Next, <m>d_4</m> is the number of digits in <m>2^4=16</m> and so <m>d_4=2</m>.
+                    Then, <m>d_5</m> is the number of digits in <m>2^5=32</m> and so <m>d_5=2</m>.
+                    Next, <m>d_6</m> is the number of digits in <m>2^6=64</m> and so <m>d_6 = 2</m> yet again.
+                    Last, <m>d_7</m> is the number of digits in <m>2^7=128</m> and so <m>b_7=3</m>.
+                    The first seven terms are <m>1,1,1,2,2,2,3</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The sequence <m>p</m> is defined by
+                <me>
+                  p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even }  \\ 2m \amp  \text{ if }  m \text{ is odd } \end{array}  \right
+                </me>.
+                for <m>m \ge 0</m>.
+                <solution>
+                  <p>
+                    First, 0 is even and so <m>p_0 = \frac{0}{2} = 0</m>.
+                    Next, 1 is odd and so <m>p_1=2(1) = 2</m>.
+                    Then, 2 is even and so <m>p_2=\frac{2}{2}=1</m>.
+                    Next, 3 is odd and so <m>p_3=2(3) = 6</m>.
+                    Then, 4 is even and so <m>p_4=\frac{4}{2}=2</m>.
+                    Next, 5 is odd and so <m>p_5=2(5) = 10</m>.
+                    Last, 6 is even and so <m>p_6=\frac{6}{2}=3</m>.
+                    The first seven terms are <m>0, 2, 1, 6, 2, 10, 3</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The sequence <m>s</m> is defined by <m>s_j=\{0,1,2,\ldots,j-1\}</m> for <m>j \ge 1</m>.
+                <solution>
+                  <p>
+                    First, when <m>j=1</m> the set goes from 0 to <m>j-1=0</m> and so <m>s_1=\{0\}</m>.
+                    The <ellipsis/> notation can be a bit misleading here,
+                    just think of <m>s_j</m> as the set of consecutive integers starting at 0 and ending at <m>j-1</m>.
+                    Next, when <m>j=2</m> the set goes from 0 to <m>j-1=1</m> and so <m>s_2=\{0,1\}</m>.
+                    Then <m>s_3=\{0,1,2\}</m>, <m>s_4=\{0,1,2,3\}</m>,
+                    <m>s_5=\{0,1,2,3,4\}</m>, and <m>s_6=\{0,1,2,3,4,5\}</m>.
+                    The first four terms are <m>\{0\},\{0,1\},\{0,1,2\},\{0,1,2,3\}, \{0,1,2,3,4\}, \{0,1,2,3,4,5\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with sequences.
+    </p>
+    <activity xml:id="act_eval_seq">
+      <title>Evaluating explicitly-defined sequences</title>
+      <p>
+        For each sequence,
+        evaluate the first five terms and the term with index <m>20</m>.
+        <ol>
+          <li>
+            <p>
+              The sequence <m>a</m> is defined by <m>a_n=10n + 2</m> for <m>n \ge 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>b</m> is defined by <m>b_i = 2(10^i)</m> for <m>i \ge 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>c</m> is defined by <m>c_n = \frac{(-1)^nn}{n^2+1}</m> for <m>n \ge 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>y</m> is defined by <m>y_n</m> is the set of positive divisors of <m>n</m> for <m>n \ge 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>z</m> is defined by <m>z_m=</m> the bit string of length <m>m</m> consisting of all <c>1</c> s for <m>m \ge 1</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_model_seq">
+    <title>\submodelseq</title>
+    <p>
+      In the examples we have seen so far,
+      we have gone from a sequence defined by a rule to a list or table.
+      It is particularly useful to go the opposite direction,
+      from the list or table to a rule.
+      Let's try modeling with sequences.
+    </p>
+    <activity xml:id="act_next_term_explicit">
+      <title>Modeling with explicitly-defined sequences</title>
+      <p>
+        Write a simple explicit rule that generates each sequence.
+        It might help to write the terms in a table.
+        Make sure you say where the index starts.
+        <ol>
+          <li>
+            <p>
+              The sequence <m>a</m> begins <m>4,4,4,4,4,4,4,4,\ldots</m>.
+              Hint: Start the index at 0.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>b</m> begins <m>5,-5,5,-5,5,-5,5,-5,\ldots</m>.
+              Hint: Start the index at 0.
+              Use <m>(-1)^n</m> to get the alternation.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>c</m> begins <m>5, 7, 9, 11, 13,\ldots</m>.
+              Hint: Start the index at 0.
+              We add two to get from each term to the next,
+              so the answer likely involves <m>2+2+\ldots +2 = 2n</m>.
+              Make a table comparing <m>n</m>,
+              <m>2n</m>, and the terms of the sequence.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>d</m> begins <m>2, -3, 4, -5, 6, -7,\ldots</m>.
+              Note: Start the index at 0 or 1
+              (your choice).
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>e</m> begins <m>5,10,20,40,80, \ldots</m>.
+              Hint: Start the index at 0.
+              We multiply by two to get from each term to the next,
+              so the answer likely involves <m>2\times 2 \times \ldots \times 2 = 2^n</m>.
+              Make a table comparing <m>n</m>,
+              <m>2^n</m>, and the terms of the sequence.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>f</m> begins <m>11, 101, 1001, 10001, 100001, \ldots</m>.
+              Note: Start the index at 0 or 1
+              (your choice).
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>g</m> begins <m>0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \ldots</m>.
+              Hint: Find a formula for the numerator sequence (<m>0,1,2,3,4,\ldots</m>) and then find a different formula for the denominator sequence
+              (<m>1,2,3,4,5,\ldots</m>).
+              Note: Start the index at 0 or 1
+              (your choice),
+              but the numerator and denominator need to start at the same index.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>s</m> begins <m>\frac{2}{3}, 1, \frac{6}{5}, \frac{4}{3}, \frac{10}{7}, \frac{3}{2}, \frac{14}{9}, \ldots</m>.
+              Hint: The fractions were likely reduced,
+              so consider rewriting as equivalent fractions over more convenient denominators.
+              Note: Start the index at 0 or 1
+              (your choice).
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>t</m> begins <m>5, 10, 30, 120, 600, \ldots</m>.
+              Hint: Start the index at 1.
+              To get from each term to the next we multiply by 2, then multiply by 3, then by multiply by 4, then multiply by 5, so the answer likely involves <m>1 \times 2 \times 3 \times \cdots \times n = n!</m>.
+              Make a table comparing <m>n</m>,
+              <m>n!</m>, and the terms of the sequence.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>u</m> begins <m>5, 6, 8, 11, 15, 20, \ldots</m>.
+              Hint: Start the index at 1.
+              To get from each term to the next we add 1, then add 2, then we add 3, then we add 4, then we add 5, so the answer likely involves
+              <m>1+2+3+ \ldots n-1=\frac{n(n-1)}{2}</m> or <m>1+2+3+ \ldots n = \frac{n(n+1)}{2}</m>,
+              which we first saw in the Handshakes Puzzle <xref ref="act_handshakes"/>.
+              Make a table comparing <m>n</m>,
+              <m>\frac{n(n-1)}{2}</m>, and the terms of the sequence.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>v</m> begins <m>3, 10, 21, 36, 55, \ldots</m>.
+              Hint: Start the index at 1.
+              Make a table comparing <m>n</m> and the terms of the sequence.
+              Factor out <m>n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>w</m> begins <m>1,1,1,2,2,2,3,3,3,4,4,4, \ldots</m>.
+              Hint: The terms repeat so likely either floor or ceiling is involved.
+              Note: Start the index at 0 or 1
+              (your choice).
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>x</m> begins <m>2, 3, 6, 12, 18, 27, \ldots</m>.
+              Hint: Start the index at 1.
+              Make a table showing the index <m>n</m>,
+              <m>n^2</m>, and the terms.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at some examples similar to the sequences in <xref ref="act_next_term_explicit"></xref>.
+    </p>
+    <example xml:id="exam_next_term_explicit">
+      <title>Modeling with explicitly-defined sequences</title>
+      <statement>
+        <p>
+          Write a simple explicit rule that generates each sequence.
+          <ol>
+            <li xml:id="part_NTE_exam_frac">
+              <p>
+                The sequence <m>a</m> begins <m>1, \frac{1}{2}, \frac{1}{3},\frac{1}{4},\frac{1}{5},\ldots</m>.
+                <solution>
+                  <p>
+                    Let's make a table comparing <m>n</m>, the numerator sequence,
+                    and the denominator sequence,
+                    in <xref ref="tab_NTE_exam_frac"></xref>.
+                    Notice that the numerator is the constant 1 and the denominator equals the index <m>n</m> if we start at <m>n=1</m>.
+                    A possible formula is <m>a_n = \frac{1}{n}</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_frac">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_frac"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>numerator</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>denominator</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>a_n</m></cell>
+                      <cell>1</cell>
+                      <cell><m>\frac{1}{2}</m></cell>
+                      <cell><m>\frac{1}{3}</m></cell>
+                      <cell><m>\frac{1}{4}</m></cell>
+                      <cell><m>\frac{1}{5}</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_linear">
+              <p>
+                The sequence <m>b</m> begins <m>5,8,11,14,17,20,\ldots</m>.
+                <solution>
+                  <p>
+                    We add three to get from each term to the next,
+                    so the answer likely involves <m>3+3+\ldots +3 = 3n</m>.
+                    Let's make a table comparing <m>n</m>, <m>3n</m>,
+                    and the terms of the sequence starting at <m>n=0</m>,
+                    in <xref ref="tab_NTE_exam_linear"></xref>.
+                    Notice that we can get from <m>3n</m> to <m>b_n</m> by adding five.
+                    A possible formula is <m>b_n = 3n+5</m> for <m>n \ge 0</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_linear">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_linear"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>0</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>3n</m></cell>
+                      <cell>0</cell>
+                      <cell>3</cell>
+                      <cell>6</cell>
+                      <cell>9</cell>
+                      <cell>12</cell>
+                      <cell>15</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>b_n</m></cell>
+                      <cell>5</cell>
+                      <cell>8</cell>
+                      <cell>11</cell>
+                      <cell>14</cell>
+                      <cell>17</cell>
+                      <cell>20</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=0+5</m></cell>
+                      <cell><m>=3+5</m></cell>
+                      <cell><m>=6+5</m></cell>
+                      <cell><m>=9+5</m></cell>
+                      <cell><m>=12+5</m></cell>
+                      <cell><m>=15+5</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_alt_linear">
+              <p>
+                The sequence <m>c</m> begins <m>2, -3, 4, -5, 6, -7,\ldots</m>.
+                <solution>
+                  <p>
+                    We can use <m>(-1)^n</m> to get the alternation,
+                    so let's make a table comparing <m>n</m>, <m>(-1)^n</m>,
+                    and the absolute value of the terms of the sequence starting at <m>n=0</m>,
+                    in <xref ref="tab_NTE_exam_alt_linear"></xref>.
+                    Notice that the absolute value of the terms of the sequence are two more than the index <m>n</m>.
+                    A possible formula is <m>c_n = (-1)^n(n+2)</m> for <m>n \ge 0</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_alt_linear">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_alt_linear"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>0</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>(-1)^n</m></cell>
+                      <cell>1</cell>
+                      <cell>-1</cell>
+                      <cell>1</cell>
+                      <cell>-1</cell>
+                      <cell>1</cell>
+                      <cell>-1</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>|c_n|</m></cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                      <cell>7</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>c_n</m></cell>
+                      <cell>2</cell>
+                      <cell>-3</cell>
+                      <cell>4</cell>
+                      <cell>-5</cell>
+                      <cell>6</cell>
+                      <cell>-7</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=1(0+2)</m></cell>
+                      <cell><m>=-1(1+2)</m></cell>
+                      <cell><m>=1(2+2)</m></cell>
+                      <cell><m>=-1(3+2)</m></cell>
+                      <cell><m>=1(4+2)</m></cell>
+                      <cell><m>=-1(5+2)</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_frac_odds">
+              <p>
+                The sequence <m>d</m> begins <m>\frac{2}{3}, \frac{4}{7}, \frac{6}{11}, \frac{8}{15}, \ldots</m>.
+                <solution>
+                  <p>
+                    Let's make a table comparing <m>n</m>,
+                    the numerator sequence, the denominator sequence,
+                    and the terms of the sequence starting at <m>n=1</m> in <xref ref="tab_NTE_exam_frac_odds"></xref>.
+                    Notice the numerator is twice the index so it equals <m>2n</m>.
+                    For the denominator, we add four to get from each term to the next,
+                    so the answer likely involves <m>4+4+\ldots +4 = 4n</m>.
+                    Let's add a row for <m>4n</m> to our table.
+                    We can get from <m>4n</m> to the denominator by subtracting one.
+                    A possible formula is <m>d_n = \frac{2n}{4n-1}</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_frac_odds">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_frac_odds"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>2n</m></cell>
+                      <cell>2</cell>
+                      <cell>4</cell>
+                      <cell>6</cell>
+                      <cell>8</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>numerator</cell>
+                      <cell>2</cell>
+                      <cell>4</cell>
+                      <cell>6</cell>
+                      <cell>8</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>4n</m></cell>
+                      <cell>4</cell>
+                      <cell>8</cell>
+                      <cell>12</cell>
+                      <cell>16</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>denominator</cell>
+                      <cell>3</cell>
+                      <cell>7</cell>
+                      <cell>11</cell>
+                      <cell>15</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=4-1</m></cell>
+                      <cell><m>=8-1</m></cell>
+                      <cell><m>=12-1</m></cell>
+                      <cell><m>=16-1</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>d_n</m></cell>
+                      <cell><m>\frac{2}{3}</m></cell>
+                      <cell><m>\frac{4}{7}</m></cell>
+                      <cell><m>\frac{6}{11}</m></cell>
+                      <cell><m>\frac{8}{15}</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_exp">
+              <p>
+                The sequence <m>e</m> begins <m>2,20,200,2000,20000, \ldots</m>.
+                <solution>
+                  <p>
+                    We multiply by 10 to get from each term to the next,
+                    so the answer likely involves <m>10 \times 10 \times \ldots \times 10 = 10^n</m>.
+                    Let's make a table comparing <m>n</m>, <m>10^n</m>,
+                    and the terms of the sequence starting at <m>n=0</m>,
+                    in <xref ref="tab_NTE_exam_exp"></xref>.
+                    We can get from <m>10^n</m> to the terms by multiplying by two.
+                    A possible formula is <m>e_n = 2(10^n)</m> for <m>n \ge 0</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_exp">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_exp"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>0</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>10^n</m></cell>
+                      <cell>1</cell>
+                      <cell>10</cell>
+                      <cell>100</cell>
+                      <cell>1000</cell>
+                      <cell>10000</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>e_n</m></cell>
+                      <cell>2</cell>
+                      <cell>20</cell>
+                      <cell>200</cell>
+                      <cell>2000</cell>
+                      <cell>20000</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>= 2(1)</m></cell>
+                      <cell><m>= 2(10)</m></cell>
+                      <cell><m>= 2(100)</m></cell>
+                      <cell><m>= 2(1000)</m></cell>
+                      <cell><m>= 2(10000)</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_powers2_plus1">
+              <p>
+                The sequence <m>f</m> begins <m>2, 3, 5, 9, 17, \ldots</m>.
+                <solution>
+                  <p>
+                    To get from each term to the next we add two,
+                    then add four, then add eight,
+                    and then add 16 so perhaps the pattern involves powers of two again.
+                    Let's make a table comparing <m>n</m>, <m>2^n</m>,
+                    and the terms of the sequence starting at <m>n=0</m>,
+                    in <xref ref="tab_NTE_exam_powers2_plus1"></xref>.
+                    We can get from <m>2^n</m> to the terms by adding one.
+                    A possible formula is <m>f_n = 2^n+1</m> for <m>n \ge 0</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_powers2_plus1">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_powers2_plus1"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>0</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>2^n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>4</cell>
+                      <cell>8</cell>
+                      <cell>16</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>f_n</m></cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>5</cell>
+                      <cell>9</cell>
+                      <cell>17</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=1+1</m></cell>
+                      <cell><m>=2+1</m></cell>
+                      <cell><m>=4+1</m></cell>
+                      <cell><m>=8+1</m></cell>
+                      <cell><m>=16+1</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_powers2_minus1">
+              <p>
+                The sequence <m>s</m> begins <m>1, 3, 7, 15, 31, \ldots</m>.
+                <solution>
+                  <p>
+                    To get from each term to the next we add one, add two,
+                    then add four,
+                    then add eight, so perhaps the pattern involves powers of two.
+                    Let's make a table comparing <m>n</m>, <m>2^n</m>,
+                    and the terms of the sequence starting at <m>n=0</m>,
+                    in <xref ref="tab_NTE_exam_powers2_minus1"></xref>.
+                    The powers of two and the terms differ by one, but they are not aligned.
+                    Let's write each term using powers of two.
+                    We see the power of two is one larger than the index,
+                    so the pattern involves <m>2^{n+1}</m>.
+                    A possible formula is <m>s_n = 2^{n+1}-1</m> for <m>n \ge 0</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_powers2_minus1">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_powers2_minus1"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>0</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>2^n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>4</cell>
+                      <cell>8</cell>
+                      <cell>16</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>f_n</m></cell>
+                      <cell>1</cell>
+                      <cell>3</cell>
+                      <cell>7</cell>
+                      <cell>15</cell>
+                      <cell>31</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=2-1</m></cell>
+                      <cell><m>=4-1</m></cell>
+                      <cell><m>=8-1</m></cell>
+                      <cell><m>=16-1</m></cell>
+                      <cell><m>=32-1</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=2^1-1</m></cell>
+                      <cell><m>=2^2-1</m></cell>
+                      <cell><m>=2^3-1</m></cell>
+                      <cell><m>=2^4-1</m></cell>
+                      <cell><m>=2^5-1</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_factorial">
+              <p>
+                The sequence <m>t</m> begins <m>4, 5, 9, 27, 123, 603, \ldots</m>.
+                <solution>
+                  <p>
+                    The terms are growing large quickly.
+                    Let's look at their ratios <m>\frac{5}{4} = 1.25</m>,
+                    <m>\frac{9}{5} = 1.8</m>, <m>\frac{27}{9}=3</m>,
+                    <m>\frac{123}{27} = 4.55.</m>..,
+                    <m>\frac{603}{123} = 4.90.</m>... It's almost like we are multiplying by one,
+                    then multiplying by two, then by three,
+                    then by four, then by five.
+                    That pattern would involve
+                    <m>1 \times 2 \times \cdots \times n =n!</m> Let's make a table comparing <m>n</m>,
+                    <m>n!</m>,
+                    and the terms of the sequence starting at <m>n=1</m>,
+                    in <xref ref="tab_NTE_exam_factorial"></xref>.
+                    A possible formula is <m>t_n = n!+3</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_factorial">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_factorial"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>n!</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>6</cell>
+                      <cell>24</cell>
+                      <cell>120</cell>
+                      <cell>600</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>t_n</m></cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>9</cell>
+                      <cell>27</cell>
+                      <cell>123</cell>
+                      <cell>603</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=1+3</m></cell>
+                      <cell><m>=2+3</m></cell>
+                      <cell><m>=6+3</m></cell>
+                      <cell><m>=24+3</m></cell>
+                      <cell><m>=120+3</m></cell>
+                      <cell><m>=600+3</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_hs">
+              <p>
+                The sequence <m>u</m> begins <m>3, 9, 18, 30, 45, 63, \ldots</m>.
+                <solution>
+                  <p>
+                    Since all the terms are multiples of three,
+                    let's start by factoring out three from each term to get <m>1, 3, 6, 10, 15, 21, \ldots</m>.
+                    To get from each term to the next we add one,
+                    add two, then add three, then add four,
+                    so the answer likely involves
+                    <m>1+2+3+ \ldots n-1=\frac{n(n-1)}{2}</m> or <m>1+2+3+ \ldots n = \frac{n(n+1)}{2}</m>,
+                    which we first saw in the Handshakes Puzzle <xref ref="act_handshakes"/>.
+                    Let's make a table comparing <m>n</m>, <m>\frac{n(n-1)}{2}</m>,
+                    and the terms of the sequence starting at <m>n=1</m>,
+                    in <xref ref="tab_NTE_exam_hs"></xref>.
+                    Notice that we can get from the handshake numbers to the terms by multiplying by three.
+                    A possible formula is <m>u_n = 3\frac{n(n-1)}{2}</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_hs">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_hs"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>\frac{n(n-1)}{2}</m></cell>
+                      <cell>1</cell>
+                      <cell>3</cell>
+                      <cell>6</cell>
+                      <cell>10</cell>
+                      <cell>15</cell>
+                      <cell>21</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>u_n</m></cell>
+                      <cell>3</cell>
+                      <cell>9</cell>
+                      <cell>18</cell>
+                      <cell>30</cell>
+                      <cell>45</cell>
+                      <cell>63</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=3(1)</m></cell>
+                      <cell><m>=3(3)</m></cell>
+                      <cell><m>=3(6)</m></cell>
+                      <cell><m>=3(10)</m></cell>
+                      <cell><m>=3(15)</m></cell>
+                      <cell><m>=3(21)</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_factor">
+              <p>
+                The sequence <m>v</m> begins <m>1, 6, 15, 28, 45, \ldots</m>.
+                Hint: Factor.
+                <solution>
+                  <p>
+                    Let's make a table comparing <m>n</m> and the terms of the sequence starting at <m>n=1</m> in factored form,
+                    in <xref ref="tab_NTE_exam_factor"></xref>.
+                    Notice that <m>v_n</m> is the product of <m>n</m> and the odds.
+                    A possible formula is <m>v_n = n(2n+1)</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_factor">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_factor"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>v_n</m></cell>
+                      <cell>1</cell>
+                      <cell>6</cell>
+                      <cell>15</cell>
+                      <cell>28</cell>
+                      <cell>45</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=1(1)</m></cell>
+                      <cell><m>=2(3)</m></cell>
+                      <cell><m>=3(5)</m></cell>
+                      <cell><m>=4(7)</m></cell>
+                      <cell><m>=5(9)</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_ceil">
+              <p>
+                The sequence <m>w</m> begins <m>1,1,2,2,3,3,4,4, \ldots</m>.
+                <solution>
+                  <p>
+                    Notice that the terms repeat,
+                    so floor or ceiling is likely involved.
+                    Since each term repeats twice,
+                    let's try <m>\frac{n}{2}</m>.
+                    Let's make a table comparing <m>n</m>, <m>\frac{n}{2}</m>,
+                    and the terms of the sequence starting at <m>n=1</m>,
+                    in <xref ref="tab_NTE_exam_ceil"></xref>.
+                    Notice that the ceiling function works.
+                    A possible formula is <m>w_n = \lceil \frac{n}{2} \rceil</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_ceil">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_ceil"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                      <cell>7</cell>
+                      <cell>8</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>\frac{n}{2}</m></cell>
+                      <cell>0.5</cell>
+                      <cell>1</cell>
+                      <cell>1.5</cell>
+                      <cell>2</cell>
+                      <cell>2.5</cell>
+                      <cell>3</cell>
+                      <cell>3.5</cell>
+                      <cell>4</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>w_n</m></cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>4</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=\lceil 0.5 \rceil</m></cell>
+                      <cell><m>=\lceil 1 \rceil</m></cell>
+                      <cell><m>=\lceil 1.5 \rceil</m></cell>
+                      <cell><m>=\lceil 2 \rceil</m></cell>
+                      <cell><m>=\lceil 2.5 \rceil</m></cell>
+                      <cell><m>=\lceil 3 \rceil</m></cell>
+                      <cell><m>=\lceil 3.5 \rceil</m></cell>
+                      <cell><m>=\lceil 4 \rceil</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_NTE_exam_sq">
+              <p>
+                The sequence <m>x</m> begins <m>0, 3, 8, 15, 24, 35, \ldots</m>.
+                <solution>
+                  <p>
+                    Let's make a table comparing <m>n</m> and the terms of the sequence starting at <m>n=1</m> in factored form,
+                    in <xref ref="tab_NTE_exam_sq"></xref>.
+                    Notice the first term in the product is one less than <m>n</m> and the second term in the product is one more than <m>n</m>. (We could have factored 0 in many ways,
+                    but writing <m>0 = 0(2)</m> continues the pattern.) A possible formula is <m>x_n = (n-1)(n+1)</m> for <m>n \ge 0</m>.
+                  </p>
+                  <p>
+                    Note that <m>(n+1)(n-1) = n^2-1</m> and so there is a quicker way to have found this pattern,
+                    provided we thought to compare the terms to <m>n^2</m> instead,
+                    as in <xref ref="tab_NTE_exam_sq_easier"></xref>.
+                  </p>
+                </solution>
+                <table xml:id="tab_NTE_exam_sq">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_sq"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>x_n</m></cell>
+                      <cell>0</cell>
+                      <cell>3</cell>
+                      <cell>8</cell>
+                      <cell>15</cell>
+                      <cell>24</cell>
+                      <cell>35</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>=0(2)</m></cell>
+                      <cell><m>=1(3)</m></cell>
+                      <cell><m>=2(4)</m></cell>
+                      <cell><m>=3(5)</m></cell>
+                      <cell><m>=4(6)</m></cell>
+                      <cell><m>=5(7)</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+                <table xml:id="tab_NTE_exam_sq_easier">
+                  <title>The sequence from <xref ref="exam_next_term_explicit"></xref> <xref ref="part_NTE_exam_sq"/> revisited</title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>n^2</m></cell>
+                      <cell>1</cell>
+                      <cell>4</cell>
+                      <cell>9</cell>
+                      <cell>16</cell>
+                      <cell>25</cell>
+                      <cell>36</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>x_n</m></cell>
+                      <cell>0</cell>
+                      <cell>3</cell>
+                      <cell>8</cell>
+                      <cell>15</cell>
+                      <cell>24</cell>
+                      <cell>35</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>1-1</m></cell>
+                      <cell><m>4-1</m></cell>
+                      <cell><m>9-1</m></cell>
+                      <cell><m>16-1</m></cell>
+                      <cell><m>25-1</m></cell>
+                      <cell><m>36-1</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_seq_primes">
+    <title>\subseqprimes</title>
+    <p>
+      The rule for a sequence can depend on prime factorization or the sequence of primes.
+      Let's look at a few examples involving prime factorization.
+    </p>
+    <example xml:id="exam_seq_prime_fact">
+      <title>Sequences involving prime factorization</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_seq_number_odd_prime_div">
+              <p>
+                Evaluate the first fifteen terms of the sequence defined by <m>a_k =</m> the number of distinct odd primes dividing <m>k</m> for <m>k \ge 1</m>.
+                <solution>
+                  <p>
+                    <xref ref="table_seq_odd_prime_divisors"></xref>
+                    shows the odd prime divisors and the value of <m>a_k</m> of each integer <m>k = 1,2, 3, \ldots 15</m>.
+                    The first fifteen terms are
+                    <me>
+                      0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 2
+                    </me>
+                  </p>
+                </solution>
+                <table xml:id="table_seq_odd_prime_divisors">
+                  <title>The sequence from <xref ref="exam_seq_prime_fact"></xref> <xref ref="part_seq_number_odd_prime_div"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>k</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                      <cell>7</cell>
+                      <cell>8</cell>
+                      <cell>9</cell>
+                      <cell>10</cell>
+                      <cell>11</cell>
+                      <cell>12</cell>
+                      <cell>13</cell>
+                      <cell>14</cell>
+                      <cell>15</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>odd prime divisors</cell>
+                      <cell>none</cell>
+                      <cell>none</cell>
+                      <cell>3</cell>
+                      <cell>none</cell>
+                      <cell>5</cell>
+                      <cell>3</cell>
+                      <cell>7</cell>
+                      <cell>none</cell>
+                      <cell>3</cell>
+                      <cell>5</cell>
+                      <cell>11</cell>
+                      <cell>3</cell>
+                      <cell>13</cell>
+                      <cell>7</cell>
+                      <cell>3, 5</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>a_k=</m></cell>
+                      <cell>0</cell>
+                      <cell>0</cell>
+                      <cell>1</cell>
+                      <cell>0</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>0</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the first term of the sequence defined in <xref ref="part_seq_number_odd_prime_div"/> that equals three?
+                <solution>
+                  <p>
+                    We are looking for the smallest integer that is divisible by three distinct odd primes.
+                    Those primes must be 3, 5, and 7.
+                    The smallest integer divisible by 3, 5, and 7 is <m>3 \cdot 5 \cdot 7 = 105</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate the first ten terms of the sequence defined by
+                <me>
+                  s_m= \left\{ \begin{array}{cc} 1 \amp  \text{ if }  m=1 \\ m \amp  \text{ if }  m \text{ is prime } \\ 0 \amp  \text{ if }  m \text{ is composite } \end{array}  \right
+                </me>.
+                <solution>
+                  <p>
+                    Notice that <m>s_1=1</m>.
+                    When <m>m</m> is prime we have <m>s_m=m</m> and so <m>s_2=2</m>,
+                    <m>s_3=3</m>,
+                    <m>s_5 = 5</m>, and <m>s_7=7</m>.
+                    When <m>m</m> is composite we have <m>s_m=0</m> and so <m>s_4=0</m>,
+                    <m>s_6=0</m>, <m>s_8=0</m>, <m>s_9=0</m>, and <m>s_{10}=0</m>.
+                    The first ten terms are
+                    <me>
+                      1, 2, 3, 0, 5, 0, 7, 0, 0, 0
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_seq_prime_smallest_odd_prime_div">
+              <p>
+                Write a simple explicit rule in words that generates the sequence
+                <me>
+                  1, 1, 3, 1, 5, 3, 7, 1, 3, 5, 11, 3, 13, 7, 3, 1, 17, 3, 19, 5, 3 \ldots
+                </me>
+                Start the index at 1.
+                Hint: the rule involves the prime factorization of the index.
+                <solution>
+                  <p>
+                    It can be helpful to look at the terms listed with their index as in <xref ref="table_seq_prime_smallest_odd_prime_div"></xref>.
+                    Notice that the terms of the sequence <m>a_n</m> are either 1 or an odd prime.
+                    The terms equal to 1 are <m>a_1</m>,
+                    <m>a_2</m>, <m>a_4</m>, <m>a_8</m>, and <m>a_{16}</m>,
+                    namely where the index is a power of 2, which no odd prime divides.
+                    The terms equal to 3 are <m>a_3</m>, <m>a_6</m>, <m>a_9</m>,
+                    <m>a_{12}</m>, and <m>a_{15}</m>,
+                    namely where the index is multiple of 3.
+                    The terms equal to 5 are <m>a_5</m>, <m>a_{10}</m>,
+                    and <m>a_{20}</m> where the index is a multiple of 5, although <m>a_{15} \neq 5</m>.
+                    The terms equal to 7 are <m>a_7</m> and <m>a_{14}</m> where the index is a multiple of 7, although <m>a_{21} \neq 7</m>.
+                    In each case, the term is an odd prime dividing the index.
+                    The last clues are the exceptions
+                    <m>a_{15}=3</m> even though 15 is divisible by both 3 and 5 and
+                    <m>a_{21}=3</m> even though 21 is divisible by both 3 and 7.
+                    My guess is that
+                    <me>
+                      a_n= \left\{ \begin{array}{cc} 1 \amp  \text{ if }  n \text{ is a power of 2 }  \\ \text{ the smallest odd prime divisor of } n \amp  \text{ otherwise } \end{array}  \right
+                    </me>.
+                    We use the phrase <term>otherwise</term>
+                    to indicate any cases not covered earlier.
+                    In this example, those cases are when <m>n</m> is not a power of 2.
+                  </p>
+                </solution>
+                <table xml:id="table_seq_prime_smallest_odd_prime_div">
+                  <title>The sequence from <xref ref="exam_seq_prime_fact"></xref> <xref ref="part_seq_prime_smallest_odd_prime_div"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                      <cell>7</cell>
+                      <cell>8</cell>
+                      <cell>9</cell>
+                      <cell>10</cell>
+                      <cell>11</cell>
+                      <cell>12</cell>
+                      <cell>13</cell>
+                      <cell>14</cell>
+                      <cell>15</cell>
+                      <cell>16</cell>
+                      <cell>17</cell>
+                      <cell>18</cell>
+                      <cell>19</cell>
+                      <cell>20</cell>
+                      <cell>21</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>a_n</m></cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>3</cell>
+                      <cell>1</cell>
+                      <cell>5</cell>
+                      <cell>3</cell>
+                      <cell>7</cell>
+                      <cell>1</cell>
+                      <cell>3</cell>
+                      <cell>5</cell>
+                      <cell>11</cell>
+                      <cell>3</cell>
+                      <cell>13</cell>
+                      <cell>7</cell>
+                      <cell>3</cell>
+                      <cell>1</cell>
+                      <cell>17</cell>
+                      <cell>3</cell>
+                      <cell>19</cell>
+                      <cell>5</cell>
+                      <cell>3</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The rule for a sequence can involve the primes themselves.
+      We give a name to the sequence of primes.
+    </p>
+    <definition xml:id="defn_seq_primes">
+      <title>Sequence of primes</title>
+      <statement>
+        <p>
+          The <term>sequence of primes</term>,
+          denoted <m>\pi_n</m>, for <m>n \ge 1</m> is defined by
+          <me>
+            \pi_n= \text{ the }  n^{\text{ th } } \text{ prime } = 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 \ldots
+          </me>.
+          <xref ref="table_prime_seq"></xref>
+          lists the first ten terms of this sequence.
+          For example,
+          the first prime is <m>\pi_1=2</m> and the seventh prime is <m>\pi_7=17</m>.
+        </p>
+      </statement>
+    </definition>
+    <table xml:id="table_prime_seq">
+      <title>The first ten terms of the sequence of primes from <xref ref="defn_seq_primes"></xref></title>
+      <tabular>
+        <row>
+          <cell><m>n</m></cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>4</cell>
+          <cell>5</cell>
+          <cell>6</cell>
+          <cell>7</cell>
+          <cell>8</cell>
+          <cell>9</cell>
+          <cell>10</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell><m>\pi_n</m></cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>5</cell>
+          <cell>7</cell>
+          <cell>11</cell>
+          <cell>13</cell>
+          <cell>17</cell>
+          <cell>19</cell>
+          <cell>23</cell>
+          <cell>29</cell>
+        </row>
+      </tabular>
+    </table>
+    <p>
+      Here is an example of a sequences that involve the sequence of primes
+    </p>
+    <example xml:id="seq_involving_pisubn">
+      <title>Sequences involving <m>\pi_n</m></title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Evaluate the first five terms of the sequence defined by <m>w_i=\pi_i^2 + \pi_i</m> for <m>i \ge 1</m>.
+                <solution>
+                  <p>
+                    We calculate
+                    <me>
+                      w_1 = \pi_1^2 + \pi_1 = 2^2 + 2 = 6
+                    </me>,
+                    <me>
+                      w_2 = \pi_2^2 + \pi_2 = 3^2 + 3 = 12
+                    </me>,
+                    <me>
+                      w_3 = \pi_3^2 + \pi_3 = 5^2 + 5 = 30
+                    </me>,
+                    <me>
+                      w_4 = \pi_4^2 + \pi_4 = 7^2 + 7 = 56
+                    </me>,
+                    and
+                    <me>
+                      w_5 = \pi_5^2 + \pi_5 = 11^2 + 11 = 132
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write a simple explicit rule in words that generates the sequence
+                <me>
+                  5, 8, 12, 18, 24, 30,\ldots
+                </me>
+                Start the index at 1.
+                Hint: the rule involves the  sequence of primes <m>\pi_n</m>.
+                <solution>
+                  <p>
+                    It is helpful to look at the prime sequence in <xref ref="table_prime_seq"></xref>.
+                    Notice that our sequence <m>b_n</m> has
+                    <me>
+                      b_1 =\pi_1+\pi_2=2+3=5
+                    </me>,
+                    <me>
+                      b_2=\pi_2+\pi_3=3+5=8
+                    </me>,
+                    <me>
+                      b_3=\pi_3+\pi_4=5+7=12
+                    </me>,
+                    <me>
+                      b_4=\pi_4+\pi_5=7+11=18
+                    </me>,
+                  </p>
+                  <me>
+                    b_5=\pi_5+\pi_6=11+13=24
+                  </me>,
+                  <p>
+                    and
+                    <me>
+                      b_6=\pi_6+\pi_7=13+17=30
+                    </me>.
+                  </p>
+                  <p>
+                    In general,
+                    <me>
+                      b_n=\pi_n + \pi_{n+1}
+                    </me>
+                  </p>
+                  <p>
+                    This pattern is not easy to notice and a hint might have helped.
+                    Since all but the first term is even,
+                    we might have tried dividing the terms by 2 to get
+                    <me>
+                      2.5, 4, 6, 9, 12, 15, \ldots
+                    </me>
+                  </p>
+                  <p>
+                    One might (or might not) then have noticed that these numbers are in between consecutive primes and, in fact,
+                    the average of consecutive primes.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to work with sequences involving prime factorization or primes.
+    </p>
+    <activity xml:id="act_seq_primes">
+      <title>Sequences involving prime factorization or primes</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Evaluate the first twenty terms of the sequence defined by <m>a_n=</m> the largest prime divisor of <m>n</m> for <m>n \ge 2</m>.
+              Also evaluate <m>a_{100}</m>.
+            </p>
+          </li>
+          <li xml:id="part_seq_3part">
+            <p>
+              Evaluate the first ten terms of the sequence defined by <m>b_k=</m> the highest power of 3 dividing <m>k</m> for <m>k \ge 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the first term of the sequence defined in <xref ref="part_seq_3part"/> that is greater than 10?
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate the first ten terms of the sequence defined by
+              <me>
+                s_m= \left\{ \begin{array}{cc} m \amp  \text{ if }  m=1 \text{ or if }  m \text{ is composite } \\ 0 \amp  \text{ if }  m \text{ is prime } \end{array}  \right
+              </me>.
+              Also evaluate <m>s_{100}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate the first ten terms of the sequence defined by <m>b_n= \pi_n+1</m> for <m>n \ge 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write a simple explicit rule in words that generates the sequence
+              <me>
+                0,1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1, 1, 2, 1, 2,\ldots
+              </me>
+              Start the index at 1.
+              Hints: make a table as in <xref ref="exam_seq_prime_fact"></xref>
+              showing the index for each term.
+              The rule involves the prime factorization of the index.
+              The first term greater than 2 is <m>a_{30}=3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write a simple explicit rule of the form
+              <me>
+                a_n = \left\{ \begin{array}{ll} \underline{\hspace{.5in}} \amp  \text{ if }  n=1 \\ \underline{\hspace{.5in}} \amp  \text{ if }  n \text{ is prime }  \\ \underline{\hspace{.5in}} \amp  \text{ if }  n \text{ is composite } \end{array}  \right
+              </me>.
+              that generates the sequence
+              <me>
+                0, 1, 1, -1, 1, -1, 1, -1, -1, -1, 1, -1, 1,,\ldots
+              </me>.
+              Start the index at 1.
+              Hint: make a table as in <xref ref="exam_seq_prime_fact"></xref>
+              showing the index for each term.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write a simple explicit rule in words that generates the sequence
+              <me>
+                4,6,10,14,22,26,34,38,46,\ldots
+              </me>
+              Start the index at 1.
+              Hints: the rule involves the sequence of primes <m>\pi_n</m>.
+              Make a table showing the index <m>n</m> and the value of <m>\pi_n</m> for each term.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_defn_seq">for</xref> \subdefnseq</title>
+      <exercise xml:id="exer_eval_seq_first_six">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Evaluate the first six terms of each sequence.
+            <ol>
+              <li>
+                <p>
+                  <m>a_n = 2^n +1</m> for <m>n \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>b_k = 2k+5</m> for <m>k \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>c_m= 5\left(\frac{1}{2} \right)^m</m> for <m>m \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>d_i= 5</m> for <m>i \ge 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_seq_100th_term">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For each sequence, evaluate the term with index 100.
+            <ol>
+              <li>
+                <p>
+                  <m>a_n= 5n</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>b_n=0</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>c_n = \sqrt{n}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>d_n= (-1)^{n+1}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>e_n= \left\lceil \frac{n}{15}\right\rceil</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_seq_piecewise">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate the first six terms of each sequence.
+            <ol>
+              <li>
+                <p>
+                  <m>r_n = \left\{ \begin{array}{cl} 0 \amp \text{ if } n\text{ is even } \\ 1 \amp \text{ if } n \text{ is odd } \end{array} \right</m>. for <m>n \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>s_n = \left\{ \begin{array}{cl} 0 \amp \text{ if } n \text{ is even } \\ n \amp \text{ if } n \text{ is odd } \end{array} \right</m>. for <m>n \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>t_n = \left\{ \begin{array}{cl} 0 \amp \text{ if } 3 \mid n \\ -1 \amp \text{ if } 3 \mid n-1 \\ 1 \amp \text{ if } 3 \mid n+1 \end{array} \right</m>. for <m>n \ge 0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_seq_words">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate the first four terms and the 12th term of each sequence.
+            <ol>
+              <li>
+                <p>
+                  <m>a_m=</m> the last digit of <m>3m</m> for <m>m \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>b_i=</m> the number of digits in <m>i^2</m> for <m>i \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>c_n =</m> the number <m>4n</m> written with its digits in reverse order for <m>n \ge 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_seq_numberthy_functions">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate the first four terms of each sequence and the 10th term.
+            <ol>
+              <li>
+                <p>
+                  <m>a_n = \fn{gcd}(n,15)</m> for <m>n \ge 1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>b_i = i^2 ~\fn{mod}~ 4</m> for <m>i \ge 1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>s_k = (2k) ~\fn{mod}~ 3</m> for <m>k \ge 1</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_seq_counting">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate the first five terms of each sequence.
+            Hint: If something is impossible then the number of ways to do it equals zero.
+            <ol>
+              <li>
+                <p>
+                  <m>a_n =</m> the number of ways to select two people to work on a project out of a group of <m>n</m> people for <m>n \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>b_n=</m> the number of ways to select a leader and reporter out of group of <m>n</m> people for <m>n \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>c_n=</m> the number of bit strings of length <m>n</m> for <m>n \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>d_n=</m> the number of bit strings of length <m>n</m> that contain exactly three <m>0s</m> for <m>n \ge 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_seq_discrete">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate the first four terms of each sequence.
+            <ol>
+              <li>
+                <p>
+                  <m>a_k =</m> the bit string consisting of <m>k</m> 1s followed by two 0s for <m>k \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S_m = \{ 0, 1, 2, \ldots, 2m\}</m> for <m>m\ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>G_n =</m> the complete bipartite graph <m>K_{n,n}</m> for <m>n \ge 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_explicit_seq">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Which of <m>n</m> or <m>a_n</m> is the term and which is the index?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate explicitly-defined sequences given a formula or a rule described in words?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_model_seq">for</xref> \submodelseq</title>
+      <exercise xml:id="exer_NTE_constants_alt">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            Make a table showing the index <m>n</m> and the terms of the sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>1, 1, 1, 1, 1, 1, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins <m>-2, 2, -2, 2, -2, 2, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>0,-1,2,-3,4,-5,6, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>d</m> begins <m>0,1,-2,3,-4,5,-6, \ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_lin_exp">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            Hint: Make a table showing the index <m>n</m> and the terms of the sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>1, 6, 11, 16, 21, \ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins <m>0.1, 0.01, 0.001, 0.0001, \ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>-4, 7, -10, 13, -16, 19, -22, \ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>d</m> begins <m>2, -10, 50, -250, 1250, \ldots</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_complicated">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            Make a table showing the index <m>n</m> and the terms of the sequence.
+            Each rule involves a factorial,
+            handshake, floor, or ceiling function.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>2,6,12,20,30, \ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins <m>3, 6, 18, 72, 360, , \ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>3, 4, 6, 9, 13, 18, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>d</m> begins <m>1,1,1,1,2,2,2,2,3,3,3,3, \ldots</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_shifts">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            Hints: Make a table showing the index <m>n</m> and the terms of the sequence.
+            Each rule involves adding or subtracting a constant.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>7,8, 9, 10, 11, 12, 13, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins <m>0, 1, 3, 7, 15, 31, 63, 127, 255, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>2, 5, 10, 17, 26, 37, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>d</m> begins <m>2, 3, 7, 25</m>,.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_fractions">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            Hint: Make a table showing the index <m>n</m> and the terms of the sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>\frac{1}{3}, \frac{1}{4}, \frac{1}{5}, \frac{1}{6}, \frac{1}{7}, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins
+                  <m>1, \frac{4}{3}, \frac{3}{2}, \frac{8}{5}, \frac{5}{3}, \ldots</m> Another hint: Unreduce fractions
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>1, \frac{3}{4}, \frac{5}{9}, \frac{7}{16}, \frac{9}{25}, \underline{\hspace{.3in}~}, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>d</m> begins <m>0, \frac{7}{6}, \frac{26}{9}, \frac{21}{4}, \frac{124}{15}, \frac{215}{18}, \underline{\hspace{.3in}~}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_factor">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>0, 5, 12, 21, 32, 45, \ldots</m>.
+                  Hint: Start the index at 0.
+                  Factor.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins
+                  <m>4, 12, 24, 40, 60, 84, \ldots</m> Hint: Start the index at 1.
+                  Factor.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>2, 18, 60, 140, 270, \ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_piecewise">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            Use a piecewise-defined rule.
+            Hint: Make a table showing the index <m>n</m> and the terms of the sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>0, 2, 0, 2, 0, 2, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins <m>1,4,3,8,5,12,7,16,9,20,\ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>0, 0, 8, 0, 0, 64, 0, 0, 512, \ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_next_term">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>0.1, 0.01, 0.001, 0.0001, \ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins <m>3, 4, 6, 9, 13, 18, \ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>1, 2, 5, 10, 17, 26, 37, \ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>d</m> begins <m>1, \frac{3}{4}, \frac{5}{9}, \frac{7}{16}, \frac{9}{25}, \ldots</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_model_seq_sets_bs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule in words that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>\{0,1\}, \{1,2\}, \{2,3\}, \{3,4\},\ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins <m>\{0,1\}, \{1,2\}, \{3,4\}, \{7,8\}, \{15,16\},\ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <c>10</c>,
+                  <c>1100</c>,
+                  <c>111000</c>,
+                  <c>11110000</c>,
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>d</m> begins <c>01</c>,
+                  <c>1010</c>,
+                  <c>010101</c>,
+                  <c>10101010</c>,
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_next_term_explicit">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What type of rule follows the pattern that each term of the sequence is the previous term plus a constant?
+                  Times a constant?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What type of pattern in a sequence suggests a rule that involves factorials?
+                  The handshake numbers?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to build a rule for a sequence that alternates between two values,
+                  or between positive and negative?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What strategies you can use when modeling a sequence of fractions?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_alternate">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            Do not a piecewise-defined rule.
+            Hint: Make a table showing the index <m>n</m> and the terms of the sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>0, 2, 0, 2, 0, 2, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins
+                  <m>\frac{1}{2}, 2, \frac{1}{2}, 2,\frac{1}{2}, 2,\frac{1}{2}, 2, \ldots</m> <nbsp/><nbsp/> Another hint:
+                  <m>2^{-1}= \frac{1}{2}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_number_theoretic">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Write a simple explicit rule that generates each sequence.
+            Start the index at 0 or 1
+            (your choice),
+            being sure to state where your sequence starts.
+            Hint: Make a table showing the index <m>n</m> and the terms of the sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>s</m> begins <m>0,1,2,3,0,1,2,3</m>.
+                  Note: Do not a piecewise-defined rule.
+                  Can you write a rule involving \text{ mod } instead?
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>t</m> begins <m>0,1,4,9,6,5,6,9,4,1,0,1,4,9, \ldots</m>.
+                  Note: Do not a piecewise-defined rule.
+                  Can you write a rule in words instead?
+                  Hint: <m>1,4,9</m> are squares.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>u</m> begins <m>1,0,1,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,\ldots</m>.
+                  Write a piecewise function.
+                  Hint: Where are the 1s?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_seq_primes">for</xref> \subseqprimes</title>
+      <exercise xml:id="exer_eval_seq_prime_fact">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Evaluate the first six terms of each sequence and also the 100th term.
+            <ol>
+              <li>
+                <p>
+                  <m>t_m=</m> the highest power of 5 that divides <m>m</m> for <m>m \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>d_j=</m> the largest odd divisor of <m>j</m> for <m>j \ge 1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>u_n=</m> the number of distinct primes dividing <m>n</m> for <m>n \ge 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_seq_involving_pisubn">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Evaluate first six terms of the each sequence where <m>\pi_n</m> is the sequence of primes for <m>n \ge 1</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>a_n=10\pi_n</m> for <m>n \ge 1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>b_k=\frac{\pi_n}{\pi_{n+1}}</m> for <m>n \ge 1</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_seq_piecewise_prime">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate the first six terms of each sequence starting at <m>n=1</m>.
+            <ol>
+              <li>
+                <p>
+                  <me>
+                    b_n= \left\{ \begin{array}{ll} 0 \amp  \text{ if }  n \text{ is prime }  \\ n \amp  \text{ otherwise } \end{array}  \right
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <me>
+                    v_i= \left\{ \begin{array}{ll} 1 \amp  \text{ if }  i=1 \\ i^2 \amp  \text{ if }  i \text{ is prime }  \\ i \amp  \text{ if }  i \text{ is composite } \end{array}  \right
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_prime_fact">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule in words that generates each sequence.
+            Start the index at 1.
+            Hint: Make a table showing the index <m>n</m> and the terms of the sequence.
+            The rule involves the prime factorization of the index.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>x</m> begins <m>1, 2, 1, 4, 1, 2, 1, 8, 1, 2, 1, 4, 1, 2, 1, \underline{~},\ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>y</m> begins <m>1, 2, 3, 2, 5, 3, 7, 2, 3, 5, 11, 3, 13, 7, 5, \underline{~},\ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_piecewise_prime">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For each sequence, write a simple explicit rule of the form
+            <me>
+              a_n = \left\{ \begin{array}{ll}  \underline{\hspace{.5in}} \amp  \text{ if }  n=1 \\ \underline{\hspace{.5in}} \amp  \text{ if }  n \text{ is prime }  \\ \underline{\hspace{.5in}} \amp  \text{ if }  n \text{ is composite } \end{array}  \right
+            </me>.
+            that generates the sequence.
+            Start the index at 1.
+            Hint: Make a table showing the index <m>n</m> and the terms of the sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>a</m> begins <m>0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0,\ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>b</m> begins <m>0, 2, 3, 0, 5, 0, 7, 0, 0, 0, 11, 0, 13,\ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_pisubn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write a simple explicit rule in words that generates the each sequence.
+            Start the index at 1.
+            Hints: The rule involves the prime sequence <m>\pi_n</m>.
+            Make a table showing the index <m>n</m>,
+            the value of <m>\pi_n</m>, and the terms of the sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>c</m> begins <m>4, 9, 25, 49, 121, 169, 289,\ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>d</m> begins <m>1, 2, 4, 6, 10, 12, 16,\ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_seq_primes">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to evaluate or model a sequence where the terms depend on the prime factorization of the index?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate or model a sequence where the rule depends (piecewise) on the primality of the index?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the sequence <m>\pi_n</m> is and the first ten terms?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate or model a sequence where the terms depend on the sequence <m>\pi_n</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_NTE_pisubn_continued">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Write a simple explicit rule in words that generates the each sequence.
+            Start the index at 1.
+            Hints: The rule involves the prime sequence <m>\pi_n</m>.
+            Make a table showing the index <m>n</m>,
+            the value of <m>\pi_n</m>, and the terms of the sequence.
+            <ol>
+              <li>
+                <p>
+                  The sequence <m>s</m> begins <m>2, 5, 11, 17, 23, 31, 41,\ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence <m>t</m> begins <m>6, 15, 35, 77, 143, 221, ,\ldots</m> Hint: factor
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_eval_seq_first_six"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: It begins <m>2, 3, 5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It begins <m>5, 7, 9</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>c_6=\frac{5}{64}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>d_6=5</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_seq_piecewise"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: It begins <m>0,1,0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is not the same as (a).
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It begins <m>0,1,-1</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_seq_words"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>a_{12} = 6</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>b_{12} = 3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>c_{12} = 84</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_seq_numberthy_functions"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>a_{10}=5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>b_{10} = 0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>s_{10}=2</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_constants_alt"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>a_n=1</m> for <m>n \ge 0</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves <m>(-1)^n</m> starting at <m>n=0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Start at <m>n=0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves <m>(-1)^{n-1}</m> starting at <m>n=0</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_lin_exp"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer involves <m>5n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves <m>(.1)^n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find a formula for the absolute value of the terms first.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find a formula for the absolute value of the terms first.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_complicated"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Involve the handshake numbers such as
+            <m>\frac{n(n-1)}{2}</m> or <m>\frac{n(n+1)}{2}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Involves factorials.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What are we adding to get from each term to the next?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Floor or ceiling is involved, and a fraction.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_shifts"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>a_n=n+7</m> for <m>n \ge 0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look at the terms + 1.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look at the terms -1
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look at the terms + 1 or -1.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_fractions"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>a_n =\frac{1}{n+3}</m> for <m>n \ge 0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Rewrite with denominators <m>2, 3, 4, 5, 6</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves odds and squares.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Powers are involved.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_factor"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>n</m> is a factor.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>b_n=2n(n+1)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Factor out <m>n</m>.
+            Then factor again.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_piecewise"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer can be written in the form
+            <me>
+              a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspace{.5in}}}  \\ 1 \amp  \text{ if }  n \text{ is \underline{\hspace{.5in}}} \end{array}  \right
+            </me>.
+            for <m>n \ge 0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use different formulas for odd index and even index terms.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The nonzero terms are powers of two.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_number_theoretic"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>s_n=a \fn{ mod } 3</m> for <m>n \ge 0</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Last digit
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Handshakes.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_seq_prime_fact"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>t_{100}=25</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>d_{100}=25</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>u_{100}=2</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_seq_involving_pisubn"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: It begins <m>20, 30, 50, \ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It begins <m>\frac{2}{3}, \frac{3}{5}, \ldots</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_seq_piecewise_prime"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: It begins <m>1,0,0,4\ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It begins <m>1, 4, 9, 4, \ldots</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_prime_fact"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Every term in the sequence is a power of two and a divisor of the index.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Each term is a prime and a divisor of the index.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_piecewise_prime"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Where are the 1s?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: When <m>n</m> is prime, the formula is <m>n</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_pisubn"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Square
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Either +1 or -1 is involved.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_NTE_pisubn_continued"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Write each term as <m>\pi_n</m>.
+            For example, <m>2 = \pi_1</m> and <m>5 = \pi_3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Factor into primes.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

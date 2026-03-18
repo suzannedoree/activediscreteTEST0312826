@@ -1,0 +1,1460 @@
+<section xml:id="sec_graph_models">
+  <title>Modeling with Graphs</title>
+  <introduction>
+    <p>
+      After an introductory puzzle, we define a graph,
+      introduce some vocabulary used to describe graphs,
+      and practice modeling situations using a graph.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_bridges">
+    <title>\subbridges</title>
+    <p>
+      We begin with a puzzle.
+    </p>
+    <activity xml:id="act_bridges">
+      <title>Bridges Puzzle</title>
+      <p>
+        A small city sits on the north and south shores of a river and on two islands on the river,
+        a small island and a big island,
+        as shown in <xref ref="fig_bridges"></xref>.
+        Residents enjoy walking around the city each day,
+        crossing the bridges that connect the islands to each other and to the north and south shore.
+        To keep their walks interesting,
+        they never cross the same bridge twice in a day.
+      </p>
+      <figure xml:id="fig_bridges">
+        <caption>A small city connected by bridges.</caption>
+        image type not recognized
+      </figure>
+      <ol>
+        <li>
+          <p>
+            Show that it is possible to start a daily walk on the small island and cross every bridge
+            (exactly once each).
+            You end up somewhere other than the small island
+            (with no way back to where you started).
+            Where do you end?
+            Any thoughts on why you end there?
+          </p>
+        </li>
+        <li>
+          <p>
+            Why is it impossible to start a daily walk on the small island,
+            cross every bridge
+            (exactly once each),
+            and end on the small island?
+            Hint: There are three bridges connected to the small island.
+            The first bridge you cross takes you off the small island.
+            At some point you cross a second bridge connected to the small island.
+            Where are you then?
+            Where are you after crossing the third bridge connected to the small island?
+          </p>
+        </li>
+        <li>
+          <p>
+            What happens if you start a daily walk somewhere else
+            (not on small island)
+            and cross every bridge connected to small island (exactly once each)?
+            Hint: Whichever of the bridges connected to small island that you cross first takes you onto small island.
+            Where are you after the next bridge you cross?
+            At some point you cross the third bridge connected to the small island.
+            Where are you then?
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why it is impossible to start a daily walk somewhere other than small island,
+            cross every bridge
+            (exactly once each),
+            and end where you started.
+          </p>
+        </li>
+        <li>
+          <p>
+            Look at the number of bridges connected to each piece of land.
+            What about that number matters in trying to find a daily walk that crosses each bridge (exactly once each)?
+          </p>
+        </li>
+      </ol>
+    </activity>
+    <p>
+      Let's examine the key elements of <xref ref="act_bridges"></xref>.
+      In the puzzle,
+      it did not matter where the north shore, the south shore,
+      the small island, and the big island were geographically.
+      We did not care how long the bridges were or what angle they made with the shore or island.
+      It also did not matter that the small island is smaller than the big island.
+      We did not even care which pieces of land were islands and which were the shores of the river.
+      All that mattered was which pieces of land had a bridge, or two,
+      between them.
+    </p>
+  </subsection>
+  <subsection xml:id="sub_defn_graph">
+    <title>\subdefngraph</title>
+    <p>
+      <xref ref="act_bridges">In</xref>,
+      the essential information we needed to know about the city was the set of objects
+      (the pieces of land)
+      and the connections between them
+      (the bridges).
+      Any set of objects with connections between pairs of objects is a <term>graph</term>.
+    </p>
+    <definition xml:id="defn_graph">
+      <title>Graph</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>vertex</term>
+                (or <term>node</term>)
+                is an object.
+                For example,
+                a vertex could be a piece of land in the city from <xref ref="act_bridges"></xref>
+                or perhaps a student at the university.
+                The plural of
+                <q>vertex</q>
+                is
+                <q><term>vertices</term></q>
+                and so we refer to one vertex,
+                two vertices, three vertices, and so on.
+              </p>
+            </li>
+            <li>
+              <p>
+                An <term>edge</term> is a set of two vertices.
+                For example,
+                if <m>A</m> and <m>B</m> are distinct vertices in a graph,
+                then <m>\{A,B\}</m> is an example of a possible edge.
+                When we model a situation using a graph,
+                each edge represents a connection between two objects.
+                For example, in the Bridges Puzzle <xref ref="act_bridges"/>,
+                we might want an edge between two vertices to indicate that those two pieces of land are connected by a bridge.<fn>
+                We are ignoring, for the moment,
+                that there are two bridges between the big island and the north shore.
+                Technically we need a slightly more general definition of an edge and what we get is a
+                <term>multigraph</term>, not a simple graph.
+                </fn> As another example,
+                in a graph where each vertex is a student at the university,
+                we might want an edge between two vertices to indicate that those two students have a class together this semester.
+              </p>
+            </li>
+            <li>
+              <p>
+                Two vertices are <term>adjacent</term>
+                (or <term>neighbors</term>)
+                if they are connected by an edge.
+                That is, if <m>A</m> and <m>B</m> are distinct vertices and <m>\{A,B\}</m> is an edge,
+                then the vertices <m>A</m> and <m>B</m> are adjacent.
+                We also say that <m>A</m> is <term>adjacent to</term>
+                <m>B</m> or that <m>B</m> is <term>adjacent to</term> <m>A</m>.
+                So, for example,
+                if Camilla and Quang are both in discrete mathematics class this semester,
+                then Camilla is adjacent to Quang
+                (and vice versa)
+                in the student graph.
+              </p>
+            </li>
+            <li xml:id="part_defn_graph">
+              <p>
+                A <term>(simple) graph</term>
+                (or <term>network</term>)
+                is a pair of sets:
+                a <term>vertex set</term> of vertices and a <term>edge set</term>
+                of edges where the elements of each edge are in the vertex set.
+                For example,
+                we might have the graph <m>G</m> with the vertex set <m>\{1,2,3,4\}</m> and the edge set
+                <me>
+                  \{\{1,2\},\{1,4\},\{2,3\},\{2,4\},\{3,4\}\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term>graph drawing</term> of a graph has a point for each vertex and a line
+                (or curve)
+                for each edge connecting its two vertices.
+                In this textbook, we draw each vertex as a small,
+                open circle instead of a point.
+                The placement of the vertices and edges is at our convenience<ndash/> none of the geometry such as position, length,
+                or angle matters.
+                For example,
+                <xref ref="fig_four_drawings_K4_minus_edge"></xref>
+                shows four different drawings of the graph <m>G</m> from <xref ref="part_defn_graph"/>.
+                <figure xml:id="fig_four_drawings_K4_minus_edge">
+                  <caption>Four different drawings of the graph <m>G</m>.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The city in the Bridges Puzzle can be modeled with a <term>multigraph</term>
+      which is a graph where multiple edges are allowed between the same pair of vertices.
+    </p>
+    <example xml:id="exam_bridges_graph">
+      <title>Bridges as a graph</title>
+      <statement>
+        <p>
+          Draw a multigraph representing the city in the Bridges Puzzle <xref ref="act_bridges"/>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The graph is drawn in <xref ref="fig_bridges_graph"></xref>.
+          The graph has four vertices, one for each piece of land.
+          We have labeled them in the graph drawing for convenience.
+          For each bridge in <xref ref="fig_bridges"></xref> between two pieces of land,
+          we draw an edge connecting the corresponding vertices in the graph.
+          For example,
+          there is a bridge connecting the small island and the big island,
+          so in our graph drawing we have an edge between the vertices labeled small island and big island.
+          There is no bridge connecting the north shore and the south shore,
+          so in our graph drawing we do not have an edge between the vertices labeled north shore and south shore.
+        </p>
+        <figure xml:id="fig_bridges_graph">
+          <caption>A multigraph representing the city in the Bridges Puzzle.</caption>
+          image type not recognized
+        </figure>
+      </solution>
+    </example>
+    <p>
+      Let's look at an another example of a graph model.
+    </p>
+    <example xml:id="exam_classmates_graph">
+      <title>Classmates graph</title>
+      <statement>
+        <p>
+          Abdi, Bhavika, Cara, Drew, Elle,
+          and Filipe are all new transfer students.
+          This semester, Abdi, Bhavika,
+          and Cara are in a discrete mathematics class together; Bhavika, Cara,
+          and Drew are in an algorithms class together;
+          and Abdi and Elle are in chemistry class together.
+          These students do not have other classes in common.
+        </p>
+        <p>
+          We can model these relationships with a graph.
+          The vertex set <m>\{A,B,C,D,E,F\}</m> has a vertex for each student corresponding to the first letter of their name.
+          Let's say two vertices are connected by an edge if those two students are taking the same class.
+          If students have any number of classes together,
+          we will just draw a single edge.
+          This graph might be useful for visualizing who knows each other.
+          <ol>
+            <li>
+              <p>
+                Explain why <m>\{A,C\}</m> is an edge but <m>\{B,E\}</m> is not.
+                <solution>
+                  <p>
+                    Abdi and Cara are in the discrete mathematics class,
+                    so <m>\{A,C\}</m> is an edge.
+                    All common classes are listed,
+                    and there is no class that Bhavika and Elle are taking,
+                    so <m>\{B,E\}</m> is not an edge.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many edges are in the graph?
+                <solution>
+                  <p>
+                    First, since Abdi, Bhavika,
+                    and Cara are in a discrete mathematics class together,
+                    we have three edges <m>\{A,B\}</m>,
+                    <m>\{A,C\}</m>, and <m>\{B,C\}</m>.
+                    Next, since Bhavika, Cara,
+                    and Drew are in an algorithms class,
+                    we have two more edges <m>\{B,D\}</m> and <m>\{C,D\}</m>.
+                    We already knew that <m>\{B,C\}</m> was an edge,
+                    so we do not draw that edge again.
+                    Lastly, since Abdi and Elle are in the same chemistry class,
+                    we have one more edge: <m>\{A,E\}</m>.
+                    There are a total of six edges.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Draw the graph.
+                <solution>
+                  <p>
+                    <xref ref="fig_classmates_graph"></xref>
+                    shows one possible drawing of the graph.
+                    In this drawing, we chose to draw the vertices in a circle.
+                    The lines representing the edges <m>\{A,C\}</m> and <m>\{B,D\}</m> happen to cross,
+                    which is acceptable,
+                    but note that the point where those two edges cross is not a vertex.
+                    That is the sort of potential misunderstanding that we avoid by drawing our vertices as small circles instead of actual points.
+                  </p>
+                  <figure xml:id="fig_classmates_graph">
+                    <caption>One drawing of the classmates graph.</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is useful to have a name for the number of edges that include a particular vertex.
+    </p>
+    <definition xml:id="defn_degree">
+      <title>Degree of vertex</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The <term>degree</term> of a vertex <m>v</m> in a graph <m>G</m>,
+                denoted <m>\fn{deg}_G(v)</m> or just <m>\fn{deg}(v)</m>,
+                is the number of edges of <m>G</m> that contain the vertex <m>v</m>.
+                For example,
+                in the graph <m>G</m> from <xref ref="defn_graph"></xref>
+                <xref ref="part_defn_graph"/> with vertex set <m>\{1,2,3,4\}</m> and edge set
+                <me>
+                  \{\{1,2\}, \{1,4\},\{2,3\},\{2,4\},\{3,4\}\}
+                </me>,
+                vertex 1 has degree two because 1 is an element of two edges:
+                <m>\{1,2\}</m> and <m>\{1,4\}</m>.
+                Vertex 2 has degree three because 2 is an element of three edges:
+                <m>\{1,2\}</m>, <m>\{2,3\}</m>, and <m>\{2,4\}</m>.
+                In the drawings in <xref ref="fig_four_drawings_K4_minus_edge"></xref>,
+                we see two edges to vertex 1 and three edges to vertex 2.
+              </p>
+            </li>
+            <li>
+              <p>
+                Equivalently, the <term>degree</term>
+                of a vertex is the number of neighbors of the vertex.
+                For example,
+                in the graph <m>G</m> from <xref ref="defn_graph"></xref>
+                <xref ref="part_defn_graph"/>,
+                vertex 1 has degree two because it has two neighbors, 2 and 4.
+                Similarly, vertex 2 has degree three because it has three neighbors, 1, 3, and 4.
+              </p>
+            </li>
+            <li>
+              <p>
+                An <term>isolated vertex</term> is a vertex with degree zero.
+                For example,
+                <m>F</m> is an isolated vertex in the classmates graph in <xref ref="exam_classmates_graph"></xref>,
+                because Felipe was not a classmate of anyone else in the group of new transfer students.
+                <xref ref="fig_classmates_graph">In</xref>
+                there are no edges to the vertex <m>F</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term>end vertex</term>
+                (or <term>leaf</term> or <term>pendant</term>)
+                is a vertex with degree 1.
+                For example,
+                in the classmates graph from <xref ref="exam_classmates_graph"></xref>,
+                <m>E</m> is an end vertex because Elle was only in a class with Abdi.
+                <xref ref="fig_classmates_graph">In</xref>
+                we see one edge to the vertex <m>E</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Practice modeling with graphs.
+    </p>
+    <activity xml:id="act_cube_graph">
+      <title>Cube graph</title>
+      <p>
+        Consider a graph <m>Q</m> whose vertices are the bit strings of length three and where two vertices are connected by an edge if they differ in exactly one bit.<fn>
+        We could equivalently say that the bit strings have Hamming distance one,
+        as defined in <xref ref="sec_bit_strings"></xref>
+        <xref ref="exer_hamming_distance"></xref>.
+        </fn> For example,
+        the vertices <c>010</c> and <c>011</c> which are connected by an edge because they differ in only their third bit,
+        but the vertex <c>010</c> is not connected by an edge to the vertex <c>111</c> because they differ in both the first and third bit.
+        <ol>
+          <li>
+            <p>
+              How many vertices does <m>Q</m> have?
+              Hint: There should be one vertex for each bit string of length three.
+            </p>
+          </li>
+          <li>
+            <p>
+              List the vertices of the graph <m>Q</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why the vertices labeled <c>010</c> and <c>011</c> are connected by an edge.
+            </p>
+          </li>
+          <li>
+            <p>
+              List the vertices adjacent to the vertex labeled <c>010</c>.
+              These are the neighbors of the vertex labeled <c>010</c>.
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the degree of the vertex <c>010</c>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why every vertex in <m>Q</m> has the same degree.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw the graph <m>Q</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Count the number of edges in <m>Q</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The graph <m>Q</m> is an example of a <term>cube graph</term>.
+              Can you redraw <m>Q</m> to see where that name comes from?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_graph_complement">
+    <title>\subgraphcomp</title>
+    <p>
+      When we first introduced graphs in <xref ref="sub_defn_graph"></xref>,
+      we explained that in a graph,
+      <m>G</m>, an edge connecting two vertices, <m>v</m> and <m>w</m>,
+      indicates that the two objects,
+      <m>v</m> and <m>w</m>, are related in some way.
+      For example, in <xref ref="exam_classmates_graph"></xref>,
+      the objects were a group of new transfer students and an edge between two vertices indicated that the two students were in a class together this semester.
+      That graph is helpful if we want to visualize who knows each other.
+      Suppose instead that we wanted to set up one-on-one meetings for new transfer students who do not yet know each other.
+      We might want to draw a new graph where the objects are the same group of new transfer students,
+      but now an edge between two vertices indicates that the two students are not in a class together this semester.
+      This new graph, <m>\overline{G}</m>,
+      has the same vertices as <m>G</m>,
+      but now an edge connecting two vertices, <m>v</m> and <m>w</m>,
+      indicates that the two objects,
+      <m>v</m> and <m>w</m> are related in the opposite way.
+    </p>
+    <p>
+      We formally define the graph complement.
+    </p>
+    <definition xml:id="defn_graph_complement">
+      <title>Graph complement</title>
+      <statement>
+        <p>
+          For a graph, <m>G</m>,
+          the <term>(graph) complement</term>, <m>\overline{G}</m>,
+          has the same set of vertices but opposite edges in the sense that <m>\{v,w\}</m> is an edge of
+          <m>\overline{G}</m> exactly when <m>\{v,w\}</m> is not an edge in <m>G</m>.
+          Equivalently, <m>v</m> and <m>w</m> are adjacent in
+          <m>\overline{G}</m> exactly when <m>v</m> and <m>w</m> are not adjacent in <m>G</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's draw the complement of the classmates graph.
+    </p>
+    <example xml:id="exam_classmates_comp">
+      <title>Complement of the classmates graph</title>
+      <statement>
+        <p>
+          Draw the complement of the classmates graph in <xref ref="fig_classmates_graph"></xref>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We draw the complement in <xref ref="fig_classmates_comp"></xref>.
+        </p>
+        <figure xml:id="fig_classmates_comp">
+          <caption>The complement of the classmates graph.</caption>
+          image type not recognized
+        </figure>
+        <p>
+          For example,
+          <m>A</m> and <m>D</m> are not adjacent vertices in the classmates graph because Abdi and Drew are not in any of the same classes this semester.
+          Therefore, <m>A</m> and <m>D</m> are adjacent vertices in the complement of the classmates graph.
+          As another example,
+          <m>B</m> and <m>C</m> are adjacent vertices in the classmates graph because Bhavika and Cara are in the algorithms class together this semester.
+          Therefore, <m>B</m> and <m>C</m> are not adjacent vertices in the complement of the classmates graph.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Your turn to work with complements.
+    </p>
+    <activity xml:id="act_graph_comp">
+      <title>Graph complement</title>
+      <p>
+        Consider the graph <m>G</m> drawn in <xref ref="fig_graph_act_deg_comp"></xref>.
+      </p>
+      <figure xml:id="fig_graph_act_deg_comp">
+        <caption>The graph <m>G</m>.</caption>
+        image type not recognized
+      </figure>
+      <ol>
+        <li>
+          <p>
+            How many vertices and edges does the graph <m>G</m> have?
+          </p>
+        </li>
+        <li>
+          <p>
+            List each vertex of <m>G</m> and its degree.
+          </p>
+        </li>
+        <li>
+          <p>
+            Draw the graph complement <m>\overline{G}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            How many vertices and how many edges does the graph <m>\overline{G}</m> have?
+          </p>
+        </li>
+        <li>
+          <p>
+            List each vertex of <m>\overline{G}</m> and its degree.
+          </p>
+        </li>
+        <li xml:id="part_deg_comp">
+          <p>
+            What is the relationship between the degree of a vertex in <m>G</m> and the degree of the same vertex in <m>\overline{G}</m>?
+          </p>
+        </li>
+        <li xml:id="part_edge_comp">
+          <p>
+            What is the relationship between the number of edges in <m>G</m> and the number of edges in <m>\overline{G}</m>?
+          </p>
+        </li>
+      </ol>
+    </activity>
+    <p>
+      Let's work through <xref ref="act_graph_comp"></xref> <xref ref="part_deg_comp"/>.
+    </p>
+    <example xml:id="exam_deg_comp">
+      <title>Degree of a vertex in the complement</title>
+      <statement>
+        <p>
+          In the graph <m>G</m> drawn in <xref ref="fig_graph_act_deg_comp"></xref>,
+          what is the relationship between the degree of a vertex in the graph <m>G</m> and the degree of that same vertex in the complement <m>\overline{G}</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          As an example,
+          the vertex <m>v</m> is adjacent to <m>w</m>, <m>x</m>,
+          and <m>z</m> in <m>G</m> and <m>v</m> is adjacent to <m>y</m> in <m>\overline{G}</m>.
+          Thus, <m>\fn{deg}_G(v) = 3</m> and <m>\fn{deg}_{\overline{G}}(v) = 1</m>.
+          As another example,
+          the vertex <m>z</m> is adjacent to <m>v</m> and <m>y</m> in <m>G</m> and <m>z</m> is adjacent to <m>w</m> and <m>x</m> in <m>\overline{G}</m>.
+          Thus, <m>\fn{deg}_G(z) = 2</m> and <m>\fn{deg}_{\overline{G}}(z) = 2</m>.
+          In general, if <m>x</m> is any vertex in <m>G</m>, then
+          <me>
+            \fn{deg}_G(x) +\fn{deg}_{\overline{G}}(x) = 4
+          </me>.
+        </p>
+        <p>
+          This equation holds for any vertex,
+          <m>x</m>, because there are four other vertices in <m>G</m>.
+          Some of those four vertices are adjacent to <m>x</m> in <m>G</m>.
+          The remainder of those four vertices must be adjacent to <m>x</m> in <m>\overline{G}</m>.
+          So, each of those other four vertices counts once in either
+          <m>\fn{deg}_G(x)</m> or <m>\fn{deg}_{\overline{G}}(x)</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_bridges">for</xref> \subbridges</title>
+      <exercise xml:id="exer_add_bridge">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Could we build a new bridge in the city described in <xref ref="act_bridges"></xref>
+            so that it would be possible to take a daily walk crossing every bridge
+            (exactly once each)
+            and ending where you started?
+            Explain.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_big_island">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            In the city described in <xref ref="act_bridges"></xref>,
+            we would like to start our daily walk on the big island and cross every bridge
+            (exactly once each).
+            <ol>
+              <li>
+                <p>
+                  Suppose that there exists such a walk.
+                  Explain why we would end on the small island.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Again, suppose that there exists such a walk.
+                  Explain why it would end on the north shore.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Since we cannot end in two different places,
+            we have a <term>contradition</term>
+            (false statement).
+            Therefore, our supposition that there exists such a walk is also false,
+            which means that it is impossible.<fn>
+            We discuss this type of <term>proof by contradiction</term>
+            in <xref ref="sec_logic_connectives"></xref>.
+            </fn>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bridges_conj">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Suppose that we have a completely new city on a river with islands and bridges.
+            As in <xref ref="act_bridges"></xref>,
+            residents enjoy walking around the city each day, crossing bridges,
+            and to keep their walks interesting,
+            they never cross the same bridge twice in a day.
+            <ol>
+              <li>
+                <p>
+                  Conjecture how you could tell if it is possible to take a daily walk that crosses every bridge
+                  (exactly once)
+                  and ends where you started.
+                  Hint: your answer should involve quantities that we can quickly calculate from a drawing of the city.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now, conjecture how you could tell if it is possible to take a daily walk that crosses every bridge
+                  (exactly once)
+                  but ends at a location that is different from where you started.
+                  Hint: your answer should involve quantities that we can quickly calculate from a drawing of the city.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_defn_graph">for</xref> \subdefngraph</title>
+      <exercise xml:id="exer_my_first_graph">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider a graph <m>G</m> with vertex set
+            <me>
+              \{u, v, w, x, y\}
+            </me>
+            and edges <m>\{u,v\}</m>, <m>\{u,w\}</m>,
+            <m>\{u,x\}</m>, <m>\{v,x\}</m>,
+            <m>\{w,x\}</m>, <m>\{x,y\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Count the number of vertices in <m>G</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Count the number of edges in <m>G</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the neighbors of the vertex <m>x</m>.
+                  Hint: The vertex <m>x</m> might occur as the first or second element of the edge.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the degree of the vertex <m>x</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the graph <m>G</m> and check your answers.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is there any end vertex in <m>G</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_midwest_MAP">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the map of midwest states in <xref ref="fig_midwest_map"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Draw a graph with a vertex for each state and an edge between two vertices if their corresponding states share a length of common border
+                  (more than a point).
+                  <figure xml:id="fig_midwest_map">
+                    <caption>Map of midwest states.</caption>
+                    <image width="35%" source="images/Midwest.png"/>
+                  </figure>
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many vertices does the graph have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the neighbors of Minnesota (MN).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the degree of each state.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which two states have the highest degree?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many edges does the graph have?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_word_graphs_first">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Given a set of words, we can construct a <term>word graph</term>
+            whose vertices are the given words where two words are connected by an edge if one word can be changed to the other by making exactly one of the following changes.
+            <ul>
+              <li>
+                <title>Reorder</title>
+                <p>
+                  Keep the same letters, but change the order.
+                </p>
+              </li>
+              <li>
+                <title>Replace</title>
+                <p>
+                  Keep the letters in the same order,
+                  but replace one letter with a different letter.
+                </p>
+              </li>
+            </ul>
+          </p>
+          <p>
+            Note that each change is reversible,
+            so it makes sense to say that two words are connected by an edge.
+            <ol>
+              <li>
+                <p>
+                  Draw the word graph for the set \{ACT, APT, CAT, HAT, HOT, HIT, PAT, PIT, PUN\}.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many vertices does your graph have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the degree of the vertex CAT?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Are any of the vertices in your graph an end vertex?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Are any of the vertices in your graph an isolated vertex?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many edges does your graph have?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_quarter_dime">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            In front of you are two coins laying on the table:
+            a quarter <m>Q</m> and then a dime <m>D</m> to the right of the quarter.
+            Each coin has two sides:
+            <q>heads</q>
+            (denoted with the subscript <m>H</m>)<fn>
+            The name
+            <q>heads</q>
+            probably comes from the fact that there is the picture of a famous person's head on one side of the coin.
+            </fn> or
+            <q>tails</q>
+            (denoted with the subscript <m>T</m>).
+            Each coin begins heads up.
+            We denote this initial state <m>(Q_H,D_H)</m>.
+            There are two different moves:
+            <ul>
+              <li>
+                <title>Swap</title>
+                <p>
+                  Swap the position of the two coins (left/right), or
+                </p>
+              </li>
+              <li>
+                <title>Flip</title>
+                <p>
+                  Flip one coin from heads to tails, or vice versa.
+                </p>
+              </li>
+            </ul>
+            <ol>
+              <li>
+                <p>
+                  How many different states are there?
+                  List them.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How can we go from state <m>(Q_H,D_H)</m> to state
+                  <m>(D_T,Q_H)</m> in a sequence of moves?
+                  Is this sequence of moves unique?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the graph where each vertex is labeled by a state and each move is represented by an edge.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_defn_graph">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the singular of
+                  <q>vertices</q>
+                  is?
+                  Hint: we do not say
+                  <q>one vertice.</q>
+                </p>
+              </li>
+              <li>
+                <p>
+                  What it means for two vertices in a graph to be adjacent?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the neighbors of a vertex are?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why are there many different graph drawings for the same graph?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to model a story with a graph,
+                  including describing what the vertices are and what the edges represent?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to calculate the degree of a vertex from an edge list?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to calculate the degree of a vertex from a graph drawing?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What an isolated vertex and end vertex are?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_matching_students_jobs">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Five students applied for on-campus jobs,
+            as listed in <xref ref="table_matching_students_jobs"></xref>.
+            Each job is willing to hire one of the students who applied.
+            Each student can get at most one job.
+          </p>
+          <table xml:id="table_matching_students_jobs">
+            <title>Student's job preferences</title>
+            <tabular>
+              <row>
+                <cell>Student</cell>
+                <cell>Admissions</cell>
+                <cell>Bookstore</cell>
+                <cell>Cafeteria</cell>
+                <cell>(tech) Desk</cell>
+                <cell>Events</cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Haloke</cell>
+                <cell><m>\checkmark</m></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Ian</cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Jamar</cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Khanh</cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell><m>\checkmark</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Levi</cell>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+            </tabular>
+          </table>
+          <ol>
+            <li xml:id="part_matching_students_jobs">
+              <p>
+                Could each student get a job?
+                Explain.
+              </p>
+            </li>
+            <li>
+              <p>
+                Draw a graph to represent the situation.
+                Hint: Use a vertex for each student and for each job.
+                You might want to color the vertices that represent students in one color
+                (say black)
+                and the vertices that represent jobs in another color
+                (say white).
+                Yes, it is weird that we have objects of two types.<fn>
+                Officially a graph with objects of two types,
+                as in <xref ref="exer_matching_students_jobs"></xref>,
+                is a <term>bipartite</term> graph.
+                </fn>
+              </p>
+            </li>
+            <li>
+              <p>
+                Highlight key edges in your graph to illustrate your answer to <xref ref="part_matching_students_jobs"/>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_graph_complement">for</xref> \subgraphcomp</title>
+      <exercise xml:id="exer_comp_model">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In a tech company,
+            each employee typically works on several projects at a time,
+            often with slightly different teams for each project.
+            <ol>
+              <li>
+                <p>
+                  Consider a graph <m>C</m> where the vertices are the employees and there is an edge between two vertices if the corresponding employees are on a project team together.
+                  If <m>z</m> is an employee working on exactly one team and that team has five other members
+                  (in addition to <m>z</m>),
+                  what does that tell you about the vertex <m>z</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  A manager is trying to arrange for each team to travel to that team's main client for a day.
+                  If two project teams do not have any members in common,
+                  then they can travel on the same day.
+                  The manager draws a new graph <m>D</m> with the same vertices,
+                  but now there is an edge between two vertices if the corresponding employees are not on any project team together.
+                  How is the graph <m>D</m> related to the graph <m>C</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_comp_easy">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the graphs <m>G</m>, <m>H</m>,
+            and <m>J</m> drawn in <xref ref="fig_3comp"></xref>.
+          </p>
+          <figure xml:id="fig_3comp">
+            <caption>Three graphs.</caption>
+            image type not recognized
+          </figure>
+          <ol>
+            <li>
+              <p>
+                Draw the complement <m>\overline{G}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Draw the complement <m>\overline{H}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Draw the complement <m>\overline{J}</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_graph_elephant">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw the complement of the graph <m>E</m> drawn in <xref ref="fig_elephant"></xref>.
+                  <figure xml:id="fig_elephant">
+                    <caption>The graph <m>E</m>.</caption>
+                    image type not recognized
+                  </figure>
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the edges of <m>E</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the edges of <m>\overline{E}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_graph_comp">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Why we might model a situation with the complement of a graph instead of the original graph?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find the complement of a graph?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_intersection_graphs">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The set <m>\{1,2,3\}</m> has eight subsets,
+            as defined in <xref ref="defn_subsets"></xref>.
+            They are
+            <me>
+              \varnothing, \{1\}, \{2\}, \{3\},\{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Draw the graph whose vertices are these subsets where there is an edge between vertices if those subsets have at least one element in common.
+                  Which vertex is isolated?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the graph whose vertices are these subsets where there is an edge between vertices if those subsets have no elements in common.
+                  Are there any isolated vertices?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How are these graphs related?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_deg_in_comp">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider a graph <m>G</m> with <m>n</m> vertices and its complement <m>\overline{G}</m>.
+            Suppose <m>v</m> is a vertex in <m>G</m>.
+            How are <m>\fn{deg}_G(v)</m> and <m>\fn{deg}_{\overline{G}}(v)</m> related?
+            Explain.
+            Hint: <xref ref="exam_deg_comp"></xref>.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_add_bridge"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Yes, say where and list a daily walk that crosses every bridge
+        (exactly once each)
+        and ends where you start.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_my_first_graph"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Five
+          </p>
+        </li>
+        <li>
+          <p>
+            Six
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The vertex <m>u</m> is one neighbor and there are three others.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The degree of <m>x</m> is equal to the number of neighbors.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Check that you have five vertices and six edges.
+          </p>
+        </li>
+        <li>
+          <p>
+            Yes, there is one end vertex.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_midwest_MAP"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <xref ref="fig_midwest_map">See</xref>
+            in <xref ref="sec_std_graphs"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            13
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: MN has four neighbors.
+          </p>
+        </li>
+        <li>
+          <p>
+            ND:2, SD: 4, NE: 4, <ellipsis/>, IL: 3
+          </p>
+        </li>
+        <li>
+          <p>
+            Iowa (IA) and Missouri (MO)
+          </p>
+        </li>
+        <li>
+          <p>
+            24
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_word_graphs_first"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            See the graph in <xref ref="fig_word_graph_first"></xref>.
+            <figure xml:id="fig_word_graph_first">
+              <caption>Word graph <xref ref="sec_graph_models">for</xref></caption>
+              image type not recognized
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: count the number of words.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: the neighbors of CAT are ACT, HAT, and PAT.
+          </p>
+        </li>
+        <li>
+          <p>
+            No
+          </p>
+        </li>
+        <li>
+          <p>
+            Yes
+          </p>
+        </li>
+        <li>
+          <p>
+            11
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_quarter_dime"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Eight <m>(Q_H,D_H), (Q_H,D_T), (Q_T,D_H), \ldots,(D_T,Q_H), (D_T,Q_T)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It takes two moves.
+            It is not unique because you can start with a swap and then flip,
+            or you can start with a flip and then swap.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Each vertex should have degree three.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_matching_students_jobs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Yes.
+            Haloke: Admissions, Ian: Events, Jamar: Bookstore, Khanh: (tech) Desk, Levi: Cafeteria.
+            Note that this solution is not unique.
+            Can you find another solution?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your graph should have five white vertices, five black vertices,
+            and an edge for each <m>\checkmark</m> in <xref ref="table_matching_students_jobs"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You should highlight five edges so that each student and each job are the endpoint of exactly one highlighted edge.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_comp_easy"></xref> Select Answers and Hints</title>
+      <p>
+        The complements are drawn in <xref ref="fig_three_comp_answer"></xref>.
+      </p>
+      <figure xml:id="fig_three_comp_answer">
+        <caption>Three complements</caption>
+        image type not recognized
+      </figure>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_graph_elephant"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your complement should have six vertices and seven edges.
+            The vertices <m>s_2</m> and <m>s_3</m> are the end vertices of the complement.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\{e_1,s_1\}</m><m>,\{e_1,s_4\}</m>,
+            <ellipsis/>, <m>\{s_2,s_4\}</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_intersection_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hints: Your graph should have eight vertices and 15 edges.
+            For example,
+            the neighbors of <m>\{1,2\}</m> are <m>\{1\}</m>, <m>\{2\}
+            <me>
+              ,\{1,3\}
+            </me>,
+            \{2,3\}</m><m>,\{1,2,3\}</m>.
+            The isolated vertex is <m>\varnothing</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hints: Your graph should have eight vertices and 13 edges.
+            For example,
+            the neighbors of <m>\{1,2\}</m> are <m>\varnothing</m> and <m>\{3\}</m>.
+            There is no isolated vertex.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: They have opposite edges.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_deg_in_comp"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: For a vertex <m>v</m>,
+        there are <m>n-1</m> other vertices each of which is a neighbor of <m>v</m> in <m>G</m> or a neighbor of <m>v</m> in <m>\overline{G}</m>
+        (and never both).
+        Recall that <m>\fn{deg}_G(v)</m> counts the number of neighbors of <m>v</m> in <m>G</m> and
+        <m>\fn{deg}_{\overline{G}}(v)</m> counts the number of neighbors of <m>v</m> in <m>\overline{G}</m>.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

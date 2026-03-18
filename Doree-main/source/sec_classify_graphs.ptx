@@ -1,0 +1,976 @@
+<section xml:id="sec_classify_graphs">
+  <title>Classifying Graphs</title>
+  <introduction>
+    <p>
+      A common theme across the sciences is to classify objects of a particular type.
+      For example,
+      how might we classify all trees with seven vertices?
+      Since there are only finitely many,
+      we can create a list of trees having seven vertices so that any tree with seven vertices is isomorphic to a tree on our list and no two trees on our list are isomorphic.
+      We begin by discussing how to show that two graphs are not isomorphic.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_nonisomorphic_graphs">
+    <title>\subnonisograph</title>
+    <p>
+      Here is a not terribly useful definition of nonisomorphic graphs.
+    </p>
+    <definition xml:id="defn_nonism">
+      <title>Nonisomorphic</title>
+      <statement>
+        <p>
+          Two graphs <m>G</m> and <m>H</m> are
+          <term>nonisomorphic</term>,
+          denoted <m>G \ncong H</m>, if they are not isomorphic.
+          That is, if it is impossible to label the vertices of <m>G</m> and the vertices of <m>H</m> in such a way that <m>G</m> and <m>H</m> have the same vertices and the same edges.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      This definition is not useful in writing proofs because it is subtle to prove that something is impossible.
+      We might not find a way to label the vertices that shows that two graphs are isomorphic,
+      but that does not prove that there is no labeling.
+      We might not be able to visualize how one graph can be transformed into the other,
+      but that does not mean that there is no way to do so.
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_not_ism">
+      <title>Showing <m>G_1</m> and <m>G_3</m> are nonisomorphic</title>
+      <statement>
+        <p>
+          Although they share many common properties,
+          the graphs <m>G_1</m> and <m>G_3</m> drawn in <xref ref="fig_G1G2G3"></xref> are not isomorphic.
+          Prove it.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's start with the labeling of <m>G_1</m> from <xref ref="fig_G1G2_labeled"></xref>.
+          The only degree 3 vertex in <m>G_1</m> is labeled <m>c</m>.
+          That means <m>c</m> is the only vertex that appears in exactly three edges.
+          The graph <m>G_3</m> has one degree 3 vertex,
+          and if we want to produce the same edge list as <m>G_1</m>,
+          that vertex needs to be labeled <m>c</m> to match,
+          as shown in <xref ref="fig_failed_labeling"></xref>.
+        </p>
+        <figure xml:id="fig_failed_labeling">
+          <caption>Trying to label <m>G_3</m> to match <m>G_1</m> (and failing).</caption>
+          image type not recognized
+        </figure>
+        <p>
+          Next, in <m>G_1</m>,
+          the vertex <m>c</m> has exactly one neighbor with degree one,
+          and it is labeled <m>x</m>.
+          But in <m>G_3</m>,
+          the vertex <m>c</m> has two neighbors with degree one.
+          If we label one of those neighbors <m>x</m>,
+          the other cannot be labeled (?).
+          We are stuck.
+          There is no common labeling.
+          Therefore, <m>G</m> and <m>K</m> are not isomorphic.
+        </p>
+        <p>
+          Notice that we have identified a property that distinguishes <m>G_1</m> from <m>G_3</m>,
+          namely <m>G_1</m> has exactly one vertex with degree three and that vertex has exactly one neighbor with degree one,
+          but <m>G_3</m> does not have that property.
+          This observation gives us a shorter proof that <m>G_1</m> and <m>G_3</m> are not isomorphic.
+          After all, if they were the same graph,
+          then they would have shared all graph-theoretic properties.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can make the type of argument we used in <xref ref="exam_not_ism"></xref> more formal.
+      We start with another definition.
+    </p>
+    <definition xml:id="defn_graph_invariant">
+      <title>Graph invariant</title>
+      <statement>
+        <p>
+          A <term>graph invariant</term> is a property
+          <m>\mathcal{P}</m> that satisfies (<m>\star</m>) If a graph <m>G</m> has the property
+          <m>\mathcal{P}</m> and <m>G \cong H</m>,
+          then <m>H</m> also has the property <m>\mathcal{P}</m>.
+          For example,
+          <q>having exactly one degree three vertex</q>
+          is a graph invariant.
+        </p>
+      </statement>
+    </definition>
+    <example xml:id="exam_graph_invariants">
+      <title>Examples of graph invariants</title>
+      <statement>
+        <p>
+          List some examples of specific graph invariants.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Here are some arbitrary examples.
+          <ul>
+            <li>
+              <p>
+                Having exactly ten vertices.
+              </p>
+            </li>
+            <li>
+              <p>
+                Having exactly six edges.
+              </p>
+            </li>
+            <li>
+              <p>
+                Having exactly three vertices of degree four.
+              </p>
+            </li>
+            <li>
+              <p>
+                Having a vertex of degree four that is adjacent to two vertices of degree one.
+              </p>
+            </li>
+            <li>
+              <p>
+                Having the degree sequence <m>3,3,2,2,2,2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Containing a 3-cycle.
+              </p>
+            </li>
+            <li>
+              <p>
+                Not containing any 4-cycles.
+              </p>
+            </li>
+            <li>
+              <p>
+                Containing two 4-cycles.
+              </p>
+            </li>
+            <li>
+              <p>
+                Being acyclic.
+              </p>
+            </li>
+            <li>
+              <p>
+                Containing a subgraph isomorphic to <m>K_4</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Having a path of length eight.
+              </p>
+            </li>
+            <li>
+              <p>
+                Being connected.
+              </p>
+            </li>
+            <li>
+              <p>
+                Having chromatic number three.
+              </p>
+            </li>
+            <li>
+              <p>
+                and so on.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Officially, we should prove that each of these properties is a graph invariant.
+          Some properties that are <em>not</em> graph invariants are
+          <q>is drawn as a 5-cycle plus edges</q>
+          or
+          <q>has adjacent vertices labeled <m>a</m> and <m>b</m></q>. More generally,
+          any property that refers to how a graph is drawn or labeled is not a graph invariant.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can use graph invariants to prove that two graphs are not isomorphic.
+    </p>
+    <remark xml:id="rem_show_not_ism">
+      <title>Using graph invariants to prove that two graphs are not isomorphic</title>
+      <p>
+        If two graphs are isomorphic,
+        then they are the same graph,
+        and therefore they must agree on all graph invariants.
+        Equivalently<fn>
+        The statement <m>\star\star</m> is the contrapositive of <m>\star</m>.
+        We will prove in <xref ref="sec_converse_cp"></xref>
+        that a statement and its contrapositive are logically equivalent.
+        </fn>,
+        for a graph invariant
+        <m>\mathcal{P}</m>, (<m>\star\star</m>) If a graph <m>G</m> has the property
+        <m>\mathcal{P}</m> but the graph <m>H</m> does not have the property
+        <m>\mathcal{P}</m>, then <m>G \ncong H</m>.
+        Therefore, to prove that graphs <m>G</m> and <m>H</m> are not isomorphic,
+        we can find an invariant that <m>G</m> has but <m>H</m> does not or vice versa.
+      </p>
+    </remark>
+    <p>
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_use_graph_invariant_show_nonism">
+      <title>Use a graph invariant to show not isomorphic</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_nonism_order4">
+              <p>
+                Show that the graphs <m>D_1</m> and <m>D_2</m> drawn in <xref ref="fig_notism_C4"></xref>
+                are not isomorphic by finding a distinguishing graph invariant.
+                <figure xml:id="fig_notism_C4">
+                  <caption>Nonisomorphic graphs from <xref ref="exam_use_graph_invariant_show_nonism"></xref> <xref ref="part_nonism_order4"/>.</caption>
+                  image type not recognized
+                </figure>
+                <solution>
+                  <p>
+                    One reason <m>D_1</m> and <m>D_2</m> are nonisomorphic is that <m>D_1</m> has a vertex of degree one and <m>D_2</m> does not.
+                    Another reason is that they have different degree sequences:
+                    <m>3,2,2,1</m> for <m>D_1</m> versus <m>2,2,2,2</m> for <m>D_2</m>.
+                    Yet another reason is <m>D_2</m> contains a 4-cycle but <m>D_1</m> does not.
+                    And so on.
+                    Only one distinguishing graph invariant is needed.
+                    For any of these reasons, <m>D_1 \ncong D_2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that the graphs <m>E_1</m> and <m>E_2</m> drawn in <xref ref="fig_notism_Ham8"></xref>
+                are not isomorphic by finding a distinguishing graph invariant.
+                <figure xml:id="fig_notism_Ham8">
+                  <caption>The graphs <m>E_1</m> and <m>E_2</m> are not isomorphic.</caption>
+                  image type not recognized
+                </figure>
+                <solution>
+                  <p>
+                    One reason <m>E_1</m> and <m>E_2</m> are nonisomorphic is that <m>E_1</m> contains two 5-cycles and <m>E_2</m> does not contain any 5-cycles.
+                    Another reason is that <m>E_2</m> can be 2-colored but <m>E_1</m> cannot,
+                    as shown in <xref ref="fig_notism_Ham8_bipartite"></xref>.
+                  </p>
+                  <figure xml:id="fig_notism_Ham8_bipartite">
+                    <caption>The graph <m>E_2</m> can be 2-colored but the graph <m>E_1</m> cannot.</caption>
+                    image type not recognized
+                  </figure>
+                  <p>
+                    Note that any 2-coloring of <m>E_1</m> would have to alternate around the 8-cycle but then the opposite end of the chord would have to be a third color.
+                    A different,
+                    quite complicated reason why <m>E_1</m> and <m>E_2</m> are nonisomorphic is that in <m>E_2</m> there is a pair of adjacent degree two vertices each of which has a degree three neighbor
+                    (the black vertex and white vertex to the right of the chord edge),
+                    but in <m>E_1</m> no pair of adjacent degree two both have degree three neighbors.
+                    For any of these reasons, <m>E_1 \ncong E_2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Your turn to practice showing graphs are not isomorphic and deciding whether or not two graphs are isomorphic.
+    </p>
+    <activity xml:id="act_show_nonism_or_decide">
+      <title>Show two graphs are not isomorphic</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_act_common_ppty">
+            <p>
+              Check that the graphs drawn in <xref ref="fig_nonism_graphs_act"></xref>
+              have the same number of vertices, the same number of edges,
+              and the same degree sequence and find a 4-cycle in each graph.
+              <figure xml:id="fig_nonism_graphs_act">
+                <caption>Nonisomorphic graphs <xref ref="act_show_nonism_or_decide">for</xref> <xref ref="part_act_common_ppty"/> and <xref ref="part_act_nonism"/>.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li xml:id="part_act_nonism">
+            <p>
+              Show that the graphs drawn in <xref ref="fig_nonism_graphs_act"></xref>
+              are nonisomorphic by finding a graph invariant that distinguishes the two graphs.
+            </p>
+          </li>
+          <li xml:id="part_act_nonism_trees">
+            <p>
+              Show the trees drawn in <xref ref="fig_nonism_trees_act"></xref>
+              are nonisomorphic by finding a graph invariant that distinguishes the two graphs.
+              <figure xml:id="fig_nonism_trees_act">
+                <caption>Nonisomorphic trees <xref ref="act_show_nonism_or_decide">for</xref> <xref ref="part_act_nonism_trees"/>.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li xml:id="part_act_8cycle">
+            <p>
+              Decide if the graphs drawn in <xref ref="fig_8cycles"></xref>
+              are isomorphic or not and justify your answer.
+              <figure xml:id="fig_8cycles">
+                <caption>Graphs <xref ref="act_show_nonism_or_decide">for</xref> <xref ref="part_act_8cycle"/>.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li xml:id="part_act_notism_suspended_cycles">
+            <p>
+              Decide whether the graphs drawn in <xref ref="fig_suspended_cycles"></xref>
+              are isomorphic or not and justify your answer.
+              <figure xml:id="fig_suspended_cycles">
+                <caption>Graphs <xref ref="act_show_nonism_or_decide">for</xref> <xref ref="part_act_notism_suspended_cycles"/>.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_graph_classification">
+    <title>\subgraphclassification</title>
+    <p>
+      We are ready to return to classifying graphs.
+    </p>
+    <example xml:id="exam_classify_order3_order4">
+      <title>First example of classifying graphs</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Classify all graphs with three vertices.
+                That is, make a list of graphs having three vertices so that any graph with three vertices is isomorphic to a graph on our list and no two graphs on our list are isomorphic.
+                <solution>
+                  <p>
+                    There are four such graphs drawn in <xref ref="fig_classify_order3"></xref>.
+                    No two of these graphs are isomorphic because they have a different number of edges.
+                    You can (and should) convince yourself that there are no other options.
+                  </p>
+                </solution>
+                <figure xml:id="fig_classify_order3">
+                  <caption>All graphs with three vertices.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Classify all graphs with four vertices and three edges.
+                <solution>
+                  <p>
+                    There are three such graphs drawn in <xref ref="fig_classify_order4_size3"></xref>,
+                    labeled with their degree sequence.
+                    These graphs are not isomorphic because they have different degree sequences.
+                  </p>
+                  <p>
+                    To check that this list is complete,
+                    suppose that we have a graph with four vertices and three edges.
+                    <xref ref="thm_first_thm_graph_thy">By</xref>,
+                    the sum of the degrees of the vertices is equal to twice the number of edges,
+                    which is <m>2(3)=6</m>.
+                    The degree sequence must be four nonnegative integers whose sum is equal to six.
+                    We consider the possibilities.
+                  </p>
+                  <p>
+                    Case 1: The max degree is three.
+                    Notice that every other vertex is adjacent to the degree three vertex,
+                    and so the degree sequence is <m>3,1,1,1</m>.
+                    We get <m>K_{1,3}</m>,
+                    which is the graph on the left in <xref ref="fig_classify_order4_size3"></xref>.
+                  </p>
+                  <p>
+                    Case 2: The max degree must be two and there is an isolated vertex.
+                    The degree sequence would have to be <m>2,2,2,0</m>.
+                    Moreover, none of the three vertices having degree two can be adjacent to the isolated vertex,
+                    so the vertices having degree two must form a 3-cycle,
+                    and so we get the graph in the middle in <xref ref="fig_classify_order4_size3"></xref>.
+                  </p>
+                  <p>
+                    Case 3: The max degree is two and there is no isolated vertices.
+                    Then, the degree sequence is <m>2, 2, 1, 1</m>.
+                    The two degree two vertices must be adjacent to each other,
+                    and so we obtain a copy of <m>P_4</m>,
+                    which is the graph on the right in the graph in the middle of <xref ref="fig_classify_order4_size3"></xref>.
+                  </p>
+                  <p>
+                    Notice that checking the graphs were non-isomorphic was much easier than checking that we found all such graphs.
+                  </p>
+                </solution>
+                <figure xml:id="fig_classify_order4_size3">
+                  <caption>All graphs with four vertices and three edges.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It can be challenging to decide whether a classification is complete.
+      One tool that can help is graph complements.
+    </p>
+    <example xml:id="exam_using_complements_classify_graphs">
+      <title>Using complements to classify graphs</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_classify_order4_size2">
+              <p>
+                Classify all graphs with four vertices and two edges.
+                <solution>
+                  <p>
+                    If the two edges share a common endpoint,
+                    then we get a graph <m>A</m> that has the path <m>P_3</m> and an isolated fourth vertex.
+                    Otherwise, we get a graph <m>B</m> that has two separate copies of <m>P_2</m>.
+                    Both are drawn in <xref ref="fig_classify_order4_size2_or_size4"></xref>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the result of <xref ref="part_classify_order4_size2"/> to classify all graphs with four vertices and four edges.
+                <solution>
+                  <p>
+                    Since the complete graph <m>K_4</m> has six edges,
+                    the complement of any graph with four vertices and four edges must have four vertices and two edges.
+                    That is, the complement must be one of the two graphs we found in <xref ref="part_classify_order4_size2"/>.
+                    The two graphs with four vertices and four edges are, therefore,
+                    <m>\overline{A}</m> and <m>\overline{B}</m> which are also drawn in <xref ref="fig_classify_order4_size2_or_size4"></xref>.
+                    We drew them without edge crossings just for fun,
+                    so look closely at the vertex labels.
+                  </p>
+                </solution>
+                <figure xml:id="fig_classify_order4_size2_or_size4">
+                  <caption>All graphs with four vertices and two or four edges.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Now, it is your turn to try classification.
+    </p>
+    <activity xml:id="act_classify_trees">
+      <title>Classifying trees</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              What is a tree?
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why the path <m>P_3</m> is the only tree with three vertices.
+            </p>
+          </li>
+          <li>
+            <p>
+              There are two trees with four vertices.
+              Draw them.
+            </p>
+          </li>
+          <li>
+            <p>
+              Classify all trees with five vertices.
+              That is, make a list of trees having five vertices so that any tree with five vertices is isomorphic to a tree on your list and no two trees on your list are isomorphic.
+            </p>
+          </li>
+          <li xml:id="part_trees_order6">
+            <p>
+              Classify all trees with six vertices.
+              Hint: Organize your work by drawing the longest possible path horizontally.
+            </p>
+          </li>
+          <li xml:id="part_trees_order7">
+            <p>
+              Classify all trees with seven vertices.
+              Hint: Organize your work by drawing the longest possible path horizontally.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_robots">
+    <title>\subrobots</title>
+    <p>
+      We continue to practice classification.
+    </p>
+    <activity xml:id="act_robots">
+      <title>Robots</title>
+      <p>
+        For the sake of this activity,
+        we invent the following definition.
+      </p>
+      <definition xml:id="defn_robot">
+        <title>Robot</title>
+        <statement>
+          <p>
+            A connected graph is a <em>robot</em>
+            if it contains one 3-cycle and no other cycles.
+            For example,
+            the graphs drawn in <xref ref="fig_robots"></xref> are robots.
+            The left robot has seven vertices,
+            and the right robot has eight.
+          </p>
+          <figure xml:id="fig_robots">
+            <caption>Two robots.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </definition>
+      <ol>
+        <li>
+          <p>
+            The only robot with three vertices is a 3-cycle.
+            There is only one robot with four vertices.
+            Draw it and explain why it is the only one.
+          </p>
+        </li>
+        <li>
+          <p>
+            There are three different robots with five vertices.
+            Draw them.
+          </p>
+        </li>
+        <li>
+          <p>
+            How many different robots are there with six vertices.
+            Hint: Organize your work based on how many vertices of the 3-cycle have edges beyond the 3-cycle <mdash/> all three,
+            two of them, or only one of them.
+          </p>
+        </li>
+      </ol>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_nonisomorphic_graphs">for</xref>
+      \subnonisograph</title>
+      <exercise xml:id="exer_show_nonism_Ham5">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Show that the graphs drawn in <xref ref="fig_nonism_Ham5"></xref>
+            are nonisomorphic by finding a graph invariant that distinguishes the two graphs.
+          </p>
+          <figure xml:id="fig_nonism_Ham5">
+            <caption>Nonisomorphic graphs <xref ref="exer_show_nonism_Ham5">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_nonism_H3b6">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use complements to show that the graphs drawn in <xref ref="fig_nonism_H3b6"></xref>
+            are nonisomorphic by finding a graph invariant that distinguishes the complements of the two graphs.
+          </p>
+          <figure xml:id="fig_nonism_H3b6">
+            <caption>Nonisomorphic graphs <xref ref="exer_show_nonism_H3b6">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_ism_H3b6_K3b3">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Decide whether the graphs in <xref ref="fig_ism_H3b6_K3b3"></xref>
+            are isomorphic and carefully justify your answer.
+          </p>
+          <figure xml:id="fig_ism_H3b6_K3b3">
+            <caption>The Harary graph <m>H_{3,6}</m> and the complete bipartite graph <m>K_{3,3}</m> <xref ref="exer_show_ism_H3b6_K3b3">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_nonism_order5">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Decide whether the graphs in <xref ref="fig_nonism_order5"></xref>
+            are isomorphic and carefully justify your answer.
+          </p>
+          <figure xml:id="fig_nonism_order5">
+            <caption>The graphs <xref ref="exer_show_nonism_order5">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_ism_K4_minus_edge">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use complements to decide whether the graphs in <xref ref="fig_ism_K4_minus_edge"></xref>
+            are isomorphic and carefully justify your answer.
+          </p>
+          <figure xml:id="fig_ism_K4_minus_edge">
+            <caption>The graphs <xref ref="exer_show_ism_K4_minus_edge">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_nonism_order6">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Decide whether the graphs in <xref ref="fig_nonism_order6"></xref>
+            are isomorphic and carefully justify your answer.
+          </p>
+          <figure xml:id="fig_nonism_order6">
+            <caption>The graphs <xref ref="exer_show_nonism_order6">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_nonism_complicated_Ham8">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use complements to decide whether the graphs in <xref ref="fig_nonism_complicated_Ham8"></xref>
+            are isomorphic and carefully justify your answer.
+          </p>
+          <figure xml:id="fig_nonism_complicated_Ham8">
+            <caption>The graphs <xref ref="exer_show_nonism_complicated_Ham8">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_nonism">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What a graph invariant is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why finding a distinguishing invariant proves that two graphs are not isomorphic?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What some examples of graph invariants are?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How we can prove that two graphs are not isomorphic (by finding a distinguishing invariant)?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use complements to prove that two graphs are isomorphic or nonisomorphic?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use planarity-style moves to decide whether two graphs are isomorphic or not?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_nonism_order7">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Decide whether the graphs in <xref ref="fig_nonism_order7"></xref>
+            are isomorphic and carefully justify your answer.
+          </p>
+          <figure xml:id="fig_nonism_order7">
+            <caption>The graphs <xref ref="exer_show_nonism_order7">for</xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_graph_classification">for</xref>
+      \subgraphclassification</title>
+      <p>
+        In these classification exercises,
+        no justification is required,
+        but make sure that your list is complete and that no two graphs on your list are isomorphic.
+      </p>
+      <exercise xml:id="exer_classify_8cycle_plus_edge">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Classify all graphs with eight vertices and nine edges that contain an 8-cycle.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_classify_order4">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Classify all graphs with four vertices.
+            Hint: <xref ref="exam_classify_order3_order4"></xref>
+            and <xref ref="exam_using_complements_classify_graphs"></xref> are useful.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_classify_order5">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Classify all connected graphs with five vertices and six edges.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_classify_trees_order6_order7">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Classify all trees with six vertices.
+                  Yes, this exercise <xref ref="act_classify_trees">repeats</xref>
+                  <xref ref="part_trees_order6"/>.
+                  Hint: organize your work by drawing the longest possible path horizontally.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Classify all trees with seven vertices.
+                  Yes, this exercise <xref ref="act_classify_trees">repeats</xref>
+                  <xref ref="part_trees_order7"/>.
+                  Hint: organize your work by drawing the longest possible path horizontally.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_classify_graphs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What we mean by classifying graphs of a certain type?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use complements to help classify graphs?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to organize your work when classifying graphs? (There are several ways.)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_classify_regular">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Classify all regular graphs with six vertices.
+            Recall that in a regular graph,
+            all vertices have the same degree <m>r</m>.
+            Consider the cases <m>r=0</m>, <m>r=1</m>,
+            <m>r=2</m>, <m>r=3</m>, <m>r=4</m>, and <m>r=5</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_classify_trees_order8">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Classify all trees with eight vertices.
+            Hint: Organize your work by drawing the longest possible path horizontally.
+            Another hint: there are 23 of them.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_robots">for</xref> \subrobots</title>
+    <exercise xml:id="exer_super_robot">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          A connected graph is <term>super-robot</term>
+          if it contains one 4-cycle and no other cycles.
+          Draw a super-robot with six vertices,
+          one with seven vertices, and one with eight vertices.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_robots7">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          Classify all robots with seven vertices.
+          No justification is required,
+          but make sure that your list is complete and that no two robots on your list are isomorphic.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_super_robot8">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          Super-robots were defined in <xref ref="exer_super_robot"></xref>.
+          Draw all super-robots with eight vertices.
+          No justification is required,
+          but make sure that your list is complete and that no two super-robots on your list are isomorphic.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_show_nonism_Ham5"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: One answer is that the graph on the left has the degree sequence <m>4,3,3,3,3</m>,
+        but the graph on the right has a different degree sequence.
+        Can you find an easier answer?
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_nonism_H3b6"></xref> Select Answers and Hints</title>
+      <p>
+        The complement of the graph on the left is disconnected
+        (it is two copies of <m>C_3</m>),
+        but the graph on the right has a complement that is connected
+        (it is isomorphic to <m>C_6</m>).
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_ism_H3b6_K3b3"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: They are isomorphic.
+        To prove that they are isomorphic,
+        label the vertices so that they have the same vertices and the same edges.
+        (It is not enough to show that they have many invariants in common.)
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_nonism_order5"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: They are isomorphic.
+        Label the vertices so that they have the same vertices and the same edges.
+        Start with the degree two vertices, then their neighbors.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_ism_K4_minus_edge"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: They are isomorphic.
+        Their complements are a copy of <m>P_2</m> and two isolated vertices.
+        Prove that the complements are isomorphic by labeling the vertices.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_nonism_order6"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: They are not isomorphic.
+        You can find a distinguishing invariant based on the cyclic subgraphs.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_nonism_complicated_Ham8"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Look closely at the complements.
+        The complements are nonisomorphic.
+        Explain why.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_show_nonism_order7"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Look at the neighbors of the degree four vertex.
+        How are they adjacent to one another?
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_classify_order4"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are 11 total.
+        One graph has no edges, and one graph has one edge.
+        <xref ref="exam_using_complements_classify_graphs"></xref>
+        lists all graphs with two edges and four edges.
+        <xref ref="exam_classify_order3_order4"></xref>
+        lists the graphs with three edges.
+        The graphs with five or six edges are the complements of graphs already on the list.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_classify_order5"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Small graphs are often given names that describe what they look like.
+        Four of the answers are named the house,
+        the kite, the dart, and the bowtie. (Please figure these out yourself,
+        without peeking at resources!) There is one more possibility,
+        but I do not know if it has a name.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_classify_trees_order6_order7"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are six.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are 11.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_classify_regular"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are one 0-regular,
+        one 1-regular, and two 2-regular graphs.
+        You can check if you have the correct number of 3-regular, 4-regular,
+        and 5-regular by considering their complements.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title>Select Answers and Hints  <xref ref="sub_robots">for</xref> \subrobots</title>
+      <p>
+        None provided.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

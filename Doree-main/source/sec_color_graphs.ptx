@@ -1,0 +1,1545 @@
+<section xml:id="sec_color_graphs">
+  <title>\seccolorgraphs</title>
+  <introduction>
+    <p>
+      In many logistical applications of graph theory,
+      the problem can be translated into a question about coloring graphs.
+      Examples of such applications include<fn>
+      source: wikipedia, graph coloring
+      </fn> scheduling
+      (events or tasks),
+      resource allocation
+      (such as assigning computer registers),
+      and physical arrangements
+      (such as assigning seating).
+      In this section, we introduce graph coloring,
+      look at applications to scheduling,
+      and consider the minimum number of colors needed for standard graphs.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_color_maps">
+    <title>\subcolormaps</title>
+    <p>
+      Another application of graph coloring is coloring regions of a map.
+      We begin with an activity.
+    </p>
+    <activity xml:id="act_map_coloring">
+      <title>Map coloring</title>
+      <p>
+        There are two rules for coloring a map.
+        <ul>
+          <li>
+            <title>Rule 1:</title>
+            <p>
+              Each region gets a single color.
+            </p>
+          </li>
+          <li>
+            <title>Rule 2:</title>
+            <p>
+              Any two regions that share a common border
+              (more than a point)
+              must be different colors.
+            </p>
+          </li>
+        </ul>
+        <ol>
+          <li xml:id="part_map_coloring">
+            <p>
+              Following these rules,
+              color the map in <xref ref="fig_map_coloring"></xref>
+              using the colors blue, green, red, and purple.
+              <figure xml:id="fig_map_coloring">
+                <caption>A map to color.</caption>
+                <image width="30%" source="images/Four_color_map.png"/>
+              </figure>
+              You can use letters for the colors,
+              such as <em>B</em> = blue,
+              <em>G</em> = green, <em>R</em> = red, <em>P</em> = purple.
+              You can color it by hand or go to the website: \url{https://www.geogebra.org/m/pjPgJdhV}
+              (or Google search for
+              <q>Four Color Challenge</q>),
+              color the map there, and capture a screenshot of your solution.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw a rectangle and divide it into six regions to create a new map that can be colored using only two colors.
+              And show how to color it using <em>B</em>
+              = blue and <em>G</em> = green.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw a rectangle and divide it into six regions to create a new map that can be colored using three colors but not two colors.
+              Show how to color it using three colors:
+              <em>B</em> = blue, <em>G</em> = green,
+              and <em>R</em> = red and explain why it is impossible to color it using only two colors.
+            </p>
+          </li>
+          <li>
+            <p>
+              In the map you colored in <xref ref="part_map_coloring"/>,
+              find a portion of the map with four regions where all four colors were needed.
+              Copy that portion of the map and show that four colors work using <em>B</em> = blue,
+              <em>G</em> = green, <em>R</em> = red, <em>P</em> = purple.
+              Next, explain why it is impossible to color that portion of the map using only three colors.
+              Hint: if it is possible to color that portion of the map using only three colors,
+              then you need to pick a different portion.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      We can model a map with a graph and rephrase our question about coloring a map into a question about coloring a graph.
+    </p>
+    <example xml:id="exam_map_coloring">
+      <title>Map coloring</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Draw a graph with a vertex for each region of the map of midwest states shown in <xref ref="fig_midwest_map"></xref>
+                (in <xref ref="sec_graph_models"></xref>
+                <xref ref="exer_midwest_MAP"></xref>).
+                Draw an edge between two vertices if the corresponding regions share an edge
+                (more than a point).
+                <solution>
+                  <p>
+                    We draw the map in <xref ref="fig_graph_midwest"></xref>.
+                  </p>
+                </solution>
+                <figure xml:id="fig_graph_midwest">
+                  <caption>A map of midwest states.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Rephrase the map coloring question as a question about the graph.
+                <solution>
+                  <p>
+                    What is the smallest number of colors that we need in order to color the vertices of the graph in such a way that adjacent vertices are different colors?
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_chromatic_number">
+    <title>\subchromatic</title>
+    <p>
+      Let's formalize the idea of coloring the vertices of a graph.
+    </p>
+    <definition xml:id="defn_chromatic_number">
+      <title>Chromatic number</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>(vertex) coloring</term> of a graph is an assignment of a color to each vertex in such a way that adjacent vertices have different colors.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term><m>k</m>-coloring</term> of a graph is a vertex coloring using <m>k</m> colors.
+                For example,
+                the graph in <xref ref="fig_schedule_alumni_colors"></xref> has a 3-coloring.
+              </p>
+            </li>
+            <li>
+              <p>
+                A graph is <term><m>k</m>-colorable</term>
+                if there exists a coloring using <m>k</m> or fewer colors.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>chromatic number</term>
+                of a graph is the smallest number of colors needed to color the graph.
+                For example, the complete bipartite graph, <m>K_{6,3}</m>,
+                shown in <xref ref="fig_K6_again"></xref>
+                has chromatic number two because it can be colored using two colors
+                (black and white)
+                and one color would not work because there are adjacent vertices.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at a few examples.
+    </p>
+    <example xml:id="exam_chromatic_K5_C5">
+      <title>Chromatic number of complete graph and cycle</title>
+      <statement>
+        <p>
+          Determine the chromatic number <m>k</m> of each graph by finding a <m>k</m>-coloring and then explaining why all <m>k</m> colors are necessary.
+          <ol>
+            <li>
+              <p>
+                The complete graph <m>K_5</m>.
+                <solution>
+                  <p>
+                    First, we can color each vertex its own color using five colors.
+                    Since any pair of vertices in <m>K_5</m> are adjacent,
+                    they must be different colors and so we cannot use fewer than five colors.
+                    Thus, the chromatic number of <m>K_5</m> is five.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The cycle <m>C_5</m>.
+                <solution>
+                  <p>
+                    If we try to color the vertices of <m>C_5</m> using only two colors
+                    (gray and black),
+                    as shown in <xref ref="fig_C5_3colored"></xref>, we run into a problem.
+                    The fifth vertex cannot be gray
+                    (because it is adjacent to a vertex colored gray)
+                    and it cannot be black
+                    (because it is adjacent to a vertex colored black).
+                    It must be a third color, say white.
+                  </p>
+                  <figure xml:id="fig_C5_3colored">
+                    <caption>Coloring the cycle <m>C_5</m>.</caption>
+                    image type not recognized
+                  </figure>
+                  <p>
+                    Notice that <xref ref="fig_C5_3colored"></xref>
+                    actually shows that three colors (gray, black, and white) work.
+                    Thus, the chromatic number of <m>C_5</m> is three.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's try determining the chromatic number of graphs.
+    </p>
+    <activity xml:id="act_chromatic_number">
+      <title>Chromatic number of graphs</title>
+      <p>
+        To show the chromatic number of a graph is <m>k</m>,
+        you should draw the graph,
+        show how to color the vertices using <m>k</m> colors,
+        and then explain why fewer than <m>k</m> colors cannot work.
+        <ol>
+          <li xml:id="part_chromatic_C5">
+            <p>
+              Explain why the chromatic number of the cycle graph <m>C_4</m> is two but the chromatic number of the cycle graph <m>C_5</m> is three.
+            </p>
+          </li>
+          <li xml:id="part_color_W5">
+            <p>
+              Find the chromatic number of the wheel graph <m>W_5</m>.
+              Hint: use <xref ref="part_chromatic_C5"/>.
+            </p>
+          </li>
+          <li xml:id="part_chromatic_K4">
+            <p>
+              What's the chromatic number of <m>K_4</m>?
+              Explain.
+            </p>
+          </li>
+          <li xml:id="part_color_E">
+            <p>
+              The graph <m>E</m> drawn in <xref ref="fig_elephant_nolabel"></xref>.
+              Find the chromatic number of <m>E</m>.
+              Hint: use the result of <xref ref="part_chromatic_K4"/>.
+              <figure xml:id="fig_elephant_nolabel">
+                <caption>The graph <m>E</m>.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look <xref ref="act_chromatic_number">at</xref>
+      <xref ref="part_color_W5"/> and <xref ref="part_color_E"/>.
+    </p>
+    <example xml:id="exam_chromatic_complicated">
+      <title>Chromatic number of complicated graphs</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Find the chromatic number of the wheel graph <m>W_5</m>.
+                <solution>
+                  <p>
+                    First, notice that the five outer vertices form a copy of <m>C_5</m>.
+                    Since <m>C_5</m> has chromatic number three,
+                    the outer vertices require at least three different colors.
+                    The hub vertex is adjacent to all five outer vertices,
+                    and so it must be yet another color.
+                    Therefore, we need at least four colors to color the wheel <m>W_5</m>.
+                  </p>
+                  <p>
+                    Second, <xref ref="fig_wheel5_4colored"></xref>
+                    shows a 4-coloring of the wheel <m>W_5</m>.
+                    Thus, the chromatic number of the wheel <m>W_5</m> is four.
+                  </p>
+                </solution>
+                <figure xml:id="fig_wheel5_4colored">
+                  <caption>A 4-coloring of the wheel <m>W_5</m>.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find the chromatic number of the graph <m>E</m> drawn in <xref ref="fig_elephant_nolabel"></xref>.
+                <solution>
+                  <p>
+                    First, notice that the center four vertices form a copy of <m>K_4</m>.
+                    Since <m>K_4</m> has chromatic number four,
+                    we know that those four vertices must be four different colors.
+                    Therefore, we need at least four colors to color the entire graph <m>E</m>.
+                  </p>
+                  <p>
+                    Second, <xref ref="fig_elephant_4colored"></xref>
+                    shows a 4-coloring of the graph.
+                    Thus, the chromatic number of <m>E</m> is four.
+                  </p>
+                </solution>
+                <figure xml:id="fig_elephant_4colored">
+                  <caption>A 4-coloring of the graph <m>E</m>.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Coloring can be used to solve scheduling problems.
+    </p>
+    <example xml:id="exam_scheduling_alumni">
+      <title>Scheduling alumni events</title>
+      <statement>
+        <p>
+          There are three time slots for alumni events this Saturday:
+          late morning, early afternoon, or late afternoon.
+          <ul>
+            <li>
+              <p>
+                Alumni Office events: Meet &amp; Greet (M), Campus Tours (C), and Alumni Panel (A).
+              </p>
+            </li>
+            <li>
+              <p>
+                Theater Department events: Poetry Slam (P), Screenplay Reading (R), and Viewing Student Films (V).
+              </p>
+            </li>
+            <li>
+              <p>
+                Career Services events: Speed Networking (N), Interviews (I), and Leadership Development Workshop (L).
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Each organization can run only one of its events at a time.
+          In addition,
+          events A and V both want to use the theater and events M, P, and N all want to use the main conference hall,
+          so those events need to be at different times.
+          <ol>
+            <li>
+              <p>
+                Draw a graph representing the situation where each event is a vertex and an edge connects two events if they cannot be scheduled in the same time block.
+                <solution>
+                  <p>
+                    <xref ref="fig_schedule_alumni">See</xref>.
+                  </p>
+                  <figure xml:id="fig_schedule_alumni">
+                    <caption>Graph for scheduling alumni events.</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_schedule_events">
+              <p>
+                Is there a way to assign events times?
+                <solution>
+                  <p>
+                    Yes, one solution is M, R, and L in late morning; C, V, and N in early afternoon;
+                    and A, P, and I in late afternoon.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Color each vertex with a time that event could be scheduled using the key:
+                black = late morning, gray = early afternoon,
+                and white = late afternoon.
+                <solution>
+                  <p>
+                    <xref ref="fig_schedule_alumni_colors">See</xref>.
+                  </p>
+                  <figure xml:id="fig_schedule_alumni_colors">
+                    <caption>Graph for scheduling alumni events where colors represent event time.</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Restate the question from <xref ref="part_schedule_events"/> in terms of the graph and colors.
+                <solution>
+                  <p>
+                    Can we color the vertices of the graph using three colors so that adjacent vertices are different colors?
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_graph_conj">
+    <title>\subgraphconj</title>
+    <p>
+      We have looked at several specific graphs and calculated quantities such as the number of vertices and edges,
+      the degree sequence, and the chromatic number.
+      What about families of graphs?
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_graph_conj_Ks">
+      <title>Graph conjectures for the complete graphs</title>
+      <statement>
+        <p>
+          Consider the complete graphs <m>K_s</m> for <m>s \ge 1</m>.
+          Conjecture the number of vertices and edges,
+          the degree sequence, and the chromatic number of <m>K_s</m>.
+          Some of your answers should involve <m>s</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          By definition, <m>K_s</m> has <m>s</m> vertices.
+          Recall that <m>K_s</m> models the number of handshakes in a group of <m>s</m> people.
+          <xref ref="thm_hs">By</xref>,
+          the number of edges is <m>1+2+3+\ldots+(s-1) = \frac{s(s-1)}{2}</m>.
+          Alternatively, there is an edge for each pair of vertices.
+          Thus, the number of edges is equal to the number of ways to select two out of <m>s</m> vertices,
+          which is <m>\binom{s}{2}</m>.
+        </p>
+        <p>
+          Each vertex in <m>K_s</m> is adjacent to each of the other <m>s-1</m> vertices.
+          Therefore, the degree sequence is
+          <me>
+            \underbrace{s-1,s-1,s-1, \ldots, s-1}_{s \text{ times } }
+          </me>
+        </p>
+        <p>
+          We can color the vertices of <m>K_s</m> with <m>s</m> colors by assigning each vertex its own color.
+          Because each vertex is adjacent to every other vertex,
+          no two vertices can be the same color.
+          Thus, all <m>s</m> colors are necessary.
+          The chromatic number of <m>K_s</m> is <m>s</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We summarize the number of edges of the complete graph <m>K_s</m> for later reference.
+    </p>
+    <theorem xml:id="thm_size_Ks">
+      <title>Number of edges in the complete graphs</title>
+      <statement>
+        <p>
+          For any positive integer <m>s</m>,
+          the complete graph <m>K_s</m> has
+          <me>
+            1+2+3+\ldots+(s-1) = \frac{s(s-1)}{2} = \binom{s}{2}
+          </me>
+          edges.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Try making conjectures about families of graphs.
+    </p>
+    <activity xml:id="act_graph_conjectures">
+      <title>Graph conjectures</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Consider the star graphs <m>K_{1,t}</m> for <m>t \ge 2</m>.
+              Conjecture the number of vertices and edges,
+              the degree sequence, and the chromatic number of <m>K_{1,t}</m>.
+              Some of your answers should involve <m>t</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the paths <m>P_s</m> for <m>s \ge 2</m>.
+              Conjecture the number of vertices and edges,
+              the degree sequence, and the chromatic number of <m>P_s</m>.
+              Some of your answers should involve <m>s</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the cycles <m>C_s</m> for <m>s \ge 3</m>.
+              Conjecture the number of vertices and edges,
+              the degree sequence, and the chromatic number of <m>C_s</m>.
+              Some of your answers should involve <m>s</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_color_maps">for</xref> \subcolormaps</title>
+      <exercise xml:id="exer_map_coloring_website">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Go to the website: \url{https://mathigon.org/course/graph-theory/map-colouring} to color more complicated maps.
+            Save screenshots of three puzzles that you attempted.
+            Were you able to solve all three?
+            If not, where did you get stuck?
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_color_northestUS">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Copy the map of the northeast states drawn in <xref ref="fig_NE_states"></xref>
+            and show how to 4-color the map.
+            Note: Both parts of New York (NY) should be one color <mdash/> one part (Upstate New York) is labeled NY, the other part (NYC/Long Island) sits below Connecticut (CT)/Rhode Island (RI) and is long and skinny.
+          </p>
+          <figure xml:id="fig_NE_states">
+            <caption>Map of the northeastern states.</caption>
+            <image width="30%" source="images/NorthEastUStoColor.png"/>
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_midwest_color">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Copy the map of midwest states drawn in <xref ref="fig_midwest_map"></xref>
+                  (in <xref ref="sec_graph_models"></xref>
+                  <xref ref="exer_midwest_MAP"></xref>)
+                  and show how to color the map using three colors.
+                  Note: We discussed this map in <xref ref="exam_map_coloring"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a portion of the map where all three colors were needed.
+                  Copy that portion of the map and explain why it is impossible to color that portion of the map using only two colors.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_color_maps">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the connection is between coloring a map and coloring a graph?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to draw a graph model of a map?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/> Read the Quanta magazine article
+            <q>Only Computers Can Solve This Map-Coloring Problem</q>
+            and answer the following questions based on that article.
+            <ol>
+              <li>
+                <p>
+                  According to this article, the Four-Color Problem was introduced in a letter,
+                  which is a common way mathematics was communicated historically.
+                  Who wrote the letter and to whom did they send it?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What does the Four-Color Theorem say?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When did the first proofs appear and who initially claimed to have proved it?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How can the Four-Color Problem be restated in terms of graph theory?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When did the final proof appear and who is credited with the final proof?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why did the presentation of the final proof receive only
+                  <q>polite applause,</q>
+                  according to mathematician Don Albers?
+                </p>
+              </li>
+              <li>
+                <p>
+                  The original, but flawed, proof has six
+                  <q>special configurations.</q>
+                  How many special configurations were considered in the final proof?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is allegedly in Paul Erd&#xf6;s's
+                  <q>The Book</q>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_chromatic_number">for</xref> \subchromatic</title>
+      <exercise xml:id="exer_coloring_standard_graphs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Draw each graph and color the vertices with the fewest possible colors.
+            No justification is necessary,
+            but be sure that fewer colors would not work.
+            <ol>
+              <li>
+                <p>
+                  The star <m>K_{1,6}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The path <m>P_6</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The cycle <m>C_6</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The wheel <m>W_6</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The ladder <m>L_{2\times3}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_chromatic_number_classmates_graph">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Show how to 3-color the vertices of the classmates graph from <xref ref="exam_classmates_graph"></xref> using red, blue,
+                  and green.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why you need at least three colors to color the vertices of the classmates graph.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the chromatic number of the classmates graph?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_coloring_complete">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Draw each graph and color the vertices with the fewest possible colors.
+            Then explain why fewer colors would not work.
+            <ol>
+              <li>
+                <p>
+                  The path <m>P_5</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The cycle <m>C_3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The complete bipartite graph <m>K_{3,4}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The wheel <m>W_4</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_color_complicated_graph">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the graph <m>H</m> drawn in <xref ref="fig_complicated_graph"></xref>.
+          </p>
+          <figure xml:id="fig_complicated_graph">
+            <caption>The graph <m>H</m> from <xref ref="exer_color_complicated_graph"></xref>.</caption>
+            image type not recognized
+          </figure>
+          <ol>
+            <li xml:id="part_4coloring">
+              <p>
+                Copy <m>H</m> and show a 4-coloring of <m>H</m>.
+              </p>
+            </li>
+            <li xml:id="part_4colors_suffice">
+              <p>
+                Find a subgraph (portion) of <m>H</m> that needs at least 4 colors.
+              </p>
+            </li>
+            <li>
+              <p>
+                What can we conclude from <xref ref="part_4coloring"/> and <xref ref="part_4colors_suffice"/>?
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_schedule_meetings">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            There are seven people and seven committees.
+            Each person is on several committees,
+            as described by <xref ref="table_committee_members"></xref>.
+            There are four standard meeting times: 8-9:30 AM, 10-11:30 AM, 2-3:30 PM, and 4-5:30 PM. We would like to schedule meeting times for the committees in such a way that we avoid having two meetings at the same time if any person is a member of both committees.
+            Is there a way to do it?
+          </p>
+          <table xml:id="table_committee_members">
+            <title>Committee (cmte) members <xref ref="exer_schedule_meetings">for</xref></title>
+            <tabular>
+              <row>
+                <cell>Person on Cmte?</cell>
+                <cell>Cmte 1</cell>
+                <cell>Cmte 2</cell>
+                <cell>Cmte 3</cell>
+                <cell>Cmte 4</cell>
+                <cell>Cmte 5</cell>
+                <cell>Cmte 6</cell>
+                <cell>Cmte 7</cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Alejandro</cell>
+                <cell><m>\checkmark</m></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Bjorn</cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Cassie</cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Denise</cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell><m>\checkmark</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Ebrahim</cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Fiona</cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Gloria</cell>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+                <cell><m>\checkmark</m></cell>
+                <cell></cell>
+              </row>
+            </tabular>
+          </table>
+          <ol>
+            <li>
+              <p>
+                Draw a graph to represent the situation where each committee is a vertex.
+                What should the edges represent?
+              </p>
+            </li>
+            <li xml:id="part_schedule_meetings_color">
+              <p>
+                Is there a way to assign meeting times?
+                If so, color each vertex with a time it could meet using the key:
+                red is 8-9:30 AM, blue is 10-11:30 AM, green is 2-3:30 PM, and orange is 4-5:30 PM.
+              </p>
+            </li>
+            <li>
+              <p>
+                Restate the question from <xref ref="part_schedule_meetings_color"/> in terms of the graph and colors.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_chr_ineq">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            What can we say about the chromatic number <m>k</m> of a graph <m>G</m> if <ellipsis/>?
+            Your answer should be a conjecture in the form of an equation or inequality involving <m>k</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>G</m> contains a copy of <m>K_5</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>G</m> can be 5-colored.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_color_graphs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What a coloring of a graph is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the chromatic number of a graph is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which two things we need to check to determine the chromatic number of a graph?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to model a scheduling problem as a graph-coloring problem?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_graph_color_algorithm">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Here is an algorithm to 4-color the vertices of graph <m>G</m> when the maximum degree of any vertex in <m>G</m> is three.
+            <ol cols="2">
+              <li>
+                <p>
+                  Assign each color a number: red (1),
+                  blue (2), green (3), and orange (4).
+                  Label the vertices <m>v_1</m>,
+                  <m>v_2</m>, <ellipsis/>, <m>v_n</m>.
+                  Color the vertex <m>v_1</m> red (1).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Go to the next vertex and color it the smallest number color that is available,
+                  keeping in mind that the vertex cannot be colored the same as any adjacent vertex.
+                  Repeat this step until <m>v_n</m> is colored.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Apply this process to color the graph shown in <xref ref="fig_ladder_cross_color"></xref>.
+                  <figure xml:id="fig_ladder_cross_color">
+                    <caption>Use an algorithm to color the vertices of this graph</caption>
+                    image type not recognized
+                  </figure>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now consider a general graph <m>G</m> where the maximum degree of any vertex is three.
+                  Explain why there will always be a color available in Step 2 of the algorithm.
+                  Hint: Each vertex has degree three.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What have we proved about the chromatic number of <m>G</m>?
+                  Hint: Your answer should be an inequality.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_examples_chromatic_number">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example of a graph with chromatic number two that is not a complete bipartite graph,
+                  a cycle, a path, a ladder, or a grid.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a graph with chromatic number five that is not a complete graph.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a graph with at least two vertices but chromatic number one.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_graph_conj">for</xref> \subgraphconj</title>
+      <exercise xml:id="exer_graph_conjecture_Kbst">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the complete bipartite graphs <m>K_{s,t}</m> for <m>s,t \ge 1</m>.
+            Conjecture the number of vertices and edges,
+            the degree sequence, and the chromatic number of <m>K_{s,t}</m>.
+            Some of your answers should involve <m>s</m> or <m>t</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_graph_conj_wheels">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the wheels <m>W_s</m> for <m>s \ge 3</m>.
+            Conjecture the number of vertices and edges,
+            the degree sequence, and the chromatic number of <m>W_s</m>.
+            Some of your answers should involve <m>s</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_graph_conj_ladders">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the ladders <m>L_{2 \times t}</m> for <m>t \ge 2</m>.
+            Conjecture the number of vertices and edges,
+            the degree sequence, and the chromatic number of <m>L_{2 \times t}</m>.
+            Some of your answers should involve <m>t</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_graph_conj">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How many edges <m>K_s</m> has?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to count the number of vertices,
+                  the number of edges, the degree sequence,
+                  and the chromatic number for a family of graphs (in terms of parameters such as <m>s</m> or <m>t</m>)?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_grid_graphs">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            For <m>s,t \ge 1</m>, the <term>grid graph</term>
+            (or <term>lattice graph</term>)
+            is denoted <m>L_{s\times t}</m>.
+            Its vertices are the point,s <m>(x,y)</m>,
+            in the <m>xy</m>-plane where
+            <m>x = 1, 2, \ldots,
+            s</m> and <m>y = 1, 2, \ldots, t</m>.
+            There is an edge connecting two points with the same <m>x</m>-coordinate when their <m>y</m>-coordinates differ by 1.
+            Also, there is an edge connecting two points with the same <m>y</m>-coordinate when their <m>x</m>-coordinates differ by 1.
+            The ladder graphs are the special case where <m>s=2</m>.
+            <ol>
+              <li xml:id="part_gridpoints">
+                <p>
+                  List the vertices of <m>L_{3 \times 4}</m> and draw those points in the <m>xy</m>-plane.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the edges of <m>L_{3 \times 4}</m> and add those edges to your points from <xref ref="part_gridpoints"/>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many vertices does the graph <m>L_{s \times t}</m> have?
+                  Your answer should involve <m>s</m> and <m>t</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many edges does the graph <m>L_{s \times t}</m> have?
+                  Your answer should involve <m>s</m> and <m>t</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_perfect_binary_trees">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <xref ref="fig_perfect_binary_trees"></xref>
+            shows drawings of perfect binary trees <m>B_1</m>,
+            <m>B_2</m>, and <m>B_3</m>.
+          </p>
+          <figure xml:id="fig_perfect_binary_trees">
+            <caption>The perfect binary trees <m>B_1</m>, <m>B_2</m>, and <m>B_3</m>.</caption>
+            image type not recognized
+          </figure>
+          <p>
+            The tree <m>B_1</m> has a <term>root</term> vertex at the top.
+            The root vertex is adjacent to two
+            <term>child</term> vertices drawn below.
+            The tree <m>B_2</m> starts with the tree <m>B_1</m> and then,
+            for each end vertex, draws two new adjacent child vertices below.
+            These new vertices are <term>grandchildren</term> of the root.
+            The tree <m>B_3</m> starts with <m>B_2</m> and then,
+            for each end vertex, draws two new adjacent child vertices below.
+            These new vertices are <term>great-grandchildren</term> of the root.
+            This pattern continues to give a family of
+            <term>perfect binary trees</term>,
+            denoted <m>B_s</m> for <m>s\ge 1</m>.
+            <ol>
+              <li xml:id="part_perfect_binary_tree_verts">
+                <p>
+                  In the perfect binary tree <m>B_3</m>,
+                  count the number of children,
+                  the number of grandchildren, and the number of great-grandchildren of the root.
+                  Use these numbers to find the number of vertices in <m>B_3</m>.
+                  Hint: don't forget the root.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the perfect binary tree <m>B_4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture the number of <term>leaves</term><fn>
+                  In a natural tree the root is at the bottom and the leaves are at the top.
+                  Graph trees are upside down.
+                  </fn> (end vertices) in <m>B_s</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many vertices does <m>B_s</m> have?
+                  Hint: add up the generations as in <xref ref="part_perfect_binary_tree_verts"/>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many edges does <m>B_s</m> have?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What are the degrees of the vertices in <m>B_s</m> and how many vertices of each degree are there?
+                  Hint: The root and the leaves have degrees that are from the middle vertices.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_size_graph_comp">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw the cycle <m>C_5</m>.
+                  Then, using a different colored pen,
+                  add the edges of the complement <m>\overline{C_5}</m> to your graph.
+                  What is the resulting graph?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the path <m>P_5</m>.
+                  Then, using a different colored pen,
+                  add the edges of the complement <m>\overline{P_5}</m> to your graph.
+                  What is the resulting graph?
+                  It might look a little different than usual.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If we draw a graph <m>G</m> that has five vertices and then,
+                  using a different colored pen,
+                  we add the edges of the complement <m>\overline{G}</m> to the graph,
+                  what is the resulting graph?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>G</m> is any graph with five vertices and <m>m</m> edges,
+                  how many edges does the complement <m>\overline{G}</m> have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Generalize: if <m>G</m> is any graph with <m>s</m> vertices and <m>m</m> edges,
+                  how many edges does the complement <m>\overline{G}</m> have?
+                  Hint: <xref ref="thm_size_Ks"></xref> is useful.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_map_coloring_website"></xref> Select Answers and Hints</title>
+      <p>
+        Note: You do not need to submit the screenshots.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_midwest_color"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Start with ND: red, SD: blue, MN: red.
+            Then, continue with states whose color must follow.
+            For example, Iowa (IA) must be green.
+            Continue.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Explain why the region formed by ND, SD, and MN needs three colors.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_coloring_standard_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Draw the usual star with black and white vertices.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Two colors work.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Two colors work.
+          </p>
+        </li>
+        <li>
+          <p>
+            <xref ref="fig_wheel6_3colored">See</xref>.
+            <figure xml:id="fig_wheel6_3colored">
+              <caption>A 3-coloring of the wheel <m>W_6</m>.</caption>
+              image type not recognized
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Two colors work.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_color_complicated_graph"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Verify that you have colored all the vertices and that any pair of adjacent vertices is different colors.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look for complete subgraphs.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: (a) tells us the chromatic number is at most four and (b) tells us the chromatic number is at least four.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_schedule_meetings"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: An edge should indicate that the two committees have at least one member in common,
+            which means that that pair of committees cannot be scheduled at the same time.
+            The graph has seven vertices and 12 edges.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: yes
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Can we 4-color the graph?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_chr_ineq"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>K_5</m> needs 5 colors,
+            so <m>G</m> needs 5 colors or maybe more colors.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Maybe <m>G</m> can be colored using fewer than 5 colors if we try again.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_graph_color_algorithm"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Color <m>v_1</m> red, <m>v_2</m> blue,
+            <m>v_3</m> red, <ellipsis/>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: When we get to a new vertex to color,
+            how many colors are already used by its neighbors?
+            Explain why there is always at least one of the four colors available to color the new vertex?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We have found a 4-coloring of the graph.
+            What does that tell us about the chromatic number?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_examples_chromatic_number"></xref> Select Answers and Hints</title>
+      <p>
+        There are many correct answers to each part.
+        The hints describe how to build one such example.
+        <ol>
+          <li>
+            <p>
+              Hint: There are many correct answers.
+              Try starting with the star <m>K_{1,3}</m> which is a complete bipartite graph,
+              but then add more vertices and connect them with an edge to the leaves in <m>K_{1,3}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Start with <m>K_5</m> and add more to it,
+              making sure you can still 5-color the graph.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The graph does not have to be connected.
+              (And it cannot be connected.)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_graph_conjecture_Kbst"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are <m>s+t</m> vertices,
+        <em><nbsp/></em> edges, the degree sequence is
+        <me>
+          \underbrace{t,t,\ldots, t}_{s \text{ times } }\underbrace{s,s,\ldots, s}_{t \text{ times } }
+        </me>
+      </p>
+      <p>
+        (perhaps in the other order),
+        and the chromatic number is two.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_graph_conj_wheels"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are <m>s+1</m> vertices,
+        there is exactly one vertex with degree <m>s</m>,
+        and the chromatic number is three or four depending on whether <m>s</m> is even or odd
+        (be sure to say which is which).
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_graph_conj_ladders"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are four vertices of degree two,
+        and the rest have degree three.
+        One way to count edges is to add the number of horizontal edges in the first row,
+        the number of horizontal edges in the second row,
+        and the number of vertical rungs.
+      </p>
+      <figure xml:id="fig_grid_3x4">
+        <caption>The grid graph <m>L_{3 \times 4}</m>.</caption>
+        image type not recognized
+      </figure>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_grid_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are 12 vertices.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The graph is drawn in <xref ref="fig_grid_3x4"></xref>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Multiply
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Count the number of vertical edges.
+            Then count the number of horizontal edges.
+            Then add your answers.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

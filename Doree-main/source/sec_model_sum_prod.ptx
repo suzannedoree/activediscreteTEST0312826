@@ -1,0 +1,1242 @@
+<section xml:id="sec_model_sum_prod">
+  <title>Modeling with Sums and Products</title>
+  <introduction>
+    <p>
+      We start this section with two activities that involve modeling with sums.
+      Next, we look at modeling with sums and products and introduce a notation for writing general sums and products without using ellipses
+      (<m>\ldots</m>).
+    </p>
+  </introduction>
+  <subsection xml:id="sub_how_many_squares">
+    <title>\subhowmanysq</title>
+    <p>
+      We begin with an activity that involves a sum.
+    </p>
+    <activity xml:id="act_how_many_sq_puzzle">
+      <title>Counting Squares</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              How many squares appear on the standard chessboard as drawn in <xref ref="fig_chessboard_hms"></xref>?
+              Hint: There are 64 <m>1 \times 1</m> squares,
+              one <m>8 \times 8</m> squares,
+              and many more squares of other sizes.
+              Show the steps of your calculation in an organized manner and clearly indicate your final answer.
+              <figure xml:id="fig_chessboard_hms">
+                <caption>The standard chessboard.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture the number of squares on an <m>n \times n</m> chessboard.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's take a closer look <xref ref="act_how_many_sq_puzzle">at</xref>.
+    </p>
+    <example xml:id="exam_count_5x5sq">
+      <title>Counting <m>\times 5</m> squares</title>
+      <statement>
+        <p>
+          How many <m>5 \times 5</m> squares are there on the <m>8 \times 8</m> chessboard?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Think of taking a <m>5 \times 5</m> square and moving it around on top of the <m>8 \times 8</m> square.
+          If we start with a the <m>5 \times 5</m> square in the upper left hand corner,
+          we can move it one, two, or three units to the right.
+          That is, there are four <m>5 \times 5</m> squares that fit along the top row.
+          If we move it down one unit,
+          there are also four <m>5 \times 5</m> squares that fit one row down.
+          Similarly, there are four <m>5 \times 5</m> squares that fit two rows down and four
+          <m>5 \times 5</m> squares that fit three rows down.
+          That is the furthest we can go,
+          so there are <m>4+4+4+4=16</m> different <m>5 \times 5</m> squares.
+        </p>
+        <p>
+          There is a more sophisticated way to count.
+          We can create a pairing between each possible
+          <m>5 \times 5</m> squares and its upper left-hand corner,
+          which is a <m>1 \times 1</m> square.
+          Which <m>1 \times 1</m> squares can be the upper left-hand corner of a <m>5 \times 5</m> square?
+          The answer is any <m>1 \times 1</m> squares in the
+          <m>4 \times 4</m> square that sits in the upper left-hand corner of the <m>8 \times 8</m> chessboard.
+          (If we try to put the upper left-hand corner of the
+          <m>5 \times 5</m> square anywhere else on the chessboard,
+          then the <m>5 \times 5</m> square will not fit.)
+          Because we have a pairing,
+          the number of <m>5 \times 5</m> squares equals the number of <m>1 \times 1</m> squares in the
+          <m>4 \times 4</m> square that sits in the upper left-hand corner of the <m>8 \times 8</m> chessboard.
+          Since any <m>4 \times 4</m> square has exactly <m>4^2=16</m> of the <m>1 \times 1</m> squares,
+          the answer again is <m>4^2=16</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_factorial_rep">
+    <title>\subfactrep</title>
+    <p>
+      In this puzzle,
+      we represent an integer by writing it as the sum of factorials.
+    </p>
+    <activity xml:id="act_fact_rep">
+      <title>Factorial Representations Puzzle</title>
+      <p>
+        As a reminder,
+        the first few factorial are listed in <xref ref="tab_factorials_1to8"></xref>.
+      </p>
+      <table xml:id="tab_factorials_1to8">
+        <title>The values of <m>n!</m> for <m>n=1,2, \ldots 8</m></title>
+        <tabular>
+          <row>
+            <cell><m>1! = 1</m></cell>
+            <cell><m>2! = 2</m></cell>
+            <cell><m>3! = 6</m></cell>
+            <cell><m>4! = 24</m></cell>
+          </row>
+          <row>
+            <cell><m>5! = 120</m></cell>
+            <cell><m>6! = 720</m></cell>
+            <cell><m>7! =</m> 5,040</cell>
+            <cell><m>8! =</m>40,320</cell>
+          </row>
+        </tabular>
+      </table>
+      <p>
+        Every positive integer can be written as the sum of factorials.
+        For example, we can write 10 using <m>3!=6</m>,
+        <m>2!=2</m>, and <m>1!=1</m> in several ways, including
+        <md>
+          <mrow>10 \amp = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1</mrow>
+          <mrow>\amp = 2 + 2 + 1 + 1 + 1 + 1</mrow>
+          <mrow>\amp = 6 + 2 + 1 + 1</mrow>
+          <mrow>\amp = 6 + 2 + 2</mrow>
+        </md>
+      </p>
+      <p>
+        The last line uses the fewest factorials.
+        When we write the positive integer <m>n</m> using the fewest factorials,
+        that is the <em>factorial representation</em> of <m>n</m>.
+      </p>
+      <p>
+        There is a handy shorthand for this notation.
+        For example, the factorial representation of 10 is
+        <me>
+          10 = 6 + 2 + 2 = \underline{1} \cdot 3! + \underline{2} \cdot 2! + \underline{0} \cdot 1! =(120)_!
+        </me>
+      </p>
+      <p>
+        For example,
+        <me>
+          (10320)_! = \underline{1} \cdot 5! + \underline{0} \cdot 4! + \underline{3} \cdot 3! + \underline{2} \cdot 2! + \underline{0} \cdot 1! = 120 + 3(6) + 2(2) = 142
+        </me>.
+        <ol>
+          <li>
+            <p>
+              Evaluate <m>(1201)_!</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>(1000)_!</m> and <m>(10000)_!</m>.
+              What do you notice?
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the factorial representation of 5, 20, and 132.
+            </p>
+          </li>
+          <li>
+            <p>
+              A classmate is writing the factorial representation of 27 and her answer is
+              <me>
+                27 = 6 + 6 + 6 + 6 + 2 + 1 = \underline{4} \cdot 3! + \underline{1} \cdot 2! + \underline{1}\cdot 1! = (411)_!
+              </me>
+              Explain why this answer is incorrect and calculate the correct answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the largest multiple of 3! you could have in the factorial representation of an integer?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let's generalize.
+              What is the largest number of <m>k!</m> you could have in the factorial representation of an integer?
+            </p>
+          </li>
+          <li xml:id="part_up_to4_">
+            <p>
+              Here is a different question.
+              What is the largest integer whose factorial representation uses up to 4!? Evaluate your answer.
+            </p>
+          </li>
+          <li xml:id="part_up_to5_">
+            <p>
+              What is the largest integer whose factorial representation uses up to 5!? Evaluate your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the largest integer whose factorial representation uses up to <m>k!</m>?
+              Write your answer as a sum.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find an explicit formula for the largest integer whose factorial representation uses up to <m>k!</m> (Hint: It involves a factorial.
+              Look back at your answers to <xref ref="part_up_to4_"/> and <xref ref="part_up_to5_"/>.)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's take a closer look at some of our findings in <xref ref="act_fact_rep"></xref>.
+    </p>
+    <example xml:id="exam_fact_rep">
+      <title>Factorial representation</title>
+      <statement>
+        <p>
+          Consider the factorial representation of an integer introduced in <xref ref="act_fact_rep"></xref>.
+          <ol>
+            <li>
+              <p>
+                Calculate the factorial representations of 17 and of 100.
+                <solution>
+                  <p>
+                    First,
+                    <me>
+                      17 =  6 + 6 + 2 + 2 +1 = \underline{2} \cdot 3! + \underline{2} \cdot 2! + \underline{1} \cdot 1! = (221)_!
+                    </me>
+                  </p>
+                  <p>
+                    Next,
+                    <me>
+                      100 = 24 + 24 + 24 + 24 + 2 + 2 = \underline{4} \cdot 4! + \underline{0} \cdot 3! + \underline{2} \cdot 2! + \underline{0} \cdot 1! = (4020)_!
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What happens if we calculate the factorial representation of <m>5!</m>?
+                <solution>
+                  <p>
+                    We get
+                    <me>
+                      5! = \underline{1} \cdot 5! = \underline{1} \cdot 5! + \underline{0} \cdot 4! + \underline{0} \cdot 3! + \underline{0} \cdot 2! + \underline{0} \cdot 1! =(10000)_!
+                    </me>
+                    which is a 1 followed by four 0s.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the largest multiple of <m>4!</m> you could have in the factorial representation?
+                Explain.
+                Generalize
+                <solution>
+                  <p>
+                    We could have <m>\underline{4} \cdot 4!</m> but we would not have <m>\underline{5} \cdot 4!</m> because
+                    <m>5\cdot 4! = (5)(4)(3)(2)(1) = 5!</m> The largest multiple of <m>4!</m> in the factorial representation is four.
+                    In general, the largest multiple of <m>k!</m> in the factorial representation is <m>k</m> because <m>(k+1)k!=(k+1)!</m>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the largest integer whose factorial representation uses up to 5!?
+                <solution>
+                  <p>
+                    The largest integer would be
+                    <me>
+                      \underline{5} \cdot 5! + \underline{4} \cdot 4! + \underline{3} \cdot 3! + \underline{2} \cdot 2! + \underline{1} \cdot 1! = 5(120)+4(24)+3(6)+2(2)+1(1) =119
+                    </me>.
+                  </p>
+                  <p>
+                    By the way, <m>119 = 120-1 = 5!-1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the largest integer whose factorial representation uses up to <m>k!</m>?
+                <solution>
+                  <p>
+                    We can write the largest integer as the sum
+                    <me>
+                      k\cdot k! + (k-1) \cdot (k-1)! + \ldots + 2 \cdot 2! + 1 \cdot 1!
+                    </me>
+                    which seems more natural to write in reverse order as
+                    <me>
+                      1 \cdot 1! + 2 \cdot 2! + \ldots + (k-1) \cdot (k-1)! +k \cdot k!
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We can now state the definition of the factorial representation.
+    </p>
+    <definition xml:id="defn_fact_rep">
+      <title>Factorial representation</title>
+      <statement>
+        <p>
+          For a positive integer <m>n</m>,
+          the <term>factorial representation</term> of <m>n</m> is
+          <me>
+            n= (a_ka_{k-1}\dots a_3a_2a_1)_!
+          </me>
+          if
+          <me>
+            n = a_kk!+a_{k-1}(k-1)! + \ldots a_33! + a_22! + a_11!
+          </me>
+          for some integer <m>k</m> where each integer <m>a_i=1, 2, \ldots, i</m>.
+        </p>
+      </statement>
+    </definition>
+  </subsection>
+  <subsection xml:id="sub_sigma_pi">
+    <title>\subsigmapi</title>
+    <p>
+      <xref ref="act_how_many_sq_puzzle">In</xref>
+      and <xref ref="act_fact_rep"></xref>,
+      we saw the sums <m>1^2+3^2+3^2+ \ldots + 8^2</m> and
+      <me>
+        1 \cdot 1! + 2 \cdot 2! + \ldots + (k-1) \cdot (k-1)! +k \cdot k!
+      </me>
+    </p>
+    <p>
+      In our work with exponentials and factorials, we saw the products
+      <me>
+        2^n = \underbrace{2 \cdot 2 \cdot \ldots \cdot 2}_{n \text{ times } }
+      </me>.
+      and
+      <me>
+        n! = (n)(n-1)\cdots(3)(2)(1)
+      </me>
+    </p>
+    <p>
+      There is a standard notation for sums and products.
+    </p>
+    <definition xml:id="defn_sigma_pi">
+      <title>Sum and product notation</title>
+      <statement>
+        <p>
+          Consider a (finite) list of numbers
+          <me>
+            a_s, a_{s+1}, a_{s+2}, \ldots, a_n
+          </me>
+          for some integers <m>s</m> and <m>n</m>.
+          <ol>
+            <li>
+              <p>
+                We can abbreviate their sum using
+                <term>summation (Sigma) notation</term>:
+                <me>
+                  \sum_{k=s}^n a_k =a_s + a_{s+1}+a_{s+2}+\ldots+a_n
+                </me>
+                which is pronounced
+                <q>the sum from <m>s</m> to <m>n</m> of <m>a</m> sub <m>k</m></q>.  For example,
+                our answer to <xref ref="act_how_many_sq_puzzle"></xref> is
+                <me>
+                  \sum_{k=1}^8 k^2 =1^2+2^2+3^2+ \ldots + 8^2 = 204
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We can abbreviate their product using
+                <term>product (Pi) notation</term>:
+                <me>
+                  \prod_{k=s}^n a_k =a_s \cdot a_{s+1} \cdot a_{s+2} \cdot \cdots \cdot a_n
+                </me>
+                which is pronounced
+                <q>the product from <m>s</m> to <m>n</m> of <m>a</m> sub <m>k</m></q>.  For example,
+                <me>
+                  \prod_{k=1}^5 k =1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 = 5! = 120
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The numbers we add in a sum are the <term>terms</term>
+                and the numbers we multiply in a product are the <term>factors</term>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We say the sum or product <term>starts</term> at <m>s</m>.
+                Often <m>s=0</m> or <m>s=1</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      By the way, the Greek letters <m>\Sigma</m> (sigma) and <m>\Pi</m> (pi) are the analogs of the letters S and P, which are the first letters of sum and product,
+      respectively.
+    </p>
+    <p>
+      Let's practice evaluating a sum and product.
+    </p>
+    <example xml:id="exam_sigma_pi">
+      <title>Summation and product notation</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>\displaystyle \sum_{k=1}^4 (-1)^kk</m>.
+                <solution>
+                  <p>
+                    This sum starts at <m>k=1</m> and ends when <m>k=4</m>.
+                    When <m>k=1</m>,
+                    we have <m>(-1)^kk=(-1)^11=-1</m>, when <m>k=2</m>,
+                    we have <m>(-1)^kk=(-1)^22=2</m>,
+                    when <m>k=3</m>, we have <m>(-1)^kk=(-1)^33=-3</m>,
+                    and when <m>k=4</m>, we have <m>(-1)^kk=(-1)^44=4</m>.
+                    We add these terms to get the sum
+                    <me>
+                      \sum_{k=1}^4 (-1)^kk =\underbrace{(-1)^1\cdot 1}_{k=1}+ \underbrace{(-1)^2\cdot 2}_{k=2}+ \underbrace{(-1)^3\cdot 3}_{k=3}+ \underbrace{(-1)^4\cdot 4}_{k=4} =-1 + 2 - 3 + 4 = 2
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\displaystyle \prod_{k=0}^2(5k+1)</m>.
+                <solution>
+                  <p>
+                    This product starts at <m>k=0</m> and ends when <m>k=4</m>.
+                    When <m>k=0</m>, we have <m>5k+1=5(0)+1= 1</m>, when <m>k=1</m>,
+                    we have <m>5k+1=5(1)+1 = 6</m>,
+                    and when <m>k=2</m>, we have <m>5k+1=5(2)+1 = 11</m>.
+                    We multiply these factors to get the product
+                    <me>
+                      \prod_{k=0}^2(5k+1) = \underbrace{1}_{k=0} \cdot \underbrace{6}_{k=1} \cdot \underbrace{11}_{k=2} = 66
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write <m>1 + 2 + 3 + \ldots + (n-1)</m> using summation notation in a natural way starting at <m>k=1</m>.
+                <solution>
+                  <p>
+                    Our sum starts at 1 and ends at <m>n-1</m>.
+                    The terms equal the index so we get
+                    <me>
+                      1 + 2 + 3 + \ldots + (n-1) = \sum_{k=1}^{n-1}k
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with summation and product notation.
+    </p>
+    <activity xml:id="exer_sigma_pi">
+      <title>Summation and product notation</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Evaluate <m>\displaystyle \sum_{m=0}^4 (2m+1)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>\displaystyle \prod_{m=0}^4 (2m+1)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Write the sum
+              <me>
+                \frac{1}{2} + \frac{4}{3} + \frac{9}{4} + \frac{16}{5}+ \frac{25}{6}
+              </me>
+              using summation notation in a natural way starting at <m>k=1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write the product
+              <me>
+                \frac{1}{2} \cdot \frac{3}{4}\cdot \frac{5}{6}\cdot \frac{7}{8}
+              </me>
+              using product notation in a natural way starting at <m>k=1</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      We can add or multiply numbers from any sequence.
+    </p>
+    <example xml:id="exam_sum_fib_binom">
+      <title>Sums of Fibonacci numbers and binomial coefficients</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Recall that the Fibonacci sequence is defined by <m>F_0=0</m>,
+                <m>F_1=1</m>,
+                and <m>F_n=F_{n-1}+F_{n-2}</m>.
+                For example,
+                <m>F_2=2, F_3=3, F_5=5, F_6=8, F_7=13</m>, and <m>F_8=21</m>.
+                Evaluate <m>\displaystyle \sum _{j=1}^8F_{j}^2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Recall that the binomial coefficients
+                <m>\binom{n}{k}</m> is the number of <m>k</m>-element subsets of a set of <m>n</m> elements.
+                For example,
+                <me>
+                  \binom{4}{0} = 1 \binom{4}{1} = 4 \binom{4}{2} = 6 \binom{4}{3} = 4 \binom{4}{4} = 1
+                </me>
+                Evaluate <m>\displaystyle \sum_{k=0}^4 \binom{4}{k}</m> and <m>\displaystyle \sum_{k=0}^4 (-1)^4\binom{4}{k}</m>.
+                <solution>
+                  <p>
+                    First,
+                    <md>
+                      <mrow>\sum_{k=0}^4 \binom{4}{k} \amp  = \binom{4}{0} + \binom{4}{1} + \binom{4}{2} + \binom{4}{3} + \binom{4}{4}</mrow>
+                      <mrow>\amp  = 1+4+6+4+1=16</mrow>
+                    </md>.
+                  </p>
+                  <p>
+                    Next,
+                    <md>
+                      <mrow>\sum_{k=0}^4 (-1)^4\binom{4}{k} \amp  = (-1)^0\binom{4}{0} + (-1)^1\binom{4}{1} + (-1)^2\binom{4}{2} + (-1)^3\binom{4}{3} + (-1)^4\binom{4}{4}</mrow>
+                      <mrow>\amp  = 1-4+6-4+1=0</mrow>
+                    </md>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_how_many_squares">for</xref> \subhowmanysq</title>
+    <exercise xml:id="exer_3times3_sq">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          Explain carefully how to calculate the number of
+          <m>3\times3</m> squares on the standard chessboard in <xref ref="act_how_many_sq_puzzle"></xref>,
+          as an example of your reasoning.
+          Hint: <xref ref="exam_count_5x5sq">See</xref>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_sq_8times16">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          How many squares appear on a <m>8\times 16</m> board?
+          Show your calculations and explain your reasoning.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_dyk_how_many_sq">
+      <title>\exerR</title>
+      <statement>
+        <p>
+          Do you know <ellipsis/>
+          <ol>
+            <li>
+              <p>
+                How to count the number of each size square on a chessboard?
+              </p>
+            </li>
+            <li>
+              <p>
+                How to create a pairing between the squares of a given size and a set of <m>1 \times 1</m> squares?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_doublesquares">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          For the sake of this problem,
+          a <term>double-square</term> is a rectangle made of two squares;
+          that is, one side of the rectangle is twice as long as the other side.
+          How many double-squares appear on the standard <m>8 \times 8</m> chessboard?
+          Show your calculations and explain your reasoning.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_factorial_rep">for</xref> \subfactrep</title>
+    <introduction>
+      <exercise xml:id="exer_examples_fact_rep">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Follow the process we used in <xref ref="act_fact_rep"></xref>
+            find the factorial representation of each integer.
+            Show work.
+            <ol>
+              <li>
+                <p>
+                  200
+                </p>
+              </li>
+              <li>
+                <p>
+                  800
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fact_rep_largest_upto6_">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  What is the largest integer whose factorial representation uses up to 6!? Explain your reasoning and calculate an actual number.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write your answer in terms of a single factorial.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_larger_fact_rep">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Follow the process we used in <xref ref="act_fact_rep"></xref>
+            to find the factorial representation of each integer.
+            Show work.
+            <ol>
+              <li>
+                <p>
+                  1,000
+                </p>
+              </li>
+              <li>
+                <p>
+                  20,000
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fact_rep_divisibility">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_fact_rep_even_odd">
+                <p>
+                  How can you tell just by looking at the factorial representation of an integer whether that integer is even or odd?
+                  State your answer as a conjecture.
+                </p>
+              </li>
+              <li xml:id="part_fact_rep_mult3">
+                <p>
+                  How can you tell just by looking at the factorial representation of an integer whether or not that integer is a multiple of three?
+                  State your answer as a conjecture.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fact_rep">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to evaluate an integer given in factorial representation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find the factorial representation of an integer?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why the largest multiple of <m>k!</m> is <m>k</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the largest integer is that uses only 1!, 2!, 3!, <ellipsis/>, <m>k!</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fact_rep_alg_example">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Here is an alternative way to find the factorial representation of the integer 100.
+            <ul>
+              <li>
+                <p>
+                  100 <c>div</c> 2 = 50 and 100 <c>mod</c> 2 = 0.
+                </p>
+              </li>
+              <li>
+                <p>
+                  50 <c>div</c> 3 = 16 and 50 <c>mod</c> 3 = 2.
+                </p>
+              </li>
+              <li>
+                <p>
+                  16 <c>div</c> 4 = 4 and 16 <c>mod</c> 4 = 0.
+                </p>
+              </li>
+              <li>
+                <p>
+                  4 <c>div</c> 5 = 0 [STOP] and 4 <c>mod</c> 5 = 4.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The factorial representation of 100 = <m>(4020)_!</m>.
+                  Note that we are reading the remainders (<c>mod</c>) from bottom to top.
+                </p>
+              </li>
+            </ul>
+          </p>
+          <p>
+            Use this new process to find the factorial representation of each integer.
+            Show work.
+            <ol>
+              <li>
+                <p>
+                  1,000
+                </p>
+              </li>
+              <li>
+                <p>
+                  20,000
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fact_rep_alg_explain">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Explain why the algorithm introduced in <xref ref="exer_fact_rep_alg_example"></xref> works in general.
+            Hint: How is the last number in the factorial representation of an integer <m>n</m> related to <m>n</m> <c>mod</c> 2?
+            How is the next to last number in the factorial representation of an integer <m>n</m> related to <m>n</m> <c>mod</c> 3?
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fact_rep_even_proof">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Prove your conjecture from <xref ref="exer_fact_rep_divisibility"></xref>
+            <xref ref="part_fact_rep_even_odd"/>.
+          </p>
+        </statement>
+      </exercise>
+    </introduction>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_sigma_pi">for</xref> \subsigmapi</title>
+      <exercise xml:id="exer_eval_sigma_pi">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Evaluate the sum or product and simplify your answer.
+            Show work.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{m=1}^3(3m-1)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \prod_{m=1}^3(3m-1)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{k=1}^3 k^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \prod_{k=1}^3 k^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{i=1}^3i2^i</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \prod_{i=1}^3i2^i</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_sigma_pi_constant">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate the sum or product and simplify your answer.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{i=1}^42</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \prod_{i=1}^42</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{i=1}^n2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \prod_{i=1}^n2</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_model_sigma_pi">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write each sum or product in summation (sigma) or product (pi) notation in a natural way,
+            starting at <m>k=1</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>4 +7 + 10 + 13 + 16 + 19</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>4 \cdot 7 \cdot 10 \cdot 13 \cdot 16 \cdot 19</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_model_sigma_pi_variables">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write each sum or product in summation (sigma) or product (pi) notation in a natural way,
+            starting at <m>k=1</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>1 + 4 + 9 + \ldots + n^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>1 \cdot 4 \cdot 9 \cdots n^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>1 + r + r^2 + r^3 + \ldots + r^n</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>1 \cdot r \cdot r^2 \cdots r^n</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_fib_sums">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Recall that the Fibonacci sequence is defined by <m>F_0=0</m>,
+            <m>F_1=1</m>,
+            and <m>F_n=F_{n-1}+F_{n-2}</m>.
+            For example,
+            <m>F_2=2, F_3=3, F_5=5, F_6=8, F_7=13</m>, and <m>F_8=21</m>.
+            Evaluate each sum.
+            Show work.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{k=1}^8F_k</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \sum _{i=1}^8(-1)^iF_{i}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_binom_sum">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Recall that the binomial coefficients
+            <m>\binom{n}{k}</m> is the number of <m>k</m>-element subsets of a set of <m>n</m> elements.
+            For example,
+            <me>
+              \binom{5}{0} = 1 \binom{5}{1} = 5 \binom{5}{2} = 10 \binom{5}{3} = 10 \binom{5}{4} = 5 \binom{5}{5} = 1
+            </me>.
+          </p>
+          <p>
+            Evaluate each sum.
+            Show work.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{k=0}^5 \binom{5}{k}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{m=0}^5 \binom{5}{m}^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{k=0}^5 (-1)^i\binom{5}{i}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_telescoping">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate each sum.
+            Show work.
+            Hint: Simplify before you evaluate terms.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{m=1}^9 \left((m+1)!-m!\right)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \prod_{k=1}^9 \frac{k}{k+1}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \sum_{j=2}^9 \left(\frac{1}{j-1}-\frac{1}{j}\right)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_sigma_pi">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to evaluate a sum written in summation (Sigma) notation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate a product written in product (Pi) notation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to write a sum or product in summation or product notation?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_perfect_binary_trees_sigma">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <xref ref="sec_std_graphs">In</xref>
+            <xref ref="exer_perfect_binary_trees"></xref>,
+            we saw the family of trees <m>B_n</m>.
+            The trees <m>B_1</m>, <m>B_2</m>,
+            and <m>B_3</m> are drawn in <xref ref="fig_perfect_binary_trees"></xref>.
+            Write each quantity as sum using sigma notation.
+            <ol>
+              <li>
+                <p>
+                  The number of vertices in <m>B_n</m>.
+                  Hint: Add up the vertices in each generation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The number of edges in <m>B_n</m>.
+                  Hint: Add up the edges to each generation.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_sq_8times16"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are 128 <m>1 \times 1</m> squares, 105 <m>2 \times 2</m> squares,
+        <ellipsis/>, and 9 <m>8 \times 8</m> squares for a total of just under 500 squares.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_doublesquares"></xref> Select Answers and Hints</title>
+      <p>
+        228 Hint: Squares can appear vertically or horizontally.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fact_rep_largest_upto6_"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The number begins <m>\underline{6} \cdot 6! +\ldots</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is one less than a factorial.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_larger_fact_rep"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>(12 \ldots 0)_!</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>(364\ldots 0)_!</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fact_rep_divisibility"></xref> Select Answers and Hints</title>
+      <p>
+        Not sure where to start?
+        Write the factorial representation of 1, 2, 3, <ellipsis/>, 12.
+        <ol>
+          <li>
+            <p>
+              Hint: A number is even if and only if the last digit in its factorial representation is <m>\underline{\hspace{.25in}}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are two different possibilities that involve the last two digits.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fact_rep_alg_example"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: You should get the same answers as in <xref ref="exer_fact_rep_divisibility"></xref>.
+        Make sure your work on that problem follows the process from the puzzle and your work on this problem follows the algorithm.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_sigma_pi"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are 14, 15, 34, 36, 80, and 384.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_sigma_pi_constant"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Each term is 2.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Each factor is 2.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The sum equals <m>\underbrace{2+2+\ldots+2}_{n \text{ times } }</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The product equals <m>\underbrace{2 \times 2 \times \ldots \times 2}_{n \text{ times } }</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_model_sigma_pi"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The terms/factors come from a sequence where each term is the previous term plus three,
+        so the explicit formula for the terms/factors involves <m>3k</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_model_sigma_pi_variables"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\displaystyle \sum_{k=1}^nk^2</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use product notation.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>1 = r^0</m> and <m>r = r^1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use product notation.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_fib_sums"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Each answer is one less than a Fibonacci number.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_binom_sum"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are 0, 32, and 252.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_telescoping"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Most terms should cancel.
+        <ol>
+          <li>
+            <p>
+              Hint: You can simplify your answer to involve only one factorial.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer is a fraction with denominator 10.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer is a fraction with denominator 9.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_perfect_binary_trees_sigma"></xref> Select Answers and Hints</title>
+      <p>
+        Check that your answers give the correct answers for <m>B_3</m> which has 15 vertices and 14 edges.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

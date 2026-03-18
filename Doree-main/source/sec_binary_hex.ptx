@@ -1,0 +1,1837 @@
+<section xml:id="sec_binary_hex">
+  <title>Binary and Hexadecimal Representations</title>
+  <introduction>
+    <p>
+      <xref ref="act_fact_rep">In</xref>,
+      we represent a positive integer using the sum of factorials.
+      A more widely-used representation uses the sum of powers instead.
+      The decimal numbers that we use every day are represented using powers of 10.
+      Historically,<fn>
+      Using data from \url{https://en.wikipedia.org/wiki/List_of_numeral_systems} retrieved November 30, 2025
+      </fn> people have used a variety of bases.
+      We see remnants of base 60 that the Babylonians and others used
+      (where Iraq is now)
+      in 60 seconds per minute, 60 minutes per hour,
+      or 360<m>^\circ</m> in a circle.
+      Mayan and Aztec
+      (in Mexico and Central America)
+      used base 20, and there are references to groups of 20 in many modern indigenous languages ranging from Basque
+      (in Spain and France)
+      to Inuit
+      (in Alaska).
+      In Nigeria and Nepal, many languages incorporate base 12,
+      which we see today in the 12-hour clock, 12 inches to a foot,
+      and 12 eggs in a carton.
+      Other bases are possible,
+      but the most commonly-used modern representations are binary,
+      which uses powers of two, and hexadecimal, which uses powers of 16.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_base_b">
+    <title>\subbaseb</title>
+    <p>
+      We start with the definition of representing integers using powers of any integer <m>b>1</m>.
+    </p>
+    <definition xml:id="defn_base_b">
+      <title>Base <m>b</m> representation</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For a fixed integer <m>b > 1</m> and nonnegative integer <m>n</m>,
+                the <term>base <em>b</em> representation</term> of <m>n</m> is
+                <me>
+                  n=\left(a_ka_{k-1}\cdots a_3a_2a_1a_0\right)_b
+                </me>
+                if
+                <me>
+                  n=\sum_{i=0}^ka_ib^i = a_kb^k + \dots + a_3b^ 3+a_2b^2+a_1b^1+a_0b^0
+                </me>
+                for some integer <m>k</m> where each integer <m>a_i = 0,1, \ldots, b-1</m>.
+                For example,
+                in base three we have <m>3-1=2</m> and so the coefficients can be <m>a_i=0,1,2</m>.
+                The integer 15 is represented in base three as
+                <me>
+                  15=(120)_3
+                </me>
+                because
+                <md>
+                  <mrow>(120)_3 \amp  = \underline{1} \cdot 3^2 + \underline{2}\cdot 3^1 + \underline{0} \cdot 3^0</mrow>
+                  <mrow>\amp  = \underline{1} \cdot 9 + \underline{2}\cdot 3 + \underline{0} \cdot 1</mrow>
+                  <mrow>\amp  = 9 + 3 + 3</mrow>
+                  <mrow>\amp  = 15</mrow>
+                </md>.
+                Notice how we need to include zero.
+              </p>
+            </li>
+            <li>
+              <p>
+                Base 10 is the usual <term>decimal representation</term>
+                where each digit <m>a_i = 0, 1, 2, 3, 4, 5, 6, 7, 8</m>,
+                or <m>9</m>.
+                We omit the subscript and write <m>n = a_ka_{k-1}\cdots a_3a_2a_1a_0</m>.
+                For example, 528 in decimal representation stands for
+                <md>
+                  <mrow>528 \amp  = 500+20+8</mrow>
+                  <mrow>\amp  = 100+100+100+100+100+10+10+1+1+1+1+1+1+1+1</mrow>
+                  <mrow>\amp  = \underline{5} \cdot 100 + \underline{2} \cdot 10 + \underline{8} \cdot 1</mrow>
+                  <mrow>\amp  = \underline{5} \cdot 10^2 + \underline{2} \cdot 10^1 + \underline{8} \cdot 10^0</mrow>
+                </md>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The most common base systems after base 10 are base two (<term>binary</term>) and base 16
+                (<term>hexadecimal</term>).
+                Other base systems such as base three (<term>ternary</term>) and base five (<term>quinary</term>) are used mainly to understand base representations.
+                Base eight (<term>octal</term>) was used historically as a shorthand for binary.
+              </p>
+            </li>
+            <li>
+              <p>
+                Often <m>k</m> is chosen so that <m>a_k > 0</m>,
+                but there are occasions where we write zero in front of a number.
+                For example,
+                we might enter 03 for the month March instead of 3.
+                If we require <m>a_k > 0</m>,
+                then the base <m>b</m> representation of a positive integer is unique.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We consider an example.
+    </p>
+    <example xml:id="exam_ternary">
+      <title>Ternary Conversion</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Convert <m>(21021)_3</m> to decimal.
+                <solution>
+                  <p>
+                    To determine the highest power of three involved,
+                    we count in from the right:
+                    <m>3^0, 3^1, 3^2, 3^3</m>, and finally <m>3^4</m>.
+                    We have
+                    <md>
+                      <mrow>(21021)_3 \amp  =\underline{2}\cdot 3^4 +\underline{1}\cdot 3^3 +\underline{0}\cdot 3^2 +\underline{2}\cdot 3^1 +\underline{1}\cdot 3^0</mrow>
+                      <mrow>\amp =\underline{2}\cdot 81 +\underline{1}\cdot 27 +\underline{0}\cdot 9 +\underline{2}\cdot 3 +\underline{1}\cdot 1</mrow>
+                      <mrow>\amp  = 196</mrow>
+                    </md>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Convert 50 to base three.
+                <solution>
+                  <p>
+                    Since <m>50 \lt  81 = 3^4</m>,
+                    we only need to use 27, nine, three, and one.
+                    Note that <m>50-27 = 23</m>,
+                    <m>23-9-9 = 5</m>, <m>5-3=2</m>,
+                    and <m>2=1+1</m> and so we get
+                    <md>
+                      <mrow>50 \amp  = 27 + 9 + 9 + 3 + 1 + 1</mrow>
+                      <mrow>\amp  =\underline{1}\cdot 27 +\underline{2}\cdot 9 + \underline{1}\cdot 3 + \underline{2}\cdot 1</mrow>
+                      <mrow>\amp  = \underline{1}\cdot 3^3 + \underline{2}\cdot 3^2 +  \underline{1} \cdot 3^1 +  \underline{2} \cdot 3^0</mrow>
+                      <mrow>\amp  = (1212)_3</mrow>
+                    </md>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Here are examples using base five and base eight.
+    </p>
+    <example xml:id="exam_quinary_octal">
+      <title>Quinary and octal conversions</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Convert <m>(413)_5</m> and <m>(1723)_8</m> to decimal.
+                <solution>
+                  <p>
+                    First,
+                    <md>
+                      <mrow>(413)_5 \amp  =\underline{4}\cdot 5^2 +\underline{1}\cdot 5^1 +\underline{3}\cdot 5^0</mrow>
+                      <mrow>\amp =\underline{4}\cdot 25 +\underline{1}\cdot 5 +\underline{3}\cdot 1</mrow>
+                      <mrow>\amp  = 108</mrow>
+                    </md>.
+                  </p>
+                  <p>
+                    Next,
+                    <md>
+                      <mrow>(1723)_8 \amp  =\underline{1}\cdot 8^3 +\underline{7}\cdot 8^2 +\underline{2}\cdot 8^1 +\underline{3}\cdot 8^0</mrow>
+                      <mrow>\amp =\underline{1}\cdot 512 +\underline{7}\cdot 64 +\underline{2}\cdot 8 +\underline{3}\cdot 1</mrow>
+                      <mrow>\amp  = 979</mrow>
+                    </md>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Convert 50 to base five and to base eight.
+                <solution>
+                  <p>
+                    First, since <m>50 \lt  125 = 5^3</m>,
+                    we only need to use 25, five, and one.
+                    Notice that <m>50-25-25=0</m> and so we have
+                    <md>
+                      <mrow>50 \amp  = 25+25</mrow>
+                      <mrow>\amp  =\underline{2}\cdot 25 +\underline{0}\cdot 5 + \underline{0}\cdot 1</mrow>
+                      <mrow>\amp  = \underline{2}\cdot 5^2 +  \underline{0} \cdot 5^1 +  \underline{0} \cdot 5^0</mrow>
+                      <mrow>\amp  = (200)_5</mrow>
+                    </md>
+                  </p>
+                  <p>
+                    Next, since <m>50 \lt  64 = 8^2</m>,
+                    we only need to use eight and one.
+                    Notice that <m>50-6(8) = 50-48 = 2</m> and so we have
+                    <md>
+                      <mrow>50 \amp  = 8+8+8+8+8+8+1+1</mrow>
+                      <mrow>\amp  =\underline{6}\cdot 8 + \underline{2}\cdot 1</mrow>
+                      <mrow>\amp  = \underline{6} \cdot 8^1 +  \underline{2} \cdot 8^0</mrow>
+                      <mrow>\amp  = (62)_8</mrow>
+                    </md>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      When we compare the different representations of the integer 50 from <xref ref="exam_ternary"></xref>
+      and <xref ref="exam_quinary_octal"></xref>
+      listed in <xref ref="table_baseb_50"></xref>,
+      we see that the larger the base,
+      the shorter the representation of the integer 50 in that base.
+    </p>
+    <table xml:id="table_baseb_50">
+      <title>Base <m>b</m> representations of the integer 50</title>
+      <tabular>
+        <row>
+          <cell>base <m>b</m></cell>
+          <cell>3</cell>
+          <cell>5</cell>
+          <cell>8</cell>
+          <cell>10</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>representation of 50 base <m>b</m></cell>
+          <cell><m>(1212)_3</m></cell>
+          <cell><m>(200)_5</m></cell>
+          <cell><m>(62)_8</m></cell>
+          <cell>50</cell>
+        </row>
+      </tabular>
+    </table>
+    <p>
+      Try converting between bases.
+    </p>
+    <activity xml:id="act_baseb_conv">
+      <title>Base <m>b</m> conversions</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Convert <m>(1220)_3</m> to decimal.
+            </p>
+          </li>
+          <li>
+            <p>
+              Convert 21 to base three.
+            </p>
+          </li>
+          <li>
+            <p>
+              Convert <m>(432)_5</m> to decimal.
+            </p>
+          </li>
+          <li>
+            <p>
+              Convert 21 to base five.
+            </p>
+          </li>
+          <li>
+            <p>
+              Convert <m>(71)_8</m> to decimal.
+            </p>
+          </li>
+          <li>
+            <p>
+              Convert 21 to base eight.
+            </p>
+          </li>
+          <li xml:id="part_count_digits_base3">
+            <p>
+              How many digits are needed to represent 100,000 in base three?
+              Hint: <m>3^{10}=59049</m> and <m>3^{11} = 177147</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look <xref ref="act_baseb_conv">at</xref>
+      <xref ref="part_count_digits_base3"/>.
+    </p>
+    <example xml:id="exam_count_digits_base3">
+      <title>Counting digits in base three</title>
+      <statement>
+        <p>
+          How many digits are needed to represent 100,000 in base three?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since <m>3^{10}=59049\lt 100000</m> and <m>3^{11} = 177147>100000</m>,
+          we need through <m>3^{10}</m> but not <m>3^{11}</m>.
+          Thus, the base three representation of 100,000 needs 11 digits for the coefficients of
+          <me>
+            3^0, 3^1, 3^2, \ldots, 3^{10}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      There is a variant of ternary representation in which we use 0, 1, and <m>-1</m> instead of 0, 1, and 2.
+    </p>
+    <definition xml:id="defn_bal_tern_rep">
+      <title>Balanced ternary representation</title>
+      <statement>
+        <p>
+          For an integer <m>n</m>,
+          the <term>balanced ternary representation</term> of <m>n</m> is
+          <me>
+            n = \left(a_ka_{k-1}\cdots a_3a_2a_1a_0\right)_{bal3}
+          </me>
+          if
+          <me>
+            n=a_k3^k + \dots + a_33^ 3+a_23^2+a_13^1+a_03^0
+          </me>
+          for some integer <m>k</m> where each integer <m>a_i = -1,0,1</m>.
+          We write <m>+</m> in place of 1 and <m>-</m> in place of -1.
+          For example,
+          <md>
+            <mrow>(+0-+-)_{bal3} \amp  =\underline{+1}\cdot 3^4 +\underline{0}\cdot 3^3 +\underline{-1}\cdot 3^2 +\underline{+1}\cdot 3^1 +\underline{-1}\cdot 3^0</mrow>
+            <mrow>\amp  = 81+0-9+3-1</mrow>
+            <mrow>\amp  = 74</mrow>
+          </md>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at an example of representing an integer using balanced ternary.
+    </p>
+    <example xml:id="exam_bal_tern_rep">
+      <title>Balanced ternary representation</title>
+      <statement>
+        <p>
+          Convert 23 to balanced ternary representation.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The largest integer we can obtain using 1, 3, 9 is
+          <me>
+            (+++)_{bal3} = \underline{1}\cdot 9 + \underline{1}\cdot 3 + \underline{1} \cdot 1 =9+3+1=13
+          </me>.
+        </p>
+        <p>
+          Therefore, to obtain 23, we need to use <m>3^3 = 27</m> as follows:
+          <md>
+            <mrow>23 \amp  = 27 - 3 - 1</mrow>
+            <mrow>\amp  = \underline{1}\cdot 27 + \underline{0} \cdot 9 + \underline{-1} \cdot 3 +  \underline{-1} \cdot 1</mrow>
+            <mrow>\amp  = \underline{1}\cdot 3^3 + \underline{0} \cdot 3^2 + \underline{-1} \cdot 3^1 +  \underline{-1} \cdot 3^0</mrow>
+            <mrow>\amp  = (+0--)_{bal3}</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_binary">
+    <title>\subbinary</title>
+    <p>
+      The most common base used in computer science is two,
+      because integers in base two are represented by bit strings.
+    </p>
+    <definition xml:id="defn_binary">
+      <title>Binary representation</title>
+      <statement>
+        <p>
+          For a nonnegative integer <m>n</m>,
+          the <term>binary representation</term> of <m>n</m> is
+          <me>
+            n=\left(a_ka_{k-1}\cdots a_3a_2a_1a_0\right)_2
+          </me>
+          if
+          <me>
+            n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
+          </me>
+          for some integer <m>k</m> where each integer <m>a_i =0, 1</m>.
+          For example, the integer <m>6=(\bs{110})_2</m>.
+          We check that
+          <md>
+            <mrow>(\bs{110})_2 \amp  = \underline{1} \cdot 2^2 +\underline{1} \cdot 2^1 +\underline{0} \cdot 2^0</mrow>
+            <mrow>\amp  = \underline{1} \cdot 4 +\underline{1} \cdot 2 +\underline{0} \cdot 1</mrow>
+            <mrow>\amp  = 4 + 2</mrow>
+            <mrow>\amp  = 6</mrow>
+          </md>.
+        </p>
+        <p>
+          The programming language Python uses the prefix <c>0b</c> to indicate a binary integer.
+          For example, we write <m>6=\bs{0b110}</m>.
+        </p>
+      </statement>
+    </definition>
+    <remark xml:id="rem_bit_strings_binary">
+      <title>The connection between bit strings and binary integers</title>
+      <p>
+        In binary representation,
+        the coefficients can be thought of as bits <c>0</c> or <c>1</c>.
+        Therefore, any bit string represents a binary integer.
+        Note that different bit strings can represent the same integer.
+        For example,
+        <c>110</c>,
+        <c>0110</c>,
+        <c>0000110</c> each represent six because
+        <me>
+          6=(\bs{110})_2=(\bs{0110})_2=(\bs{0000110})_2
+        </me>,
+        but they are different bit strings because <c>110</c> has length three,
+        <c>0110</c> has length four,
+        and <c>0000110</c> has length seven.
+      </p>
+    </remark>
+    <p>
+      For binary, it is useful to know the powers of two as listed in <xref ref="table_powers_2and16"></xref>.
+      (We have also included the powers of 16 that we need later for hexadecimal representation.)
+    </p>
+    <table xml:id="table_powers_2and16">
+      <title>Small powers of two and 16</title>
+      <tabular>
+        <row>
+          <cell><m>16^0=</m></cell>
+          <cell><m>2^0=</m></cell>
+          <cell><m>1</m></cell>
+          <cell>\hspace{0.5in}</cell>
+          <cell><m>16^1=</m></cell>
+          <cell><m>2^4=</m></cell>
+          <cell><m>16</m></cell>
+          <cell>\hspace{0.5in}</cell>
+          <cell><m>16^2=</m></cell>
+          <cell><m>2^8=</m></cell>
+          <cell><m>256</m></cell>
+        </row>
+        <row>
+          <cell></cell>
+          <cell><m>2^1=</m></cell>
+          <cell><m>2</m></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell><m>2^5=</m></cell>
+          <cell><m>32</m></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell><m>2^9=</m></cell>
+          <cell><m>512</m></cell>
+        </row>
+        <row>
+          <cell></cell>
+          <cell><m>2^2=</m></cell>
+          <cell><m>4</m></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell><m>2^6=</m></cell>
+          <cell><m>64</m></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell><m>2^{10}=</m></cell>
+          <cell><m>1024</m></cell>
+        </row>
+        <row>
+          <cell></cell>
+          <cell><m>2^3=</m></cell>
+          <cell><m>8</m></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell><m>2^7=</m></cell>
+          <cell><m>128</m></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell><m>2^{11}=</m></cell>
+          <cell><m>2048</m></cell>
+        </row>
+      </tabular>
+    </table>
+    <p>
+      Let's look at a few examples.
+    </p>
+    <example xml:id="exam_binary_decimal">
+      <title>Conversion between decimal and binary</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Convert <m>(\bs{10110})_2</m> to decimal.
+                <solution>
+                  <p>
+                    To determine the highest power of 2 involved,
+                    we count in from the right:
+                    <m>2^0</m>, <m>2^1</m>, <m>2^2</m>,
+                    <m>2^3</m>, and finally <m>2^4</m>.
+                    We have
+                    <md>
+                      <mrow>(\bs{10110})_2 \amp  =  \underline{1} \cdot 2^4 +  \underline{0} \cdot 2^3 +  \underline{1} \cdot 2^2 +  \underline{1} \cdot 2^1 +  \underline{0} \cdot 2^0</mrow>
+                      <mrow>\amp  = \underline{1} \cdot 16 +  \underline{0} \cdot 8 +  \underline{1} \cdot 4 +  \underline{1} \cdot 2 +  \underline{0} \cdot 1</mrow>
+                      <mrow>\amp  =16 + 4 + 2</mrow>
+                      <mrow>\amp  = 22</mrow>
+                    </md>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Convert 46 to binary.
+                <solution>
+                  <p>
+                    First, since <m>46\lt 64</m>,
+                    we only need to use 32, 16, 8, 4, 2, and 1.
+                    Notice <m>46-32 = 14</m>, <m>14-8 = 6</m>,
+                    and <m>6-4=2</m> and so we have
+                    <md>
+                      <mrow>45 \amp  = 32+8+4+2</mrow>
+                      <mrow>\amp  =\underline{1}\cdot 32 + \underline{0}\cdot 16 + \underline{1}\cdot 8 + \underline{1}\cdot 4 +\underline{1}\cdot 2 + \underline{0}\cdot 1</mrow>
+                      <mrow>\amp  =\underline{1}\cdot 2^5 + \underline{0}\cdot 2^4 + \underline{1}\cdot 2^3 + \underline{1}\cdot 2^2 +\underline{1}\cdot 2^1 + \underline{0}\cdot 2^0</mrow>
+                      <mrow>\amp  = (\bs{101110})_2</mrow>
+                    </md>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to practice.
+    </p>
+    <activity xml:id="act_bin_decimal">
+      <title>Conversion between decimal and binary</title>
+      <p>
+        Use the definition of binary to convert the representation of integers by hand.
+        That means do not use other algorithms you might have learned or computational technology,
+        except to check.
+        <ol>
+          <li>
+            <p>
+              Convert <m>(\bs{11100})_2</m> to decimal.
+            </p>
+          </li>
+          <li>
+            <p>
+              Convert each of 10, 11, 12, 13, 14, and 15 to binary.
+            </p>
+          </li>
+          <li xml:id="part_165binary">
+            <p>
+              Convert 165 to binary.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_hex">
+    <title>\subhex</title>
+    <p>
+      Another common base used in computer science is 16.
+    </p>
+    <definition xml:id="defn_hex">
+      <title>Hexadecimal representation</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                In <term>hexadecimal</term> (base 16) representation,
+                the coefficients are  0, 1, 2, <ellipsis/>, 15.
+                Since the coefficients 10, 11, 12, 13, 14,
+                and 15 are 2-digit numbers we use the letters <c>A</c>,
+                <c>B</c>,
+                <c>C</c>,
+                <c>D</c>,
+                <c>E</c>,
+                and <c>F</c> in their place,
+                as shown in <xref ref="table_hex_letters"></xref>.
+                <table xml:id="table_hex_letters">
+                  <title>Hexadecimal representation of 10, 11, 12, 13, 14, and 15</title>
+                  <tabular>
+                    <row>
+                      <cell>integer</cell>
+                      <cell>10</cell>
+                      <cell>11</cell>
+                      <cell>12</cell>
+                      <cell>13</cell>
+                      <cell>14</cell>
+                      <cell>15</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>hex letter</cell>
+                      <cell>\bs{A}</cell>
+                      <cell>\bs{B}</cell>
+                      <cell>\bs{C}</cell>
+                      <cell>\bs{D}</cell>
+                      <cell>\bs{E}</cell>
+                      <cell>\bs{F}</cell>
+                    </row>
+                  </tabular>
+                </table>
+                Thus, <term>hex digits</term>  are
+                <me>
+                  0,1,2,3,4,5,6,7,8,9,\bs{A},\bs{B},\bs{C},\bs{D},\bs{E},\bs{F}
+                </me>.
+                For example,
+                the integer <m>27=(\bs{1B})_{16}</m> because <m>27-16=11=\bs{B}</m> and so
+                <md>
+                  <mrow>27 \amp  = 16+11</mrow>
+                  <mrow>\amp  = 16 + 1+1+1+1+1+ 1+1+1+1+1 + 1</mrow>
+                  <mrow>\amp  = \underline{1} \cdot 16 +\underline{11} \cdot 1</mrow>
+                  <mrow>\amp  = \underline{1} \cdot 16^1 +\underline{11} \cdot 16^0</mrow>
+                  <mrow>\amp  = (\bs{1B})_{16}</mrow>
+                </md>
+                The programming language Python uses the prefix <c>0x</c> to indicate a hexadecimal integer.
+                For example, we write <m>27=\bs{0x1B}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at a few examples.
+    </p>
+    <example xml:id="exam_hex_decimal">
+      <title>Conversion between decimal and hexadecimal</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Convert <m>(\bs{A5F})_{16}</m> to decimal.
+                <solution>
+                  <p>
+                    To determine the highest power of 16 involved,
+                    we count in from the right:
+                    <m>16^0</m>, <m>16^1</m>, and then <m>16^2</m>.
+                    Recalling that <m>(\bs{A})_{16}=10</m> and <m>(\bs{F})_{16}=15</m>, we have
+                    <md>
+                      <mrow>(\bs{A5F})_{16} \amp = \underline{10}\cdot 16^2 + \underline{5}\cdot 16^1 + \underline{15} \cdot 16^0</mrow>
+                      <mrow>\amp  = \underline{10} \cdot 256 + \underline{5} \cdot 16 + \underline{} \cdot 1</mrow>
+                      <mrow>\amp  =  2655</mrow>
+                    </md>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Convert 695 to hexadecimal.
+                <solution>
+                  <p>
+                    Note that <m>16^2 = 256</m> is the highest power of 16 less than 695.
+                    Since <m>2 \times 256 = 512</m>,
+                    we subtract to get <m>695 - 512 = 183</m>.
+                    Next we calculate <m>11 \times 16 = 176</m> as the largest multiple of 16 less than 183 and subtract again to get <m>183-176=7</m>.
+                    Recalling that <m>11=(\bs{B})_{16}</m>, we have
+                    <md>
+                      <mrow>695 \amp  = 512 + 176 + 7</mrow>
+                      <mrow>\amp  = \underline{2} \cdot 256 + \underline{11} \cdot 16 + \underline{7} \cdot 1</mrow>
+                      <mrow>\amp  = \underline{2}\cdot 16^2 + \underline{11}\cdot 16^1 + \underline{7} \cdot 16^0</mrow>
+                      <mrow>\amp  =(\bs{2B7})_{16}</mrow>
+                    </md>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to practice.
+    </p>
+    <activity xml:id="act_hex_decimal">
+      <title>Conversion between decimal and hexadecimal</title>
+      <p>
+        Use the definition of hexadecimal to convert the representation of integers by hand.
+        That means do not use other algorithms you might have learned or computational technology,
+        except to check.
+        <ol>
+          <li>
+            <p>
+              Convert <m>(\bs{C8}_{16})</m> to decimal.
+            </p>
+          </li>
+          <li xml:id="part_165hex">
+            <p>
+              Convert 165 to hexadecimal.
+            </p>
+          </li>
+          <li xml:id="part_A5">
+            <p>
+              Convert each of <m>(\bs{A})_{16}</m> and <m>(\bs{5})_{16}</m> to binary.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="act_bin_decimal">In</xref>
+              <xref ref="part_165binary"/>, we found <m>165 = {(\bs{10100101})_2}</m>.
+              How are the binary and hexadecimal representations of 165 from <xref ref="part_165hex"/> related?
+              Hint: Look at <xref ref="part_A5"/>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_hex_shorthand_binary">
+    <title>\subhexforbinary</title>
+    <p>
+      We observed from <xref ref="table_baseb_50"></xref> that the larger the base,
+      the shorter the representation of an integer in that base.
+      While binary is longer than base three, five, eight,
+      or 10, hexadecimal is shorter than base three, five, eight, or 10.
+      That is one reason why hexadecimal representation is used,
+      because it helps compress data.
+      But there is another reason.
+      Hexadecimal is an easy-to-read shorthand for the often difficult-to-read binary.
+      Let's see an example of this shorthand.
+    </p>
+    <example xml:id="exam_hex_binary_conv">
+      <title>Direct conversion between binary and hexadecimal</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                <xref ref="exam_hex_decimal">In</xref>
+                we saw that <m>695 = (\bs{2B7})_{16}</m>.
+                It turns out that <m>695 = (\bs{1010110111})_2</m>.
+                Explain how the hexadecimal and binary representations are related.
+                <solution>
+                  <p>
+                    Every four-bit binary number represents a decimal number <m>0-15</m> and each of those decimal numbers can be written as a single hex digit.
+                    There are four bits per hex digit because <m>16=2^4</m>.
+                    Let's take the binary representation of 695 and,
+                    working from right to left,
+                    replace every group of four bits with its single hex digit to get
+                    <me>
+                      \underbrace{\bs{10}}_{\bs{2}} \underbrace{\bs{1011}}_{\bs{B}} \underbrace{\bs{0111}}_{\bs{7}}
+                    </me>.
+                    We used that <m>(\bs{10})_2= 2 =(\bs{2})_{16}</m>,
+                    <m>(\bs{1011})_2 = 8+2+1=11=(\bs{B})_{16}</m>,
+                    and <m>(\bs{0111})_2 = (\bs{111})_2 = 4+2+1 = 7 = (\bs{7})_{16}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Convert <m>(\bs{DE})_{16}</m> directly to binary.
+                <solution>
+                  <p>
+                    Noting that <m>(\bs{D})_{16}=13 = 8 + 4 + 1 = (\bs{1101})_2</m> and <m>(\bs{E})_{16}=14 = 8 + 4 + 2 = (\bs{1110})_2</m>,
+                    we replace each hex digit with its 4-bit binary representation to get
+                    <me>
+                      \underbrace{\bs{D}}_{\bs{1101}} \underbrace{\bs{E}}_{\bs{1110}}
+                    </me>.
+                    Therefore, <m>(\bs{DE})_{16}=(\bs{11011110})_2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Convert <m>(41)_{16}</m> directly to binary.
+                <solution>
+                  <p>
+                    Noting that <m>(4)_{16}= 4 = (0100)_2</m> and <m>(1)_{16} = 1 = (0001)_2</m>,
+                    we replace each hex digit with its 4-bit binary representation,
+                    adding <c>0</c> s in front as needed, to get
+                    <me>
+                      \underbrace{\bs{4}}_{\bs{0100}} \underbrace{\bs{1}}_{\bs{0001}}
+                    </me>.
+                    Thus <m>(41)_{16}=(01000001)_2=(1000001)_2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to practice.
+    </p>
+    <activity xml:id="act_bin_hex">
+      <title>Conversion between binary and hexadecimal</title>
+      <p>
+        In this problem use the definition of binary and hexadecimal to convert the representation of integers by hand.
+        That means do not use other algorithms you might have learned or computational technology,
+        except to check.
+        <ol>
+          <li>
+            <p>
+              Convert <m>(\bs{E7})_{16}</m> directly to binary.
+              That means without converting to decimal first.
+            </p>
+          </li>
+          <li>
+            <p>
+              Convert <m>(\bs{10001011110})_2</m> directly to hexadecimal.
+              That means without converting to decimal first.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <p>
+      Many exercises in this section could be answered using a calculator or online resources.
+      Since the purpose of the exercises is to help you understand the representation,
+      please work out the solutions by hand and be sure to show work.
+      Also, even if you know a simpler conversion algorithm,
+      be sure to use the formal process outlined in this section.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_base_b">for</xref>
+    \subbaseb</title>
+    <exercise xml:id="exer_conv_from_baseb">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          Convert each integer to decimal.
+          <ol>
+            <li>
+              <p>
+                <m>(21)_3</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(21)_5</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(21)_8</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_conv_to_baseb">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          Convert 45 into base <m>b</m> where
+          <ol>
+            <li>
+              <p>
+                <m>b=3</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>b=5</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>b=8</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_count_digits_100000_baseb">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                How many digits are needed to represent 100,000 in base five?
+                Hint: <m>5^7 = 78125</m> and <m>5^8=390625</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                How many digits are needed to represent 100,000 in base eight?
+                Hint: <m>8^5=32768</m> and <m>8^6=262144</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_conv_from_bal3">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          Convert each integer to decimal.
+          <ol>
+            <li>
+              <p>
+                <m>(+0+0)_{bal3}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(+--0)_{bal3}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(+0+-)_{bal3}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_conv_to_bal3_1to10">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          Convert each integer to balanced ternary representation:
+          <m>1, 2, 3, 4, 5, 6, 7, 8, 9, 10</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_conv_to_bal3_larger">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          Convert each integer to balanced ternary representation.
+          <ol>
+            <li>
+              <p>
+                20
+              </p>
+            </li>
+            <li>
+              <p>
+                100
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_dyk_base_rep">
+      <title>\exerR</title>
+      <statement>
+        <p>
+          Do you know <ellipsis/>
+          <ol>
+            <li>
+              <p>
+                How to convert between base <m>b</m> and decimal using the definition of base <m>b</m> representation,
+                especially for <m>b=</m> 3, 5, and 8?
+              </p>
+            </li>
+            <li>
+              <p>
+                How to count the number of base <m>b</m> digits of an integer without converting to base <m>b</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Why the length of the representation decreases as the base increases?
+              </p>
+            </li>
+            <li>
+              <p>
+                How to convert between balanced ternary representation and decimal?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_divides_baseb">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          Suppose the integer <m>n</m> is written in base <m>b</m> as
+          <me>
+            n = a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 + a_1b + a_0
+          </me>
+          where each integer <m>0 \le a_i \lt  b</m>.
+          <ol>
+            <li>
+              <p>
+                What is <m>n \fn{ mod } b</m>?
+                Explain your reasoning or show work.
+              </p>
+            </li>
+            <li>
+              <p>
+                What is <m>n \fn{ mod }b^2</m>?
+                Explain your reasoning or show work.
+              </p>
+            </li>
+            <li>
+              <p>
+                How can you tell from the base <m>b</m> representation of <m>n</m> whether <m>b \mid n</m>?
+                Make a conjecture and explain your reasoning.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_largest_baseb">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          The results of this problem are used to prove the uniqueness of the base <m>b</m> representation.
+          <ol>
+            <li>
+              <p>
+                The largest integer we can represent in 3 digits in base 3 is <m>(222)_3</m> and in base 5 is <m>(444)_5</m>.
+                Convert each of these integers to decimal.
+              </p>
+            </li>
+            <li xml:id="part_largest_baseb">
+              <p>
+                What is the largest integer we can represent in <m>m</m> digits base <m>b</m>?
+                Your answer should be a sum.
+              </p>
+            </li>
+            <li>
+              <p>
+                Make a conjecture about the closed form of your answer to <xref ref="part_largest_baseb"/>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_binary">for</xref> \subbinary</title>
+    <exercise xml:id="exer_conv_from_binary">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          Convert each integer to decimal.
+          <ol>
+            <li>
+              <p>
+                <m>(\bs{1100})_2</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(\bs{110110})_2</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(\bs{1111111})_2</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_conv_to_binary">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          Convert each integer to binary.
+          <ol>
+            <li>
+              <p>
+                17
+              </p>
+            </li>
+            <li>
+              <p>
+                53
+              </p>
+            </li>
+            <li>
+              <p>
+                255
+              </p>
+            </li>
+            <li>
+              <p>
+                300
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_count_bits_binary">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          For each integer,
+          determine how many bits are needed for the binary representation without finding the binary representation.
+          Hint: <xref ref="table_powers_2and16">Consult</xref>.
+          <ol>
+            <li>
+              <p>
+                100
+              </p>
+            </li>
+            <li>
+              <p>
+                2000
+              </p>
+            </li>
+            <li>
+              <p>
+                100,000 Note: You are welcome to use technology to calculate higher powers of two.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_dyk_binary_rep">
+      <title>\exerR</title>
+      <statement>
+        <p>
+          Do you know <ellipsis/>
+          <ol>
+            <li>
+              <p>
+                What the values of <m>2^0, 2^1, \ldots, 2^{10}</m> equal?
+              </p>
+            </li>
+            <li>
+              <p>
+                How to convert between binary and decimal using the definition of binary representation?
+              </p>
+            </li>
+            <li>
+              <p>
+                What the connection
+                (and distinction)
+                is between binary numbers and bit strings?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_binary_alg_example">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          Here's an alternative way to find the binary representation of the integer 100.
+          <ul>
+            <li>
+              <p>
+                100 <c>div</c> 2 = 50 and 100 <c>mod</c> 2 = 0.
+              </p>
+            </li>
+            <li>
+              <p>
+                50 <c>div</c> 2 = 25 and 50 <c>mod</c> 2 = 0.
+              </p>
+            </li>
+            <li>
+              <p>
+                25 <c>div</c> 2 = 12 and 25 <c>mod</c> 2 = 1.
+              </p>
+            </li>
+            <li>
+              <p>
+                12 <c>div</c> 2 = 6 and 12 <c>mod</c> 2 = 0.
+              </p>
+            </li>
+            <li>
+              <p>
+                6 <c>div</c> 2 = 3 and 6 <c>mod</c> 2 = 0.
+              </p>
+            </li>
+            <li>
+              <p>
+                3 <c>div</c> 2 = 1 and 3 <c>mod</c> 2 = 1.
+              </p>
+            </li>
+            <li>
+              <p>
+                1 <c>div</c> 2 = 0 [STOP] and 1 <c>mod</c> 2 = 1.
+              </p>
+            </li>
+            <li>
+              <p>
+                The binary representation of 100 = <m>(1100100)_2</m>.
+                Note that we are reading the remainder (<c>mod</c>) from bottom to top.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Use this new process to find the binary representation of each integer.
+          Be sure to show work.
+          <ol>
+            <li>
+              <p>
+                17
+              </p>
+            </li>
+            <li>
+              <p>
+                45
+              </p>
+            </li>
+            <li>
+              <p>
+                300
+              </p>
+            </li>
+            <li>
+              <p>
+                1,000
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_binary_alg_explain">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          Explain why the algorithm introduced in <xref ref="exer_binary_alg_example"></xref> works in general.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_largest_binary">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The largest integer we can represent in three bits in binary is <m>(\bs{111})_2</m>.
+                Convert this integer to decimal.
+              </p>
+            </li>
+            <li>
+              <p>
+                The largest integer we can represent in four bits in binary is <m>(\bs{1111})_2</m>.
+                Convert this integer to decimal.
+              </p>
+            </li>
+            <li xml:id="part_largest_binary">
+              <p>
+                What is the largest integer we can represent in <m>m</m> bits in binary?
+                Your answer should be a sum.
+              </p>
+            </li>
+            <li>
+              <p>
+                Make a conjecture about an explicit form of your answer to <xref ref="part_largest_binary"/>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_hex">for</xref> \subhex</title>
+    <exercise xml:id="exer_conv_from_hex">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          Convert each integer to decimal.
+          <ol>
+            <li>
+              <p>
+                <m>(\bs{33})_{16}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(\bs{4A})_{16}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(\bs{1F0})_{16}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_conv_to_hex">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          Convert each integer to hexadecimal.
+          <ol>
+            <li>
+              <p>
+                17
+              </p>
+            </li>
+            <li>
+              <p>
+                53
+              </p>
+            </li>
+            <li>
+              <p>
+                170
+              </p>
+            </li>
+            <li>
+              <p>
+                300
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_count_bits_hex">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          For each integer,
+          determine how many hex digits are needed for the hexadecimal representation without finding the hexadecimal representation.
+          Hint: <xref ref="table_powers_2and16">Consult</xref>.
+          <ol>
+            <li>
+              <p>
+                100
+              </p>
+            </li>
+            <li>
+              <p>
+                2000
+              </p>
+            </li>
+            <li>
+              <p>
+                1,000,000 Note: You are welcome to use technology to calculate higher powers of 16.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_dyk_hex_rep">
+      <title>\exerR</title>
+      <statement>
+        <p>
+          Do you know <ellipsis/>
+          <ol>
+            <li>
+              <p>
+                What the value of <m>16^2</m> equals?
+              </p>
+            </li>
+            <li>
+              <p>
+                What integers are represented by the letters <m>\bs{A},\bs{B},\bs{C},\bs{D},\bs{E},\bs{F}</m> in hexadecimal?
+              </p>
+            </li>
+            <li>
+              <p>
+                How to convert between hexadecimal and decimal using the definition of hexadecimal notation?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_largest_hex">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The largest integer we can represent in two hex digits in hexadecimal is <m>(\bs{FF})_{16}</m>.
+                Convert this integer to decimal.
+              </p>
+            </li>
+            <li>
+              <p>
+                The largest integer we can represent in three hex digits in hexadecimal is <m>(\bs{FFF})_{16}</m>.
+                Convert this integer to decimal.
+              </p>
+            </li>
+            <li xml:id="part_largest_hex">
+              <p>
+                What is the largest integer we can represent in <m>m</m> hex digits in hexadecimal?
+                Your answer should be a sum.
+                Your answer should not have any letters in it.
+              </p>
+            </li>
+            <li>
+              <p>
+                Make a conjecture about an explicit form of your answer to <xref ref="part_largest_hex"/>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_RBG_colors_hex">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          Digital colors are represented in hex.
+          The first two digits control the amount of red,
+          from <m>(\bs{00})_{16}=0</m> (none) to <m>(\bs{FF})_{16}=255</m>
+          (fully saturated).
+          The next two digits control the amount of green,
+          and the last two digits control the amount of blue.
+          <ol>
+            <li>
+              <p>
+                Describe the color <m>\bs{00FF00}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Give a possible hex code for bright red.
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe the color <m>\bs{880088}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Give a possible code for aqua
+                (bright green-blue mix).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_hex_shorthand_binary">for</xref> \subhexforbinary</title>
+    <exercise xml:id="exer_check_conv_bin_hex">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          <xref ref="exer_conv_to_binary">In</xref>
+          and <xref ref="exer_conv_to_hex"></xref>,
+          we wrote each of the following integers in both binary and hexadecimal representation.
+          Confirm that the correspondence from <xref ref="exam_hex_binary_conv"></xref> holds.
+          <ol>
+            <li>
+              <p>
+                17
+              </p>
+            </li>
+            <li>
+              <p>
+                300
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_conv_binary_hex">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          Complete these conversions directly,
+          as in <xref ref="exam_hex_binary_conv"></xref>,
+          without using decimal representation.
+          <ol>
+            <li>
+              <p>
+                Convert <m>(\bs{E062A})_{16}</m> to binary.
+              </p>
+            </li>
+            <li>
+              <p>
+                Convert <m>(\bs{10011010011})_2</m> to hexadecimal.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_dyk_bin_hex">
+      <title>\exerR</title>
+      <statement>
+        <p>
+          Do you know <ellipsis/>
+          <ol>
+            <li>
+              <p>
+                How to convert directly between binary and hexadecimal?
+              </p>
+            </li>
+            <li>
+              <p>
+                Why we group by four bits in converting directly between binary and hexadecimal?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_why_group4_binhex_works">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          Consider the integer
+          <me>
+            n = (a_7a_6a_5a_4a_3a_2a_1a_0)_2 = (b_1b_0)_{16}
+          </me>.
+          Find a formula for <m>b_1</m> and <m>b_0</m> in terms of the <m>a_i</m>.
+          Hint: Write
+          <me>
+            n=a_72^7+a_62^6+a_52^5+a_42^4+a_32^3+a_22^2+a_12^1+a_02^0
+          </me>
+          and factor <m>16=2^4</m> out of the first four terms.
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_conv_from_baseb"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are 7, 11, and 17.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_conv_to_baseb"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>(1200)_3</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is <m>(1\underline{\hspace{.1in}}~\underline{\hspace{.1in}})_5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is <m>(\underline{\hspace{.1in}}5)_8</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_conv_from_bal3"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are 15, 29, and 30.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_conv_to_bal3_larger"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer involves two <m>+</m> and two <m>-</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves three <m>+</m>, one 0, and one <m>-</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_divides_baseb"></xref> Select Answers and Hints</title>
+      <ol>
+        <li xml:id="part_mod_base">
+          <p>
+            <m>a_0</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>b^2</m> and every higher power of <m>b</m> is divisible by <m>b^2</m> so
+            <me>
+              a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We saw in <xref ref="part_mod_base"/> that <m>n \fn{ mod } b = a_0</m>.
+            We want <m>b \mid n</m>, which means <m>n \fn{ mod } b = 0</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_conv_from_binary"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            12
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is larger than 32 but smaller than 64.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is one less than a power of two.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_conv_to_binary"></xref> Select Answers and Hints</title>
+      <p>
+        Note: Show how to write each integer as a sum of distinct powers of two.
+        <ol>
+          <li>
+            <p>
+              <m>(\bs{10001})_2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer involves four <c>1</c> s and two <c>0</c> s.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer is all <c>1</c> s.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer involves four <c>1</c> s.
+              The rest are <c>0</c> s.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_count_bits_binary"></xref> Select Answers and Hints</title>
+      <p>
+        Make sure you explain how to count without converting.
+        <ol>
+          <li>
+            <p>
+              Hint: The highest power of two less than 100 is <m>64=2^6</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              11
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The highest power of two less than 100,000 is <m>65536=2^{16}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_binary_alg_example"></xref> Select Answers and Hints</title>
+      <p>
+        Make sure to show how you are using the algorithm.
+        <ol>
+          <li>
+            <p>
+              <m>(\bs{10001})_2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: <m>(\bs{1}\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}\bs{1})_2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: <m>(\bs{1}\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}\bs{0})_2</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_largest_binary"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>4+2+1</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>8+4+2+1</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You can write the answer in summation notation as <m>\displaystyle \sum_{k=\underline{\hspace{.1in}}}^m\underline{\hspace{.2in}}</m>.
+            Check that the summand involves <m>2^k</m>
+            (not <m>2^m</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It involves powers of two.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_conv_from_hex"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            51
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is between 60 and 80.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is just under 500.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_conv_to_hex"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>(11)_{16}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves <m>\bs{3}</m> and <m>\bs{5}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves <m>\str{A}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves <m>\str{C}</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_conv_binary_hex"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are eight <c>1</c> s in the answer.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves <c>3</c>,
+            <c>4</c>,
+            and <c>D</c>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_why_group4_binhex_works"></xref> Select Answers and Hints</title>
+      <p>
+        Hints: <m>2^7=2^4(2^3)</m>,
+        <m>2^6=2^4(2^2)</m>, <m>2^5=2^4(2)</m>, and <m>2^4=2^4(1)</m>.
+        Each of <m>b_1</m> and <m>b_0</m> is of the form
+        <me>
+          \underline{\hspace{.1in}}2^3+ \underline{\hspace{.1in}}2^2+ \underline{\hspace{.1in}}2+ \underline{\hspace{.1in}}
+        </me>
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

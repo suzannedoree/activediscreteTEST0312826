@@ -1,0 +1,1753 @@
+<section xml:id="sec_sum_proofs">
+  <title>Proofs of Explicit Formulas for Sums and Products</title>
+  <introduction>
+    <p>
+      We have observed patterns and conjectured explicit formulas for sums and products in <xref ref="sec_sum_conj"></xref>,
+      including sums involving Fibonacci numbers,
+      and in <xref ref="sec_arith_triangle"></xref>,
+      including sums involving binomial coefficients.
+      In a few special cases,
+      we saw how to use the Binomial Theorem to prove summation formulas,
+      but how do we prove the Binomial Theorem itself as well as other formulas?
+      In this section, we look at two proof techniques,
+      including new special cases of mathematical induction and an extension of combinatorial proofs to summations.
+      We close by looking at special sums,
+      such as the handshake formula from <xref ref="thm_hs"></xref> and finite geometric sums.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_pff_sum_proofs_induction">
+    <title>\subpffsumproofsind</title>
+    <p>
+      We can use mathematical induction to prove explicit formulas for summations and products.
+      We begin with the proof format for a summation.
+    </p>
+    <proof>
+    <p>
+      Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m>,
+      prove that <m>\displaystyle \sum_{k=s}^na_k=</m>
+      (explicit rule)
+      for <m>n \ge s</m>.
+    </p>
+    <proof>
+      <p>
+        Write <m>f(n) =</m>(explicit rule).
+        Induct on <m>n</m>.
+      </p>
+      <p>
+        First, when <m>n=s</m> we know that
+        <m>\displaystyle \sum_{k=s}^sa_k=a_s= \cdots</m> and also <m>f(s)=</m>
+        (evaluate and simplify to get the same answer).
+      </p>
+      <p>
+        Next, assume <m>\displaystyle \sum_{k=s}^{n-1}a_k=f(n-1)=</m>
+        (evaluate and simplify),
+        for some integer <m>n > s</m>.
+        Then
+        <me>
+          \sum_{k=s}^na_k = \left(\sum_{k=s}^{n-1}a_k\right) + a_n = f(n-1) + a_n = \cdots \text{ (use algebra) }  \cdots = f(n)
+        </me>
+      </p>
+    </proof>
+    </proof>
+    <p>
+      The key first step in the last line of the proof uses the recursive definitions of partial sums,
+      <xref ref="rem_rec_def_partial_sum"></xref>.
+    </p>
+    <p>
+      Similarly, here is the proof format for a product.
+    </p>
+    <proof>
+    <p>
+      Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m>,
+      prove that <m>\displaystyle \prod_{k=s}^na_k=</m>
+      (explicit rule)
+      for <m>n \ge s</m>.
+    </p>
+    <proof>
+      <p>
+        Write <m>f(n) =</m>(explicit rule).
+        Induct on <m>n</m>.
+      </p>
+      <p>
+        First, when <m>n=s</m> we know that
+        <m>\displaystyle \prod_{k=s}^sa_k=a_s= \cdots</m> and also <m>f(s)=</m>
+        (evaluate and simplify to get the same answer).
+      </p>
+      <p>
+        Next, assume <m>\displaystyle \prod_{k=s}^{n-1}a_k=f(n-1)=</m>
+        (evaluate and simplify),
+        for some integer <m>n > s</m>.
+        Then
+        <me>
+          \prod_{k=s}^na_k = \left(\prod_{k=s}^{n-1}a_k\right) \cdot a_n = f(n-1) \cdot a_n = \cdots \text{ (use algebra) }  \cdots = f(n)
+        </me>
+      </p>
+    </proof>
+    </proof>
+    <p>
+      The key first step in the last line of the proof uses the recursive definitions of partial products,
+      <xref ref="rem_rec_def_partial_prod"></xref>.
+    </p>
+    <p>
+      As usual, when we introduce a new proof format,
+      we give you examples to copy and edit.
+    </p>
+    <activity xml:id="act_math_ind_sum_prod_formulas">
+      <title>Proving sum and product formulas using mathematical induction</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_proof_ind_sum_powers2">
+            <p>
+              Copy the following proof.
+              Use mathematical induction to prove that <m>\displaystyle \sum_{k=0}^n2^k=2^{n+1}-1</m> for <m>n \ge 0</m>.
+              <blockquote>
+                <em>Proof</em> Write <m>f(n) = 2^{n+1}-1</m>.  Induct on <m>n</m>.  First, when <m>n=0</m> we know that <m>\displaystyle \sum_{k=0}^02^k=2^0=1</m> and also <m>f(0)=2^{0+1}-1=2-1=1</m>.  Next, assume <m>\displaystyle \sum_{k=0}^{n-1}2^k=f(n-1)= 2^{(n-1)+1}-1=2^n-1</m> for some integer <m>n > s</m>. Then
+                <md>
+                  <mrow>\sum_{k=0}^n2^k \amp  = \left(\sum_{k=0}^{n-1}2^k\right) + 2^n = f(n-1) + 2^n = \left(2^n-1\right)+2^n</mrow>
+                  <mrow>\amp  = 2^n+2^n-1=2\cdot2^n-1=2^{n+1}-1 = f(n)</mrow>
+                </md>.
+              </blockquote>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_proof_ind_sum_powers2"/> to prove that <m>\displaystyle \sum_{k=0}^n2 \cdot 3^k = 3^{n+1}-1</m> for <m>n\ge 0</m>.
+            </p>
+          </li>
+          <li xml:id="part_proof_ind_prod_recip">
+            <p>
+              Copy the following proof.
+              Use mathematical induction to prove that <m>\displaystyle \prod_{k=1}^nk=n!</m> for <m>n \ge 1</m>.
+              <blockquote>
+                <em>Proof</em> Write <m>f(n) = n!</m>.  Induct on <m>n</m>.  First, when <m>n=1</m> we know that <m>\displaystyle \prod_{k=1}^1k=1=1</m> and also <m>f(1)=1!=1</m>.  Next, assume <m>\displaystyle \prod_{k=1}^{n-1}k=f(n-1)= (n-1)!</m> for some integer <m>n > s</m>. Then
+                <me>
+                  \prod_{k=1}^nk = \left(\prod_{k=1}^{n-1}k\right) \cdot n = f(n-1) \cdot n = \left((n-1)!\right) \cdot n = n(n-1)! =n! = f(n)
+                </me>.
+              </blockquote>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_proof_ind_prod_recip"/> to prove that <m>\displaystyle \prod_{j=1}^n \frac{1}{j} = \frac{1}{n!}</m> for <m>n\ge1</m>.
+            </p>
+          </li>
+          <li xml:id="part_proof_ind_sum_Fib_evens">
+            <p>
+              Copy the following proof.
+              Use mathematical induction to prove that
+              <m>\displaystyle \sum_{k=1}^nF_{2k}=F_{2n+1}-1</m>  for <m>n \ge 1</m> where,
+              as usual,
+              the Fibonacci numbers are defined by <m>F_0=0</m>, <m>F_1=1</m>,
+              and <m>F_n=F_{n-1} + F_{n-2}</m> for <m>n \ge 2</m>.
+              <blockquote>
+                <em>Proof</em> Write <m>f(n) = F_{2n+1}-1</m>.  Induct on <m>n</m>.  First, when <m>n=1</m> we have <m>\displaystyle\sum_{k=1}^1F_{2k}=F_{2(1)}=F_2=1</m> and also
+                <me>
+                  f(1) = F_{2(1)+1}-1=F_3-1=2-1=1
+                </me>.
+                Next, assume
+                <me>
+                  \sum_{k=1}^{n-1}F_{2k} = f(n-1) = F_{2(n-1)+1}-1 = F_{2n-1}-1
+                </me>
+                for some integer <m>n > 1</m>. Then
+                <md>
+                  <mrow>\sum_{k=1}^nF_{2k} \amp  = \left( \sum_{k=1}^{n-1}F_{2k} \right) + F_{2n} = f(n-1) + F_{2n} = \left(F_{2n-1}-1\right)+F_{2n}</mrow>
+                  <mrow>\amp  = \left(F_{2n} + F_{2n-1}\right) -1 = F_{2n+1}-1 = f(n)</mrow>
+                </md>
+                The next-to-last equality uses the recursive definition the Fibonacci numbers to conclude that the sum of the consecutive terms <m>F_{2n}</m> and <m>F_{2n-1}</m> equals the next term, <m>F_{2n+1}</m>.
+              </blockquote>
+              Note: We saw this summation in <xref ref="act_fib_sums_conj"></xref>
+              <xref ref="part_fib_sums_even_index"/> and <xref ref="exam_fib_sum_conj_even_index"></xref>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof from <xref ref="part_proof_ind_sum_Fib_evens"/> to prove that <m>\displaystyle \sum_{k=1}^{n}F_{2k-1} = F_{2n}</m> for <m>n \ge 1</m>.
+              Note: We saw this summation in <xref ref="sec_sum_conj"></xref>
+              <xref ref="exer_fib_sum_odd_terms_conj"></xref>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_pff_comb_sums">
+    <title>\subpffcombsums</title>
+    <p>
+      We can use mathematical induction to prove the explicit formula of a sum of the form <m>\displaystyle \sum_{k=s}^na_k=f(n)</m>,
+      but the recursive step of these proofs is based on the fact that the terms <m>a_k</m> do not depend on the upper limit <m>n</m>.
+      How can we prove an explicit formula for a summation where the terms depend on <m>n</m>?
+      For example, in <xref ref="sec_arith_triangle"></xref>
+      we saw sums with binomial coefficients where the terms involved <m>n</m>.
+      An option is to extend the proof format for a combinatorial proof,
+      <xref ref="pff_comb_proof"></xref>, to apply to sums.
+      This extended proof format is especially useful for proofs involving binomial coefficients, since,
+      by definition, they count objects.
+    </p>
+    <proof>
+    <p>
+      Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m> where the terms <m>a_k</m> may depend on <m>n</m>,
+      prove that <m>\displaystyle \sum_{k=s}^na_k=f(n)</m> for <m>n \ge s</m>.
+    </p>
+    <proof>
+      <p>
+        We use a combinatorial proof.
+        Consider the following situation <ellipsis/>.
+      </p>
+      <p>
+        How many ways are there to <ellipsis/>?
+      </p>
+      <p>
+        First, condition on <m>k=</m>
+        (say what <m>k</m> counts).
+        In this case, there are
+        (show how to get <m>a_k</m>)
+        ways to do <ellipsis/>.
+        Since cases add <xref ref="thm_cases_add"/>,
+        there are a total of <m>\displaystyle \sum_{k=s}^na_k</m> ways.
+      </p>
+      <p>
+        On the other hand, (explain how to count using a different method to get <m>f(n)</m>.)
+      </p>
+      <p>
+        Since we counted the same quantity in two different ways,
+        it follows that <m>\displaystyle \sum_{k=s}^na_k=f(n)</m>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      The phrase
+      <q>condition on <m>k=</m> (say what <m>k</m> counts)</q>
+      indicates that we are considering a list of cases Case <m>s</m>, Case <m>s+1</m>,
+      <ellipsis/>, Case <m>n</m> where in Case <m>k</m>,
+      there are <m>k</m> of some object.
+      Let's see this new proof format in action.
+    </p>
+    <activity xml:id="act_comb_pf_sum">
+      <title>Combinatorial proof of sum</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_comb_pf_sum_row_sum_arith_tri">
+            <p>
+              Copy the following proof.
+              Use a combinatorial proof to prove that
+              <me>
+                \displaystyle \sum_{k=0}^n\binom{n}{k} =2^n
+              </me>
+              for any natural number <m>n</m>.
+              We made this conjecture about the row sums of the arithmetic triangle in <xref ref="act_pascals_patterns"></xref>
+              <xref ref="part_find_row_sum_arith_tri"/>.
+              <blockquote>
+                <em>Proof.</em>  We use a combinatorial proof.  Consider the following situation: we have the set <m>T = \{1,2,\ldots, n\}</m>.  How many ways are there to choose a subset of <m>T</m>?  First, condition on <m>k=</m> the number of elements in the subset.  There are <m>\binom{n}{k}</m> subsets with <m>k</m> elements for <m>k = 0, 1, 2, \ldots, n</m>. Since cases add <xref ref="thm_cases_add"/>, there are a total of <m>\displaystyle \sum_{k=0}^n\binom{n}{k}</m> subsets.  On the other hand, for each element of <m>T</m> we can decide whether it will be in the subset or not (2 choices). There are two choices for whether 1 is in the subset, two choices for whether 2 is in the subset, and so on up to two choices for whether <m>n</m> is in the subset.  Since steps multiply <xref ref="thm_steps_multiply"/>, there are <m>\underbrace{2\cdot 2 \cdots \cdots 2}_{n \text{ times } } = 2^n</m> subsets.  Since we counted the same quantity in two different ways, it follows that
+                <me>
+                  \sum_{k=0}^n\binom{n}{k} =2^n
+                </me>.
+              </blockquote>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_comb_pf_sum_row_sum_arith_tri"/> to prove that
+              <me>
+                \displaystyle \sum_{k=1}^nk\binom{n}{k} =n2^{n-1}
+              </me>
+              for any integer <m>n \ge 1</m>.
+              Hints: Out of a group of <m>n</m> people,
+              choose a subset to be a committee
+              (with at least one person)
+              where one of the people on the committee is the chair.
+              Condition on <m>k =</m> the number of people on the committee.
+              In one way of counting,
+              choose the committee members first and then the chair.
+              In the other way of counting,
+              choose the chair first and then the rest of the committee members.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_special_sums">
+    <title>\subspecialsum</title>
+    <p>
+      We have seen a variety of specific summations that have an explicit formula.
+      In this section,
+      we look at several common classes of summations that have an explicit formula.
+      We begin with an activity.
+    </p>
+    <activity xml:id="act_special_sums">
+      <title>Special sums</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_sum_powers2_to4">
+            <p>
+              Consider a real number <m>r \neq 1</m> and the sum
+              <me>
+                S =  \sum_{k=0}^4r^k = 1 + r + r^2 + r^3 + r^4
+              </me>.
+              Note that <m>S</m> is a function of <m>r</m>.
+              Evaluate <m>S</m> when <m>r = 10</m>.
+            </p>
+          </li>
+          <li xml:id="part_rminus1_timesS">
+            <p>
+              Expand <m>(r-1)S</m> and simplify your answer.
+            </p>
+          </li>
+          <li xml:id="part_geom_sum_derive">
+            <p>
+              Use your answer to <xref ref="part_rminus1_timesS"/> to find a formula for <m>S</m> in terms of <m>r</m>.
+              Hint: Since <m>r \neq 1</m>,
+              you may divide both sides of your equation by <m>r-1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use your formula from <xref ref="part_geom_sum_derive"/> to evaluate <m>S</m> when <m>r=10</m>.
+              Check that you get the same answer as in <xref ref="part_sum_powers2_to4"/>.
+            </p>
+          </li>
+          <li xml:id="part_geom_sum_ais1">
+            <p>
+              Conjecture an explicit formula for
+              <m>\displaystyle \sum_{k=0}^nr^k = 1 + r + r^2 + \ldots + r^n</m> when <m>r \neq 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use your formula from <xref ref="part_geom_sum_ais1"/> to show that <m>\displaystyle \sum_{k=0}^n2^k = 2^{n+1}-1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              In the Handshakes puzzle <xref ref="act_handshakes"/>,
+              we saw a formula for the sum of the first <m>n</m> integers,
+              <xref ref="thm_hs">namely</xref>, which says
+              <me>
+                \sum_{k=1}^nk=\frac{n(n+1)}{2}
+              </me>.
+              Use this formula to evaluate <m>\displaystyle \sum_{k=1}^{10}k</m>.
+            </p>
+          </li>
+          <li xml:id="part_sum_sq_formula">
+            <p>
+              There is an explicit formula for the sum of the first <m>n</m> integers squared, namely
+              <me>
+                \sum_{k=1}^nk^2=\frac{n(n+1)(2n+1)}{6}
+              </me>.
+              Use this formula to evaluate <m>\displaystyle \sum_{k=1}^{5}k^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Check your answer to <xref ref="part_sum_sq_formula"/> by evaluating <m>\displaystyle \sum_{k=1}^{5}k^2</m> directly.
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture a formula for <m>\displaystyle \sum_{k=1}^nk^3</m> by considering the first few partial sums.
+              Hint: Each partial sum is a square.
+              What is the pattern in the integers being squared?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Make sure you <xref ref="act_special_sums">complete</xref>
+      because we are about to reveal many of the answers.
+    </p>
+    <example xml:id="exam_finite_geom_sum">
+      <title>Finite geometric sum conjecture</title>
+      <statement>
+        <p>
+          Consider real numbers <m>a</m> and <m>r \neq 1</m> and the sum
+          <me>
+            S = \sum_{k=0}^6 ar^k = a + ar + ar^2 + ar^3 + ar^4 + ar^5 + ar^ 6
+          </me>.
+        </p>
+        <p>
+          Note that <m>S</m> is a function of <m>a</m> and <m>r</m>.
+          <ol>
+            <li xml:id="part_geom_sum_exam_a3r2">
+              <p>
+                Evaluate <m>S</m> when <m>a=3</m> and <m>r=2</m>.
+                <solution>
+                  <p>
+                    We get
+                    <me>
+                      S = \sum_{k=0}^6 3 \cdot 2^k = 3 + 3 \cdot 2 + 3 \cdot 2^2 + 3 \cdot 2^3 + 3 \cdot 2^4 + 3 \cdot 2^5 + 3 \cdot 2^ 6= 381
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_rminus1_timesS_general">
+              <p>
+                Expand <m>(r-1)S</m> and simplify your answer.
+                <solution>
+                  <p>
+                    We get
+                    <md>
+                      <mrow>(r-1)S  \amp  = (r-1)(a + ar + ar^2 + ar^3 + ar^4 + ar^5 + ar^ 6)</mrow>
+                      <mrow>\amp  = (ar + ar^2 + ar^3 + ar^4 + ar^5 + ar^6 + ar^ 7) - (a + ar + ar^2 + ar^3 + ar^4 + ar^5 + ar^ 6)</mrow>
+                      <mrow>\amp  = \cancel{ar} + \cancel{ar^2} + \cancel{ar^3} + \cancel{ar^4} + \cancel{ar^5} + \cancel{ar^6} + ar^7 - a - \cancel{ar} - \cancel{ar^2} - \cancel{ar^3} - \cancel{ar^4} - \cancel{ar^5} - \cancel{ar^ 6})</mrow>
+                      <mrow>\amp  = ar^7-a</mrow>
+                      <mrow>\amp  = a(r^7-1)</mrow>
+                    </md>
+                  </p>
+                  <p>
+                    Thus, <m>(r-1)S = a(r^7-1)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_geom_sum_derive_general">
+              <p>
+                Use your answer to <xref ref="part_rminus1_timesS_general"/> to find a formula for <m>S</m> in terms of <m>a</m> and <m>r</m>.
+                <solution>
+                  <p>
+                    Since <m>r \neq 1</m>,
+                    we can divide each side of the equation by <m>r-1</m> to get <m>\displaystyle S = \frac{a(r^7-1)}{r-1}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use your formula from <xref ref="part_rminus1_timesS_general"/> to evaluate <m>S</m> when <m>a = 3</m> and <m>r=2</m>.
+                Check that you get the same answer as in <xref ref="part_geom_sum_exam_a3r2"/>.
+                <solution>
+                  <p>
+                    We get <m>\displaystyle S = \frac{3(2^7-1)}{2-1}= 3(127) = 381</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_geom_sum_conj_general">
+              <p>
+                Conjecture an explicit formula for
+                <m>\displaystyle \sum_{k=0}^nar^k = a + ar + ar^2 + \ldots + ar^n</m> when <m>r \neq 1</m>.
+                <solution>
+                  <p>
+                    We conjecture that <m>\displaystyle \sum_{k=0}^nar^k = \frac{a(r^7-1)}{r-1} = a\frac{r^7-1}{r-1}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use your formula from <xref ref="part_geom_sum_conj_general"/> to show that <m>\displaystyle \sum_{k=0}^n4\cdot5^k = 5^{n+1}-1</m>.
+                <solution>
+                  <p>
+                    We get <m>\displaystyle \sum_{k=0}^n4\cdot5^k = 4\frac{5^{n+1}-1}{5-1}= \cancel{4}\frac{5^{n+1}-1}{\cancel{4}} = 5^{n+1} - 1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's state the general formula for a geometric sum.
+    </p>
+    <theorem xml:id="thm_geom_sum_finite">
+      <title>Sum of finite geometric</title>
+      <statement>
+        <p>
+          For real numbers <m>a</m> and <m>r \neq 1</m>,
+          <me>
+            \sum_{k=0}^nar^k=a \frac{r^{n+1}-1}{r-1}
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Here is an example using the finite geometric sum formula.
+    </p>
+    <example xml:id="exam_finite_geom_sum">
+      <title>Using the finite geometric sum formula</title>
+      <statement>
+        <p>
+          Use the finite geometric sum formula <xref ref="thm_geom_sum_finite"/> to evaluate <m>\displaystyle \sum_{k=0}^7(10\cdot2^k)=10 + 20 + 40 + \ldots + 1280</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Our sum is geometric with <m>a=10</m>, <m>r=2 \neq 1</m>,
+          and <m>n=7</m> so by <xref ref="thm_geom_sum_finite"></xref> we have
+          <me>
+            \sum_{k=0}^710\cdot2^k = 10 \left(\frac{2^{7+1}-1}{2-1}\right) = 10 \left(\frac{2^8-1}{1}\right) = 10(256-1) = \text{ 2,550 }
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can use the distributive property <xref ref="defn_integer_algebra_order_operations"/> to derive linearity properties of sums.
+    </p>
+    <theorem xml:id="thm_linearity_sums">
+      <title>Linearity properties of sums</title>
+      <statement>
+        <p>
+          Let <m>a_k</m> and <m>b_k</m> be sequences of real numbers for <m>k \ge s</m> for some nonnegative integer <m>s</m> and let <m>c</m> be a real number.
+          Then
+          <ol>
+            <li xml:id="part_constant_times_sum">
+              <p>
+                <m>\displaystyle \sum_{k=s}^n(ca_k)=c\sum_{k=s}^na_k</m>.
+              </p>
+            </li>
+            <li xml:id="part_sum_of_sum">
+              <p>
+                <m>\displaystyle \sum_{k=s}^n(a_k+b_k)=\sum_{k=s}^na_k+\sum_{k=s}^nb_k</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We have seen the sum of the first <m>n</m> integers, the handshake numbers,
+      in many places starting <xref ref="act_handshakes">with</xref>.
+      There are also formulas for the sum of the first <m>n</m> squares and cubes.
+    </p>
+    <theorem xml:id="thm_sum_formula_polys">
+      <title>Summation formulas for powers of integers</title>
+      <statement>
+        <p>
+          For a nonnegative integer <m>n</m> we have
+          <ol>
+            <li xml:id="part_sum_constant">
+              <p>
+                The sum of a constant: <m>\displaystyle \sum_{k=1}^n1=n</m>.
+              </p>
+            </li>
+            <li xml:id="part_sum_hs">
+              <p>
+                The sum of the first <m>n</m> integers:
+                <m>\displaystyle \sum_{k=1}^nk = \frac{n(n+1)}{2}</m>.
+              </p>
+            </li>
+            <li xml:id="part_sum_squares">
+              <p>
+                The sum of the first <m>n</m> squares:
+                <m>\displaystyle \sum_{k=1}^nk^2 = \frac{n(n+1)(2n+1)}{6}</m>.
+              </p>
+            </li>
+            <li xml:id="part_sum_cubes">
+              <p>
+                The sum of the first <m>n</m> cubes:
+                <m>\displaystyle \sum_{k=1}^nk^3 = \left(\frac{n(n+1)}{2}\right)^2</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Here is an example using these formulas.
+    </p>
+    <example xml:id="exam_sum_formulas">
+      <title>Using linearity properties and summation formulas</title>
+      <statement>
+        <p>
+          Use linearity properties and summation formulas to evaluate each sum.
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>\displaystyle \sum_{k=1}^{10}k^2=1 + 4 + 9 + \ldots + 100</m>
+                <solution>
+                  <p>
+                    <xref ref="thm_sum_formula_polys">By</xref>
+                    <xref ref="part_sum_squares"/> with <m>n=10</m> we have
+                    <me>
+                      \sum_{k=1}^{10}k^2 = \frac{10(10+1)(2(10)+1)}{6} = \frac{(10)(11)(21)}{6} = 385
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\displaystyle \sum_{k=1}^{10}k= 1 + 2 + 3 + \ldots + 10</m>
+                <solution>
+                  <p>
+                    <xref ref="thm_sum_formula_polys">By</xref>
+                    <xref ref="part_sum_hs"/> with <m>n=10</m> we have
+                    <me>
+                      \sum_{k=1}^{10}k= \frac{10(10+1)}{2} = \frac{(10)(11)}{2} = 55
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\displaystyle \sum_{k=1}^{10}1=\underbrace{1+1+\ldots+1}_{10 \text{ times } }</m>
+                <solution>
+                  <p>
+                    <xref ref="thm_sum_formula_polys">By</xref>
+                    <xref ref="part_sum_constant"/> with <m>n=10</m> we have <m>\displaystyle \sum_{k=1}^{10}1=10</m>.
+                    Not sure we really needed a formula here.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\displaystyle \sum_{k=1}^{10}(3k+1)(k+2)=(4)(3)+(7)(4)+(10)(5) + \ldots + (31)(12)</m>.
+                <solution>
+                  <p>
+                    We begin by multiplying
+                    (using FOIL)
+                    to get <m>(3k+1)(k+2) = 3k^2+5k+2</m>.
+                    Then we can apply the linearity properties of sums <xref ref="thm_linearity_sums"/> and our answers from the previous parts to get
+                    <md>
+                      <mrow>\sum_{k=1}^{10}(3k+1)(k+2) \amp  =\sum_{k=1}^{10} (3k^2+5k+2)</mrow>
+                      <mrow>\amp  = \sum_{k=1}^{10}(3k^2)+\sum_{k=1}^{10}(5k)+\sum_{k=1}^{10}2</mrow>
+                      <mrow>\amp  = 3\left(\sum_{k=1}^{10}k^2\right)+5\left(\sum_{k=1}^{10}k\right)+2\left(\sum_{k=1}^{10}1\right)</mrow>
+                      <mrow>\amp  = 3(385) + 5(55)+2(10) = \text{ 1,450 } </mrow>
+                    </md>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_fraction_algebra">
+    <title>\subfracalg</title>
+    <p>
+      Some of our summation formulas involve fractions.
+      Let's review fraction arithmetic.
+    </p>
+    <definition xml:id="defn_fraction_addition">
+      <title>Adding Fractions</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_sum_fractions">
+              <p>
+                For integers <m>n</m>, <m>m</m>,
+                and <m>d</m> with <m>d \neq 0</m>,
+                the <term>sum of the fractions</term> is given by
+                <me>
+                  \displaystyle \frac{n}{d} + \frac{m}{d} = \frac{n+m}{d}
+                </me>.
+                For example,
+                <me>
+                  \frac{3}{7} + \frac{2}{7} = \frac{3+2}{7} = \frac{5}{7}
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                To add two fractions using <xref ref="part_sum_fractions"/>,
+                we need the two fractions to have the same denominator
+                (<term>common denominator</term>).
+                If two fractions have different denominators,
+                we can replace one or both fractions with equivalent fractions that have a common denominator <xref ref="thm_equal_fractions">using</xref>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's practice working with fractions.
+    </p>
+    <example xml:id="fraction_arithmetic">
+      <title>Adding and Subtracting Fractions</title>
+      <statement>
+        <p>
+          In this example,
+          we only use computational technology to check our answers.
+          <ol>
+            <li>
+              <p>
+                Write as one fraction and simplify <m>\displaystyle \frac{3}{4} - \frac{1}{2}</m>.
+                <solution>
+                  <p>
+                    We can use 4 as the common denominator.
+                    <me>
+                      \displaystyle \frac{3}{4} - \frac{1}{2} = \frac{3}{4} - \frac{2(1)}{2(2)} = \frac{3}{4} - \frac{2}{4} = \frac{3-2}{4} = \frac{1}{4}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write as one fraction and simplify <m>\displaystyle \frac{1}{2} + \frac{2}{3}</m>.
+                <solution>
+                  <p>
+                    We can use <m>(2)(3) = 6</m> as the common denominator.
+                    <me>
+                      \displaystyle \frac{1}{2} + \frac{2}{3} = \frac{3(1)}{3(2)} + \frac{2(2)}{2(3)} = \frac{3}{6} + \frac{4}{6} = \frac{3+4}{6} = \frac{7}{6}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write as one fraction and simplify <m>\displaystyle \frac{5}{3}-2</m>.
+                <solution>
+                  <p>
+                    We can rewrite 2 as the fraction
+                    <m>\frac{2}{1}</m> and then use 3 as the common denominator.
+                    <me>
+                      \displaystyle \frac{5}{3}-2 = \frac{5}{3}-\frac{2}{1} = \frac{5}{3}-\frac{3(2)}{3(1)} = \frac{5}{3}-\frac{6}{3} = \frac{5-6}{3} = \frac{-1}{3} =^-\frac{1}{3}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write as one fraction and simplify <m>\displaystyle \frac{1}{k-1} - \frac{1}{k}</m>.
+                <solution>
+                  <p>
+                    We can use <m>k(k-1)</m> as the common denominator.
+                    <me>
+                      \displaystyle \frac{1}{k-1} - \frac{1}{k} = \frac{k(1)}{k(k-1)} - \frac{(k-1)(1)}{(k-1)(k)} = \frac{k}{k(k-1)} - \frac{k-1}{(k)(k-1)}
+                    </me>
+                    <me>
+                      = \frac{k-(k-1)}{(k)(k-1)} = \frac{k-k+1}{k(k-1)} = \frac{1}{k(k-1)}
+                    </me>
+                  </p>
+                  <p>
+                    By the way, it is sometimes useful to reverse this equation to write
+                    <me>
+                      \frac{1}{k(k-1)} = \frac{1}{k-1} - \frac{1}{k}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write as one fraction and simplify <m>\displaystyle \frac{1}{2^{k-1}} + \frac{1}{2^k}</m>.
+                <solution>
+                  <p>
+                    Recall that <m>2\cdot 2^{k-1} =2^k</m> so we can use <m>2^k</m> as the common denominator.
+                    <me>
+                      \displaystyle \frac{1}{2^{k-1}} + \frac{1}{2^k} = \frac{2(1)}{2(2^{k-1})} + \frac{1}{2^k} = \frac{2}{2^k} + \frac{1}{2^k} = \frac{2+1}{2^k} = \frac{3}{2^k}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write as one fraction and simplify <m>\displaystyle \frac{1}{(n-1)!} + \frac{1}{n!}</m>.
+                <solution>
+                  <p>
+                    Recall that <m>n!=n(n-1)!</m> so we can use <m>n!</m> as the common denominator to get
+                    <me>
+                      \displaystyle \frac{1}{(n-1)!} + \frac{1}{n!} = \frac{n(1)}{n(n-1)!)} + \frac{1}{n!} = \frac{n}{n!} + \frac{1}{n!} = \frac{n+1}{n!}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Adding or subtracting fractions is a bit complicated because we need to find a common denominator.
+      Luckily, multiplying fractions is simpler.
+    </p>
+    <definition xml:id="defn_multiplying_fractions">
+      <title>Multiplying Fractions</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For integers <m>n, m, c, d</m> with <m>c,d \neq 0</m>,
+                the <term>product</term> of the fractions is given by
+                <me>
+                  \frac{m}{c} \cdot \frac{n}{d} = \frac{mn}{cd}
+                </me>.
+                For example,
+                <me>
+                  \frac{2}{3} \cdot \frac{7}{5} = \frac{(2)(7)}{(3)(5)} = \frac{14}{15}
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here is an example.
+    </p>
+    <example xml:id="exam_multiplying_fractions">
+      <title>Multiplying Fractions</title>
+      <statement>
+        <p>
+          In this example,
+          we only use computational technology to check our answers.
+          <ol>
+            <li>
+              <p>
+                Write as one fraction and simplify:
+                <m>\displaystyle \frac{1}{2} \cdot \frac{5}{6}</m>.
+                <solution>
+                  <p>
+                    <xref ref="defn_multiplying_fractions">By</xref>,
+                    <me>
+                      \frac{1}{2} \cdot \frac{5}{6} = \frac{(1)(5)}{(2)(6)} = \frac{5}{12}
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write as one fraction and simplify <m>\displaystyle \frac{1}{2} \cdot \frac{2}{3}</m>.
+                <solution>
+                  <p>
+                    We have
+                    <me>
+                      \frac{1}{2} \cdot \frac{2}{3} = \frac{(1)(2)}{(2)(3)}= \frac{\cancel{2}(1)}{\cancel{2}(3)}=\frac{1}{3}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write as one fraction and simplify <m>\displaystyle 5 \cdot \frac{3}{10}</m>.
+                <solution>
+                  <p>
+                    To <xref ref="defn_multiplying_fractions">use</xref>,
+                    we need to write 5 as the fraction <m>\frac{5}{1}</m>.
+                    Next,
+                    <me>
+                      5 \cdot \frac{3}{10} = \frac{5}{1} \cdot \frac{3}{10} = \frac{(5)(3)}{(1)(10)} = \frac{\cancel{5}(3)}{\cancel{5}(2)} = \frac{3}{2}
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Simplify <m>\displaystyle 4 \left(\frac{4^m-1}{3}\right)+1</m>
+                <solution>
+                  <p>
+                    First, we can write 4 as <m>\frac{4}{1}</m> and multiply the fractions to get
+                    <me>
+                      4 \left(\frac{4^m-1}{3}\right)+1 = \frac{4}{1} \left(\frac{4^m-1}{3}\right)+1 = \frac{4\left(4^m-1\right)}{3}+1
+                    </me>.
+                    Next, we can use 3 as the common denominator and write 1 as <m>\frac{3}{3}</m> to get
+                    <me>
+                      \frac{4\left(4^m-1\right)}{3}+1 = \frac{4\left(4^m-1\right)}{3}+\frac{3}{3} = \frac{4\left(4^m-1\right)+3}{3}
+                    </me>.
+                    Next, using the distributive property and simplifying we get
+                    <me>
+                      \frac{4\left(4^m-1\right)+3}{3} = \frac{4\left(4^m\right)-4(1)+3}{3} =\frac{4\left(4^m\right)-1}{3}
+                    </me>.
+                    Last, we can simplify the power of 4 to get
+                    <me>
+                      \frac{4\left(4^m\right)-1}{3} = \frac{4^{m+1}-1}{3}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to practice working with fractions.
+    </p>
+    <activity xml:id="act_fractions">
+      <title>Fractions</title>
+      <p>
+        On this problem, you may only use technology to check your answers.
+        <ol>
+          <li>
+            <p>
+              Write as one fraction and simplify <m>\displaystyle \frac{3}{10} - \frac{4}{5}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write as one fraction and simplify <m>\displaystyle \frac{3}{10} \cdot \frac{5}{6}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write as one fraction <m>\displaystyle \frac{1}{n}+ \frac{1}{n^2}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write as one fraction and simplify <m>\displaystyle \frac{1}{2^{k-1}} - \frac{1}{2^k}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Write as one fraction and simplify <m>\displaystyle 3 \left(\frac{3^m-1}{2}\right)-1</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_sum_proofs_induction">for</xref>
+      \subpffsumproofsind</title>
+      <exercise xml:id="exer_math_ind_sum_odds">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n(2k -1)=n^2</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_evens">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{j=1}^n(2j) = n(n+1)</m> for <m>n \ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_factorials">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk(k!) = (n+1)!-1</m> for <m>n\ge 1</m>.
+            We saw this sum in <xref ref="act_fact_rep"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_geom_sum5">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n4 \cdot 5^k = 5^{n+1}-1</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_prod_1plus_recip">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \prod_{k=1}^n \left(1 + \frac{1}{k}\right) = n+1</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_prod_evens">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \prod_{j=1}^n(2j) = 2^nn!</m> for <m>n \ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_firstn_Fib_proof">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that
+            <m>\displaystyle\sum_{k=1}^nF_k = F_{n+2}-1</m> for <m>n \ge 1</m> where <m>F_n</m> are the Fibonacci numbers.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_4kplus1">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n(4k-1) = n(2n+1)</m> for <m>n\ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_recip_powers2">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{k=0}^n\frac{1}{2^k} = 2 - \frac{1}{2^n}</m> for <m>n \ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_firstn_Fib_sq_proof">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that
+            <m>\displaystyle\sum_{k=1}^nF_k^2= F_nF_{n+1}</m> for <m>n \ge 1</m> where <m>F_n</m> are the Fibonacci numbers.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_alt_fib_proof">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that
+            <m>\displaystyle\sum_{k=1}^n(-1)^{k+1}F_k = 1+(-1)^{n+1}F_{n-1}</m> for <m>n \ge 1</m> where <m>F_n</m> are the Fibonacci numbers.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_multpowers2">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk \cdot 2^k = (n-1)2^{n+1}+2</m> for <m>n \ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_alt_sq">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that
+          </p>
+          <p>
+            <m>\displaystyle \sum_{k=0}^n(-1)^kk^2 = (-1)^n ~ \frac{n(n+1)}{2}</m> for <m>n\ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_squares">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk^2=\frac{n(n+1)(2n+1)}{6}</m> for <m>n\ge 1</m>.
+            This exercise <xref ref="thm_sum_formula_polys">proves</xref>
+            <xref ref="part_sum_squares"/>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_squares">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk^3=\left(\frac{n(n+1)}{2}\right)^2</m> for <m>n\ge 1</m>.
+            This exercise <xref ref="thm_sum_formula_polys">proves</xref>
+            <xref ref="part_sum_cubes"/>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_poly">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that
+          </p>
+          <p>
+            <m>\displaystyle \sum_{k=1}^n(3k+1)(k+2) = n(n+2)(n+3)</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_frac">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that
+          </p>
+          <p>
+            <m>\displaystyle \sum_{k=1}^n\frac{1}{(2k-1)(2k+1)}=\frac{n}{2n+1}</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_sum_hs_recip">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n\frac{2}{k(k+1)}=\frac{2n}{n+1}</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_sum_proofs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the recursive definitions of partial sums and partial products are?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use proof by mathematical induction to verify the explicit formula of a sum or product?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_geom_sum_formula">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that
+          </p>
+          <p>
+            <m>\displaystyle \sum_{k=0}^nar^k=a\left(\frac{r^{n+1}-1}{r-1}\right)</m> for <m>n \ge 0</m>.
+            This exercise <xref ref="thm_geom_sum_finite">proves</xref>.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_comb_sums">for</xref> \subpffcombsums</title>
+      <exercise xml:id="exer_count_cats_dogs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Suppose there are <m>n</m> cats and <m>n</m> dogs and we want to choose <m>n</m> animals.
+            <ol>
+              <li>
+                <p>
+                  If we picked <m>k</m> cats, then how many dogs do we need to choose?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many ways are there to pick <m>k</m> cats and the rest dogs?
+                </p>
+              </li>
+              <li xml:id="part_picked_fav_cat">
+                <p>
+                  If we picked one favorite animal,
+                  how many ways are there to pick the rest?
+                  Hint: how many animals are left and how many more do we need?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_comb_pf_sum_binom_sq">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Give a combinatorial proof that
+            <me>
+              \displaystyle \sum_{k=0}^n\binom{n}{k}^2 = \binom{2n}{n}
+            </me>
+            for <m>n \ge 1</m>.
+            Hint: Suppose there are <m>n</m> cats and <m>n</m> dogs and we want to choose <m>n</m> animals.
+            Condition on <m>k=</m> the number of cats chosen.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_comb_pf_sum_weighted_binom_sq">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Give a combinatorial proof that
+            <me>
+              \sum_{k=1}^nk\binom{n}{k}^2 = n\binom{2n-1}{n-1}
+            </me>
+            for <m>n \ge 1</m>.
+            Hint: Suppose there are <m>n</m> cats and <m>n</m> dogs and we want to choose <m>n</m> animals including a favorite cat.
+            Condition on <m>k=</m> the number of cats chosen.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_comb_pf_sums">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to write a combinatorial proof of a sum?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the phrase
+                  <q>condition on <m>k</m></q>
+                  indicates?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_comb_pf_sum_hs">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Give a combinatorial proof that
+            <me>
+              \sum_{k=1}^nk = \binom{n+1}{2}
+            </me>
+            for <m>n \ge 1</m>.
+            Hint: How many 2-elements subsets does <m>S = \{0, 1, 2, \ldots,
+            n\}</m> have?
+            Condition on <m>k =</m> the larger number in the subset.
+            Note that the other number in the subset must come from <m>\{0, 1, 2, \ldots,
+            k-1\}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_comb_pf_sum_hockey_stick">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Give a combinatorial proof
+            (<xref ref="pff_comb_proof_sum">using</xref>)
+            that
+            <me>
+              \sum_{k=m}^n \binom{k}{m} = \binom{n+1}{m+1}
+            </me>
+            for <m>m, n \ge 1</m>.
+            Hint: How many <m>(m+1)</m>-element subsets does <m>S = \{0, 1, 2, \ldots,
+            n\}</m> have?
+            Condition on <m>k =</m> the largest number in the subset.
+            Note that the other <m>m</m> numbers in the subset must come from <m>\{0, 1, 2, \ldots,
+            k-1\}</m>.
+            This proves the hockey stick conjecture from <xref ref="exam_hockey_stick"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_comb_pf_factorials">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the set <m>S = \{0, 1, 2, \ldots, n\}</m>.
+            <ol>
+              <li xml:id="part_counting_nonid_perms">
+                <p>
+                  How many nonidentity permutations of <m>S</m> are there?
+                  Hint: <m>|S|=n+1</m>.
+                </p>
+              </li>
+              <li xml:id="part_counting_perms_that_fix_afterk">
+                <p>
+                  Consider an integer <m>k</m> with <m>0 \le k \le n</m>.
+                  How many permutations of <m>S</m> are there where <m>k</m> is the largest integer that is not fixed?
+                  Hint: Such a permutation has the format
+                  <me>
+                    \sigma = \left(\begin{array}{ccccccccccc} 0 \amp  1 \amp  2 \amp  \cdots \amp  k-1 \amp  k \amp  k+1 \amp  k+2 \amp  \cdots \amp  n-1 \amp  n\\ \underline{~} \amp  \underline{~} \amp  \underline{~} \amp  \cdots \amp   \underline{~} \amp  \underline{~} \amp  k+1 \amp  k+2 \amp   \cdots \amp  n-1 \amp  n \end{array} \right)
+                  </me>
+                  Since <m>\sigma(k) \neq k</m>,
+                  the choices for <m>\sigma(k)</m> are <m>0, 1, 2, \ldots, k-1</m>.
+                  That fills in the blank under <m>k</m> and leaves <m>k</m> integers to be arranged into the remaining <m>k</m> blanks.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a combinatorial proof that <m>\displaystyle \sum_{k=1}^nk\cdot k! = (n+1)!-1</m> for <m>n \ge 1</m>.
+                  Hint: Use part (a) for one count.
+                  For the other count,
+                  condition on <m>k=</m> the largest integer not fixed by the nonidentity permutation and use part (b).
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_in_pascal">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <xref ref="act_squares_dominoes">In</xref>,
+            we saw that the number of ways to tile a
+            <m>1 \times n</m> board using <m>1 \times 1</m> squares and
+            <m>1 \times 2</m> dominoes was <m>F_{n+1}</m>,
+            where <m>F_n</m> are the Fibonacci numbers.
+            In this exercise,
+            we use this characterization of the Fibonacci numbers to give a combinatorial proof that
+            <me>
+              \sum_{k = 0}^n \binom{n-k}{k} = F_{n+1}
+            </me>
+            <ol>
+              <li xml:id="part_sq_as_fn_dom">
+                <p>
+                  We want to tile the <m>1 \times n</m> board using <m>s</m> squares and <m>k</m> dominoes.
+                  Note that there are <m>k+s</m> tiles.
+                  In how many ways can we tile the board?
+                  Hint: Think of <m>k+s</m> places to put tiles.
+                  Choose which <m>k</m> places will be dominoes.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let's rewrite the answer to <xref ref="part_sq_as_fn_dom"/> using <m>k</m> and <m>n</m>
+                  (instead of <m>s</m>).
+                  First, explain why <m>2k+s=n</m>.
+                  Next, solve for <m>s</m>.
+                  Last, substitute into your answer to <xref ref="part_sq_as_fn_dom"/> to get a count of the number of ways to tile the board using <m>k</m> dominoes in terms of <m>k</m> and <m>n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Count the total number of ways to tile the
+                  <m>1 \times n</m> using squares and dominoes by using cases conditioned on <m>k=</m> the number of dominoes.
+                  Since cases add <xref ref="thm_cases_add"/>, your answer should be a summation.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_special_sums">for</xref> \subspecialsum</title>
+      <exercise xml:id="exer_eval_sum_formulas_geom">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="thm_geom_sum_finite">Use</xref> to evaluate each sum.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\displaystyle \sum_{k=0}^{8}2 \cdot 3^k</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\displaystyle \sum_{k=0}^{8}10 \cdot (-1)^k</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_sum_formulas_polys">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="thm_sum_formula_polys">Use</xref> to evaluate each sum.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\displaystyle \sum_{k=1}^{8}k</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\displaystyle \sum_{k=1}^{8}k^2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\displaystyle \sum_{k=1}^{8}k^3</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_using_sum_formulas_polys_lin">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="thm_linearity_sums">Use</xref>
+            and <xref ref="thm_sum_formula_polys"></xref>
+            to evaluate <m>\displaystyle \sum_{k=1}^n(2k+1)(k+3)</m> and write your answer in factored form.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_prod_powersofx">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use summation formulas to simplify each of the following expressions.
+            (Yes, each uses summation formulas.)
+            <ol>
+              <li>
+                <p>
+                  <m>1 + x + x^2 + \ldots + x^n</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>xx^2x^3...x^n</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_special_sums">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the formula is for a finite geometric sum and how to use it?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the linearity properties of sums say?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use the formulas for the sum of the first <m>n</m> integers,
+                  their squares, and their cubes?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_perfect">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The integer <m>b</m> is a <term>proper divisor</term>
+            of <m>n</m> if <m>b \mid n</m> but <m>b \lt n</m>.
+            An integer is <term>perfect</term>
+            if it equals the sum of its proper divisors.
+            <ol>
+              <li>
+                <p>
+                  Verify that the integer 28 is perfect.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the smallest perfect integer?
+                  Justify your answer.
+                  That means justify that it's perfect and also that it's smallest.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Can a prime number be perfect?
+                  Explain.
+                </p>
+              </li>
+              <li xml:id="part_geom_sum_perfect">
+                <p>
+                  Show how to use the finite geometric sum formula <xref ref="thm_geom_sum_finite"/> to simplify
+                  <m>\displaystyle \sum_{k=0}^{p-1}2^k</m> where <m>p</m> is a positive integer.
+                </p>
+              </li>
+              <li xml:id="part_divisors_power2_times_odd_prime">
+                <p>
+                  Suppose <m>n = 2^{p-1}q</m> where <m>q</m> is an odd prime.
+                  List the divisors of <m>n</m>,
+                  using <m>\ldots</m> as needed.
+                  Note that <m>2^{p-1}q</m> is the prime factorization of <m>n</m>.
+                </p>
+              </li>
+              <li xml:id="part_sum_divisors_perfect">
+                <p>
+                  Calculate the sum of the divisors of <m>n</m> from <xref ref="part_divisors_power2_times_odd_prime"/> and use your answer from <xref ref="part_geom_sum_perfect"/> to simplify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Note that <m>n</m> is perfect if the sum of <em>all</em>
+                  of the divisors of <m>n</m> is <m>n+n=2n</m>.
+                  Suppose <m>p</m> is prime and <m>q=2^p-1</m> also happens to be prime.
+                  Observe that <m>q</m> is odd.
+                  Consider the integer <m>n = 2^{p-1}q</m> as before.
+                  Use <xref ref="part_sum_divisors_perfect"/> to prove that <m>n</m> is perfect.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_infinite_geom_sum">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            For readers who have studied calculus,
+            an infinite series is defined as a limit.
+            For example,
+            <me>
+              \sum_{k=1}^\infty (ar^k) = \lim_{n \to \infty} \sum_{k=1}^n (ar^k)
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Use the finite geometric sum formula <xref ref="thm_geom_sum_finite"/> to simplify <m>\displaystyle \sum_{k=1}^n (ar^k)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>-1\lt r\lt 1</m>,
+                  explain why <m>\displaystyle \lim_{n \to \infty} r^{n+1} = 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\displaystyle \sum_{k=1}^\infty (ar^k)</m> when <m>-1 \lt r \lt 1</m>.
+                  Simplify your answer,
+                  including multiplying the top and bottom of the your limit by -1
+                  (<xref ref="thm_equal_fractions">using</xref>).
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_fraction_algebra">for</xref>
+      \subfracalg</title>
+      <exercise xml:id="exer_add_sub_fractions">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            On this problem,
+            do not use computational technology except to check.
+            <ol>
+              <li>
+                <p>
+                  Write as one fraction and simplify:
+                  <m>\displaystyle \frac{3}{4} + \frac{1}{2}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write as one fraction and simplify:
+                  <m>\displaystyle \frac{3}{4} \cdot \frac{2}{7}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_add_sub_fractions_withn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Write as one fraction and simplify:
+                  <m>\displaystyle \frac{n-1}{2n-1}+\frac{1}{(2n-1)(2n+1)}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write as one fraction and simplify:
+                  <m>\displaystyle \frac{2n-2}{n}+\frac{2}{n(n+1)}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fraction_arith">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to add and subtract fractions?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why we need a common divisor to add and subtract fractions?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to multiply fractions?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_sum_odds"></xref> Select Answers and Hints</title>
+      <p>
+        Hints: Make sure you use parentheses in <m>f(n-1)=(n-1)^2</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_sum_factorials"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: To simplify <m>n!-1+nn!</m>,
+        first put the factorials together and factor to get
+        <me>
+          n!+nn!-1 = (1+n)n!-1
+        </me>.
+      </p>
+      <p>
+        Now, simplify <m>(1+n)n!</m> using <m>(1+n)=(n+1)</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_geom_sum5"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: To simplify <m>5^n-1+4\cdot5^n</m>,
+        first put the powers of five together and factor to get
+        <me>
+          5^n+4\cdot5^n-1 = 5^n(1+4)-1 = 5^n\cdot5 - 1
+        </me>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_prod_1plus_recip"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Note that <m>\displaystyle 1 + \frac{1}{n} = \frac{n}{n} + \frac{1}{n} =\frac{n+1}{n}</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_prod_evens"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Note that <m>f(n-1) = 2^{n-1}(n-1)!</m>.
+        Simplify <m>\left(2^{n-1}(n-1)!\right)(2n)</m> by collecting the powers of two and separately collecting the factorial.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_firstn_Fib_proof"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Note that <m>f(n-1) = F_{n+1}-1</m> and that the Fibonacci sequence includes
+        <me>
+          \ldots, F_n, F_{n+1}, F_{n+2}, \ldots
+        </me>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_sum_4kplus1"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Use two sets of parentheses to evaluate <m>f(n-1)</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_firstn_Fib_sq_proof"></xref> Select Answers and Hints</title>
+      <p>
+        Hints: Note that
+        <me>
+          F_{n-1}F_n + F_n^2 = F_n(F_{n-1} + F_n)
+        </me>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_sum_multpowers2"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Make sure to use parentheses when evaluating <m>f(n-1)</m>.
+        Also, note that
+        <me>
+          n2^n + n2^n = 2n2^n=n(2\cdot2^n)
+        </me>
+        and
+        <me>
+          n2^{n+1}-2^{n+1}=(n-1)2^{n+1}
+        </me>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_count_cats_dogs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>n-k</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Step 1 is to pick <m>k</m> out of <m>n</m> cats.
+            Step 2 is to pick <m>n-k</m> out of <m>n</m> dogs.
+            Steps multiply.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are <m>n+n=2n</m> animals to start,
+            so after we pick a favorite animal there are <m>2n-1</m> animals remaining.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_comb_pf_sum_binom_sq"></xref> Select Answers and Hints</title>
+      <p>
+        Hints: Make sure to choose <m>n</m> animals in total.
+        If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
+        Look <xref ref="thm_sym_arith_triangle">at</xref>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_comb_pf_sum_weighted_binom_sq"></xref> Select Answers and Hints</title>
+      <p>
+        Hints: Make sure to choose <m>n</m> animals in total.
+        If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
+        Also, look <xref ref="exer_count_cats_dogs">at</xref>
+        <xref ref="part_picked_fav_cat"/>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_sum_formulas_geom"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer is just less than 20,000.
+          </p>
+        </li>
+        <li>
+          <p>
+            10
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_sum_formulas_polys"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer is less than 50.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is just over 200.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is just under 1,300.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_prod_powersofx"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <xref ref="thm_geom_sum_finite">Use</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Write the product as a single power of <m>x</m> where the exponent is a sum written in sigma notation.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

@@ -1,0 +1,1926 @@
+<section xml:id="sec_relations">
+  <title>Cartesian Products and Relations</title>
+  <introduction>
+    <p>
+      All mathematics can be built from sets.
+      A key step is to use sets to define relations.
+      Functions and operations are examples of relations,
+      but that is just the tip of the iceberg.
+      Almost every mathematical symbol you know is either the name of a set or a relation.
+      For example,
+      each of the following mathematical symbols represents a relation
+      <me>
+        +  \times  \sqrt{~}  \mid  =  \neq  \le  >  \land  \lor  \cap  \cup  \oplus  \in  \subseteq  \sim  \cong  \equiv   \|  \perp
+      </me>
+    </p>
+    <p>
+      Relations are built from the Cartesian product of sets,
+      so we begin there.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_cart_prod">
+    <title>\subcartprod</title>
+    <p>
+      The Cartesian product of sets is another set operation that we can use to build new sets from known sets.
+      The Cartesian product of two sets is defined using ordered pairs,
+      which we define in <xref ref="defn_ordered_pairs"></xref>.
+      It is useful to form the Cartesian product of any finite number of sets.
+      For that, we need to extend the definition to ordered tuples of any finite length.
+    </p>
+    <definition xml:id="defn_ordered_tuple">
+      <title>Ordered tuples</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For sets <m>X_1</m>, <m>X_2</m>, <m>X_3</m>,<ellipsis/>,
+                <m>X_n</m> and elements <m>x_1\in X_1</m>,
+                <m>x_2\in X_2</m>, <m>x_3\in X_3</m>,
+                <ellipsis/>, <m>x_n\in X_n</m>,
+                the <term>ordered <m>n</m> tuple</term>
+                <m>(x_1,x_2,x_3, \ldots, x_n)</m> is defined by
+                <me>
+                  (x_1,x_2, x_3, \ldots, x_n) = \{\{x_1\}, \{x_1,x_2\}, \{x_1,x_2,x_3\}, \ldots, \{x_1,x_2,x_3,\ldots, x_n\}\}
+                </me>
+                For example, if <m>X_1=X_2=X_3=\mathbb{Z}</m>, then
+                <me>
+                  (1,5,2) = \{\{1\}, \{1,5\}, \{1,2,5\}\}
+                </me>
+                whereas
+                <me>
+                  (2,1,5) = \{\{2\}, \{1,2\}, \{1,2,5\}\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the ordered tuple <m>(x_1,x_2,x_3, \ldots, x_n)</m>,
+                we say that <m>x_1</m> is the <term>first coordinate</term>,
+                <m>x_2</m> is the <term>second coordinate</term>,
+                <m>x_3</m> is the <term>third coordinate</term>,
+                <ellipsis/>, <m>x_n</m> is the
+                <m>n^{\text{ th } }</m> <term>coordinate</term>.
+                For example, in <m>(1,5,2)</m>,
+                the first coordinate is 1, the second coordiante is 5, and the third coordinate is 2.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      In applications to databases,
+      the coordinates often come from different sets.
+    </p>
+    <example xml:id="exam_ordered_tuples_data">
+      <title>Ordered tuples of data</title>
+      <statement>
+        <p>
+          Create 4-tuples to represent each student at a university where the first coordinate is the student's first name,
+          the second coordinate is that student's family name,
+          the third coordinate is the number of credit hours the student has completed,
+          and the fourth coordinate indicates if the student lives on-campus or off-campus.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let <m>X_1=X_2</m> be the set of all alphabetic strings of length up to ten
+          (for the names),
+          let <m>X_3=\{0,1,2,3,\ldots, 999\}</m>
+          (for the completed credit hours),
+          and <m>X_4=\{\bs{0},\bs{1}\}</m>
+          (for off-campus and on-campus, in that order).
+          For example,
+          the student Elizabeth Anderson who has completed 48 credit hours and currently lives off-campus might be represented by the the 4-tuple
+          <me>
+            (\str{Elizabeth}, \str{Anderson}, 48,\bs{0})
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      We are now ready to define the Cartesian product of sets.
+    </p>
+    <definition xml:id="defn_cart_prod_sets">
+      <title>Cartesian product of sets</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Given sets <m>X</m> and <m>Y</m>,
+                the <term>Cartesian product</term>,
+                denoted <m>X \times Y</m>,
+                is the set of all ordered pairs of the form <m>(x,y)</m> where <m>x \in X</m> and <m>y\in Y</m>.
+                That is,
+                <me>
+                  X \times Y = \{ (x,y) \mid x \in x \text{ and }  y \in Y \}
+                </me>.
+                For example,
+                if <m>X = \{2,3,5\}</m> and <m>Y = \{0,1\}</m>, then
+                <me>
+                  X \times Y = \{ (2,0), (2,1), (3,0), (3,1), (5,0), (5,1)\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Similarly, given sets <m>X_1</m>,
+                <m>X_2</m>, <m>X_3</m>, <ellipsis/>,
+                <m>X_n</m>, the <term>Cartesian product</term>,
+                denoted <m>X_1 \times X_2 \times X_3 \times \cdots \times X_n</m>,
+                is the set of all ordered <m>n</m>-tuples of the form
+                <m>(x_1, x_2, x_3,\ldots,
+                x_n)</m> where <m>x_1 \in X_1</m>, <m>x_2 \in X_2</m>,
+                <m>x_3 \in X_3</m>, <ellipsis/>, <m>x_n \in X_n</m>.
+                That is,
+                <me>
+                  X_1 \times X_2 \times X_3 \times \cdots \times X_n = \{(x_1, x_2, x_3, \ldots, x_n) \mid x_1 \in X_1, x_2 \in X_2, x_3 \in X_3, \ldots, x_n \in X_n\}
+                </me>.
+                For example, if <m>X_1=\{0,1\}</m>,
+                <m>X_2=\{a,b\}</m>, and <m>X_3 = \{1,2\}</m>, then
+                <me>
+                  X_1 \times X_2 \times X_3= \{ (0,a,1), (0,a,2), (0,b,1), (0,b,2), (1,a,1), (1,a,2), (1,b,1), (1,b,2)\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We are often interested in the Cartesian product of a set with itself.
+                Given a set <m>X</m> we write
+                <me>
+                  X^n=\underbrace{X \times X \times X \times \cdots \times X}_{n \text{ times } }
+                </me>.
+                For example,
+                <m>\mathbb{R}^2</m> is the usual <m>xy</m>-plane and
+                <m>\mathbb{R}^3</m> is the usual <m>xyz</m>-space.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      If the elements of the sets <m>X</m> and <m>Y</m> are real numbers,
+      then <m>S \times T \subseteq \mathbb{R}^2</m> and so we can draw
+      <m>X \times Y</m> as points in the <m>xy</m>-plane.
+    </p>
+    <example>
+      <title>Drawing the Cartesian product of two sets of real numbers as points in the $xy$-plane</title>
+      <statement>
+        <p>
+          Consider the sets <m>X = \{2,3,5\}</m> and
+          <m>Y = \{0,1\}</m> from <xref ref="defn_cart_prod_sets"></xref>.
+          Draw <m>X \times Y</m> as points in the <m>xy-</m>plane.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We plot the points of <m>X \times Y</m> in <xref ref="fig_cart_prod_as_points"></xref>.
+        </p>
+        <figure xml:id="fig_cart_prod_as_points">
+          <caption>Representing <m>\{2,3,5\} \times \{0,1\}</m> as points in the <m>xy</m>-plane.</caption>
+          image type not recognized
+        </figure>
+      </solution>
+    </example>
+    <p>
+      Your turn to work with ordered pairs, ordered tuples,
+      and the Cartesian product of sets.
+    </p>
+    <activity xml:id="act_cart_prod">
+      <title>Cartesian product</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Consider the sets <m>P = \{0,1,2,3\}</m> and <m>Q = \{1,5,7\}</m>.
+              Give an example of an element in
+              <m>P \times Q</m> and an element in <m>Q \times P</m>.
+              Is there any ordered pair in both
+              <m>P \times Q</m> and <m>Q \times P</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Again, consider the sets <m>P = \{0,1,2,3\}</m> and <m>Q = \{1,5,7\}</m>.
+              Represent <m>P \times Q</m> as points in the <m>xy</m>-plane and then represent
+              <m>Q \times P</m> as a set of points in the <m>xy</m>-plane.
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture how <m>|X \times Y|</m> is related to <m>|X|</m> and <m>|Y|</m> when <m>X</m> and <m>Y</m> are finite sets.
+            </p>
+          </li>
+          <li>
+            <p>
+              For the set <m>Q = \{1,5,7\}</m>,
+              list the elements of <m>Q^2</m> and represent <m>Q^2</m> as a set of points in the <m>xy</m>-plane.
+            </p>
+          </li>
+          <li>
+            <p>
+              For the set <m>P = \{0,1,2,3\}</m>,
+              give an example of an element of <m>P^3</m>.
+              How many elements does <m>P^3</m> have?
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture how <m>|X^n|</m> is related to <m>|X|</m> when <m>X</m> is a finite set.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_fn_cart_prod">
+    <title>\subfncartprod</title>
+    <p>
+      Note that the domain and/or codomain of a function can be a Cartesian product.
+      A quick note on notation when the domain is a Cartesian product
+    </p>
+    <remark xml:id="rem_fn_on_cart_prod">
+      <title>Notation for Functions on Cartesian products</title>
+      <p>
+        For sets <m>X_1</m>, <m>X_2</m>, <ellipsis/> <m>X_n</m>,
+        if we have a function <m>f</m> with domain <m>X_1 \times X_2 \times \cdots \times X_n</m>,
+        then we should write <m>f((x_1,x_2, \ldots,
+        x_n))</m> where each <m>x_i \in X_i</m>,
+        but the double parentheses look silly,
+        so we often write <m>f(x_1,x_2, \ldots, x_n)</m> instead.
+      </p>
+    </remark>
+    <p>
+      Here are some examples of functions involving Cartesian products of sets.
+    </p>
+    <example>
+      <title>Functions involving Cartesian products of sets</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Consider the function <m>f: \mathbb{R}^2 \to \mathbb{R}</m> defined by <m>f(x,y) = x+y</m>.
+                Identify the domain and codomain of <m>f</m>, evaluate <m>f(3,4)</m>,
+                and describe the set of all ordered pairs <m>(x,y)</m> with
+                <m>f(x,y)=0</m> as a set of points in the <m>xy</m>-plane.
+                <solution>
+                  <p>
+                    The domain of <m>f</m> is <m>\mathbb{R}^2</m> and the codomain is <m>\mathbb{R}</m>.
+                    Next, <m>f(3,4) = 3+4 = 7</m>.
+                    To find all points with <m>f(x,y)=7</m> we solve <m>x+y=7</m> to get <m>y = 7-x</m> which is the line with slope -1 and <m>y</m>-intercept 7.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Consider the function <m>g: \{0,1,2,3\} \to \{1,2,3,4\} \times \{0,1,2,\ldots,10\}</m> defined by <m>g(a) = (a+1,a^2)</m>.
+                Identify the domain and codomain of <m>g</m>,
+                evaluate <m>g(0)</m> and <m>g(3)</m>,
+                and describe the image of <m>g</m>.
+                <solution>
+                  <p>
+                    The domain is <m>\{0,1,2,3\}</m> and the codomain is <m>\{1,2,3,4\} \times \{0,1,2,\ldots,10\}</m>.
+                    We evaluate <m>g(0) = (0+1,0^2)=(1,0)</m> and <m>g(3) = (3+1,3^2)=(4,9)</m>.
+                    There are only finitely many integers in the domain so we can find the image by listing the values
+                    <me>
+                      \{g(0), g(1), g(2), g(3) \} = \{ (1,0), (2,1), (3,4), (4,9)\}
+                    </me>.
+                    You can confirm each of these ordered pairs is in the codomain,
+                    as required.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Consider the function <m>h: \mathbb{Z}^2 \to \mathbb{Z}^2</m> defined by <m>h(a,b) = (c,d)</m> where
+                <m>d=\fn{gcd}(a,b)</m> and <m>m =\fn{lcm}(a,b)</m>,
+                the least (smallest) integer that it a common multiple of <m>a</m> and <m>b</m>.
+                Identify the domain and codomain of <m>h</m>,
+                evaluate <m>h(4,6)</m>,
+                and describe all fixed points of the function <m>h</m>.
+                <solution>
+                  <p>
+                    The domain is <m>\mathbb{Z}^2</m> and the codomain is also <m>\mathbb{Z}^2</m>.
+                    We evaluate <m>h(4,6)=(2,12)</m>.
+                    The fixed points of <m>h</m> are the points <m>(a,b)</m> where <m>h(a,b) = (a,b)</m>.
+                    It follows that <m>a</m> is a common divisor of <m>a</m> and <m>b</m> and <m>b</m> is a common multiple of <m>a</m> and <m>b</m>.
+                    That happens exactly when <m>a \mid b</m>,
+                    so <m>(a,b)</m> is a fixed point exactly when <m>a \mid b</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      As usual, the domain and codomain of functions can involve any type of discrete object.
+    </p>
+    <example xml:id="exam_cart_prod_fn_discrete">
+      <title>Functions involving Cartesian products and discrete objects</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Let <m>S = \{0,1,2,3\}</m> and, as usual,
+                let <m>\mathscr{P}(S)</m> denote the set of all subsets of <m>S</m>.
+                Consider the function <m>\fn{int}: \mathscr{P}(S)^2 \to \mathscr{P}(S)</m> defined by <m>\fn{int}(A,B) = A \cap B</m>.
+                Evaluate <m>\fn{int}(\{0,1,2\},\{2,3\})</m>.
+                <solution>
+                  <p>
+                    We have <m>\fn{int}(\{0,1,2\},\{2,3\}) = \{0,1,2\} \cap \{2,3\} = \{2\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Let <m>D=\{0,1,2,\ldots,9\}</m> be the set of digits and let
+                <me>
+                  T=\{000,001,002,\ldots, 998, 999\}
+                </me>
+                be the set of all strings of digits of length three,
+                the numbers 0-999 written as three-digit numbers.
+                Consider the function <m>\fn{split}:T \to \mathbb{D}^3</m> defined by <m>\fn{split}(abc)= (a,b,c)</m>.
+                Evaluate <m>\fn{split}(486)</m>.
+                <solution>
+                  <p>
+                    We get <m>\fn{split}(486)=(4,8,6)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try to work with functions involving Cartesian products
+    </p>
+    <activity xml:id="act_fn_cart_prod">
+      <title>Functions involving Cartesian products</title>
+      <p>
+        Consider the function <m>f: \mathbb{Z}^2 \to \mathbb{Z}</m> defined by <m>f(a,b) = ab</m>.
+        <ol>
+          <li>
+            <p>
+              State the domain and codomain of <m>f</m> and evaluate <m>f(3,4)</m>.
+            </p>
+          </li>
+          <li xml:id="part_another_pair_mult12">
+            <p>
+              Give an example of an ordered pair <m>(a,b)</m> different from <m>(3,4)</m> with <m>f(a,b) = f(3,4)</m>.
+              What does that tell you about the function <m>f</m>?
+            </p>
+          </li>
+          <li xml:id="part_mult_onto">
+            <p>
+              Given any real number <m>n</m>,
+              find an ordered pair <m>(a,b)</m> such that <m>f(a,b)=n</m>.
+              Hint: Write <m>a</m> and <m>b</m> in terms of <m>n</m>.
+              What does that tell you about the function <m>f</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              For a given integer <m>n</m>,
+              how many ordered pairs <m>(a,b)</m> have <m>f(a,b)=n</m>?
+              Hint: Do not forget the negative divisors.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_defn_relation">
+    <title>\subdefnrelation</title>
+    <p>
+      We are now ready to define a relation.
+    </p>
+    <definition xml:id="defn_relation">
+      <title>Relation</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For any sets <m>X</m> and <m>Y</m>,
+                a <term>relation (from X to Y)</term>
+                is a subset of <m>X \times Y</m>.
+                For example,
+                the set <m>R=\{(a,0),(a,1),(b,1),(b,2)\}</m> is a relation from <m>\{a,b\}</m> to <m>\{0,1,2\}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In many of the important examples, <m>X=Y</m>,
+                and we just say <m>R</m> is a <term>relation on <m>X</m></term>.
+                For example,
+                the set <m>R=\{(0,0),(0,1),(0,2),(1,1),(1,2),(2,2)\}</m> is relation on <m>\{0,1,2\}</m>.
+                We could equivalently define <m>R = \{(a,b) \mid a, b \in \{0,1,2\} \text{ and } a \le b\}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Note that the graph of any function is a relation.
+    </p>
+    <definition xml:id="defn_graph_fn">
+      <title>Graph of a function</title>
+      <statement>
+        <p>
+          For sets <m>X</m> and <m>Y</m> and function <m>f: X \to Y</m>,
+          the <term>graph of the function</term> <m>f</m> is the relation
+          <me>
+            \{(x,y) \mid x \in X, y \in Y, \text{ and }  y = f(x)\}
+          </me>
+          or, equivalently, the graph of <m>f</m> is
+          <me>
+            \{(x,f(x)) \mid x \in X\}
+          </me>.
+          For example,
+          if <m>f: \mathbb{R} \to \mathbb{R}</m> is the function defined by <m>f(x) = 2x+1</m>,
+          then the graph of <m>f</m> is the line <m>y=2x+1</m> that has slope two and intercept one.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      More generally,
+      any graph in the <m>xy</m>-plane is a relation on <m>\mathbb{R}</m>.
+      For example, the unit circle
+      <m>U = \{ (x,y) \mid x^2+y^2=1\}</m> shown in <xref ref="fig_unit_circle_verticallinetest"></xref> is a relation.
+    </p>
+    <p>
+      Although every function has a graph that is a relation,
+      not every relation is the graph of a function.
+      For example,
+      we see in <xref ref="exam_when_graph_is_fn"></xref>
+      that the unit circle is not the graph of a function.
+    </p>
+    <p>
+      Let's look at another example of the graph of a function.
+    </p>
+    <example xml:id="exam_graph_fn_is_relation">
+      <title>The graph of a function on $\mathbb{Z}$</title>
+      <statement>
+        <p>
+          Consider the function <m>s: \mathbb{Z} \to \mathbb{Z}</m> defined by
+          <m>s(n) = n^2+1</m> and let <m>R</m> be the graph of <m>s</m>.
+          <ol>
+            <li>
+              <p>
+                Is <m>(3,8) \in R</m>?
+                Is <m>(2,5) \in R</m>?
+                <solution>
+                  <p>
+                    Since <m>s(3) = 3^2+1=10 \neq 8</m>,
+                    it follows that <m>(3,8)</m> is not on the graph of <m>s</m> and so <m>(3,8) \notin R</m>.
+                    On the other hand, since <m>s(2) = 2^2+1=5</m>,
+                    it follows that <m>(2,5)</m> is on the graph of <m>s</m> and so <m>(2,5) \in R</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find all integers <m>m \in \mathbb{Z}</m> such that
+                <m>(2,m) \in R</m> and find all integers
+                <m>n \in \mathbb{Z}</m> such that <m>(n,5) \in R</m>.
+                <solution>
+                  <p>
+                    First, if <m>(2,m) \in R</m>, then <m>m = s(2) = 5</m>.
+                    No other value of <m>m</m> is possible because by the definition of function <xref ref="defn_function"/> there is only one value for <m>f(2)</m>.
+                    Next, if <m>(n,5) \in R</m>, then <m>5 = f(n) = n^2 +1</m>.
+                    Solving we get <m>n^2=4</m> and so <m>n=2</m> and <m>n=-2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      When <m>X</m> and <m>Y</m> are finite sets or subsets of <m>\mathbb{Z}</m>,
+      we have two ways to visually represent a relation from <m>X</m> to <m>Y</m>.
+    </p>
+    <definition xml:id="defn_draw_relations_dot_diagrams">
+      <title>Drawing relations on finite sets or subsets of <m>\mathbb{Z}</m> using dot diagrams</title>
+      <statement>
+        <p>
+          <nbsp/> When <m>X</m> and <m>Y</m> are finite sets or subsets of <m>\mathbb{Z}</m>,
+          we can represent a relation <m>R</m> from <m>X</m> to <m>Y</m> using a <term>dot diagram</term>
+          where we draw a vertex for each element of <m>X</m> on the left and a vertex for each element of <m>Y</m> on the right.
+          Then we draw an arrow from <m>x</m> to <m>y</m> if <m>(x,y) \in R</m>.
+          This is the same dot diagram we used to represent functions on a finite sets or subsets of <m>\mathbb{Z}</m>.
+          For example,
+          the relation <m>R=\{(a,0),(a,1),(b,1),(b,2)\}</m> from <m>\{a,b\}</m> to
+          <m>\{0,1,2\}</m> can be represented using the dot diagram shown in <xref ref="fig_relation_finite_dot_diagram"></xref>.
+        </p>
+        <figure xml:id="fig_relation_finite_dot_diagram">
+          <caption>The dot diagram for a relation on finite sets.</caption>
+          image type not recognized
+        </figure>
+      </statement>
+    </definition>
+    <p>
+      When <m>X=Y</m>,
+      there is another way we can represent the relation visually.
+    </p>
+    <definition xml:id="defn_draw_relations_directed_graph">
+      <title>Drawing relations on a finite set or subset of <m>\mathbb{Z}</m> using a directed graph</title>
+      <statement>
+        <p>
+          <nbsp/> When <m>R</m> is a relation on a finite set <m>X</m> or subset of <m>\mathbb{Z}</m>,
+          we can also represent <m>R</m> using a
+          <term>(possibly infinite) directed graph</term>.
+          We draw a vertex for each element of <m>X</m> and an arrow from <m>x</m> to <m>y</m> for each pair <m>(x,y) \in R</m>.
+          If <m>(x,y) \in R</m> and <m>(y,x) \in R</m>,
+          then we draw a <term>double-headed arrow</term>.
+          If <m>(x,x) \in R</m>, then we draw a <em>loop</em>
+          <mdash/> an arrow beginning and ending at <m>x</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here are some examples.
+    </p>
+    <example xml:id="exam_directed_graph_relation">
+      <title>Directed graphs for three relations on $\{1,2,3\}$</title>
+      <statement>
+        <p>
+          Consider three different relations on the set <m>X =\{1,2,3\}</m> defined by
+          <me>
+            R_1 = \{(1,1), (2,3), (3,2)\}  R_2 = \{(1,1), (1,2), (1,3), (2,2), (3,3)\}  R_3 = \{ (1,3), (2,3),(3,1)\}
+          </me>
+        </p>
+        <p>
+          Draw the directed graph for each relation.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          In each case our vertices are 1, 2, and 3.
+          The directed graphs are drawn in <xref ref="fig_directed_graph_three_relations"></xref>.
+        </p>
+        <figure xml:id="fig_directed_graph_three_relations">
+          <caption>From left-to-right, the directed graphs for the relations <m>R_1</m>, <m>R_2</m>, and <m>R_3</m> from <xref ref="exam_directed_graph_relation"></xref>.</caption>
+          image type not recognized
+        </figure>
+      </solution>
+    </example>
+    <p>
+      We can draw directed graphs for a relation on an infinite subset.
+    </p>
+    <example xml:id="exam_digraph_rel_infinite">
+      <title>Directed graph of a relation on <m>\mathbb{Z}</m></title>
+      <statement>
+        <p>
+          Draw the directed graph of the relation on <m>\mathbb{Z}</m> defined by
+          <me>
+            R= \{ (a,b) \mid |a-b|=1\}
+          </me>
+          where <m>|~|</m> denotes the absolute value.
+        </p>
+        <solution>
+          <p>
+            Note that <m>|a-b|=1</m> is true in two cases.
+            First, if <m>a-b=1</m>, then <m>b=a-1</m>.
+            Second, if <m>a-b=-1</m>, then <m>b=a+1</m>.
+            Therefore
+            <me>
+              R = \{(a,b) \mid b = a \pm 1\}
+            </me>.
+            For example, when <m>a=1</m> we have
+            <m>(1,2) \in R</m> and <m>(1,0)\in R</m>.
+            The directed graph is drawn in <xref ref="fig_digraph_rel_infinite"></xref>.
+          </p>
+        </solution>
+        <figure xml:id="fig_digraph_rel_infinite">
+          <caption>The directed graph of a relation on <m>\mathbb{Z}</m>.</caption>
+          image type not recognized
+        </figure>
+      </statement>
+    </example>
+    <p>
+      There are several shorthands for relations.
+    </p>
+    <remark xml:id="rem_alt_notation_relations">
+      <title>Alternative notation for relations</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              It is sometimes convenient to write
+              <m>x \sim y</m> instead of <m>(x,y) \in R</m>.
+              This notation is particularly helpful if <m>X</m> itself is a Cartesian product,
+              so we can write <m>(a,b) \sim (c,d)</m> instead of the potentially awkward ordered pair of ordered pairs <m>((a,b),(c,d)) \in R</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We often define a symbol for commonly-used relations.
+              For example,
+              if <m>R = \{ (a,b) \mid a,b \in \mathbb{Z} \text{ and } a \le b\}</m>,
+              then instead of <m>(a,b) \in R</m>,
+              we might just write <m>a \le b</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+    <p>
+      Let's see an example of the <m>\sim</m> notation.
+    </p>
+    <example xml:id="exam_relation_on_cart_prod">
+      <title>A relation on a Cartesian product</title>
+      <statement>
+        <p>
+          Define a relation on <m>X=\mathbb{Z} \times\mathbb{Z}^+</m> by
+          <m>(a_1,b_1) \sim (a_2,b_2)</m> if <m>a_1b_2 = a_2b_1</m> or,
+          equivalently, if <m>\frac{a_1}{b_1}=\frac{a_2}{b_2}</m>.
+          <ol>
+            <li>
+              <p>
+                Show that <m>(4,6) \sim (2,3)</m>.
+                <solution>
+                  <p>
+                    We check that <m>4 \cdot3 = 12 = 2 \cdot 6</m> or, equivalently,
+                    <m>\frac{4}{6}=\frac{2}{3}</m>,
+                    and so <m>(4,6) \sim (2,3)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe the set of ordered pairs <m>(a,b)</m> such that <m>(a,b)\sim(1,2)</m>.
+                <solution>
+                  <p>
+                    If <m>(a,b)\sim(1,2)</m>,
+                    then <m>a(1) = b(2)</m> or, equivalently, <m>a=2b</m>.
+                    The set of ordered pairs related to <m>(1,2)</m> is <m>\{ (2b,b) \mid b \in \mathbb{Z}^+\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to work with relations.
+    </p>
+    <activity xml:id="act_relations">
+      <title>Relations</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_first_relation">
+            <p>
+              Draw the dot diagram and the directed graph for the relation
+              <m>R=\{(0,0), (1,0), (1,1), (1,2)\}</m> on <m>X=\{0,1,2\}</m>.
+              Explain why <m>R</m> is not the rule for a function.
+            </p>
+          </li>
+          <li>
+            <p>
+              For the set <m>Y = \{1,2,3,4,5,6\}</m>,
+              list the ordered pairs in the relation <m>S</m> on <m>Y</m> defined by
+              <me>
+                S = \{ (m,n) \mid m+n = 6 \}
+              </me>
+              and draw the directed graph for <m>S</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the relation <m>S</m> defined on
+              <m>\mathbb{Z}</m> by <m>S=\{(a,b) \mid ab \text{ is even } \}</m>.
+              Is <m>(3,8) \in R</m>?
+              Is <m>(5,5) \in R</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the relation <m>\sim</m> defined on <m>\mathbb{R}</m> by
+              <m>x \sim y</m> if <m>|x - y | \lt 3</m>.
+              First decide if <m>1 \sim 3</m> and then describe
+              <m>\{x \in \mathbb{R} \mid x \sim 0\}</m> using interval notation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the relation <m>\sim</m> defined on
+              <m>\mathbb{R}^2</m> by <m>(x_1,y_1) \sim (x_2,y_2)</m> if
+              <me>
+                y_1-y_2=3(x_1-x_2)
+              </me>.
+              Is <m>(1,2) \sim (2,4)</m>?
+              Is <m>(1,2) \sim (3,8)</m>?
+              Describe all points in the <m>xy</m>-plane such that <m>(x,y) \sim (0,2)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_cart_prod">for</xref>
+      \subcartprod</title>
+      <exercise xml:id="exer_ordered_tuple">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Write each ordered tuple as a set of sets <xref ref="defn_ordered_tuple">using</xref>.
+            <ol>
+              <li>
+                <p>
+                  <m>(3,7)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(3,7,5)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(3,7,5,1)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cart_prod_2sets">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the sets <m>K = \{0, 2, 4\}</m>,
+            <m>L = \{1,3\}</m> and <m>M = \{2\}</m>.
+            For each Cartesian product,
+            list the elements and represent the product as a set of points in the <m>xy</m>-plane.
+            <ol>
+              <li>
+                <p>
+                  <m>K \times L</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>L \times K</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>K \times M</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>L^2</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cart_prod_count">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the sets <m>A = \{1, 2, 3, 4, 5, 6\}</m> and <m>B = \{0, 1, 2\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Draw <m>A \times B</m> as set of points in the usual <m>xy</m>-plane.
+                  How many ordered pairs are in <m>A \times B</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the ordered pairs in <m>B \times B</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many elements does <m>A^2</m> have?
+                  Explain your reasoning.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many elements does <m>B^3</m> have?
+                  Explain your reasoning.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cart_prod_morethan2_sets">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the sets <m>S = \{1,2,3\}</m>,
+            <m>T = \{5,7\}</m>, and <m>V = \{3,7\}</m>.
+            <ol>
+              <li>
+                <p>
+                  List the elements of <m>S \times T \times V</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the elements of <m>T^3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many elements does <m>V^{10}</m> have?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cart_prod_order_formula">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Conjecture how <m>|X \times Y|</m> is related to <m>|X|</m> and <m>|Y|</m> when <m>X</m> and <m>Y</m> are finite sets.
+                  Hint: This result is why the Cartesian product is called a
+                  <q>product</q>
+                  and written with <times/>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture how <m>|X^n|</m> is related to <m>|X|</m> when <m>X</m> is a finite set.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_cart_prod">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to define an ordered pair and an ordered <m>n</m>-tuple?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What <m>X \times Y</m> and <m>X^n</m> mean if <m>X</m> and <m>Y</m> are sets?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to represent <m>X \times Y</m> as points in the <m>xy</m>-plane,
+                  if <m>X, Y \subseteq \mathbb{R}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many elements are in <m>X \times Y</m> or <m>X^n</m> if <m>X</m> and <m>Y</m> are finite sets?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_fn_cart_prod">for</xref>
+      \subfncartprod</title>
+      <exercise xml:id="exer_linear_fn_onRsq">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the function <m>f: \mathbb{R}^2 \to \mathbb{R}</m> defined by <m>f(x,y) = x-2y</m>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain of <m>f</m> and the codomain of <m>f</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>f(3,1)</m> and <m>f(2,0)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a point <m>(x,y)</m> such that <m>f(x,y) = 4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the set of points <m>(x,y)</m> in the <m>xy</m>-plane such that <m>f(x,y) = 0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_into_Zsq_div_mod">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the function <m>\fn{dfive}: \mathbb{N} \to \mathbb{N} \times \mathbb{N}</m> defined by <m>\fn{dfive}(n) = (n ~\fn{div}~ 5, n ~\fn{mod}~ 5)</m>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <c>dfive</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{dfive}(47)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>\fn{dfive}(n)=(3,2)</m>, then find <m>n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>\fn{dfive}(n)=(q,2)</m>,
+                  then find a formula for <m>n</m> in terms of <m>q</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd_as_fn_two_var">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the function <m>\fn{gcd}: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+</m> defined by <m>\fn{gcd}(a,b) = \fn{gcd}(a,b)</m>.
+            (Meaning <c>gcd</c> already was a function of two variables,
+            we just had not made that observation formal yet.)
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <c>gcd</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{gcd}(10,15)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of positive integers <m>a</m> and <m>b</m> such that <m>\fn{gcd}(a,b) = 1</m>.
+                  What's the name for how <m>a</m> and <m>b</m> are related?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of positive integers <m>a</m> and <m>b</m> such that <m>\fn{gcd}(a,b) = 17</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cart_prod_fn_bs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Let <m>\mathbb{B}</m> denote the set of all bit strings and let
+            <m>\mathbb{B}_k</m> denote the bit strings of length <m>k</m>.
+            <ol>
+              <li>
+                <p>
+                  Consider the function <m>\fn{concat}:\mathbb{B}_5 \times \mathbb{B}_5 \to \mathbb{B}_{10}</m> defined by
+                  <m>\fn{concat}(b,c)=bc</m> the bit string that consists of <m>b</m> followed by <m>c</m>
+                  (the <term>concatenation</term> function).
+                  Evaluate <m>\fn{concat}(\bs{01110},\bs{11100})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the function <m>d:\mathbb{B}_5 \times \mathbb{B}_5 \to \{0,1,2,3,4,5\}</m> defined by <m>d(b,c)=</m> the number of bits in which <m>b</m> and <m>c</m> differ.
+                  (This function finds the <term>Hamming distance</term> between two bit strings,
+                  as defined in <xref ref="exer_hamming_distance"></xref>.)
+                  Evaluate <m>d(\bs{01110},\bs{11100})</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_integer_lattice">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the function <m>s: \mathbb{Z}^2 \to \mathbb{Z}^2</m> defined by <m>s(a,b) = (a+b,a-b)</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>s(1,2), s(-2,5)</m>, and <m>s(0,0)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find integers <m>a,b \in \mathbb{Z}</m> such that <m>s(a,b) = (8,2)</m>.
+                  Repeat for <m>s(a,b) = (-3,5)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that there do not exist integers <m>a,b</m> such that <m>s(a,b) = (2,1)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_addition_onetoone_onto">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the function <m>g: \mathbb{Z}^2 \to \mathbb{Z}</m> defined by <m>g(a,b) = a+b</m>.
+            <ol>
+              <li>
+                <p>
+                  Is <m>g</m> onto?
+                  Briefly justify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>g</m> one-to-one?
+                  Briefly justify your answer.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd_onetoone_onto">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the function <m>\fn{gcd}: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+</m> defined by
+            <m>\fn{gcd}(a,b)</m> is the greatest common divisor of <m>a</m> and <m>b</m>.
+            <ol>
+              <li>
+                <p>
+                  Is <m>\fn{gcd}</m> onto?
+                  Briefly justify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\fn{gcd}</m> one-to-one?
+                  Briefly justify your answer.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_data_fn_graphs_sets">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Let <m>\mathscr{A}</m> be the set of all 5-element subsets of <m>\mathbb{R}</m>.
+                  Consider the function <m>f: \mathscr{A} \to \mathbb{R}^3</m> defined by
+                  <me>
+                    f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
+                  </me>
+                  where <m>\fn{min}(A)=</m> the smallest element of <m>A</m>,
+                  <m>\fn{max}(A)=</m> the largest element of <m>A</m>,
+                  and <m>\fn{median}(A) =</m> the median of the set <m>A</m>.
+                  To find the <term>median</term> of a set of five real numbers,
+                  list the sets in nondecreasing order
+                  (smallest to largest).
+                  The third number on that ordered list is the median.
+                  Evaluate <m>f(\{1.1, 5.3, 2.7, 1.6, 6.1\})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>\mathbb{G}_5</m> be the set of all graphs with five vertices.
+                  Consider the function <m>g: \mathbb{G}_5 \to \mathbb{N}^5</m> defined by
+                  <m>g(G) = (n,m,\Delta,\delta,\chi)</m> where <m>n=</m> the number of vertices of <m>G</m>,
+                  <m>m=</m> the number of edges in <m>G</m>,
+                  <m>\Delta=</m> the max degree of a vertex in <m>G</m>,
+                  <m>\delta=</m> the min degree of a vertex in <m>G</m>,
+                  and <m>\chi=</m> the chromatic number of <m>G</m>.
+                  Evaluate <m>g(P_5)</m> for the path <m>P_5</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_cart_prod_fns">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Why we write <m>f(x,y)</m> instead of
+                  <m>f((x,y))</m> when the domain of <m>f</m> is the Cartesian product <m>X \times Y</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate functions whose domain or codomain are Cartesian products?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find or describe input values that produce a given output value for a function whose domain or codomain are Cartesian products?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to determine the domain, codomain,
+                  and image of functions whose domain or codomain are Cartesian products?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to determine if a function is onto or one-to-one when the domain or codomain of the function are Cartesian products?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_integer_lattice_again">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the function <m>s: \mathbb{Z}^2 \to \mathbb{Z}^2</m> defined by
+            <m>s(a,b) = (a+b,a-b)</m> from <xref ref="exer_fn_integer_lattice"></xref>.
+            <ol>
+              <li>
+                <p>
+                  If <m>a,b</m> are both even integers or both odd integers,
+                  what can you say about the coordinates of <m>s(a,b)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If one of <m>a,b</m> is an even integer and the other is an odd integer,
+                  what can you say about the coordinates of <m>s(a,b)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why it follows if <m>c</m> is an even integer and <m>d</m> is an odd integer,
+                  then there cannot exist integers <m>a,b</m> such that <m>s(a,b) = (c,d)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the image of <m>s</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_inverse_fn_on_cart_prod">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the function<fn>
+            If you have studied linear algebra,
+            <m>T</m> is the linear transformation corresponding to the matrix
+            <m>\left[ \begin{array}{rr} 0 \amp -1 \\ 1 \amp 0 \end{array} \right]</m> which rotates the <m>xy</m>-plane by 90<m>^\circ</m> counterclockwise,
+            except we are restricting it to points where both coordinates are integers.
+            </fn> <m>f: \mathbb{Z}^2 \to \mathbb{Z}^2</m> defined by <m>f(a,b) = (-b,a)</m>.
+            For example, <m>f(2,3) = (-3,2)</m>.
+            The function <m>f</m> is a bijection,
+            so it has an inverse function.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>f^{-1}(-3,2)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What's <m>f^{-1}(5,7)</m>?
+                  Check by evaluating <m>f</m> of your answer to make sure you get <m>(5,7)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a rule for <m>f^{-1}(c,d)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_defn_relation">for</xref>
+      \subdefnrelation</title>
+      <exercise xml:id="exer_relation_def_list">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Draw the directed graph for each relation on the set <m>X=\{0,1,2\}</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>\{(0,0), (0,1), (1,0), (1,2), (2,2)\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>X^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\phi</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_relation_def_set-builder">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Draw the directed graph of each relation defined on the set <m>Y = \{1,2,3,4,5,6\}</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>\{ (m,n) \mid m>n \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{ (m,n) \mid m\ge n \}</m> Don't forget the loops!
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{ (m,n) \mid m=n \}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_linear_relation_reals">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the relation <m>\sim</m> defined on
+            <m>\mathbb{R}</m> by <m>x \sim y</m> if <m>y = x+2</m>.
+            <ol>
+              <li>
+                <p>
+                  Is <m>1 \sim 3</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>3 \sim 1</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a real number <m>x</m> such that <m>x \sim 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a real number <m>y</m> such that <m>0 \sim y</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_relations_integerfs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For each relation <m>R</m> defined on the integers <m>\mathbb{Z}</m>,
+            first decide if <m>(3,8) \in R</m> and then give an example of an ordered pair of the form
+            <m>(a,a) \in R</m> for some <m>a \in \mathbb{Z}</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>R= \{(a,b) \mid ab =0 \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>R=\{(a,b) \mid a \mid b \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>R=\{(a,b) \mid b ~\fn{mod}~ 5 = a ~\fn{mod}~ 5 \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>R=\{(a,b) \mid \fn{gcd}(a,b)=1 \}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_all_relations_01">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Find all relations on <m>\{0,1\}</m> and draw the directed graph for each relation.
+                  Save a little time by not labeling the vertices <mdash/> just draw the vertex that represents 0 on the left and the vertex that represents 1 on the right.
+                  For example,
+                  the relation <m>\{(1,0),(1,1)\}</m> can be drawn quickly as shown in <xref ref="fig_reln_01_quick"></xref>.
+                  <figure xml:id="fig_reln_01_quick">
+                    <caption>Quick drawing of the directed graph for the relation <m>\{(1,0),(1,1)\}</m> on <m>\{0,1\}</m>.</caption>
+                    image type not recognized
+                  </figure>
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many relations are there on <m>\{0,1\}</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_directed_graph_rel_infinite">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Draw the directed graph of each relation on <m>\mathbb{Z}^+</m>.
+            Show the vertices <m>0,1,2,3,\ldots, 10</m> and make sure to include the <ellipsis/> on the right.
+            <ol>
+              <li>
+                <p>
+                  <m>R = \{ (a,b) \mid b = a+1\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>R = \{ (a,b) \mid b^2=a\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>R = \{(a,b) \mid 2a\lt b\}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_distance_relation">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Define a relation on <m>\mathbb{R}^2</m> by <m>(x_1,y_1) \sim (x_2,y_2)</m> if
+            <me>
+              \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2} \le 5
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Is <m>(1,2) \sim (4,6)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>(4,6) \sim (0,0)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>(1,2) \sim (0,0)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a graph showing the set of points
+                  <m>(x,y) \in \mathbb{R}^2</m> such that <m>(x,y) \sim (0,0)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_slope_relation">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the relation <m>\sim</m> defined on
+            <m>\mathbb{R}^2</m> by <m>(x_1,y_1) \sim (x_2,y_2)</m> if
+            <me>
+              y_1-y_3=3(x_1-x_2)
+            </me>
+            which we saw in <xref ref="act_relations"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Describe the set of points <m>(x,y)</m> such that <m>(x,y) \sim (0,0)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the set of points <m>(x,y)</m> such that <m>(x,y)\sim (1,2)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_is_graph_function">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For each relation,
+            decide if the relation is the graph of a function or not.
+            <ol>
+              <li>
+                <p>
+                  <m>R = \{(0,a), (2,c)\}</m> from
+                  <m>X = \{0,1,2\}</m> to <m>Y= \{a,b,c\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>R = \{(0,a), (0,b), (1,c), (2,b)\}</m> from
+                  <m>X = \{0,1,2\}</m> to <m>Y= \{a,b,c\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>R = \{ (x,x^2) \mid x \in \mathbb{R}\}</m> Note:
+                  the point <m>(x,y) \in R</m> exactly when <m>y = x^2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>R = \{ (y^2,y) \mid y \in \mathbb{R}\}</m> Note:
+                  the point <m>(x,y) \in R</m> exactly when <m>x = y^2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_relations">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What a relation is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why every graph of a function is a relation but not every relation is the graph of a function?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to draw the dot diagram and the directed graph for a relation on a finite set or a subset of <m>\mathbb{Z}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What <m>x \sim y</m> stands for in the context of relations?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_relation_bs">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            As usual, let <m>\mathbb{B}^*</m> denote the set of all (non-empty) bit strings.
+            Define a relation on <m>\mathbb{B}^*</m> by
+            <m>b \sim c</m> if <m>b</m> is a substring of <m>c</m>;
+            that is, if the bit string <m>b</m> appears in consecutive order within the bit string <m>c</m>.
+            For example,
+            <m>\bs{101} \sim \bs{11}\underline{\bs{101}}\bs{0}</m> but
+            <m>\bs{00} \not\sim \bs{111010}</m> because <c>111010</c> does not contain two consecutive <c>0</c> s.
+            <ol>
+              <li>
+                <p>
+                  Is <m>11 \sim 101</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List all bit strings <m>b</m> such that <m>b \sim \bs{101}</m>.
+                  Note: <m>\bs{101}</m> should be on your list.
+                </p>
+              </li>
+              <li xml:id="part_find_bs_c">
+                <p>
+                  Find a bit string <m>c</m> such that <m>00 \sim c</m>,
+                  <m>01 \sim c</m>, <m>10 \sim c</m>, and <m>11 \sim c</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a bit string <m>c</m> that is as short as possible with <m>00 \sim c</m>,
+                  <m>01 \sim c</m>, <m>10 \sim c</m>, and <m>11 \sim c</m>.
+                  Note: you might have found one in <xref ref="part_find_bs_c"/> or there might be a shorter one.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_relations_on_power_set">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            For the set <m>S = \{1, 2, 3\}</m>,
+            consider the following relations on <m>\mathscr{P}(S)</m>,
+            the power set of <m>S</m>.
+            For each relation, decide if
+            <m>\{1,2\} \sim \{2,3\}</m> and decide if <m>\varnothing \sim S</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>A \sim B</m> if <m>A \subseteq B</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>A \sim B</m> if <m>|A|=|B|</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>A \sim B</m> if <m>A \cap B = \varnothing</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>A \sim B</m> if <m>A \cup B = S</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_all_relations">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            For a finite set <m>X</m> with <m>|X|=n</m>,
+            how many relations are there on <m>X</m>?
+            Your conjecture should involve <m>n</m>.
+            Explain how you figured out your answer.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_cart_prod_count"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There should be 18 points.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The list begins <m>(0,0), (0,1), (0,2), (1,0), \ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is greater than 30.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is greater than 20.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_cart_prod_order_formula"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Test your conjectures on the sets from <xref ref="exer_cart_prod_count"></xref>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_linear_fn_onRsq"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The domain is <m>\mathbb{R}^2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>f(3,1)=1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You can pick a value for <m>y</m> and solve for <m>x</m> in the equation <m>x-2y=4</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The set of points form a line.
+            Find its equation or say what the slope and <m>y</m>-intercept are.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fn_into_Zsq_div_mod"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: They are not the same set.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>(9,2)</m>
+          </p>
+        </li>
+        <li xml:id="part_dfive_solve">
+          <p>
+            Hint: There is only one value of <m>n</m>.
+            If you are still stuck, look <xref ref="thm_div_alg">at</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Follow the process you used for <xref ref="part_dfive_solve"/>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_gcd_as_fn_two_var"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The codomain is <m>\mathbb{Z}^+ \to \mathbb{Z}^+</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            5
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>a</m> and <m>b</m> should not have any common (positive) divisors except 1.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure <m>17 \mid a</m> and
+            <m>17 \mid b</m> and that no larger integers divides both <m>a</m> and <m>b</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_cart_prod_fn_bs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your answer should be a bit string of length 10 that starts and ends with <c>0</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: They differ in the first and fourth bits.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fn_integer_lattice"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>s(1,2)=(3,-1)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: For <m>s(a,b) = (8,2)</m> we want integers <m>a</m> and <m>b</m> such that <m>a+b=8</m> and <m>a-b=2</m>.
+            The second equation tells us <m>a = b+2</m>.
+            Either guess from here or plug into the first equation to get <m>(b+2)+b=8</m>.
+            Solve for <m>b</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: For <m>s(a,b) = (2,1)</m> we want integers <m>a</m> and <m>b</m> such that <m>a+b=2</m> and <m>a-b=1</m>.
+            The second equation tells us <m>a = b+1</m>.
+            Plug into the first equation to get <m>(b+1)+b=2</m>.
+            Solve for <m>b</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_data_fn_graphs_sets"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer is a 3-tuple with second coordinate equal to 6.1.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is a 5-tuple with second coordinate equal to four.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_relation_def_list"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The directed graph has two loops,
+            one double-headed arrow, and one single-headed arrow.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The directed graph has three loops and three double-headed arrows.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The directed graph consists of three points with no loops and no arrows.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_relation_def_set-builder"></xref> Select Answers and Hints</title>
+      <ol>
+        <li xml:id="part_digraph_rel123456_greater">
+          <p>
+            The directed graph is drawn in <xref ref="fig_digraph_relon123456"></xref>.
+            <figure xml:id="fig_digraph_relon123456">
+              <caption>The directed graph of the relation on <m>\{1,2,3,4,5,6\}</m> defined by <m>\{(m,n) \mid m > n\}</m>.</caption>
+              image type not recognized
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The directed graph has the same arrows as <xref ref="part_digraph_rel123456_greater"/>, but it also has loops at each point.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The graph has loops but no arrows.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_relations_integerfs"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: <m>(3,8)</m> is in two of the four relations.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_distance_relation"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Two answers are yes and one answer is no.
+        For the graph,
+        <m>\sqrt{x^2 + y^2}</m> is the distance between the point <m>(x,y)</m> and the origin <m>(0,0)</m>,
+        so the points in the relation are at most five units from the origin.
+        The region should be shaded.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_slope_relation"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: If <m>(x,y) \sim (0,0)</m>, then <m>y-0=3(x-0)</m>.
+            Simplify and explain what line that is (slope and <m>y</m>-intercept.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is a different line.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_relation_bs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer is no.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The list begins <c>0</c>,
+            <c>1</c>,
+            <c>01</c>,
+            <ellipsis/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One answer is <c>00011011</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find a bit string of length five meeting the conditions.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_relations_on_power_set"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Two of the relations have
+        <m>\{1,2\} \sim \{2,3\}</m> and three of the relations have <m>\varnothing \sim S</m>.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

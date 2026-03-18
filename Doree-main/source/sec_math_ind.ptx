@@ -1,0 +1,1050 @@
+<section xml:id="sec_math_ind">
+  <title>Mathematical Induction</title>
+  <introduction>
+    <p>
+      In this section, we introduce mathematical induction,
+      a powerful proof technique used throughout mathematics and theoretical computer science to prove a statement <m>P(n)</m> that depends on an integer <m>n</m>.
+      For example,
+      it is used in computer science to verify loop invariants.
+      We practice using mathematical induction to prove some of our conjectures about explicit rules for recursively-defined sequences from <xref ref="sec_recursively_defined_sequences"></xref>.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_pff_math_induction">
+    <title>\subpffmathind</title>
+    <p>
+      Mathematical induction is used to prove a statement <m>P(n)</m> for all values of the integer <m>n \ge s</m> for some nonnegative integer <m>s</m>.
+      That is, to prove the infinite list of statements <m>P(s)</m>,
+      <m>P(s+1)</m>, <m>P(s+2)</m>, <ellipsis/>.
+      A proof by mathematical induction takes an inventive approach.
+    </p>
+    <definition xml:id="defn_math_ind">
+      <title>Proof by mathematical induction</title>
+      <statement>
+        <p>
+          A proof by <term>mathematical induction</term>
+          that a statement <m>P(n)</m> is true for all integers <m>n \ge s</m>,
+          where <m>s</m> is a nonnegative integer, consists of two parts.
+          <ol>
+            <li>
+              <p>
+                First, we prove the <term>base case</term>: <m>P(s)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Next, we prove the <term>inductive step</term>:
+                for any integer <m>n</m>,
+                if <m>n > s</m> and <m>P(n-1)</m>, then <m>P(n)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                To prove the inductive step,
+                we assume <m>P(n-1)</m> for some integer <m>n > s</m> and prove <m>P(n)</m> using a direct proof of the conditional <xref ref="pff_if_then_direct"/>.
+                The assumption of <m>P(n-1)</m> is the
+                <term>inductive hypothesis</term>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here is the official proof format.
+    </p>
+    <proof>
+    <p>
+      Prove <m>P(n)</m> for <m>n \ge s</m>.
+    </p>
+    <proof>
+      <p>
+        Induct on <m>n</m>.
+        First, when <m>n=s</m> we have (explain why <m>P(s)</m> is true).
+      </p>
+      <p>
+        Next, assume <m>P(n-1)</m> for some integer <m>n > s</m>.
+        That is, (restate <m>P(n-1)</m> more clearly, if needed).
+        Then (explain why <m>P(n)</m> is true).
+      </p>
+    </proof>
+    </proof>
+    <p>
+      The phrase
+      <q>induct on <m>n</m></q>
+      alerts the reader that we are using proof by mathematical induction.
+      The key words in the proof are
+      <q>First</q>
+      (indicates the base case),
+      <q>Assume</q>
+      (indicates the inductive hypothesis),
+      <q>for Some</q>
+      (indicates the existential quantifier), and
+      <q>Then</q>
+      (indicates the end of the inductive step).
+      A mnemonic is that a proof by mathematical induction is FAST.
+    </p>
+    <p>
+      Why does this proof format work?
+      The result of the inductive step is
+      <m>P(n-1) \to P(n)</m> whenever <m>n > s</m>.
+      That is, if we know that <m>P(n-1)</m> is true for some integer <m>n >s</m>,
+      then we can conclude that <m>P(n)</m> is true.
+      Since we have proved <m>P(s)</m> in the base case,
+      we can apply the result of the inductive step with <m>n=s+1</m> to get <m>P(s) \to P(s+1)</m>,
+      from which it follows that <m>P(s+1)</m>.
+      Officially we are using the logical inference <em>modus ponens</em>
+      from <xref ref="sec_inference"></xref>.
+      Then, since we know <m>P(s+1)</m>,
+      we can apply the result of the inductive step with <m>n=s+2</m> to get
+      <m>P(s+1) \to P(s+2)</m> from which it follows that <m>P(s+2)</m>.
+      And so on.
+    </p>
+    <p>
+      Try reading a proof by mathematical induction.
+    </p>
+    <activity xml:id="act_div_proof_math_ind">
+      <title>Divisibility proof by mathematical induction</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Copy the following proof.
+              Use mathematical induction to prove that
+              <m>4 \mid (5^n-1)</m> for all integers <m>n \ge 1</m>
+              <proof>
+                <p>
+                  First, when <m>n=1</m> we have <m>5^1-1=4</m> so <m>4 \mid (5^1-1)</m>.
+                </p>
+                <p>
+                  Next, assume <m>4 \mid (5^{n-1}-1)</m> for some integer <m>n > 1</m>.
+                  By the definition of divides, we can write
+                  <me>
+                    5^{n-1}-1=4k
+                  </me>
+                  for some integer <m>k</m>.
+                  Adding one to each side of the equation we get
+                  <me>
+                    5^{n-1}=4k+1
+                  </me>.
+                </p>
+                <p>
+                  Then
+                  <me>
+                    5^n-1=5\cdot5^{n-1}-1 = 5(4k+1)-1 = 20k + 5 -1= 20k+4 = 4(5k+1)
+                  </me>
+                  and so <m>4 \mid (5^n-1)</m>.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              In the proof you copied,
+              <m>P(n)</m> was the statement <m>4 \mid (5^n-1)</m>.
+              What what the inductive hypothesis <m>P(n-1)</m>?
+              Hint: Look after the word
+              <q>assume</q>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain the algebra step-by-step in the last line of the proof.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at more examples.
+    </p>
+    <example xml:id="exam_math_ind_number_bs">
+      <title>Number of bit strings</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                <xref ref="thm_number_bit_strings">In</xref>,
+                we proved that for <m>n \ge 0</m> there are <m>2^n</m> bit strings of length <m>n</m>.
+                Use mathematical induction to prove that there are <m>2^n</m> bit strings of length <m>n</m>.
+                <solution>
+                  <p>
+                    <em>Proof</em> Induct on <m>n</m>.
+                    First, when <m>n=0</m>, there is exactly one bit string of length zero,
+                    namely <m>\lambda</m>, the empty bit string.
+                    Since <m>2^0=1</m>,
+                    it follows that there are <m>2^0</m> bit strings of length zero.
+                  </p>
+                  <p>
+                    Next, assume there are <m>2^{n-1}</m> bit strings of length <m>n-1</m> for some integer <m>n > 0</m>.
+                    Let <m>b</m> be a bit string of length <m>n</m>.
+                    Since the length of <m>b</m> is at least 1, we can consider two cases.
+                  </p>
+                  <p>
+                    Case 1: <m>b</m> starts with <c>0</c>.
+                    Then <m>b=\bs{0}b_0</m> where <m>b_0</m> is a bit string of length <m>n-1</m>.
+                    By the inductive hypothesis,
+                    there are <m>2^{n-1}</m> choices for the bit string <m>b_0</m>.
+                    Therefore, there are <m>2^{n-1}</m> choices for the bit string <m>b</m> in this case.
+                  </p>
+                  <p>
+                    Case 2: <m>b</m> starts with <c>1</c>.
+                    Then <m>b=\bs{1}b_1</m> where <m>b_1</m> is a bit string of length <m>n-1</m>.
+                    By the inductive hypothesis,
+                    there are <m>2^{n-1}</m> choices for the bit string <m>b_1</m>.
+                    Therefore, there are also <m>2^{n-1}</m> choices for the bit string <m>b</m> in this case.
+                  </p>
+                  <p>
+                    Then, since cases add <xref ref="thm_cases_add"/>, there are
+                    <me>
+                      2^{n-1}+2^{n-1}=2\cdot2^{n-1}=2^n
+                    </me>
+                    bit strings of length <m>n</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What was the inductive hypothesis?
+                <solution>
+                  <p>
+                    The inductive hypothesis was that there are <m>2^{n-1}</m> bit strings of length <m>n-1</m> for some integer <m>n > 0</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain step-by-step why the algebra in the final equation is correct.
+                <solution>
+                  <p>
+                    For any number <m>x</m> we have <m>x+x=x(1+1)=2x</m>.
+                    In particular,
+                    <me>
+                      2^{n-1}+2^{n-1}=2\cdot2^{n-1}
+                    </me>.
+                    Next, <m>2\cdot2^{n-1}= 2 \cdot \underbrace{2 \times 2 \times \cdots \times 2}_{(n-1) \text{ times } }=  \underbrace{2 \times 2 \times \cdots \times 2}_{n \text{ times } }=2^n</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We conclude with an example of a proof by mathematical induction about trees.
+      We use the fact that any tree with at least two vertices contains at least one leaf
+      (degree one vertex).
+    </p>
+    <example xml:id="exam_math_ind_tree_size">
+      <title>Tree with <m>n</m> vertices has exactly <m>n-1</m> edges</title>
+      <statement>
+        <p>
+          Use mathematical induction to prove that a tree with <m>n</m> vertices has exactly <m>n-1</m> edges.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Proof</em> Induct on <m>n</m>.
+        </p>
+        <p>
+          First, when <m>n=1</m> the only tree is a single vertex which has zero edges,
+          and <m>1-1=0</m>.
+        </p>
+        <p>
+          Next, assume that any tree with <m>(n-1)</m> vertices has exactly
+          <m>(n-1)-1 = n-2</m> edges for some integer <m>n \ge 2</m>.
+          Let <m>T</m> be a tree with <m>n</m> vertices.
+          Since every tree with at least two vertices has at least one leaf,
+          there exists a vertex <m>v</m> in <m>T</m> such that <m>\fn{deg}(v)=1</m>.
+        </p>
+        <p>
+          Consider the graph <m>T'</m> formed by removing <m>v</m> and the one edge ending at <m>v</m> from <m>T</m>.
+          Since <m>T</m> was a tree,
+          it does not contain any cycles so neither does <m>T'</m>.
+          Since <m>T</m> is connected,
+          any two vertices in <m>T</m> are connected by a path in <m>T</m>.
+          Since <m>\fn{deg}(v)=1</m>,
+          there is no path that includes <m>v</m> in the middle (because that would mean <m>\fn{deg}(v)\ge2</m>).
+          Therefore any two vertices other than <m>v</m> are connected by a path in <m>T</m> that does not include <m>v</m> and so <m>T'</m> is still connected.
+          Last, <m>T'</m> has <m>(n-1)</m> vertices because we removed one vertex.
+        </p>
+        <p>
+          By our inductive hypothesis,
+          it follows that <m>T'</m> has exactly <m>(n-2)</m> edges.
+          Since we only removed one edge from <m>T</m>,
+          it follows that <m>T</m> has exactly <m>(n-2)+1=n-1</m> edges.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_alg_ind">
+    <title>\subalgind</title>
+    <p>
+      Proofs by mathematical induction can involve a lot of algebra.
+      It would be a good moment to review:
+      <ul>
+        <li>
+          <p>
+            <xref ref="sub_integer_algebra"></xref>,
+          </p>
+        </li>
+        <li>
+          <p>
+            <xref ref="sub_factorials"></xref>,
+          </p>
+        </li>
+        <li>
+          <p>
+            <xref ref="sub_exp_log"></xref>,
+          </p>
+        </li>
+        <li>
+          <p>
+            <xref ref="sub_fractions"></xref>, and
+          </p>
+        </li>
+        <li>
+          <p>
+            <xref ref="sub_polys"></xref>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Specifically, within proofs of mathematical induction,
+      we often want to evaluate and simplify <m>f(n-1)</m> where <m>f</m> is a function and <m>n</m> is an integer.
+      Let's see a few examples.
+    </p>
+    <example xml:id="exam_eval_fofnminus1">
+      <title>Evaluating <m>f(n-1)</m></title>
+      <statement>
+        <p>
+          In each part, evaluate <m>f(n-1)</m> and simplify your answer.
+          <ol>
+            <li>
+              <p>
+                Consider the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=2^{n+1}-1</m>.
+                <solution>
+                  <p>
+                    It may be helpful to think of <m>f(\Box) = 2^{(\Box)+1} -1</m>.
+                    To calculate <m>f(n-1)</m>, we replace <m>n</m> in the original formula
+                    (or <m>\Box</m> in this new version)
+                    with <m>(n-1)</m> in parentheses to get
+                    <me>
+                      f(n-1) = 2^{(n-1)+1}-1=2^n-1
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Consider the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=n^2-n</m>.
+                <solution>
+                  <p>
+                    It may be helpful to think of <m>f(\Box) = (\Box)^2-(\Box)</m>.
+                    To calculate <m>f(n-1)</m>,
+                    we replace each occurrence of <m>n</m> in the original formula
+                    (or <m>\Box</m> in this new format)
+                    by <m>(n-1)</m> in parentheses to get
+                    <me>
+                      f(n-1) = (n-1)^2-(n-1) = n^2-2n+1-n+1=n^2-3n+2
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Your turn to practice.
+    </p>
+    <activity xml:id="act_eval_fofnminus1">
+      <title>Evaluating <m>f(n-1)</m></title>
+      <p>
+        In each part, evaluate <m>f(n-1)</m> and simplify your answer.
+        <ol>
+          <li>
+            <p>
+              <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=3n+1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=n(n+1)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=3 \cdot 10^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>\displaystyle f(n)=a \left(\frac{r^{n+1}-1}{r-1}\right)</m>,
+              for constants <m>a</m> and <m>r</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_pff_verify_explicit_seq">
+    <title>\subpffindseq</title>
+    <p>
+      One special case where proof by mathematical induction is used is to prove an explicit rule for a recursively-defined sequence.
+      We state this special case as its own proof format.
+    </p>
+    <proof>
+    <p>
+      Given the sequence <m>a</m> defined recursively by <m>a_s=</m>
+      (initial condition)
+      and <m>a_n=</m>
+      (recursive rule)
+      for <m>n \ge s+1</m>, prove <m>a_n=</m>
+      (explicit rule)
+      for <m>n \ge s</m>.
+    </p>
+    <proof>
+      <p>
+        Write <m>f(n) =</m>(explicit rule).
+        Induct on <m>n</m>.
+      </p>
+      <p>
+        First, when <m>n=s</m> we know that <m>a_s=</m>
+        (initial condition)
+        and also <m>f(s)=</m>
+        (evaluate and simplify to get the same answer).
+      </p>
+      <p>
+        Next, assume <m>a_{n-1}=f(n-1)=</m>
+        (evaluate and simplify),
+        for some integer <m>n > s</m>.
+        Then
+        <md>
+          <mrow>a_n \amp  = \text{ (recursive rule) }</mrow>
+          <mrow>\amp  = \cdots \text{ (use the inductive hypothesis to replace }  a_{n-1} \text{ by }  f(n-1)) \cdots</mrow>
+          <mrow>\amp  = \cdots \text{ (use algebra) }  \cdots</mrow>
+          <mrow>\amp  = f(n)</mrow>
+        </md>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      Note that in the base case we prove <m>a_s=f(s)</m>.
+      The inductive hypothesis is
+      <m>a_{n-1}=f(n-1)</m> for some integer <m>n > s</m>.
+      In the inductive step, we prove <m>a_n=f(n)</m>.
+      As usual, here is an example of the proof format for you to copy and edit.
+    </p>
+    <activity xml:id="act_pff_math_ind_seq">
+      <title>Use mathematical induction to prove the explicit form of a recursively-defined sequence</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Copy the following proof.
+              Consider the sequence <m>a</m> defined recursively by <m>a_0= 1</m> and <m>a_n = 2a_{n-1}</m> for <m>n \ge 1</m>.
+              Prove that <m>a_n=2^n</m> for <m>n \ge 0</m>.
+              <em>Proof</em> Write <m>f(n) = 2^n</m>.
+              Induct on <m>n</m>.
+              First, when <m>n=0</m> we know that <m>a_0 = 1</m> and also <m>f(0) = 2^0 = 1</m>.
+              Next, assume <m>a_{n-1} = f(n-1)= 2^{n-1}</m> for some integer <m>n \ge 0</m>.
+              Then <m>a_n = 2a_{n-1} = 2 \cdot 2^{n-1} = 2^n = f(n)</m> <m>\Box</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof to prove if the sequence <m>b</m> is defined recursively by <m>b_0=10</m> and <m>b_n = 3b_{n-1}</m> for <m>n \ge 1</m>,
+              then <m>b_n=10\cdot3^n</m> for <m>n \ge 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>u</m> is defined by <m>u_0= 10</m> and <m>u_n = u_{n-1}^2</m> for <m>n \ge 1</m>.
+              Use mathematical induction to prove <m>u_n = 10^{2^n}</m> for <m>n \ge 0</m>.
+              Be careful: <m>10^{2^n}</m> means <m>10^{(2^n)}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_math_induction">for</xref>
+      \subpffmathind</title>
+      <exercise xml:id="exer_divisibility_proof_induction">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that
+            <m>3 \mid (4^n-1)</m> for all integers <m>n \ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_every_int_even_or_odd">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove every integer is either even or odd.
+            Use that <m>n=(n-1)+1</m> and the inductive hypothesis to break into two cases:
+            <m>n-1</m> is even or <m>n-1</m> is odd.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_edges_Kn_proof_ind">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = \frac{n(n-1)}{2}</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate and simplify <m>f(1)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate and simplify <m>f(n-1)</m>.
+                  Leave the numerator in factored form.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Copy the following outline of a proof by mathematical induction that the complete graph <m>K_n</m> has <m>f(n)</m> edges for <m>n \ge 1</m> and fill in the missing details.
+                  <proof>
+                    <p>
+                      First, when <m>n=1</m>,
+                      the graph <m>K_1</m> is one vertex which has 0 edges and <m>f(1)=\underline{\hspace{1in}}</m>.
+                      Thus, <m>K_1</m> has <m>f(1)</m> edges.
+                    </p>
+                    <p>
+                      Next, assume <m>\underline{\hspace{1in}}</m> for some integer <m>n > 1</m>.
+                      The graph <m>K_n</m> can be built from <m>K_{n-1}</m> by adding one more vertex,
+                      <m>v</m>,
+                      and adding an edge from <m>v</m> to each of the vertices of <m>K_{n-1}</m>.
+                      Notice that we are adding <m>n-1</m> new edges.
+                      Thus, the number of edges in <m>K_n</m> equals the number of edges in <m>K_{n-1}</m> and <m>n-1</m> new edges.
+                      That is, the number of edges of <m>K_n</m> is
+                      <me>
+                        f(n-1) + (n-1) = \underline{\hspace{.25in} \text{ (show algebra) } \hspace{.25in}} = f(n)
+                      </me>
+                    </p>
+                  </proof>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_number_subsets">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that there are <m>2^n</m> subsets of the set <m>\{1,2,3,\ldots,n\}</m>.
+            Hint: Look <xref ref="exam_math_ind_number_bs">at</xref>.
+            In the inductive step,
+            break the count into two cases based on whether the subset contains <m>n</m>.
+            If the subset <m>S</m> does not contain <m>n</m>,
+            then <m>S \subseteq \{1,2,3, \ldots, n-1\}</m>.
+            If the subset <m>S</m> contains <m>n</m>,
+            then remove <m>n</m> from the subset to get <m>S - \{n\} \subseteq \{1,2,3, \ldots,
+            n-1\}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pff_math_induction">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  When we might use a proof by mathematical induction?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why proof by mathematical induction works (logically)?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why we need the base case?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What we prove in the base case of a proof by mathematical induction?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the inductive hypothesis is in a proof by mathematical induction?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What we prove in the inductive step of a proof by mathematical induction?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_number_perms">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that there are <m>n!</m> permutations of the set <m>\{1,2,3,\ldots,n\}</m>.
+            Recall that a <term>permutation</term>
+            of the set <m>\{1,2,3,\ldots,n\}</m> is an <m>n</m>-tuple that uses each of <m>1,2,3,\ldots,n</m> exactly once.
+            Hint: Given a permutation <m>p</m> of
+            <m>\{1,2,3,\ldots,n\}</m> we can remove <m>n</m> to get a permutation <m>p_0</m> of <m>\{1,2,3,\ldots,n-1\}</m>.
+            There are <m>(n-1)!</m> such resulting permutations and there are <m>n</m> choices for the position where <m>n</m> appeared in <m>p</m>:
+            directly before the 1, directly before the 2, directly before the 3, <ellipsis/>,
+            directly before the <m>n-1</m>, or at the very end.
+            Use that steps multiply <xref ref="thm_steps_multiply"/>.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_alg_ind">for</xref> \subalgind</title>
+      <exercise xml:id="exer_eval_fofnminus1_linears">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In each part, evaluate <m>f(n-1)</m> and simplify your answer.
+            <ol>
+              <li>
+                <p>
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>\displaystyle f(n)=\frac{2n}{n+1}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>\displaystyle f(n)=\frac{n}{2n+1}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>\displaystyle f(n)=\frac{n(n+1)}{2}</m>.
+                  Leave the answer in factored form.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_fofnminus1_exponentials">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In each part, evaluate <m>f(n-1)</m> and simplify your answer.
+            <ol>
+              <li>
+                <p>
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=(-1)^n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=2\cdot3^{n+1}-1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) =10^{2^n}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_fofnminus1_exponentials">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In each part, evaluate <m>f(n-1)</m> and simplify your answer.
+            <ol>
+              <li>
+                <p>
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=n^2+n+1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=n(n+1)(2n+1)</m>.
+                  Leave your answer factored.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=(n+1)!-1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_simplify_ind_alg">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Simplify each expression.
+            <ol>
+              <li>
+                <p>
+                  <m>(2(n-1)+1)+2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>2\cdot (2^n-1)+1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>n(n-1)!</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_simplify_ind_alg_frac">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Simplify each expression.
+            To add the fractions, write over the common denominator 2.
+            <ol>
+              <li>
+                <p>
+                  <m>\displaystyle 3\left( \frac{3^n-1}{2} \right) + 1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\displaystyle \frac{(n-1)n}{2} +n</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fofnminus1_induction">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to evaluate <m>f(n-1)</m> for a function <m>f</m> and why we might need parentheses?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to simplify <m>2\cdot2^{n-1}</m> and other related exponential expressions?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to simplify <m>n(n-1)!</m> and other related expressions involving factorials?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_verify_explicit_seq">for</xref>
+      \subpffindseq</title>
+      <exercise xml:id="exer_math_ind_geom">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The sequence <m>a</m> is defined by <m>a_0= 3</m> and <m>a_n = 10a_{n-1}</m> for <m>n \ge 1</m>.
+            Use mathematical induction to prove <m>a_n = 3\cdot 10^n</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_arith">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The sequence <m>b</m> is defined by <m>b_0= 1</m> and <m>b_n = b_{n-1} + 3</m> for <m>n \ge 1</m>.
+            Use mathematical induction to prove <m>b_n = 3n+1</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_alt">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The sequence <m>t</m> is defined by <m>t_0= 5</m> and <m>t_k = -t_{k-1}</m> for <m>k \ge 1</m>.
+            Use mathematical induction to prove <m>t_k = (-1)^k5</m> for <m>k \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_exp">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The sequence <m>c</m> is defined by <m>c_0=1</m> and <m>c_k = 2c_{k-1}+3</m> for <m>n \ge 1</m>.
+            Use mathematical induction to prove <m>c_k = 2^{k+2}-3</m> for <m>k \ge 0</m>.
+            We saw this sequence in <xref ref="exam_double_and_add3"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_frac">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The sequence <m>s</m> is defined by <m>s_0=0</m> and <m>s_m = 5s_{m-1}+1</m> for <m>m \ge 1</m>.
+            Use mathematical induction to prove <m>s_m = \frac{5^m-1}{4}</m> for <m>m \ge 0</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_hs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The sequence <m>u_n</m> is defined by <m>u_1= 1</m> and <m>u_n = u_{n-1}+n</m> for <m>n \ge 2</m>.
+            Use mathematical induction to prove <m>u_n = \frac{n(n+1)}{2}</m> for <m>n \ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_factorial">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The sequence <m>v_n</m> is defined by <m>v_1= 1</m> and <m>v_n = nv_{n-1}</m> for <m>n \ge 2</m>.
+            Use mathematical induction to prove <m>v_n = n!</m> for <m>n \ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_quadratic">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The sequence <m>x_n</m> is defined by <m>x_0=1</m> and <m>x_n = x_{n-1}+2n</m> for <m>n\ge 1</m>.
+            Use mathematical induction to prove <m>x_n =n^2 + n + 1</m> for <m>n \ge 0</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_verify_explicit_induction">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to use mathematical induction to prove an explicit rule for a recursively-defined sequence?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the base case is in such proofs?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the inductive hypothesis is in such proofs?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which is used first in the final line <mdash/> the recursion or the inductive hypothesis?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_savings_balance">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            We deposit $\text{ 10,000 } into a bank account that earns 3% interest annually.
+            Write <m>a_n=</m> the account balance at the end of <m>n</m> years.
+            We saw in <xref ref="exer_savings_annuity"></xref>
+            <xref ref="part_savings"/> that
+            <m>a_0=\text{ 10,000 }</m> and <m>a_n=1.03a_{n-1}</m> for <m>n \ge 1</m>.
+            Let's generalize.
+            If we deposit $<m>p</m> into a bank account that earns <m>r</m> interest annually,
+            where <m>r</m> is the percentage written as a decimal,
+            then <m>a_0=p</m> and <m>a_n=(1+r)a_{n-1}</m> for <m>n \ge 1</m>.
+            Use mathematical induction to prove <m>a_n=p(1+r)^n</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_annuity_balance">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            We deposit $\text{ 10,000 } into a bank account that earns 3% interest annually but then we deposit another $\text{ 10,000 } at the end of each year
+            (just after interest is paid).
+            Write <m>b_n=</m> the account balance at the end of <m>n</m> years.
+            We saw in <xref ref="exer_savings_annuity"></xref>
+            <xref ref="part_annuity"/> that
+            <m>b_0=\text{ 10,000 }</m> and <m>b_n = 1.03b_{n-1}+ \text{ 10,000 }</m>.
+            Let's generalize.
+            If we deposit $<m>p</m> into a bank account that earns <m>r</m> interest annually,
+            where <m>r</m> is the percentage written as a decimal,
+            but then we deposit another $<m>p</m> at the end of each year
+            (just after interest is paid),
+            then <m>b_0=p</m> and <m>b_n = (1+r)b_{n-1}+ p</m>.
+            Use mathematical induction to prove that <m>b_n = p \displaystyle \left(\frac{(1+r)^{n+1}-1}{r}\right)</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_divisibility_proof_induction"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from <xref ref="act_div_proof_math_ind"></xref>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_count_edges_Kn_proof_ind"></xref> Select Answers and Hints</title>
+      <ol>
+        <li xml:id="part_edges_K1_math_ind_ans">
+          <p>
+            Hint: <m>1-1=0</m>
+          </p>
+        </li>
+        <li xml:id="part_edges_Kn_math_ind_ans">
+          <p>
+            <m>\frac{(n-1)(n-2)}{2}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint for the first blank: Fill in the answer to <xref ref="part_edges_K1_math_ind_ans"/>.
+            Hint for the second blank: <m>P(n)</m> is
+            <q>The graph <m>K_n</m> has <m>f(n)</m> edges.</q>
+            Fill in the blank with <m>P(n-1)</m>.
+            Hint for the third blank: First,
+            use your answer to <xref ref="part_edges_Kn_math_ind_ans"/>,
+            then write <m>n-1 = \frac{2(n-1)}{2}</m> so the fractions have a common denominator,
+            and then add the fractions.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_fofnminus1_linears"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are <m>\frac{n-1}{2n-1}</m>,
+        <m>\frac{n(n-1)}{2}</m>, and <m>\frac{2n-2}{n}</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_fofnminus1_exponentials"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: If you evaluate your answer at <m>n=3</m>, you should get 7.
+            If you did not get that,
+            check that you calculated <m>(n-1)^2=(n-1)(n-1)</m> correctly.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One factor is <m>2n-1</m>.
+            If you did not get that,
+            check that you entered <m>(n-1)</m> in parentheses.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It does not simplify much.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_simplify_ind_alg_frac"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your answer should be one fraction with denominator 2.
+            It should involve <m>3^{n+1}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>n = \frac{2n}{2}</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_geom"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from <xref ref="act_pff_math_ind_seq"></xref>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_arith"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from <xref ref="act_pff_math_ind_seq"></xref>.
+        When you evaluate <m>f(n-1)</m>,
+        make sure <m>(n-1)</m> is in parentheses.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_exp"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Notice that we are using <m>k</m> instead of <m>n</m>.
+        Some useful algebra facts are <m>2\cdot 2^{k+1}=2^{k+2}</m> and <m>2(-3)=-6</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_frac"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Notice that we are using <m>m</m> instead of <m>n</m>.
+        Some useful algebra facts are
+        <m>5(5^m-1) = 5^{m+1}-5</m> and <m>1 = \frac{4}{4}</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_hs"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Some useful algebraic facts are <m>(n-1)n = n^2-n</m>,
+        <m>n = \frac{2n}{2}</m>, and <m>n^2+n=n(n+1)</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_factorial"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: <m>7\cdot 6! = (7)(6)(5)(4)(3)(2)(1)=7!</m> Use this idea to simplify <m>n(n-1)!</m>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_quadratic"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Make sure you have correctly simplified <m>(n-1)^2=(n-1)(n-1)</m>.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

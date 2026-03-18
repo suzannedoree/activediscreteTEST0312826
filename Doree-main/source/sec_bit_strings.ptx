@@ -1,0 +1,2127 @@
+<section xml:id="sec_bit_strings">
+  <title>Counting Bit Strings</title>
+  <introduction>
+    <p>
+      Strings consisting only of <c>0</c> s and <c>1</c> s, or <term>bit strings</term>,
+      play a central role in computer science.
+      All numbers, data, logical commands,
+      and computer programs are encoded in a computer as bit strings.
+      Similarly, every text message or email message is encoded as a bit string.
+      In fact, we might say that
+    </p>
+    <blockquote>
+      Bit strings are a fundamental structure of computer science because all of computer science can be defined using bit strings.
+    </blockquote>
+    <p>
+      In this section, we count bit strings,
+      demonstrate clever ways to count by modeling using bit strings,
+      and discuss exponential notation and logarithms.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_bitstrings">
+    <title>\subbitstrings</title>
+    <p>
+      We start with a definition.
+    </p>
+    <definition xml:id="defn_bit_string">
+      <title>Bit string</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A character that is <c>0</c> or <c>1</c> is a <term>bit</term>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term>bit string</term> is a string where each character is a bit.
+                For example, <c>1101</c> is a bit string.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>weight</term> of a bit string is the number of <c>1</c> s in the bit string.
+                For example,
+                the bit string <c>1101</c> has length four and weight three.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>empty bit string</term>
+                <m>\lambda</m>, pronounced
+                <q>lambda</q>, is the unique bit string of length zero.
+                The symbol <m>\lambda</m> is a place holder.
+                If we had just a blank space,
+                you would not know that we meant the empty bit string.
+                In computer science,
+                the empty bit string is used as a start to build a new bit string.
+                If we start with <m>\lambda</m> and write <c>1</c> at the end of the string,
+                the resulting bit string is <c>1</c> (and we no longer write <m>\lambda</m>).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here is an example of listing bit strings using a possibility tree.
+    </p>
+    <example xml:id="exam_bit_string_length3">
+      <title>Listing bit strings in a possibility tree</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                List all bit strings of length three by drawing a possibility tree.
+                <solution>
+                  <p>
+                    We draw the possibility tree in <xref ref="fig_tree_bit_strings_length3"></xref>.
+                    The list is <c>000</c>,
+                    <c>001</c>,
+                    <c>010</c>,
+                    <c>011</c>,
+                    <c>100</c>,
+                    <c>101</c>,<c>110</c>,
+                    <c>111</c>.
+                  </p>
+                </solution>
+                <figure xml:id="fig_tree_bit_strings_length3">
+                  <caption>The possibility tree of all bit strings of length three.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                List all bit strings of length four and weight two.
+                <solution>
+                  <p>
+                    We draw the possibility tree in <xref ref="fig_tree_bit_strings_length4_weight2"></xref>.
+                    Each bit string has weight two,
+                    which means that it has exactly two <c>1</c> s and two <c>0</c> s.
+                    In the tree we need to be careful<ndash/> any time we have two <c>1</c> s or two <c>0</c> s, we have only one branch
+                    (either to just <c>0</c> or to just <c>1</c>)
+                    instead of the usual two branches
+                    (to <c>0</c> and to <c>1</c>).
+                    The strings are <c>0011</c>,
+                    <c>0101</c>,
+                    <c>0110</c>,
+                    <c>1001</c>,
+                    <c>1010</c>,
+                    <c>1100</c>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Now it is your turn to work with bit strings.
+    </p>
+    <activity xml:id="act_listing_bit_strings">
+      <title>Listing bit strings</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Give an example of a bit string of length four.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give an example of a bit string of length five and weight three.
+            </p>
+          </li>
+          <li xml:id="part_tree_bs4">
+            <p>
+              List all bit strings of length four using a possibility tree.
+              Be sure to include the list itself.
+            </p>
+          </li>
+          <li>
+            <p>
+              Make a table showing the number of bit strings of length <m>n</m> for <m>n= 1, 2, 3, 4</m>.
+              Hint: You can count the answers in your possibility tree from <xref ref="part_tree_bs4"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Based on the values in your table,
+              how many bit strings of length five should there be?
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain how you can use steps <xref ref="thm_steps_multiply"/> to count the number of bit strings of length five.
+              Did you get the same answer?
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture the number of bit strings of length <m>n</m>.
+            </p>
+          </li>
+          <li xml:id="part_bit_strings_length5_weight3">
+            <p>
+              List the bit strings of length five and weight three by drawing a possibility tree.
+              Your tree should include only those bit strings.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_count_bit_strings">
+    <title>\subcountbitstrings</title>
+    <p>
+      One special situation that is counted using steps is the number of bit strings of length <m>n</m>.
+      Make sure that you have <xref ref="act_listing_bit_strings">completed</xref>
+      because we are about to reveal the answers.
+    </p>
+    <example xml:id="exam_conjecture_number_bit_strings">
+      <title>Conjecture number of bit strings of length <m>n</m></title>
+      <statement>
+        <p>
+          How many bit strings of length <m>n</m> are there?
+          State your answer as a conjecture.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          There is one bit string of length 0 (<m>\lambda</m>),
+          two bit strings of length one (<c>0</c>,
+          <c>1</c>) and four bit strings of length two
+          (<c>00</c>,
+          <c>01</c>,
+          <c>10</c>,
+          <c>11</c>).
+          <xref ref="exam_bit_string_length3">In</xref>,
+          we listed the eight bit strings of length three.
+          <xref ref="act_countingbs">In</xref>,
+          we counted 16 bit strings of length four and 32 bit strings of length five.
+          Notice that each integer is twice the previous number,
+          suggesting that we are multiplying by two.
+          <xref ref="table_number_bit_strings"></xref>
+          shows these examples written as a product of twos.
+        </p>
+        <table xml:id="table_number_bit_strings">
+          <title>The number of bit strings of length <m>n</m> for <m>n=1,2,3,4,5</m></title>
+          <tabular>
+            <row>
+              <cell><m>n</m></cell>
+              <cell>Number of bit strings of length <m>n</m>.</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>0</cell>
+              <cell>1</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell><m>2 = 2</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>4 = <m>2 \times 2</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell><m>8 = 2 \times 2 \times 2</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>4</cell>
+              <cell><m>16 = 2 \times 2 \times 2 \times 2</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>5</cell>
+              <cell><m>32 = 2 \times 2 \times 2 \times 2 \times 2</m></cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Based on these examples, it is reasonable to conjecture that there are
+          <me>
+            \underbrace{2 \times 2 \times \ldots \times 2}_{n \text{ times } }
+          </me>
+          bit strings of length <m>n</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Products in the format of the answer to <xref ref="exam_conjecture_number_bit_strings"></xref>
+      occur often enough that they have a name and notation.
+      For example, our product is 2 <term>to the power of</term>
+      <m>n</m> which is denoted
+      <me>
+        2^n= \underbrace{2\times 2 \times \ldots \times 2} _{n \text{ times } }
+      </me>
+    </p>
+    <p>
+      We can prove our conjecture from <xref ref="exam_conjecture_number_bit_strings"></xref> using steps.
+    </p>
+    <theorem xml:id="thm_number_bit_strings">
+      <title>Number of bit strings of length <m>n</m></title>
+      <statement>
+        <p>
+          <nbsp/> There are <m>2^n</m> bit strings of length <m>n</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Imagine building each bit string of length <m>n</m> by filling in the <m>n</m> spaces:
+          <me>
+            \underline{}~\underline{} ~\underline{}~\ldots ~\underline{}~
+          </me>
+        </p>
+        <p>
+          There are two ways to fill in each space:
+          either <c>0</c> or <c>1</c>.
+          We fill in the spaces in a sequence of steps.
+        </p>
+        <p>
+          Step 1: Fill in the first space (2 ways).
+        </p>
+        <p>
+          Step 2: Fill in the second space (2 ways).
+        </p>
+        <p>
+          Step 3: Fill in the third space (2 ways).
+        </p>
+        <p>
+          We continue to fill spaces until Step <m>n</m>: Fill in the last space (2 ways).
+        </p>
+        <p>
+          Since steps multiply <xref ref="thm_steps_multiply"/>,
+          the total number of bit strings of length <m>n</m> is
+          <me>
+            \underbrace{ 2 \times 2 \times \ldots \times 2} _{n \text{ times } } = 2^n
+          </me>
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      Let's practice counting bit strings.
+    </p>
+    <activity xml:id="act_countingbs">
+      <title>Counting bit strings</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              How many bit strings of length eight are there?
+            </p>
+          </li>
+          <li>
+            <p>
+              How many bit strings of length eight and weight one are there?
+              Hint: How many places are there for the one <c>1</c>?
+            </p>
+          </li>
+          <li xml:id="part_bs_length8_weight2">
+            <p>
+              How many bit strings of length eight and weight two are there?
+              Hint: We can build such a bit string by putting a <c>0</c> or <c>1</c> in each of eight spaces:
+              <me>
+                \underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~
+              </me>
+              but we need exactly two spaces to have <c>1</c> so filling in the spaces from left to right will not work and there are too many to draw a possibility tree.
+              Instead, consider choosing which two spaces to fill in with <c>1</c>.
+              Since the remaining spaces are <c>0</c> s, the number of bit strings of length eight and weight two equals the number of ways to choose the two spaces for <c>1</c> s.
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture the number of bit strings of length <m>n</m> with weight <m>k</m> or,
+              equivalently, exactly <m>k</m> <c>1</c> s.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Sometimes, a counting problem asks about subsets of a set,
+      which is convenient because
+      <m>\binom{n}{k}</m> counts the number of <m>k</m>-element subsets of a set of <m>n</m> elements.
+      As we saw in <xref ref="act_countingbs"></xref>,
+      a counting problem might have nothing to do with subsets,
+      but we can rephrase the problem in terms of subsets.
+      Here is another example.
+    </p>
+    <example xml:id="exam_bit_strings_length100_weight3">
+      <title>Bit strings of length 100 and weight three</title>
+      <statement>
+        <p>
+          How many bit strings of length 100 and weight three are there?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's figure out a way to rephrase this problem in terms of subsets.
+          We can build such a bit string by putting a <c>0</c> or <c>1</c> in each of 100 spaces:
+          <me>
+            \underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\ldots~\underline{}~\underline{}
+          </me>
+        </p>
+        <p>
+          Following the hint in <xref ref="act_countingbs"></xref>,
+          let's choose which spaces have <c>1</c> s.
+        </p>
+        <p>
+          Step 1: Fill in three spaces with <c>1</c>.
+          We choose a subset of three spaces for <c>1</c> s from the set of 100 spaces.
+          There are <m>\binom{100}{3}</m> ways to do this step.
+        </p>
+        <p>
+          Step 2: Fill in the remaining 97 spaces with <c>0</c>.
+          There is one way to do this step because the 97 <c>0</c> s go into the remaining 97 spaces.
+          Alternatively,
+          you can think of choosing a subset of 97 spaces for the <c>0</c> s from the set of 97 remaining spaces.
+          There are <m>\binom{97}{97} =1</m> ways to do this step.
+        </p>
+        <p>
+          Since steps multiply <xref ref="thm_steps_multiply"/>,
+          there are <m>\binom{100}{3}(1) = \binom{100}{3}</m> bit strings of length 100 and weight three.
+          Our final answer is <m>\binom{100}{3}</m>,
+          which a quick internet search shows equals \text{ 161,700 } , too many to list by hand!
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can generalize our answer and rationale from <xref ref="exam_bit_strings_length100_weight3"></xref>,
+      to get a formula for the number of bit strings of length <m>n</m> with exactly <m>k</m> <c>1</c> s
+      (or with exactly <m>k</m> <c>0</c> s).
+    </p>
+    <theorem xml:id="thm_bit_string_exactly_k">
+      <title>Number of bit strings of length <m>n</m> with exactly <m>k</m> \str{1}s (or with exactly <m>k</m> \str{0}s)</title>
+      <statement>
+        <p>
+          The number of bit strings of length <m>n</m> with exactly <m>k</m> <c>1</c> s
+          (or with exactly <m>k</m> <c>0</c> s)
+          is <m>\binom{n}{k}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's see this theorem in action.
+    </p>
+    <example xml:id="exam_count_bs_exactlyk">
+      <title>Counting bit strings with given number of \bs{0}s or \bs{1}s</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Count the number of bit strings of length five and weight three.
+                <solution>
+                  <p>
+                    <xref ref="thm_bit_string_exactly_k">By</xref>,
+                    there are <m>\binom{5}{3}</m> bit strings of length five and weight three.
+                    Note that <m>\binom{5}{3}=10</m>,
+                    which should agree with the tree you drew in <xref ref="act_listing_bit_strings"></xref>
+                    <xref ref="part_bit_strings_length5_weight3"/>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Count the number of bit strings of length eight and weight two.
+                <solution>
+                  <p>
+                    <xref ref="thm_bit_string_exactly_k">By</xref>,
+                    there are <m>\binom{8}{2}</m> bit strings of length eight and weight two,
+                    which is the answer to <xref ref="act_countingbs"></xref><xref ref="part_bs_length8_weight2"/>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many bit strings of length 100 are exactly half <c>0</c> s and half <c>1</c> s?
+                <solution>
+                  <p>
+                    <xref ref="thm_bit_string_exactly_k">By</xref>
+                    there are <m>\binom{100}{50}</m> such bit strings.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_rephrasing_subset">
+    <title>\subrephrasingsubset</title>
+    <p>
+      Sometimes a counting problem does not mention bit strings,
+      but we can rephrase the problem in terms of bit strings,
+      which is convenient because we <xref ref="thm_number_bit_strings">know</xref>
+      and <xref ref="thm_bit_string_exactly_k"></xref>.
+      Try your hand at such an example.
+    </p>
+    <activity xml:id="act_froma1_toc4">
+      <title>From point <m>a_1</m> to point <m>c_4</m></title>
+      <p>
+        In this activity we are interested in direct paths from <m>a_1</m> to <m>c_4</m> in <xref ref="fig_froma1_toc4"></xref>.
+        We begin each direct path at <m>a_1</m> and then walk one unit to the right or one unit down at each step until we reach <m>c_4</m>.
+        We are not allowed to walk to the left or up.
+      </p>
+      <figure xml:id="fig_froma1_toc4">
+        <caption>Going from point <m>a_1</m> to point <m>c_4</m>.</caption>
+        image type not recognized
+      </figure>
+      <ol>
+        <li>
+          <p>
+            Give an example of a direct path from <m>a_1</m> to <m>c_4</m>.
+            How many steps did you take?
+          </p>
+        </li>
+        <li xml:id="part_froma1_toc4_tree">
+          <p>
+            Draw a possibility tree to list all possible direct paths.
+            Hint: The original node is <m>a_1</m> which has branches to <m>a_2</m> and to <m>b_1</m>.
+          </p>
+        </li>
+        <li xml:id="part_froma1_toc4_count">
+          <p>
+            How many direct paths from <m>a_1</m> to <m>c_4</m> are there?
+          </p>
+        </li>
+        <li>
+          <p>
+            We can represent each path by a bit string where <c>1</c> represents walking one unit to the right and <c>0</c> represents walking one unit down.
+            What is the bit string whose path is <m>a_1a_2b_2b_3c_3c_4</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the path whose bit string is <m>\bs{00111}</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain how to <xref ref="thm_bit_string_exactly_k">use</xref> to count the number of paths.
+            You should get the same answer as in <xref ref="part_froma1_toc4_count"/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            We can describe the grid in <xref ref="fig_froma1_toc4"></xref>
+            as being <m>3 \times 4</m> because it has 3 rows of letters and 4 columns of letters.
+            Conjecture the number of direct paths from the upper left corner to the lower right corner in a <m>5 \times 7</m> grid.
+          </p>
+        </li>
+        <li>
+          <p>
+            Generalize.
+            That means conjecturing the number of direct paths from the upper left corner to the lower right corner in a <m>r \times c</m> grid.
+          </p>
+        </li>
+      </ol>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_exp_log">
+    <title>\subexplog</title>
+    <p>
+      <xref ref="thm_number_bit_strings">In</xref>,
+      we proved that there are <m>2^n</m> bit strings of length <m>n</m> where
+      <me>
+        2^n=\underbrace{2\times 2 \times \ldots \times 2}_{n \text{ times } }
+      </me>
+    </p>
+    <p>
+      This <term>exponential notation</term>
+      is a shorthand for a product of the same number multiplied by itself repeatedly.
+    </p>
+    <definition xml:id="defn_exp_notation">
+      <title>Exponential notation</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                When <m>n</m> is a positive integer,
+                <m>b</m> <term>raised to the power of</term> <m>n</m>
+                (or just <m>b</m> <term>to the</term> <m>n</m>)
+                is
+                <me>
+                  b^n = \underbrace{b\times b \times \ldots \times b}_{n \text{ times } }
+                </me>
+                For example,
+                <me>
+                  2^5 = \underbrace{2 \times 2 \times 2 \times 2 \times 2}_{5 \text{ times } } = 32
+                </me>
+                and
+                <me>
+                  (-2)^5 = \underbrace{(-2) \times (-2) \times (-2) \times (-2) \times (-2)}_{5 \text{ times } } = -32
+                </me>.
+                Note that exponentiation is not commutative.
+                For example, <m>2^5=32</m> but <m>5^2 = 5 \times 5 = 25</m>.
+                We practice evaluating powers without using technology to understand the definition, but,
+                of course,
+                you can use technology to check.
+                Many computational tools, such as calculators, spreadsheet programs,
+                or an Internet search, use the notation <m>\land</m> to indicate a power.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the expression <m>b^n</m>,
+                the integer <m>b</m> is the <term>base</term>,
+                the number that we are repeatedly multiplying.
+                The integer <m>n</m> is the <term>exponent</term>,
+                the number of times we multiply the base.
+                The quantity <m>b^n</m> is the <term>power of</term>
+                <m>b</m>, the final product.
+                For example, in <m>2^5</m>,
+                the base is 2, the exponent is 5, and the power of 2 is 32.
+              </p>
+            </li>
+            <li>
+              <p>
+                For <m>b\neq 0</m>, it is convenient to define <m>b^0=1</m>.
+                For example,
+                <m>2^0=1</m> is the number of bit strings of length zero.
+              </p>
+            </li>
+            <li>
+              <p>
+                The expression <m>b^2</m> is <m>s</m> <term>squared</term>.
+                For example, <m>10^2 = 10 \times 10 = 100</m>.
+                This name comes from the fact that the area of a square with sides of length <m>b</m> is <m>b^2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The expression <m>b^3</m> is <m>b</m> <term>cubed</term>.
+                For example, <m>4^3 = 4 \times 4 \times 4 = 64</m>.
+                This name comes from the fact that the volume of a cube with sides of length <m>b</m> is <m>b^3</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's work with these definitions.
+    </p>
+    <example xml:id="exam_exponential_notation">
+      <title>Exponential notation</title>
+      <statement>
+        <p>
+          In this example, we only use technology to check our answers.
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>10^4</m>.
+                <solution>
+                  <p>
+                    By definition,
+                  </p>
+                  <tabular>
+                    <row>
+                      <cell><m>10^4</m></cell>
+                      <cell>=</cell>
+                      <cell><m>\underbrace{10 \times 10 \times 10 \times 10}_{4 \text{ times } }</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell><m>100 \times 10 \times 10</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell>1,000 <m>\times 10</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell>10,000.</cell>
+                    </row>
+                  </tabular>
+                  <p>
+                    Check that <m>10 \land 4 =</m> 10,000.
+                    Notice that <m>10^4</m> has 4 zeros.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>(-10)^4</m> and <m>-10^4</m>.
+                <solution>
+                  <p>
+                    By definition,
+                  </p>
+                  <tabular>
+                    <row>
+                      <cell><m>(-10)^4</m></cell>
+                      <cell>=</cell>
+                      <cell><m>\underbrace{(-10) \times (-10) \times (-10) \times (-10)}_{4 \text{ times } }</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell><m>100 \times (-10) \times (-10)</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell>-1,000 <m>\times (-10)</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell>10,000.</cell>
+                    </row>
+                  </tabular>
+                  <p>
+                    Check that <m>(-10) \land 4 = \text{ 10,000 }</m>.
+                    On the other hand,
+                    according to <xref ref="defn_integer_algebra_order_operations"></xref>
+                    <xref ref="part_order_operations"/>,
+                    exponents are higher in the order of operations in than subtraction
+                    (and negation),
+                    so
+                    <me>
+                      -10^4=-(10^4)=-\text{ 10,000 }
+                    </me>.
+                    Check that <m>-10 \land 4 = -\text{ 10,000 }</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>3^1</m>.
+                <solution>
+                  <p>
+                    By definition,
+                    <me>
+                      3^1 = \underbrace{3}_{1 \text{ time } } = 3
+                    </me>.
+                  </p>
+                  <p>
+                    Check that <m>3 \land 1 = 3</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>5^0</m>.
+                <solution>
+                  <p>
+                    By definition, <m>5^0 =1</m> and check that <m>5 \land 0 =1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It can be useful to write an integer as a power of a base <m>b</m>.
+      For example,
+      we can write <m>\text{ 10,000 } =10^4</m> or <m>32 = 2^5</m>.
+      There is a name for the exponent.
+    </p>
+    <definition xml:id="defn_log">
+      <title>Logarithm<footnote>In this textbook, we only calculate logarithms of exact powers.  We do not calculate quantities such as <m>\fn{log}(25)</m> or $\fn{lg}(3)$.  We have defined <m>b^n</m> when <m>n</m> is a nonnegative integer, but it is beyond the scope of this textbook to define what <m>b^x</m> for any real number $x$.  With that definition, we can take evaluate logarithms of any positive real number.  For example, <m>\fn{log}(25) \approx 1.398</m> and $\fn{lg}(3) \approx 1.585$.</footnote></title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The <term>logarithm base 10</term> of an integer <m>k</m>,
+                denoted <m>\fn{log}(k)</m> is the exponent of the power 10 that equals <m>k</m>.
+                That is, <m>\fn{log}(k)=n</m> if <m>10^n=k</m>.
+                For example,
+                <m>\fn{log}(\text{ 100 } ) = 2</m> because <m>10^2=100</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>logarithm base 2</term> of an integer <m>k</m>,
+                denoted <m>\fn{lg}(k)</m>,
+                is the exponent of the power of 2 that equals <m>k</m>.
+                That is, <m>\fn{lg}(k)=n</m> if <m>2^n=k</m>.
+                For example, <m>\fn{lg}(32) = 5</m> because <m>2^5=32</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In this textbook, we only use base 2 and base 10,
+                but logarithms can be defined in general.
+                The <term>logarithm base <m>b</m></term> of an integer <m>k</m>,
+                denoted <m>\fn{log}_b(k)</m> is the exponent of the power of <m>b</m> that equals <m>k</m>.
+                That is, <m>\fn{log}_b(k)=n</m> if <m>b^n=k</m>.
+                For example, <m>\fn{log}_5(125) = 3</m> because <m>5^3=125</m>.
+                In this notation, <m>\fn{log}</m> is short for
+                <m>\fn{log}_{10}</m> and <m>\fn{lg}</m> is short for <m>\fn{log}_2</m>.
+                In calculus,
+                a noninteger base <m>b=e \approx 2.718</m> is important.
+                The corresponding logarithm is named <c>ln</c>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here are a few more examples.
+    </p>
+    <example xml:id="exam_eval_logs">
+      <title>Evaluating logs</title>
+      <statement>
+        <p>
+          In this example, we evaluate without using technology.
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>\fn{log}(\text{ 1,000,000 } )</m>.
+                <solution>
+                  <p>
+                    Since <m>\text{ 1,000,000 } = 10^6</m>,
+                    it follows that <m>\fn{log}(\text{ 1,000,000 } )=6</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{lg}(4)</m> and <m>\fn{lg}(256)</m>.
+                <solution>
+                  <p>
+                    First, since <m>2^2=4</m>, it follows that <m>\fn{lg}(4)=2</m>.
+                    Next, since <m>2^8=256</m>, it follows that <m>\fn{lg}(256)=8</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Practice working with exponents and logarithms.
+    </p>
+    <activity xml:id="act_exp_logs">
+      <title>Exponents and logarithms</title>
+      <p>
+        On this problem, only use technology to check your answers.
+        <ol>
+          <li>
+            <p>
+              Evaluate <m>10^6</m>, <m>3^2</m>, <m>10^0</m>, <m>2^3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>(-3)^2</m>, <m>-3^2</m>,
+              <m>(-2)^3</m>, <m>-2^3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>\fn{log}(\text{ 1,000 } )</m>,
+              <m>\fn{log}(10)</m>, and <m>\fn{log}(1)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>\fn{lg}(16)</m>,
+              <m>\fn{lg}(\text{ 128 } )</m>, and <m>\fn{lg}(2)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find an integer <m>k</m> such that <m>\fn{log}(k) = 10</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find an integer of <m>n</m> such that <m>\fn{lg}(n) = 10</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Simplify <m>2^32^5</m> by writing it as a single power.
+            </p>
+          </li>
+          <li>
+            <p>
+              Simplify <m>(2^3)^2</m> by writing it as a single power.
+            </p>
+          </li>
+          <li>
+            <p>
+              Simplify <m>2(2^{n-1})</m> by writing it as a single power.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at examples of writing a combination of powers as a single power.
+    </p>
+    <example xml:id="exam_simplify_exponents">
+      <title>Simplifying exponents</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Simplify <m>2^42^6</m> by writing it as a single power.
+                <solution>
+                  <p>
+                    <xref ref="defn_exp_notation">Using</xref>, we have
+                    <md>
+                      <mrow>2^42^6 \amp = (\underbrace{2\times 2\times 2 \times 2}_{4 \text{ times } }) \times (\underbrace{2\times 2\times 2 \times 2 \times 2 \times 2}_{6 \text{ times } })</mrow>
+                      <mrow>\amp = \underbrace{2\times 2\times 2\times 2\times 2 \times 2 \times 2 \times 2 \times 2 \times 2}_{10 \text{ times } })</mrow>
+                      <mrow>\amp = 2^{10}</mrow>
+                    </md>.
+                  </p>
+                  <p>
+                    Notice that the base remains 2 and that since the powers shared a common base,
+                    the exponents added: <m>4+6=10</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_power_of_power">
+              <p>
+                Simplify <m>(10^2)^3</m> by writing it as a single power.
+                <solution>
+                  <p>
+                    <xref ref="defn_exp_notation">Using</xref>, we have
+                    <md>
+                      <mrow>(10^2)^3 \amp = (\underbrace{10^2\times 10^2\times 10^2}_{3 \text{ times } })</mrow>
+                      <mrow>\amp = (\underbrace{(10 \times 10)\times (10 \times 10)\times (10 \times 10)}_{3 \text{ times } })</mrow>
+                      <mrow>\amp = \underbrace{10\times 10\times 10\times 10\times 10 \times 10}_{6 \text{ times } })</mrow>
+                      <mrow>\amp = 10^6</mrow>
+                    </md>.
+                  </p>
+                  <p>
+                    Notice that the exponents multiplied: <m>2 \times 3=6</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write <m>8^2</m> as a power of 2.
+                <solution>
+                  <p>
+                    First, write <m>8 = 2^3</m>.
+                    Then, using what we learned in <xref ref="part_power_of_power"/> we get
+                    <me>
+                      8^2=\left(2^3\right)^2 = 2^{2\times 3}=2^6
+                    </me>.
+                  </p>
+                  <p>
+                    You can check that <m>8^2=64</m> and <m>2^6=64</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We state these rules for exponents as a theorem, but,
+      when in doubt, we suggest that you use the definition instead.
+    </p>
+    <theorem xml:id="thm_simplify_exp">
+      <title>Simplifying exponents</title>
+      <statement>
+        <p>
+          For any integer <m>b</m> and positive integers <m>n</m> and <m>m</m> we have the following rules.
+          <ol>
+            <li>
+              <p>
+                Simplifying a product of powers (of the same base):
+                <m>b^mb^n=b^{m+n}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Simplifying a power of a power:
+                <m>\left(b^m\right)^n=b^{mn}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Here is an example of a common expression that we can simplify using these rules.
+    </p>
+    <example xml:id="exam_simplify_22nminus1">
+      <title>Simplify <m>2\cdot2^{n-1}</m></title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_thm_simplify_22nminus1">
+              <p>
+                Simplify <m>2\cdot2^{n-1}</m> <xref ref="thm_simplify_exp">using</xref>.
+                <solution>
+                  <p>
+                    We can write <m>2=2^1</m> to get
+                    <me>
+                      2\cdot2^{n-1} = 2^12^{n-1}=2^{1+(n-1)}=2^n
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Confirm your answer to <xref ref="part_thm_simplify_22nminus1"/> using the definition of exponents.
+                <solution>
+                  <p>
+                    We can write
+                    <me>
+                      2\cdot2^{n-1} = 2 \times \underbrace{2 \times 2 \times \cdots \times 2}_{(n-1) \text{ times } } = \underbrace{2 \times 2 \times \cdots \times 2}_{n \text{ times } } =2^n
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is acceptable to leave exponential notation or logarithms in your answers.
+    </p>
+    <remark xml:id="rem_not_eval_counts_final">
+      <title>Not evaluating counts, final version</title>
+      <p>
+        Unless stated otherwise,
+        when counting you may leave any answer greater than twenty in a format that could easily be evaluated on a calculator.
+        In particular, your answer may involve addition, subtraction,
+        multiplication, division, exponents,
+        logarithms, factorials, binomial coefficients, and parentheses.
+      </p>
+    </remark>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_bitstrings">for</xref> \subbitstrings</title>
+      <exercise xml:id="exer_bit_string_length">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Calculate the length and weight of the bit string <c>101100</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the length and weight of the bit string <c>0</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a bit string of length ten and weight four.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bit_strings_length5_weight2">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            List all bit strings of length five and weight two using a possibility tree.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bstrees">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            In each part,
+            list all bit strings of length five satisfying the stated property using a possibility tree.
+            In each case,
+            your tree should only include the bit strings that satisfy the stated property.
+            <ol>
+              <li>
+                <p>
+                  Bit strings with more <c>0</c> s than <c>1</c> s.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Bit strings that do not contain consecutive <c>0</c> s, which means that <c>00</c> does not appear in the bit string.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Bit strings where any <c>0</c> is immediately followed by <c>1</c>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_defnbs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What a bit is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to calculate the length of a bit string or construct a bit string of a given weight?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to calculate the weight of a bit string or construct a bit string of a given weight?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the symbol for empty bit string is?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_hamming_distance">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The <term>Hamming distance</term>
+            between two bit strings is the number of places where their bits differ.
+            For example,
+            the Hamming distance between <c>10011</c> and <c>11010</c> is two because they have the same first bits
+            (both <c>1</c>),
+            different second bits, the same third bits
+            (both <c>0</c>),
+            the same fourth bits
+            (both <c>1</c>),
+            and different fifth bits.
+            Since the bit strings differ in two places
+            (second and fifth),
+            their Hamming distance equals two.
+            Hamming distance is used in error-correcting codes to ensure the correct transmission of messages such as text messages.
+            <ol>
+              <li>
+                <p>
+                  Calculate the Hamming distance between <c>00011</c> and <c>11111</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List all bit strings that are Hamming distance one from <c>00011</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a bit string that is Hamming distance two from <c>00011</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>b</m> is any bit string of length five,
+                  how many bit strings are Hamming distance one from <m>b</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>b</m> is any bit string of length five,
+                  how many bit strings are Hamming distance two from <m>b</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_count_bit_strings">for</xref> \subcountbitstrings</title>
+      <exercise xml:id="exer_count_bs20">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use the relevant theorems.
+            <ol>
+              <li>
+                <p>
+                  How many bit strings of length twenty are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bit strings of length twenty contain exactly three <c>1</c> s?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bit strings of length twenty contain exactly three <c>0</c> s?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_bs9">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use the relevant theorems.
+            <ol>
+              <li>
+                <p>
+                  How many bit strings of length nine are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bit strings of length nine or ten are there?
+                  Hint: Use cases.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which number is greater:
+                  the number of bit strings of length nine or the number of bit strings of length less than nine?
+                  Calculate the actual numbers using technology.
+                  Note: do not forget the empty bit string.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_bs100">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  How many bit strings of length 100 begin with <c>0</c>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bit strings of length 100 begin with <c>00</c>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bit strings of length 100 begin with <c>1</c> and end in <c>0</c>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bit strings of length 100 begin with or end in <c>0</c>?
+                  Hint: To avoid double counting of bit strings that begin with <c>0</c> and end in <c>0</c>,
+                  consider Case 1:
+                  begins with <c>0</c> and Case 2:
+                  begins with <c>1</c> and ends in <c>0</c>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_numberbs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How many bit strings of length <m>n</m> there are?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bit strings of length <m>n</m> have exactly <m>k</m> <c>1</c> s (or exactly <m>k</m> <c>0</c> s)?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bal_ternary_strings">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            A <term>balanced ternary string</term>
+            is a string where each character is <c>0</c>,
+            <c>+</c>,
+            or <c>-</c>.
+            For example,
+            <c>+<ndash/>0+</c> is a balanced ternary string of length five.
+            <ol>
+              <li>
+                <p>
+                  Draw a possibility tree listing all balanced ternary strings of length three.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many balanced ternary strings of length three are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Count the number of balanced ternary strings of length ten.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many balanced ternary strings of length <m>n</m> are there?
+                  State your answer as a conjecture.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ABCD_strings">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider strings using only the characters <c>A</c>,
+            <c>B</c>,
+            <c>C</c>,
+            and <c>D</c>.
+            Recall that a string is ordered and repeats are allowed.
+            Also, we do not need to use all the characters.
+            <ol>
+              <li>
+                <p>
+                  How many such strings consist of exactly two <c>A</c> s and three <c>B</c> s?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many such strings consist of exactly two <c>A</c> s, three <c>B</c> s, and four <c>C</c> s?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many such strings consist of exactly two <c>A</c> s, three <c>B</c> s, four <c>C</c> s, and five <c>D</c> s?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_number_perms">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Conjecture the number of permutations of the set <m>\{\str{1},\str{2},\ldots, \str{n}\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove your conjecture in the style of our proof of <xref ref="thm_number_bit_strings"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_rephrasing_subset">for</xref> \subrephrasingsubset</title>
+      <exercise xml:id="exer_froma1toc4">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            We are interested in going from <m>a_1</m> to <m>c_4</m> in <xref ref="fig_froma1_toc4"></xref>.
+            As in <xref ref="act_froma1_toc4"></xref>,
+            we can represent each path by a bit string where <c>1</c> represents walking one unit to the right and <c>0</c> represents walking one unit down.
+            <ol>
+              <li>
+                <p>
+                  What is the bit string whose path is <m>a_1b_1b_2b_3c_3c_4</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the path whose bit string is <c>11010</c>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_stars_and_bars">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            You have fifteen (identical) coins.
+            You want to put some coins in your piggy bank,
+            some in your change jar at work, and some in your car.
+            <ol>
+              <li>
+                <p>
+                  How many ways are there to distribute your coins to these three locations?
+                  Note that
+                  <q>some</q>
+                  could mean zero in this context.
+                  Hint: Line up the fifteen coins.
+                  Put a dividing line after those you plan to put in the piggy bank, if any,
+                  and another line after those you plan to put in your change jar, if any.
+                  The remaining coins, if any, will go in your car.
+                  For example:  six coins in the piggy bank,
+                  two coins in the change jar,
+                  and seven coins in the car could be represented as:
+                  <me>
+                    \circ ~ \circ ~ \circ ~ \circ ~ \circ ~ \circ ~ \mid ~ \circ ~ \circ ~ \mid ~ \circ ~ \circ ~ \circ~  \circ ~ \circ ~ \circ ~ \circ ~
+                  </me>
+                  whereas three coins in the piggy bank and the rest in the change jar would be:
+                  <me>
+                    \circ ~ \circ ~ \circ ~ \circ ~ \mid ~ \circ ~ \circ ~  \circ ~ \circ ~ \circ ~ \circ ~ \circ~  \circ ~ \circ ~ \circ ~ \circ ~ \mid ~
+                  </me>
+                  Explain how to rephrase our question about the coins as a question about bit strings.
+                  Then answer the question.
+                  Hint to the last part of the hint: squint.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture about the number of ways to distribute <m>n</m> coins to <m>k</m> locations.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_rephrase_question">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to rephrase a question in terms of subsets and why that can be useful?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to rephrase a question in terms of bit strings,
+                  and why that can be useful?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_integer_simplex">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In this problem we build on the ideas of <xref ref="exer_stars_and_bars"></xref>.
+            <ol>
+              <li>
+                <p>
+                  How many nonnegative integer solutions are there to the equation <m>x_1+x_2+x_3=15?</m> Hint:
+                  how can we rephrase this question to be the same as the question in <xref ref="exer_stars_and_bars"></xref>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many non-negative integer solutions are there to the equation <m>x_1+x_2+x_3+x_4=20?</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about the number of non-negative integer solutions of the equation <m>x_1+x_2+x_3+\ldots x_k=n</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_exp_log">for</xref> \subexplog</title>
+      <exercise xml:id="exer_evaluate_powers">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            On this exercise, do not use technology.
+            Be sure to show some work.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>2^4</m>, <m>(-2)^4</m>, and <m>-2^4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>10^{10}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>4^1</m> and <m>4^0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_logs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            On this exercise, do not use technology.
+            Be sure to show some work.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{log}(\text{ 10,000 } )</m>,
+                  <m>\fn{log}(10)</m>, and <m>\fn{log}(1)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a value <m>n</m> such that <m>\fn{log}(n) = 3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{lg}(64)</m>,
+                  <m>\fn{lg}(16)</m>, <m>\fn{lg}(2)</m>, and <m>\fn{lg}(1)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a value of <m>n</m> such that <m>\fn{lg}(n) = 3</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_single_power">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write each quantity as a single power.
+            <ol>
+              <li>
+                <p>
+                  <m>k \times k</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>m^2m^7</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>2 (2^9)</m>
+                </p>
+              </li>
+              <li xml:id="part_10power">
+                <p>
+                  <m>10(10^{n-1})</m>
+                </p>
+              </li>
+              <li xml:id="part_another_10power">
+                <p>
+                  <m>10(10^n)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_factoring_powers">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            In this problem, all letters represent positive integers.
+            <ol>
+              <li>
+                <p>
+                  Factor <m>n^3 + 3n^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Factor <m>k2^k -2^k</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Factor and simplify <m>10^n-9(10^{n-1})</m>.
+                  Hint: <xref ref="exer_single_power">See</xref>
+                  <xref ref="part_10power"/> and <xref ref="part_another_10power"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_exp_log">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What <m>b^n</m> means and how to pronounce it?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to pronounce <m>n^2</m> and <m>n^3</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate <m>5^0</m>, <m>5^1</m>, and <m>5^2</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Where exponents rank in the order of operations?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What <m>\fn{log}</m> and <m>\fn{lg}</m> mean and how to evaluate them?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to rewrite a statement involving logs as a statement involving exponents?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="x2048_game">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Play the online game <term>2048</term>
+                  at \url{https://play2048.co/}. Report here how long you played and how high a level you achieved.
+                  Try to get to at least 128.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the powers of 2 from 1 to 2048 from memory
+                  (that is, not using any technology or computing any products).
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_defn_lg">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Write the exponential equation corresponding to <m>\fn{lg}(128) = 7</m>.
+                </p>
+              </li>
+              <li xml:id="part_lg_to_exp">
+                <p>
+                  For numbers <m>u</m> and <m>v</m>,
+                  write <m>a=\fn{lg}(u)</m> and <m>b=\fn{lg}(v)</m>.
+                  Write the corresponding exponential equations.
+                </p>
+              </li>
+              <li xml:id="part_2tosum">
+                <p>
+                  Simplify <m>2^{a+b}</m> <xref ref="thm_simplify_exp">using</xref>
+                  and <xref ref="part_lg_to_exp"/>.
+                  Your answer should be in terms of <m>u</m> and <m>v</m>.
+                </p>
+              </li>
+              <li xml:id="part_lg_product">
+                <p>
+                  Use your answer to <xref ref="part_2tosum"/> to evaluate <m>\fn{lg}(uv)</m>.
+                  Your answer should be in terms of <m>a</m> and <m>b</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your answer to <xref ref="part_lg_product"/> to write <m>\fn{lg}(uv)</m> in terms of
+                  <m>\fn{lg}(u)</m> and <m>\fn{lg}(v)</m>.
+                  Your answer is one of the rules known as a
+                  <q>law of logs</q>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_power_vs_factorial">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Without calculating values, decide which is larger:
+                  <m>10!</m> or <m>2^{10}</m>.
+                  Hint: Use the definitions of factorials and powers to write each of <m>10!</m> and <m>2^{10}</m> as a product.
+                  Then use those products to answer the question.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>10!</m> and <m>2^{10}</m> using technology.
+                  Did you correctly determine which integer is larger?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a table for <m>n = 0, 1, 2, \ldots, 10</m> showing the values of <m>2^n</m> and the values of <m>n!</m>.
+                  Challenge yourself to reciting the powers of two and as many factorials as you can from memory,
+                  but then you are welcome to use computing technology.
+                  Hint: Use three rows labeled <m>n</m>,
+                  <m>2^n</m>, and <m>n!</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture when <m>n! \ge 2^n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_bit_string_length"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Length six and weight three.
+          </p>
+        </li>
+        <li>
+          <p>
+            Length one and weight zero.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: your bit string should have four <c>1</c> s and six <c>0</c> s.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bstrees"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Start the possibility tree with two branches to <c>0</c> and <c>1</c>,
+            as usual.
+            Next, branch to <c>0</c> and <c>1</c> again.
+            After that, you need to be careful.
+            If you ever have two <c>1</c> s then the remainder of the bits are all <c>0</c> s.
+            There are 16 such bit strings.
+            One is all <c>0</c> s, five that have four <c>0</c> s, and ten that have three <c>0</c> s.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Start the possibility tree with two branches to <c>0</c> and <c>1</c>,
+            as usual.
+            After that, you need to be careful.
+            After every <c>1</c> there are still two branches
+            (to <c>0</c> and to <c>1</c>),
+            but after every <c>0</c> there is a single branch to <c>1</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: This part is similar to (b),
+            except that the bit string must end in <c>1</c> because a final <c>0</c> would not be immediately followed by <c>1</c>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_hamming_distance"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Three
+          </p>
+        </li>
+        <li>
+          <p>
+            <c>10011</c>,
+            <c>01011</c>,
+            <ellipsis/>,
+            <c>00010</c> Note that these are organized by which bit is different:
+            first, second, <ellipsis/>, fifth
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: check that exactly two bits are different.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: See the note under (b).
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We need to choose which two out of five bits to change.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_count_bs20"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>2^{20}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\binom{20}{3}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are two ways to do this problem.
+            We can choose the three places out of 20 for the <c>0</c> s or we can choose the 17 places out of 20 for the <c>1</c>.
+            Either answer is correct.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_count_bs100"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>2^{99}</m>.
+            Hint: Steps multiply <xref ref="thm_steps_multiply"/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are <m>100-2=98</m> spaces left to fill in.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use the hint from (b).
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Case 1 is similar to (b) and case 2 is exactly (c).
+            Cases add <xref ref="thm_cases_add"/>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ABCD_strings"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Step 1 is to choose two of the five spaces for the <c>A</c> s.
+            Step 2 is to choose three of the three remaining spaces for the <c>B</c> s.
+            Note that there is only one way to do Step 2
+            (so you can safely ignore it).
+          </p>
+        </li>
+        <li>
+          <p>
+            One way of stating the answer is <m>\binom{9}{2}\binom{7}{3}\binom{4}{4}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Figure out how we got the answer to (b) and generalize.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_froma1toc4"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <c>01101</c>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>a_1a_2a_3b_3\ldots</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_stars_and_bars"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Each coin is <c>0</c> and each dividing line is <c>1</c>.
+            Note that the total length is <m>15+2=17</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The total length is <m>n+k-1</m> because we only need <m>k-1</m> dividing lines.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_integer_simplex"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\binom{17}{2}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Let <m>x_1</m> be the number of coins in the first location,
+            <m>x_2</m> be the number of coins in the second location,
+            <m>x_3</m> be the number of coins in the third location,
+            and <m>x_4</m> be the number of coins in the fourth location.
+            Count the total number of coins and the number of dividing lines.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Count the total number of coins and the number of dividing lines.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_evaluate_powers"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Use a calculator to check.
+          </p>
+        </li>
+        <li>
+          <p>
+            \text{ 10,000,000,000 }
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use a calculator to check.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_logs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            4, 1, 0
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>10^3</m> (or \text{ 1,000 } )
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>64=2^6</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The base is 2 and the logarithm tells you the exponent.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_single_power"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>k^2</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: How many <m>m</m>s are being multiplied?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: How many twos are being multiplied?
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>10^n</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: How many 10s are being multiplied?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_factoring_powers"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Factor out <m>n^2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>(k-1)2^k</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Factor out <m>10^{n-1}</m>,
+            using that <m>10^n=10(10^{n-1})</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_power_vs_factorial"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Compare
+            <me>
+              10!=(10)(9)(8)(7)(6)(5)(4)(3)(2)(1)
+            </me>
+            and
+            <me>
+              2^{10} = (2)(2)(2)(2)(2)(2)(2)(2)(2)(2)
+            </me>.
+            Note <m>10>4 = (2)(2)</m>, <m>9>2</m>,
+            <m>8?>2</m>, <ellipsis/>, <m>2>2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Yes
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: the last column of your table should have 10 in the first row, \text{ 1,024 } in the second row,
+            and \text{ 3,628,800 } in the third row.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>n \ge 4</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

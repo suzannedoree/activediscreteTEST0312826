@@ -1,0 +1,2438 @@
+<section xml:id="sec_subsets">
+  <title>Subsets and Sets of Sets</title>
+  <introduction>
+    <p>
+      We continue our discussion of sets by revisiting the concept of a subset and describing how to represent subsets using bit strings.
+      Next, we consider sets whose elements are also sets,
+      including the set of all subsets of a set.
+      We conclude by working with set-theoretic functions.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_subsets">
+    <title>\subsubsets</title>
+    <p>
+      We first encountered subsets in <xref ref="sec_counting_subsets"></xref>.
+      We repeat that initial description here.
+      In many situations, we want to select some of the elements of a set.
+      We can think of a set as corralling its elements inside a rope.
+      For example,
+      the set <m>A=\{1,2,3,7,8\}</m> is drawn in <xref ref="fig_subset_corral_again"></xref>.
+      If we corral some, all, or none of the elements within <m>A</m>,
+      we get a subset of <m>A</m>.
+      For example, <xref ref="fig_subset_corral_again"></xref>
+      shows the subset <m>\{2,8\}</m> shaded in gray.
+    </p>
+    <figure xml:id="fig_subset_corral_again">
+      <caption>The subset <m>\{2,8\}</m> corrals some of the elements of the set <m>A=\{1,2,3,7,8\}</m>.</caption>
+      image type not recognized
+    </figure>
+    <p>
+      We state a more formal definition of a subset.
+    </p>
+    <definition xml:id="defn_subsets_formal">
+      <title>Subsets (formal)</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The set <m>S</m> is a <term>subset</term> of the set <m>A</m>,
+                denoted <m>S \subseteq A</m>,
+                if every element of <m>S</m> is an element of <m>A</m>.
+                That is, <m>\forall x \in S, x \in A</m> or, equivalently,
+                <me>
+                  x \in S \to x \in A
+                </me>.
+                For example, <m>\{2,8\} \subseteq \{1,2,3,7,8\}</m> because
+                <m>2 \in \{1,2,3,7,8\}</m> and <m>8 \in \{1,2,3,7,8\}</m>.
+                Similarly, <m>\{3\} \subseteq \{1,2,3,7,8\}</m> because <m>3 \in \{1,2,3,7,8\}</m>.
+                Note that <m>\{3\}</m> is different from the integer 3.
+                For example, it would not be appropriate to write
+                <m>3 \subseteq \{1,2,3,7,8\}</m> without the set brackets around 3.
+              </p>
+            </li>
+            <li>
+              <p>
+                If the set <m>S</m> is not a subset of the set <m>A</m>,
+                we write <m>S \nsubseteq A</m>.
+                For example,
+                <m>\{1,5,6\}\nsubseteq \{1,2,3,7,8\}</m> because, for example,
+                <m>5 \in \{1,5,6\}</m> but <m>5 \notin \{1,2,3,7,8\}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Note that the set <m>A</m> is a subset of itself.
+                Think of corralling all the elements of <m>A</m>.
+                For example, <m>\{1,2,3,7,8\} \subseteq \{1,2,3,7,8\}</m>.
+                A subset <m>S</m> of a set <m>A</m> is
+                <term>proper</term> if <m>S \neq A</m>.
+                For example <m>\{2,8\}</m> is a proper subset of <m>\{1,2,3,7,8\}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We note that the empty set is a subset of any set.
+    </p>
+    <remark xml:id="rem_empty_set_is_subset">
+      <title>Empty set is subset of any set</title>
+      <p>
+        The empty set <m>\varnothing</m> is a subset of any set.
+      </p>
+    </remark>
+    <p>
+      For example, <m>\varnothing \subseteq \{1,2,3,7,8\}</m>.
+      Think of corralling no elements of <m>A</m> or drawing a shaded shape within <m>A</m> that contains none of the elements of <m>A</m>.
+      Note that any statement beginning
+      <m>\forall x \in \varnothing</m> is vacuously true since there is nothing to check.
+      In particular, <m>\forall x \in \varnothing, x \in A</m> is true.
+      Similarly, any statement beginning
+      <q>if <m>x \in \varnothing</m></q>
+      is also true because <m>x \in \varnothing</m> is false and any conditional with false hypothesis is true.
+      In particular, <m>x \in \varnothing \to x \in A</m> is true.
+    </p>
+    <p>
+      Let's look at another example of subsets.
+    </p>
+    <example xml:id="exam_subsets">
+      <title>Subsets</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                List all subsets of <m>\{1,2,3,4\}</m>.
+                <solution>
+                  <p>
+                    Let's organize our list by the number of elements in the subset,
+                    as in <xref ref="table_subsets_1234"></xref>.
+                    There are 16 subsets listed.
+                  </p>
+                  <table xml:id="table_subsets_1234">
+                    <title>The subsets of <m>\{1,2,3,4\}</m></title>
+                    <tabular>
+                      <row>
+                        <cell>0 elements:</cell>
+                        <cell><m>\varnothing</m></cell>
+                      </row>
+                      <row>
+                        <cell>1 element:</cell>
+                        <cell><m>\{1\}, \{2\},\{3\},\{4\}</m></cell>
+                      </row>
+                      <row>
+                        <cell>2 elements:</cell>
+                        <cell><m>\{1,2\}, \{1,3\},\{1,4\},\{2,3\},\{2,4\},\{3,4\}</m></cell>
+                      </row>
+                      <row>
+                        <cell>3 elements:</cell>
+                        <cell><m>\{1,2,3\}, \{1,2,4\},\{1,3,4\},\{2,3,4\}</m></cell>
+                      </row>
+                      <row>
+                        <cell>4 elements:</cell>
+                        <cell><m>\{1,2,3,4\}</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many 3-element subsets does <m>A = \{1,2,3,4,5\}</m> have?
+                <solution>
+                  <p>
+                    There are <m>\binom{5}{3}</m> 3-element subsets from a set of 5 elements,
+                    by definition of the binomial coefficients <xref ref="defn_binomial_coeff"/>.
+                    We can evaluate <m>\binom{5}{3}=10</m>,
+                    or just leave the answer as <m>\binom{5}{3}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_number_subsets">
+              <p>
+                How many subsets does <m>A = \{1,2,3,4,5\}</m> have?
+                <solution>
+                  <p>
+                    The phrase
+                    <q>how many</q>
+                    indicates that we are counting.
+                    Let's think about how to select a subset <m>S</m> of <m>A</m>.
+                    Step 1: decide if <m>1 \in S</m>.
+                    There are 2 choices: yes or no. (2 ways) Step 2:
+                    decide if <m>2 \in S</m>.
+                    There are again 2 choices: yes or no. (2 ways) Step 3:
+                    decide if <m>3 \in S</m>. (2 ways).
+                    Step 4: decide if <m>4 \in S</m>. (2 ways).
+                    Step 5: decide if <m>5 \in S</m>. (2 ways).
+                    Since steps multiply <xref ref="thm_steps_multiply"/>,
+                    there are <m>2\cdot 2 \cdot 2 \cdot 2 \cdot 2 = 2^5</m> subsets.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The result of <xref ref="exam_subsets"></xref>
+      <xref ref="part_number_subsets"/> holds in general
+    </p>
+    <theorem xml:id="thm_number_subsets">
+      <title>Number of subsets</title>
+      <statement>
+        <p>
+          A set with <m>n</m> elements has <m>2^n</m> subsets.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's look at an infinite example.
+    </p>
+    <example xml:id="exam_mult6_subset_evens">
+      <title>Multiples of six are subset of evens</title>
+      <statement>
+        <p>
+          Consider the sets
+          <me>
+            E=\{2k \mid k \in \mathbb{N}\}
+          </me>
+          and
+          <me>
+            X = \{6k \mid k \in \mathbb{N}\}
+          </me>
+          <ol>
+            <li>
+              <p>
+                Write <m>E</m> and <m>X</m> using a list and <m>\ldots</m> notation.
+                <solution>
+                  <p>
+                    We can write <m>E = \{0,2,4,6, \ldots\}</m> and <m>X = \{0,6,12,18,\ldots\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_subset_proof">
+              <p>
+                Prove that <m>X</m> is a subset of <m>E</m>.
+                <solution>
+                  <p>
+                    We need to prove: if <m>n \in X</m>, then <m>n \in E</m>.
+                    We use a direct proof of the conditional <xref ref="pff_if_then_direct"/>.
+                  </p>
+                  <p>
+                    <em>Proof</em> Let <m>n \in X</m>.
+                    By definition of <m>X</m> we can write <m>n = 6k</m> for some <m>k \in \mathbb{N}</m>.
+                    Note that
+                    <me>
+                      n = 6k=2(3k)
+                    </me>
+                    and so <m>n = 2k'</m> where <m>k'=3k \in \mathbb{N}</m>.
+                    Therefore, by definition of <m>X</m>,
+                    it follows that <m>n \in E</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Prove that <m>X</m> is a proper subset of <m>E</m>.
+                <solution>
+                  <p>
+                    Since we know that <m>X</m> is a subset,
+                    it remains to show that <m>X</m> is proper.
+                    For that, all we need is an example of <m>E-X</m>,
+                    that is, an element of <m>E</m> that is not in <m>X</m>.
+                    Any even number that is not a multiple of 6 will do.
+                    For example, <m>4 \in E</m> but <m>4 \notin X</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We can use the idea of subsets to show that two sets are equal.
+    </p>
+    <example xml:id="exam_proof_sets_equal">
+      <title>Proof two sets are equal</title>
+      <statement>
+        <p>
+          Let <m>S = \{ b \in \mathbb{B}_5 \mid b \text{ has exactly two \bs{0}s } \}</m> and let <m>T = \{ b \in \mathbb{B}_5 \mid b \text{ has exactly three \bs{1}s } \}</m> where
+          <m>\mathbb{B}_5</m> is the set of bit strings of length five.
+          For example,
+          <m>\bs{10101} \in S</m> because it has two <c>0</c> s and
+          <m>\bs{10101} \in T</m> because it has three <c>1</c> s.
+          Can you see that <m>S = T</m>?
+          Prove <m>S=T</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Proof:</em> First, let <m>b \in S</m>.
+          That is, <m>b</m> is a bit string of length five that has exactly two <c>0</c> s.
+          The remaining <m>5-2=3</m> bits must be <c>1</c> s.
+          Thus <m>b \in T</m>.
+        </p>
+        <p>
+          Conversely, let <m>b \in T</m>.
+          That is, <m>b</m> is a bit string of length five that has exactly three <c>1</c> s.
+          The remaining <m>5-3=2</m> bits must be <c>0</c> s.
+          Thus <m>b \in S</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Notice in <xref ref="exam_proof_sets_equal"></xref>
+      that we showed <m>S=T</m> by showing that <m>S \subseteq T</m>
+      (if <m>x \in S</m>, then <m>x \in T</m>)
+      and then showing the converse that <m>T \subseteq S</m>
+      (if <m>x \in T</m>, then <m>x \in S</m>),
+      as in <xref ref="defn_converse"></xref>.
+      Putting these two parts together,
+      we conclude that the elements of <m>S</m> and <m>T</m> are the same,
+      and so <m>S=T</m>.
+    </p>
+    <p>
+      It is your turn to work with subsets.
+    </p>
+    <activity xml:id="act_subsets">
+      <title>Subsets</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Check that <m>T=\{2,5\} \subseteq S=\{1,2,3,4,5,6\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>V = \{2,8\} \not \subseteq S=\{1,2,3,4,5,6\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              List all subsets of <m>\{1,2,3\}</m>.
+            </p>
+          </li>
+          <li xml:id="part_number_subsets_n">
+            <p>
+              How many subsets does <m>\{1,2,3,\ldots,n\}</m> have?
+              Hint: Count using Step 1: Decide if 1 is in the subset
+              (yes/no).
+              Step 2: Decide if 2 is in the subset
+              (yes/no).
+              And so on.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the sets <m>Q = \{ n^2 \mid n \in \mathbb{N}\}</m> and <m>P = \{2^n \mid n \in \mathbb{N}\}</m>.
+              Describe <m>Q</m> and <m>P</m> in words,
+              then show that neither of <m>Q</m> or <m>P</m> is a subset of the other.
+            </p>
+          </li>
+          <li>
+            <p>
+              If the set <m>S</m> is a subset of the set <m>A</m>,
+              then explain how to simplify <m>S \cap A</m> and <m>S \cup A</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_bs_rep_subset">
+    <title>\subbsrepsubset</title>
+    <p>
+      Set operations can be useful in sorting data,
+      as we saw in the examples in <xref ref="defn_set_ops"></xref>.
+      But working with sets can be bulky.
+      It turns out that we can represent subsets using bit strings,
+      and we can encode set operations as bit string operations.
+    </p>
+    <definition xml:id="defn_bs_rep_subsets">
+      <title>Bit string representation of subsets</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Let <m>U = \{a_1, a_2, a_3, \ldots,
+                a_n\}</m> be a finite set and let <m>S</m> be a subset of <m>U</m>.
+                The <term>bit string representation</term> of <m>S</m>
+                (in <m>U</m>)
+                is <m>b=b_1b_2b_3\ldots b_n</m> where
+                <me>
+                  b_i = \left\{ \begin{array}{cl} \bs{1} \amp  \text{ if }  a_i \in S \\ \bs{0} \amp  \text{ if }  a_i \not\in S \end{array}  \right.
+                </me>
+                For example, for <m>U = \{1,2,3,4,5,6\}</m>,
+                let's calculate the bit string representation of the subset <m>S =\{1,2,3\}</m>.
+                It can help to write the universal set as a reference set as in <xref ref="tab_bs_rep_subsets"></xref>.
+                <table xml:id="tab_bs_rep_subsets">
+                  <title>Representing the subset <m>S =\{1,2,3\}</m> of the universal set <m>U = \{1,2,3,4,5,6\}</m> using the bit string <m>b=\bs{111000}</m></title>
+                  <tabular>
+                    <row>
+                      <cell><m>U</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>S</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>b</m></cell>
+                      <cell>\bs{1}</cell>
+                      <cell>\bs{1}</cell>
+                      <cell>\bs{1}</cell>
+                      <cell>\bs{0}</cell>
+                      <cell>\bs{0}</cell>
+                      <cell>\bs{0}</cell>
+                    </row>
+                  </tabular>
+                </table>
+                The first bit of <m>b</m> is <c>1</c> because <m>1 \in S</m>,
+                the second bit of <m>b</m> is <c>1</c> because <m>2 \in S</m>,
+                the third bit of <m>b</m> is <c>1</c> because <m>3 \in S</m>,
+                the fourth bit of <m>b</m> is <c>0</c> because <m>4 \notin S</m>,
+                the fifth bit of <m>b</m> is <c>0</c> because <m>5 \notin S</m>,
+                and the sixth bit of <m>b</m> is <c>0</c> because <m>6 \notin S</m>.
+                Thus, <m>b=\bs{111000}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                When <m>b=b_1b_2b_3\ldots b_n</m> is the bit string representing the subset <m>S</m>
+                (in a universal set <m>U</m>),
+                we write
+                <me>
+                  S \leftrightarrow b
+                </me>.
+                For example, <m>\{1,2,3\} \leftrightarrow \bs{111000}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Note that each subset of <m>U</m> has a unique bit string and each bit string has a unique subset.
+      That is, <m>S \leftrightarrow b</m> is a pairing.
+      We can use bit-wise operators to perform set operations.
+      Here is an example.
+    </p>
+    <example xml:id="exam_bs_rep_AND">
+      <title>The AND operator on bit strings and its connection to set operations</title>
+      <statement>
+        <p>
+          Given bit strings <m>b</m> and <m>c</m> each of length <m>n</m>.
+          Define the AND operator (<m>\land</m>) as follows:
+          <ul>
+            <li>
+              <p>
+                <m>\bs{0} \land \bs{0} = \bs{0}</m>,
+                <m>\bs{0} \land \bs{1} = \bs{0}</m>,
+                <m>\bs{1} \land \bs{0} = \bs{0}</m>,
+                and <m>\bs{1} \land \bs{1} = \bs{1}</m>.
+                Think of <c>0</c> = False and <c>1</c> = True.
+              </p>
+            </li>
+            <li>
+              <p>
+                Each bit of <m>b \land c</m> is the <m>\land</m> of the corresponding bit of <m>b</m> and the corresponding bit of <m>c</m>.
+              </p>
+            </li>
+          </ul>
+          <ol>
+            <li>
+              <p>
+                If <m>b = \bs{10011}</m> and <m>c = \bs{11001}</m>,
+                calculate <m>b \land c</m>.
+                <solution>
+                  <p>
+                    We have
+                    <me>
+                      b \land c = \begin{array}{cccccc} \amp  \bs{1} \amp  \bs{0} \amp  \bs{0} \amp  \bs{1} \amp  \bs{1} \\ \land  \amp  \bs{1} \amp  \bs{1} \amp  \bs{0} \amp  \bs{0} \amp  \bs{1} \\ \hline \amp  \bs{1} \amp  \bs{0} \amp  \bs{0} \amp  \bs{0} \amp  \bs{1} \end{array}
+                    </me>
+                  </p>
+                  <p>
+                    Thus <m>b \land c= \bs{10001}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                In the set <m>U = \{1,2, 3, 4, 5\}</m>,
+                find the subsets corresponding to <m>b</m>,
+                to <m>c</m>, and to <m>b \land c</m>.
+                <solution>
+                  <p>
+                    We can write the universal set as a reference set to get
+                  </p>
+                  <tabular>
+                    <row>
+                      <cell><m>U</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>b</m></cell>
+                      <cell>\bs{1}</cell>
+                      <cell>\bs{0}</cell>
+                      <cell>\bs{0}</cell>
+                      <cell>\bs{1}</cell>
+                      <cell>\bs{1}</cell>
+                    </row>
+                    <row>
+                      <cell><m>c</m></cell>
+                      <cell>\bs{1}</cell>
+                      <cell>\bs{1}</cell>
+                      <cell>\bs{0}</cell>
+                      <cell>\bs{0}</cell>
+                      <cell>\bs{1}</cell>
+                    </row>
+                    <row>
+                      <cell><m>b \land c</m></cell>
+                      <cell>\bs{1}</cell>
+                      <cell>\bs{0}</cell>
+                      <cell>\bs{0}</cell>
+                      <cell>\bs{0}</cell>
+                      <cell>\bs{1}</cell>
+                    </row>
+                  </tabular>
+                  <p>
+                    Thus <m>b \leftrightarrow \{1, 4, 5 \}</m>,
+                    <m>c \leftrightarrow \{1, 2, 5\}</m>,
+                    and <m>b \land c \leftrightarrow \{1, 5\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Make a conjecture about the relationship in general:
+                if <m>b \leftrightarrow S</m> and <m>c \leftrightarrow T</m>,
+                then <m>b \land c \leftrightarrow \underline{\hspace{1in}}</m>.
+                <solution>
+                  <p>
+                    Suppose <m>b \leftrightarrow S</m> and <m>c \leftrightarrow T</m>.
+                    The only way we have a <c>1</c> in
+                    <m>b \land c</m> is when there is a <c>1</c> in <m>b</m> and a <c>1</c> in the same place in <m>c</m>.
+                    That is, when that element of <m>U</m> is in the set <m>S</m> and in the set <m>T</m>.
+                    We conjecture that
+                    <me>
+                      b \land c \leftrightarrow S \cap T
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with the bit string representation of subsets.
+    </p>
+    <activity xml:id="act_bs_rep_subsets">
+      <title>Bit string representation of subsets</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              List the bit string corresponding to each subset of <m>U = \{1,2,3,4,5,6,7,8,9,10\}</m>:
+              <m>\{1,3,5,7,9\}</m>, <m>\{2, 4, 6, 8, 10\}</m>,
+              <m>\{10\}</m>, and <m>U</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              List the subset of <m>U = \{1,2,3,4,5,6,7,8,9,10\}</m> corresponding to each bit string:
+              <m>\bs{1100110011}</m>, <m>\bs{1000000001}</m>,
+              and <m>\bs{0000000000}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For any set <m>U</m>,
+              if the bit string <m>b</m> corresponds to the subset <m>S</m>,
+              what does the weight of <m>b</m> tell you about <m>S</m>?
+            </p>
+          </li>
+          <li xml:id="part_OR">
+            <p>
+              Given bit strings <m>b</m> and <m>c</m> each of length <m>n</m>.
+              Define the OR operator (<m>\lor</m>) as follows:
+              <ul>
+                <li>
+                  <p>
+                    <m>\bs{0} \lor \bs{0} = \bs{0}</m>,
+                    <m>\bs{0} \lor \bs{1} = \bs{1}</m>,
+                    <m>\bs{1} \lor \bs{0} = \bs{1}</m>,
+                    and <m>\bs{1} \lor \bs{1} = \bs{1}</m>.
+                    Think of <c>0</c> = False and <c>1</c> = True.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Each bit of <m>b \lor c</m> is the <m>\lor</m> of the corresponding bit of <m>b</m> and the corresponding bit of <m>c</m>.
+                  </p>
+                </li>
+              </ul>
+            </p>
+            Calculate <m>b \lor c</m> if <m>b = \bs{10011}</m> and <m>c = \bs{11001}</m>. It might help to line up the bit strings as follows.
+            <me>
+              b \lor c = \begin{array}{cccccc} \amp  \bs{1} \amp  \bs{0} \amp  \bs{0} \amp  \bs{1} \amp  \bs{1} \\ \lor  \amp  \bs{1} \amp  \bs{1} \amp  \bs{0} \amp  \bs{0} \amp  \bs{1} \\ \hline \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \end{array}
+            </me>
+          </li>
+          <li>
+            <p>
+              In the universal set <m>U = \{1,2, 3, 4, 5\}</m>,
+              write the subsets corresponding to <m>b = \bs{10011}</m>,
+              <m>c = \bs{11001}</m>, and <m>b \lor c</m>.
+              It might help to write the universal set as a reference.
+              <tabular>
+                <row>
+                  <cell><m>U</m></cell>
+                  <cell>1</cell>
+                  <cell>2</cell>
+                  <cell>3</cell>
+                  <cell>4</cell>
+                  <cell>5</cell>
+                </row>
+                <row bottom="minor">
+                  <cell></cell>
+                  <cell></cell>
+                  <cell></cell>
+                  <cell></cell>
+                  <cell></cell>
+                  <cell></cell>
+                </row>
+                <row>
+                  <cell><m>b</m></cell>
+                  <cell>\bs{1}</cell>
+                  <cell>\bs{0}</cell>
+                  <cell>\bs{0}</cell>
+                  <cell>\bs{1}</cell>
+                  <cell>\bs{1}</cell>
+                </row>
+                <row>
+                  <cell><m>c</m></cell>
+                  <cell>\bs{1}</cell>
+                  <cell>\bs{1}</cell>
+                  <cell>\bs{0}</cell>
+                  <cell>\bs{0}</cell>
+                  <cell>\bs{1}</cell>
+                </row>
+                <row>
+                  <cell><m>b \lor c</m></cell>
+                  <cell><em>\hspace{.1in}</em></cell>
+                  <cell><em>\hspace{.1in}</em></cell>
+                  <cell><em>\hspace{.1in}</em></cell>
+                  <cell><em>\hspace{.1in}</em></cell>
+                  <cell><em>\hspace{.1in}</em></cell>
+                </row>
+              </tabular>
+            </p>
+          </li>
+          <li>
+            <p>
+              How is the set corresponding to
+              <m>b \lor c</m> related to the sets corresponding to <m>b</m> and to <m>c</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Make a conjecture about the relationship in general:
+              if <m>b \leftrightarrow S</m> and <m>c \leftrightarrow T</m>,
+              then <m>b \lor c \leftrightarrow \underline{\hspace{1in}}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_sets_of_sets">
+    <title>\subsetsofsets</title>
+    <p>
+      A set can contain any type of object, including sets.
+      For example, in <xref ref="defn_ordered_pairs"></xref>
+      we see the set <m>(x,y)=\{\{x\},\{x,y\}\}</m>.
+    </p>
+    <example xml:id="exam_2elt_sets">
+      <title>Two-element sets</title>
+      <statement>
+        <p>
+          Each of the following sets has two elements:
+          <m>\{x, y\}</m>, <m>\{x,\{y\}\}</m><m>,\{\{x\},\{y\}\}</m>,
+          and <m>\{\{x\}, \{x,y\} \}</m>.
+          <ol>
+            <li>
+              <p>
+                List the elements of each set.
+                <solution>
+                  <p>
+                    The outermost set of brackets denote the start and end of our set.
+                    When we remove the outermost set of brackets we get the list of elements.
+                  </p>
+                  <tabular>
+                    <row>
+                      <cell>set</cell>
+                      <cell>elements</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>\{x, y\}</m></cell>
+                      <cell><m>x</m> and <m>y</m></cell>
+                    </row>
+                    <row>
+                      <cell><m>\{x,\{y\}\}</m></cell>
+                      <cell><m>x</m> and <m>\{y\}</m></cell>
+                    </row>
+                    <row>
+                      <cell><m>\{\{x\},\{y\}\}</m></cell>
+                      <cell><m>\{x\}</m> and <m>\{y\}</m></cell>
+                    </row>
+                    <row>
+                      <cell><m>\{\{x\}, \{x,y\} \}</m></cell>
+                      <cell><m>\{x\}</m> and <m>\{x,y\}</m></cell>
+                    </row>
+                  </tabular>
+                  <p>
+                    Note that the presence or absence of set brackets is important.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Which of those sets contains the element <m>x</m>?
+                The element <m>y</m>?
+                <solution>
+                  <p>
+                    Looking at the list of elements,
+                    we see that the sets <m>\{x, y\}</m> and
+                    <m>\{x,\{y\}\}</m> contain the element <m>x</m>,
+                    but only the set <m>\{x, y\}</m> contains the element <m>y</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The set of all subsets of a set has a name.
+    </p>
+    <definition xml:id="defn_power_set">
+      <title>Power set</title>
+      <statement>
+        <p>
+          Given a set <m>A</m>, the <term>power set</term> of <m>A</m>,
+          denoted <m>\mathscr{P}(A)</m> is the set of all subsets of <m>A</m>.
+          That is, <m>\mathscr{P}(A) = \{ S \mid S \subseteq A\}</m>.
+          For example,
+          the power set of <m>\{0,1\}</m> is <m>\mathscr{P}(\{0,1\}) = \{ \varnothing, \{0\}, \{1\}, \{0,1\}\}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We can use set-builder notation to define a set of sets.
+    </p>
+    <example xml:id="exam_set_of_sets_setbuilder">
+      <title>Sets of sets defined using set-builder notation</title>
+      <statement>
+        <p>
+          Give examples of two different elements in each set.
+          Recall that <m>\mathscr{P}(\mathbb{Z})</m> is the set of all subsets of <m>\mathbb{Z}</m>.
+          <ol>
+            <li>
+              <p>
+                <m>\mathscr{S} = \{ A \in \mathscr{P}(\mathbb{Z}) \mid 2 \in A \text{ but } -3 \notin A\}</m>
+                <solution>
+                  <p>
+                    We want subsets of <m>\mathbb{Z}</m> that contain 2 but not -3.
+                    One example is <m>\{2,4,6\}</m> since
+                    <m>2 \in \{2,4,6\}</m> and <m>-3 \notin \{2,4,6\}</m>.
+                    Another example is <m>\mathbb{N}</m> because
+                    <m>2 \in \mathbb{N}</m> but <m>-3 \notin \mathbb{N}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\mathscr{T} = \{A \in \mathscr{P}(\mathbb{Z}) \mid |A|=3\}</m>
+                <solution>
+                  <p>
+                    We want subsets of <m>\mathbb{Z}</m> that have three elements.
+                    One example is <m>\{2,4,6\}</m> and another example is <m>\{113, 872, 987\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with sets of sets.
+    </p>
+    <activity xml:id="act_sets_of_sets">
+      <title>Sets of sets</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Calculate the power set <m>\mathscr{P}(\{1,2\})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Calculate the power set <m>\mathscr{P}(\{0,1,2\})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For a finite set <m>A</m>,
+              how is <m>|\mathscr{P}(A)|</m> related to <m>|A|</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              List the elements of <m>C=\{ \{a\},b,\{\{a\},b\}\}</m>.
+              How many elements does <m>C</m> have?
+            </p>
+          </li>
+          <li>
+            <p>
+              For that same set <m>C=\{ \{a\},b,\{\{a\},b\}\}</m>,
+              explain why <m>\{\{a\},b\} \in C</m> and then explain why <m>\{\{a\},b\} \subseteq C</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Recall that <m>\mathscr{P}(\mathbb{Z})</m> is the set of all subsets of <m>\mathbb{Z}</m>.
+              Give two examples of elements of the set <m>\mathscr{D} = \{ A \in \mathscr{P}(\mathbb{Z}) \mid A \cap \{1,2,3\} = \varnothing\}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_set_functions">
+    <title>\subsetfn</title>
+    <p>
+      <xref ref="sec_fn_words">In</xref>,
+      we saw functions that involve bit strings,
+      number theory, and graph theory.
+      Let's look at some examples of functions involving set theory.
+    </p>
+    <example xml:id="exam_is7_function">
+      <title>Is 7 in set?</title>
+      <statement>
+        <p>
+          The function <m>\fn{seven}:\mathscr{P}(\{0,1,2,3,4,5,6,7,8,9\}) \to \{0,1\}</m> is defined by
+          <me>
+            \fn{seven}(A) = \left\{ \begin{array}{cl} 1 \amp  \text{ if } 7 \in A \\ 0 \amp  \text{ if } 7 \notin A \end{array} \right
+          </me>
+          <ol>
+            <li>
+              <p>
+                Identify the domain and codomain of <m>\fn{seven}</m>.
+                <solution>
+                  <p>
+                    The domain of <m>\fn{seven}</m> is
+                    <m>\mathscr{P}(\{0,1,2,3,4,5,6,7,8,9\})</m> and the codomain of <m>\fn{seven}</m> is <m>\{0,1\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{seven}(\{1,3,4,7\})</m> and <m>\fn{seven}(\{0,2,4,6,8\})</m>.
+                <solution>
+                  <p>
+                    Since 7 is one of the elements in <m>\{1,3,4,7\}</m>,
+                    we are in the first case and so <m>\fn{seven}(\{1,3,4,7\})=1</m>.
+                    Since 7 is not one of the elements in <m>\{0,2,4,6,8\}</m>,
+                    we are in the second case and so <m>\fn{seven}(\{0,2,4,6,8\})=0</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the image of <m>\fn{seven}</m>.
+                <solution>
+                  <p>
+                    The image is <m>\{0,1\}</m> because the only outputs are 0 and 1
+                    (and both happen).
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>\fn{seven}</m> onto?
+                Is <m>\fn{seven}</m> one-to-one?
+                <solution>
+                  <p>
+                    First, <m>\fn{seven}</m> is onto because the image is the entire codomain.
+                    For example,
+                    we saw that <m>\fn{seven}(\{0,2,4,6,8\})=0</m> and <m>\fn{seven}(\{1,3,4,7\})=1</m>.
+                  </p>
+                  <p>
+                    Next, <m>\fn{seven}</m> is not one-to-one because, for example,
+                    <m>\fn{seven}(\{0,2,4,6,8\})=0</m> and <m>\fn{seven}(\{1,2,3,4\})=0</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Here is another example.
+    </p>
+    <example xml:id="exam_cardinality_fn_set">
+      <title>Cardinality of a set</title>
+      <statement>
+        <p>
+          The function <m>\fn{card}:\mathscr{P}(\{0,1,2,3,4,5,6,7,8,9\}) \to \mathbb{N}</m> is defined by <m>\fn{card}(A)=|A|</m>,
+          the number of elements in the set <m>A</m>.
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>\fn{card}(\{1,4,5,7\})</m> and <m>\fn{card}(\{0\})</m>.
+                <solution>
+                  <p>
+                    The set <m>\{1,4,5,7\}</m> has four elements,
+                    so <m>\fn{card}(\{1,4,5,7\})=4</m>.
+                    The set <m>\{0\}</m> has one element,
+                    so <m>\fn{card}(\{0\})=1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the domain, codomain,
+                and image of <m>\fn{card}</m>.
+                <solution>
+                  <p>
+                    The domain is <m>\mathscr{P}(\{0,1,2,3,4,5,6,7,8,9\})</m>,
+                    meaning we can input any subset of <m>\{0,1,2,3,4,5,6,7,8,9\}</m>.
+                    The codomain is <m>\mathbb{N}</m> meaning the output is always a nonnegative integer.
+                    The image is the set of actual output values.
+                    Since each subset of <m>\{0,1,2,3,4,5,6,7,8,9\}</m> has between 0 and 10 elements,
+                    and all are possible, the image is <m>\{0,1,2,3,4,5,6,7,8,9,10\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many elements <m>A</m> of
+                <m>\mathscr{P}</m> have <m>\fn{card}(A)=4</m>?
+                Explain how you counted.
+                <solution>
+                  <p>
+                    A set <m>A</m> has <m>\fn{card}(A)=4</m> exactly when <m>A</m> has four elements.
+                    The number of 4-element subsets of <m>\{0,1,2,3,4,5,6,7,8,9\}</m> is,
+                    by <xref ref="defn_binomial_coeff"></xref>,
+                    exactly <m>\binom{10}{4}</m>. (If you are curious, <m>\binom{10}{4}=210</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>\fn{card}</m> onto?
+                Is <m>\fn{card}</m> one-to-one?
+                <solution>
+                  <p>
+                    First, <m>\fn{card}</m> is not onto because, for example,
+                    <m>\fn{card}(A)=11</m> is impossible because <m>A</m> can have at most 10 elements.
+                  </p>
+                  <p>
+                    Next, <m>\fn{card}</m> is not one-to-one.
+                    We just saw that there are 210 sets <m>A</m> with <m>\fn{card}(A) = 4</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Now it is your turn to work with functions that involve sets.
+    </p>
+    <activity xml:id="act_set_fns">
+      <title>Set-theoretic functions</title>
+      <p>
+        Let <m>P = \mathscr{P}(\mathbb{N})</m>,
+        the set of all subsets of <m>\mathbb{N}</m>,
+        and let <m>P^*</m> be the set of all nonempty subsets of <m>\mathbb{N}</m>.
+        <ol>
+          <li>
+            <p>
+              The function <m>\fn{del7}: P \to P</m> is defined by <m>\fn{del7}(A) = A-\{7\}</m>.
+              Evaluate <m>\fn{del7}(\{2,4,7\})</m> and <m>\fn{del7}(\{1,2,3,4\})</m>.
+              What are the fixed points of <m>\fn{del7}</m>,
+              meaning which sets <m>A</m> have <m>\fn{del7}(A) = A</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>\fn{max}:P^* \to \mathbb{N}</m> is defined by
+              <m>\fn{max}(A)=</m> the largest integer in <m>A</m>.
+              Evaluate <m>\fn{max}(\{2,4,7\})</m>.
+              How many sets <m>A</m> have <m>\fn{max}=2</m>?
+              List them.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give counterexamples to show that
+              <m>\fn{del7}</m> and <m>\fn{max}</m> are not one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give a counterexample to show that <m>\fn{del7}</m> is not onto.
+            </p>
+          </li>
+          <li>
+            <p>
+              Prove that <m>\fn{max}</m> is onto.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_subsets">for</xref>
+      \subsubsets</title>
+      <exercise xml:id="exer_subset_notation">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider <m>S = \{0, 2, 4\}</m>,
+            <m>T = \{1, 2, 3\}</m>, <m>V = \{2\}</m>,
+            and <m>E = \{ n \in \mathbb{Z} \mid n \text{ is even } \}</m>.
+            <ol>
+              <li>
+                <p>
+                  Explain why <m>T \not\subseteq S</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why <m>V \subseteq S \cap T</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>S \subseteq E</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_subset_bs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the set of bit strings <m>B = \{00, 01, 11\}</m>.
+            <ol>
+              <li>
+                <p>
+                  List all elements of <m>B</m> and determine <m>|B|</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List all subset of <m>B</m> and count the number of subsets of <m>B</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_squares_powers2_subsets">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the sets <m>Q = \{ n^2 \mid n \in \mathbb{N}\}</m> and <m>P = \{2^n \mid n \in \mathbb{N}\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Is <m>\{1,4,8\} \subseteq Q</m>?
+                  Is <m>\{1,4,8\} \subseteq P</m>?
+                  Justify your answers.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that neither of <m>Q</m> or <m>P</m> is a subset of the other.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_mult6_subset_mult3">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the sets <m>T = \{3k \mid k \in \mathbb{N}\}</m> and <m>X = \{6k \mid k \in \mathbb{N}</m>.
+            For each statement, either prove the statement is true
+            (<xref ref="exam_mult6_subset_evens">following</xref>
+            <xref ref="part_subset_proof"/>)
+            or prove a counterexample to show the statement is false.
+            <ol>
+              <li>
+                <p>
+                  <m>T \subseteq X</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>X \subseteq T</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_subsets">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What a subset is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When a subset is proper?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why the empty set is a subset of every set?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to check or prove one set is a subset of another?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show one set is not a subset of another?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_ops_if_subset">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Suppose the set <m>S</m> is a subset of the set <m>A</m>.
+            That is <m>S \subseteq A</m>.
+            <ol>
+              <li>
+                <p>
+                  Draw a standard Venn diagram showing <m>S \subseteq A</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain how to simplify <m>S \cap A</m>,
+                  <m>S \cup A</m>, and <m>S-A</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>S \subseteq A</m> and both are subsets of a universal set <m>U</m>,
+                  how are <m>\overline{S}</m> and <m>\overline{A}</m> related?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_bs_rep_subset">for</xref>
+      \subbsrepsubset</title>
+      <exercise xml:id="exer_bs_rep_subsets">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the universal set <m>U = \{0,1,2,3\}</m>.
+            <ol>
+              <li>
+                <p>
+                  List the bit string corresponding to each subset:
+                  <m>\{1,2,3\}</m>, <m>\{0\}</m>, and <m>\varnothing</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the subset corresponding to each bit string <m>\bs{1101}</m>,
+                  <m>\bs{0100}</m>, and <m>\bs{1111}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the bit string <m>b</m> corresponds to the subset <m>S</m>,
+                  what does the weight of <m>b</m> tell you about <m>S</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bs_rep_XOR">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Given bit strings <m>b</m> and <m>c</m> each of length <m>n</m>.
+            Define the (exclusive or) XOR operator (<m>\oplus</m>) as follows:
+            <ul>
+              <li>
+                <p>
+                  <m>\bs{0} \oplus \bs{0} = \bs{0}</m>,
+                  <m>\bs{0} \oplus \bs{1} = \bs{1}</m>,
+                  <m>\bs{1} \oplus \bs{0} = \bs{1}</m>,
+                  and <m>\bs{1} \oplus \bs{1} = \bs{0}</m>.
+                  Think of <c>0</c> = False and <c>1</c> = True.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Each bit of <m>b \land c</m> is the <m>\oplus</m> of the corresponding bit of <m>b</m> and the corresponding bit of <m>c</m>.
+                </p>
+              </li>
+            </ul>
+            <ol>
+              <li>
+                <p>
+                  If <m>b = \bs{11100}</m> and <m>c = \bs{01101}</m>,
+                  calculate <m>b \oplus c</m>.
+                  Show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the subsets of the set
+                  <m>U = \{1,2, 3, 4, 5\}</m> corresponding to <m>b</m>,
+                  to <m>c</m>, and to <m>b \oplus c</m>.
+                  Show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How are these subsets related?
+                  State your answer as a conjecture:
+                  if <m>b \leftrightarrow S</m> and <m>c \leftrightarrow T</m>,
+                  then <m>b \oplus c \leftrightarrow \underline{\hspace{1in}}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bs_rep_NOT">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Given a bit strings <m>b</m>.
+            Define the NOT operator (<m>\neg</m>) as follows:
+            <ul>
+              <li>
+                <p>
+                  <m>\neg\bs{0} = \bs{1}</m> and <m>\neg \bs{1} = \bs{0}</m>.
+                  Think of <c>0</c> = False and <c>1</c> = True.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Each bit of <m>\neg b</m> is the <m>\neg</m> of the corresponding bit of <m>b</m>.
+                </p>
+              </li>
+            </ul>
+            <ol>
+              <li>
+                <p>
+                  If <m>b = \bs{11100}</m>, calculate <m>\neg b</m>.
+                  Show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the subset of the set
+                  <m>U = \{1,2, 3, 4, 5\}</m> corresponding to <m>b</m> and to <m>\neg b</m>.
+                  Show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How are these subsets related?
+                  State your answer as a conjecture:
+                  if <m>b \leftrightarrow S</m>,
+                  then <m>\neg b \leftrightarrow \underline{\hspace{1in}}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_subsets">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  We know from <xref ref="thm_number_bit_strings"></xref>
+                  that there are <m>2^n</m> bit strings of length <m>n</m>.
+                  Use this fact and the bit string representation of subsets to explain why it follows that if <m>U</m> is a set with <m>n</m> elements,
+                  then <m>U</m> has <m>2^n</m> subsets.
+                </p>
+              </li>
+              <li>
+                <p>
+                  We know from the definition of the binomial coefficients <xref ref="defn_binomial_coeff"/> that if <m>U</m> is a set with <m>n</m> elements,
+                  then there are <m>\binom{n}{k}</m> subsets of <m>U</m> that have exactly <m>k</m> elements.
+                  Use this fact and the bit string representation of subsets to explain why it follows that there are
+                  <m>\binom{n}{k}</m> bit strings of length <m>n</m> with exactly <m>k</m> <c>1</c> s <xref ref="thm_bit_string_exactly_k"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_bs_rep_subsets">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to represent the subset of a finite universal set using a bit string and vice versa?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to compute AND, OR, XOR of two bit strings and NOT of a bit string?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How the bit string operators AND, OR, XOR, and NOT relate to set operations?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_sets_of_sets">for</xref>
+      \subsetsofsets</title>
+      <exercise xml:id="exer_set_of_sets_elements">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the set <m>S= \{\{a,b\},c\}</m>.
+            <ol>
+              <li>
+                <p>
+                  List the elements of <m>S</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>a \in S</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\{a,b\}\in S</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>c \in S</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\varnothing \in S</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>S \in S</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_of_sets_subsets">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Again, consider the set <m>S= \{\{a,b\},c\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Is <m>\{a\} \subseteq S</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\{a,b\}\subseteq S</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\{c\} \subseteq S</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\varnothing \subseteq S</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>S \subseteq S</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_power_set">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Calculate the power set of each set.
+            Be sure your answer appears in set brackets, not just a list.
+            <ol>
+              <li>
+                <p>
+                  <m>W=\{1,2\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>X= \{1\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\varnothing</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_element_subset_or_both">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the set <m>T=\{x, \{x\}, \{x,\{x\}\} \}</m>.
+            <ol>
+              <li>
+                <p>
+                  List the elements of <m>T</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>|T|</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\{x,\{x\}\} \in T</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\{x,\{x\}\} \subseteq T</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_of_sets_cardinality">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For each set, list its elements of and determine its cardinality
+            <ol>
+              <li>
+                <p>
+                  <m>\varnothing</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{ \varnothing\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{ \varnothing, \{\varnothing\} \}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_containing_element_phi">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the set <m>\mathscr{H} = \{ \varnothing, 1\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Is <m>1 \in \mathscr{H}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\{1\} \in \mathscr{H}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\varnothing \in \mathscr{H}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>H \in \mathscr{H}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>1 \subseteq \mathscr{H}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\{1\} \subseteq \mathscr{H}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\varnothing \subseteq \mathscr{H}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>H \subseteq \mathscr{H}</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_of_sets_setbuilder">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Give examples of two different elements in each set.
+            Note that the elements are themselves sets.
+            Recall that <m>\mathscr{P}(\mathbb{Z})</m> is the set of all subsets of <m>\mathbb{Z}</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>\{ A \in \mathscr{P}(\mathbb{Z}) \mid 1, 2, 3 \in A \text{ but } 4 \notin A\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{ B \in \mathscr{P}(\mathbb{Z}) \mid |B| = 4\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{C \in \mathscr{P}(\mathbb{Z}) \mid \text{ if } n \in C, \text{ then } n^2 \in C\}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_of_sets_graph">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the graph <m>G</m> in <xref ref="fig_graph_setbuilder"></xref> with vertex set <m>V</m>.
+            Recall that <m>\mathscr{P}(V)</m> is the set of all subsets of <m>V</m>.
+            List two elements in each set.
+            <ol>
+              <li>
+                <p>
+                  <m>\{ D \in \mathscr{P}(V) \mid |D| = 4\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{ E \in \mathscr{P}(V) \mid \text{ no two vertices in } E\text{ are adjacent } \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{ F \in \mathscr{P}(V) \mid \text{ all the vertices in } F\text{ have the same degree } \}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_of_select_subsets">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the set <m>W = \{1,2,3,4,5\}</m>.
+            Recall that <m>\mathscr{P}(W)</m> is the set of all subsets of <m>W</m>.
+            <ol>
+              <li>
+                <p>
+                  List the elements of <m>\{ A \in \mathscr{P}(W) \mid |A| = 1\}</m>,
+                  the set of all <em>singleton</em>
+                  (one element)
+                  subsets of <m>W</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many elements does <m>\{ A \in \mathscr{P}(W) \mid |A| = 2\}</m>,
+                  the set of all <em>doubleton</em>
+                  (two element)
+                  subsets of <m>W</m> have?
+                  List or count, your choice.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the elements of <m>\{ V \in \mathscr{P}(W) \mid \{1,2\} \subseteq V\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider <m>\mathscr{X} = \{ X \in \mathscr{P}(W) \mid 3 \notin X\}</m>.
+                  Calculate <m>|\mathscr{X}|</m>.
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_of_subsets_setops">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the set <m>W = \{1,2,3,4,5\}</m>.
+            Recall that <m>\mathscr{P}(W)</m> is the set of all subsets of <m>W</m>.
+            <ol>
+              <li>
+                <p>
+                  Consider <m>\mathscr{A} = \{ A \in \mathscr{P}(W) \mid A \cap \{1,4\} = \varnothing\}</m>.
+                  Calculate <m>|\mathscr{A}|</m> by listing or counting.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>\mathscr{B}= \{ B \in \mathscr{P}(W) \mid B \cup \{1,4\}=W\}</m>.
+                  Calculate <m>|\mathscr{B}|</m> by listing or counting.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>\mathscr{C} = \{ C \in \mathscr{P}(W) \mid C \oplus \{1,4\} = W\}</m>.
+                  Calculate <m>|\mathscr{C}|</m> by listing or counting.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>\mathscr{D} = \{ D \in \mathscr{P}(W) \mid D - \{1,4\} = W\}</m>.
+                  Calculate <m>|\mathscr{D}|</m> by listing or counting.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_successor_set">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For any set <m>K</m>, the <term>successor</term>
+            of <m>K</m> is <m>\mathscr{S}(K)= K \cup \{K\}</m>.
+            <ol>
+              <li>
+                <p>
+                  For the set <m>K=\{0,1\}</m>,
+                  calculate the successor <m>S(K)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the set <m>K - \{0,1,2\}</m>,
+                  calculate the successor <m>S(K)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the set <m>K = \{0,1,2,\, \ldots, n\}</m>,
+                  how many elements does <m>S(K)</m> have?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_element_and_subset_successor">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            As in <xref ref="exer_successor_set"></xref> for any set <m>K</m>,
+            the <term>successor</term> of <m>K</m> is <m>\mathscr{S}(K)= K \cup \{K\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Explain why for any set <m>K</m> we have <m>K \in S(K)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why for any set <m>K</m> we have <m>K \subseteq S(K)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_sets_of_sets">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to find the elements of a set whose elements include sets,
+                  both from a list and from set-builder notation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the power set of a set is?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_of_inductive_subsets">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the set
+            <me>
+              \mathscr{K} = \{A \in \mathscr{P}(\mathbb{Z}) \mid \text{ if }  n \in A, \text{ then }  n+1 \in A\}
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Show that <m>\{1,2,3\} \notin \mathscr{K}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why <m>S = \{2,3,4,\ldots\}=\{n \in \mathbb{N} \mid n \ge 2\} \in \mathscr{K}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why <m>T = \{ \ldots, -3, -2, -1, 0, 1, 2\} = \{n \in \mathbb{N} \mid n \le 2\} \notin \mathscr{K}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\mathbb{Z} \in \mathscr{K}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\varnothing \in \mathscr{K}</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_constructing_naturals">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In this problem,
+            we explore one definition of the set of natural numbers using sets.
+            We will use boldface <m>\mathbf{0}, \mathbf{1}, \mathbf{2}, \ldots</m> to distinguish what we are defining from the usual natural numbers <m>0, 1, 2, \ldots</m>.
+            To start, define <m>\mathbf{0} = \varnothing</m>.
+            Note that <m>|\mathbf{0}|=0</m>.
+            As in <xref ref="exer_successor_set"></xref>, for any set <m>K</m>,
+            the <term>successor</term> of <m>K</m> is <m>\mathscr{S}(K)= K \cup \{K\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Define <m>\mathbf{1} = \mathscr{S}(\mathbf{0})</m>.
+                  Write <m>\mathbf{1}</m> in terms of <m>\mathbf{0}</m>,
+                  write <m>\mathbf{1}</m> in terms of <m>\varnothing</m>,
+                  and calculate <m>|\mathbf{1}|</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Define <m>\mathbf{2} = \mathscr{S}(\mathbf{1})</m>.
+                  Write <m>\mathbf{2}</m> in terms of
+                  <m>\mathbf{0}</m> and <m>\mathbf{1}</m>,
+                  write <m>\mathbf{2}</m> in terms of <m>\varnothing</m>,
+                  and calculate <m>|\mathbf{2}|</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_set_functions">for</xref>
+      \subsetfn</title>
+      <exercise xml:id="exer_min_function_on_sets">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Let <m>P = \mathscr{P}(\mathbb{N})</m>,
+            the set of all subsets of <m>\mathbb{N}</m> and let <m>P^*</m> be the set of all nonempty subsets of <m>\mathbb{N}</m>.
+            The function <m>\fn{min}:\mathscr{P}^* \to \mathbb{N}</m> is defined by
+            <m>\fn{min}(A)</m> is the smallest number in the set <m>A</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{min}(\{1,3,4,7\})</m> and <m>\fn{min}(\{5\})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a set <m>A</m> with <m>\fn{min}(A) = 7</m>.
+                  Is it unique?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Identify the domain, codomain,
+                  and image of <m>\fn{min}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\fn{min}</m> onto?
+                  Is <m>\fn{min}</m> one-to-one?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_without_zero">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The function <m>\fn{del0}:\mathscr{P}(\{0,1,2,3,4,5,6,7,8,9\}) \to \mathscr{P}(\{0,1,2,3,4,5,6,7,8,9\})</m> is defined by <m>\fn{del0}(A)=A -\{0\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{del0}(\{0,4,6\})</m> and <m>\fn{del0}(\{5,6,7\})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a set <m>A</m> with <m>\fn{del0}(A) = \{2,3\}</m>.
+                  Is it unique?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Identify the domain, codomain,
+                  and image of <m>\fn{del0}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\fn{del0}</m> onto?
+                  Is <m>\fn{del0}</m> one-to-one?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sqrt_set">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            As usual, <m>\mathscr{P}(\mathbb{N})</m> is the set of all subsets of <m>\mathbb{N}</m>.
+            Define <m>\fn{sqrt}: \mathscr{P}(\mathbb{N}) \to \mathscr{P}(\mathbb{N})</m> by <m>\fn{sqrt}(A) = \{a \in \mathbb{N} \mid a^2 \in A\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{sqrt}(\{1,6,9,10\})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{sqrt}(\mathbb{N})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a nonempty set <m>A</m> with <m>\fn{sqrt}(A) = \varnothing</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a set <m>B</m> with <m>\fn{sqrt}(b) = \{3,5\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\fn{sqrt}</m> one-to-one?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\fn{sqrt}</m> onto?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_set_fns">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to evaluate functions involving sets?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to determine the domain, codomain,
+                  and image of functions involving sets?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show a function involving sets is or is not onto or one-to-one?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_both_function">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The function <m>\fn{three}:\mathscr{P}(\{0,1,2,3,4,5,6,7,8,9\}) \to \{0,1\}</m> is defined by
+            <me>
+              \fn{three}(A) = \left\{ \begin{array}{cl} 1 \amp  \text{ if 3 is in the set } A \\ 0 \amp  \text{ if 3 is not in the set }  A \end{array} \right
+            </me>
+            <ol>
+              <li xml:id="part_is3">
+                <p>
+                  Identify the domain and codomain of <m>\fn{three}</m> and evaluate
+                  <m>\fn{three}(\{1,3,4,7\})</m> and <m>\fn{three}(\varnothing)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the function <m>\fn{both}:\mathscr{P}(\{0,1,2,3,4,5,6,7,8,9\}) \to \{0,1\}</m> defined by
+                  <me>
+                    \fn{both}(A) = \left\{ \begin{array}{cl} 1 \amp  \text{ if 3 and 7 are both in the set } A \\ 0 \amp  \text{ otherwise } \end{array} \right
+                  </me>.
+                  Identify the domain and codomain of <m>\fn{both}</m> and evaluate
+                  <m>\fn{both}(\{1,3,4,7\}</m> and <m>\fn{both}(\{5,6,7,8\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write a formula for the function
+                  <m>\fn{both}</m> that is not piecewise-defined by using the function
+                  <m>\fn{three}</m> from <xref ref="part_is3"/> and the function
+                  <m>\fn{seven}</m> from <xref ref="exam_is7_function"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_subset_notation"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Find an element in <m>T</m> that is not an element of <m>S</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>2 \in S</m> and <m>2 \in T</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_squares_powers2_subsets"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: No, Yes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find an element of <m>Q -P</m> and then find an element of <m>P-Q</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_mult6_subset_mult3"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: It is true.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is false.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_ops_if_subset"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your Venn diagram should show <m>S</m> as completely contained in <m>A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Not sure?
+            Look at an example.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One is a subset of the other.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bs_rep_subsets"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The first bit string is <c>0111</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The first subset is <m>\{0,1,3\}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There is a <c>1</c> in <m>b</m> for each element of <m>b</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bs_rep_XOR"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <c>10001</c>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The subset corresponding to <m>b \oplus c</m> is <m>\{1,5\}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\oplus</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bs_rep_NOT"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your answer should have two <c>1</c> s.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The subset corresponding to <m>b</m> is <m>\{1,2,3\}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: any element of <m>S</m> has a <c>1</c> in <m>b</m> and,
+            therefore,
+            a <c>0</c> in <m>\neg b</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_of_sets_elements"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: <m>S</m> has two elements.
+        The answers to (b)-(f) are three No and two Yes, in some order.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_of_sets_subsets"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The answers to (a)-(e) are two No and three Yes,
+        in some order.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_power_set"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Do not forget the set brackets.
+            You should have four elements in the set.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\{\varnothing, \{1\}\}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is not <m>\varnothing</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_element_subset_or_both"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are three elements.
+          </p>
+        </li>
+        <li>
+          <p>
+            3
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes.
+            Find it on the list of elements.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes.
+            Check that each element is on the list of elements.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_of_sets_setbuilder"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: One element is <m>\{1,2,3,5,6,7\}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One element is <m>\{8,10,12,14\}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One element is <m>\{2,4,16,64,4096, \ldots\}</m>.
+            There are finite sets that are answers too.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_of_sets_graph"></xref> Select Answers and Hints</title>
+      <p>
+        The graph appears <xref ref="sec_sets">with</xref>
+        <xref ref="exer_set_verts"></xref>.
+        <ol>
+          <li>
+            <p>
+              Hint: One element is <m>\{r,s,t,u\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: One element is <m>\{r, u, y\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: One element is <m>\{s,t,u\}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_of_subsets_setops"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: If <m>A \in \mathscr{A}</m>,
+            then <m>A \subseteq \{2,3,5\}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: If <m>B \in \mathscr{B}</m>,
+            then <m>\{2,3,5\} \subseteq B</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: If <m>C \in \mathscr{C}</m>, what is <m>C</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: How could that happen?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_min_function_on_sets"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\fn{min}(\{1,3,4,7\})=1</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is not unique.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Given a natural number <m>n</m>,
+            what is an example of a set <m>A</m> with <m>\fn{min}(A) = n</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes, No.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_without_zero"></xref> Select Answers and Hints</title>
+      <p>
+        Note that <m>-</m> is the set difference,
+        as defined in <xref ref="defn_set_ops"></xref>.
+        <ol>
+          <li>
+            <p>
+              Hint: <m>\fn{del0}(\{0,4,6\})=\{4,6\}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The image is a power set.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: It is not unique.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: No, no.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sqrt_set"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\{1,3\}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\mathbb{N}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>A</m> should not contain any perfect squares.
+          </p>
+        </li>
+        <li xml:id="part_sqrt_set_is35">
+          <p>
+            Hint: <m>B</m> should contain 9, 25, and no other perfect squares.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: No
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes, look back at <xref ref="part_sqrt_set_is35"/>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

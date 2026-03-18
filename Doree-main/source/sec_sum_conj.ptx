@@ -1,0 +1,1892 @@
+<section xml:id="sec_sum_conj">
+  <title>Conjectures of Explicit Formulas for Sums and Products</title>
+  <introduction>
+    <p>
+      Although we have a notation for sums and products,
+      we still need to go through a process to evaluate a sum and product.
+      First, we need to calculate each term.
+      Next, we need to add or multiply.
+      In some cases,
+      we can find an explicit formula for a sum or a product,
+      which allows us to evaluate using a formula.
+      In this section,
+      we introduce partial sums and partial products and use them to conjecture explicit formulas.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_sum_conj">
+    <title>\subsumconj</title>
+    <p>
+      We start with sums.
+    </p>
+    <definition xml:id="defn_partial_sum">
+      <title>Partial sums</title>
+      <statement>
+        <p>
+          Consider a list of numbers
+          <m>a_s, a_{s+1}, a_{s+2}, \ldots,
+          a_n</m> for some integers <m>s</m> and <m>n</m>.
+          <ol>
+            <li>
+              <p>
+                For the sum
+                <me>
+                  \sum_{k=s}^n a_k =a_s + a_{s+1}+a_{s+2}+\ldots+a_n
+                </me>,
+                the <term>partial sums</term> are
+                <md>
+                  <mrow>\sum_{k=s}^s a_k \amp  =a_s,</mrow>
+                  <mrow>\sum_{k=s}^{s+1} a_k \amp  =a_s+a_{s+1},</mrow>
+                  <mrow>\sum_{k=s}^{s+2} a_k \amp  =a_s+a_{s+1}+a_{s+2}</mrow>
+                </md>,
+                and so on.
+                For example, for the sum
+                <me>
+                  \sum_{k=1}^n 2 =2 + 2 + 2 + \ldots + 2
+                </me>,
+                the partial sums are
+                <md>
+                  <mrow>\sum_{k=1}^1 2 \amp =2,</mrow>
+                  <mrow>\sum_{k=1}^2 2 \amp =2+2=4,</mrow>
+                  <mrow>\sum_{k=1}^3 2 \amp =2+2+2=6</mrow>
+                </md>,
+                and so on.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>sequence of partial sums</term> is
+                <me>
+                  a_s, a_s+a_{s+1},a_s+a_{s+1}+a_{s+2}, \ldots
+                </me>.
+                For example, the sequence of partial sums in our example begins
+                <me>
+                  2, 4, 6, \ldots
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We focus on finite sums,
+      but we mention, for readers who have studied calculus,
+      that these are the same partial sums used to define infinite series.
+    </p>
+    <p>
+      There is a shorthand notation for calculating partial sums that we introduce in our next example,
+      where we revisit the sum from <xref ref="defn_partial_sum"></xref>.
+    </p>
+    <example xml:id="exam_partial_sums_conj_constant">
+      <title>Conjecture explicit form of sum of constant</title>
+      <statement>
+        <p>
+          Consider the sum
+          <me>
+            \sum_{k=1}^n 2 =2 + 2 + 2 + \ldots + 2
+          </me>.
+          <ol>
+            <li>
+              <p>
+                Calculate the partial sums.
+                <solution>
+                  <p>
+                    We display the partial sums using a shorthand in <xref ref="fig_part_sums_constant"></xref>.
+                    At each <m>+</m> sign,
+                    we draw a line and record the sum from the beginning to that line.
+                  </p>
+                </solution>
+                <figure xml:id="fig_part_sums_constant">
+                  <caption>Calculating partial sums for <m>\displaystyle \sum_{k=1}^n2</m>.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Display the partial sums in a table.
+                <solution>
+                  <p>
+                    We are interested in finding an explicit formula sum as a function of <m>n</m>,
+                    so it is helpful to have the partial sums in a table,
+                    as shown in <xref ref="tab_partial_sums_constant"></xref>.
+                  </p>
+                </solution>
+                <table xml:id="tab_partial_sums_constant">
+                  <title>Partial sums for <m>\displaystyle \sum_{k=1}^n2</m></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>partial sum</cell>
+                      <cell>2</cell>
+                      <cell>4</cell>
+                      <cell>6</cell>
+                      <cell>8</cell>
+                      <cell>10</cell>
+                      <cell>12</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>pattern</cell>
+                      <cell>2(1)</cell>
+                      <cell>2(2)</cell>
+                      <cell>2(3)</cell>
+                      <cell>2(4)</cell>
+                      <cell>2(5)</cell>
+                      <cell>2(6)</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use pattern recognition to conjecture an explicit form.
+                <solution>
+                  <p>
+                    We notice that each partial sum is twice the index <m>n</m>,
+                    and add another row to our table to show the pattern.
+                    We conjecture <m>\displaystyle \sum_{k=1}^n2=2n</m>,
+                    which is no surprise since
+                    <me>
+                      \sum_{k=1}^n2 = \underbrace{2 +2+ \ldots + 2}_{n \text{ times } }=2n
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Observe that we can use each partial sum to calculate the next partial sum without having to add from the beginning.
+      For example,
+      once we calculate <m>\displaystyle \sum_{k=1}^32 = 2+2+2 = 6</m>,
+      we can calculate
+      <me>
+        \displaystyle \sum_{k=1}^42 = 2+2+2+2 = (2+2+2)+2=6+2=8
+      </me>.
+    </p>
+    <p>
+      That is, the new partial sum is equal to the previous partial sum plus the new term.
+      We state this result in general.
+    </p>
+    <remark xml:id="rem_rec_def_partial_sum">
+      <title>Recursive definition of partial sums</title>
+      <p>
+        Consider a list of numbers
+        <m>a_s, a_{s+1}, a_{s+2}, \ldots,
+        a_n</m> for some integers <m>s</m> and <m>n</m>.
+        Then
+        <md>
+          <mrow>\sum_{k=s}^n a_k \amp  = a_s + a_{s+1} + \ldots + a_{n-1} + a_n</mrow>
+          <mrow>\amp  = (a_s + a_{s+1} + \ldots + a_{n-1}) + a_n</mrow>
+          <mrow>\amp  = \left(\sum_{k=s}^{n-1} a_k\right) + a_n</mrow>
+        </md>
+      </p>
+      <p>
+        We can remember this recursion as
+        <me>
+          \underbrace{\sum_{k=s}^n a_k}_{\text{ new sum } } = \underbrace{\sum_{k=s}^{n-1} a_k}_{\text{ previous sum } } + \underbrace{a_n}_{\text{ new term } }
+        </me>
+      </p>
+    </remark>
+    <p>
+      Let's look at a couple more examples of calculating partial sums and using pattern recognition to conjecture an explicit formula.
+    </p>
+    <example xml:id="exam_conj_explicit_sum_linear_exp">
+      <title>Conjecture explicit formula for sum</title>
+      <statement>
+        <p>
+          Calculate the first few partial sums,
+          display your findings in a table,
+          and use pattern recognition to conjecture an explicit formula for the sum.
+          <ol>
+            <li>
+              <p>
+                <m>\displaystyle \sum_{k=1}^n(4k-1)</m>    Hint: Factor.
+                <solution>
+                  <p>
+                    We start by writing out the first six terms and their partial sums,
+                    as shown in <xref ref="fig_part_sums_linear"></xref>.
+                    For example, <m>3+7 = 10</m>.
+                    Next, using the previous sum
+                    (as in <xref ref="rem_rec_def_partial_sum"></xref>)
+                    we get <m>3+7+11 = (10) + 11 = 21</m>.
+                    Then, <m>21 + 15 = 36</m>, and so on.
+                    Next, we make a table showing the index <m>n</m> and the partial sums,
+                    as shown in <xref ref="tab_partial_sums_linear"></xref>.
+                    To see the pattern, we follow the hint and factor each partial sum.
+                    We show this pattern in the third row of the table.
+                    Notice that one factor is <m>n</m> itself.
+                    The other factor is odd.
+                    Based on this pattern, we conjecture that
+                    <me>
+                      \displaystyle \sum_{k=1}^n(4k-1)=n(2n+1)
+                    </me>
+                  </p>
+                </solution>
+                <figure xml:id="fig_part_sums_linear">
+                  <caption>Calculating partial sums for <m>\displaystyle \sum_{k=1}^n(4k-1)</m>.</caption>
+                  image type not recognized
+                </figure>
+                <table xml:id="tab_partial_sums_linear">
+                  <title>Partial sums for <m>\displaystyle \sum_{k=1}^n(4k-1)</m></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>partial sum</cell>
+                      <cell>3</cell>
+                      <cell>10</cell>
+                      <cell>21</cell>
+                      <cell>36</cell>
+                      <cell>55</cell>
+                      <cell>78</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>pattern</cell>
+                      <cell>1(3)</cell>
+                      <cell>2(5)</cell>
+                      <cell>3(7)</cell>
+                      <cell>4(9)</cell>
+                      <cell>5(11)</cell>
+                      <cell>6(13)</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\displaystyle \sum_{k=0}^n9 \cdot 10^k</m>
+                <solution>
+                  <p>
+                    We start by writing out the first four terms and their partial sums,
+                    as shown in <xref ref="fig_part_sums_geometric"></xref>.
+                    For example, <xref ref="rem_rec_def_partial_sum">using</xref>,
+                    we calculate <m>9+90=99</m>, then <m>99 + 900 = 999</m>,
+                    and so on.
+                    Next, we make a table showing the index <m>n</m> and the partial sums,
+                    as shown in <xref ref="tab_partial_sums_geometric"></xref>.
+                    We notice that the partial sums are related to powers of 10 and,
+                    in fact, they are each one less than the next higher power of 10.
+                    We show this pattern in the third row of the table.
+                    Based on this pattern, we conjecture that
+                    <me>
+                      \displaystyle \sum_{k=0}^n9 \cdot 10^k=10^{n+1}-1
+                    </me>.
+                  </p>
+                </solution>
+                <figure xml:id="fig_part_sums_geometric">
+                  <caption>Calculating partial sums for <m>\displaystyle \sum_{k=0}^n9 \cdot 10^k</m>.</caption>
+                  image type not recognized
+                </figure>
+                <table xml:id="tab_partial_sums_geometric">
+                  <title>Partial sums for <m>\displaystyle \sum_{k=0}^n9 \cdot 10^k</m></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>partial sum</cell>
+                      <cell>9</cell>
+                      <cell>99</cell>
+                      <cell>999</cell>
+                      <cell>9999</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>pattern</cell>
+                      <cell><m>10^1-1</m></cell>
+                      <cell><m>10^2-1</m></cell>
+                      <cell><m>10^3-1</m></cell>
+                      <cell><m>10^4-1</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to conjecture explicit forms of a sum.
+    </p>
+    <activity xml:id="act_sum_conj">
+      <title>Sum conjectures</title>
+      <p>
+        For each problem,
+        calculate the first few partial sums and use pattern recognition to complete a conjecture about an explicit formula for the sum.
+        <ol>
+          <li>
+            <p>
+              <m>\displaystyle \sum_{k=0}^n2^k = 1+2+4+\ldots +2^n</m> Hint: The answer involves powers of two.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\displaystyle \sum_{k=1}^n(2k)=2+4+6+ \ldots + 2n</m> Hint: Factor.
+            </p>
+          </li>
+          <li xml:id="part_sum_recip_hs">
+            <p>
+              <m>\displaystyle \sum_{k=1}^n\frac{2}{k(k+1)}= 1 + \frac{1}{3} + \frac{1}{6} + \ldots+\frac{2}{n(n+1)}</m> Use computational technology to find the partial sums as fractions.
+              (In DESMOS, click the fraction icon to ask for the answer as a fraction.)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look <xref ref="act_sum_conj">at</xref>
+      <xref ref="part_sum_recip_hs"/>.
+    </p>
+    <example xml:id="exam_sum_recip_hs_conj">
+      <title>Explicit form of sum of reciprocals of handshake numbers</title>
+      <statement>
+        <p>
+          Calculate the first few partial sums and use pattern recognition to complete a conjecture about an explicit formula for the sum
+          <me>
+            \displaystyle \sum_{k=1}^n\frac{2}{k(k+1)}= 1 + \frac{1}{3} + \frac{1}{6} + \ldots+\frac{2}{n(n+1)}
+          </me>
+        </p>
+        <solution>
+          <p>
+            The first five partial sums are
+            <me>
+              1, \frac{4}{3}, \frac{3}{2}, \frac{8}{5}, \frac{5}{3}, \frac{12}{7}
+            </me>.
+            Notice the denominators are of the form
+            <me>
+              \underline{\hspace{.2in}}, 3, \underline{\hspace{.2in}}, 5, \underline{\hspace{.2in}}, 7
+            </me>
+            which suggests that we should rewrite the fractions over the denominators
+            <me>
+              2, 3, 4, 5, 6, 7
+            </me>
+            to get
+            <me>
+              \frac{2}{2}, \frac{4}{3}, \frac{6}{4}, \frac{8}{5}, \frac{10}{6}, \frac{12}{7}
+            </me>.
+            Next, we make a table showing the index <m>n</m> and the partial sums,
+            as shown in <xref ref="tab_partial_sums_recip_hs"></xref>.
+            Based on this pattern, we conjecture that
+            <me>
+              \sum_{k=1}^n\frac{2}{k(k+1)}= \frac{2n}{n+1}
+            </me>
+          </p>
+        </solution>
+        <table xml:id="tab_partial_sums_recip_hs">
+          <title>Partial sums for <m>\displaystyle \sum_{k=1}^n\frac{2}{k(k+1)}</m></title>
+          <tabular>
+            <row>
+              <cell><m>n</m></cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>partial sum</cell>
+              <cell>1</cell>
+              <cell><m>\displaystyle \frac{4}{3}</m></cell>
+              <cell><m>\displaystyle\frac{3}{2}</m></cell>
+              <cell><m>\displaystyle\frac{8}{5}</m></cell>
+              <cell><m>\displaystyle\frac{5}{3}</m></cell>
+              <cell><m>\displaystyle\frac{12}{7}</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>pattern</cell>
+              <cell><m>\displaystyle\frac{2}{2}</m></cell>
+              <cell><m>\displaystyle\frac{4}{3}</m></cell>
+              <cell><m>\displaystyle\frac{6}{4}</m></cell>
+              <cell><m>\displaystyle\frac{8}{5}</m></cell>
+              <cell><m>\displaystyle\frac{10}{6}</m></cell>
+              <cell><m>\displaystyle\frac{12}{7}</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_prod_conj">
+    <title>\subprodconj</title>
+    <p>
+      Next, we work with products.
+    </p>
+    <definition xml:id="defn_partial_prod">
+      <title>Partial products</title>
+      <statement>
+        <p>
+          Consider a list of numbers
+          <m>a_s, a_{s+1}, a_{s+2}, \ldots,
+          a_n</m> for some integers <m>s</m> and <m>n</m>.
+          <ol>
+            <li>
+              <p>
+                For the product
+                <me>
+                  \prod_{k=s}^n a_k =a_s \times a_{s+1} \times a_{s+2} \times \ldots \times a_n
+                </me>,
+                the <term>partial products</term> are
+                <md>
+                  <mrow>\prod_{k=s}^s a_k \amp =a_s,</mrow>
+                  <mrow>\prod_{k=s}^{s+1} a_k \amp =a_s \times a_{s+1},</mrow>
+                  <mrow>\prod_{k=s}^{s+2} a_k \amp =a_s \times a_{s+1} \times a_{s+2}</mrow>
+                </md>,
+                and so on.
+                For example, for the product
+                <me>
+                  \prod_{k=1}^n 2 = 2 \times 2 \times \cdots \times 2
+                </me>,
+                the partial products are
+                <md>
+                  <mrow>\prod_{k=1}^1 2 \amp =2,</mrow>
+                  <mrow>\prod_{k=1}^2 2 \amp =2 \times 2=4,</mrow>
+                  <mrow>\prod_{k=1}^3 2 \amp =2 \times 2 \times 2=8</mrow>
+                </md>,
+                and so on.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>sequence of partial products</term> is
+                <me>
+                  a_s, a_sa_{s+1},a_sa_{s+1}a_{s+2}, \ldots
+                </me>.
+                For example,
+                the sequence of partial products in our example begins
+                <me>
+                  2, 4, 8, \ldots
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      There is a shorthand notation for calculating partial products that we introduce in our next example,
+      where we revisit the product from <xref ref="defn_partial_prod"></xref>.
+    </p>
+    <example xml:id="exam_partial_prod_conj_constant">
+      <title>Conjecture explicit form of product of constant</title>
+      <statement>
+        <p>
+          Consider the product
+          <me>
+            \prod_{k=1}^n 2 =2 \times 2 \times 2 \times \ldots \times 2
+          </me>.
+          <ol>
+            <li>
+              <p>
+                Calculate the partial products.
+                <solution>
+                  <p>
+                    We display the partial products using a shorthand in <xref ref="fig_part_products_constant"></xref>.
+                    At each <times/> sign,
+                    we draw a line and record the product from the beginning to that line.
+                  </p>
+                </solution>
+                <figure xml:id="fig_part_products_constant">
+                  <caption>Calculating partial products for <m>\displaystyle \prod_{k=1}^n2</m>.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Display the partial products in a table.
+                <solution>
+                  <p>
+                    We are interested in finding an explicit formula for the product as a function of <m>n</m>,
+                    so it is helpful to have the partial products in a table,
+                    as shown in <xref ref="tab_partial_products_constant"></xref>.
+                  </p>
+                </solution>
+                <table xml:id="tab_partial_products_constant">
+                  <title>Partial products for <m>\displaystyle \prod_{k=1}^n2</m></title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>partial product</cell>
+                      <cell>2</cell>
+                      <cell>4</cell>
+                      <cell>8</cell>
+                      <cell>16</cell>
+                      <cell>32</cell>
+                      <cell>64</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>pattern</cell>
+                      <cell><m>2^1</m></cell>
+                      <cell><m>2^2</m></cell>
+                      <cell><m>2^3</m></cell>
+                      <cell><m>2^4</m></cell>
+                      <cell><m>2^5</m></cell>
+                      <cell><m>2^6</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use pattern recognition to conjecture an explicit form.
+                <solution>
+                  <p>
+                    We notice that each partial product is two to the index <m>n</m>,
+                    and add another row to our table to show the pattern.
+                    We conjecture <m>\displaystyle \prod_{k=1}^n2=2^n</m>,
+                    which is no surprise since
+                    <me>
+                      \prod_{k=1}^n2 = \underbrace{2 \times 2 \times \ldots \times 2}_{n \text{ times } }=2^n
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Observe that we can use each partial product to calculate the next partial product without having to multiply from the beginning.
+      For example,
+      once we calculate <m>\displaystyle \prod_{k=1}^32 = 2 \times 2 \times 2 = 8</m>,
+      we can calculate
+      <me>
+        \displaystyle \prod_{k=1}^42 = 2 \times 2 \times 2 \times 2 = (2 \times 2 \times 2)\times 2=8 \times 2=16
+      </me>.
+    </p>
+    <p>
+      That is, the new partial product is equal to the previous partial product times the new term.
+      We state this result in general.
+    </p>
+    <remark xml:id="rem_rec_def_partial_prod">
+      <title>Recursive definition of partial product</title>
+      <p>
+        Consider a list of numbers
+        <m>a_s, a_{s+1}, a_{s+2}, \ldots,
+        a_n</m> for some integers <m>s</m> and <m>n</m>.
+        Then
+        <md>
+          <mrow>\prod_{k=s}^n a_k \amp  = a_s \times a_{s+1} \times \ldots \times a_{n-1} \times a_n</mrow>
+          <mrow>\amp  = (a_s \times a_{s+1}\times \ldots \times a_{n-1}) \times a_n</mrow>
+          <mrow>\amp  = \left(\prod_{k=s}^{n-1} a_k\right) \times  a_n</mrow>
+        </md>
+      </p>
+      <p>
+        We can remember this recursion as
+        <me>
+          \underbrace{\prod_{k=s}^n a_k}_{\text{ new product } } = \underbrace{\prod_{k=s}^{n-1} a_k}_{\text{ previous product } } \times \underbrace{a_n}_{\text{ new term } }
+        </me>
+      </p>
+    </remark>
+    <p>
+      Let's look at another example of calculating partial products and using pattern recognition to conjecture an explicit formula.
+    </p>
+    <example xml:id="exam_conj_explicit_prod_linear">
+      <title>Conjecture explicit formula for product</title>
+      <statement>
+        <p>
+          Calculate the first few partial products,
+          display your findings in a table,
+          and use pattern recognition to conjecture an explicit formula for the product:
+          <m>\displaystyle \prod_{k=1}^nk</m>.
+        </p>
+        <solution>
+          <p>
+            We start by writing out the first six terms and their partial products,
+            as shown in <xref ref="fig_part_product_linear"></xref>.
+            For example, <m>1 \times 2 = 2</m>.
+            Next, using the previous product
+            (as in <xref ref="rem_rec_def_partial_prod"></xref>)
+            we get <m>1 \times 2 \times 3 = (2) \times 3 = 6</m>.
+            Then, <m>6 \times 4 = 24</m>, and so on.
+            Next, we make a table showing the index <m>n</m> and the partial products,
+            as shown in <xref ref="tab_partial_products_linear"></xref>.
+            We recognize these numbers as the factorials
+            (or we realize that we are multiplying consecutive integers).
+            We show this pattern in the third row of the table.
+            Based on this pattern,
+            we conjecture that <m>\displaystyle \prod_{k=1}^nk=n!</m>,
+            which is no surprise because <m>1 \times 2 \times 3 \times \cdots \times n = n!</m>.
+          </p>
+        </solution>
+        <figure xml:id="fig_part_product_linear">
+          <caption>Calculating partial products for <m>\displaystyle \prod_{k=1}^nk</m>.</caption>
+          image type not recognized
+        </figure>
+        <table xml:id="tab_partial_products_linear">
+          <title>Partial products for <m>\displaystyle \prod_{k=1}^nk</m></title>
+          <tabular>
+            <row>
+              <cell><m>n</m></cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>partial product</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>6</cell>
+              <cell>24</cell>
+              <cell>120</cell>
+              <cell>720</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>pattern</cell>
+              <cell><m>1!</m></cell>
+              <cell><m>2!</m></cell>
+              <cell><m>3!</m></cell>
+              <cell><m>4!</m></cell>
+              <cell><m>5!</m></cell>
+              <cell><m>6!</m></cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </example>
+    <p>
+      It is your turn to conjecture explicit forms of a product.
+    </p>
+    <activity xml:id="act_prod_conj">
+      <title>Product conjectures</title>
+      <p>
+        For each problem,
+        calculate the first few partial products and use pattern recognition to complete a conjecture about an explicit formula for the product.
+        <ol>
+          <li>
+            <p>
+              <m>\displaystyle \prod_{j=1}^n \frac{j+1}{j} = \frac{2}{1} \times \frac{3}{2} \times \frac{4}{3} \times \cdots \times \frac{n+1}{n}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\displaystyle \prod_{k=1}^n(2k) = 2(1) \times 2(2) \times 2(3) \times \cdots \times 2(n)</m>.
+              Hint: Keep the partial products factored.
+              Group together the twos to write one factor as a power of two.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_sum_fib">
+    <title>\subsumfib</title>
+    <p>
+      There are some interesting identities involving sums of Fibonacci numbers.
+      Try an example.
+    </p>
+    <activity xml:id="act_fib_sums_conj">
+      <title>Fibonacci sums conjectures</title>
+      <p>
+        Recall that the Fibonacci numbers are defined by <m>F_0=0</m>,
+        <m>F_1=1</m>,
+        and <m>F_n = F_{n-1}+F_{n-2}</m> for <m>n \ge 2</m>.
+        The first few Fibonacci numbers are listed in <xref ref="tab_15fibs"></xref>.
+      </p>
+      <table xml:id="tab_15fibs">
+        <title>The first fifteen Fibonacci numbers</title>
+        <tabular>
+          <row>
+            <cell><m>F_0=0</m></cell>
+            <cell><m>F_1=1</m></cell>
+            <cell><m>F_2=1</m></cell>
+            <cell><m>F_3=2</m></cell>
+            <cell><m>F_4=3</m></cell>
+          </row>
+          <row>
+            <cell><m>F_5=5</m></cell>
+            <cell><m>F_6=8</m></cell>
+            <cell><m>F_7=13</m></cell>
+            <cell><m>F_8=21</m></cell>
+            <cell><m>F_9=34</m></cell>
+          </row>
+          <row>
+            <cell><m>F_{10}=55</m></cell>
+            <cell><m>F_{11}=89</m></cell>
+            <cell><m>F_{12} = 144</m></cell>
+            <cell><m>F_{13} = 233</m></cell>
+            <cell><m>F_{14} = 377</m></cell>
+          </row>
+        </tabular>
+      </table>
+      <ol>
+        <li xml:id="part_fib_sums_even_index">
+          <p>
+            Calculate the first six partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <md>
+              <mrow>\sum_{k=1}^nF_{2k} \amp  = F_2+F_4+F_6+F_8+F_{10}+F_{12}+\ldots +F_{2n}</mrow>
+              <mrow>\amp  = 1+3+8+21+55+144+ \ldots +F_{2n}</mrow>
+            </md>
+            Hint: Add one to each partial sum to see the pattern.
+          </p>
+        </li>
+        <li xml:id="part_Fib_sums_alt_act">
+          <p>
+            Calculate the first six partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <md>
+              <mrow>\sum_{k=1}^n(-1)^{k+1}F_k \amp  = F_1-F_2+F_3-F_4+F_5-F_6+ \ldots +(-1)^{n+1}F_n</mrow>
+              <mrow>\amp  = 1-1+2-3+5-8+ \ldots +F_{2n}</mrow>
+            </md>
+            Hint: Subtract one from each partial sum to see the pattern.
+          </p>
+        </li>
+      </ol>
+    </activity>
+    <p>
+      Let's take a closer look at the sum from <xref ref="act_fib_sums_conj"></xref>
+      <xref ref="part_fib_sums_even_index"/>.
+    </p>
+    <example xml:id="exam_fib_sum_conj_even_index">
+      <title>Fibonacci sum conjecture</title>
+      <statement>
+        <p>
+          Calculate the first six partial sums and use pattern recognition to conjecture an explicit formula for the sum
+          <md>
+            <mrow>\sum_{k=1}^nF_{2k} \amp  = F_2+F_4+F_6+F_8+F_{10}+F_{12}+ \ldots +F_{2n}</mrow>
+            <mrow>\amp  = 1+3+8+21+55+144 \ldots +F_{2n}</mrow>
+          </md>
+        </p>
+        <p>
+          The first fifteen Fibonacci numbers appear in <xref ref="tab_15fibs"></xref>.
+        </p>
+        <solution>
+          <p>
+            We start by writing out the first six terms and their partial sums,
+            as shown in <xref ref="fig_part_sums_fib"></xref>.
+            For example, <m>1+3 = 4</m>.
+            Next, using the previous sum
+            (as in <xref ref="rem_rec_def_partial_sum"></xref>)
+            we get <m>1+3+8 = (4) + 8 = 12</m>.
+            Then, <m>12 + 21 = 33</m>, and so on.
+            Next, we make a table showing the index <m>n</m> and the partial sums,
+            as shown in <xref ref="tab_partial_sums_fib"></xref>.
+            To see the pattern,
+            notice that each partial sum is one less than a Fibonacci number.
+            Notice that the subscripts are odd.
+            We conjecture
+            <me>
+              \sum_{k=1}^nF_{2k}=F_{2n+1}-1
+            </me>.
+          </p>
+        </solution>
+        <figure xml:id="fig_part_sums_fib">
+          <caption>Calculating partial sums for <m>\displaystyle \sum_{k=1}^nF_{2k}</m>.</caption>
+          image type not recognized
+        </figure>
+        <table xml:id="tab_partial_sums_fib">
+          <title>Partial sums for <m>\displaystyle \sum_{k=1}^nF_{2k}</m></title>
+          <tabular>
+            <row>
+              <cell><m>n</m></cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>partial sum</cell>
+              <cell>1</cell>
+              <cell>4</cell>
+              <cell>12</cell>
+              <cell>33</cell>
+              <cell>88</cell>
+              <cell>232</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>pattern</cell>
+              <cell><m>2-1</m></cell>
+              <cell><m>5-1</m></cell>
+              <cell><m>13-1</m></cell>
+              <cell><m>34-1</m></cell>
+              <cell><m>89-1</m></cell>
+              <cell><m>233-1</m></cell>
+            </row>
+            <row>
+              <cell><m>=</m></cell>
+              <cell><m>F_3-1</m></cell>
+              <cell><m>F_5-1</m></cell>
+              <cell><m>F_7-1</m></cell>
+              <cell><m>F_9-1</m></cell>
+              <cell><m>F_{11}-1</m></cell>
+              <cell><m>F_{13}-1</m></cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_factor_polys">
+    <title>\subfactorpolys</title>
+    <p>
+      In some of our conjectures about sums and products,
+      our answer involved a factored polynomial.
+      We would like to eventually prove these conjectures.
+      For those proofs, it is helpful to be able to factor polynomials.
+      As we saw in <xref ref="sub_polys"></xref>,
+      we use the distributive rule to multiply polynomials.
+      Let's look at an example using the distributive rule to factor polynomials.
+    </p>
+    <example xml:id="exam_unfoil">
+      <title>Factoring polynomial</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_expand_binomial_general">
+              <p>
+                Multiply <m>(n+s)(n+t)</m> and write the answer as a polynomial in the variable <m>n</m>.
+                <solution>
+                  <p>
+                    Using the distributive property (FOIL) as discussed in <xref ref="sub_polys"></xref>, we get
+                  </p>
+                  <tabular>
+                    <row>
+                      <cell><m>(n+s)(n+t)</m></cell>
+                      <cell>=</cell>
+                      <cell><m>\underbrace{(n)(n)}_{\text{ First } } +\underbrace{(n)(t)}_{\text{ Outside } } + \underbrace{(s)(n)}_{\text{ Inside } } + \underbrace{(s)(t)}_{\text{ Last } }</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell><m>n^2 + tn + sn + st</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell><m>n^2+ (s+t)n + st</m></cell>
+                    </row>
+                  </tabular>
+                  <p>
+                    Observe that the coefficient <m>n</m> is <m>s+t</m>,
+                    the sum of <m>s</m> and <m>t</m>,
+                    and the constant term is <m>st</m>,
+                    the product of <m>s</m> and <m>t</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Factor <m>n^2 -n-6</m>.
+                <solution>
+                  <p>
+                    Based on our observation in <xref ref="part_expand_binomial_general"/>, we might guess that
+                    <me>
+                      n^2 -n-6 = (n+\underline{})(n+\underline{})
+                    </me>
+                    where the sum of the integers in the blanks is <m>-1</m> and the product of the integers in the blanks is <m>-6</m>.
+                    We guess that the integers are <m>-3</m> and <m>2</m> and so
+                    <me>
+                      \text{ answer: } n^2 -n-6 = (n-3)(n+2)
+                    </me>.
+                    This process of factoring is sometimes nicknamed
+                    <term>unfoiling</term>, since we FOIL to check.
+                    <me>
+                      \text{ check: } (n-3)(n+2)=n^2 + 2n-3n-6 = n^2-n-6
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_diff_sq">
+              <p>
+                Multiply <m>(n+s)(n-s)</m> and write the answer as a polynomial in the variable <m>n</m>.
+                <solution>
+                  <p>
+                    Multiplying we get
+                  </p>
+                  <tabular>
+                    <row>
+                      <cell><m>(n+s)(n-s)</m></cell>
+                      <cell>=</cell>
+                      <cell><m>\underbrace{(n)(n)}_{\text{ First } } +\underbrace{(n)(-s)}_{\text{ Outside } } + \underbrace{(s)(n)}_{\text{ Inside } } + \underbrace{(s)(-s)}_{\text{ Last } }</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell><m>n^2 - sn + sn - s^2</m></cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell>=</cell>
+                      <cell><m>n^2-s^2</m></cell>
+                    </row>
+                  </tabular>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Factor <m>n^2 -4</m>.
+                <solution>
+                  <p>
+                    We can use the result of <xref ref="part_diff_sq"/>,
+                    <me>
+                      n^2-4 = n^2-2^2=(n+2)(n-2)
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Practice using the FOIL method to factor polynomials.
+    </p>
+    <activity xml:id="act_UNFOIL">
+      <title>Factoring olynomials</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Factor <m>m^2+3m+2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Factor <m>m^2-1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Factor <m>2k^2+3k+1</m>.
+              Hint: Try a product of the form <m>(2k + \underline{})(k+\underline{})</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at another example.
+    </p>
+    <example xml:id="exam_factor_nonmonic_quad">
+      <title>Factor quadratic polynomial</title>
+      <statement>
+        <p>
+          Factor <m>3k^2+2k-1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let's try a product of the form <m>(3k + \underline{})(k+\underline{})</m>.
+          To get the constant term <m>-1</m>,
+          one of the blanks must be 1 and the other must be <m>-1</m>.
+          Since
+          <me>
+            (3k -1)(k+1)=3k^2+3k-k-1=3k^2+2k-1
+          </me>,
+          we can factor <m>3k^2+2k-1 = (3k -1)(k+1)</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_sum_conj">for</xref> \subsumconj</title>
+      <exercise xml:id="exer_partial_sums">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Calculate the first five partial sums for each sum.
+            <ol>
+              <li xml:id="part_partial_sum_powers3">
+                <p>
+                  <m>\displaystyle \sum_{k=0}^n2 \cdot 3^k</m>
+                </p>
+              </li>
+              <li xml:id="part_partial_sums_constant">
+                <p>
+                  <m>\displaystyle \sum_{i=1}^{n}3</m>
+                </p>
+              </li>
+              <li xml:id="part_partial_sums_alt">
+                <p>
+                  <m>\displaystyle \sum_{m=0}^{n}(-1)^m</m>
+                </p>
+              </li>
+              <li xml:id="part_partial_sums_square">
+                <p>
+                  <m>\displaystyle \sum_{j=1}^{n}(6j^2)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_powers3_constant">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the partial sums from <xref ref="exer_partial_sums"></xref>
+                  <xref ref="part_partial_sum_powers3"/> to conjecture an explicit formula for the sum <m>\displaystyle \sum_{k=0}^n2 \cdot 3^k</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the partial sums from <xref ref="exer_partial_sums"></xref>
+                  <xref ref="part_partial_sums_constant"/> to conjecture an explicit formula for the sum <m>\displaystyle \sum_{i=1}^{n}3</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_odds">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <me>
+              \displaystyle \sum_{k=1}^n(2k-1)
+            </me>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_alt_sum_sq">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the partial sums from <xref ref="exer_partial_sums"></xref>
+                  <xref ref="part_partial_sums_alt"/> to conjecture an explicit formula for the sum <m>\displaystyle \sum_{m=0}^{n}(-1)^m</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the partial sums from <xref ref="exer_partial_sums"></xref>
+                  <xref ref="part_partial_sums_square"/> to conjecture an explicit formula for the sum <m>\displaystyle \sum_{j=0}^{n}(6j^2)</m>.
+                  Hint: Factor.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_factorials">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <me>
+              \sum_{k=1}^nk(k!)
+            </me>.
+            By the way, the result of this exercise is a key step in proving the uniqueness of the factorial representations introduced in <xref ref="act_fact_rep"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_recip_powers2">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <me>
+              \displaystyle \sum_{k=0}^n\frac{1}{2^k}
+            </me>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_new_odds">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <me>
+              \displaystyle \sum_{k=0}^n(2k+3)
+            </me>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_powers5">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum sum <m>\displaystyle \sum_{k=1}^n 4 \cdot 5^k</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_4kplus1">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <me>
+              \displaystyle \sum_{k=0}^n(4k+1)
+            </me>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_alt_sq">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <me>
+              \sum_{k=1}^n(-1)^kk^2
+            </me>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_4kminus3">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <me>
+              \displaystyle \sum_{k=0}^n(4k-3)
+            </me>.
+            Hint: Factor.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_fraction">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <me>
+              \displaystyle \sum_{k=1}^n\frac{1}{(2k-1)(2k+1)}
+            </me>.
+            Note that DESMOS adds fractions exactly if you click on the fraction icon.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_sum_conj">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to calculate a partial sum?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why it is useful to have a recursive definition of a partial sum?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use partial sums and pattern recognition to conjecture an explicit formula for a sum?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_cubes">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum
+            <me>
+              \displaystyle \sum_{m=1}^n6m^3
+            </me>.
+          </p>
+          <p>
+            Hint: Factor.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_conj_alt_sum">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum <m>\displaystyle \sum_{k=1}^n(-1)^kk</m>.
+            Hint: The formula involves the ceiling.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_prod_conj">for</xref> \subprodconj</title>
+      <exercise xml:id="exer_partial_prod">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Calculate the first five partial products for each product.
+            <ol>
+              <li xml:id="part_partial_prod_recip">
+                <p>
+                  <m>\displaystyle \prod_{k=1}^n\frac{1}{k}</m>
+                </p>
+              </li>
+              <li xml:id="part_partial_prod_3">
+                <p>
+                  <m>\displaystyle \prod_{i=1}^n3</m>
+                </p>
+              </li>
+              <li xml:id="part_partial_prod_3k">
+                <p>
+                  <m>\displaystyle \prod_{k=1}^n3k</m>
+                </p>
+              </li>
+              <li xml:id="part_partial_prod_square">
+                <p>
+                  <m>\displaystyle \prod_{j=1}^nj^2</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prod_conj_recip_constant">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the partial products from <xref ref="exer_partial_prod"></xref>
+                  <xref ref="part_partial_prod_recip"/> to conjecture an explicit formula for the product <m>\displaystyle \prod_{k=1}^n\frac{1}{k}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the partial products from <xref ref="exer_partial_prod"></xref>
+                  <xref ref="part_partial_prod_3"/> to conjecture an explicit formula for the product <m>\displaystyle \prod_{i=1}^n3</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prod_conj_3k_square">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the partial products from <xref ref="exer_partial_prod"></xref>
+                  <xref ref="part_partial_prod_3k"/> to conjecture an explicit formula for the product <m>\displaystyle \prod_{k=1}^n3k</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the partial products from <xref ref="exer_partial_prod"></xref>
+                  <xref ref="part_partial_prod_square"/> to conjecture an explicit formula for the product <m>\displaystyle \prod_{j=1}^nj^2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prod_conj_1minus1overj">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial products and use pattern recognition to conjecture an explicit formula for the product
+            <me>
+              \displaystyle \prod_{j=2}^n \left(1 - \frac{1}{j}\right)
+            </me>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prod_conj_twice_sq">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial products and use pattern recognition to conjecture an explicit formula for the product <m>\displaystyle \prod_{j=1}^n(2j^2)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prod_conj_2overj">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first few partial products and use pattern recognition to conjecture an explicit formula for the product <m>\displaystyle \prod_{j=1}^n \frac{2}{j}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_product_conj">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to calculate a partial product?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why it is useful to have a recursive definition of a partial product?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use partial products and pattern recognition to conjecture an explicit formula for a product?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_sum_fib">for</xref> \subsumfib</title>
+      <exercise xml:id="exer_sum_firstn_Fib_conj">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Calculate the first six partial sums and conjecture an explicit form for the sum
+            <md>
+              <mrow>\sum_{k=1}^nF_k \amp  = F_1+F_2+F_3+F_4+F_5+ + \ldots +F_n</mrow>
+              <mrow>\amp  =1 + 1 + 2 + 3 + 5 +\ldots + F_n</mrow>
+            </md>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sum_firstn_Fib_sq_conj">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first six partial sums and conjecture an explicit form for the sum
+            <md>
+              <mrow>\sum_{k=1}^n(F_k)^2 \amp  = F_1^2+F_2^2+F_3^2+F_4^2+F_5^2+\ldots+F_n^2</mrow>
+              <mrow>\amp  = 1^2+1^2+2^2+3^2+5^2+\ldots + F_n^2</mrow>
+            </md>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_sum_odd_terms_conj">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the first six partial sums and conjecture an explicit form for the sum
+            <md>
+              <mrow>\sum_{k=1}^{n}F_{2k-1} \amp  = F_1+F_3 +F_5 +F_7+F_9+ \ldots + F_{2n-1}</mrow>
+              <mrow>\amp  = 1+2+5+13+34+\ldots + F_{2n-1}</mrow>
+            </md>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fib_sums">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to calculate a partial sum that involves Fibonacci numbers?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use partial sums and pattern recognition to conjecture an explicit formula for a sum involving Fibonacci numbers?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_factor_polys">for</xref> \subfactorpolys</title>
+      <exercise xml:id="exer_factor_quad_poly">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Factor <m>n^2-n-2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Factor <m>n^2+5n+4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Factor <m>n^2+5n-6</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Factor <m>n^2-9</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_simplify_factor">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Expand each expression, simplify,
+            then factor the answer as much as possible.
+            <ol>
+              <li>
+                <p>
+                  <m>(n-1)n + 2n</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>n(2n-1)+(4n+1)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(n-1)n(2n-1) + 6n^2</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_factor_polys">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What is means to factor a polynomial?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to factor a quadratic polynomial?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to factor the difference of squares?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_partial_sums"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>2, 8, 26, \ldots</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>3, 6, 9, \ldots</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>1, 0, 1, \ldots</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>6, 30, 84, \ldots</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_conj_powers3_constant"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer involves a power of three,
+            but not exactly <m>3^n</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is a multiple of 3.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_conj_odds"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The partial sums are <m>1, 4, 9, \ldots</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_conj_alt_sum_sq"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Use <m>(-1)^n</m> to get a closed formula,
+            noting that <m>\frac{1}{2} + \frac{1}{2} =1</m> and <m>\frac{1}{2} - \frac{1}{2} =0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>6 = (1)(2)(3)</m> and <m>30 = (2)(3)(5)</m>.
+            The first factor equals <m>n</m>,
+            what are the next two factors, in terms of <m>n</m>?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_conj_factorials"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The partial sums begin
+        <m>1, 5, 23, \ldots</m> and the formula involves factorials,
+        but not exactly <m>n!</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_conj_recip_powers2"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The partial sums are <m>1, \frac{3}{2}, \frac{7}{4}, \ldots</m>.
+        One version of the formula is a fraction in which the numerator involves a power of two
+        (but not exactly <m>2^n</m>)
+        and the denominator is <m>2^n</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_conj_4kplus1"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Factor the partial sums.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_conj_powers5"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The formula involves powers of five,
+        but not exactly <m>5^n</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_conj_4kplus1"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Factor the partial sums.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_partial_prod"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\displaystyle 1, \frac{1}{2}, \frac{1}{6}, \ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>3, 9, 27, \ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>3, 18, 162, \ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>1, 4, 36, \ldots</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prod_conj_recip_constant"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer involves factorial.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves a power of three.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prod_conj_3k_square"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Keep the partial products factored:
+            <m>(3 \cdot 1), (3 \cdot 1)(3 \cdot 2),(3 \cdot 1)(3 \cdot 2)(3 \cdot 3)</m>, Then collect the threes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Keep the partial products factored:
+            <m>(1 \cdot 1),(1 \cdot 1)(2 \cdot 2), (1 \cdot 1)(2 \cdot 2)(3 \cdot 3)</m>.
+            The answer involves factorials.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prod_conj_1minus1overj"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: <m>1 - \frac{1}{2} = \frac{1}{2}</m>,
+        <m>1 - \frac{1}{3} = \frac{2}{3}</m>,
+        <m>1 - \frac{1}{4} = \frac{3}{4}</m>,
+        so our product is <m>\frac{1}{2}\cdot \frac{2}{3} \cdot \frac{3}{4} \cdots</m> and,
+        therefore,
+        the partial product are <m>\frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prod_conj_twice_sq"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Keep the partial products factored:
+        <m>(2\cdot 1 \cdot 1),(2\cdot 1 \cdot 1)(2\cdot 2 \cdot 2),(2\cdot 1 \cdot 1)(2\cdot 2 \cdot 2)(2\cdot 3 \cdot 3) , \ldots</m>.
+        Then collect twos.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prod_conj_2overj"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Keep the numerator and denominator factored and do not reduce the fractions.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_firstn_Fib_conj"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The formula involves Fibonacci numbers.
+        For example, <m>12 = 13-1 = F_7-1</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sum_firstn_Fib_sq_conj"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The formula involves Fibonacci numbers.
+        Another hint: Factor.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fib_sum_odd_terms_conj"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: the answers involved Fibonacci numbers.
+        For example, <m>55 = F_{10}</m>.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

@@ -1,0 +1,1789 @@
+<section xml:id="sec_even_odd_divides">
+  <title>Integer Division</title>
+  <introduction>
+    <p>
+      In this section,
+      we begin our exploration of integer division by discussing even and odd integers,
+      divisors,
+      and fractions.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_lockers">
+    <title>\sublockers</title>
+    <p>
+      But first, a puzzle.
+    </p>
+    <activity xml:id="act_lockers">
+      <title>Lockers Puzzle</title>
+      <p>
+        At Perpetual High School,
+        a never-ending line of students marches down a never-ending hallway of lockers.
+        The first student opens each locker.
+        The second student closes every other locker (002, 004, 006,
+        etc.) The third student changes the state of every third locker,
+        which means closing 003, opening 006, etc.
+        And so on, with the <m>d^{th}</m> student changing the state of every <m>d^{\text{ th } }</m> locker.
+      </p>
+      <figure xml:id="fig_lockers">
+        <caption>The first few lockers at Perpetual High School.</caption>
+        <image width="80%" source="images/Lockers.png"/>
+      </figure>
+      <ol>
+        <li>
+          <p>
+            Calculate the final state of each of the first ten lockers.
+            Show some work.
+          </p>
+        </li>
+        <li>
+          <p>
+            How many students touch locker 100?
+            Show work.
+          </p>
+        </li>
+        <li>
+          <p>
+            What is the final state of locker 100?
+            Explain briefly.
+          </p>
+        </li>
+        <li xml:id="part_lockers">
+          <p>
+            Make a conjecture about which lockers are finally left open and which are finally left closed.
+          </p>
+        </li>
+        <li>
+          <p>
+            There are two very reasonable answers to <xref ref="part_lockers"/>.
+            One conjecture, Conjecture A, depends on the number of students who touch the locker.
+            The other conjecture, Conjecture B, depends only on the locker number.
+            Which conjecture did you make in <xref ref="part_lockers"/>: A or B? What is the other conjecture?
+          </p>
+        </li>
+        <li>
+          <p>
+            Use whatever conjecture you prefer to determine whether locker \text{ 1,000,000 } is open or closed.
+            Explain your reasoning.
+          </p>
+        </li>
+      </ol>
+    </activity>
+    <p>
+      Be sure to <xref ref="act_lockers">complete</xref>
+      because we are about to reveal some of the answers.
+    </p>
+    <example xml:id="exam_open_lockers">
+      <title>Open lockers</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                What is the final state of locker 99?
+                Explain.
+                <solution>
+                  <p>
+                    First note that the last student to touch locker 99 is the <m>99^{\text{ th } }</m> student.
+                    So to determine the final state of locker 99 we only need to know which students from 1-99 touched it.
+                    We can factor 99 in several ways:
+                    <m>1 \times 99</m>, <m>3 \times 33</m>, and <m>9 \times 11</m>.
+                    That is, the only students from 1-99 to touch locker 99 are students one,
+                    three, nine, 11, 33, and 99.
+                    Student one opens locker 99, student three closes it, student nine opens it,
+                    student 11 closes it, student 33 opens it, and student 99 closes it.
+                    The final state of locker 99 is that it is closed.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Conjecture how the final state of a locker depends on the number of students who touch the locker.
+                <solution>
+                  <p>
+                    When the number of students who touch the locker is even,
+                    as was the case for locker 99,
+                    the final state of the locker is closed.
+                    When the number of students who touch the locker is odd,
+                    as was the case for locker 100,
+                    the final state of the locker is open.
+                    This conjecture is Conjecture A.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Conjecture which lockers have an odd number of students that touch that locker.
+                <solution>
+                  <p>
+                    Notice that students who touch the locker tend to come in pairs.
+                    For example, locker 99 is touched by students one and 99,
+                    students three and 33, and students nine and 11.
+                    As another example, locker 100 is touched by students one and 100,
+                    students two and 50, students four and 25, and students five and 20.
+                    But there is one additional student who touches locker 100, student 10,
+                    which makes the total number of students touching locker 100 odd.
+                    Why is student 10 not in a pair?
+                    Because <m>10 \times 10 = 100</m> or,
+                    in other words, <m>100 = 10^2</m>.
+                    We conjecture that lockers touched by an odd number of students have locker numbers equal to the square of an integer,
+                    known as a <term>perfect square</term>.
+                    This conjecture is Conjecture B.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_even_odd">
+    <title>\subevenodd</title>
+    <p>
+      We have seen several situations in which it mattered whether an integer is even or odd.
+      An odd number of bridges was problematic in solving the Bridges Puzzle in <xref ref="act_bridges"></xref>.
+      The chromatic number of the cycle <m>C_s</m> and the wheels <m>W_s</m> depended on whether <m>s</m> was even or odd.
+      In each of those examples,
+      we recognize that an even integer is the sum of twos:
+      on-off, on-off, <ellipsis/>,
+      on-off in the Bridges Puzzle or black-white,
+      black-white, <ellipsis/>, black-white in coloring a cycle.
+      That is, <m>n</m> is <term>even</term> if we can write
+      <me>
+        n = \underbrace{2 + 2 + 2 + \ldots + 2}_{k \text{ times } } = 2k
+      </me>.
+      Equivalently,
+      we can think of even integers as those that divide exactly in half.
+      That is, <m>n=k+k = 2k</m>.
+      We state the formal definition.
+    </p>
+    <definition xml:id="defn_even_odd">
+      <title>Even and odd</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The integer <m>n</m> is <term>even</term>
+                if <m>n=2k</m> for some integer <m>k</m>.
+                For example, 18 is even because <m>18=2(9)</m>.
+                If we wanted to be formal, we would say <m>18=2k</m> where <m>k=9</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The integer <m>n</m> is <term>odd</term>
+                if <m>n=2k+1</m> for some integer <m>k</m>.
+                For example, 19 is odd because <m>19 = 2(9)+1</m>.
+                If we wanted to be formal, we would say <m>19=2k+1</m> where <m>k=9</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here are some more general examples.
+    </p>
+    <example xml:id="exam_even_odd_general">
+      <title>Even and odd, in general</title>
+      <statement>
+        <p>
+          You probably know many facts about even and odd integers.
+          In this example, we use only the definitions.
+          <ol>
+            <li>
+              <p>
+                Use the definition of even to show that <m>6t</m> is even for any integer <m>t</m>.
+                <solution>
+                  <p>
+                    We want to write <m>6t=2k</m> for some integer <m>k</m>.
+                    We can solve to find <m>k</m>.
+                    We divide by two to get <m>k=3t</m>, which is an integer.
+                    Officially, we need to use that value of <m>k</m> to write
+                    <me>
+                      6t=2(3t)
+                    </me>,
+                    so <m>6t</m> is even.
+                  </p>
+                  <p>
+                    Notice that we could have just factored out the two to write
+                    <me>
+                      6t=2(3t)
+                    </me>
+                    without any mention of <m>k</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the definition of odd to show that <m>2m-1</m> is odd for any integer <m>m</m>.
+                <solution>
+                  <p>
+                    We want to write <m>2m-1 = 2k+1</m> for some integer <m>k</m>.
+                    We can solve to find <m>k</m>.
+                    First, we subtract and factor to get <m>2k=(2m-1)-1=2m-2=2(m-1)</m>.
+                    Next, we divide by two to get <m>k=m-1</m>, which is an integer.
+                    Officially, we need to use that value of <m>k</m> to write
+                    <me>
+                      2m-1= 2(m-1)+1
+                    </me>,
+                    so <m>2m-1</m> is odd.
+                  </p>
+                  <p>
+                    Notice that we could have used algebra to write
+                    <me>
+                      2m-1 = 2m-2+1 = 2(m-1) + 1
+                    </me>
+                    without any mention of <m>k</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with these definitions.
+      As before, you should not use facts that you might know about even and odd integers.
+    </p>
+    <activity xml:id="act_even_odd">
+      <title>Even and odd</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Use the definition of even to show that 34 is even.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the definition of odd to show that 37 is odd.
+            </p>
+          </li>
+          <li xml:id="part_0is_even">
+            <p>
+              Is zero even, odd, both, or neither?
+              Justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give examples of integers <m>m</m> to show that <m>3m+1</m> can be even or odd.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the definition of odd to show that,
+              for any integer <m>m</m>, the integer <m>4m+1</m> is always odd.
+              Hint: Once you find a useful value of <m>k</m>,
+              write <m>4m+1</m> in the form <m>2k+1</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      <xref ref="act_even_odd">In</xref>
+      <xref ref="part_0is_even"/> we asked if zero is even,
+      odd, both,
+      or neither.
+      A common incorrect answer is neither,
+      perhaps because neither is the correct answer to a different question,
+      namely is zero positive, negative, both, or neither?
+      Let's show that zero is even and not odd.
+    </p>
+    <example xml:id="exam_0is_even">
+      <title>Zero is even</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Use the definition to show that zero is even.
+                <solution>
+                  <p>
+                    We can write <m>0 = 2(0)</m>.
+                    That is <m>0 = 2k</m> when <m>k=0</m>.
+                    Since <m>k=0</m> is an integer,
+                    it follows that zero is even.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the definition to show that zero is not odd.
+                <solution>
+                  <p>
+                    Suppose that we could write <m>0 = 2k+1</m>.
+                    We can subtract one to get <m>2k=-1</m> and then divide by two to get <m>k = ^-\frac{1}{2}</m>.
+                    Since <m>^-\frac{1}{2}</m> is the only possible value of <m>k</m>,
+                    and <m>^-\frac{1}{2}</m> is not an integer,
+                    it follows that zero is not odd.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It turns out that every integer is even or odd and never both.
+      We prove this result in <xref ref="exam_every_integer_even_or_odd"></xref>.
+    </p>
+  </subsection>
+  <subsection xml:id="sub_divides">
+    <title>\subdivides</title>
+    <p>
+      In the Lockers Puzzle <xref ref="act_lockers"/>,
+      the <m>d^{\text{ th } }</m> student touches locker <m>d</m>,
+      locker <m>d+d=2d</m>, locker <m>d+d+d=3d</m>, etc.
+      In general, the <m>d^{\text{ th } }</m> student touches locker <m>n</m> when we can write
+      <me>
+        n=\underbrace{d+d+ \ldots+d}_{k \text{ times } } =dk
+      </me>
+      for some integer <m>k</m>.
+      We make this concept formal with another definition.
+    </p>
+    <definition xml:id="defn_divides">
+      <title>Divides</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The nonzero integer <m>d</m> <term>divides</term> integer <m>n</m>,
+                denoted <m>d \mid n</m>, if <m>n = dk</m> for some integer <m>k</m>.
+                For example, 3 divides 15, denoted
+                <m>3 \mid 15</m> because <m>15 = 3(5)</m>.
+                Note also that <m>3 \mid -15</m> because <m>-15 = 3(-5)</m> and
+                <m>-3 \mid 15</m> because <m>15 = -3(-5)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>d \mid n</m>, then <m>d</m> is a <term>divisor</term>
+                (or <term>factor</term>)
+                of <m>n</m>.
+                For example,
+                the (positive) divisors of 15 are: 1, 3, 5, and 15 because
+                <m>1 \times 15 = 15</m> and <m>3 \times 5=15</m>.
+                (It is harder to know that we found all the positive divisors.)
+                The complete list of 15 divisors is <m>\pm</m> 1, <m>\pm</m> 3, <m>\pm</m> 5 and <m>\pm</m> 15.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>d \mid n</m>, then <m>n</m> is a
+                <term>multiple</term> of <m>d</m>.
+                For example, 10, -35, and 65 are multiples of 5.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>d</m> does not divide <m>n</m>,
+                we write <m>d \nmid n</m>.
+                For example, <m>4 \nmid 15</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here are some more general examples.
+    </p>
+    <example xml:id="exam_divides_general">
+      <title>Divides, in general</title>
+      <statement>
+        <p>
+          You might know many facts about divisibility.
+          In this example, we use only the definition.
+          <ol>
+            <li xml:id="part_65mult5">
+              <p>
+                Show that 65 is a multiple of 5.
+                <solution>
+                  <p>
+                    Note that <m>5 \times 13 = 65</m> and so <m>65 = 5(13)</m>.
+                    Thus, 65 is a multiple of 5.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Rewrite the statement from <xref ref="part_65mult5"/> using the word
+                <q>divides</q>
+                and divides notation.
+                <solution>
+                  <p>
+                    We say that 5 divides 65, denoted <m>5 \mid 65</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the definition of divides to show that <m>5 \mid (5n-20)</m>.
+                <solution>
+                  <p>
+                    Factor to write <m>5n-20 = 5(n-4)</m>, so <m>5 \mid (5n-20)</m>.
+                    If we wanted to be formal,
+                    we could write <m>5n-20 = 5k</m> where <m>k=n-4</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to practice with divides.
+    </p>
+    <activity xml:id="act_divides">
+      <title>Divides</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              List the divisors of 12.
+              Note: do not forget the negative divisors.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give an example of three different integers that are multiples of 12.
+            </p>
+          </li>
+          <li>
+            <p>
+              Which is true: <m>12 \mid 6</m> or <m>6 \mid 12</m>?
+              Justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the definition of divides to show that <m>10 \mid (100k-30)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the definition of divides to show that
+              <m>1 \mid n</m> for all integers <m>n</m>.
+            </p>
+          </li>
+          <li xml:id="part_does_0dividen">
+            <p>
+              Is <m>0 \mid n</m> true for all nonzero integers <m>n</m>?
+              Justify your answer.
+            </p>
+          </li>
+          <li xml:id="part_does_ndivide0">
+            <p>
+              Is <m>n \mid 0</m> true for all nonzero integers <m>n</m>?
+              Again, justify your answer.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      You may have heard, correctly,
+      that we cannot divide by zero.
+      Let's take a closer look <xref ref="act_divides">at</xref>
+      <xref ref="part_does_0dividen"/> and <xref ref="part_does_ndivide0"/>.
+    </p>
+    <example xml:id="exam_cannot_divide_by0">
+      <title>You cannot divide by zero</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Can we divide by zero?
+                That is, is zero a divisor of any integer?
+                Explain.
+                <solution>
+                  <p>
+                    We are asking if <m>0 \mid n</m> for any integer <m>n</m>.
+                    <xref ref="defn_divides">In</xref>
+                    we did not allow the divisor <m>d</m> to be zero, so the answer is no.
+                    The reason we excluded zero is because if
+                    <m>n = 0(k) =0</m> for some integer <m>k</m>,
+                    then the only possibility is <m>n=0</m>.
+                    Therefore, it is impossible for zero to divide any nonzero integer.
+                    We also do not allow zero to divide itself either.
+                    The answer is no.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Is zero a multiple of any integer?
+                <solution>
+                  <p>
+                    We are asking if <m>n \mid 0</m> for any integer <m>n</m>.
+                    That means we are looking for an integer <m>k</m> such that <m>0 = (n)k</m>.
+                    Since <m>0 = (n)0</m> and <m>k=0</m> is an integer,
+                    it follows that <m>n \mid 0</m> for all nonzero integers <m>n</m>.
+                    The answer is yes.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_fractions">
+    <title>\subfractions</title>
+    <p>
+      When we divide one integer by another (nonzero) integer,
+      sometimes we get an integer, but sometimes we get a fraction
+      (rational number)
+      that is not an integer.
+      Here is the formal definition.
+    </p>
+    <definition xml:id="defn_fraction_rational">
+      <title>Fraction (rational number)</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For integer <m>n</m> and nonzero integer <m>d</m>, the <term>fraction</term>
+                (or <term>rational number</term>)
+                is the number we get by dividing <m>n</m> by <m>d</m>, meaning
+                <me>
+                  \displaystyle \frac{n}{d} = n \div d
+                </me>.
+                We can think of the fraction
+                <m>\frac{n}{d}</m> as representing an equal share of <m>n</m> objects among <m>d</m> places.
+                For example,
+                if we have 40 cucumber slices and five pickling jars,
+                then we can put <m>40 \div 5 = 8</m> slices in each jar.
+                Similarly, if we have four party-sized bags of candy to share equally among ten people,
+                then each person gets <m>\frac{4}{10} = 4 \div 10 = .4 = 40\%</m> of a bag.
+              </p>
+            </li>
+            <li>
+              <p>
+                Note that any integer is a fraction because
+                <me>
+                  \frac{n}{1} = n \div 1 = n
+                </me>.
+                For example, <m>4 = \frac{4}{1}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the fraction <m>\frac{n}{d}</m>,
+                the integer on the top of the fraction <m>n</m> is the <term>numerator</term>
+                and the integer on the bottom of the fraction <m>d</m> is the <term>denominator</term>.
+                For example, in the fraction
+                <m>\frac{4}{10}</m> the numerator is four and the denominator is ten.
+              </p>
+            </li>
+            <li xml:id="part_defn_equal_fractions">
+              <p>
+                For integers <m>n</m>, <m>m</m>,
+                <m>a \neq 0</m>, and <m>b \neq 0</m>,
+                the fractions <m>\frac{n}{a}</m> and
+                <m>\frac{m}{b}</m> are <term>equal</term>
+                (or <term>equivalent</term>),
+                which we write as
+                <me>
+                  \frac{n}{a}=\frac{m}{b}
+                </me>,
+                if <m>nb=ma</m>.
+                For example,
+                <m>\frac{6}{15} = .4</m> and so <m>\frac{4}{10}=\frac{6}{15}</m>.
+                We can <term>cross-multiply</term>
+                to confirm that <m>(4)(15) = 60 = (6)(10)</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      There is a connection between divides and fractions.
+    </p>
+    <remark xml:id="rem_fractions_divides">
+      <title>Fractions and divisibility</title>
+      <p>
+        Let <m>d</m> and <m>n</m> be integers with <m>d\neq 0</m>.
+        Then <m>d \mid n</m> exactly when <m>\frac{n}{d}</m> is an integer.
+        Although we have this connection between fractions and divisibility,
+        it is customary to avoid referencing fractions when working with divides.
+      </p>
+    </remark>
+    <p>
+      Every fraction has (infinitely) many different names.
+      We often want to write a fraction in its simplest form.
+      Other times,
+      it is useful to write a fraction with a denominator such that the fraction is not in its simplest form<ndash/> for example, to add,
+      subtract, or compare fractions.
+      The next theorem verifies both operations.
+    </p>
+    <theorem xml:id="thm_equal_fractions">
+      <title>Equal fractions</title>
+      <statement>
+        <p>
+          For integer <m>n</m> and nonzero integers <m>d</m> and <m>c</m>,
+          <ol>
+            <li xml:id="part_thm_common_denom">
+              <p>
+                If we multiply the numerator and denominator of a fraction by a nonzero integer,
+                the resulting fraction is equal to the original fraction, namely
+                <me>
+                  \frac{n}{d} =  \frac{c(n)}{c(d)}
+                </me>.
+              </p>
+            </li>
+            <li xml:id="part_thm_reduce_fraction">
+              <p>
+                This equation holds in both directions.
+                Specifically, we can <term>cancel a common nonzero factor</term>
+                (or <term>reduce</term> the fraction)
+                using the equation
+                <me>
+                  \frac{c(n)}{c(d)}= \frac{n}{d}
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          Let <m>n</m>, <m>d</m>, and <m>c \neq 0</m> be integers.
+          By the commutative and associative properties,
+          <me>
+            n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
+          </me>
+          and so, by <xref ref="defn_fraction_rational"></xref>
+          <xref ref="part_defn_equal_fractions"/>,
+          <me>
+            \frac{n}{d} =  \frac{c(n)}{c(d)}
+          </me>,
+          as in <xref ref="part_thm_common_denom"/>.
+          Note that <xref ref="part_thm_reduce_fraction"/> is the same equation read right-to-left instead.
+        </p>
+      </proof>
+    </theorem>
+    <p>
+      Let's see this theorem in action.
+    </p>
+    <example xml:id="exam_equal_fractions">
+      <title>Equal fractions</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_twofifths">
+              <p>
+                Write <m>\frac{2}{5}</m> as a fraction with denominator 15.
+                <solution>
+                  <p>
+                    Since <m>15=3 \times 5</m>,
+                    we can <xref ref="thm_equal_fractions">use</xref>
+                    to multiply top and bottom of the fraction by three to get
+                    <me>
+                      \frac{2}{5} =\frac{3(2)}{3(5)} =\frac{6}{15}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Which fraction is larger: <m>\frac{2}{5}</m> or <m>\frac{1}{3}</m>?
+                <solution>
+                  <p>
+                    We can write each fraction with
+                    <term>common denominator</term> <m>3 \times 5 = 15</m>.
+                    In part <xref ref="part_twofifths"/>, we found <m>\frac{2}{5} =\frac{6}{15}</m>.
+                    Similarly, we can <xref ref="thm_equal_fractions">use</xref>
+                    to multiply top and bottom of the fraction <m>\frac{1}{3}</m> by five to get:
+                    <me>
+                      \frac{1}{3} =\frac{5(1)}{5(3)} =\frac{5}{15}
+                    </me>.
+                    We can imagine <m>\frac{6}{15}</m> as the amount of pizza each person gets if we have six pizzas shared by 15 people.
+                    In that vein, we can imagine
+                    <m>\frac{5}{15}</m> as the amount of pizza each person gets if we have five pizzas shared by 15 people.
+                    Each person will get more pizza if we have six pizzas to share versus five pizzas to share,
+                    and so <m>\frac{6}{15}> \frac{5}{15}</m>.
+                    It follows that <m>\frac{2}{5}>\frac{1}{3}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Reduce the fraction <m>\frac{24}{100}</m>.
+                <solution>
+                  <p>
+                    Notice that <m>4 \mid 24</m> and <m>4 \mid 100</m>.
+                    <xref ref="thm_equal_fractions">By</xref> we have
+                    <me>
+                      \frac{24}{100} = \frac{4(6)}{4(25)}= \frac{6}{25}
+                    </me>.
+                    Notice that 6 and 25 do not have any common divisors
+                    (other than the integers <m>\pm</m>1)
+                    and so we cannot further reduce the fraction <m>\frac{6}{25}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The concept of a fraction that cannot be further reduced has a formal name.
+    </p>
+    <definition xml:id="defn_lowest_terms">
+      <title>Lowest terms</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The integers <m>s</m> and <m>t</m> are <term>coprime</term>
+                (or <term>relatively prime</term>)
+                if the only common positive divisor of <m>s</m> and <m>t</m> is the integer 1.
+                For example, 6 has positive divisors 1, 2, 3, and 6 whereas 25 has positive divisors 1, 5, and 25 so their only common positive divisor is 1.
+                Therefore, 6 and 25 are coprime.
+              </p>
+            </li>
+            <li>
+              <p>
+                The fraction <m>\frac{s}{t}</m> is
+                <term>written in lowest terms</term>
+                if <m>s</m> and <m>t</m> are coprime.
+                For example, since 6 and 25 are coprime,
+                it follows that the fraction
+                <m>\frac{6}{25}</m> is written in lowest tersm.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We revisit the concept of coprime in <xref ref="sec_gcd"></xref>.
+      Let's practice reducing fractions.
+    </p>
+    <activity xml:id="act_equiv_fractions">
+      <title>Equivalent fractions</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Reduce <m>\displaystyle \frac{15}{70}</m> to lowest terms.
+            </p>
+          </li>
+          <li>
+            <p>
+              Reduce <m>\displaystyle\frac{5!}{6!}</m> to lowest terms.
+              Hint: Use the definition of factorial <xref ref="defn_factorial"/> and cancel before multiplying.
+            </p>
+          </li>
+          <li>
+            <p>
+              Reduce <m>\displaystyle\frac{98!}{100!}</m> to lowest terms.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write the product <m>(10)(9)(8)(7)</m> as a fraction whose numerator and denominator are each a single factorial.
+            </p>
+          </li>
+          <li>
+            <p>
+              Reduce <m>\displaystyle\frac{2^3}{2^5}</m> to lowest terms.
+              Hint: Use the definition of exponential notation <xref ref="defn_exp_notation"/> and cancel before multiplying.
+            </p>
+          </li>
+          <li>
+            <p>
+              Reduce <m>\displaystyle\frac{2^{40}}{2^{100}}</m> to lowest terms.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write as a single power of 10:
+              <m>\displaystyle\frac{10^n}{10}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write as a single power of 10:
+              <m>\displaystyle\frac{10^n}{100}</m>.
+              Hint: <m>100 = 10 \times 10</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      We look at a few examples similar to <xref ref="act_fractions"></xref>.
+    </p>
+    <example xml:id="exam_equiv_fractions">
+      <title>Equivalent fractions</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Reduce <m>\displaystyle\frac{48!}{50!}</m> to lowest terms.
+                <solution>
+                  <p>
+                    Let's use the definition of factorial and cancel before multiplying to get
+                    <me>
+                      \frac{48!}{50!} = \frac{(48)(47)\cdots(3)(2)(1)}{(50)(49)(48)(47)\cdots(3)(2)(1)} = \frac{48!}{(50)(49)(48!)} = \frac{1}{(50)(49)}
+                    </me>.
+                    Note that we cancel the common factor of <m>c=48!=(48)(47)\cdots(3)(2)(1)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_3string_letters">
+              <p>
+                How many strings of three uppercase letters are there if we cannot repeat letters?
+                <solution>
+                  <p>
+                    Think of filling in three spaces with uppercase letters.
+                    The first space can be any of the 26 uppercase letters.
+                    Because repeats are not allowed,
+                    the second space can be any of the 25 remaining uppercase letters,
+                    and the third space can be any of the 24 remaining uppercase letters.
+                    Since steps multiply <xref ref="thm_steps_multiply"/>, the answer is <m>(26)(25)(24)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write your answer to <xref ref="part_3string_letters"/> as a fraction whose numerator and denominator are each a single factorial.
+                <solution>
+                  <p>
+                    Notice that <m>(26)(25)(24)</m> looks like the beginning of 26!
+                    We can multiply the numerator and denominator by <m>c=23!</m> to get
+                    <me>
+                      (26)(25)(24)= \frac{(26)(25)(24)}{1} = \frac{(26)(25)(24)(23!)}{23!} = \frac{(26)(25)(24)(23)(22) \cdots (3)(2)(1)}{(23)(22) \cdots (3)(2)(1)} = \frac{26!}{23!}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Reduce <m>\displaystyle\frac{10^{20}}{10^{35}}</m> to lowest terms.
+                <solution>
+                  <p>
+                    Let's use the definition of exponential notation and cancel before multiplying to get
+                    <me>
+                      \frac{10^{20}}{10^{35}} = \frac{\overbrace{10 \times 10 \times \ldots \times 10}^{20 \text{ times } }}{\underbrace{10 \times 10 \times \ldots \times 10}_{35 \text{ times } }} = \frac{1}{\underbrace{10 \times 10 \times \ldots \times 10}_{15 \text{ times } }} = \frac{1}{10^{15}}
+                    </me>.
+                  </p>
+                  <p>
+                    Note that we canceled 20 factors of 10 to get
+                    <m>35-20=15</m> remaining factors of 10.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write as a single power of 2:
+                <m>\displaystyle\frac{2^n}{2}</m>.
+                <solution>
+                  <p>
+                    Let's use the definition of exponential notation and cancel before multiplying to get
+                    <me>
+                      \frac{2^n}{2} = \frac{\overbrace{2 \times 2 \times \ldots \times 2}^{n \text{ times } }}{2} = \frac{\overbrace{2 \times 2 \times \ldots \times 2}^{n-1 \text{ times } }}{1} = 2^{n-1}
+                    </me>
+                  </p>
+                  <p>
+                    Note that we canceled one of the <m>n</m> factors of two to get <m>n-1</m> remaining factors of two.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_lockers">for</xref> \sublockers</title>
+      <exercise xml:id="exer_locker24">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Without using any conjectures from <xref ref="act_lockers"></xref>,
+            explain how to find the final state of Locker 24.
+            Be detailed.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_lockers_2or3">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  In the Lockers puzzle <xref ref="act_lockers"/>, Locker 001 is only touched once.
+                  Of all the lockers, which are only touched twice?
+                  Make a conjecture that depends on only the locker number.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which lockers are touched exactly three times?
+                  Make a conjecture that depends on only the locker number.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_lockers_touchedmost">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Of the first 50 lockers,
+                  which are touched by the most students in the Lockers Puzzle <xref ref="act_lockers"/>?
+                  Do not use technology or other resources to find the answer.
+                  Show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Of the first 1,000 lockers,
+                  which are touched by the most students in the Lockers puzzle <xref ref="act_lockers"/>?
+                  Use technology or other resources to find the answer.
+                  Explain what you looked up and cite your source(s).
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_even_odd">for</xref> \subevenodd</title>
+      <p>
+        When an exercise asks you to use the definition of even or odd,
+        you should use only that definition and algebra.
+        Do not use other facts you might know about even or odd integers.
+      </p>
+      <exercise xml:id="exer_2026even_2025odd">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the definition of even to show that 2026 is even.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the definition of odd to show that 2025 is odd.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_examples_even_odd_sum_product">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example of two integers whose sum is even and whose product is odd.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of two integers whose sum is odd and whose product is even.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is it possible to have two integers whose sum and product are both even?
+                  If so, give an example.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is it possible to have two integers whose sum and product are both odd?
+                  If so, give an example.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_linears_even_odd">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_6qminus10_is_even">
+                <p>
+                  For any integer <m>q</m>,
+                  use the definition of even to show that <m>6q-10</m> is even.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any integer <m>m</m>,
+                  use the definition of odd to show that <m>4m+7</m> is odd.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give examples of integers <m>m</m> to show that <m>5m+1</m> can be even or odd.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_even_odd">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How even and odd are defined?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use the definition to show that an integer is even or odd?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_consecutive_even_odd">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Consider an even integer <m>n</m>.
+                  Use the definitions of even and odd to show that the next consecutive integer,
+                  <m>n+1</m>, is odd.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider an odd integer <m>n</m>.
+                  Use the definitions of even and odd to show that the next consecutive integer,
+                  <m>n+1</m>, is even.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_divides">for</xref> \subdivides</title>
+      <p>
+        When an exercise asks you to use the definition of divides,
+        you should use only that definition and algebra.
+        Do not use other facts you might know about divisibility.
+      </p>
+      <exercise xml:id="exer_divides_notation">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/> Rewrite each statement using the divides symbol <m>\mid</m> or <m>\nmid</m>.
+            <ol>
+              <li>
+                <p>
+                  15 divides 105
+                </p>
+              </li>
+              <li>
+                <p>
+                  56 is a multiple of seven
+                </p>
+              </li>
+              <li>
+                <p>
+                  56 is not a multiple of 11
+                </p>
+              </li>
+              <li>
+                <p>
+                  44 is a divisor of 44
+                </p>
+              </li>
+              <li>
+                <p>
+                  one is a divisor of 44
+                </p>
+              </li>
+              <li>
+                <p>
+                  50 is even
+                </p>
+              </li>
+              <li>
+                <p>
+                  51 is odd
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_list_divisors">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            List all the positive divisors of each integer.
+            Do not use technology or other resources.
+            <ol>
+              <li>
+                <p>
+                  seven
+                </p>
+              </li>
+              <li>
+                <p>
+                  10
+                </p>
+              </li>
+              <li>
+                <p>
+                  80
+                </p>
+              </li>
+              <li>
+                <p>
+                  81
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_divides">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            A teacher has a class of 20 students,
+            and he wants to arrange them into equally sized groups.
+            <ol>
+              <li>
+                <p>
+                  Use the definition of divides to show that <m>4 \mid 20</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Could the teacher divide the students into equally sized groups of size four?
+                  How many groups would there be?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the definition of divides to explain why groups of size three would not work.
+                </p>
+              </li>
+              <li xml:id="part_divisors20">
+                <p>
+                  What size groups could the teacher use?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How would your answer to <xref ref="part_divisors20"/> change if two students are absent?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_divides_general">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the definition of divides to show that four is a divisor of <m>4q-8</m> for any integer <m>q</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the definition of divides to show that <m>14m</m> is a multiple of 7, for any integer <m>m</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dividesn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the definition of divides to show that
+                  <m>n \mid n</m> for any integer <m>n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is it possible to have positive integers <m>b</m> and <m>n</m> with <m>b \mid n</m> and <m>n \mid b</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_divisors_of_factorials">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Factorials were defined in <xref ref="defn_factorial"></xref>.
+            In this problem, do not use technology or other resources.
+            <ol>
+              <li>
+                <p>
+                  Show that <m>7 \mid 9!</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that <m>7! \mid 9!</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that <m>10 \mid 9!</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_divides">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What <m>d \mid n</m> and <m>d \nmid n</m> mean?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show that <m>d \mid n</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to write statements about divisors or multiples using <m>\mid</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find divisors or multiples of an integer?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_divides_square">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Consider an integer <m>n</m> such that <m>4 \mid n</m>.
+                  Use the definition of divides to show that <m>4 \mid n^2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of an integer <m>m</m> such that
+                  <m>4 \mid m^2</m> but <m>4 \nmid m</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_fractions">for</xref> \subfractions</title>
+      <exercise xml:id="exer_equal_fractions">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Write <m>\frac{7}{10}</m> as a fraction with denominator 30.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which fraction is larger: <m>\frac{7}{10}</m> or <m>\frac{2}{3}</m>?
+                  Use a common denominator to compare the fractions.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the positive divisors of nine and ten to show that 9 and 10 are coprime.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Reduce the fraction <m>\frac{450}{500}</m> to lowest terms.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_reduce_fraction_factorials">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Reduce <m>\displaystyle \frac{6!}{8!}</m> to lowest terms.
+                  Hint: Use the definition of factorial <xref ref="defn_factorial"/> and cancel before multiplying.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the product <m>(5)(4)(3)</m> as a fraction whose numerator and denominator are each a single factorial.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Reduce <m>\displaystyle \frac{10!}{2!8!}</m> to lowest terms.
+                </p>
+              </li>
+              <li xml:id="part_nchoose2_formula">
+                <p>
+                  Conjecture how to write <m>\displaystyle \frac{n!}{2!(n-2)!}</m> in lowest terms.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Where have you seen the answer to <xref ref="part_nchoose2_formula"/> before?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fractions">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How a fraction is related to integer division?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the numerator and denominator of a fraction are?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to write a fraction over a new denominator?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to reduce a fraction to lowest terms?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What it means to say that two integers are coprime?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_reduce_fractions_powers">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            For this exercise, all exponents should be nonnegative.
+            (If you have seen negative exponents,
+            the answers should still make sense,
+            just use nonnegative exponents.)
+            <ol>
+              <li>
+                <p>
+                  Reduce <m>\displaystyle \frac{2^{11}}{2^5}</m> to lowest terms.
+                  Hint: Use the definition of exponential notation <xref ref="defn_exp_notation"/> and cancel before multiplying.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Reduce <m>\displaystyle \frac{2^5}{2^{11}}</m> to lowest terms.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture how to write <m>\displaystyle \frac{2^a}{2^b}</m> in lowest terms when <m>a\lt b</m> and when <m>a >b</m>.
+                  What happens when <m>a=b</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_locker24"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: It is closed.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_lockers_2or3"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Examples include lockers 2, 3, 5, 7, 11.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: They are open.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_2026even_2025odd"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Write <m>2026 = 2(\hspace{0.5in})</m> and fill in the parentheses.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Write <m>2025 = 2(\hspace{0.5in})+1</m> and fill in the parentheses.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_examples_even_odd_sum_product"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Both integers must be odd.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One integer must be odd and the other integer must be even.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes, both integers must be even.
+          </p>
+        </li>
+        <li>
+          <p>
+            No
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_linears_even_odd"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Write <m>6q-10=2(\hspace{0.5in})</m> and fill in the parentheses.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Write <m>4m+7=2(\hspace{0.5in})+1</m> and fill in the parentheses.If you need help figuring out what goes into the parentheses,
+            solve <m>4m+7=2k+1</m> for <m>k</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One example should use an even value of <m>m</m> and the other example should use an odd value of <m>m</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_consecutive_even_odd"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Write <m>n=2k</m> and then evaluate <m>n+1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Write <m>n=2k+1</m>, simplify <m>n+1</m>, and then factor out two.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_divides_notation"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>5 \mid 105</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: If <m>a \mid b</m>, then the integer <m>a</m> is smaller than
+            (or equal to)
+            the integer <m>b</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer uses <m>\nmid</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>44 \mid 44</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: If <m>a \mid b</m>, then the integer <m>a</m> is smaller than
+            (or equal to)
+            the integer <m>b</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves the integer two.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves the integer two.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_divides"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Write <m>4q-8=4(\hspace{0.5in})</m> and fill in the parentheses.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Write <m>14m=7(\hspace{0.5in})</m> and fill in the parentheses.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_divisors_of_factorials"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Write <m>9!=7(\hspace{0.5in})</m> and fill in the parentheses with the product of the other factors of <m>9!</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Write <m>9!=7!(\hspace{0.5in})</m> and fill in the parentheses with the product of the other factors of <m>9!</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use <m>10=(5)(2)</m>.
+            Write <m>9!=10(\hspace{0.5in})</m> and fill in the parentheses with the product of the other factors of <m>9!</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_divides_square"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Write <m>n=4k</m>,
+            expand and simplify <m>n^2</m>, and then factor out four.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The integer <m>m</m> must be even.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_equal_fractions"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\frac{21}{30}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\frac{2}{3}=\frac{20}{30}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The positive divisors of nine are one, three, and nine.
+            What are the positive divisors of 10?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <xref ref="thm_equal_fractions">Use</xref>
+            <xref ref="part_thm_reduce_fraction"/> with <m>c=5</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_reduce_fraction_factorials"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\frac{1}{56}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\frac{5!}{2!}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            45 (or <m>\frac{45}{1}</m>)
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>n!=(n)(n-1)\underbrace{(n-2)\cdots(3)(2)(1)}_{(n-2)!}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Handshakes puzzle (or <m>\binom{n}{2}</m>)
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_reduce_fractions_powers"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>2^6</m> (or <m>\frac{2^6}{1})</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\frac{1}{2^6}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: When <m>a \lt b</m>,
+            we have <m>\frac{2^a}{2^b} = \frac{1}{2^{b-a}}</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

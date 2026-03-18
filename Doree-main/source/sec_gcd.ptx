@@ -1,0 +1,1519 @@
+<section xml:id="sec_gcd">
+  <title>Greatest Common Divisor</title>
+  <introduction>
+    <p>
+      The greatest common divisor has many applications.
+      For example,
+      in public key encryption the encoding and decoding keys need to be coprime and the algorithm requires finding solutions to
+      <m>a \otimes x = 1</m> in <m>\mathbb{Z}_n</m>
+      (introduced in <xref ref="sec_mod_arith"></xref>),
+      which also uses the greatest common divisor.
+      The greatest common divisor also has applications<fn>
+      Google.
+      Response to "What are some applications of the greatest common divisor?" Gemini 1.0, September 14, 2025.
+      </fn> to scheduling,
+      synchronization, and resource allocation.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_gcd">
+    <title>\subgcd</title>
+    <p>
+      We begin with the definition.
+    </p>
+    <definition xml:id="defn_gcd">
+      <title>Greatest common divisor</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For integers <m>a</m> and <m>b</m>,
+                a <term>common divisor</term> of <m>a</m> and <m>b</m> is an integer <m>d</m> such that <m>d \mid a</m> and <m>d \mid b</m>.
+                For example,
+                the integer three is a common divisor of 12 and 18.
+              </p>
+            </li>
+            <li>
+              <p>
+                For integers <m>a</m> and <m>b</m>,
+                not both 0, the <term>greatest common divisor</term>
+                of <m>a</m> and <m>b</m>,
+                denoted <c>gcd</c><m>(a,b)</m>,
+                is the largest integer dividing both <m>a</m> and <m>b</m>.
+                For example, in <xref ref="exam_gcd_list_div"></xref>
+                we show that <c>gcd</c><m>(4,6)= 2</m> and <c>gcd</c><m>(6,15)=3</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Note that the integer one is always a common divisor of any integers <m>a</m> and <m>b</m>,
+                and so <m>\gcd(a,b)\ge 1</m>.
+                It is possible for <m>\gcd(a,b)=1</m> if <m>\pm 1</m> are the only common divisors of <m>a</m> and <m>b</m>.
+                If <m>\gcd(a,b)=1</m>,
+                then <m>a</m> and <m>b</m> are <term>coprime</term>
+                (or <term>relatively prime</term>).
+                For example, in <xref ref="exam_gcd_list_div"></xref>
+                we show that 4 and 15 are coprime.
+                Recall that a fraction is in lowest terms if its numerator and denominator are coprime,
+                as in <xref ref="defn_lowest_terms"></xref>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's use the definition to find the greatest common divisor.
+    </p>
+    <example xml:id="exam_gcd_list_div">
+      <title>Calculating \fn{gcd} by listing divisors</title>
+      <statement>
+        <p>
+          Find each greatest common divisor by listing the divisors and common divisors.
+          <ol>
+            <li>
+              <p>
+                <c>gcd</c><m>(4,6)</m>
+                <solution>
+                  <p>
+                    <xref ref="table_divisors4615"></xref>
+                    lists the divisors of 4 and 6.
+                    Their common divisors are <m>\pm 1</m> and <m>\pm 2</m>.
+                    The greatest of their common divisors is <c>gcd</c><m>(4,6)= 2</m>.
+                  </p>
+                </solution>
+                <table xml:id="table_divisors4615">
+                  <title>Divisors of 4, 6, and 15</title>
+                  <tabular>
+                    <row>
+                      <cell>divisors of 4:</cell>
+                      <cell><m>\pm</m>1, <m>\pm</m>2, <m>\pm</m>4</cell>
+                    </row>
+                    <row>
+                      <cell>divisors of 6:</cell>
+                      <cell><m>\pm</m>1, <m>\pm</m>2, <m>\pm</m>3, <m>\pm</m>6</cell>
+                    </row>
+                    <row>
+                      <cell>divisors of 15:</cell>
+                      <cell><m>\pm</m>1, <m>\pm</m>3, <m>\pm</m>5, <m>\pm</m>15</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                <c>gcd</c><m>(6,15)</m>
+                <solution>
+                  <p>
+                    Similarly, <xref ref="table_divisors4615"></xref>
+                    lists the divisors of 6 and 15.
+                    Their common divisors are <m>\pm 1</m> and <m>\pm 3</m>.
+                    The greatest of their common divisors is <c>gcd</c><m>(6,15)=3</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                <c>gcd</c><m>(4,15)</m>
+                <solution>
+                  <p>
+                    <xref ref="table_divisors4615"></xref>
+                    lists the divisors of 4 and 15.
+                    Their common divisors are <m>\pm 1</m>.
+                    The greatest of their common divisors is <c>gcd</c><m>(4,15)=1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try calculating greatest common divisors.
+    </p>
+    <activity xml:id="act_gcd">
+      <title>Greatest common divisor</title>
+      <p>
+        Do not use computational technology except to check.
+        <ol>
+          <li>
+            <p>
+              Calculate <c>gcd</c><m>(75,10)</m> by listing the divisors and common divisors.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that 15 and 22 are coprime by listing the divisors and common divisors.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find an example of two odd integers that are coprime.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find an example of two odd integers that are not coprime.
+            </p>
+          </li>
+          <li>
+            <p>
+              Can two even integers be coprime?
+              Explain.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Note that listing all divisors of an integer is computationally nontrivial for large integers,
+      and so this method for finding the greatest common divisor is not efficient.
+      As we saw in <xref ref="sub_count_divisors"></xref>,
+      we can list the divisors of an integer from its prime factorization.
+      Therefore, it is possible to compute the greatest common divisor of two integers from their prime factorizations.
+      Note that finding the prime factorization of an integer is computationally nontrivial for large integers,
+      and so this method for finding the greatest common divisor is also not efficient.
+      Let's look at an example anyway.
+    </p>
+    <example>
+      <title>Using prime factorization to calculate \fn{gcd}</title>
+      <statement>
+        <p>
+          Use the prime factorization of <m>252 = 2^2 \cdot 3^2 \cdot 7</m> and
+          <m>\text{ 3,000 } = 2^3 \cdot 3 \cdot 5^2</m> to calculate <m>\fn{gcd}(252,3000)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The positive divisors of 252 are integers of the form
+          <m>2^a \cdot 3^b \cdot 7^c</m> where <m>a = 0,1,2</m>,
+          <m>b=0,1,2</m>, and <m>c=0,1</m>.
+          The positive divisors of \text{ 3,000 } are integers of the form
+          <m>2^a \cdot 3^b \cdot 5^c</m> where <m>a=0,1,2,3</m>,
+          <m>b=0,1</m>, and <m>c=0,1,2</m>.
+          Observe that <m>5 \nmid 252</m>.
+          Therefore, no divisor of 252 is divisible by five.
+          Similarly, <m>7 \nmid \text{ 3,00 }</m>.
+          Therefore, no divisor of \text{ 3,000 } is divisible by seven.
+          The only other prime divisors are two and three,
+          so the common divisors of 252 and \text{ 3,000 } are integers of the form <m>2^a \cdot 3^b</m>.
+          The highest power of two that divides 252 is <m>2^2</m> and the highest power of three that divides \text{ 3,000 } is <m>3^1</m>.
+          Therefore, <m>a \le 2</m> and <m>b \le 1</m>.
+          The largest such integer is <m>2^2 \cdot 3 = 12</m>.
+          Thus, <m>\fn{gcd}(252,3000)=12</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_euclidean_alg">
+    <title>\subea</title>
+    <p>
+      The greatest common divisor is useful but difficult to compute directly,
+      either by listing the divisors or by finding and using the prime factorizations.
+      Fortunately,
+      there is an efficient algorithm for computing the greatest common divisor,
+      the Euclidean Algorithm.
+      The Euclidean Algorithm is certainly on any top ten list of mathematical algorithms of all time<fn>
+      Others on my list include Newton's Method
+      (for approximating roots of differentiable functions),
+      Gauss-Jordan Elimination
+      (for solving systems of linear equations),
+      the Simplex Method
+      (for linear optimization),
+      Metropolis Algorithm
+      (and Monte Carlo Markov Chain methods)
+      for optimization in general, QR Algorithm (for finding eigenvalues), Fast Fourier Transforms (for writing functions as sums of periodic functions), Dijkstra's Algorithm
+      (for finding minimum spanning trees in a graph),
+      RSA Encription Algorithm
+      (for public key cryptosystems),
+      Data Compression Algorithms
+      (for example using Singular Value Decomposition),
+      not to mention a host of computer science algorithms such as quicksort and other sorting algorithms.
+      </fn> and is one of the oldest, dating back to Euclid
+      (circa 300 BCE).
+    </p>
+    <p>
+      What drives the Euclidean Algorithm are the following key observations.
+    </p>
+    <theorem xml:id="thm_Euclidean_algorithm">
+      <title>Key observations for Euclidean Algorithm</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_EAthm_recursion">
+              <p>
+                Given positive integers <m>a</m> and <m>n</m> with <m>a \ge n</m>, we have
+                <me>
+                  \fn{gcd}(a,n) = \fn{gcd}(n,a ~\fn{mod}~ n)
+                </me>.
+              </p>
+            </li>
+            <li xml:id="part_EAthm_smaller">
+              <p>
+                Since <m>n \le a</m> and <m>a ~\fn{mod}~ n \lt n</m>,
+                the second <c>gcd</c> involves smaller positive integers.
+              </p>
+            </li>
+            <li xml:id="part_EAthm_stop">
+              <p>
+                For any positive integer <m>k</m>,
+                we have <c>gcd</c><m>(k,0)=k</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We leave the proofs of these observations <xref ref="exer_gcd_extreme">for</xref><xref ref="part_proof_EAthm_stop"/> and <xref ref="exer_proof_EAthm_recursion"></xref>.
+      The algorithm repeatedly <xref ref="thm_Euclidean_algorithm">applies</xref>
+      <xref ref="part_EAthm_recursion"/>,
+      which by <xref ref="part_EAthm_smaller"/> gives smaller positive remainders at each step.
+      After a finite number of steps, we are left with zero,
+      which allows us to stop by <xref ref="part_EAthm_stop"/>.
+    </p>
+    <p>
+      Here is an example using the Euclidean Algorithm.
+    </p>
+    <example xml:id="exam_Euclidean_alg">
+      <title>Using the Euclidean Algorithm</title>
+      <statement>
+        <p>
+          Use the Euclidean Algorithm to calculate <m>\fn{gcd}(240,100)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, divide 240 by 100 to get
+          <me>
+            240 ~\fn{mod}~ 100 =40
+          </me>.
+        </p>
+        <p>
+          <xref ref="thm_Euclidean_algorithm">By</xref>
+          <xref ref="part_EAthm_recursion"/>,
+          it follows that <m>\fn{gcd}(240,100)=\fn{gcd}(100,40)</m>.
+        </p>
+        <p>
+          Next, divide 100 by 40 to get
+          <me>
+            100 ~\fn{mod}~ 40 =20
+          </me>.
+        </p>
+        <p>
+          <xref ref="thm_Euclidean_algorithm">By</xref>
+          <xref ref="part_EAthm_recursion"/>,
+          it follows that <m>\fn{gcd}(100,40)=\fn{gcd}(40,20)</m>.
+        </p>
+        <p>
+          Last, divide 40 by 20 to get
+          <me>
+            40 ~\fn{mod}~ 20 =0
+          </me>.
+        </p>
+        <p>
+          <xref ref="thm_Euclidean_algorithm">By</xref>
+          <xref ref="part_EAthm_recursion"/> and <xref ref="part_EAthm_stop"/>,
+          it follows that <m>\fn{gcd}(40,20)=\fn{gcd}(20,0)=20</m>.
+        </p>
+        <p>
+          Therefore, <m>\fn{gcd}(240,100)=20</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Practice using the Euclidean Algorithm.
+    </p>
+    <activity xml:id="act_ea">
+      <title>Euclidean Algorithm</title>
+      <p>
+        Do not use computational technology except to check.
+        <ol>
+          <li>
+            <p>
+              When we use the Euclidean Algorithm to calculate <c>gcd</c><m>(22,15)</m> we get
+              <m>22 ~\fn{mod}~ 15 = 7</m> <m>15 ~\fn{mod}~ 7 = 1</m>
+              <m>7 ~\fn{mod}~ 1 = 0</m> Write the corresponding statement about <c>gcd</c> for each step and state the final answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the Euclidean Algorithm to calculate <c>gcd</c><m>(600,36)</m>.
+              Hint: <m>16 \cdot 36 = 576</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_coprime">
+    <title>\subcoprime</title>
+    <p>
+      Many of the applications of the greatest common divisor use coprimality.
+      The Euclidean Algorithm provides an efficient way to check if two integers are coprime,
+      but we start with an example exploring how the prime factors can be used to determine if two integers are coprime to illustrate some of the theory.
+    </p>
+    <example xml:id="exam_coprime">
+      <title>Showing two integers are coprime using their prime factors</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Explain why distinct primes <m>p</m> and <m>q</m> are coprime.
+                <solution>
+                  <p>
+                    The positive divisors of <m>p</m> are 1 and <m>p</m>,
+                    while the positive divisors of <m>q</m> are 1 and <m>q</m>.
+                    Since <m>p \neq q</m>,
+                    their only common positive divisor is 1 and so <m>\fn{gcd}(p,q)=1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why the integers <m>p^a</m> and <m>q^b</m> are coprime when <m>p</m> and <m>q</m> are distinct primes.
+                <solution>
+                  <p>
+                    The positive divisors of <m>p^a</m> are 1, <m>p</m>, <m>p^2</m>,
+                    <ellipsis/> <m>p^a</m> while the positive divisors of <m>q^b</m> are 1, <m>q</m>,
+                    <m>q^2</m>, <ellipsis/>, <m>q^b</m>.
+                    Since <m>p \neq q</m> are primes,
+                    it follows from the uniqueness of prime factorization <xref ref="thm_FTOArith"/> that the only common positive divisor of <m>p</m> and <m>q</m> is 1 and so <m>\fn{gcd}(p^a,q^b)=1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why if <m>n</m> is odd,
+                then 16 and <m>n</m> are coprime.
+                <solution>
+                  <p>
+                    The divisors of 16 are <m>\pm1</m>,
+                    <m>\pm2</m>, <m>\pm4</m>, <m>\pm8</m>, and <m>\pm16</m>.
+                    Since <m>n</m> is odd, we know <m>2 \nmid n</m>.
+                    <xref ref="thm_show_is_prime">By</xref>
+                    <xref ref="part_only_check_prime_divisors"/>, it follows that no even integer divides <m>n</m>.
+                    All divisors of 16 are even, except for <m>\pm1</m>.
+                    Therefore, the only common divisors of 16 and <m>n</m> are <m>\pm1</m> and so <m>\fn{gcd}(16,n)=1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_coprime15">
+              <p>
+                Explain why if <m>3 \nmid n</m> and <m>5 \nmid n</m>,
+                then 15 and <m>n</m> are coprime.
+                <solution>
+                  <p>
+                    The only positive divisors of 15 are 1, 3, 5, and 15.
+                    Since <m>3 \nmid n</m> and <m>5 \nmid n</m>,
+                    it follows that also <m>15 \nmid n</m> and so the only common positive divisor of 15 and <m>n</m> is 1.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is interesting
+      (and useful)
+      to count the number of integers less than <m>n</m> that are coprime to <m>n</m>.
+      We begin with a definition.
+    </p>
+    <definition xml:id="defn_euler_phi_fn">
+      <title>Euler's totient</title>
+      <statement>
+        <p>
+          The number of integers from 1 to <m>n</m> that are coprime to <m>n</m> is denoted <m>\varphi(n)</m>.
+          In this context, <m>\varphi</m> is
+          <term>Euler's toitent</term>
+          (or <term>Euler's <m>\varphi</m> function</term>).<fn>
+          <m>\varphi</m> is the Greek letter phi,
+          sometimes written as <m>\phi</m>.
+          </fn>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We compute <m>\varphi(15)</m> as an example.
+    </p>
+    <example xml:id="exam_eulers_phi15">
+      <title>Calculating <m>\varphi(15)</m></title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_1to15_for_finding_phi">
+              <p>
+                Copy the list of integers
+                <me>
+                  1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+                </me>.
+                Cross off all multiples of three on that list.
+                Cross off all multiples of five on that list.
+                Circle the remaining integers.
+                <solution>
+                  <p>
+                    The multiples of three are 3, 6, 9, 12, and 15.
+                    The multiples of five are 5, 10, and 15 again.
+                    <me>
+                      \circled{1},\circled{2},\cancel{3},\circled{4},\cancel{5},\cancel{6},\circled{7},\circled{8},\cancel{9},\cancel{10},\circled{11},\cancel{12},\circled{13},\circled{14},\cancel{15}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculate <m>\varphi(15)</m>
+                <solution>
+                  <p>
+                    <xref ref="exam_coprime">By</xref>
+                    <xref ref="part_coprime15"/> these circled integers from <xref ref="part_1to15_for_finding_phi"/> are coprime to 15.
+                    Thus, the integers from one to 15 that are coprime to 15 are
+                    <me>
+                      1, 2, 4, 7, 8, 11, 13, 14
+                    </me>.
+                  </p>
+                  <p>
+                    Since there are eight numbers on this list,
+                    it follows that <m>\varphi(15)=8</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Your turn to practice working with Euler's toitent.
+    </p>
+    <activity xml:id="act_eulers_phi_function">
+      <title>Euler's phi function</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Explain why if <m>2 \nmid n</m>,
+              then <m>\fn{gcd}(2,n)=1</m>.
+            </p>
+          </li>
+          <li xml:id="part_list__rel_prime8">
+            <p>
+              Copy the list of integers
+              <me>
+                1,2,3,4,5,6,7,8
+              </me>.
+              Cross off all multiples of two on that list.
+              Circle the remaining integers,
+              which are not divisible by two and,
+              therefore, are coprime to 8.
+              Count to evaluate <m>\varphi(8)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why if <m>2 \nmid n</m> and <m>5 \nmid n</m>,
+              then <m>\fn{gcd}(10,n)=1</m>.
+            </p>
+          </li>
+          <li xml:id="part_list__rel_prime10">
+            <p>
+              Copy the list of integers
+              <me>
+                1,2,3,4,5,6,7,8,9,10
+              </me>.
+              Cross off all multiples of two and all multiples of five on that list.
+              Circle the remaining integers,
+              which are not divisible by two or five and,
+              therefore, are  coprime to 10.
+              Count to evaluate <m>\varphi(10)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Copy the list of integers
+              <me>
+                1,2,3,4,5,6,7,8,9,10,11,12
+              </me>.
+              Use the method from <xref ref="part_list__rel_prime8"/> and <xref ref="part_list__rel_prime10"/> to find the list of integers coprime to 12 and evaluate <m>\varphi(12)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Copy the list of integers
+              <me>
+                1,2,3,4,5,6,7
+              </me>.
+              Use the method from <xref ref="part_list__rel_prime8"/> and <xref ref="part_list__rel_prime10"/> to find the list of integers coprime to seven and evaluate <m>\varphi(7)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="table_euler_phi_1to16"></xref>
+              shows the values of <m>\varphi(n)</m> for <m>n=1,2,\ldots, 16</m>.
+              Check your answers for <m>\varphi(8)</m>,
+              <m>\varphi(10)</m>, <m>\varphi(12)</m>, and <m>\varphi(7)</m>.
+              <table xml:id="table_euler_phi_1to16">
+                <title>The values of <m>\varphi(n)</m> for <m>n=1,2, \ldots, 16</m></title>
+                <tabular>
+                  <row>
+                    <cell><m>n</m></cell>
+                    <cell>1</cell>
+                    <cell>2</cell>
+                    <cell>3</cell>
+                    <cell>4</cell>
+                    <cell>5</cell>
+                    <cell>6</cell>
+                    <cell>7</cell>
+                    <cell>8</cell>
+                    <cell>9</cell>
+                    <cell>10</cell>
+                    <cell>11</cell>
+                    <cell>12</cell>
+                    <cell>13</cell>
+                    <cell>14</cell>
+                    <cell>15</cell>
+                    <cell>16</cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>\varphi(n)</m></cell>
+                    <cell>1</cell>
+                    <cell>1</cell>
+                    <cell>2</cell>
+                    <cell>2</cell>
+                    <cell>4</cell>
+                    <cell>2</cell>
+                    <cell>6</cell>
+                    <cell>4</cell>
+                    <cell>6</cell>
+                    <cell>4</cell>
+                    <cell>10</cell>
+                    <cell>4</cell>
+                    <cell>12</cell>
+                    <cell>6</cell>
+                    <cell>8</cell>
+                    <cell>8</cell>
+                  </row>
+                </tabular>
+              </table>
+            </p>
+          </li>
+          <li xml:id="part_phi_power2">
+            <p>
+              Conjecture a formula for <m>\varphi(2^k)</m>.
+              Check your conjecture for <m>n=32</m> by listing the integers from 1 to 32,
+              crossing off the integers that are not coprime to 32,
+              circling the remaining integers that are coprime to 32,
+              and counting to evaluate <m>\varphi(32)</m>.
+            </p>
+          </li>
+          <li xml:id="part_phi_power3">
+            <p>
+              Conjecture a formula for <m>\varphi(3^k)</m>.
+              Test your conjecture for <m>n=27</m> by listing the integers from 1 to 27,
+              crossing off the integers that are not coprime to 27,
+              circling the remaining integers that are coprime to 27,
+              and counting to evaluate <m>\varphi(27)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_gcd">for</xref> \subgcd</title>
+      <exercise xml:id="exer_gcd_listing_divisors">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Calculate each greatest common divisor by listing the divisors and common divisors.
+            Do not use computational technology.
+            <ol>
+              <li>
+                <p>
+                  Calculate <c>gcd</c><m>(12,18)</m> by listing the divisors and common divisors.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <c>gcd</c><m>(7,21)</m> by listing the divisors and common divisors.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <c>gcd</c><m>(5,7)</m> by listing the divisors and common divisors.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_coprime_listing_divisors">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Show each pair of integers is coprime by listing the divisors and common divisors.
+            Do not use computational technology.
+            <ol>
+              <li>
+                <p>
+                  8 and 35
+                </p>
+              </li>
+              <li>
+                <p>
+                  13 and 17
+                </p>
+              </li>
+              <li>
+                <p>
+                  1 and 15
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd_evens">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example of two even integers whose greatest common divisor equals two.
+                  Do not use the same example <xref ref="exam_gcd_list_div">as</xref>.
+                </p>
+              </li>
+              <li xml:id="part_gcd_cex_evens">
+                <p>
+                  Give an example of two even integers whose greatest common divisor does not equal two.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you say about the greatest common divisor of two even integers?
+                  Be specific.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd_extreme">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Evaluate each greatest common divisor in terms of the positive integer <m>n</m> and explain your reasoning.
+            <ol>
+              <li>
+                <p>
+                  <m>\gcd(n,n)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\gcd(n,1)</m>
+                </p>
+              </li>
+              <li xml:id="part_proof_EAthm_stop">
+                <p>
+                  <m>\gcd(n,0)</m> Hint: For any nonzero integer <m>b</m> we have
+                  <m>0 = b(0)</m> and so it follows that <m>b \mid 0</m>.
+                  What does that tell you about the divisors of 0?
+                  This part <xref ref="thm_Euclidean_algorithm">proves</xref>
+                  <xref ref="part_EAthm_stop"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd72600">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_common_div72600">
+                <p>
+                  <xref ref="table_divisors72">Use</xref>
+                  and <xref ref="table_divisors600_pfform"></xref>
+                  to list the common divisors of 72 and 600.
+                  You may leave the divisors in prime-factored form.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your list from <xref ref="part_common_div72600"/> to calculate <m>\fn{gcd}(72,600)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="gcd_of_primes__cicadas">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain why this statement is true: If <m>p</m> and <m>q</m> are distinct primes,
+                  then <m>p</m> and <m>q</m> are coprime.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Cicadas are insects that emerge from the ground in cycles of various lengths.
+                  Two common varieties in the central United States have cycles of 13 and 17 years.
+                  If cicadas do not want to emerge in the same years and compete for resources,
+                  why is it an advantage to have cycles that have coprime length?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd_with_prime">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Given a prime <m>p</m> and an integer <m>n</m>,
+                  what are the possible values of <m>\fn{gcd}(p,n)</m>?
+                  Hint: List the divisors of <m>p</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe your findings by copying and completing the conjecture.
+                  <blockquote>
+                    Given a prime <m>p</m> and integer <m>n</m>, either <m>\fn{gcd}(p,n) = \underline{~}</m> which happens when <m>\underline{\hspace{1in} ~}</m> or <m>\fn{gcd}(p,n) = \underline{~}</m> which happens when <m>\underline{\hspace{1in} ~}</m>.
+                  </blockquote>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd_from_prime_fact_examples">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> Calculate each greatest common divisor using the prime factorization.
+            <ol>
+              <li>
+                <p>
+                  <m>\fn{gcd}(5^5,5^7)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\fn{gcd}(5^5 \cdot 17^2,5^7 \cdot 17)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\fn{gcd}(5^5 \cdot 17^2,5^7 \cdot 19)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\fn{gcd}(2^5 \cdot 3^3 \cdot 7,2^3 \cdot 3^4 \cdot 5^2)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\fn{gcd}(2 \cdot 5 \cdot 11,3 \cdot 7 \cdot 13)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_gcd">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What <m>\fn{gcd}(a,b)</m> means?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the greatest common divisor is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What coprime means?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate <c>gcd</c> by listing divisors?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate <c>gcd</c> from the prime factorization?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd_from_prime_fact_conjecture">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Explain how to find the greatest common divisor of two integers from their prime factorization.
+            You may want to refer to <xref ref="exer_gcd_from_prime_fact_examples"></xref> for examples.
+            Hint: One option is to explain in words.
+            Another option is to write
+            <me>
+              a = p_1^{e_1} \cdot p_2^{e_2} \cdot \cdots \cdot p_k^{e_k}
+            </me>
+            and
+            <me>
+              b = p_1^{x_1} \cdot p_2^{x_2} \cdot \cdots \cdot p_k^{x_k}
+            </me>
+            where, as usual, <m>p_1, p_2, \ldots,
+            p_k</m> are distinct primes and the exponents
+            <m>e_i, x_i \ge 0</m> and then find a formula for the prime factorization of <m>\fn{gcd}(a,b)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd_integer_points_on_line">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_gcd_lattice_line_segment">
+                <p>
+                  In the <m>xy-</m>plane,
+                  graph the line segment from <m>(0,0)</m> to <m>(15,20)</m>.
+                  You are welcome to use DESMOS (\url{https://www.desmos.com/} to graph the line by writing the equation and setting an appropriate range such as
+                  <m>-2 \le x \le 17</m> and <m>-2 \le y \le 22</m>.
+                </p>
+              </li>
+              <li xml:id="part_gcd_lattice_count">
+                <p>
+                  How many points on that line segment other than <m>(0,0)</m> have integers in both coordinates?
+                  List them.
+                </p>
+              </li>
+              <li xml:id="part_gcd_lattice_conj">
+                <p>
+                  What does your answer to <xref ref="part_gcd_lattice_count"/> have to do with the greatest common divisor?
+                  State your answer as a conjecture.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Test your conjecture from <xref ref="part_gcd_lattice_conj"/> by repeating parts <xref ref="part_gcd_lattice_line_segment"/> and <xref ref="part_gcd_lattice_count"/> for the line segment from <m>(0,0)</m> to <m>(6,15)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_product_divides">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the statement <m>Q</m>: For any positive integers <m>a</m><m>,b</m>,
+            and <m>n</m>:
+            if <m>a \mid n</m> and <m>b \mid n</m>, then <m>ab \mid n</m>.
+            <ol>
+              <li>
+                <p>
+                  Give an example to show that <m>Q</m> is false.
+                  Hint: That is, find positive integers <m>a</m>, <m>b</m>,
+                  and <m>n</m> such that <m>a \mid n</m> and
+                  <m>b \mid n</m>, but <m>ab \nmid n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>Q</m> true when <m>a = 4</m> and <m>b = 6</m>?
+                  Is <m>Q</m> true when <m>a = 4</m> and <m>b = 5</m>?
+                  No justification required.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture when <m>Q</m> is true.
+                  Hint: Some relationship between <m>a</m> and <m>b</m> guarantees that <m>Q</m> is true.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_modn_units_conj">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/> An element <m>a</m> of
+            <m>\mathbb{Z}_n</m> is a <term>unit</term>
+            if there is a solution of <m>a \otimes x = 1</m> in <m>\mathbb{Z}_n</m>.
+            Note that zero cannot be a unit because
+            <m>0 \otimes x = 0 \neq 1</m> and one is always a unit because <m>1 \otimes 1 = 1</m>.
+            <xref ref="sec_mod_arith">In</xref>
+            <xref ref="exer_modn_units_examples"></xref>,
+            we calculated the examples in <xref ref="tab_units_modn"></xref>.
+          </p>
+          <table xml:id="tab_units_modn">
+            <title>The units in the integers mod <m>n</m> for <m>n=5,6,8</m> and 10</title>
+            <tabular>
+              <row>
+                <cell><m>n</m></cell>
+                <cell>units in <m>\mathbb{Z}_n</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>5</cell>
+                <cell><m>1,2,3,4</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>6</cell>
+                <cell><m>1,5</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>8</cell>
+                <cell><m>1,3,5,7</m></cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>10</cell>
+                <cell><m>1,3,7,9</m></cell>
+              </row>
+            </tabular>
+          </table>
+          <ol>
+            <li>
+              <p>
+                Find the units in <m>\mathbb{Z}_{7}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Conjecture which elements are units in
+                <m>\mathbb{Z}_p</m> when <m>p</m> is prime.
+              </p>
+            </li>
+            <li>
+              <p>
+                Check that <m>1, 5, 7, 11</m> are units mod <m>\mathbb{Z}_{12}</m>.
+                Hint: Find a solution to <m>a \otimes x = 1</m> for each of <m>a=1,5,7,11</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Check that <m>9</m> is not a unit by checking
+                <m>9 \otimes b \neq 1</m> for <m>b = 0, 1, 2, 3, \ldots, 11</m>.
+                Yes, that means writing the row for 9 in the multiplication table of <m>\mathbb{Z}_{12}</m>.
+                You may use computational technology to calculate <c>mod</c> 12.
+              </p>
+            </li>
+            <li>
+              <p>
+                Conjecture which integers <m>a</m> have the property that <m>a</m> is a unit in <m>\mathbb{Z}_n</m>.
+                Hint: your answer should involve <m>a</m> and <m>n</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_euclidean_alg">for</xref> \subea</title>
+      <exercise xml:id="exer_ea_examples">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use the Euclidean Algorithm to calculate each greatest common divisor.
+            Start with <m>a</m> equal to the largest of the two integers.
+            <ol>
+              <li>
+                <p>
+                  <m>\fn{gcd}(12,18)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\fn{gcd}(55,40)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\fn{gcd}(5,7)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ea_fib">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            We saw the <term>Fibonacci</term>
+            numbers <m>1, 2, 3, 5, 8, 13, 21, 34, 55, 89</m> in the Squares and Dominoes puzzle <xref ref="act_squares_dominoes"/>.
+            Something strange happens when we use the Euclidean Algorithm to calculate the greatest common divisor of consecutive Fibonacci numbers.
+            <ol>
+              <li>
+                <p>
+                  Use the Euclidean Algorithm to calculate <m>\fn{gcd}(8,5)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the Euclidean algorithm to calculate <m>\fn{gcd}(89,55)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do you notice about the answer in each case?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do you notice about the process in each case?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_gcd_linears">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use the Euclidean Algorithm to calculate <c>gcd</c><m>(3n+2,2n+1)</m>,
+            where <m>n</m> is a fixed but unknown positive integer.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_consec_coprime">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use the Euclidean Algorithm to show that any two consecutive positive integers are coprime.
+            Start by restating what we are trying to show in terms of a positive integer <m>n</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_euclidean_alg">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the Euclidean Algorithm calculates?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use the Euclidean Algorithm?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_coprime">for</xref> \subcoprime</title>
+      <exercise xml:id="exer_euler_phi28">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain why if <m>2 \nmid n</m> and <m>7 \nmid n</m>,
+                  then <m>n</m> and 28 are coprime.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\varphi(28)</m> using the method from <xref ref="exam_eulers_phi15"></xref>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_euler_phi17181920">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/> Evaluate each quantity using the method from <xref ref="exam_eulers_phi15"></xref>.
+            <ol>
+              <li>
+                <p>
+                  <m>\varphi(17)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\varphi(18)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\varphi(19)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\varphi(20)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_extreme_phi">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  For any value of <m>n</m>, what is the smallest value of <m>\varphi(n)</m>,
+                  and which integers <m>n</m> give that smallest value?
+                  No justification required.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any specific integer <m>n</m>,
+                  what is the largest value of
+                  <m>\varphi(n)</m> in terms of <m>n</m>,
+                  and which integers <m>n</m> give that largest value?
+                  No justification required.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_coprime">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Why we only need to check for common prime divisors to determine if two integers are coprime?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to calculate Euler's totient function of an integer?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_conj_phi_powerp">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Look <xref ref="act_eulers_phi_function">at</xref>
+                  <xref ref="part_phi_power2"/> and <xref ref="part_phi_power3"/>.
+                  Generalize your conjecture to evaluate
+                  <m>\varphi(p^k)</m> when <m>p</m> is prime.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Test your conjecture by evaluating
+                  <m>\varphi(25)</m> using the method from <xref ref="exam_eulers_phi15"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_conj_phi_powerp">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/> Justify your conjecture from <xref ref="exer_conj_phi_powerp"></xref> by counting.
+            Hint: Count the number of multiples of <m>p</m> that are less than <m>p^k</m>.
+            What fraction of the integers from 1 to <m>p^k</m> are not coprime to <m>p^k</m>?
+            What (remaining) fraction of the integers from 1 to <m>p^k</m> are coprime to <m>p^k</m>?
+            Count the number of integers from 1 to <m>p^k</m> that are coprime to <m>p^k</m>,
+            that is, calculate <m>\varphi(p^k)</m>.
+            Simplify your final answer.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_gcd_listing_divisors"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <c>gcd</c><m>(12,18)=6</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The only divisors of 7 are <m>\pm1, \pm 7</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: They are coprime.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_gcd_evens"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: List divisors to check your answer.
+            One strategy for finding an example is to use integers of the form <m>2p</m> and <m>2q</m> where <m>p</m> and <m>q</m> are distinct primes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Choose two integers that are multiples of four.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_gcd_extreme"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The answer to each part is one or <m>n</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_gcd72600"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Do not forget <m>\pm</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            24
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_gcd_with_prime"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The divisors of <m>p</m> are
+            <m>\pm 1, \pm p</m> and the greatest common divisor is always positive.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One case is <m>p \mid n</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_gcd_integer_points_on_line"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The line is <m>y = \frac{20}{15}x</m>.
+            Use the fractions in DESMOS. You can show the grid lines counting by <m>x=1</m> and <m>y=1</m> to help count the points.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Five points.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What is <m>\fn{gcd}(15,20)</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It should work.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ea_examples"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>8 \fn{ mod } 12 = 6</m>,
+            <m>12 \fn{ mod } 6 = 0</m>, and so <m>\fn{gcd}(12,18)=6</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Five
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: They are coprime.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ea_fib"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>8 \fn{ mod } 5 = 3</m>,
+            <m>5 \fn{ mod } 3 = 2</m>, <m>3 \fn{ mod } 2 = 1</m>,
+            and <m>2 \fn{ mod } 1 = 0</m>,
+            and so <m>\fn{gcd}(8,5)=1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            1
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We got the same answer.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It takes a long time.
+            (It might not surprise you to learn that Fibonacci numbers are a
+            <term>worst case scenario</term>
+            for the Euclidean Algorithm.)
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_euler_phi28"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: List the divisors of <m>28 = 2^2 \cdot 7</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Write <m>1,2,3,\ldots,28</m>.
+            Cross out the multiples of two and the multiples of seven.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_euler_phi17181920"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The answers in some order are six, eight, 16, and 18.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_extreme_phi"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\varphi(n)=1</m> for exactly two values of <m>n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The largest possible value is <m>\varphi(n)=n-1</m>.
+            Look at your findings in <xref ref="act_eulers_phi_function"></xref>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

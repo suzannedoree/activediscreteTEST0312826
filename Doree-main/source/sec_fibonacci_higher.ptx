@@ -1,0 +1,2086 @@
+<section xml:id="sec_fibonacci_higher">
+  <title>The Fibonacci Sequence and Higher Order Recursions</title>
+  <introduction>
+    <p>
+      In this section,
+      we return to look at higher order recursively-defined sequences,
+      especially the famous Fibonacci sequence.
+      We look at how to model sequences using higher order recursions and how to use recursions to solve counting problems.
+      Next, the Fibonacci sequence has many patterns,
+      which we explore and prove using mathematical induction.
+      Finally, we introduce a strong form of mathematical induction that,
+      among other things,
+      can be used to prove explicit forms for higher order recursively-defined sequences.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_fibonacci">
+    <title>\subfib</title>
+    <p>
+      In the Squares and Dominoes puzzle <xref ref="act_squares_dominoes"/>,
+      the Proper Bit Strings puzzle <xref ref="act_proper_bs"/>,
+      and the lopsided tree activity <xref ref="act_rec_trees"/>,
+      we saw a sequence where each term was the sum of the two previous terms.
+      The most famous sequence satisfying that recursion is the Fibonacci sequence.
+    </p>
+    <definition xml:id="defn_fibonacci">
+      <title>Fibonacci sequence</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The <term>Fibonacci sequence</term>
+                is defined by <m>F_0=0</m>, <m>F_1=1</m> and
+                <me>
+                  F_n=F_{n-1}+F_{n-2}
+                </me>
+                for <m>n \ge 2</m>.
+                The sequence begins
+                <me>
+                  0,1,1,2,3,5,8,13,21,34,55,89, \ldots
+                </me>
+                as we see in <xref ref="exam_fib_list"></xref>.
+              </p>
+            </li>
+            <li>
+              <p>
+                An integer is <term>Fibonacci</term>
+                if it is a term of the Fibonacci sequence.
+                For example, 13 and 89 are Fibonacci.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's see how we found the terms of the Fibonacci sequence.
+    </p>
+    <example xml:id="exam_fib_list">
+      <title>The Fibonacci sequence</title>
+      <statement>
+        <p>
+          Find the first twenty terms of the Fibonacci sequence:
+          <m>F_0, F_1, \ldots, F_{19}</m>.
+        </p>
+        <solution>
+          <p>
+            The initial conditions tell us that <m>F_0=0</m> and <m>F_1=1</m>.
+            Next, we use the recursion with <m>n=2</m> to get
+            <me>
+              F_2=F_1+F_0 = 1+0=1
+            </me>.
+          </p>
+          <p>
+            Continuing to use the recursion with <m>n=</m> 3, 4, 5 and 6 we get
+            <me>
+              F_3=F_2+F_1 = 1+1=2
+            </me>,
+            <me>
+              F_4=F_3+F_2 = 2+1=3
+            </me>,
+            <me>
+              F_5=F_4+F_3 = 3+2=5
+            </me>,
+            and
+            <me>
+              F_6=F_5+F_4 = 5+3=8
+            </me>.
+          </p>
+          <p>
+            We continue this pattern to get the rest of the first twenty terms as listed in <xref ref="table_first20_fib"></xref>.
+            For example, when <m>n=15</m> we have
+            <me>
+              F_{15}=F_{14}+F_{13} = 377+233=610
+            </me>.
+          </p>
+        </solution>
+        <table xml:id="table_first20_fib">
+          <title>The first twenty Fibonacci numbers</title>
+          <tabular>
+            <row>
+              <cell><m>F_0=0</m></cell>
+              <cell>\hspace{.5in}</cell>
+              <cell><m>F_5=5</m></cell>
+              <cell>\hspace{.5in}</cell>
+              <cell><m>F_{10}=55</m></cell>
+              <cell>\hspace{.5in}</cell>
+              <cell><m>F_{15}=610</m></cell>
+            </row>
+            <row>
+              <cell><m>F_1=1</m></cell>
+              <cell></cell>
+              <cell><m>F_6=8</m></cell>
+              <cell></cell>
+              <cell><m>F_{11}=89</m></cell>
+              <cell></cell>
+              <cell><m>F_{16}=987</m></cell>
+            </row>
+            <row>
+              <cell><m>F_2=1</m></cell>
+              <cell></cell>
+              <cell><m>F_7=13</m></cell>
+              <cell></cell>
+              <cell><m>F_{12}=144</m></cell>
+              <cell></cell>
+              <cell><m>F_{17}=1597</m></cell>
+            </row>
+            <row>
+              <cell><m>F_3=2</m></cell>
+              <cell></cell>
+              <cell><m>F_8=21</m></cell>
+              <cell></cell>
+              <cell><m>F_{13}=233</m></cell>
+              <cell></cell>
+              <cell><m>F_{18}=2584</m></cell>
+            </row>
+            <row>
+              <cell><m>F_4=3</m></cell>
+              <cell></cell>
+              <cell><m>F_9=34</m></cell>
+              <cell></cell>
+              <cell><m>F_{14}=377</m></cell>
+              <cell></cell>
+              <cell><m>F_{19}=4181</m></cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </example>
+    <p>
+      Let's practice using the recursion for the Fibonacci sequence.
+    </p>
+    <example xml:id="exam_write_as_fib">
+      <title>Write as a single Fibonacci number</title>
+      <statement>
+        <p>
+          Use the recursive rule for the Fibonacci sequence to simplify each expression as a single Fibonacci number.
+          <ol>
+            <li>
+              <p>
+                <m>F_{98} + F_{99}</m>
+                <solution>
+                  <p>
+                    The terms <m>F_{98}</m> and <m>F_{99}</m> are consecutive terms of the Fibonacci sequence,
+                    so their sum equals the next term.
+                    In order we have <m>F_{98}, F_{99}, F_{100}</m>.
+                    Thus, <m>F_{98} + F_{99}=F_{100}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>F_n+F_{n-1}</m>
+                <solution>
+                  <p>
+                    The terms <m>F_n</m> and <m>F_{n-1}</m> are consecutive terms of the Fibonacci sequence,
+                    so their sum equals the next term.
+                    In order we have <m>F_{n-1}, F_n, F_{n+1}</m>.
+                    Thus, <m>F_n+F_{n-1}=F_{n+1}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>F_{3n} - F_{3n-1}</m>
+                <solution>
+                  <p>
+                    The terms <m>F_{3n}</m> and
+                    <m>F_{3n-1}</m> are consecutive terms of the Fibonacci sequence.
+                    In order we have <m>F_{3n-2}, F_{3n-1}, F_{3n}</m>.
+                    Thus, <m>F_{3n-2} + F_{3n-1} = F_{3n}</m>.
+                    Subtracting <m>F_{3n-1}</m> from each side of the equation we get <m>F_{3n} - F_{3n-1}= F_{3n-2}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Notice that the recursive rule for the Fibonacci sequence uses two previous terms.
+      We have a name for sequences defined by recursions that use more than one previous term.
+    </p>
+    <definition xml:id="defn_higher_order_rec">
+      <title>Higher order recursions</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A recursive rule that involves the two previous terms is
+                <term>second order</term>.
+                The most famous second order recursion is the Fibonacci sequence.
+              </p>
+            </li>
+            <li>
+              <p>
+                A recursive rule that involves the <m>k</m> previous terms is
+                <term><m>k^{\text{ th } }</m> order</term>.
+                For example,
+                the <term>tribonacci sequence</term> defined by <m>t_0=0</m>,
+                <m>t_1=1</m>, <m>t_2=1</m>,
+                and <m>t_n=t_{n-1}+t_{n-2}+t_{n-3}</m> for <m>n\ge 3</m> is third order.
+              </p>
+            </li>
+            <li>
+              <p>
+                Note that a recursive of order <m>k</m> needs <m>k</m>
+                <term>initial conditions</term>.
+                For example, a first order needs the first term,
+                a second order needs the first two terms,
+                a third order needs the first three terms, and so on.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at examples of evaluating higher order recursively-defined sequences.
+    </p>
+    <example xml:id="exam_rec_seq_higher_order">
+      <title>Evaluating higher order recursively-defined sequences</title>
+      <statement>
+        <p>
+          Write the first five terms of each sequence.
+          Your list should begin with the initial conditions.
+          <ol>
+            <li>
+              <p>
+                The <term>Lucas sequence</term> is defined by <m>L_0=2</m>,
+                <m>L_1=1</m>, and <m>L_n=L_{n-1}+L_{n-2}</m> for <m>n\ge 2</m>.
+                The Lucas sequence has the same recursion as the Fibonacci sequence,
+                but because the initial conditions are different we get a different sequence.
+                <solution>
+                  <p>
+                    We are told that <m>L_0=2</m> and <m>L_1=1</m>.
+                    When <m>n=2</m>, the recursion gives us
+                    <me>
+                      L_2=L_1+L_0=2+1=3
+                    </me>.
+                  </p>
+                  <p>
+                    Next, when <m>n=3</m> we get
+                    <me>
+                      L_3=L_2+L_1=3+1=4
+                    </me>.
+                  </p>
+                  <p>
+                    Finally, when <m>n=4</m> we have
+                    <me>
+                      L_4=L_3+L_2=4+3=7
+                    </me>.
+                  </p>
+                  <p>
+                    The first five terms of the Lucas sequence are <m>2,1,3,5,7</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The sequence <m>a_n</m> is defined by <m>a_1=2</m>, <m>a_2=-3</m>,
+                and <m>a_n=a_{n-2}+(-1)^{n+1}2</m> for <m>n\ge 3</m>.
+                Notice that this sequence  is second order,
+                even though <m>a_{n-1}</m> is not part of the recursion.
+                <solution>
+                  <p>
+                    We are told that <m>a_1=2</m> and <m>a_2=-3</m>.
+                    When <m>n=3</m>, the recursion gives us
+                    <me>
+                      a_3=a_1+(-1)^{3+1}2=2+2=4
+                    </me>.
+                  </p>
+                  <p>
+                    Next, when <m>n=4</m> we get
+                    <me>
+                      a_4=a_2+(-1)^{4+1}2=-3-2=-5
+                    </me>.
+                  </p>
+                  <p>
+                    Finally, when <m>n=5</m> we have
+                    <me>
+                      a_5=a_3+(-1)^{5+1}2=4+2=6
+                    </me>.
+                  </p>
+                  <p>
+                    The first five terms are <m>2,-3,4,-5,6</m>.
+                    We saw this sequence in <xref ref="exam_next_term_explicit"></xref><xref ref="part_NTE_exam_alt_linear"/> and found an explicit rule for this sequence is <m>a_n=(-1)^n(n+2)</m> for <m>n \ge 0</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The tribonacci sequence <m>t_n</m> is defined by <m>t_0=0</m>,
+                <m>t_1=1</m>, <m>t_2=1</m>,
+                and <m>t_n=t_{n-1}+t_{n-2}+t_{n-3}</m> for <m>n\ge 3</m>.
+                <solution>
+                  <p>
+                    We are told that <m>t_0=0</m>,
+                    <m>t_1=1</m>, and <m>t_2=1</m>.
+                    When <m>n=3</m> we get
+                    <me>
+                      t_3=t_2+t_1+t_0=1+1+2
+                    </me>.
+                  </p>
+                  <p>
+                    Next, when <m>n=4</m> we have
+                    <me>
+                      t_4=t_3+t_2+t_1=2+1+1=4
+                    </me>.
+                  </p>
+                  <p>
+                    The first five terms of this sequence are <m>0,1,1,2,4</m>.
+                    We saw this sequence in <xref ref="sec_listing"></xref>
+                    <xref ref="exer_trominoes_examples"></xref>
+                    where we were tiling the <m>1 \times n</m> board using <m>1\times 1</m> squares,
+                    <m>1 \times 2</m> dominoes, and <m>1\times 3</m> trominoes.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with the Fibonaccis and higher order recursions.
+    </p>
+    <activity xml:id="act_eval_model_higher_order">
+      <title>Higher order recursively-defined sequences</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Use the recursion that defines Fibonacci sequence:
+              <m>F_n=F_{n-1}+F_{n-2}</m> and that <m>F_5=5</m> and <m>F_6=8</m> to calculate <m>F_7</m>,
+              <m>F_8</m>, <m>F_9</m>, and <m>F_{10}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate the first five terms of the sequence defined by <m>a_0=3</m>,
+              <m>a_1=2</m> and <m>a_n = a_{n-1}+2a_{n-2}</m> for <m>n \ge 2</m>.
+              Your list should begin with the initial conditions.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>w_5</m> where <m>w_0=-1</m>, <m>w_1=2</m>,
+              <m>w_2=1</m> and <m>w_n = w_{n-1}w_{n-2}w_{n-3}</m> for <m>n \ge 3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the recursive rule for the Fibonacci sequence to write
+              <m>F_{39} + F_{40}</m> as a single Fibonacci number.
+              Repeat for <m>F_{n-1} + F_n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_model_higher_order_rec">
+    <title>\submodelhigher</title>
+    <p>
+      Higher order recursions can be used to describe sequences and also to count.
+    </p>
+    <example xml:id="exam_ntr_higher">
+      <title>Modeling with higher order recursively-defined sequences</title>
+      <statement>
+        <p>
+          For each list, find a simple pattern generating a sequence.
+          Write the initial conditions and a higher order recursive rule for the sequence.
+          Start your indexing at 0.
+          <ol>
+            <li>
+              <p>
+                The sequence <m>a</m> begins 2, 5, 6, 10, 15, 24, 38, <ellipsis/>.
+                <solution>
+                  <p>
+                    Look at what happens when we add consecutive terms.
+                    We get <m>2+5=7</m>, <m>5+6=11</m>,
+                    <m>6+10=16</m>, and so on.
+                    In each case, we get one more than the next term.
+                    That is, each term is the one less than the sum of the previous two terms.
+                    A recursive definition is <m>a_0=2</m>, <m>a_1=5</m>,
+                    and <m>a_n=a_{n-1}+a_{n-2}-1</m> for <m>n \ge 2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The sequence <m>b</m> begins <m>2, 5, 10, 50, 500, 25000, \ldots</m>.
+                <solution>
+                  <p>
+                    Look at what happens when we multiply consecutive terms.
+                    We get <m>2 \times 5= 10</m>,
+                    <m>5 \times 10=50</m>, and <m>10 \times 50 = 500</m>.
+                    In each case, we get the next term of the sequence.
+                    A recursive definition is <m>b_0=2</m>,
+                    <m>b_1=5</m>, and <m>b_n=b_{n-1}b_{n-2}</m> for <m>n \ge 2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Sometimes there are different order recursions that generate the same sequence.
+    </p>
+    <example xml:id="exam_diff_order_rec">
+      <title>Different order recursions</title>
+      <statement>
+        <p>
+          Consider the sequence <m>c</m> that begins
+          <me>
+            2, 5, 10, 13, 18, 21, 26, \ldots
+          </me>
+          <ol>
+            <li>
+              <p>
+                Write a third order recursive definition for the sequence,
+                starting your index at 0.
+                <solution>
+                  <p>
+                    We want to combine 2, 5, and 10 to make 13 and then use the same combination with 5, 10, and 13 to make 18.
+                    Note that <m>13 = 10 + 5-2</m> and <m>18 = 13 + 10 -5</m>.
+                    A recursion is <m>c_0=2</m>, <m>c_1=5</m>, <m>c_2=10</m>,
+                    and <m>c_n=c_{n-1}+c_{n-2}-c_{n-3}</m> for <m>n \ge 3</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write a first order recursive definition for the sequence,
+                starting your index at 0.
+                <solution>
+                  <p>
+                    Notice how we can add either three or five to get from each term to the next:
+                    <me>
+                      2 \xrightarrow[+ 3]{} 5 \xrightarrow[+ 5]{} 10 \xrightarrow[+ 3]{} 13 \xrightarrow[+ 5]{} 18 \xrightarrow[+ 3]{} 21 \xrightarrow[+ 5]{} 26
+                    </me>.
+                  </p>
+                  <p>
+                    Since the number we add alternates,
+                    the formula involves <m>(-1)^n</m>.
+                    Using that <m>3 = 4-1</m> and <m>5 = 4+1</m> we get the first order recursive definition <m>c_0=2</m> and <m>c_n=c_{n-1}+4+(-1)^n</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Recursions can also be used to list or count objects.
+      Let's start with a first order recursion to get the idea.
+    </p>
+    <example xml:id="exam_count_bit_strings_using_recursion_first">
+      <title>Using a recursion to count bit strings containing at least one \bs{0}</title>
+      <statement>
+        <p>
+          <nbsp/> How many bit strings of length <m>n</m> include at least one <c>0</c>?
+          Count directly and then show how to write a recursion to count.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <xref ref="thm_number_bit_strings">By</xref>,
+          there are <m>2^n</m> bit strings of length <m>n</m>.
+          The only bit string that does not have any <c>0</c> s is <c>11</c> <m>\cdots</m> <c>1</c>.
+          Therefore, by <xref ref="thm_count_complement"></xref>,
+          there are <m>2^n-1</m> bit strings of length <m>n</m> that include at least one <c>0</c>.
+        </p>
+        <p>
+          How can we write a recursion to count?
+          Write <m>z_n=</m> the number of bit strings of length <m>n</m> that include at least one <c>0</c>.
+          Note that the only bit string of length 1 that includes at least one <c>0</c> is <c>0</c> itself and so <m>z_1=1</m>.
+          Given a bit string of length <m>n</m> that has at least one <c>0</c>,
+          we consider two cases.
+        </p>
+        <p>
+          Case 1: The bit string begins with <c>1</c>.
+          In this case,
+          the other <m>n-1</m> bits must include at least one <c>0</c>.
+          There are <m>z_{n-1}</m> such bit strings.
+        </p>
+        <p>
+          Case 2: The bit string begins with <c>0</c>.
+          In this case,
+          we have at least one <c>0</c> no matter what the other <m>n-1</m> bits are.
+          They can be any bit string of length <m>n-1</m>.
+          <xref ref="thm_number_bit_strings">By</xref>,
+          there are <m>2^{n-1}</m> bit strings of length <m>n-1</m>.
+          Therefore, there are <m>2^{n-1}</m> such bit strings.
+        </p>
+        <p>
+          Since cases add <xref ref="thm_cases_add"/>, we get
+          <me>
+            z_n=z_{n-1}+2^{n-1}
+          </me>
+          for <m>n\ge 2</m> and the initial condition is <m>z_1=1</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can also count using higher order recursions.
+    </p>
+    <example xml:id="exam_count_bit_strings_using_recursion_second">
+      <title>Using a recursion to count bit strings that do not contain \bs{00}</title>
+      <statement>
+        <p>
+          Write a recursion that counts the number of bit strings of length <m>n</m> that do not contain <c>00</c>,
+          meaning they do not contain two or more consecutive zeros.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Write <m>c_n=</m> the number of bit strings of length <m>n</m> that do not contain <c>00</c>.
+          Note that neither bit strings of length 1 contains <c>00</c> and so <m>c_1=2</m>.
+          Also note that three of the bit strings of length 2 do not contain <c>00</c>,
+          namely <c>01</c>,
+          <c>10</c>,
+          and <c>11</c>,
+          and so <m>c_2=3</m>.
+          Given a bit string of length <m>n</m> that does not include <c>00</c>,
+          we consider two cases.
+        </p>
+        <p>
+          Case 1: The bit string begins with <c>1</c>.
+          In this case,
+          the other <m>n-1</m> bits cannot include <c>00</c>.
+          There are <m>c_{n-1}</m> such bit strings.
+        </p>
+        <p>
+          Case 2: The bit string begins with <c>0</c>.
+          In this case,
+          the next bit must be <c>1</c> so that we avoid <c>00</c>.
+          The other <m>n-2</m> bits cannot include <c>00</c>. There are <m>c_{n-2}</m> such bit strings.
+        </p>
+        <p>
+          Since cases add <xref ref="thm_cases_add"/>, we have
+          <me>
+            c_n=c_{n-1}+c_{n-2}
+          </me>
+          for <m>n\ge 3</m> and initial conditions <m>c_1=2</m> and <m>c_2=3</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Try modeling with higher order recursively-defined sequences.
+    </p>
+    <activity xml:id="act_model_higher_order_rec">
+      <title>Modeling with higher order recursively-defined sequences</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Find a simple pattern generating a sequence <m>a</m> that begins
+              <me>
+                3, 1, 5, 7, 13, 21, 35, 57, \ldots
+              </me>
+              Write the initial conditions and a higher order recursive rule for the sequence.
+              Start your indexing at 0.
+              Hint: Start by adding the two previous terms.
+            </p>
+          </li>
+          <li>
+            <p>
+              We want to tile a <m>1 \times n</m> board using
+              <m>1 \times 1</m> squares that are either red (<c>R</c>), blue (<c>B</c>), and green (<c>G</c>) in such a way that we never place two red tiles next to each other.
+              That is, the tiling does not contain <c>RR</c>.
+              Let <m>t_n=</m> the number of such tilings.
+              Write a second order recursive definition for <m>t_n</m>,
+              including two initial conditions.
+              Hint: Break into cases based on whether the tiling starts with <c>G</c>,
+              <c>B</c>,
+              or <c>R</c>.
+              In the case where it starts with <c>R</c>,
+              explaining why the next tile must be <c>B</c> or <c>G</c>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_fib_patterns_proof">
+    <title>\subfibpatterns</title>
+    <p>
+      There are many patterns satisfied by the Fibonacci sequence.
+    </p>
+    <activity xml:id="act_fib_patterns">
+      <title>Fibonacci patterns</title>
+      <p>
+        For this activity,
+        it is useful have a list of the first twenty Fibonacci numbers,
+        as in <xref ref="table_first20_fib"></xref>.
+        <ol>
+          <li xml:id="part_fib_conj_even">
+            <p>
+              Which Fibonacci numbers are even?
+              Begin your conjecture
+              <q><m>F_n</m> is even if <ellipsis/></q>.
+            </p>
+          </li>
+          <li xml:id="part_fib_cassini_conj">
+            <p>
+              Something interesting happens when you multiply a Fibonacci number and the Fibonacci number two later in the sequence.
+              For example,
+              <me>
+                F_4 \cdot F_6 = (3)(8) = 24 = 5^2 -1 = F_5^2 - 1
+              </me>
+              and
+              <me>
+                F_5 \cdot F_7 = (5)(13) = 65 = 8^2 + 1 = F_6^2 + 1
+              </me>.
+              What's the general pattern?
+              State your answer as a conjecture.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the Euclidean Algorithm <xref ref="sub_euclidean_alg"/> to evaluate <m>\fn{gcd}(F_8,F_7)=\fn{gcd}(21,13)</m>.
+              What do you notice?
+              Hint: Recall that the first two steps are
+              <m>21 \fn{ mod } 13 = 8</m> and then <m>13 \fn{ mod } 8 = 5</m>.
+            </p>
+          </li>
+          <li xml:id="part_fib_matrix_conj">
+            <p>
+              Consider the <m>2 \times 2</m> matrix <m>A= \left[ \begin{array}{cc} 1 \amp 1\\ 1 \amp 0 \end{array} \right]</m>.
+              Calculate <m>A^2</m>, <m>A^3</m>,
+              and <m>A^4</m> as defined in <xref ref="defn_matrix"></xref>
+              and conjecture the explicit formula for <m>A^n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's explore some patterns similar to <xref ref="act_fib_patterns"></xref>
+      and also discuss how to prove these patterns hold.
+      First, we look at a divisibility statement that involves the Fibonacci sequence.
+    </p>
+    <example xml:id="exam_fib_mult3">
+      <title>Fibonacci numbers that are multiples of three</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_fib_conj_mult3">
+              <p>
+                When does <m>3 \mid F_n</m>?
+                State your answer as a conjecture.
+                <solution>
+                  <p>
+                    The first few Fibonacci numbers that are divisible by 3 are <m>F_4=3</m>,
+                    <m>F_8=21</m>, <m>F_{12}=144</m>, and <m>F_{16}=987</m>.
+                    It appears that <m>3 \mid F_n</m> when <m>4 \mid n</m>.
+                    Notice that <m>3=F_4</m> so we can get fancy and rewrite our conjecture as
+                    <m>F_4 \mid F_n</m> when <m>4 \mid n</m>.
+                    We can also write our conjecture explicitly as <m>3 \mid F_{4n}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_every_fourth_fib">
+              <p>
+                Use the recursive rule and algebra to prove <m>F_{4n} =5F_{4n-4} + 3F_{4n-5}</m> for <m>n \ge 0</m>.
+                <solution>
+                  <p>
+                    The recursive rule for the Fibonacci sequence allows us to write any Fibonacci number as the sum of the two preceding Fibonacci numbers.
+                    We repeatedly use this idea, and simplify by collecting like terms, to get
+                    <md>
+                      <mrow>F_{4n} \amp  = F_{4n-1} + F_{4n-2}</mrow>
+                      <mrow>\amp  = \left(F_{4n-2}+F_{4n-3}\right) + F_{4n-2}</mrow>
+                      <mrow>\amp  = 2F_{4n-2} + F_{4n-3}</mrow>
+                      <mrow>\amp  = 2 \left(F_{4n-3}+F_{4n-4}\right) + F_{4n-3}</mrow>
+                      <mrow>\amp  = 3 F_{4n-3}+2F_{4n-4}</mrow>
+                      <mrow>\amp  = 3 \left(F_{4n-4} + F_{4n-5}\right) +2F_{4n-4}</mrow>
+                      <mrow>\amp  = 5 F_{4n-4} + 3F_{4n-5}</mrow>
+                    </md>.
+                  </p>
+                  <p>
+                    Whew!
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_fib_mult3_proof">
+              <p>
+                Use the identity from <xref ref="part_every_fourth_fib"/> and mathematical induction to prove that <m>3 \mid F_{4n}</m> for <m>n \ge 0</m>.
+                <solution>
+                  <p>
+                    <em>Proof</em> First, when <m>n=0</m> we have <m>F_{4(0)}=F_0=0</m> and
+                    <m>3 \mid 0</m> so <m>3 \mid F_{4(0)}</m>.
+                  </p>
+                  <p>
+                    Next, assume <m>3 \mid F_{4(n-1)} = F_{4n-4}</m> for some integer <m>n > 0</m>.
+                    By the definition of divides we can write
+                    <m>F_{4n-4}=3k</m> for some integer <m>k</m>.
+                    Then using the identity from <xref ref="part_every_fourth_fib"/> we have
+                    <md>
+                      <mrow>F_{4n} \amp  = 5 F_{4n-4} + 3F_{4n-5}</mrow>
+                      <mrow>\amp  = 5(3k) + 3F_{4n-5}</mrow>
+                      <mrow>\amp  = 3(5k+F_{4n-5})</mrow>
+                    </md>.
+                  </p>
+                  <p>
+                    Thus <m>3 \mid F_{4n}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's look at the greatest common divisor of Fibonacci numbers.
+    </p>
+    <example xml:id="exam_fib_gcd">
+      <title>Fibonaccis and the \fn{gcd}</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Use the Euclidean Algorithm <xref ref="sub_euclidean_alg"/> to evaluate <m>\fn{gcd}(F_{10},F_9)=\fn{gcd}(55,34)</m>.
+                What do you notice?
+                <solution>
+                  <p>
+                    The steps of the Euclidean Algorithm are
+                    <me>
+                      55 \fn{ mod } 34 = 21
+                    </me>
+                    <me>
+                      34 \fn{ mod } 21 = 13
+                    </me>
+                    <me>
+                      21 \fn{ mod } 13 = 8
+                    </me>
+                    <me>
+                      13 \fn{ mod } 8 = 5
+                    </me>
+                  </p>
+                  <me>
+                    8 \fn{ mod } 5 = 3
+                  </me>
+                  <me>
+                    5 \fn{ mod } 3 = 2
+                  </me>
+                  <me>
+                    3 \fn{ mod } 2 = 1
+                  </me>
+                  <me>
+                    2 \fn{ mod } 1 = 0
+                  </me>
+                  <p>
+                    Thus, <m>\fn{gcd}(55,34)=1</m>.
+                    They are coprime.
+                  </p>
+                  <p>
+                    Notice how we calculated each of the previous Fibonacci numbers.
+                    In fact, the Fibonacci are a
+                    <q>worst-case scenario</q>
+                    for the Euclidean Algorithm,
+                    meaning it takes the most steps possible relatively to the size of the integers.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_gcd14434">
+              <p>
+                Use the Euclidean Algorithm <xref ref="sub_euclidean_alg"/> to evaluate <m>\fn{gcd}(F_{12},F_9)=\fn{gcd}(144,34)</m>.
+                What do you notice?
+                <solution>
+                  <p>
+                    The steps of the Euclidean Algorithm are
+                    <me>
+                      144 \fn{ mod } 34 = 8
+                    </me>
+                    <me>
+                      34 \fn{ mod } 8 = 2
+                    </me>
+                    <me>
+                      8 \fn{ mod } 2 = 0
+                    </me>.
+                  </p>
+                  <p>
+                    Thus <m>\fn{gcd}{144,34} = 2</m>.
+                  </p>
+                  <p>
+                    Look what happens if we write the answer in terms of the Fibonacci numbers.
+                    We get <m>\fn{gcd}(F_{12},F_9)=F_3</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Next, let's look at the matrix with powers that involve the Fibonacci sequence from <xref ref="act_fib_patterns"></xref>.
+    </p>
+    <example xml:id="exam_fib_matrix">
+      <title>Fibonacci matrix</title>
+      <statement>
+        <p>
+          Consider the <m>2 \times 2</m> matrix <m>A= \left[ \begin{array}{cc} 1 \amp  1\\ 1 \amp  0 \end{array}  \right]</m>.
+          <ol>
+            <li>
+              <p>
+                Calculate <m>A^2</m>, <m>A^3</m>, and <m>A^4</m>.
+                <solution>
+                  <p>
+                    First,
+                    <me>
+                      A^2= \left[ \begin{array}{cc} 1 \amp  1\\ 1 \amp  0 \end{array}  \right]\left[ \begin{array}{cc} 1 \amp  1\\ 1 \amp  0 \end{array}  \right]= \left[ \begin{array}{cc} 2 \amp  1\\ 1 \amp  1 \end{array}  \right]
+                    </me>
+                  </p>
+                  <p>
+                    Next,
+                    <me>
+                      A^3= A\cdot A^2=\left[ \begin{array}{cc} 1 \amp  1\\ 1 \amp  0 \end{array}  \right]\left[ \begin{array}{cc} 2 \amp  1\\ 1 \amp  1 \end{array}  \right]= \left[ \begin{array}{cc} 3 \amp  2\\ 2 \amp  1 \end{array}  \right]
+                    </me>
+                  </p>
+                  <p>
+                    Last,
+                    <me>
+                      A^4= A\cdot A^3=\left[ \begin{array}{cc} 1 \amp  1\\ 1 \amp  0 \end{array}  \right]\left[ \begin{array}{cc} 3 \amp  2\\ 2 \amp  1 \end{array}  \right]= \left[ \begin{array}{cc} 5 \amp  3\\ 3 \amp  2 \end{array}  \right]
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Make a conjecture about an explicit formula for <m>A^n</m>.
+                <solution>
+                  <p>
+                    Notice that each power of <m>A</m> has Fibonacci numbers as entries.
+                    For example,
+                    <me>
+                      A^4= \left[ \begin{array}{cc} 5 \amp  3\\ 3 \amp  2 \end{array}  \right] = \left[ \begin{array}{cc} F_5 \amp  F_4\\ F_4 \amp  F_3 \end{array}  \right]
+                    </me>.
+                    We might reasonably conjecture that
+                    <me>
+                      A^n= \left[ \begin{array}{cc} F_{n+1} \amp  F_n \\ F_n \amp  F_{n-1} \end{array}  \right]
+                    </me>
+                    for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_proof_matrix_fib">
+              <p>
+                Use mathematical induction <xref ref="pff_math_ind_matrix"/> to prove your conjecture.
+                <solution>
+                  <p>
+                    We <xref ref="pff_math_ind_matrix">use</xref>.
+                  </p>
+                  <p>
+                    <em>Proof.</em> Induct on <m>n</m>.
+                    Write <m>M_n = \left[ \begin{array}{cc} F_{n+1} \amp F_n \\ F_n \amp F_{n-1} \end{array} \right]</m>.
+                  </p>
+                  <p>
+                    First, when <m>n=1</m> we have
+                    <m>A^1=A = \left[ \begin{array}{cc} 1 \amp 1\\ 1 \amp 0 \end{array} \right]</m> and <m>M_1 = \left[ \begin{array}{cc} F_{2} \amp F_1 \\ F_1 \amp F_0 \end{array} \right] = \left[ \begin{array}{cc} 1 \amp 1 \\ 1 \amp 0 \end{array} \right]</m>.
+                  </p>
+                  <p>
+                    Next, assume
+                    <me>
+                      A^{n-1} = M_{n-1} = \left[ \begin{array}{cc} F_n \amp  F_{n-1} \\ F_{n-1} \amp  F_{n-2} \end{array}  \right]
+                    </me>
+                    for some integer <m>n > 1</m>.
+                    Then
+                    <md>
+                      <mrow>A^n \amp  = AA^{n-1}</mrow>
+                      <mrow>\amp  = \left[ \begin{array}{cc} 1 \amp  1</mrow>
+                      <mrow>1 \amp  0 \end{array} \right]\left[ \begin{array}{cc} F_n \amp  F_{n-1}</mrow>
+                      <mrow>F_{n-1} \amp  F_{n-2} \end{array} \right]</mrow>
+                      <mrow>\amp  = \left[ \begin{array}{cc} F_n+F_{n-1} \amp  F_{n-1}+F_{n-2}</mrow>
+                      <mrow>F_n \amp  F_{n-1} \end{array} \right]</mrow>
+                      <mrow>\amp  = \left[ \begin{array}{cc} F_{n+1} \amp  F_n</mrow>
+                      <mrow>F_n \amp  F_{n-1} \end{array} \right]</mrow>
+                      <mrow>\amp  =M_n</mrow>
+                    </md>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_pff_strong_math_ind">
+    <title>\subpffstrongind</title>
+    <p>
+      There is a stronger form of mathematical induction.
+      As in the usual proof by mathematical induction,
+      we prove some statement <m>P(n)</m> for <m>n \ge s</m> for some integer <m>s</m>.
+      The base case is the same, we check <m>P(s)</m>.
+      In the induction step, instead of just assuming <m>P(n-1)</m>,
+      we assume <m>P(k)</m> for <m>k= s, s+1, \ldots, n-2, n-1</m>.
+      That is, we assume <m>P(k)</m> whenever <m>s \le k \lt n</m>.
+      As before, we use this assumption to prove <m>P(n)</m>.
+      Here is the formal proof format.
+    </p>
+    <proof>
+    <p>
+      Prove <m>P(n)</m> for <m>n \ge s</m>.
+    </p>
+    <proof>
+      <p>
+        Induct on <m>n</m>.
+        First, when <m>n=s</m> (explain why <m>P(s)</m> is true).
+      </p>
+      <p>
+        Next, assume for some integer <m>n > s</m> that <m>P(k)</m> for any integer <m>k</m> with
+        <m>s \le k\lt n</m> . Then (explain why <m>P(n)</m> is true).
+      </p>
+    </proof>
+    </proof>
+    <p>
+      We consider an example.
+    </p>
+    <example xml:id="exam_strong_math_ind">
+      <title>Using strong mathematical induction</title>
+      <statement>
+        <p>
+          Use strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that every integer can be written as the product of a power of two and an odd integer.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Proof</em> Induct on <m>n</m>.
+        </p>
+        <p>
+          First, when <m>n=1</m> we can write
+          <m>1=2^0(1)</m> which is a product of a power of two
+          (namely <m>2^0</m>)
+          and an odd integer (namely 1) so the result holds.
+        </p>
+        <p>
+          Next, assume for some integer <m>n > 1</m> that any integer <m>k</m> with
+          <m>1 \le k\lt n</m> can be written as the product of a power of two and an odd integer.
+          We consider two cases.
+        </p>
+        <p>
+          Case 1: <m>n</m> is odd.
+          In this case,
+          <m>n = 2^0(n)</m> which is the product of a power of two
+          (namely <m>2^0</m>)
+          and an odd integer
+          (namely <m>n</m>)
+          so the result holds.
+        </p>
+        <p>
+          Case 2: <m>n</m> is even.
+          In this case,
+          by definition of even we can write <m>n = 2k</m> for some integer <m>k</m>.
+          Note that <m>1 \le k\lt n</m> so by our inductive hypothesis,
+          <m>k</m> can be written as the product of a power of two and an odd integer.
+          Write <m>k = 2^im</m> where <m>i</m> is a nonnegative integer and <m>m</m> is an odd integer.
+          Then
+          <me>
+            n=2k=2\left(2^im\right)=2^{i+1}m
+          </me>
+          which is the product of a power of two
+          (namely <m>2^{i+1}</m>)
+          and an odd integer
+          (namely <m>m</m>).
+        </p>
+        <p>
+          In either case,
+          <m>n</m> can be written as the product of a power of two and an odd integer.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can use a special case of strong mathematical induction to verify an explicit rule for a second-order recursively-defined sequence.
+      Strong mathematical induction can be extended to any higher order recursion.
+    </p>
+    <proof>
+    <p>
+      Given the sequence <m>a</m> defined recursively by <m>a_s=</m> and <m>a_{s+1}=</m>
+      (initial conditions)
+      and <m>a_n=</m>
+      (recursive rule)
+      for <m>n \ge s+2</m>, prove <m>a_n=</m>
+      (explicit rule)
+      for <m>n \ge s</m>.
+    </p>
+    <proof>
+      <p>
+        Write <m>f(n) =</m>(explicit rule).
+        Induct on <m>n</m>.
+      </p>
+      <p>
+        First, when <m>n=s</m> we know that <m>a_s=</m>
+        (initial condition)
+        and also <m>f(s)=</m>
+        (evaluate and simplify to get the same answer).
+        Similarly, when <m>n=s+1</m> we know that <m>a_{s+1}=</m>
+        (initial condition)
+        and also <m>f(s+1)=</m>
+        (evaluate and simplify to get the same answer).
+      </p>
+      <p>
+        Next, assume <m>a_{n-1}=f(n-1)=</m>
+        (evaluate and simplify)
+        and <m>a_{n-2} = f(n-2) =</m>
+        (evaluate and simplify),
+        for some integer <m>n > s+1</m>.
+        Then
+        <md>
+          <mrow>a_n \amp  = \text{ (recursive rule) }</mrow>
+          <mrow>\amp  = \cdots \text{ (use the inductive hypothesis to replace }  a_{n-1} \text{ by }  f(n-1) \text{ and }  a_{n-2} \text{ by }  f(n-2) \cdots</mrow>
+          <mrow>\amp  = \cdots \text{ (use algebra) }  \cdots</mrow>
+          <mrow>\amp  = f(n)</mrow>
+        </md>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      As usual, when we introduce a new proof format,
+      we give you an example of a proof to copy and edit.
+    </p>
+    <activity xml:id="act_strong_math_ind_lucas">
+      <title>Strong mathematical induction</title>
+      <p>
+        <xref ref="exam_rec_seq_higher_order">In</xref>
+        we saw the <term>Lucas numbers</term> defined by <m>L_0=2</m>,
+        <m>L_1=1</m>, and <m>L_n=L_{n-1}+L_{n-2}</m> for <m>n \ge 2</m>.
+        As usual, the Fibonacci sequence is defined by <m>F_0=0</m>,
+        <m>F_1=1</m>, and <m>F_n=f_{n-1}+F_{n-2}</m> for <m>n \ge 2</m>.
+        <ol>
+          <li>
+            <p>
+              Copy the following proof.
+              Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that
+              <m>L_n = 2F_{n+1}-F_{n}</m> for all integers <m>n \ge 0</m>.
+              <em>Proof.</em> Write <m>f(n) = 2F_{n+1}-F_{n}</m>.
+              Induct on <m>n</m>.
+              First, when <m>n=0</m> we have <m>L_0=2</m> and also
+              <me>
+                f(0) =2F_1-F_0=2(1)-(0)=2
+              </me>.
+              Similarly, when <m>n=1</m> we have <m>L_1=1</m> and also
+              <me>
+                f(1) =2F_2-F_1=2(1)-(1)=1
+              </me>.
+              Next, assume
+              <me>
+                L_{n-1} = f(n-1)= 2F_n-F_{n-1}
+              </me>
+              and
+              <me>
+                L_{n-2} = f(n-2) = 2F_{n-1}-F_{n-2}
+              </me>
+              for some integer <m>n>1</m>.
+              Then
+              <md>
+                <mrow>L_n \amp  = L_{n-1}+L_{n-2}</mrow>
+                <mrow>\amp  = \left(2F_{n}-F_{n-1}\right) + \left(2F_{n-1}-F_{n-2}\right)</mrow>
+                <mrow>\amp  = 2F_{n}+2F_{n-1} -F_{n-1}-F_{n-2}</mrow>
+                <mrow>\amp  = 2\left(F_{n}+F_{n-1}\right)-\left(F_{n-1}+F_{n-2}\right)</mrow>
+                <mrow>\amp  = 2F_{n+1}-F_n</mrow>
+                <mrow>\amp  = f(n)</mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain the algebra step-by-step in the last chain of equations of the proof.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sequence <m>v</m> is defined by <m>v_1=1</m>, <m>v_2=1</m>, and
+              <me>
+                v_n=v_{n-1}+v_{n-2}+1
+              </me>
+              for <m>n \ge 3</m>.
+              The sequence <m>w</m> is defined by <m>w_3=2</m>, <m>w_4=3</m>, and
+              <me>
+                w_n = w_{n-1}+w_{n-2}
+              </me>
+              for <m>n\ge 5</m>.
+              Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that
+              <me>
+                v_n=2w_n-1
+              </me>
+              for <m>n \ge 3</m>.
+              Note: We saw these two sequences in <xref ref="act_rec_trees"></xref>
+              where we recursively defined the trees <m>T_n</m>.
+              In that activity <m>w_n=</m> the number of leaves in <m>T_n</m> and <m>v_n=</m> the number of vertices in <m>T_n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at another example of using strong mathematical induction to verify the explicit form of a second order recursively-defined sequence.
+    </p>
+    <example xml:id="exam_strong_math_ind_explicit">
+      <title>Verifying the explicit form of second order recursively-defined sequence</title>
+      <statement>
+        <p>
+          Consider the sequence <m>a_n</m> defined recursively by <m>a_0= 1</m>,
+          <m>a_1 =6</m>,
+          and <m>a_n =6a_{n-1} -9a_{n-2}</m> for <m>n \ge 2</m>.
+          Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that <m>a_n = (n+1)3^n</m> for <m>n \ge 0</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Proof.</em> Write <m>f(n) = (n+1)3^n</m>.
+          Induct on <m>n</m>.
+        </p>
+        <p>
+          First, when <m>n=0</m> we have <m>a_0=1</m> and
+          <me>
+            f(0)=(1)3^0=1\cdot 1 = 1
+          </me>.
+        </p>
+        <p>
+          Similarly, when <m>n=1</m> we have <m>a_1=6</m> and
+          <me>
+            f(1)=(2)3^1= 2\cdot 3 = 6
+          </me>.
+        </p>
+        <p>
+          Next, assume
+          <me>
+            a_{n-1}=f(n-1)=n\cdot 3^{n-1}
+          </me>
+          and
+          <me>
+            a_{n-2}=f(n-2)=(n-1)\cdot 3^{n-2}
+          </me>
+          for some integer <m>n > 1</m>.
+          Then
+          <md>
+            <mrow>a_n \amp  = 6a_{n-1} -9a_{n-2}</mrow>
+            <mrow>\amp  = 6f(n-1)-9f(n-2)</mrow>
+            <mrow>\amp  = 6\left(n3^{n-1}\right) -9\left((n-1)3^{n-2}\right)</mrow>
+            <mrow>\amp  = n\cdot 6\cdot 3^{n-1}- (n-1)\cdot 9 \cdot 3^{n-2}</mrow>
+            <mrow>\amp  = n\cdot 2 \cdot 3 \cdot 3^{n-1}- (n-1)\cdot 3^2 \cdot 3^{n-2}</mrow>
+            <mrow>\amp  = n\cdot 2 \cdot 3^n- (n-1) \cdot 3^n</mrow>
+            <mrow>\amp  =(2n-(n-1))3^n</mrow>
+            <mrow>\amp  = (n+1)3^n</mrow>
+          </md>
+        </p>
+        <p>
+          <m>\Box</m>
+        </p>
+        <p>
+          Notice it was convenient to write
+          <m>6=2\cdot 3</m> because <m>3 \cdot 3^{n-1} = 3^n</m>.
+          Similarly, it was convenient to write <m>9 = 3^2</m> because <m>3^2\cdot3^{n-2}=3^n</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection xml:id="part_third_order_rec">
+      <title>Exercises <xref ref="sub_fibonacci">for</xref> \subfib</title>
+      <exercise xml:id="exer_list_fibs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  List all Fibonacci numbers less than 1000 without looking <xref ref="table_first20_fib">at</xref>
+                  or any other resources, except to check.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>F_{20}</m> and <m>F_{21}</m>.
+                  Show work.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_terms_higher_order">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Evaluate the first five terms of each sequence.
+            Your list should begin with the initial conditions.
+            <ol>
+              <li>
+                <p>
+                  The sequence defined by <m>a_1=3</m>,
+                  <m>a_2=2</m> and <m>a_i = a_{i-1}a_{i-2}</m> for <m>i \ge 3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence defined by <m>b_0=3</m>,
+                  <m>b_1=2</m> and <m>b_k=2b_{k-1}-b_{k-2}</m> for <m>k\ge 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The sequence defined by <m>c_1=2</m>, <m>c_2=1</m>,
+                  <m>c_3=0</m> and <m>c_n = c_{n-1} + 2c_{n-3}</m> for <m>n \ge 4</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_write_single_fib">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use the recursive rule for the Fibonacci sequence to simplify each expression as a single Fibonacci number.
+            <ol>
+              <li>
+                <p>
+                  <m>F_{23}+F_{24}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>F_{n-1}+F_{n-2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>F_{n+1}+F_n</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>F_{2n-1}+F_{2n-2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>F_{2n}-F_{2n-1}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_specific_term_higher_order">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>u_4</m> where <m>u_0=2</m>,
+                  <m>u_1=2</m> and <m>u_n = u_{n-1}u_{n-2}</m> for <m>n \ge 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>v_4</m> where <m>v_1=2</m>,
+                  <m>v_2=3</m> and <m>v_m = v_{m-1}(v_{m-2}+1)</m> for <m>m \ge 3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>x_6</m> where <m>x_1=2</m>, <m>x_2=1</m>,
+                  <m>x_3=3</m> and <m>x_j = 2x_{j-1} - x_{j-3}</m> for <m>j \ge 4</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_third_order">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Evaluate the first five terms of the sequence defined by <m>c_0=1</m>,
+                  <m>c_1=2</m>,
+                  <m>c_2=3</m> and <m>c_n = c_{n-1}+c_{n-2}-c_{n-3}</m> and <m>n \ge 3</m>.
+                  Your list should begin with the initial conditions.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture an explicit rule for the sequence.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fib_higher">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the initial conditions and recursive rule are that define the Fibonacci sequence?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to list the first ten terms of the Fibonacci sequence?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the order of a recursion is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to list the first several terms of a higher order recursively-defined sequence?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why we need more than one initial condition in the definition of a higher order recursion?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_model_higher_order_rec">for</xref> \submodelhigher</title>
+      <exercise xml:id="exer_model_higher_order">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For each list, find a simple pattern generating a sequence.
+            Write the initial conditions and a second order recursive rule for the sequence.
+            Start your indexing at 0 or 1
+            (your choice).
+            <ol>
+              <li>
+                <p>
+                  <m>3, 1, 4, 5, 9, 14, 23, 37, \underline{\hspace{.3in}~}, \ldots</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>2, 5, -3, 8, -11, 19, -30, 49, \underline{\hspace{.3in}~}, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>3, 10, 30, 300, 9000, 2700000 \underline{\hspace{.3in}~}, \ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_squares_triominoes">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>b_n</m> count the number of ways to tile a
+            <m>1 \times n</m> grid using squares (<m>1 \times 1</m>) and triominoes
+            (<m>1 \times 3</m>).
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>b_1</m>, <m>b_2</m>, <m>b_3</m>,
+                  and <m>b_4</m> by listing the options.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a higher order recursive definition for <m>b_n</m>,
+                  including initial conditions and explain your reasoning.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Check that your recursion gives the correct value for <m>b_4</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_colored_tilings_first">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            We want to count ways to tile a
+            <m>1 \times n</m> board using red (<c>R</c>), blue (<c>B</c>), and green (<c>G</c>) <m>1 \times 1</m> square tiles.
+            <ol>
+              <li xml:id="part_red_green_tiles">
+                <p>
+                  Let <m>a_n</m> be the number of tilings that do not use any blue tiles.
+                  Write an explicit rule for <m>a_n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>b_n</m> be the number of tilings that contain at least one blue tile.
+                  First, write an explicit rule for <m>b_n</m> and then,
+                  write a recursive definition for <m>b_n</m>.
+                  Hint: Break into cases based on whether the tiling starts with <c>G</c>,
+                  <c>B</c>,
+                  or <c>R</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>c_n</m> be the number of tilings where any green tile is immediately followed by a blue tile.
+                  Write a recursive definition for <m>c_n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bs_without_000">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Calculate the initial conditions and write a recursive rule defining <m>r_n=</m> the number of bit strings of length <m>n</m> that do not contain <m>\bs{000}</m>,
+            meaning that do not contain three or more consecutive <c>0</c> s, for <m>n \ge 1</m>.
+            Hint: Look <xref ref="exam_count_bit_strings_using_recursion_second">at</xref>.
+            What are the cases here?
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_model_higher_rec">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to find a higher order recursive definition for a sequence?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why we might use recursions to count?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to count using recursions?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many initial conditions we need to define a higher order recursively-defined sequence?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_count_partitions">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Watch the video at \url{https://www.youtube.com/watch?v=F4zYDx-EfZI} that explains how to count partitions of an integer
+            (as defined in <xref ref="sec_partitions"></xref>)
+            using recursions.
+            <ol>
+              <li>
+                <p>
+                  According to the video, what is <m>P_k(n)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Copy the final recursion they present for calculating <m>P_k(n)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What were the two cases they used to get this recursion?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_fib_patterns_proof">for</xref> \subfibpatterns</title>
+      <exercise xml:id="exer_fib_mult5_mult8">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Which Fibonacci numbers are divisible by 5?
+                  Include some examples to support your conjecture.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which Fibonacci numbers are divisible by 8?
+                  Include some examples to support your conjecture.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_matrix_another_conj">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the <m>2 \times 2</m> matrix <m>B= \left[\begin{array}{cc} 0 \amp 1\\ 1 \amp 1 \end{array} \right]</m>.
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>B^2</m>, <m>B^3</m>, and <m>B^4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about an explicit formula for <m>B^n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_gcd_eval">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In each part,
+            find the <c>gcd</c> using the Euclidean Algorithm.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{gcd}(F_4,F_6)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{gcd}(F_6,F_9)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{gcd}(F_5,F_{11})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{gcd}(F_{10},F_{15})</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_honsberger">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>F_2F_4+F_3F_5</m> and write your answer as a single Fibonacci number.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>F_4F_7+F_5F_8</m> and write your answer as a single Fibonacci number.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture how to write <m>F_kF_n+F_{k+1}F_{n+1}</m> as a single Fibonacci number.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_even_fib_identity">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Prove that the Fibonacci numbers satisfy the identity
+            <me>
+              F_{3n}= 2F_{3n-2}+F_{3n-3}
+            </me>
+            for <m>n \ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_even_fib_proof">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Copy and edit the proof from <xref ref="exam_fib_mult3"></xref>
+            <xref ref="part_fib_mult3_proof"/> to use mathematical induction to prove that <m>F_{3n}</m> is even for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_mult5_fib_identity">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use the recursive rule and algebra to prove <m>F_{5n} =5F_{5n-4} + 3F_{5n-5}</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_div5_proof">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use mathematical induction and the identity from <xref ref="exer_mult5_fib_identity"></xref>
+            to prove that <m>5 \mid F_{5n}</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_matrix_another_proof">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the <m>2 \times 2</m> matrix <m>B= \left[ \begin{array}{cc} 0 \amp 1\\ 1 \amp 1 \end{array} \right]</m>.
+            Use mathematical induction <xref ref="pff_math_ind_matrix"/> to prove your conjecture about <m>B^n</m> from <xref ref="exer_fib_matrix_another_conj"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_gcd_conj">
+        <title>\exerU greatest common divisors of Fibonaccis conjecture</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  <xref ref="exam_fib_gcd">In</xref>,
+                  we saw <m>\fn{gcd}(F_{10},F_{9}) = 1 = F_1</m> and <m>\fn{gcd}(F_{12},F_9)=F_3</m>.
+                  Now write each of your answers to <xref ref="exer_fib_gcd_eval"></xref> as a Fibonacci number.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture how to write <m>\fn{gcd}(F_m,F_n)</m> as a Fibonacci number.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fib_patterns">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to recognize and describe patterns in the Fibonacci sequence?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove Fibonacci identities using the recursion and algebra?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove divisibility statements about the Fibonaccis using mathematical induction?
+                </p>
+              </li>
+              <li>
+                <p>
+                  SU: Anything else here??
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fib_gen_div_conj">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/> When does <m>F_k \mid F_n</m>?
+            Include some examples to support your conjecture.
+            Hint: Look <xref ref="act_fib_patterns">at</xref>,
+            <xref ref="exam_fib_mult3"></xref>,
+            and <xref ref="exer_fib_mult5_mult8"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_consec_fib_coprime_proof">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove that consecutive Fibonacci numbers are coprime,
+            meaning <m>\fn{gcd}(F_n,F_{n+1})=1</m>.
+            Hint: In the inductive step,
+            write <m>d = \fn{gcd}(F_n,F_{n+1})</m> and note <m>d \ge 1</m>.
+            By definition of greatest common divisor,
+            it follows that <m>d \mid F_n</m> and <m>d \mid F_{n+1}</m>.
+            Use the recursive rule for the Fibonacci sequence to show that <m>d \mid F_{n-1}</m>.
+            Since then <m>d \mid F_{n-1}</m> and <m>d \mid F_n</m>,
+            it follows that <m>d</m> is a positive common divisor of <m>F_{n-1}</m> and <m>F_n</m>.
+            Explain why it follows that <m>d=1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Use mathematical induction to prove our conjecture from <xref ref="act_fib_patterns"></xref>
+            <xref ref="part_fib_cassini_conj"/> that
+            <me>
+              F_{n-1} F_{n+1} = F_n^2 + (-1)^n
+            </me>
+            for <m>n \ge 1</m>.
+            Hint: During the inductive step write <m>F_{n-1} F_{n+1} = F_{n-1}\left(F_n+F_{n-1}\right)</m>.
+            Then replace <m>(F_{n-1})^2</m> using the inductive hypothesis.
+            Note that <m>-(-1)^{n-1}= (-1)(-1)^{n-1}=(-1)^n</m>.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_strong_math_ind">for</xref> \subpffstrongind</title>
+      <exercise xml:id="exer_properbs_number0s">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="act_proper_bs">For</xref>,
+            we defined proper bit strings.
+            Use strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that any proper bit string has an even number of <c>1</c> s.
+            Hint: In the inductive step consider two cases based on if the bit string ends in <c>1</c> or ends in <c>0</c>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_second_order_linear">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the sequence <m>a</m> defined recursively by <m>a_0= 3</m>,
+            <m>a_1 =5</m>,
+            and <m>a_n =2a_{n-1} -a_{n-2}</m> for <m>n \ge 2</m>.
+            Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that <m>a_n = 2n+3</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_properbs_starting0s">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="act_proper_bs">For</xref>,
+            we defined proper bit strings.
+            Use strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that if a proper bit string <m>b</m> of length <m>n</m> has exactly weight <m>2k</m>,
+            then <m>b</m> begins with
+            (at least)
+            <m>k</m> <c>1</c> s.
+            Hint: In the inductive step,
+            consider two cases based on if <m>b</m> ends in <c>1</c> or ends in <c>0</c>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_second_order_powerof2">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the sequence <m>b_n</m> defined recursively by <m>b_0= 0</m>,
+            <m>b_1 =2</m>,
+            and <m>b_n =4b_{n-1} -4b_{n-2}</m> for <m>n \ge 2</m>.
+            Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that <m>b_n = n2^n</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_math_ind_second_order_powerof5">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the sequence <m>c</m> defined recursively by <m>c_0=3</m>,
+            <m>c_1=20</m>,
+            and <m>c_n=10c_{n-1} -25c_{n-2}</m> for <m>n \ge 2</m>.
+            Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that <m>c_n=(n+3)5^n</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_strong_math_ind_alternating">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the sequence <m>a_n</m> is defined by <m>a_1=2</m>,
+            <m>a_2=-3</m>,
+            and <m>a_n=a_{n-2}+(-1)^{n+1}2</m> for <m>n\ge 3</m>.
+            We saw this sequence in <xref ref="exam_rec_seq_higher_order"></xref>.
+            Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that <m>a_n=(-1)^n(n+2)</m> for <m>n \ge 0</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_strong_math_ind">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What strong mathematical induction is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use the special case of strong mathematical induction to prove an explicit rule for a second order recursively-defined sequence?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_binets_formula">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Our goal for this exercise is to prove an explicit formula for the Fibonacci sequence.
+          </p>
+          <p>
+            Write <m>\alpha = \displaystyle \frac{1+\sqrt{5}}{2}</m> and <m>\beta = \displaystyle \frac{1-\sqrt{5}}{2}</m>.
+            <ol>
+              <li>
+                <p>
+                  Check that <m>\alpha^2 = \alpha + 1</m>.
+                  It turns out that <m>\beta^2 = \beta + 1</m>,
+                  but you are not asked to check that.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove
+                  <term>Binet's formula</term>:
+                  <me>
+                    F_n = \frac{1}{\sqrt{5}}\left(\alpha^n-\beta^n\right)
+                  </me>
+                  for <m>n \ge 0</m>.
+                  Hint: In the inductive step use that
+                  <m>\alpha^{n-1}= \alpha \cdot \alpha^{n-2}</m> and <m>\beta^{n-1}= \beta \cdot \beta^{n-2}</m>.
+                  When appropriate, factor out
+                  <m>\alpha^{n-2}</m> and <m>\beta^{n-2}</m>.
+                  Replace <m>\alpha +1</m> with
+                  <m>\alpha^2</m> and replace <m>\beta + 1</m> with <m>\beta^2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_list_fibs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: You can <xref ref="table_first20_fib">use</xref> to check.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>F_{21}</m> is over 10,000.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_terms_higher_order"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>a_5=72</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>b_4=-1</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>c_5=6</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_specific_term_higher_order"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are 18, 32, and 36.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_model_higher_order"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Add
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Subtract
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Multiply
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_count_colored_tilings_first"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are two choices for each tile.
+            Steps multiply.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: For the explicit formula use your answer to <xref ref="part_red_green_tiles"/>.
+            For the recursive formula,
+            if it starts with <c>R</c> or <c>G</c>,
+            then the remainder must include <c>B</c>,
+            but if it starts with <c>B</c>,
+            then the remainder can be any tiling using the three colors.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Break into cases based on whether the tiling starts with <c>G</c>,
+            <c>B</c>,
+            or <c>R</c>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fib_mult5_mult8"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: 0, 5, 55, and 610 are all divisible by 5.
+            Which terms of the Fibonacci sequence are those?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>8 \mid 2584</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fib_matrix_another_conj"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>B^4=\left[\begin{array}{cc} 2 \amp 3\\ 3 \amp 5 \end{array} \right]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It involves <m>F_{n-1}</m>,
+            <m>F_n</m>, and <m>F_{n+1}</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fib_gcd_eval"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are 1 (twice), 2, and 5.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_even_fib_identity"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: First,
+        use the recursive definition for the Fibonacci sequence to write <m>F_{3n}=F_{3n-1} + F_{3n-2}</m>.
+        Next, use the definition again to write <m>F_{3n-1}=F_{3n-2}+F_{3n-3}</m>.
+        Finally, put these equations together and simplify by collecting like terms.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_even_fib_proof"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The inductive hypothesis is that <m>F_{3(n-1)}=F_{3n-3}</m> is even.
+        Use the identity from <xref ref="exer_even_fib_identity"></xref>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fib_matrix_another_proof"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from <xref ref="exam_fib_matrix"></xref>
+        <xref ref="part_proof_matrix_fib"/>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_second_order_linear"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The inductive hypothesis is that
+        <m>a_{n-1}=2(n-1)+3</m> and <m>a_{n-2}=2(n-2)+3</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_math_ind_second_order_powerof2"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof in <xref ref="exam_strong_math_ind_explicit"></xref>.
+        It is convenient to write <m>4 = 2^2</m>.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

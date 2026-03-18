@@ -1,0 +1,1775 @@
+<section xml:id="sec_rec_def_structures">
+  <title>Excursion: Recursively-defined Structures</title>
+  <introduction>
+    <p>
+      Many discrete objects, such as sets and graphs,
+      can also be defined recursively.
+      In this section,
+      we look at a variety of examples of recursively-defined structures.
+      While the recursively-defined sequences in <xref ref="sec_recursively_defined_sequences"></xref> used only one previous term,
+      recursions can involve any number of previous terms.
+      In this section,
+      we take a sneak peek at such higher order recursions,
+      which we return to explore in more depth in <xref ref="sec_fibonacci_higher"></xref>.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_proper_bit_strings">
+    <title>\subproperbs</title>
+    <p>
+      We begin with a puzzle.
+      For the sake of this puzzle,
+      we classify each bit string as either proper or improper according to the following definition.
+    </p>
+    <definition xml:id="defn_proper_bs">
+      <title>Proper bit strings</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A bit string is <term>proper</term>
+                if it can be constructed from the initial condition <em>B</em>
+                by applying the recursions <em>R1</em> and/or <em>R2</em>
+                a finite number of times each in any order where
+                <ul>
+                  <li>
+                    <title>\textbf{~ B}:</title>
+                    <p>
+                      The empty bit string <m>\lambda</m> is proper.
+                    </p>
+                  </li>
+                  <li>
+                    <title>\textbf{~ R1}:</title>
+                    <p>
+                      If the bit string <m>b</m> is proper,
+                      then the bit string <m>b\bs{0}</m> is also proper.
+                    </p>
+                  </li>
+                  <li>
+                    <title>\textbf{~ R2}:</title>
+                    <p>
+                      If the bit string <m>b</m> is proper,
+                      then the bit string <m>\bs{1}b\bs{1}</m> is also proper.
+                    </p>
+                  </li>
+                </ul>
+              </p>
+              For example, <m>\bs{1100110}</m> is proper,
+              as we show in <xref ref="exam_proper_bs"></xref>
+              <xref ref="part_bs_is_proper"/>.
+            </li>
+            <li>
+              <p>
+                All other bit strings are <term>improper</term>.
+                For example, <m>\bs{011}</m> is improper,
+                as we show in <xref ref="exam_proper_bs"></xref>
+                <xref ref="part_bs_is_improper"/>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's verify our examples from <xref ref="defn_proper_bs"></xref>.
+    </p>
+    <example xml:id="exam_proper_bs">
+      <title>Proper bit strings</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_bs_is_proper">
+              <p>
+                Prove that the bit string <m>\bs{1100110}</m> is proper.
+                <solution>
+                  <p>
+                    To see why, we start with the initial condition <em>B</em>
+                    that tells us <m>\lambda</m> is proper.
+                    We can use <em>R1</em> to show that <m>\lambda\bs{0} = \bs{0}</m> is proper,
+                    and then apply <em>R1</em> again to show that <m>\bs{00}</m> is proper.
+                    Next, we apply <em>R2</em> to show that <m>\bs{1001}</m> is proper,
+                    and then apply <em>R2</em> again to show that <m>\bs{110011}</m> is proper.
+                    Finally, we apply <em>R1</em> again to show that <m>\bs{1100110}</m> is proper.
+                  </p>
+                  <p>
+                    We can summarize this series of steps in the diagram:
+                    <me>
+                      \xrightarrow{\textbf{B}} \lambda \xrightarrow{\textbf{R1}} \bs{0} \xrightarrow{\textbf{R1}} \bs{00} \xrightarrow{\textbf{R2}} \bs{1001} \xrightarrow{\textbf{R2}} \bs{110011} \xrightarrow{\textbf{R1}} \bs{1100110}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_bs_is_improper">
+              <p>
+                Prove that the bit string <m>\bs{011}</m> is improper.
+                <solution>
+                  <p>
+                    We start with <em>B</em> which tells us <m>\lambda</m> is proper.
+                    If we first apply <em>R1</em>,
+                    we get that <c>0</c> is proper.
+                    To get two more <c>1</c> s we can apply <em>R2</em>
+                    but that tells us <m>\bs{101}</m> is proper,
+                    which is not our bit string.
+                    On the other hand, if we first apply <em>R2</em>,
+                    we get that <m>\bs{11}</m> is proper.
+                    To get one <c>0</c>,
+                    we can apply <em>R1</em>
+                    but that tells us <c>110</c> is proper,
+                    which is also not our bit string.
+                  </p>
+                  <p>
+                    Alternatively,
+                    we can construct a possibility tree listing all bit strings of length up to three that are proper as shown in <xref ref="fig_tree_proper_bs3"></xref>.
+                  </p>
+                </solution>
+                <figure xml:id="fig_tree_proper_bs3">
+                  <caption>All proper bit strings of length three or less</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Now, it is your turn to work with proper bit strings.
+    </p>
+    <activity xml:id="act_proper_bs">
+      <title>Proper Bit Strings Puzzle</title>
+      <p>
+        Recall that a bit string is <term>proper</term>
+        if it can be constructed from these rules in a finite number of steps (and improper otherwise):
+        <ul>
+          <li>
+            <title>\textbf{~ B}:</title>
+            <p>
+              The empty bit string <m>\lambda</m> is proper.
+            </p>
+          </li>
+          <li>
+            <title>\textbf{~ R1}:</title>
+            <p>
+              If the bit string <m>b</m> is proper,
+              then the bit string <m>b\bs{0}</m> is also proper.
+            </p>
+          </li>
+          <li>
+            <title>\textbf{~ R2}:</title>
+            <p>
+              If the bit string <m>b</m> is proper,
+              then the bit string <m>\bs{1}b\bs{1}</m> is also proper.
+            </p>
+          </li>
+        </ul>
+        <ol>
+          <li>
+            <p>
+              Explain why the bit string <c>1010</c> is proper.
+              That means, show how to use the rules to construct this bit string.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why the bit string <c>111010</c> is proper.
+              Again, show how to use the rules to construct this bit string.
+            </p>
+          </li>
+          <li xml:id="part_properbs_tree">
+            <p>
+              Draw a possibility tree showing all proper bit strings of length up to four.
+              Underline the bit strings of length four in your tree.
+            </p>
+          </li>
+          <li>
+            <p>
+              How many proper bit strings of length four are there?
+            </p>
+          </li>
+          <li>
+            <p>
+              Use your tree to explain why the bit string <c>1101</c> is improper.
+            </p>
+          </li>
+          <li>
+            <p>
+              How many improper bit strings of length four are there?
+              Hint: How many bit strings of length four are there (total)?
+            </p>
+          </li>
+          <li>
+            <p>
+              Extend to your tree from <xref ref="part_properbs_tree"/> to show all proper bit strings of length up to five.
+              Draw a box around each bit string of length five in your tree.
+            </p>
+          </li>
+          <li>
+            <p>
+              How many proper bit strings of length five are there?
+              How many improper?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Make sure that you have <xref ref="act_proper_bs">completed</xref>
+      because we are about to reveal some of the answers.
+    </p>
+    <example xml:id="exam_proper_bs5">
+      <title>Proper bit strings of length up to five</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Draw a possibility tree to list all proper bit strings of length up to five.
+                <solution>
+                  <p>
+                    We begin with the tree in <xref ref="fig_tree_proper_bs3"></xref>.
+                    Since we only want bit strings of length at most five,
+                    we can apply <em>R1</em> and <em>R2</em>
+                    to any bit string in that tree,
+                    but once we have a bit string of length four we can only apply <em>R1</em>.
+                    The tree is shown in <xref ref="fig_tree_proper_bs5"></xref>.
+                  </p>
+                </solution>
+                <figure xml:id="fig_tree_proper_bs5">
+                  <caption>All proper bit strings of length five or less</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many proper bit strings of length five are there?
+                How many improper bit strings of length five are there?
+                Explain.
+                <solution>
+                  <p>
+                    We see in <xref ref="fig_tree_proper_bs5"></xref>
+                    that there are eight proper bit strings of length five.
+                    They are
+                    <me>
+                      \bs{00000}, \bs{10001}, \bs{10010}, \bs{10100}, \bs{11011}, \bs{11000}, \bs{11101}, \bs{11110}
+                    </me>.
+                    Recall from <xref ref="thm_number_bit_strings"></xref>
+                    that there are <m>2^5=32</m> bit strings of length five.
+                    Therefore, there are <m>32-8 = 24</m> improper bit strings of length five.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain how we can obtain a list of proper bit strings of length five from the list of proper bit strings of length three and four.
+                <solution>
+                  <p>
+                    There are two ways to obtain a proper bit string of length five.
+                  </p>
+                  <p>
+                    Case 1: Start with a proper bit string of length four and apply <em>R1</em>.
+                    The proper bit strings of length four are
+                    <me>
+                      \bs{0000}, \bs{1001}, \bs{1010}, \bs{1100}, \bs{1111}
+                    </me>
+                    so we get
+                    <me>
+                      \bs{0000\underline{0}}, \bs{1001\underline{0}}, \bs{1010\underline{0}}, \bs{1100\underline{0}}, \bs{1111\underline{0}}
+                    </me>
+                  </p>
+                  <p>
+                    Case 2: Start with a proper bit string of length three and apply <em>R2</em>.
+                    The proper bit strings of length three are
+                    <me>
+                      \bs{000}, \bs{101}, \bs{110}
+                    </me>
+                    so we get
+                    <me>
+                      \bs{\underline{1}000\underline{1}}, \bs{\underline{1}101\underline{1}}, \bs{\underline{1}110\underline{1}}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Before we look at other recursively-defined structures,
+      we mention how this example connects to computer science.
+    </p>
+    <definition xml:id="defn_language">
+      <title>Language</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                An <term>alphabet</term> is a set of characters.
+                For example,
+                the usual English alphabet <m>\{a,b,c, \ldots, z\}</m> is an alphabet.
+                The set of bits, <m>\{\bs{0}, \bs{1}\}</m>, is also an alphabet.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term>(formal) language over the alphabet <m>\Sigma</m></term>
+                is a set of strings where each character of each string is an element of <m>\Sigma</m>.
+                For example, <m>\mathbb{B}</m>,
+                the set of all bit strings,
+                is a language over <m>\Sigma = \{\bs{0}, \bs{1}\}</m>.
+                Similarly,
+                <me>
+                  \mathbb{P} = \{ b \in \mathbb{B} \mid b \text{ is proper } \}
+                </me>,
+                is another language over <m>\Sigma = \{\bs{0}, \bs{1}\}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+  </subsection>
+  <subsection xml:id="sub_rec_def_sets">
+    <title>\subrecsets</title>
+    <p>
+      <xref ref="act_proper_bs">In</xref>,
+      we define what it means for a bit string to be proper using a recursion.
+      This example gives rise to the recursively-defined set of proper bit strings.
+    </p>
+    <example xml:id="exam_rec_def_set_proper_bs">
+      <title>Recursively-defined set of proper bit strings</title>
+      <statement>
+        <p>
+          Give a recursive definition of the set <m>\mathbb{P} = \{ b \in \mathbb{B} \mid b \text{ is proper } \}</m>,
+          where proper bit strings are defined in <xref ref="defn_proper_bs"></xref>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We can rewrite the initial condition and recursions using set notation to obtain:
+          <ul>
+            <li>
+              <title>~ \textbf{B}:</title>
+              <p>
+                <m>\lambda \in \mathbb{P}</m>.
+              </p>
+            </li>
+            <li>
+              <title>\textbf{~ R1}:</title>
+              <p>
+                If <m>b \in \mathbb{P}</m>, then <m>b\bs{0}\in \mathbb{P}</m>.
+              </p>
+            </li>
+            <li>
+              <title>\textbf{~ R2}:</title>
+              <p>
+                If <m>b \in \mathbb{P}</m>, then <m>\bs{1}b\bs{1}\in \mathbb{P}</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Let's practice working with proof by mathematical induction to check the unsurprising fact that any bit string consisting of all <c>0</c> s is in <m>\mathbb{P}</m>.
+    </p>
+    <example xml:id="exam_math_ind_all0s_proper">
+      <title>Proof by mathematical induction that involves recursively-defined set</title>
+      <statement>
+        <p>
+          Use mathematical induction <xref ref="pff_math_ind"/> to prove that any bit string consisting of all <c>0</c> s is in <m>\mathbb{P}</m>,
+          the set of all proper bit strings.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Proof.</em> We induct on <m>n</m>,
+          the length of the bit string.
+        </p>
+        <p>
+          First, by <em>B</em> we know that <m>\lambda \in \mathbb{P}</m>.
+          Next, by <em>R1</em>,
+          it follows that <m>\lambda \bs{0} = \bs{0} \in \mathbb{P}</m>.
+          Thus the bit string of length one consisting of all <c>0</c> s is in <m>\mathbb{P}</m>.
+        </p>
+        <p>
+          Next, assume <m>b = \underbrace{\bs{000}\cdots\bs{0}}_{n-1 \text{ times } } \in \mathbb{P}</m> for some integer <m>n > 1</m>.
+          Then by <em>R1</em>, it follows that
+          <me>
+            b\bs{0} = \underbrace{\bs{000}\cdots\bs{0}}_{n-1 \text{ times } }\bs{0} = \underbrace{\bs{000}\cdots\bs{0}}_{n \text{ times } } \in \mathbb{P}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Here is another example of a recursively-defined set.
+    </p>
+    <example xml:id="exam_mult_2and3_set">
+      <title>Multiplicative set</title>
+      <statement>
+        <p>
+          Consider the set of integers <m>L</m> constructed recursively as follows:
+          <ul>
+            <li>
+              <title>\textbf{~ B1}:</title>
+              <p>
+                <m>1 \in L</m>
+              </p>
+            </li>
+            <li>
+              <title>\textbf{~ B2}:</title>
+              <p>
+                <m>2 \in L</m>
+              </p>
+            </li>
+            <li>
+              <title>\textbf{~ B3}:</title>
+              <p>
+                <m>3 \in L</m>
+              </p>
+            </li>
+            <li>
+              <title>\textbf{~ R}:</title>
+              <p>
+                If <m>k,m \in L</m>, then their product <m>km \in L</m>
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          The <m>L</m> consists of all integers that can be formed using
+          <em>B1</em>, <em>B2</em>,
+          <em>B3</em>, and <em>R</em> a finite number of times.
+          <ol>
+            <li>
+              <p>
+                Is <m>18 \in L</m>?
+                Is <m>20 \in L</m>?
+                Is <m>1 \in L</m>?
+                Justify your answers.
+                <solution>
+                  <p>
+                    First, by <em>B2</em> <m>2 \in L</m> and by
+                    <em>B3</em> <m>3 \in L</m>.
+                    Then, by <em>R</em>, it follows that
+                    <m>(2)(3) = 6 \in L</m> and then it follows from <em>R</em>
+                    again that <m>(3)(6)=18 \in L</m>, so yes.
+                  </p>
+                  <p>
+                    Next, there is no combination of 2s and 3s that multiply to give 20 because the prime factorization of <m>20=2^25</m>.
+                    Therefore there is no way to construct 20, so no.
+                  </p>
+                  <p>
+                    Last, <m>1 \in L</m> by <em>B1</em>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give an explicit definition of <m>L</m>.
+                <solution>
+                  <p>
+                    Notice that <m>L</m> includes 1 and any integer we can build as a product of 2s and 3s.
+                    That is,
+                    <me>
+                      L= \{2^a\cdot 3^b \mid a,b \in \mathbb{N}\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give an implicit definition of <m>L</m>.
+                <solution>
+                  <p>
+                    One implicit definition is
+                    <me>
+                      L = \{ n \in \mathbb{N} \mid n = 2^a\cdot 3^b \text{ for some }  a,b \in \mathbb{N}\}
+                    </me>
+                    but a more specific implicit definition is
+                    <me>
+                      L = \{ n \in \mathbb{N} \mid \text{ if }  p \text{ is prime and }  p \mid n \text{ , then }  p=2 \text{ or }  p=3\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Your turn to work with a recursively-defined set.
+    </p>
+    <activity xml:id="act_coins_2and3">
+      <title>Additive set</title>
+      <p>
+        Consider the set <m>M</m> constructed recursively as follows:
+        <ul>
+          <li>
+            <title>\textbf{~ B1:}</title>
+            <p>
+              <m>2 \in M</m>
+            </p>
+          </li>
+          <li>
+            <title>\textbf{~ B1:}</title>
+            <p>
+              <m>3 \in M</m>
+            </p>
+          </li>
+          <li>
+            <title>\textbf{~ R:}</title>
+            <p>
+              If <m>k,m \in M</m>, then <m>k+m \in M</m>.
+            </p>
+          </li>
+        </ul>
+        <ol>
+          <li xml:id="part_coins_2and3_build4">
+            <p>
+              Show that <m>4 \in M</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>7 \in M</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>11 \in M</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why every positive even integer is in <m>M</m>.
+              Hint: How do we get <m>2k</m> for <m>k \ge 1</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why any positive odd integer that's greater than or equal to three is in <m>M</m>.
+              Hint: Start with three.
+              What do you need to add to get <m>2k+1</m> total for <m>k \ge 1</m>?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's process some of what we learned in <xref ref="act_coins_2and3"></xref>.
+    </p>
+    <example xml:id="exam_coins_2and3">
+      <title>Additive set</title>
+      <statement>
+        <p>
+          Consider the set <m>M</m> constructed recursively in <xref ref="act_coins_2and3"></xref>.
+          <ol>
+            <li>
+              <p>
+                Explain why <m>M = \{n \in \mathbb{Z} \mid n \ge 2\}</m>.
+                <solution>
+                  <p>
+                    We can show any even integer <m>n \in M</m> as follows.
+                    Write <m>n = 2k</m> for some integer <m>k</m>.
+                    By <em>B1</em> we know <m>2 \in M</m>.
+                    Applying <em>R</em> <m>(k-1)</m> times we get
+                    <me>
+                      2 + \underbrace{2+2+\cdots +2}_{k-1 \text{ times } } \in M
+                    </me>.
+                    But
+                    <me>
+                      2 + \underbrace{2+2+\cdots +2}_{k-1 \text{ times } } = 2+ 2(k-1) = 2k =n
+                    </me>.
+                    Thus <m>n \in M</m>.
+                  </p>
+                  <p>
+                    We can show any odd integer <m>n \in M</m> for <m>n \ge 3</m> as follows.
+                    Write <m>n = 2k+1</m> for some integer <m>k</m>.
+                    Since <m>n \ge 3</m>, it follows that <m>k \ge 1</m>.
+                    By <em>B2</em> we know <m>3 \in M</m>.
+                    Applying <em>R</em> <m>(k-1)</m> times we get
+                    <me>
+                      3 + \underbrace{2+2+\cdots +2}_{k-1 \text{ times } } \in M
+                    </me>.
+                    But
+                    <me>
+                      3 + \underbrace{2+2+\cdots +2}_{k-1 \text{ times } } = 3 + 2(k-1) = 2k + 1=n
+                    </me>.
+                    Thus <m>n \in M</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_math_ind_coins_2and3">
+              <p>
+                Use mathematical induction to verify that <m>n \in M</m> for any integer <m>n \ge 2</m>.
+                <solution>
+                  <p>
+                    <em>Proof.</em> Induct on <m>n</m>.
+                  </p>
+                  <p>
+                    First, when <m>n = 2</m>, we know <m>2 \in M</m> by <em>B</em>.
+                  </p>
+                  <p>
+                    Next, assume <m>n-1 \in M</m> for some <m>n >1</m>.
+                    We consider two cases.
+                  </p>
+                  <p>
+                    Case 1: Somewhere in the process of constructing <m>n-1</m> we used <em>B1</em>.
+                    That is, <m>n-1=2+m</m> for some <m>m \in M</m>.
+                    Adding one to each side of the equation we get <m>n = 3 + m</m>,
+                    and so <m>n</m> can be constructed from <m>m</m> using
+                    <em>B2</em> and <em>R</em>.
+                  </p>
+                  <p>
+                    Case 2: Nowhere in the process of constructing <m>n-1</m> did we use <em>B1</em>.
+                    It follows that somewhere in the process of constructing <m>n-1</m> we used <em>B2</em>.
+                    That is, <m>n-1 = 3+m</m> for some <m>m \in M</m>.
+                    Adding one to each side of the equation we get <m>n = 4 + m</m>,
+                    and so <m>n</m> can be constructed from <m>m</m> using
+                    <em>B1</em> twice and <em>R</em>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      In many textbooks,
+      the example from <xref ref="act_coins_2and3"></xref>
+      is described in terms of coins or stamps.
+      In that vocabulary,
+      we can make any value of money 2{\textcent} or greater using 2{\textcent} and 3{\textcent} coins,
+      or any postage 2{\textcent} or greater using 2{\textcent} and 3{\textcent} stamps.
+    </p>
+  </subsection>
+  <subsection xml:id="sub_rec_def_graphs">
+    <title>\subrecgraphs</title>
+    <p>
+      We begin with an activity.
+    </p>
+    <activity xml:id="act_rec_trees">
+      <title>Lopsided trees</title>
+      <p>
+        We define the family of <term>lopsided trees</term>, <m>T_n</m>,
+        as follows:
+        <m>T_1</m> and <m>T_2</m> are each just a single root vertex.
+        For <m>n\ge3</m>,
+        the lopsided tree <m>T_n</m> is built from the trees <m>T_{n-1}</m>
+        (drawn on the left)
+        and <m>T_{n-2}</m>
+        (drawn on the right)
+        by adding a new root vertex,
+        an edge between the new root vertex and the root vertex of <m>T_{n-1}</m>,
+        and an edge between the new root vertex and the root vertex of <m>T_{n-2}</m>,
+        as represented schematically in <xref ref="figure_rec_trees_defn"></xref>.
+      </p>
+      <figure xml:id="figure_rec_trees_defn">
+        <caption>Defining the lopsided tree <m>T_n</m> from <xref ref="act_rec_trees"></xref>.</caption>
+        image type not recognized
+      </figure>
+      <p>
+        The first five lopsided trees are drawn in <xref ref="figure_rec_trees_first_four"></xref>.
+      </p>
+      <figure xml:id="figure_rec_trees_first_four">
+        <caption>From left to right: the lopsided trees <m>T_1</m>, <m>T_2</m>, <m>T_3</m>, <m>T_4</m>, an <m>T_5</m> from <xref ref="act_rec_trees"></xref>.</caption>
+        image type not recognized
+      </figure>
+      <ol>
+        <li>
+          <p>
+            Copy <m>T_5</m> and explain how <m>T_3</m> and <m>T_4</m> were used to create <m>T_5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Draw <m>T_6</m>.
+            Pay attention to what is on the left versus the right in your drawing.
+          </p>
+        </li>
+        <li>
+          <p>
+            Recall that leaf is a vertex of degree one.
+            Write <m>w_n=</m> the number of leaves in the lopsided tree <m>T_n</m> for <m>n \ge 3</m>.
+            Explain why <m>w_3=2</m> and <m>w_4=3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate <m>w_5</m> and <m>w_6</m>.
+          </p>
+        </li>
+        <li xml:id="part_rec_trees_leaves">
+          <p>
+            Write an recursive definition of the sequence <m>w_n</m> and explain why the equation holds by referring to the trees
+            (not just the numbers you found).
+            Hint: The definition uses the two previous terms.
+          </p>
+        </li>
+      </ol>
+    </activity>
+    <p>
+      Let's take a closer look at the trees from <xref ref="act_rec_trees"></xref>.
+    </p>
+    <example xml:id="exam_lopsided_trees">
+      <title>Lopsided trees</title>
+      <statement>
+        <p>
+          <xref ref="act_rec_trees">In</xref>,
+          we defined the family of lopsided trees <m>T_n</m>.
+          Write <m>w_n=</m> the number of leaves in the lopsided tree <m>T_n</m> for <m>n \ge 3</m>.
+          <ol>
+            <li>
+              <p>
+                Make a table showing the values of <m>w_n</m> for <m>n=1,2,3,4,5,6</m>.
+                <solution>
+                  <p>
+                    We can count the leaves in the graphs in <xref ref="figure_rec_trees_first_four"></xref> for <m>n=1,2,3,4,5</m>.
+                    For <m>n=6</m> note that the leaves in <m>T_6</m> consists of the leaves from <m>T_5</m>
+                    (on the left)
+                    and the leaves from <m>T_6</m>
+                    (on the right).
+                    Thus <m>w_6 = w_5 + w_4 = 5+3=8</m>.
+                    We summarize our findings in <xref ref="tab_leaves_lopsided"></xref>.
+                  </p>
+                </solution>
+                <table xml:id="tab_leaves_lopsided">
+                  <title>The number of leaves in the lopsided trees</title>
+                  <tabular>
+                    <row>
+                      <cell><m>n</m></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>4</cell>
+                      <cell>5</cell>
+                      <cell>6</cell>
+                    </row>
+                    <row>
+                      <cell><m>w_n</m></cell>
+                      <cell>1</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>3</cell>
+                      <cell>5</cell>
+                      <cell>8</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write a recursive definition for <m>w_n</m> for <m>n \ge 1</m>,
+                including the initial conditions.
+                <solution>
+                  <p>
+                    Since the leaves in <m>T_n</m> are the leaves from <m>T_{n-1}</m>
+                    (on the left)
+                    and the leaves from <m>T_{n-2}</m>
+                    (on the right),
+                    we get
+                    <me>
+                      w_n=w_{n-1}+w_{n-2}
+                    </me>
+                    for <m>n \ge 3</m>.
+                    The initial conditions are <m>w_1=1</m> and <m>w_2=1</m>.
+                    Since the recursion uses two previous terms,
+                    we need two initial conditions to start.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The lopsided trees in <xref ref="act_rec_trees"></xref> were defined recursively.
+      Here is another example of a recursively-defined family of graphs.
+    </p>
+    <example xml:id="exam_rec_path_graphs">
+      <title>Recursive definition of the path graphs</title>
+      <statement>
+        <p>
+          Consider the path graphs <m>P_n</m>.
+          We can define these graphs recursively setting <m>P_1</m> to be a single vertex and then <m>P_n</m> is formed from <m>P_{n-1}</m> by adding one new vertex and an edge connecting that new vertex to one of the end vertices of <m>P_{n-1}</m>.
+          <ol>
+            <li>
+              <p>
+                Use this definition to draw the first five path graphs.
+                <solution>
+                  <p>
+                    The first five path graphs are drawn in <xref ref="figure_path_graphs_recursive"></xref>.
+                  </p>
+                  <figure xml:id="figure_path_graphs_recursive">
+                    <caption>The path graphs</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write a recursive definition for <m>v_n=</m> the number of vertices of <m>P_n</m> and <m>e_n=</m> the number of edges of <m>P_n</m>.
+                <solution>
+                  <p>
+                    First, <m>P_1</m> has one vertex and zero edges so <m>v_1=1</m> and <m>e_1=0</m>.
+                    Next, at each step we add one new vertex and so the number of new vertices is 1 more than the number of old vertices.
+                    That is, <m>v_n=v_{n-1}+1</m> for <m>n \ge 2</m>.
+                    Similarly, at each step we add one new edge and so the number of new edges is 1 more than the number of old edges.
+                    That is, <m>e_n=e_{n-1}+1</m> for <m>n \ge 2</m>.
+                    Notice that <m>v</m> and <m>e</m> are defined using the same recursive rule but because they have different initial conditions we get different sequences.
+                    In fact, <m>v_n=n</m> and <m>e_n=n-1</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Determine the adjacency matrices for <m>P_1</m>,
+                <m>P_2</m>, <m>P_3</m>, <m>P_4</m>, and <m>P_5</m>.
+                Then describe how the adjacency matrix for <m>P_n</m> can be constructed from the adjacency matrix for <m>P_{n-1}</m>.
+                <solution>
+                  <p>
+                    <xref ref="fig_paths12345_labeled"></xref>
+                    shows labeled versions of the path graphs <m>P_1</m>,
+                    <m>P_2</m>, <m>P_3</m>, <m>P_4</m>, and <m>P_5</m>.
+                  </p>
+                  <figure xml:id="fig_paths12345_labeled">
+                    <caption>Paths <m>P_1</m>, <m>P_2</m>, <m>P_3</m>, <m>P_4</m>, and <m>P_5</m> labeled.</caption>
+                    image type not recognized
+                  </figure>
+                  <p>
+                    The corresponding adjacency matrices are shown in <xref ref="tab_adj_mat_paths"></xref>.
+                    Starting with <m>P_{n-1}</m> we add a new column on the far right and a new row at the bottom which are all <c>0</c> s except the next to last entry in the column and row is <c>1</c>.
+                  </p>
+                </solution>
+                <table xml:id="tab_adj_mat_paths">
+                  <title>The adjacency matrices for the paths <m>P_1</m>, <m>P_2</m>, <m>P_3</m>, <m>P_4</m>, and <m>P_5</m></title>
+                  <tabular>
+                    <row>
+                      <cell></cell>
+                      <cell><m>\begin{array}{c} v_1 \end{array}</m></cell>
+                    </row>
+                    <row>
+                      <cell><m>\begin{array}{r} v_1 \end{array}</m></cell>
+                      <cell><m>\left[ \begin{array}{cccccc} ~\bs{0}~ \end{array} \right]</m></cell>
+                    </row>
+                  </tabular>
+                  \hspace{.15in}
+                  <tabular>
+                    <row>
+                      <cell></cell>
+                      <cell><m>\begin{array}{cc} v_1\amp v_2 \end{array}</m></cell>
+                    </row>
+                    <row>
+                      <cell><m>\begin{array}{r} v_1 \\ v_2 \end{array}</m></cell>
+                      <cell><m>\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \\ \bs{1} \amp \bs{0} \end{array} \right]</m></cell>
+                    </row>
+                  </tabular>
+                  \hspace{.15in}
+                  <tabular>
+                    <row>
+                      <cell></cell>
+                      <cell><m>\begin{array}{ccc} v_1\amp v_2\amp v_3 \end{array}</m></cell>
+                    </row>
+                    <row>
+                      <cell><m>\begin{array}{r} v_1 \\ v_2 \\ v_3 \end{array}</m></cell>
+                      <cell><m>\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \amp ~\bs{0}~ \\ \bs{1} \amp \bs{0} \amp \bs{1} \\ \bs{0} \amp \bs{1} \amp \bs{0} \end{array} \right]</m></cell>
+                    </row>
+                  </tabular>
+                  \hspace{.15in}
+                  <tabular>
+                    <row>
+                      <cell></cell>
+                      <cell><m>\begin{array}{cccc} v_1\amp v_2\amp v_3\amp v_4 \end{array}</m></cell>
+                    </row>
+                    <row>
+                      <cell><m>\begin{array}{r} v_1 \\ v_2 \\ v_3 \\v_4 \end{array}</m></cell>
+                      <cell><m>\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \amp ~\bs{0}~ \amp ~\bs{0}~\\ \bs{1} \amp \bs{0} \amp \bs{1} \amp \bs{0} \\ \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{1} \\ \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{0} \end{array} \right]</m></cell>
+                    </row>
+                  </tabular>
+                  \hspace{.15in}
+                  <tabular>
+                    <row>
+                      <cell></cell>
+                      <cell><m>\begin{array}{ccccc} v_1\amp v_2\amp v_3\amp v_4\amp v_5 \end{array}</m></cell>
+                    </row>
+                    <row>
+                      <cell><m>\begin{array}{r} v_1 \\ v_2 \\ v_3 \\v_4\\v_5 \end{array}</m></cell>
+                      <cell><m>\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \amp ~\bs{0}~ \amp ~\bs{0}~\amp ~\bs{0}~\\ \bs{1} \amp \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{0}\\ \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{1} \amp \bs{0}\\ \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{1}\\ \bs{0} \amp \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{0} \end{array} \right]</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_proper_bit_strings">for</xref> \subproperbs</title>
+      <exercise xml:id="exer_improperbs_example">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain why the bit string <c>101111</c> is improper.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why the bit string <c>1011111</c> is improper.
+                  Consider the case where you start with <em>R1</em>
+                  and the case where you start with <em>R2</em>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_properbs_length6">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="fig_tree_proper_bs5">In</xref>,
+            we drew a possibility tree showing all proper bit strings of length up to five.
+            <ol>
+              <li>
+                <p>
+                  Use the list of proper bit strings of length four and length five from <xref ref="exam_proper_bs5"></xref>
+                  to generate a list of all proper bit strings of length six.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many proper bit strings of length six are there?
+                </p>
+              </li>
+              <li xml:id="part_properbs_count6_from4and5">
+                <p>
+                  How does the number of proper bit strings of length six relate to the number of proper bit strings of length four and the number of proper bit strings of length five?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_properbs_count">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Generalize your observation from <xref ref="exer_properbs_length6"></xref><xref ref="part_properbs_count6_from4and5"/> to write a recursive definition of the sequence <m>p_n=</m> the number of proper bit strings of length <m>n</m>,
+            including initial conditions.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_proper_bs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to use a recursive definition of a language?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to draw a possibility tree to list strings from a recursively-defined language?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to recursively define a sequence using two previous terms and why we need two initial conditions?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_properbs_examples">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In this problem,
+            we are looking for general conjectures that tell us if a bit string is proper or improper by looking at it<ndash/> meaning without working through the rules,
+            drawing a tree, considering cases, or anything complicated.
+            Your conjectures should be in the form
+          </p>
+          <blockquote>
+            If a bit string is/has <em>\hspace{1in}</em>, then it is automatically proper/improper.
+          </blockquote>
+          <p>
+            Your conjectures should not be examples,
+            they should be general rules that apply to an infinite number of bit strings.
+            <ol>
+              <li>
+                <p>
+                  Make a conjecture about a condition that automatically shows a bit string is proper.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make another conjecture about a condition that automatically shows a bit string is proper.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about a condition that automatically shows a bit string is improper.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_properbs_start">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Describe in detail a simple process that determines whether a proper bit string was constructed starting with <em>R1</em>
+                  or starting with <em>R2</em>.
+                  This process should not involve testing all possible constructions.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Extend your process from <xref ref="exer_properbs_start"></xref>
+                  to describe in detail a relatively simple process that determines whether a bit string is proper or improper.
+                  This process should not involve testing all possible constructions.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_rec_def_sets">for</xref>
+      \subrecsets</title>
+      <exercise xml:id="exer_coins_3and5_set">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the set <m>M</m> constructed recursively as follows:
+            <ul>
+              <li>
+                <title>\textbf{~ B1:}</title>
+                <p>
+                  <m>3 \in M</m>
+                </p>
+              </li>
+              <li>
+                <title>\textbf{~ B2:}</title>
+                <p>
+                  <m>5 \in M</m>
+                </p>
+              </li>
+              <li>
+                <title>\textbf{~ R:}</title>
+                <p>
+                  If <m>k,m \in M</m>, then <m>k+m \in M</m>.
+                </p>
+              </li>
+            </ul>
+            <ol>
+              <li>
+                <p>
+                  Show that <m>8 \in M</m>, <m>9 \in M</m>, and <m>10 \in M</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which of <m>1, 2, 3, 4, 5, 6, 7</m> are in <m>M</m>?
+                  Briefly justify your answers.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_coins_3and5_add1">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the set <m>M</m> constructed recursively in <xref ref="exer_coins_3and5_set"></xref>.
+            <ol>
+              <li xml:id="part_3and5_trade5_for6">
+                <p>
+                  Suppose <m>n-1 \in M</m> and that somewhere in the construction of <m>n-1</m> we used <em>B2</em>,
+                  meaning that <m>n-1=m+5</m> for some <m>m \in M</m>.
+                  Show that <m>n \in M</m>.
+                </p>
+              </li>
+              <li xml:id="part_3and5_trade9_for10">
+                <p>
+                  Suppose <m>n-1 \in M</m> and that somewhere in the construction of <m>n-1</m> we used
+                  <em>B1</em> three times,
+                  meaning that <m>n-1 = m+3+3+3</m> for some <m>m \in M</m>.
+                  Show that <m>n \in M</m>.
+                </p>
+              </li>
+              <li xml:id="part_3and5_cases">
+                <p>
+                  Suppose <m>n-1 \in M</m> and that <m>n \ge 8</m>.
+                  Explain why if we did not use <em>B2</em>
+                  somewhere in the construction of <m>n-1</m>,
+                  then we must have used <em>B1</em> at least three times.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_rec_def_sets">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to decide if an element is in a recursively-defined set?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use mathematical induction to prove results about a recursively-defined set?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_coins_3and5_math_ind">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the set <m>M</m> constructed recursively in <xref ref="exer_coins_3and5_set"></xref>.
+            Use mathematical induction to prove <m>n \in M</m> for all <m>n \ge 8</m>.
+            Hint: Copy and edit the proof from <xref ref="exam_coins_2and3"></xref>
+            <xref ref="part_math_ind_coins_2and3"/>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_aandb_set">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the set <m>M_{a,b}</m> constructed recursively as follows:
+            <ul>
+              <li>
+                <title>\textbf{~ B1:}</title>
+                <p>
+                  <m>a \in M_{a,b}</m>
+                </p>
+              </li>
+              <li>
+                <title>\textbf{~ B2:}</title>
+                <p>
+                  <m>b \in M_{a,b}</m>
+                </p>
+              </li>
+              <li>
+                <title>\textbf{~ R:}</title>
+                <p>
+                  f <m>k,m \in M_{a,b}</m>, then <m>k+m \in M_{a,b}</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+          <p>
+            We saw the set <m>M_{2,3}</m> in <xref ref="act_coins_2and3"></xref>
+            and <m>M_{3,5}</m> in <xref ref="exer_coins_3and5_set"></xref>.
+            It turns out that <m>M_{2,3} = \{ n \in \mathbb{Z} \mid n \ge 2\}</m> and <m>M_{3,5}= \{ n \in \mathbb{Z} \mid n \ge 8\}</m>.
+            That is, <m>M_{a,b}</m> was the set of all integers starting at <m>s</m> for some integer <m>s</m>.
+            <ol>
+              <li>
+                <p>
+                  Is <m>M_{2,4}</m> the set of all integers starting at <m>s</m> for some integer <m>s</m>?
+                  Explain your reasoning.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>M_{6,9}</m> the set of all integers starting at <m>s</m> for some integer <m>s</m>?
+                  Explain your reasoning.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>M_{4,5}</m> the set of all integers starting at <m>s</m> for some integer <m>s</m>?
+                  Explain your reasoning.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about when <m>M_{a,b}</m> the set of all integers starting at <m>s</m> for some integer <m>s</m>.
+                  Your answer will be a relationship between <m>a</m> and <m>b</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_rec_def_graphs">for</xref> \subrecgraphs</title>
+      <exercise xml:id="exer_lopsided_trees_vertices">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            We defined lopsided trees in <xref ref="act_rec_trees"></xref>.
+            Write <m>v_n=</m> the number of vertices in the lopsided tree <m>T_n</m> for <m>n \ge 1</m>.
+            <ol>
+              <li>
+                <p>
+                  Explain why <m>v_1=1</m>, <m>v_2=1</m>, and <m>v_3=3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>v_4</m>, <m>v_5</m>, and <m>v_6</m>.
+                </p>
+              </li>
+              <li xml:id="part_rec_trees_vertices">
+                <p>
+                  Write an equation for <m>v_n</m> in terms of <m>v_{n-1}</m> and <m>v_{n-2}</m> for <m>n \ge 1</m> and explain why the equation holds by referring to the trees
+                  (not just the numbers you found).
+                </p>
+              </li>
+              <li xml:id="part_rec_trees_vertices_function_of_leaves">
+                <p>
+                  How are <m>v_n</m> and <m>w_n</m>
+                  (the number of leaves)
+                  related for <m>n \ge 3</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_def_star_graphs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the family of graphs defined as follows:
+            <m>G_1</m> is a single (original) vertex and <m>G_n</m> is formed from <m>G_{n-1}</m> by adding one new vertex and an edge connecting that vertex to the original vertex.
+            Notice that <m>G_1, G_2, G_3</m> are the same as
+            <m>P_1, P_2,P_3</m> but after that term the sequences differ.
+            <ol>
+              <li>
+                <p>
+                  Draw <m>G_1</m>, <m>G_2</m>, <m>G_3</m>,
+                  <m>G_4</m>, and <m>G_5</m>.
+                  What is the usual name for this family of graphs?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a recursive rule for <m>v_n</m>,
+                  the number of vertices of <m>G_n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write an explicit rule for <m>v_n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a recursive rule for <m>e_n</m>,
+                  the number of edges of <m>G_n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write an explicit rule for <m>e_n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_def_windmill_graphs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The graphs <m>M_n</m> are defined as follows:
+            <m>M_1</m> is a single (original) vertex and <m>M_n</m> is formed from <m>M_{n-1}</m> by adding a copy of the path <m>P_2</m> each of whose vertices is connected by an edge to the original vertex.
+            <ol>
+              <li>
+                <p>
+                  Draw <m>M_1</m>, <m>M_2</m>, <m>M_3</m>, and <m>M_4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a recursive rule for <m>v_n</m>,
+                  the number of vertices of <m>M_n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write an explicit rule for <m>v_n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a recursive rule for <m>e_n</m>,
+                  the number of edges of <m>M_n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write an explicit rule for <m>e_n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_ladder_graphs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The ladder graphs <m>L_{2 \times s}</m> for <m>s \ge 1</m>,
+            defined in <xref ref="defn_wheel_ladder"></xref>,
+            consist of two paths <m>P_s</m> with <m>s</m> additional edges between each pair of corresponding vertices.
+            For example,
+            <m>L_{2 \times 5}</m> is drawn in <xref ref="fig_L2x5"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Write a recursive construction of the ladder graphs like we did for the lopsided graphs in <xref ref="act_rec_trees"></xref>.
+                  That means, state where to start (Hint:
+                  <m>P_2</m>) and describe how many new vertices and which edges to add.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a recursive rule for the number of vertices <m>v_s</m> of the ladder graph
+                  <m>L_{2 \times s}</m> and make a conjecture about an explicit rule.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a recursive rule for the number of edges <m>e_s</m> of the ladder graph
+                  <m>L_{2 \times s}</m> and make a conjecture about an explicit rule.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_defn_complete_graphs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw the complete graphs <m>K_s</m> for
+                  <m>s = 1, 2,3,4</m> as defined in <xref ref="defn_complete_completebipartite"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write a recursive construction of the complete graphs <m>K_s</m> for <m>s \ge 1</m> That means,
+                  state where to start and describe how many vertices and which edges to add.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a recursive rule for the number of vertices <m>v_s</m> of the complete graph <m>K_s</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a recursive rule for the number of edges <m>e_s</m> of the complete graph <m>K_s</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_defn_adj_mat_complete_graphs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Write the adjacency matrices of <m>K_s</m> for <m>s = 1,2,3,4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe how the adjacency matrix for <m>K_s</m> can be constructed from the adjacency matrix for <m>K_{s-1}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_rec_def_graphs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to construct graphs that are defined recursively?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to write a recursive definition for the number of leaves,
+                  number of vertices, or number of edges in a recursively-defined graph?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to write a recursive definition for a family of graphs?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_adj_matrix_rec_trees">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the family of graphs <m>T_n</m> defined in <xref ref="act_rec_trees"></xref>.
+            <xref ref="fig_rec_trees_labeled"></xref>
+            shows a labeled versions of <m>T_3</m>,
+            <m>T_4</m>, and <m>T_5</m>.
+          </p>
+          <figure xml:id="fig_rec_trees_labeled">
+            <caption>From left-to-right, labeled lopsided trees <m>T_3</m>, <m>T_4</m>, and <m>T_5</m>.</caption>
+            image type not recognized
+          </figure>
+          <ol>
+            <li>
+              <p>
+                Determine the adjacency matrices for <m>T_3</m>, <m>T_4</m>,
+                and <m>T_5</m> using the vertices in alphabetical order in each case.
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe how the adjacency matrix for <m>T_5</m> can be constructed from the adjacency matrices for <m>T_3</m> and <m>T_4</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_improperbs_example"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Look at the number of <c>1</c> s.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: If you start with <em>R1</em>
+            you can show <c>101</c> is proper,
+            but there is no way to add <c>1</c> s on only the right.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_properbs_length6"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Use <em>R1</em> to turn proper bit strings of length five into proper bit strings of length six.
+            Then use <em>R2</em> to generate the remaining proper bit strings of length six.
+          </p>
+        </li>
+        <li>
+          <p>
+            13
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: How does 13 relate to 8 and 5?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_properbs_count"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Your recursion should use <m>p_{n-1}</m> and <m>p_{n-2}</m>.
+        Also, since the recursion involves the two previous terms,
+        you need two initial terms to start:
+        <m>p_0</m> and <m>p_1</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_properbs_examples"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: One possible answer is any bit string that consists only of <c>0</c> s:
+            <c>0</c>,
+            <c>00</c>,
+            <c>000</c>, etc.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find another type of bit string that is always proper.
+            Make sure there are infinitely many bit strings of this type
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Count the number of <c>0</c> s.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_coins_3and5_set"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>8 = 3+5</m> so we can use <em>B1</em>,
+            then <em>B2</em>, then <em>R</em>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Only 3, 5, and 6.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_coins_3and5_add1"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Solve for <m>n</m> and use that <m>5+1=6=3+3</m>.
+            Explain which parts of the definition you use.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Now use <m>3+3+3+1=10=5+5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: If we did not use any 5s,
+            then <m>n-1</m> is built out of 3s.
+            Two threes is only <m>3+3=6</m>,
+            but <m>n \ge 8</m> so <m>n-1 \ge 7</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_coins_3and5_math_ind"></xref> Select Answers and Hints</title>
+      <p>
+        Another hint: Break the inductive step into two cases based on whether somewhere in the process of constructing <m>n-1</m> we used <em>B2</em>.
+        In the case where we used <em>B2</em>,
+        <xref ref="exer_coins_3and5_add1">use</xref>
+        <xref ref="part_3and5_trade5_for6"/>.
+        In the case where we did not use <em>B2</em>,
+        <xref ref="exer_coins_3and5_add1">cite</xref>
+        <xref ref="part_3and5_cases"/> to show that we must have used
+        <em>B1</em> at least three times.
+        Then <xref ref="exer_coins_3and5_add1">apply</xref><xref ref="part_3and5_trade9_for10"/>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_lopsided_trees_vertices"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>T_3</m> has three vertices.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>v_6=15</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure you count the root vertex.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make a table showing <m>n</m>, <m>w_n</m>,
+            and <m>v_n</m> for <m>n=3,4,5,6</m>.
+            The values of <m>v_n</m> are almost twice <m>w_n</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rec_def_star_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>G_5</m> has five vertices <mdash/> one original vertex and four other vertices each connected by an edge to the original vertex.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>v_1=1</m> and <m>v_n=v_{n-1}+1</m> for <m>n\ge 2</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>v_5=5</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We add one edge each time.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>e_5=5</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rec_def_windmill_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>M_2=C_3</m> and <m>M_3</m> looks like a bowtie
+            (<m>\bowtie</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: How many new vertices do we add?
+            Check that your definition gives <m>v_4 = 7</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make a table showing <m>n</m> and <m>v_n</m> for <m>n=1,2,3,4</m>.
+            Check that your definition gives <m>v_4 = 7</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: How many new edges do we add?
+            Check that your definition gives <m>e_4=9</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: make a table showing <m>n</m> and <m>e_n</m> for <m>n=1,2,3,4</m>.
+            Check that your definition gives <m>e_4=9</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rec_ladder_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Assume the original <m>P_2</m> is drawn vertically.
+            At each step,
+            add vertices to the right and explain what edges are added.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The recursive rule is of the form
+            <m>v_s = v_{s-1} +</m> the number of new vertices.
+            The explicit rule involves <m>s</m> (and no previous terms.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The recursive rule is of the form
+            <m>e_s = e_{s-1} +</m> the number of new edges.
+            For the explicit rule,
+            count the number of edges in each path and the number of additional edges between each pair of corresponding vertices.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rec_defn_complete_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <xref ref="defn_complete_completebipartite">See</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Start with a single vertex.
+            At each step,
+            explain how many new vertices to add and which new edges to add.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure you used <m>v_{s-1}</m>.
+            Check that <m>v_5=5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure you used <m>e_{s-1}</m>.
+            Check that <m>e_5=10</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

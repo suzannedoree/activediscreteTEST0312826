@@ -1,0 +1,2213 @@
+<section xml:id="sec_fn_words">
+  <title>Functions with Rules Described in Words</title>
+  <introduction>
+    <p>
+      Nearly all of the functions we have seen so far have had sets of numbers for their domain and codomain and have had rules defined by formulas.
+      In this section,
+      we explore many new functions that have rules that are described in words,
+      which include functions whose domain and codomain are sets of other discrete objects such as graphs and bit strings.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_floor_ceiling">
+    <title>\subfloorceiling</title>
+    <p>
+      As a first example of functions with rules described in words,
+      we consider the floor and ceiling functions which take a real (decimal) number input and find a nearby integer to output.
+    </p>
+    <definition xml:id="defn_floor_ceiling">
+      <title>Floor and ceiling</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For a real number <m>x</m>,
+                the <term>floor</term> of <m>x</m>,
+                denoted <m>\lfloor x \rfloor</m>,
+                is the result of rounding <m>x</m> down to the nearest integer less than or equal to <m>x</m>.
+                Officially, <m>\lfloor x \rfloor=k</m> where <m>k</m> is the greatest integer such that <m>k\le x</m>.
+                For example,
+                <m>\lfloor 2.4 \rfloor = 2</m> and <m>\lfloor -2.4 \rfloor = -3</m>.
+                This name comes from the fact that we look down to see the floor of a room.
+                Notice that the floor is the first integer at or to the left of the number on the real number line.
+                <figure xml:id="fig_number_line_floor">
+                  <caption>Calculating the floor by looking left on the real number line.</caption>
+                  <image>
+                     <latex-image> <![CDATA[\begin{tikzpicture}\path [draw=black, fill=black] (2.4,0) circle (2.pt); \path [draw=black, fill=black] (-2.4,0) circle (2.pt); \path [draw=black, fill=black] (2,0.0) circle (2.pt); \path [draw=black, fill=black] (-3,0.0) circle (2.pt); \draw[shift={(2.4,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {2.4}; \draw[shift={(-2.4,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {-2.4}; \foreach \x in {-3,-2,-1,0,1,2,3} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-6pt) node[below] {\(\x\)}; \draw[draw=black,solid, -latex,line width=1mm,fill=black] (2.4,0) -- (2,0); \draw[draw=black,solid, -latex,line width=1mm,fill=black] (-2.4,0) -- (-3,0); \draw[draw=black,solid,line width=0.5mm,fill=black] (-3.6,0) -- (3.6,0);\end{tikzpicture}]]> </latex-image>
+                  </image>
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                For a real number <m>x</m>,
+                the <term>ceiling</term> of <m>x</m>,
+                denoted <m>\lceil x \rceil</m>,
+                is the result of rounding <m>x</m> up to the nearest integer greater than or equal to <m>x</m>.
+                Officially, <m>\lceil x \rceil =k</m> where <m>k</m> is the least integer such that <m>k\ge x</m>.
+                For example,
+                <m>\lceil 2.4 \rceil = 3</m> and <m>\lceil -2.4 \rceil = -2</m>.
+                This name comes from the fact that we look up to see the ceiling of a room.
+                Notice that the ceiling is the first integer at or to the right of the number on the real number line.
+                <figure xml:id="fig_number_line_ceiling">
+                  <caption>Calculating the ceiling by looking right on the real number line.</caption>
+                  <image>
+                     <latex-image> <![CDATA[\begin{tikzpicture}\path [draw=black, fill=black] (2.4,0) circle (2.0pt); \path [draw=black, fill=black] (-2.4,0) circle (2.0pt); \path [draw=black, fill=black] (3,0.0) circle (2.0pt); \path [draw=black, fill=black] (-2,0.0) circle (2.0pt); \draw[shift={(2.4,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {2.4}; \draw[shift={(-2.4,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {-2.4}; \foreach \x in {-3,-2,-1,0,1,2,3} \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-6pt) node[below] {\(\x\)}; \draw[draw=black,solid, -latex,line width=1mm,fill=black] (2.4,0) -- (3,0); \draw[draw=black,solid, -latex,line width=1mm,fill=black] (-2.4,0) -- (-2,0); \draw[draw=black,solid,line width=0.5mm,fill=black] (-3.6,0) -- (3.6,0);\end{tikzpicture}]]> </latex-image>
+                  </image>
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Note that floor and ceiling are in the same level as parentheses in the order of operations <xref ref="defn_integer_algebra_order_operations"/>.
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_floor_ceiling_calculate">
+      <title>Floor and ceiling calculations</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>\lfloor \frac{10}{3} \rfloor</m> and <m>\lfloor ^-\frac{10}{3} \rfloor</m>.
+                <solution>
+                  <p>
+                    Since <m>\frac{10}{3} = 3.333\ldots</m>,
+                    we round down to get <m>\lfloor \frac{10}{3} \rfloor=3</m>.
+                    Since <m>^-\frac{10}{3} = -3.333\ldots</m>, we round down
+                    (to a more negative number)
+                    to get -4.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\lfloor 17 \rfloor</m> and <m>\lceil 17 \rceil</m>.
+                <solution>
+                  <p>
+                    Because 17 is an integer, we do not have to round at all.
+                    Therefore, <m>\lfloor 17 \rfloor = 17</m> and <m>\lceil 17 \rceil = 17</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with floor and ceiling.
+    </p>
+    <activity xml:id="act_floor_ceiling">
+      <title>Floor and ceiling</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Evaluate <m>\lfloor 1.4 \rfloor</m> and <m>\lceil 1.4 \rceil</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>\lfloor -15.82 \rfloor</m> and <m>\lceil -15.82 \rceil</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>\lfloor 308 \rfloor</m> and <m>\lceil 308 \rceil</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Professor Dor&#xe9;e expects 40 students to attend a talk.
+              She wants to cans of sparkling water so each student can get one,
+              then how many 12-packs of cans should she buy?
+              What if there are <m>n</m> students?
+              Your answer should involve <m>n</m> and floor or ceiling.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give an example of a real number <m>x</m> that is not an integer where <m>\lceil 2x \rceil = 2 \lceil x \rceil</m>.
+              Give a counterexample to the conjecture that
+              <m>\lceil 2x \rceil = 2 \lceil x \rceil</m> for all real numbers <m>x</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Does there exist a real number <m>x</m> where <m>\lfloor x \rfloor = 6</m>?
+              Is it unique?
+              How many real numbers <m>x</m> have <m>\lfloor x \rfloor = 6</m>?
+              Describe all real numbers <m>x</m> such that <m>\lfloor x \rfloor = 6</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider a real number <m>x</m> such that <m>\lfloor x \rfloor = 6</m>.
+              What is/are the possible value(s) of <m>\lceil x \rceil</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              When is <m>\lfloor x \rfloor = \lceil x \rceil</m> for a real number <m>x</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>x</m> is a real number such that <m>\lfloor x \rfloor \neq \lceil x \rceil</m>,
+              then how are <m>\lfloor x \rfloor</m> and <m>\lceil x \rceil</m> related?
+              State your answer in the form of a conjecture.
+              Be as specific as possible.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      We can define functions using floor and ceiling.
+    </p>
+    <example xml:id="exam_floor_function">
+      <title>Floor as a function</title>
+      <statement>
+        <p>
+          The function <m>\fn{floor}:\mathbb{R} \to \mathbb{Z}</m> is defined by <m>\fn{floor}(x) = \lfloor x \rfloor</m>.
+          <ol>
+            <li>
+              <p>
+                Identify the domain and codomain of the function <c>floor</c>.
+                <solution>
+                  <p>
+                    The domain of the function <c>floor</c> is
+                    <m>\mathbb{R}</m> and the codomain is <m>\mathbb{Z}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give an example of a real number <m>x</m> such that <m>\fn{floor}(x) = 11</m>.
+                Now find a different real number <m>s</m> such that <m>\fn{floor}(s)=11</m>.
+                <solution>
+                  <p>
+                    Note that <m>\fn{floor}(11) = \lfloor 11 \rfloor = 11</m> and so one example is <m>x=11</m>.
+                    Another example is <m>x = 11.38</m> because <m>\fn{floor}(11.38) = \lfloor 11.38 \rfloor = 11</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_floor11">
+              <p>
+                Describe all real numbers <m>x</m> such that <m>\fn{floor}(x)=11</m>.
+                <solution>
+                  <p>
+                    Any real number <m>x</m> that is 11 or larger,
+                    but not as larger as 12 will have <m>\fn{floor}(x)=11</m>.
+                    We can describe these real numbers using the inequality
+                    <m>11 \le x \lt 12</m> or the interval <m>[11,12)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_number_theoretic_functions">
+    <title>\subnumberfn</title>
+    <p>
+      Let's look at examples of functions with rules defined in words that come from number theory <xref ref="ch_number_theory"/>.
+      Here is a first example.
+    </p>
+    <example xml:id="exam_coundiv">
+      <title>Number of divisors</title>
+      <statement>
+        <p>
+          The function <m>\fn{countdiv}: \mathbb{Z}^+ \to \mathbb{Z}^+</m> is defined by
+          <m>\fn{countdiv}(n)=</m> the number of (positive) divisors of <m>n</m>.
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>\fn{countdiv}(4)</m>.
+                <solution>
+                  <p>
+                    The divisors of four are: 1, 2, and 4.
+                    Since there are three divisors,
+                    <m>\fn{countdiv}(4)=3</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find an integer <m>n</m> such that <m>\fn{countdiv}(n) = 4</m>.
+                Is it unique?
+                Explain.
+                <solution>
+                  <p>
+                    The integer six has four divisors: 1, 2, 3, and 6.
+                    Therefore <m>\fn{coundiv}(6)=4</m>.
+                    It is not unique because, for example,
+                    the integer ten also has four divisors: 1, 2, 5, and 10 and so <m>\fn{countdiv}(10)=4</m> as well.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe all integers with <m>\fn{countdiv}(n) = 4</m>.
+                <solution>
+                  <p>
+                    By our work in <xref ref="sub_prime_fact"></xref>,
+                    there are two possible prime factorizations of a number having four positive divisors:
+                    <m>p^3</m> or <m>pq</m> where <m>p</m> and <m>q</m> are distinct primes.
+                    (If we made a divisor table,
+                    it would be <m>1 \times 4</m> or <m>2 \times 2</m>.)
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give a counterexample to the statement:
+                for every positive integer <m>a</m> and <m>b</m>,
+                if <m>a\lt b</m>, then <m>\fn{countdiv}(a) \lt \fn{countdiv}(b)</m>.
+                It follows that the function <m>\fn{countdiv}</m> is not increasing.
+                <solution>
+                  <p>
+                    We want an example that shows the statement is false,
+                    meaning it is a broken promise.
+                    A counterexample is <m>a=6</m> and <m>b=7</m> because <m>6 \lt 7</m> but
+                    <m>\fn{countdiv}(6)=4</m> and <m>\fn{countdiv}(7) = 2</m>,
+                    so <m>\fn{countdiv}(6) \ge \fn{countdiv}(7)</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Practice with number-theoretic functions.
+    </p>
+    <activity xml:id="act_number_functions">
+      <title>Evaluating number-theoretic functions</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              The function <m>\fn{twopart}: \mathbb{N} \to \mathbb{N}</m> defined by
+              <m>\fn{twopart}(n)</m> is the highest power of two that divides <m>n</m>.
+              Note that <m>1 = 2^0</m> is a power of two.
+              Evaluate <m>\fn{twopart}(24)</m>,
+              <m>\fn{twopart}(30)</m>, and <m>\fn{twopart}(31)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>\pi: \mathbb{N} \to \mathbb{N}</m> defined by <m>\pi(n)=</m> the number of primes less than or equal to <m>n</m>.
+              Note that the function <m>\pi</m> has nothing to do with the real number <m>\pi</m>.
+              Evaluate <m>\pi(6)</m> and <m>\pi(20)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_graph_functions">
+    <title>\subfngraphs</title>
+    <p>
+      Let's look at examples of functions with rules defined in words that come from graph theory <xref ref="ch_graph_theory"/>.
+      Here is a first example.
+    </p>
+    <example xml:id="exam_count_vert_deg3">
+      <title>Count vertices of degree three</title>
+      <statement>
+        <p>
+          Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
+          The function <m>\fn{deg3}: \mathbb{G}_{10} \to \mathbb{N}</m> is defined by
+          <m>\fn{deg3}(G) =</m> the number of vertices of <m>G</m> that have degree 3.
+          <ol>
+            <li>
+              <p>
+                Identify the domain and codomain of <m>\fn{deg3}</m>.
+                <solution>
+                  <p>
+                    The domain is <m>\mathbb{G}_{10}</m> and the codomain is <m>\mathbb{N}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{deg3}(K_{3,7})</m> where <m>K_{3,7}</m> is the complete bipartite graph defined in <xref ref="defn_complete_completebipartite"></xref>.
+                <solution>
+                  <p>
+                    The complete bipartite graph <m>K_{3,7}</m> has three (black) vertices of degree seven and seven (white) vertices of degree three,
+                    so <m>\fn{deg3}(K_{3,7})=7</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{deg3}(C_{10})</m> where <m>C_{10}</m> is the cycle defined in <xref ref="defn_complete_completebipartite"></xref>.
+                <solution>
+                  <p>
+                    The cycle <m>C_{10}</m> has ten vertices of degree two and,
+                    therefore,
+                    no vertices of degree three, so <m>\fn{deg3}(C_{10})=0</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{deg3}(W_9)</m> where <m>W_9</m> is the wheel defined in <xref ref="exam_wheel_ladder"></xref>.
+                <solution>
+                  <p>
+                    The wheel <m>W_9</m> has one hub vertex of degree nine and nine outer vertices of degree three,
+                    so <m>\fn{deg3}(W_9)=9</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{deg3}(L_{2 \times 5})</m> where
+                <m>L_{2 \times 5}</m> is the ladder defined in <xref ref="exam_wheel_ladder"></xref>.
+                <solution>
+                  <p>
+                    The ladder <m>L_{2 \times 5}</m> has four corner vertices of degree two and the other <m>10-4=6</m> inner vertices have degree three,
+                    so <m>\fn{deg3}(L_{2 \times 5})=6</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                It turns out we can draw a graph <m>G</m> with ten vertices such that
+                <m>\fn{deg3}(G) = n</m> for <m>n=0,1,2,3,4,5,6,7,8,9</m>,
+                and 10 and so the image of
+                <m>\fn{deg3}</m> is <m>\{0,1,2,3,4,5,6,7,8,9,10\}</m>.
+                Draw a graph <m>G</m> with ten vertices such that <m>\fn{deg3}(G) = 2</m>.
+                (Challenge yourself to draw the others.)
+                <solution>
+                  <p>
+                    One such graph is drawn in <xref ref="fig_two_deg3"></xref>.
+                  </p>
+                  <figure xml:id="fig_two_deg3">
+                    <caption>A graph with exactly two vertices of degree three from <xref ref="exam_count_vert_deg3"></xref>.</caption>
+                    image type not recognized
+                  </figure>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with functions that involve graphs.
+    </p>
+    <activity xml:id="act_graph_theoretic_functions">
+      <title>Graph-theoretic functions</title>
+      <p>
+        Throughout this activity, <m>\mathbb{G}</m> denotes the set of all graphs.
+        <ol>
+          <li>
+            <p>
+              The function <m>\fn{comp}: \mathbb{G} \to \mathbb{G}</m> is defined by <m>\fn{comp}(G)=\overline{G}</m>,
+              the graph theoretic complement of the graph <m>G</m>.
+              Evaluate (draw) <m>\fn{comp}(W_4)</m> for the wheel graph <m>W_4</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>c: \mathbb{G} \to \mathbb{N}</m> is defined by <m>c(G)=</m> the the number of edges in of the longest path in <m>G</m>.
+              Evaluate <m>c(C_5)</m> for the cycle <m>C_5</m> and
+              <m>c(K_{1,4})</m> for the complete bipartite graph (star) <m>K_{1,4}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>\fn{isplanar}: \mathbb{G} \to \{0,1\}</m> is defined by
+              <me>
+                \fn{isplanar}(G) = \left\{ \begin{array}{cl} 0 \amp  \text{ if } G\text{ is planar }  \\ 1 \amp  \text{ if } G\text{ is not planar } \end{array}  \right
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>\fn{isplanar}(C_5)</m> and
+              <m>\fn{isplanar}{K_5}</m> for the cycle <m>C_5</m> and the complete graph <m>K_5</m>.
+              Hint: <m>K_5</m> is not planar.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_bit_string_functions">
+    <title>\subbitstringfunctions</title>
+    <p>
+      Next, let's look at functions defined on bit strings.
+      We defined bit strings, the length of a bit string,
+      and the weight of a bit string in <xref ref="defn_bit_string"></xref>.
+      We start by establishing the notation for the empty string and for sets of bit strings.
+    </p>
+    <definition xml:id="defn_sets_bit_strings">
+      <title>Sets of bit strings</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The symbol<fn>
+                The lowercase Greek letter lambda,
+                denoted <m>\lambda</m>, is similar to the English letter \str{l}.
+                </fn> <m>\lambda</m> represents the
+                <term>empty bit string</term>.
+                It has length and weight 0.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>set of all bit strings</term> is the set
+                <me>
+                  \mathbb{B} = \{ \lambda, \bs{0}, \bs{1}, \bs{00}, \bs{01}, \bs{10}, \bs{11}, \bs{000}, \bs{001}, \bs{010}, \bs{011}, \bs{100}, \bs{101}, \bs{110}, \bs{111}, \bs{0000}, \bs{0001}, \bs{0010}, \bs{0011}, \ldots \}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>set of all non-empty bit strings</term>
+                is the set <m>\mathbb{B}</m> without <m>\lambda</m>, namely
+                <me>
+                  \mathbb{B}^* = \{\bs{0}, \bs{1}, \bs{00}, \bs{01}, \bs{10}, \bs{11}, \bs{000}, \bs{001}, \bs{010}, \bs{011}, \bs{100}, \bs{101}, \bs{110}, \bs{111}, \bs{0000}, \bs{0001}, \bs{0010}, \bs{0011}, \ldots \}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For any non-negative integer <m>n</m>,
+                the set of all bit strings of length <m>n</m> is <m>\mathbb{B}_n</m>.
+                For example, <m>\mathbb{B}_0 = \{\lambda\}</m>,
+                <m>\mathbb{B}_1 = \{\bs{0}, \bs{1}\}</m>,
+                <m>\mathbb{B}_2 = \{\bs{00}, \bs{01}, \bs{10}, \bs{11}\}</m> and
+                <me>
+                  \mathbb{B}_3 = \{\bs{000}, \bs{001}, \bs{010}, \bs{011},\bs{100}, \bs{101}, \bs{110}, \bs{111}\}
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at an example of a function on bit strings.
+    </p>
+    <example xml:id="exam_weight_function_bit_strings">
+      <title>Weight function on bit strings</title>
+      <statement>
+        <p>
+          Consider the function <m>\fn{wgt}: \mathbb{B} \to \mathbb{Z}</m> defined by
+          <m>\fn{wgt}(b) =</m> weight of the bit string <m>b</m>.
+          <ol>
+            <li>
+              <p>
+                What are the domain and codomain of the function <m>\fn{wgt}</m>?
+                <solution>
+                  <p>
+                    The domain is the set of all bit strings, <m>\mathbb{B}</m>,
+                    and the codomain is the set of all integers, <m>\mathbb{Z}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{wgt}(\bs{001})</m>,
+                <m>\fn{wgt}(\bs{1111})</m>, and <m>\fn{wgt}(\lambda)</m>.
+                <solution>
+                  <p>
+                    The weight of a bit string is the number of <c>1</c> s in the bit string.
+                    Since <c>001</c> has one <c>1</c>,
+                    <m>\fn{wgt}(\bs{001})=1</m>.
+                    Since <c>1111</c> has four <c>1</c> s, <m>\fn{wgt}(\bs{1111})=4</m>.
+                    Since <m>\lambda</m> has no <c>1</c> s, <m>\fn{wgt}(\lambda)=0</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_weight0">
+              <p>
+                Describe all bit strings <m>b</m> such that <m>\fn{wgt}(b)=0</m>.
+                <solution>
+                  <p>
+                    For a bit string to have weight 0, it cannot contain any <c>1</c> s.
+                    That is, it must be empty or entirely <c>0</c> s.
+                    We can list such strings as <m>\lambda, \bs{0}, \bs{00}, \bs{000}, \bs{0000}, \ldots</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_weightn">
+              <p>
+                For a positive integer <m>n</m>,
+                describe a bit string <m>b</m> such that <m>\fn{wgt}(b) = n</m>.
+                <solution>
+                  <p>
+                    We are looking for a bit string <m>b</m> that has weight <m>n</m> or,
+                    equivalently, that contains <m>n</m> <c>1</c> s.
+                    The simplest example is
+                    <me>
+                      b = \underbrace{\bs{11}\ldots\bs{1}}_{n}
+                    </me>,
+                    the bit string with <m>n</m> 1s.
+                    Other answers are possible, such as
+                    <me>
+                      b = \bs{0}\underbrace{\bs{11}\ldots\bs{1}}_{n }\bs{0}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the image of the function <m>\fn{wgt}</m>?
+                <solution>
+                  <p>
+                    It is not possible to have a negative weight.
+                    We saw in <xref ref="part_weightn"/> and <xref ref="part_weight0"/> that any non-negative integer is the weight of some bit strings.
+                    Therefore, the image of <c>wgt</c> is <m>\mathbb{N}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to practice with functions on bit strings.
+    </p>
+    <activity xml:id="act_functions_bit_strings">
+      <title>Functions on bit strings</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              The function <m>l:\mathbb{B} \to \mathbb{Z}</m> defined by <m>l(b) =</m> the length of the bit string <m>b</m>.
+              Evaluate <m>l(\bs{0})</m> and <m>l(\bs{1011})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>\fn{lastbit}:\mathbb{B}^* \to \mathbb{B}</m> defined by
+              <m>\fn{lastbit}(b) =</m> the last bit in the bit string <m>b</m>.
+              Evaluate <m>\fn{lastbit}(\bs{0})</m> and <m>\fn{lastbit}(\bs{1011})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>\fn{append}: \mathbb{B}\to \mathbb{B}^*</m> defined by <m>\fn{append}(b)=b\bs{1}</m>,
+              literally the string <m>b</m> with a <c>1</c> added to the right.
+              Evaluate <m>\fn{append}(\bs{0})</m> and <m>\fn{append}(\bs{1011})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>\fn{reverse}:\mathbb{B}\to \mathbb{B}</m> defined by <m>\fn{reverse}(b)=\overleftarrow{b}</m>,
+              where <m>\overleftarrow{b}</m> means the bit string <m>b</m> written in reverse order.
+              Evaluate <m>\fn{reverse}(\bs{0})</m> and <m>\fn{reverse}(\bs{1011})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>f:\mathbb{B}^*\to \mathbb{B}</m> defined by
+              <me>
+                f(b)= \left\{ \begin{array}{ll} b \amp  \text{ if the last bit of the bit string }  b \text{ is }  \bs{0} \\ b \text{ without its last  bit }   \amp  \text{ if the last bit of the bit string }  b \text{ is }  \bs{1} \end{array}  \right
+              </me>.
+              Evaluate <m>f(\bs{0})</m> and <m>f(\bs{1011})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Define a simple-to-describe function
+              <m>g:\mathbb{B}^*\to \mathbb{B}^*</m> such that <m>g(\bs{1011}) = \bs{0100}</m>,
+              <m>g(\bs{110})= \bs{001}</m>,
+              and <m>g(\bs{000011}) = \bs{111100}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Define a simple-to-describe function
+              <m>h:\mathbb{B}^*\to \mathbb{B}^*</m> such that <m>g(\bs{1011}) = \bs{10111}</m>,
+              <m>g(\bs{110})= \bs{1100}</m>,
+              and <m>g(\bs{000011}) = \bs{0000110}</m>.
+              Hint: even.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_floor_ceiling">for</xref> \subfloorceiling</title>
+      <exercise xml:id="exer_floor_ceiling_calculate">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In this exercise, evaluate without using technology.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\lfloor 14.5 \rfloor</m>,
+                  <m>\lfloor 14 \rfloor</m>, and <m>\lfloor -14.5 \rfloor</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\lceil 14.5 \rceil</m>,
+                  <m>\lceil 14 \rceil</m>, and <m>\lceil -14.5 \rceil</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\left\lfloor \frac{7}{3} \right\rfloor</m> and <m>\left\lceil \frac{7}{3} \right\rceil</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_floor_ceiling_order_ops">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In this exercise, evaluate without using technology.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\lfloor 0.7 + 0.5 \rfloor</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\lceil 9.5 \rceil - \lfloor 9.5 \rfloor</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\lfloor \lceil 103.4 \rceil \rfloor</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ceiling_function">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The function <m>\fn{ceil}: \mathbb{R} \to \mathbb{Z}</m> is defined by <m>\fn{ceil}(x) = \lceil x \rceil</m>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of the function <c>ceil</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{ceil}(60.7)</m>,
+                  <m>\fn{ceil}(60)</m>, and <m>\fn{ceil}(61)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a real number <m>x</m> such that <m>\fn{ceil}(x) = 11</m>.
+                  Now find a different real number <m>s</m> such that <m>\fn{ceil}(x)=11</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe all real numbers <m>x</m> such that <m>\fn{ceil}(x)=11</m>.
+                  Answer using an inequality and also using interval notation.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_floor_cex">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            Find a counterexample.
+            <ol>
+              <li>
+                <p>
+                  For any real number <m>x</m>,
+                  we have <m>10 \lceil x \rceil = \lceil 10x \rceil</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any real numbers <m>x</m> and <m>y</m>,
+                  if <m>x > y</m>, then <m>\lfloor x \rfloor > \lfloor y \rfloor</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_floor_sum_ceiling_product">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example of real numbers <m>x</m> and <m>y</m> that are not integers such that <m>\lfloor x +y \rfloor = \lfloor x \rfloor + \lfloor y \rfloor</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to the conjecture that
+                  <m>\lfloor x +y \rfloor = \lfloor x \rfloor + \lfloor y \rfloor</m> for all real numbers <m>x</m> and <m>y</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of real numbers <m>x</m> and <m>y</m> that are not integers such that <m>\lceil xy \rceil = \lceil x \rceil \lceil y \rceil</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to the conjecture that
+                  <m>\lceil xy \rceil = \lceil x \rceil \lceil y \rceil</m> for all real numbers <m>x</m> and <m>y</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_floor_negative">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example of a real number <m>x</m> where
+                  <me>
+                    \lfloor -x \rfloor \neq -\lfloor x \rfloor
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about how
+                  <m>\lfloor -x \rfloor</m> can be simplified to an expression with the negative sign on the outside.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_floor_nover3">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The function <m>h: \mathbb{N} \to \mathbb{N}</m> is defined by <m>h(n) = \left\lfloor \frac{n+1}{3} \right\rfloor</m>.
+            <ol>
+              <li>
+                <p>
+                  Explain why <m>\left\lfloor \frac{n+1}{3} \right\rfloor</m> is always a nonnegative integer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Identify the domain and codomain of the function <m>h</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>h(4)</m>, <m>h(5)</m>, and <m>h(6)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagram for <m>h</m> showing at least <m>n=0,1,2,3,4,5,6</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_floor_ceil">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the symbols <m>\lfloor ~ \rfloor</m> and <m>\lceil ~ \rceil</m> mean?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to build counterexamples involving floor and ceiling?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When to use floor versus ceiling in an applied problem?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_div_mod_formulas">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>20 \fn{ div } 7</m> and <m>20 \fn{ mod } 7</m> by hand.
+                </p>
+              </li>
+              <li xml:id="part_formula_div">
+                <p>
+                  Write a formula for <m>a \fn{ div } n</m> in terms of <m>a</m> and <m>n</m>.
+                  Use <m>\frac{a}{n}</m>, not <m>a \div n</m>, in your formula.
+                  Hint: Your answer should involve floor or ceiling.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your answer to <xref ref="part_formula_div"/> to write a formula for
+                  <m>a \fn{ mod } n</m> in terms of <m>a</m> and <m>n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rounding_off_function">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The function <m>r: \mathbb{R} \to \mathbb{R}</m> is defined by <m>r(x)= \lfloor x + 0.5\rfloor</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>r(2)</m>, <m>r(2.4)</m>,
+                  <m>r(2.6)</m>, and <m>r(2.5)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>r(-1)</m>, <m>r(-1.3)</m>,
+                  <m>r(-1.7)</m>, and <m>r(-2.5)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the effect of the function <m>r</m> in words.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_number_theoretic_functions">for</xref> \subnumberfn</title>
+      <exercise xml:id="exer_number_fn_readnew">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  The function <m>g: \mathbb{N} \to \mathbb{N}</m> is defined by <m>g(n)=</m> the largest integer less than or equal to <m>\sqrt{n}</m>.
+                  Evaluate <m>g(17)</m>, <m>g(30)</m>, and <m>g(9)</m>.
+                  Show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>\fn{fivepart}: \mathbb{N} \to \mathbb{N}</m> is defined by
+                  <m>\fn{fivepart}(n)</m> is the highest power of five that divides <m>n</m>.
+                  Note that <m>1 = 5^0</m> is a power of five.
+                  Evaluate <m>\fn{fivepart}(30)</m>,
+                  <m>\fn{fivepart}(24)</m>, and <m>\fn{fivepart}(75)</m>.
+                  Show work
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>f:\mathbb{Z}^+ \to \mathbb{Z}^+</m> defined by <m>f(n)=</m> the number of distinct positive primes that divide <m>n</m>.
+                  Evaluate <m>f(12)</m>, <m>f(16)</m>,
+                  <m>f(30)</m>, and <m>f(1)</m>.
+                  Show work.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_mult2_mult5">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the function <m>t: \mathbb{Z}^+ \to \mathbb{Z}</m> defined by
+            <me>
+              t(n)= \left\{ \begin{array}{cl} 2 \amp  \text{ if }  2 \mid n \land 5 \mid n \\ 1 \amp  \text{ if }  2 \mid n \oplus 5 \mid n \\ 0 \amp  \text{ if }  2 \nmid n \land 5 \nmid n \end{array}  \right
+            </me>.
+            Recall <m>\land</m> means
+            <q>and</q>
+            whereas <m>\oplus</m> means
+            <q>xor</q>, the exclusive or.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>t(20)</m> and <m>t(6)</m>.
+                  Show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the image of <m>t</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many integers <m>n</m> between 1 and 20 have <m>t(n) = 0</m>?
+                  List them.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_eval_topprime">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the function <m>\fn{gplt}:\mathbb{Z}^+ \to \mathbb{N}</m> defined by
+            <me>
+              \fn{gplt}(n)=\left\{\begin{array}{cl} 0 \amp  \text{ if } n=1 \\ \text{ the largest prime less than or equal to } n \amp  \text{ if }  n \ge 2 \end{array} \right
+            </me>.
+            The <c>gplt</c> stands for
+            <q>greatest prime less than</q>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{gplt}(16)</m>.
+                  Show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a table showing the values of
+                  <m>\fn{gplt}(n)</m> for <m>n=1,2,3,\ldots 20</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagram for the function <m>\fn{gplt}</m> showing
+                  <m>\fn{gplt}(n)</m> for <m>n=1,2,3,\ldots 20</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_countdiv">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="exam_coundiv">In</xref>,
+            we defined the function <m>\fn{countdiv}: \mathbb{Z}^+ \to \mathbb{Z}^+</m> is defined by
+            <m>\fn{countdiv}(n)=</m> the number of (positive) divisors of <m>n</m>.
+            <ol>
+              <li>
+                <p>
+                  Make a table showing the values of
+                  <m>\fn{countdiv}(n)</m> for <m>n = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What's the name for a number <m>n</m> with <m>\fn{countdiv}(n) = 2</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a value of <m>n</m> such that <m>\fn{countdiv}(n) = 5</m>.
+                  Now find another.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you say about <m>n</m> if <m>\fn{countdiv}(n)</m> is odd?
+                  Hint: Lockers Puzzle <xref ref="act_lockers"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_euler_phi_revisited">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Recall from <xref ref="defn_euler_phi_fn"></xref>
+            that Euler's phi function <m>\phi: \mathbb{Z}^+ \to \mathbb{Z}^+</m> is defined by
+            <m>\phi(n)=</m> the number of integers between 1 and <m>n</m> that are coprime to <m>n</m>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <m>\phi</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\phi(12)</m>.
+                  Show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe all integers <m>n</m> such that <m>\phi(n)=n-1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to the conjecture:
+                  for all positive integers <m>a</m> and <m>b</m>,
+                  if <m>a \lt b</m>, then <m>\phi(a) \lt \phi(b)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_odd_numbers_less_than">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The function <m>\fn{oddless}:\mathbb{N} \to \mathbb{N}</m> is defined by
+            <m>\fn{oddless}(n) =</m> the number of positive odd integers less than or equal to <m>n</m>.
+            <ol>
+              <li>
+                <p>
+                  List the positive odd integers less than or equal to five.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{oddless}(5)</m> and <m>\fn{oddless}(6)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagram for the function <m>\fn{oddless}</m> showing
+                  <m>\fn{oddless}(n)</m> for <m>n=0,1,2,3,4,5,6</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write a formula for the rule for <m>\fn{oddless}</m>.
+                  Hint: The floor or ceiling is involved.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_number_functions">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to read definitions of functions involving divisors, primes,
+                  and other number-theoretic quantities?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How <m>\fn{countdiv}(n)</m>, <m>\pi(n)</m>,
+                  and <m>\phi(n)</m> are defined? (These are famous functions.)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prime_counting_function">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Read more about the function the prime counting function <m>\pi</m> defined in <xref ref="act_number_functions"></xref>.
+            For example,
+            see Wikipedia \url{https://en.wikipedia.org/wiki/Prime-counting_function} What does the prime number theorem say?
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_number_digits_revisited">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The function <m>g: \mathbb{Z}^+ \to \mathbb{Z}</m> is defined by <m>g(n) = \lfloor \fn{log}(n) \rfloor + 1</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>g(1000)</m> without using a calculator.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>g(6)</m>, <m>g(67)</m>,
+                  <m>g(678)</m>, and <m>g(6789)</m>.
+                  Use technology
+                  (calculator or Internet search)
+                  to evaluate the necessary logs.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe what <m>g</m> is counting.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_graph_functions">for</xref> \subfngraphs</title>
+      <exercise xml:id="exer_count_leaf_function">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
+            The function <m>\fn{cleaf}: \mathbb{G}_{10} \to \mathbb{N}</m> is defined by
+            <m>\fn{cleaf}(G)</m> is the number of leaves (degree 1 vertices) in the graph <m>G</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{cleaf}(P_{10})</m>,
+                  <m>\fn{cleaf}(K_{1,9})</m>,
+                  and <m>\fn{cleaf}(C_{10})</m> for the path <m>P_{10}</m>,
+                  the complete bipartite graph (star) <m>K_{1,9}</m>,
+                  and the cycle <m>C_{10}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a graph <m>G</m> with ten vertices and <m>\fn{cleaf}(G)=0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a graph <m>G</m> with ten vertices and <m>\fn{cleaf}(G)=5</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_chromatic_number_function">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
+            The function <m>\chi: \mathbb{G}_{10} \to \mathbb{N}</m> is defined by <m>\chi(G)</m> is the chromatic number of the graph <m>G</m>,
+            as defined in <xref ref="defn_chromatic_number"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <m>\chi</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\chi(C_{10})</m> and
+                  <m>\chi(K_{10})</m> for the cycle <m>C_{10}</m> and the complete graph <m>K_{10}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw graph <m>G</m> with ten vertices and <m>\chi(G)=3</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_longest_path_fn">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Let <m>\mathbb{G}</m> denote the set of all graphs.
+            The function <m>c: \mathbb{G} \to \mathbb{N}</m> is defined by <m>c(G)=</m> the number of edges in the longest path in <m>G</m>,
+            as we saw in <xref ref="act_graph_theoretic_functions"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <m>c</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>c(K_{2,3})</m> for the complete bipartite graph <m>K_{2,3}</m>.
+                  Be careful: A path cannot repeat a vertex.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a graph <m>G</m> with <m>c(G)=3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>c(T)</m> where <m>T</m> is the tree in <xref ref="fig_tree_for_fn_exer"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <figure xml:id="fig_tree_for_fn_exer">
+            <caption>The tree <xref ref="exer_longest_path_fn">for</xref> and <xref ref="exer_pruning_tree_function"></xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_max_degree_function">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
+            The function <m>\Delta:\mathbb{G}_{10} \to \mathbb{N}</m> is defined by
+            <m>\Delta(G)</m> is the maximum degree of any vertex in <m>G</m>,
+            as defined in <xref ref="defn_degree"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <m>\Delta</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\Delta(P_{10})</m> and
+                  <m>\Delta(K_{2,5})</m> for the path <m>P_{10}</m> and the complete bipartite graph <m>K_{2,5}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a graph <m>G</m> with ten vertices and <m>\Delta(G)=3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the image of <m>\Delta</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_function_builds_graph">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>\mathbb{G}</m> denote the set of all graphs.
+            The function <m>k: \mathbb{Z}^+ \to \mathbb{G}</m> by <m>k(n) = K_{n,n+1}</m>,
+            the complete bipartite graph.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <m>k</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>k(3)</m> by name and draw your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is there a positive integer <m>n</m> such that <m>k(n)=P_3</m>,
+                  the path?
+                  Explain.
+                  Hint: Be careful.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_girth_fn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>\mathbb{G}</m> denote the set of all graphs.
+            The function <m>g: \mathbb{G} \to \mathbb{N}</m> is defined by <m>g(G) =</m> the number of vertices in the smallest cycle subgraph in <m>G</m>,
+            if <m>G</m> contains any cycles,
+            and 0 if <m>G</m> is acyclic.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>g(K_5)</m> and <m>g(P_5)</m> for the complete graph <m>K_5</m> and the path <m>P_5</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a graph <m>G</m> with <m>g(G) = 4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a graph <m>G</m> with <m>g(G) = 0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_graph_functions">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to read definitions of functions involving degrees,
+                  paths, cycles, and other graph-theoretic quantities?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the names of the standard graphs are from <xref ref="sec_std_graphs"></xref>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_pruning_tree_function">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Let <m>\mathbb{T}</m> denote the set of all trees as defined in <xref ref="defn_tree"></xref>
+            and let <m>\mathbb{T}_3</m> denote the set of all trees with at least three vertices.
+            The function <m>\fn{prune}: \mathbb{T}_3 \to \mathbb{T}</m> is defined by
+            <m>\fn{prune}(T)=</m> the graph we get when we remove all leaves and their corresponding edges from <m>T</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{prune}(P_5)</m> and
+                  <m>\fn{prune}(K_{1,6})</m> where <m>P_5</m> is the path and <m>K_{1,6}</m> is the complete bipartite graph
+                  (star).
+                  You may draw the answer or state its standard name.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{prune}(T)</m> where <m>T</m> is the tree drawn in <xref ref="fig_tree_for_fn_exer"></xref>.
+                  Draw your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the name of a graph where <m>\fn{prune}(T)</m> is a path?
+                  Hint: Answer is in <xref ref="exer_caterpillars"></xref>
+                  from <xref ref="sec_subgraph_isomorphic"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_bit_string_functions">for</xref>
+      \subbitstringfunctions</title>
+      <exercise xml:id="exer_reverse_bit_string">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="act_functions_bit_strings">In</xref>,
+            we evaluated the function <m>\fn{reverse}: \mathbb{B} \to \mathbb{B}</m> defined by <m>\fn{reverse}(b) = \overleftarrow{b}</m> where
+            <m>\overleftarrow{b}</m> means the bit string <m>b</m> written in reverse order.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{reverse}(\bs{001}), \fn{reverse}(\bs{101001})</m>,
+                  and <m>\fn{reverse}(\lambda)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a bit string <m>b</m> such that <m>\fn{reverse}(b) = \bs{1100}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the fixed points of the function <m>\fn{reverse}</m>.
+                  That means, describe all bit strings <m>b</m> such that <m>\fn{reverse}(b) =b</m>.
+                  Hint: There is a name for such strings.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_lastbit_function">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="act_functions_bit_strings">In</xref>,
+            we saw the function <m>\fn{lastbit}:\mathbb{B}^* \to \mathbb{B}</m> defined by
+            <m>\fn{lastbit}(b) =</m> the last bit in the bit string <m>b</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{lastbit}(\bs{0101})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a different bit string <m>b</m> such that <m>\fn{lastbit}(b)=\fn{lastbit}(\bs{0101})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Identify the domain and codomain of the function <m>\fn{lastbit}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the image of the function <m>\fn{lastbit}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a bit string that is in the codomain but not in the image.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_appendbit_function">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="act_functions_bit_strings">In</xref>,
+            we saw the function <m>\fn{append}: \mathbb{B}\to \mathbb{B}^*</m> defined by <m>\fn{append}(b)=b\bs{1}</m>,
+            literally the string <m>b</m> with a <c>1</c> added to the right.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{append}(\bs{0101})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a bit string <m>b</m> such that <m>\fn{append}(b)= \bs{0101}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Identify the domain and codomain of the function <m>\fn{append}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the image of the function <m>\fn{append}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a bit string that is in the codomain but not in the image.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_runzero">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the function <m>\fn{runzero}: \mathbb{B} \to \mathbb{N}</m> defined by
+            <m>\fn{runzero}(b) =</m> the longest number of consecutive <c>0</c> s in the bit string <m>b</m>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of the function <m>\fn{runzero}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{runzero}(\bs{10100010011})</m>,
+                  <m>\fn{runzero}(\bs{0010})</m> and <m>\fn{runzero}(\bs{11111})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List all bit strings of length 6 with <m>\fn{runzero}(b) = 4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Given a natural number <m>n</m>,
+                  describe a general bit string <m>b</m> such that <m>\fn{runzero}(b) = n</m>.
+                  Your answer should involve <m>n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_function_builds_bit_string">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the function <m>h: \mathbb{N} \to \mathbb{B}</m> by <m>f(n)=</m> the bit string consisting of <m>n</m> <c>0</c> s followed by <m>n</m> <c>1</c> s.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of the function <m>h</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>h(3)</m>, <m>h(2)</m> and <m>h(0)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a bit string <m>b</m> for which there is no value of <m>n</m> such that <m>f(n)=b</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_piecewise_bit_strings">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            The function <m>h: \mathbb{B}^* \to \mathbb{B}</m> defined by
+            <me>
+              h(b) =  \left\{ \begin{array}{cl} b \amp   \text{ if the last bit of the bit string }  b \text{ is \bs{0}}  \\ b \text{ without its last bit }  \amp   \text{ if the last bit of the bit string }  b \text{ is \bs{1}} \end{array}  \right
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>h(\bs{1011})</m> and <m>h(\bs{1010})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find two different bit strings,
+                  <m>b</m> and <m>c</m>, such that <m>h(b) = h(c)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For a bit string <m>c</m>,
+                  describe a bit string <m>b</m> such that <m>h(b) = c</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_functions_strings">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For this problem,
+            let <m>\mathbb{A}</m> be the set of all strings of uppercase letters <m>\str{A}-\str{Z}</m>,
+            including the empty string <m>\lambda</m>,
+            and let <m>\mathbb{A}^*</m> be the set of all nonempty strings of uppercase letters <m>\str{A}-\str{Z}</m>.
+            <ol>
+              <li>
+                <p>
+                  Define <m>\fn{trim}:\mathbb{A}^* \to \mathbb{A}</m> by
+                  <m>\fn{trim}(s) =</m> the string <m>s</m> without its first character.
+                  Identify the domain and codomain of <m>\fn{trim}</m> and evaluate
+                  <m>\fn{trim}(\str{HAIR})</m> and <m>\fn{trim}(\str{X})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Define <m>\fn{countE}:\mathbb{A}^* \to \mathbb{Z}</m> by
+                  <m>\fn{countE}(s) =</m> the number of occurrences of <c>E</c> in the string <m>s</m>.
+                  Identify the domain and codomain of
+                  <m>\fn{countE}</m> and evaluate <m>\fn{countE}(\str{STEEP})</m>,
+                  <m>\fn{countE}(\str{STEP})</m>,
+                  and <m>\fn{countE}(\str{STOP})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Define <m>\fn{isE}:\mathbb{A}^* \to \{\text{ yes } , \text{ no } \}</m> by
+                  <me>
+                    \fn{isE}(s) = \left\{ \begin{array}{cl} \text{ yes }  \amp  \text{ if \str{E} is in }  s \\ \text{ no }  \amp  \text{ if \str{E} is not in }  s \end{array} \right
+                  </me>.
+                  Identify the domain and codomain of <m>\fn{isE}</m> and evaluate
+                  <m>\fn{isE}(\str{STEEP})</m> and <m>\fn{isE}(\str{DOG})</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_bs_fn">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to read definitions of functions involving bit strings and other strings?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the symbol <m>\lambda</m> represents in the context of (bit) strings?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to calculate the length and weight of a bit string?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate functions on bit strings?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_finding_rules">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Define a simple-to-describe function
+                  <m>f:\mathbb{B}^*\to \mathbb{B}^*</m> such that <m>f(\bs{1011}) = \bs{10111}</m>,
+                  <m>f(\bs{110})= \bs{1100}</m>,
+                  and <m>f(\bs{000011}) = \bs{0000111}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Define a simple-to-describe function
+                  <m>g:\mathbb{B}\to \mathbb{B}</m> such that <m>g(\bs{1011}) = 111</m>,
+                  <m>g(\bs{110})= 11</m>, and <m>g(\bs{0000}) = \lambda</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Define a simple-to-describe function
+                  <m>h:\mathbb{B}^*\to \mathbb{Z}</m> such that <m>h(\bs{1011}) = 2</m>,
+                  <m>h(\bs{110})= 1</m>, and <m>h(\bs{000011}) = -2</m>.
+                  Hint: count <m>\bs{0}</m>s and <m>\bs{1}</m>s.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_floor_ceiling_calculate"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            14, 14, -15
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Now round up
+            (to the right on the number line).
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\frac{7}{3} = 2.\overline{3}</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ceiling_function"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            The domain is <m>\mathbb{R}</m> and the codomain is <m>\mathbb{Z}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: They are not all the same answer.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You can use <m>x=11</m> but then you need a different second example.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The interval is <m>(11,12]</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_floor_sum_ceiling_product"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Make sure the decimal parts of <m>x</m> and <m>y</m> do not add up to more than 1.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: A counterexample should have <m>\lfloor x+y \rfloor \neq \lfloor x \rfloor + \lfloor y \rfloor</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One possible example is <m>x = 2.9</m> and <m>y = 2.9</m>.
+            Either use a different example or show how to check that this example works.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: A counterexample should have <m>\lceil xy \rceil \neq \lceil x \rceil \lceil y \rceil</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_floor_nover3"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The floor function always produces an integer.
+            Explain why it is greater than or equal to zero.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: They are the same set.
+          </p>
+        </li>
+        <li>
+          <p>
+            1, 2, 2
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure your domain and codomain are correct.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rounding_off_function"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>r(2.4)=2</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>r(-1.3) = -1</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Summarize the effect of the function <m>r</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_number_fn_readnew"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>g(17) = 4</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\fn{fivepart}(30)=5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>f(12) = 2</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_topprime"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\fn{gplt}(16)=13</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The entries in the second row of your table should all be primes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure the domain and codomain are correct.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_countdiv"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The numbers in the second row of the table should include one 1, four 2s, two 3s, and three 4s.
+          </p>
+        </li>
+        <li>
+          <p>
+            It is prime.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One example is 16.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Typically divisors come in pairs so <m>\fn{countdiv}(n)</m> is usually even.
+            If it is odd, then some divisor must be paired with itself.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fn_euler_phi_revisited"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: They are the same set.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\phi(12) = 4</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The only integer smaller than <m>n</m> that divides <m>n</m> is 1.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try using a prime for <m>b</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_odd_numbers_less_than"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are three positive odd integers less than or equal to five.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\fn{oddless}(5)=3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Include appropriate <ellipsis/> in your dot diagram.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: For inspiration,
+            look at the function in <xref ref="exer_floor_nover3"></xref>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_count_leaf_function"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\fn{cleaf}(P_{10})=2</m> and <m>\fn{cleaf}(K_{1,9})=9</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try a cycle.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try a tree or a robot, as we saw in <xref ref="act_robots"></xref>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_chromatic_number_function"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            The domain is <m>\mathbb{G}_{10}</m> and the codomain is <m>\mathbb{N}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Alternate colors around the cycle.
+            In the complete graph, every vertex needs to be its own color.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Include at least one 3-cycle in your graph,
+            but be careful that you do not have any <m>K_4</m> subgraphs.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_max_degree_function"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: They are not the same set.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The degree sequence of <m>P_{10}</m> is
+            <m>2, 2, 1, 1, 1, 1, 1, 1, 1, 1</m> and the degree sequence of <m>K{2,5}</m> is <m>5,5,2,2,2,2,2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One possible example is a wheel.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: In a group of ten people,
+            what is the maximum number of handshakes each person would do (if only shaking hands with someone else once)?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_function_builds_graph"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: They are not the same set.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is <m>K_{3,4}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Yes.
+            Think about alternative ways to draw <m>P_3</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_reverse_bit_string"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\fn{reverse}(\bs{001})=\bs{100}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There is only one correct answer.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The same name is used for words that read the same forward and backwards.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_lastbit_function"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <c>1</c>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: They are not the same set.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is a finite set.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use a bit string of length two.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_appendbit_function"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <c>01011</c>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There is only one correct answer.
+          </p>
+        </li>
+        <li>
+          <p>
+            The domain is <m>\mathbb{B}</m> and the codomain is <m>\mathbb{B}^*</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: No bit string in the image ends in <m>\bs{0}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Any bit string that ends in <m>\bs{0}</m> works.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_runzero"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: They are different sets.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\fn{runzero}(\bs{10100010011})=3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are exactly five such bit strings.
+            Make sure you are not including bit strings with longer runs of zeros.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look <xref ref="exam_weight_function_bit_strings">at</xref>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_piecewise_bit_strings"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>h(\bs{1011})=\bs{101}</m>,
+            <m>h(\bs{1010})=\bs{1010}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try an example where <m>b</m> ends in <c>0</c> and <m>c</m> ends in <c>1</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your answer needs to work for all bit strings <m>c</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

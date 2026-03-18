@@ -1,0 +1,179 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="ch_epilogue">
+  <title>Epilogue: Hotel Infinity</title>
+  <p>
+    \subsection{\subhotelinf} We end this textbook as we began it,
+    with a puzzle.
+  </p>
+  <activity xml:id="act_hotel">
+    <title>Hotel Infinity Puzzle</title>
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            Watch Hotel Infinity, Part One at \url{https://tinyurl.com/infhotel1}<fn>
+            videos on Hotel Infinity by mathematician Tova Brown posted to YouTube\texttrademark.
+            </fn>.
+            Pause at the end of Part One.
+            Hotel Infinity is full one new guest arrives, the President of Space.
+            How do you find a room for her? (Watch video for rules.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Watch Hotel Infinity, Part Two at \url{https://tinyurl.com/infhotel2}. Pause at the end of Part Two.
+            Hotel Infinity is full when a bus load of infinitely many football players shows up.
+            How do you find rooms for them?
+          </p>
+        </li>
+        <li>
+          <p>
+            Watch Hotel Infinity, Part Three at \url{https://tinyurl.com/infhotel3}. Pause at the end of Part Three.
+            Hotel Infinity is empty when an infinite number of busses,
+            each with infinitely many football players show up.
+            How do you find rooms for them?
+          </p>
+        </li>
+        <li>
+          <p>
+            Watch Hotel Infinity, Part Four at \url{https://tinyurl.com/infhotel4}. Pause at the end of Part Four.
+            Hotel Infinity is empty when Visitors arrive
+            (in a blob).
+            How do you find rooms for them?
+          </p>
+        </li>
+        <li>
+          <p>
+            Watch Hotel Infinity, Part Five at \url{https://tinyurl.com/infhotel5}. Pause at the end of Part Five.
+            Why is it impossible to fit all the Visitors in Hotel Infinity?
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+  <p>
+    \subsection{\subdefndiscrete} We can formalize our findings about Hotel Infinity by defining what it means for (infinite) sets to be the same size.
+  </p>
+  <definition xml:id="defn_countable">
+    <title>Countable and Uncountable Sets</title>
+    <statement>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Sets <m>S</m> and <m>T</m> <term>are the same size set (have the same cardinality)</term>
+              if there exists a pairing between <m>S</m> and <m>T</m>,
+              as defined in <xref ref="defn_pairing"></xref>.
+              Equivalently,
+              if there exists a function <m>f:S \to T</m> that is a bijection
+              (onto and one-to-one).
+              For example, <m>\{0,1,2,3\}</m> is the same size as
+              <m>\{5,6,7,8\}</m> because we have the pairing <m>0 \leftrightarrow 5, 1 \leftrightarrow 6, 2 \leftrightarrow 7</m>,
+              <m>3 \leftrightarrow 8</m> or,
+              equivalently the function <m>f:\{0,1,2,3\} \to \{5,6,7,8\}</m> defined by
+              <m>f(n)=n+5</m> is onto and one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              A set <m>T</m> is <term>countable</term>
+              if it is the same size as the natural numbers <m>\mathbb{N}</m>.
+              That is, if there is a bijection
+              <m>f:\mathbb{N} \to T</m> that is onto and one-to-one.
+              For example,
+              <m>T = \{n \in \mathbb{Z} \mid n \ge 5\} = \{5,6,7,8, \ldots\}</m> is countable because <m>f:\mathbb{N} \to T</m> defined by
+              <m>f(n)=n+5</m> is onto and one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              A set <m>T</m> is <term>uncountable</term> if it is not countable.
+              For example,
+              the interval <m>[0,1] = \{x \in \mathbb{R} \mid 0 \le x \le 1\}</m> is uncountable,
+              as shown in the video Hotel Infinity, Part Five.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    There are several equivalent characterizations of countable.
+  </p>
+  <remark xml:id="rem_alt_defn_countable">
+    <title>Alternative characterizations of countable</title>
+    <p>
+      The following statements are equivalent.
+      <ol>
+        <li>
+          <p>
+            The set <m>T</m> is countable.
+            (There is a bijection <m>f: \mathbb{N} \to T</m>.)
+          </p>
+        </li>
+        <li>
+          <p>
+            The set <m>T</m> fits into and fills Hotel Infinity.
+          </p>
+        </li>
+        <li xml:id="part_seq_countable">
+          <p>
+            There is a sequence that lists each element of <m>T</m> exactly once.
+            (Recall that a function with domain
+            <m>\mathbb{N}</m> is a sequence starting at 0.)
+          </p>
+        </li>
+      </ol>
+    </p>
+  </remark>
+  <p>
+    Let's show that the integers are countable <xref ref="rem_alt_defn_countable">using</xref>
+    <xref ref="part_seq_countable"/>.
+  </p>
+  <example xml:id="exam_integers_countable">
+    <title>The integers are countable</title>
+    <statement>
+      <p>
+        Show that the integers are countable by finding a sequence that lists each integer exactly once.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Consider the sequence
+        <me>
+          0,1,-1,2,-2,3,-3,4,-4, \ldots
+        </me>.
+        The pattern defining this sequence should be clear but we can write a rule for fun.
+        For <m>n \ge 0</m>, define
+        <me>
+          a_n = \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n=0 \vspace{.05in}\\ \frac{n+1}{2} \amp  \text{ if }  n\text{ is odd }  \vspace{.05in}\\ ^-\frac{n}{2} \amp  \text{ if }  n\text{ is even } \end{array} \right
+        </me>
+      </p>
+    </solution>
+  </example>
+  <p>
+    We are now ready to define the topic of this course.
+  </p>
+  <definition xml:id="defn_discrete">
+    <title>Discrete</title>
+    <statement>
+      <p>
+        A set is <term>discrete</term> if it is finite or countable.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    I think I'll stop here.<fn>
+    <q>I think I'll stop here,</q>
+    This is how,
+    on 23rd of June 1993, Andrew Wiles ended his series of lectures at the Isaac Newton Institute in Cambridge.
+    The applause, so witnesses report,
+    was thunderous: Wiles had just delivered a proof of a result that had haunted mathematicians for over 350 years: Fermat's last theorem.
+    Source: \url{https://wild.maths.org/andrew-wiles-and-fermats-last-theorem}
+    </fn>
+  </p>
+  <p>
+    \end{document}
+  </p>
+</chapter>

@@ -1,0 +1,1841 @@
+<section xml:id="sec_inference">
+  <title>Excursion: Equivalence and Inference</title>
+  <introduction>
+    <p>
+      Logical equivalences such as Demorgan's laws <xref ref="thm_demorgans"/> and the broken promise <xref ref="thm_broken_promise"/> help us negate statements,
+      which is useful for constructing counterexamples to false statements,
+      for writing proofs by contradiction,
+      and for stating the contrapositive.
+      The contrapositive equivalence <xref ref="thm_cp"/> and implication equivalence <xref ref="thm_implication"/> gave us new proof formats for proving conditionals and
+      <q>or</q>
+      statements, respectively.
+      Logical equivalences can also help simplify complicated compound statements,
+      which has applications to computer science.
+      In this section,
+      we return to discuss logical equivalences in more detail and also introduce logical inference.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_logical_equiv">
+    <title>\subequiv</title>
+    <p>
+      In this section,
+      we look at a long list of logical equivalences and see how to derive new logical equivalences from this list.
+      We begin by introducing some new logical equivalences involving negations,
+      tautologies, and contradictions.
+    </p>
+    <theorem xml:id="thm_obvious_logical_equivalences">
+      <title>Equivalences involving negations, tautologies, and contradictions</title>
+      <statement>
+        <p>
+          For any logical statement <m>P</m>,
+          tautology <c>T</c>,
+          and contradiction <c>F</c>,
+          we have the following logical equivalences.
+          <ol>
+            <li xml:id="part_equiv_idem">
+              <p>
+                <term>Idempotent</term><fn>
+                The word
+                <q>idempotent</q>
+                comes from the roots
+                <q>idem</q>
+                meaning self
+                (as in the word
+                <q>identity</q>
+                )
+                and
+                <q>potent</q>
+                meaning power
+                (in the normal English sense, as in
+                <q>omnipotent</q>
+                )
+                but used in mathematics to mean raised to an exponent.
+                The word
+                <q>idempotent</q>
+                means the object equals its own power.
+                </fn>
+                <me>
+                  P \land P \equiv P\text{ and } P \lor P \equiv P
+                </me>.
+              </p>
+            </li>
+            <li xml:id="part_equiv_id">
+              <p>
+                <term>Identity</term>
+                <me>
+                  P \land \str{T} \equiv P\text{ and } P \lor \str{F} \equiv P
+                </me>.
+              </p>
+            </li>
+            <li xml:id="part_equiv_dom">
+              <p>
+                <term>Domination</term>
+                <me>
+                  P \lor \str{T} \equiv \str{T}\text{ and } P \land \str{F}  \equiv \str{F}
+                </me>.
+              </p>
+            </li>
+            <li xml:id="part_equiv_neg">
+              <p>
+                <term>Negation</term>
+                <me>
+                  P \lor \neg P \equiv \str{T}\text{ and } P \land \neg P \equiv \str{F}
+                </me>.
+              </p>
+            </li>
+            <li xml:id="part_equiv_doubleneg">
+              <p>
+                <term>Double negation</term>
+                <me>
+                  \neg (\neg P) \equiv P
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      These logical equivalences can be confirmed using a truth table,
+      but they should also make sense.
+      Let's look closely at a couple of these equivalences.
+    </p>
+    <example xml:id="exam_understand_equiv_negTF">
+      <title>Understanding logical equivalences: negation, tautology, and contradiction</title>
+      <statement>
+        <p>
+          For each equivalence from <xref ref="thm_obvious_logical_equivalences"></xref>,
+          explain words why it is true.
+          Recall that by <xref ref="defn_logical_equiv"></xref>
+          that two statements are logical equivalent if they have the same truth values and so we can check if one statement is true,
+          then so is the other and if one statement is false, then so is the other.
+          <ol>
+            <li>
+              <p>
+                <m>P \lor P \equiv P</m>
+                <solution>
+                  <p>
+                    If <m>P \lor P</m> is true, then either <m>P</m> is true or <m>P</m> is true.
+                    In either case, <m>P</m> is true.
+                    If <m>P \lor P</m> is false, then <m>P</m> is false and <m>P</m> is false.
+                    (We used Demorgan's laws, <xref ref="thm_demorgans"></xref> to negate the
+                    <q>or</q>.)
+                    In either case <m>P</m> is false.
+                    Thus, <m>P \lor P \equiv P</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\neg (\neg P) \equiv P</m>
+                <solution>
+                  <p>
+                    If <m>\neg (\neg P)</m> is true,
+                    then by definition of negation <xref ref="defn_negation_tautology_contradiction"/> <m>\neg P</m> is false and so <m>P</m> is true.
+                    If <m>\neg (\neg P)</m> is false,
+                    then by definition of negation <xref ref="defn_negation_tautology_contradiction"/> <m>\neg P</m> is true and so <m>P</m> is false.
+                    Thus, <m>\neg (\neg P) \equiv P</m>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>P \land \str{F} \equiv \str{F}</m>
+                <solution>
+                  <p>
+                    For the statement <m>P \land \str{F}</m> to be true,
+                    we would need both <m>P</m> and <m>\str{F}</m> to be true.
+                    But <m>\str{F}</m> is a contradiction so it is always false.
+                    Therefore <m>P \land \str{F}</m> is also always false.
+                    That is, <m>P \land \str{F} \equiv \str{F}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The equivalence in <xref ref="defn_logical_equiv"></xref>
+      <xref ref="part_equiv_distributive"/>, for example,
+      is one of several equivalences that have names that may be familiar since we used the same names in integer algebra <xref ref="defn_integer_algebra_order_operations"/>.
+    </p>
+    <theorem xml:id="thm_logical_equiv_comm_assoc_dist">
+      <title>Commutative, associative, and distributive equivalences</title>
+      <statement>
+        <p>
+          For any logical statements <m>P</m>, <m>Q</m>,
+          and <m>R</m>, we have the following logical equivalences.
+          <ol>
+            <li xml:id="part_equiv_comm">
+              <p>
+                <term>Commutative property</term>
+                <me>
+                  P \land Q \equiv Q \land P
+                </me>
+                <me>
+                  P \lor Q \equiv Q \lor P
+                </me>
+              </p>
+            </li>
+            <li xml:id="part_equiv_assoc">
+              <p>
+                <term>Associative property</term>
+                <me>
+                  P \land (Q \land R) \equiv (P \land Q) \land R
+                </me>
+                <me>
+                  P \lor (Q \lor R) \equiv (P \lor Q) \lor R
+                </me>
+              </p>
+            </li>
+            <li xml:id="part_equiv_dist">
+              <p>
+                <term>Distributive property</term>
+                <me>
+                  P \land (Q \lor R) \equiv (P \land Q) \lor (P \land R)
+                </me>
+                <me>
+                  P \lor (Q \land R) \equiv (P \lor Q) \land (P \lor R)
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Each of the statements in <xref ref="thm_logical_equiv_comm_assoc_dist"></xref>
+      can be confirmed using a truth table.
+    </p>
+    <p>
+      For reference,
+      we repeat the implication and contraposition logical equivalences here.
+    </p>
+    <theorem xml:id="thm_equiv_implication_cp__again">
+      <title>Implication and contraposition equivalences, revisited</title>
+      <statement>
+        <p>
+          For statements <m>P</m>,
+          <m>Q</m>, and <m>R</m>, we have the following equivalences.
+          <ol>
+            <li xml:id="part_equiv_impl">
+              <p>
+                <term>Implication</term> <xref ref="thm_implication"/>
+                <me>
+                  P \to Q \equiv \neg P \lor Q
+                </me>
+                <me>
+                  R \lor Q \equiv \neg R \to Q
+                </me>
+              </p>
+            </li>
+            <li xml:id="part_equiv_cp">
+              <p>
+                <term>Contraposition</term> <xref ref="thm_cp"/>
+                <me>
+                  (P \to Q) \equiv (\neg Q \to \neg P)
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We also repeat the equivalences that help us negate compound statements.
+    </p>
+    <theorem xml:id="thm_equiv_neg_and_or_ifthen">
+      <title>Negating compound statements, revisited</title>
+      <statement>
+        <p>
+          For statements <m>P</m> and <m>Q</m>,
+          we have the following equivalences.
+          <ol>
+            <li>
+              <p>
+                <term>DeMorgan's laws</term>  <xref ref="thm_demorgans"/>
+                <me>
+                  \neg(P \land Q) \equiv \neg P \lor \neg Q
+                </me>
+                <me>
+                  \neg(P \lor Q) \equiv \neg P \land \neg Q
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Broken promise</term> <xref ref="thm_broken_promise"/>
+                <me>
+                  \neg(P \to Q) \equiv P \land \neg Q
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We can use this long list of equivalences to prove new equivalences.
+    </p>
+    <activity xml:id="act_proof_logical_equiv">
+      <title>Proofs of Logical Equivalences</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_fillinblankproof_cpequiv">
+            <p>
+              Many lists of equivalences omit contraposition because it can be proved from the other equivalences.
+              Fill in the missing equivalences in <xref ref="tab_fillinblankproof_cpequiv"></xref> to prove contraposition.
+              <table xml:id="tab_fillinblankproof_cpequiv">
+                <title>Fill in the blanks to prove the contraposition equivalence <xref ref="act_proof_logical_equiv">for</xref> <xref ref="part_fillinblankproof_cpequiv"/></title>
+                <tabular>
+                  <row>
+                    <cell><em>Proof:</em></cell>
+                    <cell><m>P \to Q</m></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>\neg P \lor Q</m></cell>
+                    <cell><nbsp/>\hspace{.25in}<nbsp/></cell>
+                    <cell>using <em>\hspace{1in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>Q \lor \neg P</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{1in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>\neg (\neg Q) \lor \neg P</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{1in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>\neg Q \to \neg P</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{1in}</em> <nbsp/> <nbsp/><m>\Box</m></cell>
+                  </row>
+                </tabular>
+              </table>
+            </p>
+          </li>
+          <li xml:id="part_fillinblanksproof_ifthenand">
+            <p>
+              Fill in the missing steps of the proof in <xref ref="tab_fillinblanksproof_ifthenand"></xref> using the equivalences given.
+              What new equivalence did we just prove?
+              <table xml:id="tab_fillinblanksproof_ifthenand">
+                <title>Fill in the blanks to expand <m>P \to (Q \land R)</m> <xref ref="act_proof_logical_equiv">for</xref> <xref ref="part_fillinblanksproof_ifthenand"/></title>
+                <tabular>
+                  <row>
+                    <cell><em>Proof:</em></cell>
+                    <cell><m>P \to (Q \land R)</m></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><em>\hspace{1in}</em></cell>
+                    <cell><nbsp/>\hspace{.25in}<nbsp/></cell>
+                    <cell>using implication</cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><em>\hspace{1in}</em></cell>
+                    <cell></cell>
+                    <cell>using the distributive property</cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><em>\hspace{1in}</em></cell>
+                    <cell></cell>
+                    <cell>using implication (twice) <nbsp/> <nbsp/><m>\Box</m></cell>
+                  </row>
+                </tabular>
+              </table>
+            </p>
+          </li>
+          <li xml:id="part_proof_mp_using_equiv">
+            <p>
+              Fill in the missing equivalences in <xref ref="table_equiv_proof_mp"></xref>
+              to prove <m>((P \land (P \to Q)) \to Q) \equiv \str{T}</m>.
+              This tautology that shows that <em>modus ponens</em>
+              (which we will see in <xref ref="thm_logical_infer"></xref>
+              <xref ref="part_thm_infer_mp"/> is valid.
+              <table xml:id="table_equiv_proof_mp">
+                <title>Using equivalences to prove <em>modus ponens</em> is valid <xref ref="act_proof_logical_equiv">for</xref> <xref ref="part_proof_mp_using_equiv"/></title>
+                <tabular>
+                  <row>
+                    <cell><em>Proof:</em></cell>
+                    <cell><m>(P \land (P \to Q)) \to Q</m></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>(P \land (\neg P \lor Q)) \to Q</m></cell>
+                    <cell><nbsp/>\hspace{.25in}<nbsp/></cell>
+                    <cell>using <em>\hspace{.75in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>((P \land \neg P) \lor (P \land Q)) \to Q</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{.75in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>(\str{F} \lor (P \land Q)) \to Q</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{.75in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>(P \land Q) \to Q</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{.75in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>\neg(P \land Q) \lor Q</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{.75in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>(\neg P \lor \neg Q) \lor Q</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{.75in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>\neg P \lor (\neg Q \lor Q)</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{.75in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>\neg P \lor \str{T}</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{.75in}</em></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell><m>\equiv</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell></cell>
+                    <cell>using <em>\hspace{.75in}</em> <nbsp/> <nbsp/><m>\Box</m></cell>
+                  </row>
+                </tabular>
+              </table>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Make sure to <xref ref="act_proof_logical_equiv">complete</xref>
+      because we are about to reveal some of the answers.
+    </p>
+    <example xml:id="exam_proof_logical_equiv">
+      <title>Proofs of Logical Equivalences</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_fillinblankproof_cpequiv_answers">
+              <p>
+                Many lists of equivalences omit contraposition because it can be proved from the other equivalences.
+                Fill in the missing equivalences in <xref ref="tab_fillinblankproof_cpequiv"></xref> to prove contraposition.
+                <solution>
+                  <p>
+                    <xref ref="tab_fillinblankproof_cpequiv_answers">See</xref>.
+                  </p>
+                </solution>
+                <table xml:id="tab_fillinblankproof_cpequiv_answers">
+                  <title>Using equivalences to prove the contraposition equivalence <xref ref="exam_proof_logical_equiv">for</xref> <xref ref="part_fillinblankproof_cpequiv_answers"/></title>
+                  <tabular>
+                    <row>
+                      <cell><em>Proof:</em></cell>
+                      <cell><m>P \to Q</m></cell>
+                      <cell><m>\equiv</m></cell>
+                      <cell><m>\neg P \lor Q</m></cell>
+                      <cell><nbsp/>\hspace{.25in}<nbsp/></cell>
+                      <cell>using implication</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell><m>\equiv</m></cell>
+                      <cell><m>Q \lor \neg P</m></cell>
+                      <cell></cell>
+                      <cell>using the commutative property</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell><m>\equiv</m></cell>
+                      <cell><m>\neg (\neg Q) \lor \neg P</m></cell>
+                      <cell></cell>
+                      <cell>using double negation</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell><m>\equiv</m></cell>
+                      <cell><m>\neg Q \to \neg P</m></cell>
+                      <cell></cell>
+                      <cell>using implication <nbsp/> <nbsp/><m>\Box</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_fillinblanksproof_ifthenand_equiv">
+              <p>
+                Fill in the missing steps of the proof in <xref ref="tab_fillinblanksproof_ifthenand"></xref> using the equivalences given.
+                What new equivalence did we just prove?
+                <solution>
+                  <p>
+                    <xref ref="tab_fillinblanksproof_ifthenand_answers">See</xref>.
+                    We just proved a new equivalence:
+                    <me>
+                      P \to (Q \land R) \equiv (P \to Q) \land (P \to R)
+                    </me>
+                  </p>
+                </solution>
+                <table xml:id="tab_fillinblanksproof_ifthenand_answers">
+                  <title>Using equivalences to expand mathinlined4ce7bb95e50f26575f4d123af009e967f8d654<xref ref="exam_proof_logical_equiv">fENDfor</xref> <xref ref="part_fillinblanksproof_ifthenand"/></title>
+                  <tabular>
+                    <row>
+                      <cell><em>Proof.</em></cell>
+                      <cell><m>P \to (Q \land R)</m></cell>
+                      <cell><m>\equiv</m></cell>
+                      <cell><m>\neg P \lor (Q \land R)</m></cell>
+                      <cell><nbsp/>\hspace{.25in}<nbsp/></cell>
+                      <cell>using implication</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell><m>\equiv</m></cell>
+                      <cell><m>(\neg P \lor Q) \land (\neg P \lor R)</m></cell>
+                      <cell></cell>
+                      <cell>using the distributive property</cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell><m>\equiv</m></cell>
+                      <cell><m>(P \to Q) \land (P \to R)</m></cell>
+                      <cell></cell>
+                      <cell>using implication (twice) <nbsp/>  <nbsp/><m>\Box</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_simplify_neg">
+    <title>\subneg</title>
+    <p>
+      We can use logical equivalences to simplify the negation of a statement.
+    </p>
+    <example xml:id="exam_neg_complicated">
+      <title>Negating a complicated statement</title>
+      <statement>
+        <p>
+          Negate the statement
+          <me>
+            (P \lor R) \land (Q \lor\neg R)
+          </me>
+          and simplify your negation so that there are no negation signs in front of parentheses.
+          State which equivalences you use.
+        </p>
+        <solution>
+          <p>
+            We simplify the negation in <xref ref="tab_neg_complicated"></xref>.
+          </p>
+        </solution>
+        <table xml:id="tab_neg_complicated">
+          <title>Using equivalences to negate the complicated statement from <xref ref="exam_neg_complicated"></xref></title>
+          <tabular>
+            <row>
+              <cell><m>\neg ((P \lor R) \land (Q \lor \neg R))</m></cell>
+              <cell><m>\equiv</m></cell>
+              <cell><m>\neg (P \lor R) \lor \neg (Q \lor \neg R)</m></cell>
+              <cell></cell>
+              <cell>using De Morgan's laws</cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>\equiv</m></cell>
+              <cell><m>(\neg P \land \neg R) \lor (\neg Q \land \neg (\neg R))</m></cell>
+              <cell></cell>
+              <cell>using De Morgan's laws (twice)</cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>\equiv</m></cell>
+              <cell><m>(\neg P \lor \neg R) \land (\neg Q \lor R)</m></cell>
+              <cell></cell>
+              <cell>using double negation.</cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </example>
+    <activity xml:id="act_simplify_complicated_statements">
+      <title>Simplifying complicated statements</title>
+      <p>
+        Negate each statement and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses.
+        State which equivalences you use.
+        <ol>
+          <li>
+            <p>
+              <m>P \lor \neg Q</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\neg P \to Q</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>P \land (Q \to R)</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_proof_inf">
+    <title>\subinference</title>
+    <p>
+      The primary tool that drives our explanations in proofs are logical inferences.
+    </p>
+    <definition xml:id="defn_logical_infer">
+      <title>Logical Inferences</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_defn_infer">
+              <p>
+                For statements <m>S</m> and statement <m>C</m>,
+                a <term>logical inference</term>, denoted
+                <me>
+                  S \implies C
+                </me>,
+                is a rule saying if we know that statement <m>S</m> is true,
+                then we can conclude that statement <m>C</m> is also true.
+                For example,
+                in <xref ref="exam_truthtable_compound_conditionals"></xref>
+                <xref ref="part_truthtable_simplification"/> we proved that <m>(P \land Q) \to P</m> is a tautology.
+                Therefore, if we know that <m>S=P \land Q</m> is true,
+                we can conclude that <m>C=P</m> is true.
+                We write
+                <me>
+                  P \land Q \implies P
+                </me>.
+                (This inference <xref ref="thm_logical_infer">is</xref>
+                <xref ref="part_thm_infer_simp"/>.)
+              </p>
+            </li>
+            <li>
+              <p>
+                An logical inference can also involve multiple statements.
+                That is, for statements <m>S_1</m>,
+                <m>S_2</m>, <ellipsis/>, <m>S_k</m>, and <m>C</m>.
+                The logical inference
+                <me>
+                  \left. \begin{array}{c} S_1 \\ S_2 \\ \vdots \\ S_k \end{array}  \right\} \implies C
+                </me>
+                means that if we know that statements <m>S_1</m>, <m>S_2</m>,
+                <ellipsis/>, <m>S_k</m> are true,
+                then we can conclude that statement <m>C</m> is also true.
+                For example,
+                if we know that <m>P</m> is true and <m>Q</m> is true,
+                then we can conclude that <m>P \land Q</m> is true.
+                We write
+                <me>
+                  \left. \begin{array}{cc} P \\ Q \end{array}  \right\} \implies P \land Q
+                </me>.
+                (This inference <xref ref="thm_logical_infer">is</xref>
+                <xref ref="part_thm_infer_conj"/>.)
+              </p>
+            </li>
+            <li>
+              <p>
+                A logical inference <m>S \implies C</m> is <term>valid</term>
+                if the corresponding conditional statement <m>S \to C</m> is a tautology or,
+                equivalently,
+                if <m>(S \to C) \equiv \str{T}</m>.
+                For example,
+                <m>(P \land Q) \implies P</m> is a valid inference because <m>(P \land Q) \to P</m> is a tautology.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      There are five key logical inferences.
+    </p>
+    <theorem xml:id="thm_logical_infer">
+      <title>Logical inferences</title>
+      <statement>
+        <p>
+          For any logical statements <m>P</m> and <m>Q</m> we have the following valid logical inferences.
+          <ol>
+            <li xml:id="part_thm_infer_simp">
+              <p>
+                <term>Simplification</term>
+                <me>
+                  P \land Q \implies P
+                </me>
+              </p>
+            </li>
+            <li xml:id="part_thm_infer_add">
+              <p>
+                <term>Addition</term>
+                <me>
+                  P \implies P \lor Q
+                </me>
+              </p>
+            </li>
+            <li xml:id="part_thm_infer_conj">
+              <p>
+                <term>Conjunction</term>
+                <me>
+                  \left. \begin{array}{cc} P \\ Q \end{array}  \right\} \implies P \land Q
+                </me>
+              </p>
+            </li>
+            <li xml:id="part_thm_infer_mp">
+              <p>
+                <term><em>Modus ponens (m.p.)</em></term>
+                <me>
+                  \left. \begin{array}{cc} P  \\P  \to Q \end{array}  \right\} \implies Q
+                </me>
+              </p>
+            </li>
+            <li xml:id="part_thm_infer_mt">
+              <p>
+                <term><em>Modus tollens (m.t.)</em></term>
+                <me>
+                  \left. \begin{array}{cc} \neg Q \\ P \to Q \end{array}  \right\} \implies \neg P
+                </me>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We explained why simplification and conjunction are valid in <xref ref="defn_logical_infer"></xref>.
+      Let's look at why <em>modus ponens</em> is valid.
+    </p>
+    <example xml:id="exam_mp_valid">
+      <title>Why <em>modus ponens</em> is valid</title>
+      <statement>
+        <p>
+          We proved <em>modus ponens</em>
+          in <xref ref="act_proof_logical_equiv"></xref>
+          <xref ref="part_proof_mp_using_equiv"/> using equivalences.
+          In this example, we look at two different ways to show that
+          <em>modus ponens</em> is a valid inference.
+          <ol>
+            <li>
+              <p>
+                Explain in words why <em>modus ponens</em> makes sense.
+                <solution>
+                  <p>
+                    Suppose we know that <m>P</m> is true and that <m>P \to Q</m> is true.
+                    The statement <m>P \to Q</m> promises that if <m>P</m> is true,
+                    then <m>Q</m> is guaranteed to be true.
+                    Since <m>P</m> is indeed true,
+                    it follows that <m>Q</m> is true.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_proof_mp_using_truthtable">
+              <p>
+                Prove <em>modus ponens</em> is valid using a truth table.
+                <solution>
+                  <p>
+                    To prove <em>modus ponens</em> is valid,
+                    we need to prove that <m>(P \land (P \to Q)) \to Q</m> is a tautology.
+                    The truth table is shown in <xref ref="table_truthtable_mp"></xref>.
+                    Notice that the last column is all <c>T</c>,
+                    so <m>(P \land (P \to Q)) \to Q</m> is a tautology.
+                    Therefore, <em>modus ponens</em> is valid.
+                  </p>
+                </solution>
+                <table xml:id="table_truthtable_mp">
+                  <title>Truth table showing <em>modus ponens</em> is valid <xref ref="exam_mp_valid">for</xref> <xref ref="part_proof_mp_using_truthtable"/></title>
+                  <tabular>
+                    <row>
+                      <cell><m>P</m></cell>
+                      <cell><m>Q</m></cell>
+                      <cell><m>P \to Q</m></cell>
+                      <cell><m>P \land (P \to Q)</m></cell>
+                      <cell><m>(P \land (P \to Q)) \to Q</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's look at how to use logical inferences to write proofs.
+    </p>
+    <example xml:id="exam_prove_mt_using_equiv_and_infer">
+      <title>Validity of <em>modus tollens</em></title>
+      <statement>
+        <p>
+          Prove <em>modus tollens</em> is valid using equivalences and the other inferences.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We want to prove that if <m>P \to Q</m> and <m>\neg Q</m> are each true,
+          then <m>\neg P</m> is true.
+          As we work through the proof,
+          let's number each statement for future reference.
+        </p>
+        <p>
+          <em>Proof.</em> Assume \ding{192} <m>P \to Q</m> and \ding{193} <m>\neg Q</m>.
+        </p>
+        <p>
+          By \ding{192} and contraposition <xref ref="thm_cp"/>,
+          it follows that \ding{194} <m>\neg Q \to \neg P</m>.
+        </p>
+        <p>
+          By \ding{193}, \ding{194}, and <em>modus ponens</em>,
+          it follows that <m>\neg P</m>.
+          <nbsp/> <nbsp/><m>\Box</m>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Your turn to work with logical inferences.
+    </p>
+    <activity xml:id="act_proofs_equiv_infer">
+      <title>Proofs with equivalences and inferences</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Fill in the missing inferences to prove <m>P \land Q \implies P \lor Q</m>.
+              <em>Proof.</em> Assume \ding{192} <m>P \land Q</m>.
+              By \ding{192} and <fillin/> it follows that \ding{193} <m>P</m>.
+              By \ding{193} and <fillin/>,
+              it follows that <m>P \lor Q</m>.<nbsp/> <nbsp/><m>\Box</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Fill in the missing conclusions to prove the
+              <term>transitivity</term> inference
+              <me>
+                \left. \begin{array}{cc} P \to Q \\ Q \to R \end{array}  \right\} \implies P \to R
+              </me>.
+              <em>Proof.</em> Assume \ding{192} <m>P \to Q</m> and \ding{193} <m>Q \to R</m>.
+              We will use a direct proof <xref ref="pff_if_then_direct"/> to prove <m>P \to R</m>.
+              Assume \ding{194} <m>P</m>.
+              By \ding{194}, \ding{192}, and <em>modus ponens</em>,
+              it follows that \ding{195} <fillin/>.
+              By \ding{195}, \ding{193}, and <em>modus ponens</em>,
+              it follows that <fillin/>.
+              Thus, <m>P \to R</m>.<nbsp/>  <nbsp/><m>\Box</m>
+            </p>
+          </li>
+          <li xml:id="part_proof_equiv_infer_another">
+            <p>
+              Fill in the missing equivalences,
+              inferences, or conclusions to prove
+              <me>
+                \left. \begin{array}{cc} \neg(Q \lor R) \\ P \to Q \end{array}  \right\} \implies \neg (P \lor R)
+              </me>.
+              <em>Proof.</em> Assume \ding{192}
+              <m>\neg(Q \lor R)</m> and \ding{193} <m>P \to Q</m>.
+              By \ding{192} and DeMorgan's Law it follows that \ding{194} <fillin/>.
+              By \ding{194} and <fillin/>, it follows that \ding{194} <m>\neg Q</m>.
+              By \ding{194}, \ding{193}, and <em>modus tollens</em>,
+              it follows that \ding{195} <fillin/>.
+              By \ding{194} and <fillin/>,
+              it follows that \ding{196} <m>\neg R \land \neg Q</m>.
+              By \ding{196} and simplification,
+              it follows that \ding{197} <fillin/>.
+              By \ding{195}, \ding{197}, and conjunction,
+              it follows that \ding{198} <fillin/>.
+              By \ding{198} and <fillin/>, it follows that <m>\neg(P \lor R)</m>.
+              <nbsp/>  <nbsp/><m>\Box</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at the proof from <xref ref="act_proofs_equiv_infer"></xref>
+      <xref ref="part_proof_equiv_infer_another"/>.
+    </p>
+    <example xml:id="exam_proof_equiv_infer">
+      <title>Proof using equivalences and inferences</title>
+      <statement>
+        <p>
+          Fill in the missing equivalences,
+          inferences, or conclusions to prove
+          <me>
+            \left. \begin{array}{cc} \neg(Q \lor R) \\ P \to Q \end{array}  \right\} \implies \neg (P \lor R)
+          </me>
+        </p>
+        <p>
+          <em>Proof.</em> Assume \ding{192}
+          <m>\neg(Q \lor R)</m> and \ding{193} <m>P \to Q</m>.
+        </p>
+        <p>
+          By \ding{192} and DeMorgan's Law it follows that \ding{194} <m>\neg Q \land \neg R</m>.
+        </p>
+        <p>
+          By \ding{194} and simplification,
+          it follows that \ding{194} <m>\neg Q</m>.
+        </p>
+        <p>
+          By \ding{194}, \ding{193}, and <em>modus tollens</em>,
+          it follows that \ding{195} <m>\neg P</m>.
+        </p>
+        <p>
+          By \ding{194} and the commutative property,
+          it follows that \ding{196} <m>\neg R \land \neg Q</m>.
+        </p>
+        <p>
+          By \ding{196} and simplification,
+          it follows that \ding{197} <m>\neg R</m>.
+        </p>
+        <p>
+          By \ding{195}, \ding{197}, and conjunction,
+          it follows that \ding{198} <m>\neg P \land \neg R</m>.
+        </p>
+        <p>
+          By \ding{198} and Demorgan's laws,
+          it follows that <m>\neg(P \lor R)</m>.
+          <nbsp/> <nbsp/><m>\Box</m>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_logical_equiv">for</xref> \subequiv</title>
+      <exercise xml:id="exer_understanding_equiv_negTF">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For each equivalence, explain words why it is true.
+            Recall that by <xref ref="defn_logical_equiv"></xref>
+            that two statements are logical equivalent if they have the same truth values and so we can check if one statement is true,
+            then so is the other and if one statement is false, then so is the other.
+            <ol>
+              <li>
+                <p>
+                  <m>P \land P \equiv P</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>P \land \str{T} \equiv P</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>P \lor \str{T} \equiv \str{T}</m> Hint: Begin with for the statement <m>P \lor \str{T}</m> to be false,
+                  we would need both <ellipsis/>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_truthtable_assoc">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use a truth table to verify the associative property for <m>\land</m>:
+            <me>
+              P \land (Q \land R) \equiv (P \land Q) \land R
+            </me>.
+            Include intermediate columns for
+            <m>Q \land R</m> and <m>P \land Q</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_xor_equiv">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain in words why <m>P \oplus Q \equiv (P \lor Q) \land \neg (P \land Q)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use a truth table to verify that <m>P \oplus Q \equiv (P \lor Q) \land \neg (P \land Q)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_equiv_broken_promise">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Many lists of equivalences omit broken promise because it can be proved from the other equivalences.
+            Fill in the missing equivalences in <xref ref="tab_proof_equiv_broken_promise"></xref> to prove broken promise.
+          </p>
+          <table xml:id="tab_proof_equiv_broken_promise">
+            <title>Fill in the blanks to prove broken promise <xref ref="exer_proof_equiv_broken_promise">for</xref></title>
+            <tabular>
+              <row>
+                <cell><em>Proof:</em></cell>
+                <cell><m>\neg(P \to Q)</m></cell>
+                <cell><m>\equiv</m></cell>
+                <cell><m>\neg(\neg P \lor Q)</m></cell>
+                <cell><nbsp/>\hspace{.25in}<nbsp/></cell>
+                <cell>using <em>\hspace{1in}</em></cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\equiv</m></cell>
+                <cell><m>\neg(\neg P) \land \neg Q</m></cell>
+                <cell></cell>
+                <cell>busing <em>\hspace{1in}</em></cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\equiv</m></cell>
+                <cell><m>P \land \neg Q</m></cell>
+                <cell></cell>
+                <cell>using <em>\hspace{1in}</em> <nbsp/>  <nbsp/><m>\Box</m></cell>
+              </row>
+            </tabular>
+          </table>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_equiv_PtoQtoR">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Fill in the missing equivalences in <xref ref="tab_proof_equiv_PtoQtoR"></xref>
+            to prove <m>P \to (Q \to R)\equiv (P \land Q) \to R</m>.
+          </p>
+          <table xml:id="tab_proof_equiv_PtoQtoR">
+            <title>Fill in the blanks to prove <m>P \to (Q \to R) \equiv (P \land Q) \to R</m> <xref ref="exer_proof_equiv_PtoQtoR">for</xref></title>
+            <tabular>
+              <row>
+                <cell><em>Proof:</em></cell>
+                <cell><m>P \to (Q \to R)</m></cell>
+                <cell><m>\equiv</m></cell>
+                <cell><m>\neg P \lor (Q \to R)</m></cell>
+                <cell><nbsp/>\hspace{.25in}<nbsp/></cell>
+                <cell>using <em>\hspace{1in}</em></cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\equiv</m></cell>
+                <cell><m>\neg P \lor (\neg Q \lor R)</m></cell>
+                <cell></cell>
+                <cell>using <em>\hspace{1in}</em></cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\equiv</m></cell>
+                <cell><m>(\neg P \lor \neg Q) \lor R</m></cell>
+                <cell></cell>
+                <cell>using <em>\hspace{1in}</em></cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\equiv</m></cell>
+                <cell><m>\neg(P \land Q) \lor R</m></cell>
+                <cell></cell>
+                <cell>using <em>\hspace{1in}</em></cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell></cell>
+                <cell><m>\equiv</m></cell>
+                <cell><m>(P \land Q) \to R</m></cell>
+                <cell></cell>
+                <cell>using <em>\hspace{1in}</em> <nbsp/>  <nbsp/><m>\Box</m></cell>
+              </row>
+            </tabular>
+          </table>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_mp_using_equiv">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            This exercise <xref ref="act_proof_logical_equiv">repeats</xref>
+            <xref ref="part_proof_mp_using_equiv"/>.
+            Fill in the missing equivalences in <xref ref="table_equiv_proof_mp"></xref>
+            to prove <m>((P \land (P \to Q)) \to Q) \equiv \str{T}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_simplify_equiv">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use equivalences to simplify <m>(P \land Q) \lor (P \land \neg Q)</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_another_equiv_ifthen">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use equivalences to prove <m>\neg(\neg Q \land P) \equiv P \to Q</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_logical_equiv">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What it means for two statements to be logically equivalent?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use a truth table to verify that a logical equivalence is valid?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the commutative, associative,
+                  and distributive properties tell us?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the double negation equivalence says?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use logical equivalences to prove new logical equivalences?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equiv_xor">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Use a truth table to verify the following equivalences involving xor.
+            <ol>
+              <li>
+                <p>
+                  <term>Commutative property</term>
+                  <m>P \oplus Q \equiv Q \oplus P</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <term>Associative property</term>
+                  <m>P \oplus (Q \oplus R) \equiv (P \oplus Q) \oplus R</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sheffer_stroke">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            For statements <m>P</m> and <m>Q</m>,
+            the <term>Sheffer stroke</term> (<term>nand</term>),
+            denoted <m>P \mid Q</m>, is defined by
+            <me>
+              P \mid Q \equiv \neg (P \land Q)
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Construct a truth table for <m>P \mid Q</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use equivalences to simplify
+                  <m>P \mid \str{T}</m> and <m>P \mid \str{F}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use equivalences to simplify <m>Q \mid Q</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use equivalences to simplify <m>P \mid (Q \mid Q)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_simplify_neg">for</xref> \subneg</title>
+      <exercise xml:id="exer_neg_simple_2vars">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Negate each statement and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses.
+            State which equivalences you use.
+            <ol>
+              <li>
+                <p>
+                  <m>P \land \neg Q</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\neg P \lor \neg Q</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\neg P \to \neg Q</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_neg_complicated_and_or">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Negate each statement and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses.
+            State which equivalences you use.
+            <ol>
+              <li>
+                <p>
+                  <m>P \lor (Q \land R)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(P \land R) \lor (Q \land \neg R)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_neg_ifthen">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Negate each statement and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses.
+            State which equivalences you use.
+            <ol>
+              <li>
+                <p>
+                  <m>P \to (Q \lor \neg R)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(P \to Q) \land (R \to \neg Q)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_simplify_neg">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What DeMorgan's laws say?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the broken promise equivalence says?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to simplify negations using equivalences?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_negating_biconditional_using_equiv">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Recall that <m>P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)</m>.
+                  Negate <m>P \leftrightarrow Q</m> and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses.
+                  State which equivalences you use.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Recall that <m>P \oplus Q \equiv (P \lor Q) \land \neg (P \land Q)</m>.
+                  Negate <m>P \oplus Q</m> and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses.
+                  State which equivalences you use.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do you notice?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_proof_inf">for</xref> \subinference</title>
+      <exercise xml:id="exer_proof_PandQimpliesQ">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Fill in the missing conclusions to prove <m>P \land Q \implies Q</m>.
+          </p>
+          <p>
+            <em>Proof.</em> Assume \ding{192} <m>P \land Q</m>.
+          </p>
+          <p>
+            By \ding{192} and the commutative property it follows that \ding{193} <fillin/>.
+          </p>
+          <p>
+            By \ding{193} and simplification,
+            it follows that <fillin/>.<nbsp/> <nbsp/><m>\Box</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_complicated_infer">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Fill in the missing inferences to prove the inference
+            <me>
+              \left. \begin{array}{cc} P \\ P \to Q \\ P \to R \end{array}  \right\} \implies Q \land R
+            </me>
+          </p>
+          <p>
+            <em>Proof.</em> Assume \ding{192} <m>P</m>, \ding{193} <m>P \to Q</m> and \ding{194} <m>P \to R</m>.
+          </p>
+          <p>
+            By \ding{192}, \ding{193}, and <fillin/>, it follows that \ding{195} <m>Q</m>.
+          </p>
+          <p>
+            By \ding{192}, \ding{194}, and <fillin/>, it follows that \ding{196} <m>R</m>.
+          </p>
+          <p>
+            By \ding{195}, \ding{196}, and <fillin/>,
+            it follows that <m>Q \land R</m>.<nbsp/> <nbsp/><m>\Box</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_doublemp_equiv_infer">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use equivalences and inferences to prove
+                  <me>
+                    \left. \begin{array}{c} P \\ P \to Q \\ Q \to R \end{array}  \right\} \implies R
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use equivalences and inferences from our lists to prove
+                  <me>
+                    \left. \begin{array}{cc} P \land Q \\ P \to R \\ Q \to S \end{array}  \right\} \implies R \land S
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_or_form_mp">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain in your own words why <m>\left. \begin{array}{cc} P \lor Q \\ \neg P \end{array} \right\} \implies Q</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Fill in the missing equivalences and inferences to prove <m>\left. \begin{array}{cc} P \lor Q \\ \neg P \end{array} \right\} \implies Q</m>.
+                  <em>Proof.</em> Assume \ding{192} <m>P\lor Q</m> and \ding{193} <m>\neg P</m>.
+                  By <fillin/> it follows from \ding{192} that <m>\neg (\neg P) \lor Q</m>.
+                  By <fillin/>, it follows that <m>\neg P \to Q</m>.
+                  We know <m>\neg P</m> from \ding{193}, so by <fillin/> it follows that <m>Q</m> <m>\Box</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_equiv_infer_proof_by_cases">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Fill in the missing equivalences,
+            inferences, or conclusions,
+            to prove the inference that justifies proof by cases ( <xref ref="pff_cases"></xref>.
+            <me>
+              \left. \begin{array}{c} P \lor Q \\ P \to R \\ Q \to R \end{array}  \right \} \implies R
+            </me>
+          </p>
+          <p>
+            <em>Proof.</em> Assume \ding{192}
+            <m>P \lor Q</m>, \ding{193} <m>P \to R</m>,
+            and \ding{194} <m>Q \to R</m>.
+          </p>
+          <p>
+            By \ding{193}, \ding{194}, and conjunction it follows that \ding{195} <fillin/>.
+          </p>
+          <p>
+            By \ding{195} and implication (twice),
+            it follows that \ding{196} <fillin/>.
+          </p>
+          <p>
+            By \ding{196} and the commutative property (twice),
+            it follows that \ding{197} <fillin/>.
+          </p>
+          <p>
+            By \ding{197} and the distributive property,
+            it follows that \ding{198} <fillin/>.
+          </p>
+          <p>
+            By \ding{198} and the commutative property,
+            it follows that \ding{199} <fillin/>.
+          </p>
+          <p>
+            By \ding{199} and Demorgan's law,
+            it follows that \ding{200} <fillin/>.
+          </p>
+          <p>
+            By \ding{199} and implication,
+            it follows that \ding{201} <fillin/>.
+          </p>
+          <p>
+            By \ding{201}, \ding{192}, and <fillin/> it follows that <m>R</m>.
+            <nbsp/> <nbsp/><m>\Box</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_infer_random">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Fill in the missing equivalences and inferences to prove
+            <me>
+              \left. \begin{array}{cc} P \land Q  \\ \neg(\neg R \land P) \end{array}  \right\} \implies P \land R
+            </me>
+          </p>
+          <p>
+            <em>Proof.</em> Assume \ding{192}
+            <m>P\land Q</m> and \ding{193} <m>\neg(\neg R \land P)</m>.
+          </p>
+          <p>
+            By <fillin/> it follows from \ding{193} that <m>\neg (\neg R) \lor \neg P</m>.
+          </p>
+          <p>
+            By <fillin/>, it follows that <m>R \lor \neg P</m>.
+          </p>
+          <p>
+            By <fillin/>, it follows that <m>\neg P \lor R</m>.
+          </p>
+          <p>
+            By <fillin/>, it follows that <m>P \to R</m>.
+          </p>
+          <p>
+            By <fillin/>, it follows from \ding{192} that <m>P</m>.
+          </p>
+          <p>
+            By <fillin/>, it follows that <m>R</m>.
+            <m>\Box</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_infer_random2">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the inference
+            <me>
+              \left. \begin{array}{cc} P \to \neg Q  \\ R \to (P \land Q) \end{array}  \right\} \implies \neg R
+            </me>.
+            Fill in the missing steps to prove it,
+            using the equivalences and inferences given.
+          </p>
+          <p>
+            <em>Proof.</em> Assume \ding{192}
+            <m>P \to \neg Q</m> and \ding{193} <m>R \to (P \land Q)</m>.
+          </p>
+          <p>
+            By \ding{192} and implication,
+            it follows that \ding{194} <fillin/>.
+          </p>
+          <p>
+            By \ding{193} and DeMorgan's laws,
+            it follows that \ding{195}<fillin/>.
+          </p>
+          <p>
+            By \ding{193}, \ding{195}, <em>modus tollens</em>,
+            it follows that <fillin/>.
+            <m>\Box</m>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_infer_contradiction">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> Use equivalences and inferences from our lists to prove
+            <me>
+              \left. \begin{array}{cc} \neg P \to Q \\ \neg P \to \neg Q \end{array}  \right\} \implies P
+            </me>
+            which is the inference that justifies proof by contradiction <xref ref="pff_contradiction"/>.
+            Hint: Start with conjunction.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_logical_inference">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What a logical inference is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use a truth table to verify a logical inference?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What <em>modus ponens</em> and <em>modus ponens</em>
+                  say and how to use them in a proof?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why the simplification, conjunction,
+                  and addition inferences are valid?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use logical equivalences and logical inferences to prove new logical inferences?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_understanding_equiv_negTF"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            If <m>P \land P</m> is true, then <m>P</m> is true and <m>P</m> is true.
+            That is, <m>P</m> is true.
+            On the other hand, if <m>P \land P</m> is false,
+            then <m>P</m> is false or <m>P</m> is false.
+            That is, <m>P</m> is false.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Follow the format from (a).
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Follow the hint.
+            It should never be false.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_truthtable_assoc"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Your truth table should have seven columns:
+        <m>P</m>, <m>Q</m>, <m>R</m>, <m>Q \land R</m>,
+        <m>P \land (Q \land R)</m>, <m>P \land Q</m>,
+        and <m>(P \land Q) \land R</m>.
+        Your truth table should have eight rows.
+        The fifth column and the seventh column should match.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_xor_equiv"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: If <m>P \oplus Q</m> is true,
+            then <m>P</m> is true or <m>Q</m> is true, but not both.
+            Since at least one of <m>P</m> or <m>Q</m> is true,
+            it follows that <m>P \lor Q</m> is true.
+            Since not both are true, it follows that <m>P \land Q</m> is false.
+            That is, <m>\neg(P \land Q)</m> is true.
+            Thus, <m>(P \lor Q) \land \neg(P \land Q)</m> is true.
+            Now explain what happens if <m>P \oplus Q</m> is false.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your truth table should have seven columns <m>P</m>,
+            <m>Q</m>, <m>P \oplus Q</m>, <m>P \lor Q</m>, <m>P \land Q</m>,
+            <m>\neg(P \land Q)</m>, and <m>(P \lor Q) \land \neg (P \land Q)</m>.
+            Your truth table should have four rows.
+            The third and seventh columns should match.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_equiv_broken_promise"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The three reasons, in some order,
+        are DeMorgan's laws, double negation, and implication.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_equiv_PtoQtoR"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The proof uses the associative property, DeMorgan's laws,
+        and implication.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_mp_using_equiv"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The first three reasons are, in some order,
+        the distributive property, implication, and negation.
+        Other reasons used include DeMorgan's laws and identity.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_simplify_equiv"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Start with the distributive property to get
+        <me>
+          (P \land Q) \lor (P \land \neg Q) \equiv P \land (Q \lor \neg Q)
+        </me>.
+        Next, use negation.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_neg_simple_2vars"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            The answer is <m>\neg P \lor Q</m> Show the steps of your work and state which equivalences you use.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer has no negations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use broken promise.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_neg_ifthen"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            The answer is <m>P \land (\neg Q \land R)</m>.
+            Show the steps of your work and state which equivalences you use.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer includes <m>\lor</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_PandQimpliesQ"></xref> Select Answers and Hints</title>
+      <p>
+        <m>Q \land P</m>, <m>Q</m>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_complicated_infer"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The proof uses conjunction and <em>modus ponens</em>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_doublemp_equiv_infer"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The proof uses <em>modus ponens</em> twice.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use simplification, but be careful.
+            It says <m>P \land Q \implies P</m>.
+            If you later want to conclude <m>Q</m> instead,
+            you need to use the commutative property first.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_equiv_infer_proof_by_cases"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The first blank should say <m>(P \to R) \land (Q \to R)</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_infer_random2"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The second blank is <m>\neg(P \land Q)</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_infer_contradiction"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Use conjunction to get <m>(\neg P \to Q) \land (\neg P \to \neg Q)</m>.
+        Next, use implication (twice), double negation (twice),
+        the distributive property, negation, and then identity.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

@@ -1,0 +1,1493 @@
+<section xml:id="sec_converse_cp">
+  <title>Converse and Contrapositive</title>
+  <introduction>
+    <p>
+      In this section,
+      we continue our discussion of conditional statements,
+      including the converse and contrapositive of a conditional statement.
+      The contrapositive provides an alternative proof format for proving that a conditional is true.
+      We also introduce biconditional
+      (if and only if)
+      statements and the proof format for biconditional statements.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_converse">
+    <title>\subconv</title>
+    <p>
+      The statement <m>P \to Q</m> promises that if <m>P</m> is true,
+      then <m>Q</m> is also true.
+      It does not say the reverse.
+      The
+      <q>reverse</q>
+      might be one of two statements, each of which has a name.
+    </p>
+    <definition xml:id="defn_converse">
+      <title>Converse and inverse</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For statements <m>P</m> and <m>Q</m>,
+                the <term>converse</term> of <m>P \to Q</m> is <m>Q \to P</m>.
+                For example,
+                for the statement For all integers <m>s</m>, if <m>s</m> is even,
+                then <m>s^2</m> is even. the converse is For all integers <m>s</m>,
+                if <m>s^2</m> is even, then <m>s</m> is even.
+              </p>
+            </li>
+            <li>
+              <p>
+                In this context, we can translate the conditional <m>P \to Q</m> as
+                <q><m>Q</m> <term>if</term> <m>P</m></q>
+                and we can translate the converse <m>Q \to P</m> as
+                <q><m>Q</m> <term>only if</term> <m>P</m></q>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For statements <m>P</m> and <m>Q</m>,
+                the <term>inverse</term> of <m>P \to Q</m> is <m>\neg P \to \neg Q</m>.
+                For example,
+                for the statement For all integers <m>m</m>, if <m>m</m> is even,
+                then <m>m^2</m> is even. the inverse is For all integers <m>m</m>,
+                if <m>m</m> is odd, then <m>m^2</m> is odd.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's compare the truth table for a conditional statement to its converse.
+    </p>
+    <example xml:id="exam_converse">
+      <title>The converse</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Construct a truth table for a conditional statement and its converse.
+                <solution>
+                  <p>
+                    We constructed the truth table for the converse in <xref ref="exam_truthtable_compound_conditionals"></xref>.
+                    We repeat that here alongside the conditional for comparison in <xref ref="table_truthtable_converse"></xref>.
+                    Notice that both a statement and its converse can be true or either can be true with the other false.
+                  </p>
+                </solution>
+                <table xml:id="table_truthtable_converse_again">
+                  <title>Truth table for a conditional and its converse</title>
+                  <tabular>
+                    <row>
+                      <cell><m>P</m></cell>
+                      <cell><m>Q</m></cell>
+                      <cell><m>P \to Q</m></cell>
+                      <cell><m>Q \to P</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give an example of a true conditional statement that has a false converse.
+                <solution>
+                  <p>
+                    Consider the conditional statement If <m>k=3</m>, then <m>k^2 = 9</m>.
+                    This statement is true because if <m>k=3</m>, then <m>k^2=3^2=9</m>.
+                    The converse is if <m>k^2=9</m>, then <m>k=3</m>.
+                    The converse is false because if <m>k=-3</m>,
+                    then <m>k^2=(-3)^2=9</m> is true but <m>k=-3=3</m> is false.
+                    That is, we have a broken promise <xref ref="thm_broken_promise"/>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_example_true_converse">
+              <p>
+                Give an example of a true conditional statement that has a true converse.
+                <solution>
+                  <p>
+                    Consider the conditional statement If <m>n</m> is odd,
+                    then <m>n+1</m> is even.
+                    The converse is If <m>n+1</m> is even, then <m>n</m> is odd.
+                    We proved that both statements are true in <xref ref="sec_even_odd_divides"></xref>
+                    <xref ref="exer_prove_consecutive_even_odd"></xref>
+                    and again in <xref ref="sec_conditional_statements"></xref>
+                    <xref ref="exer_integer_or_next_is_even"></xref>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      When both a conditional statement,
+      <m>P \to Q</m>, and its converse,
+      <m>Q \to P</m>, are true, we say
+      <q><m>P</m> <term>if and only if</term> <m>Q</m></q>. We give a formal definition of the biconditional.
+    </p>
+    <definition xml:id="defn_biconditional">
+      <title>Biconditional statements</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For statements <m>P</m> and <m>Q</m>,
+                the <term>biconditional</term> statement,
+                denoted <m>P \leftrightarrow Q</m>,
+                is the following compound statement:
+                <me>
+                  (P \to Q) \land (Q \to P)
+                </me>.
+                For example, we saw in <xref ref="exam_converse"></xref>
+                <xref ref="part_example_true_converse"/> that if <m>P</m>:
+                <m>n</m> is odd and <m>Q</m>:
+                <m>n+1</m> is even, then <m>P \to Q</m> and <m>Q \to P</m> are true,
+                so the biconditional statement <m>P \leftrightarrow Q</m> is also true.
+              </p>
+            </li>
+            <li>
+              <p>
+                The biconditional <m>P \leftrightarrow Q</m> is often translated as <m>P</m>
+                <term>if and only if</term>
+                <m>Q</m> and may also be abbreviated <m>P</m> iff <m>Q</m>.
+                For example, when <m>P</m>: <m>n</m> is odd and <m>Q</m>:
+                <m>n+1</m> is even, the biconditional
+                <m>P \leftrightarrow Q</m> says For any integer <m>n</m>,
+                <m>n</m> is odd if and only if <m>n+1</m> is even.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's construct a truth table for a biconditional statement.
+    </p>
+    <example xml:id="exam_truthtable_biconditional">
+      <title>Truth table of biconditional statement</title>
+      <statement>
+        <p>
+          <nbsp/> <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Construct a truth table for a biconditional statement.
+                <solution>
+                  <p>
+                    We construct the truth table in <xref ref="table_truthtable_biconditional"></xref>.
+                  </p>
+                </solution>
+                <table xml:id="table_truthtable_biconditional">
+                  <title>Truth table for the biconditional <m>P \leftrightarrow Q</m></title>
+                  <tabular>
+                    <row>
+                      <cell><m>P</m></cell>
+                      <cell><m>Q</m></cell>
+                      <cell><m>P \to Q</m></cell>
+                      <cell><m>Q \to P</m></cell>
+                      <cell><m>P \leftrightarrow Q</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use this truth table to explain when the biconditional
+                <m>P \leftrightarrow Q</m> is true and when it is false.
+                <solution>
+                  <p>
+                    The biconditional <m>P \leftrightarrow Q</m> is true when <m>P</m> and <m>Q</m> are both true (row 1) or <m>P</m> and <m>Q</m> are both false
+                    (row 4).
+                    That is, <m>P \leftrightarrow Q</m> is true when <m>P</m> and <m>Q</m> have the same truth value meaning <m>P \equiv Q</m>.
+                    On the other hand, the biconditional
+                    <m>P \leftrightarrow Q</m> is false when <m>P</m> is true but <m>Q</m> is false (row 2) or when <m>P</m> is false but <m>Q</m> is true
+                    (row 3).
+                    That is, <m>P \leftrightarrow Q</m> is false when <m>P</m> and <m>Q</m> have the opposite truth value meaning <m>Q \equiv \neg P</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's practice working with the converse and biconditional statements.
+    </p>
+    <activity xml:id="act_converse_iff">
+      <title>The converse and biconditional statements</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              State the converse of the following statement:
+              if the graph <m>G</m> has a vertex of degree five,
+              then the graph <m>G</m> has at least six vertices.
+              Is the statement true?
+              Is the converse true?
+            </p>
+          </li>
+          <li xml:id="part_converse_105">
+            <p>
+              State the converse of the following statement:
+              for any integer <m>k</m>, if <m>k >10</m>, then <m>k > 5</m>.
+              Is the statement true?
+              Is the converse true?
+            </p>
+          </li>
+          <li xml:id="part_pos_one">
+            <p>
+              State the converse of the following statement:
+              for any integer <m>t</m>, if <m>t \ge 1</m>, then <m>t >0</m>.
+              Is the statement true?
+              Is the converse true?
+              Hint: <m>t</m> is an integer.
+            </p>
+          </li>
+          <li xml:id="part_iff_nsqmult4">
+            <p>
+              True or false?
+              For any integer <m>m</m>, <m>4 \mid m^2</m> if and only if <m>4 \mid m</m>.
+            </p>
+          </li>
+          <li xml:id="part_iff_3neven">
+            <p>
+              True or false?
+              For any integer <m>n</m>, <m>n</m> is even if and only if <m>3n</m> is even.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_pff_iff">
+    <title>\subpffiff</title>
+    <p>
+      Since the biconditional is defined as
+      <me>
+        P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)
+      </me>,
+      we can combine the proof formats for
+      <q>and</q>
+      <xref ref="pff_and"/> with the proof format for a conditional statement <xref ref="pff_if_then_direct"/> to get a new proof format to prove a biconditional statement.
+      Normally in
+      <q>and</q>
+      proofs we begin the two parts with the words
+      <q>First</q>
+      and
+      <q>Second</q>
+      (or
+      <q>First</q>
+      and
+      <q>Next</q>).
+      In the proof of a biconditional statement,
+      the second part proves the converse, so we begin with the word
+      <q>Conversely</q>
+      instead.
+    </p>
+    <proof>
+    <p>
+      <nbsp/> Prove: <m>P \leftrightarrow Q</m>
+    </p>
+    <proof>
+      <p>
+        First, assume <m>P</m>.
+      </p>
+      <p>
+        (Explain why <m>Q</m> is true.)
+      </p>
+      <p>
+        Thus, <m>Q</m>.
+      </p>
+      <p>
+        Conversely, assume <m>Q</m>.
+      </p>
+      <p>
+        (Explain why <m>P</m> is true.)
+      </p>
+      <p>
+        Thus, <m>P</m>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      As usual, when we introduce a new proof format,
+      we provide an example for you to copy and edit.
+    </p>
+    <activity xml:id="act_iff_proof">
+      <title>Biconditional proof</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Copy the following proof.
+              Prove for any integer <m>a</m> that
+              <m>a \fn{ mod } 3 = 1</m> if and only if <m>3 \mid (a-1)</m>.
+              <em>Proof.</em> Let <m>a</m> be an integer.
+              First, assume that <m>a \fn{ mod } 3 = 1</m>.
+              By definition of <c>mod</c>,
+              it follows that
+              <m>a = 3q +1</m> for some integer <m>q</m>.
+              Subtracting one from each side of this equation we get <m>a-1 = 3q</m>.
+              By definition of divides, it follows that <m>3 \mid (a-1)</m>.
+              Conversely, assume that <m>3 \mid (a-1)</m>.
+              By definition of divides,
+              we can write <m>a-1=3k</m> for some integer <m>k</m>.
+              Adding one to each side of this equation we get <m>a = 3k+1</m>.
+              By definition of <c>mod</c>,
+              it follows that <m>a \fn{ mod } 3 = 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof to prove for any integers <m>a</m> and <m>n</m> that
+              <m>a \fn{ mod } n = 1</m> if and only if <m>n \mid (a-1)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      We can now prove the connection between divides and fractions.
+    </p>
+    <example xml:id="exam_fractions_divides">
+      <title>Fractions and Divisibility</title>
+      <statement>
+        <p>
+          Let <m>d</m> and <m>n</m> be integers with <m>d \neq 0</m>.
+          Prove that <m>d \mid n</m> exactly when <m>\frac{n}{d}</m> is an integer.
+        </p>
+        <p>
+          <em>Proof.</em> Let <m>d</m> and <m>n</m> be integers with <m>d \neq 0</m>.
+        </p>
+        <p>
+          First, assume <m>d \mid n</m>.
+          By definition of divides, <m>n=dk</m> for some integer <m>k</m>.
+          <xref ref="thm_equal_fractions">By</xref>, it follows that
+          <me>
+            \frac{n}{d} = \frac{dk}{d(1)} = \frac{k}{1} = k
+          </me>
+          is an integer.
+        </p>
+        <p>
+          Conversely, assume <m>\frac{n}{d}</m> is an integer.
+          Say,
+          <me>
+            \frac{n}{d} = k = \frac{k}{1}
+          </me>.
+          <xref ref="thm_equal_fractions">By</xref>,
+          it follows that <m>n(1) = k(d)</m> or,
+          equivalently, <m>n=dk</m>.
+          By the definition of divides, <m>d \mid n</m>.
+          <m>\Box</m>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_contrapositive">
+    <title>\subcp</title>
+    <p>
+      While a conditional statement and its converse are not logically equivalent,
+      there is a related conditional that is logically equivalent to a conditional.
+    </p>
+    <definition xml:id="defn_contrapositive">
+      <title>Contrapositive</title>
+      <statement>
+        <p>
+          For statements <m>P</m> and <m>Q</m>,
+          the <term>contrapositive</term> of the conditional statement <m>P \to Q</m> is the conditional statement <m>\neg Q \to \neg P</m>.
+          For example, consider the true statement If <m>k=3</m>,
+          then <m>k^2=9</m>. then the contrapositive is If <m>k^2 \neq 9</m>,
+          then <m>k \neq 3</m>. which is also true.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's explore the logical equivalence of a conditional and its contrapositive.
+    </p>
+    <example xml:id="exam_equiv_contrapositive">
+      <title>Equivalence of statement and its contrapositive</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Construct a truth table of conditional and its contrapositive.
+                What do you notice?
+                <solution>
+                  <p>
+                    The truth table is shown in <xref ref="table_truthtable_contrapositive"></xref>.
+                    Notice that the columns for the conditional and its contrapositive are identical.
+                    That means that a conditional and its contrapositive are logically equivalent.
+                  </p>
+                </solution>
+                <table xml:id="table_truthtable_contrapositive">
+                  <title>Truth table for the contrapositive</title>
+                  <tabular>
+                    <row>
+                      <cell><m>P</m></cell>
+                      <cell><m>Q</m></cell>
+                      <cell><m>P \to Q</m></cell>
+                      <cell><m>\neg Q</m></cell>
+                      <cell><m>\neg P</m></cell>
+                      <cell><m>\neg Q \to \neg P</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain in words why the contrapositive is logically equivalent to the original conditional.
+                <solution>
+                  <p>
+                    Think about what makes the conditional <m>P \to Q</m> is true.
+                    We are promising that if <m>P</m> is true, then <m>Q</m> is true.
+                    What happens if <m>\neg Q</m> is true?
+                    That means <m>Q</m> is false and so <m>P</m> cannot be true
+                    (or we would break our promise)
+                    and so <m>P</m> must be false which means <m>\neg P</m> is true.
+                    That is, if <m>\neg Q</m>, then <m>\neg P</m>,
+                    which is the contrapositive.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We add the contrapositive to our list of logical equivalences.
+    </p>
+    <theorem xml:id="thm_cp">
+      <title>Contraposition equivalence</title>
+      <statement>
+        <p>
+          For statements <m>P</m> and <m>Q</m>,
+          <me>
+            (P \to Q) \equiv (\neg Q \to \neg P)
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's practice working with the contrapositive.
+    </p>
+    <activity xml:id="act_cp">
+      <title>Contrapositive</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Write the contrapositive of the true statement: For all integers <m>n</m>,
+              if <m>n>10</m>, then <m>n>5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write the contrapositive of the true statement: For all graphs <m>G</m>,
+              if <m>G</m> has at most five vertices,
+              then <m>G</m> has at most 10 edges.
+              Hint: To negate
+              <q>at more</q>
+              use
+              <q>more than</q>.
+            </p>
+          </li>
+          <li xml:id="part_cp_nsqodd_nodd">
+            <p>
+              Write the contrapositive of the true statement: For all integers <m>n</m>,
+              if <m>n^2</m> is odd, then <m>n</m> is odd.
+            </p>
+          </li>
+          <li xml:id="part_cp_easier">
+            <p>
+              Which statement do you think would be easier to prove:
+              the statement from <xref ref="part_cp_nsqodd_nodd"/> or its contrapositive?
+              Explain.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_pff_cp">
+    <title>\subpffcp</title>
+    <p>
+      Since a conditional and its contrapositive are logically equivalent,
+      we have a new way to prove <m>P \to Q</m>:
+      we can prove its contrapositive <m>\neg Q \to \neg P</m> instead.
+    </p>
+    <proof>
+    <p>
+      Prove: <m>P \to Q</m>
+    </p>
+    <proof>
+      <p>
+        We will prove the contrapositive, namely
+        (fill in <m>\neg Q \to \neg P</m>).
+      </p>
+      <p>
+        Assume <m>\neg Q</m> is true.
+      </p>
+      <p>
+        (Explain why it follows that <m>\neg P</m> is true.)
+      </p>
+      <p>
+        Thus <m>\neg P</m> is true.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      Let's do an example with this new proof format.
+    </p>
+    <activity xml:id="act_direct_proof_ifnsqoddthennodd">
+      <title>Contrapositive proof if <m>n^2</m> is odd, then <m>n</m> is also odd</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_ifnsqoddthennodd">
+            <p>
+              Perhaps you noticed in <xref ref="act_cp"></xref>
+              <xref ref="part_cp_easier"/> that the contrapositive would be easier to prove.
+              Copy the following proof.
+              Prove for any integer <m>n</m>,
+              if <m>n^2</m> is odd then <m>n</m> is odd.
+              <proof>
+                <p>
+                  Let <m>n</m> be an integer.
+                  We will prove the contrapositive,
+                  namely that if <m>n</m> is even, then <m>n^2</m> is even.
+                </p>
+                <p>
+                  Assume that <m>n</m> is even.
+                  By the definition of even,
+                  we can write <m>n=2k</m> for some integer <m>k</m>.
+                  Then
+                  <me>
+                    n^2=(2k)^2=(2k)(2k) = (2)(2)kk = 4k^2 = 2(2k^2)
+                  </me>.
+                  Since <m>2k^2</m> is an integer,
+                  it follows from the definition of even that <m>n^2</m> is even.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof to prove for any integer <m>n</m> if <m>5n</m> is odd,
+              then <m>n</m> is odd.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      When a proof by contradiction does not use the supposed hypothesis until the ending contradiction,
+      we can often rewrite the proof using the contrapositive,
+      avoiding the proof by contradiction.
+    </p>
+    <example xml:id="exam_product_even_implies_even_factor">
+      <title>Rewriting a proof by contradiction using the contrapositive</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_contradiction_product_even_implies_even_factor">
+              <p>
+                Read the following proof by contradiction.
+                Prove that for any integers <m>a</m> and <m>b</m> if <m>ab</m> is even,
+                then <m>a</m> is even or <m>b</m> is even.
+                <proof>
+                  <p>
+                    Suppose not.
+                    Then for some integers <m>a</m> and <m>b</m> we would have that <m>ab</m> is even but neither <m>a</m> nor <m>b</m> is even.
+                  </p>
+                  <p>
+                    First, since neither <m>a</m> nor <m>b</m> is even,
+                    that means <m>a</m> and <m>b</m> are odd.
+                    By the definition of odd,
+                    we can write <m>a = 2k_1+1</m> and
+                    <m>b = 2k_2+1</m> for some integers <m>k_1</m> and <m>k_2</m>.
+                    Multiplying <m>a</m> and <m>b</m> we get
+                    <me>
+                      ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1 = 2(2k_1k_2 + k_1 + k_2) + 1
+                    </me>
+                    and so <m>ab</m> is odd.
+                  </p>
+                  <p>
+                    On the other hand, we said <m>ab</m> was even.
+                    This is a contradiction.
+                  </p>
+                </proof>
+                What are the contradictory statements <m>Q</m> and <m>\neg Q</m>?
+                <solution>
+                  <p>
+                    The contradictory statements are <m>Q: ab</m> is odd and <m>\neg Q: ab</m> is even.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                State the contrapositive of the statement
+                <q>For any integers <m>a</m> and <m>b</m> if <m>ab</m> is even,
+                then <m>a</m> is even or <m>b</m> is even.</q>
+                <solution>
+                  <p>
+                    By DeMorgan's Laws <xref ref="thm_demorgans"/>,
+                    the negation of the conclusion <m>a</m> is even or <m>b</m> is even. is the statement <m>a</m> and <m>b</m> are odd.
+                    The contrapositive is For any integers <m>a</m> and <m>b</m>,
+                    if <m>a</m> and <m>b</m> are odd, then <m>ab</m> is odd.
+                    Notice that we keep the universal quantifier.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Adapt the proof from <xref ref="part_contradiction_product_even_implies_even_factor"/> to prove for any integers <m>a</m> and <m>b</m> if <m>ab</m> is even,
+                then either <m>a</m> is even or <m>b</m> is even using the contrapositive <xref ref="pff_if_then_cp"/>.
+                Hint: you should not have to change much of the proof.
+                <solution>
+                  <p>
+                    Prove: for any integers <m>a</m> and <m>b</m> if <m>ab</m> is even,
+                    then either <m>a</m> is even or <m>b</m> is even.
+                  </p>
+                  <p>
+                    <em>Proof.</em> We will prove the contrapositive,
+                    namely for any integers <m>a</m> and <m>b</m>,
+                    if <m>a</m> and <m>b</m> are odd, then <m>ab</m> is odd.
+                  </p>
+                  <p>
+                    Let <m>a</m> and <m>b</m> be odd integers.
+                    By the definition of odd,
+                    we can write <m>a = 2k_1+1</m> and
+                    <m>b = 2k_2+1</m> for some integers <m>k_1</m> and <m>k_2</m>.
+                    Multiplying <m>a</m> and <m>b</m> we get
+                    <me>
+                      ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1 = 2(2k_1k_2 + k_1 + k_2) + 1
+                    </me>
+                    and so <m>ab</m> is odd.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_converse">for</xref> \subconv</title>
+      <exercise xml:id="exer_converse_TorF_lessthan">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the statement: for any real number <m>x</m>,
+            if <m>x^2 \le 100</m>, then <m>x \le 10</m>.
+            <ol>
+              <li>
+                <p>
+                  Is the statement true or false?
+                </p>
+              </li>
+              <li>
+                <p>
+                  State the converse.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to show that the converse is false.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_converse_TorF_divides">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the statement: for all integers <m>n</m>,
+            if <m>6 \mid n</m>, then <m>3 \mid n</m>.
+            <ol>
+              <li>
+                <p>
+                  Is the statement true or false?
+                </p>
+              </li>
+              <li>
+                <p>
+                  State the converse.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to show that the converse is false.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_converse_TorF_mod">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the statement: for any integers <m>a</m> and <m>b</m>,
+            if <m>a \fn{ mod } 5 = b \fn{ mod } 5</m>,
+            then <m>a^2 \fn{ mod } 5 = b^2 \fn{ mod } 5</m>
+            <ol>
+              <li>
+                <p>
+                  Is the statement true or false?
+                </p>
+              </li>
+              <li>
+                <p>
+                  State the converse.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to show that the converse is false.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_converse_inverse_equiv">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use a truth table to show that the converse <m>Q \to P</m> and the inverse
+            <m>\neg P \to \neg Q</m> are logically equivalent.
+            Include intermediate columns for <m>\neg P</m> and <m>\neg Q</m>.
+            This result helps explain why we rarely discuss the inverse.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_TorF_iff">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Decide if each biconditional statement
+            (from <xref ref="act_converse_iff"></xref>)
+            is true or false.
+            Explain briefly.
+            <ol>
+              <li>
+                <p>
+                  For any integers <m>k</m>, <m>k>10</m> if and only if <m>k>5</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any integer <m>n</m>, <m>n</m> is even if and only if <m>3n</m> is even.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any integer <m>m</m>, <m>4 \mid m^2</m> if and only if <m>4 \mid m</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_neg_biconditional">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Construct a truth table for <m>\neg(P \leftrightarrow Q)</m>.
+                  Hint: Copy the truth table from <xref ref="exam_truthtable_biconditional"></xref>
+                  and add one additional column.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The negation <m>\neg(P \leftrightarrow Q)</m> is logically equivalent to a simpler statement.
+                  What is it?
+                  Hint: <xref ref="table_truthtable_xor"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_converse_iff">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the converse of <m>P \to Q</m> is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find examples to show that <m>P \to Q</m> and its converse are not equivalent?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How the biconditional statement <m>P \leftrightarrow Q</m> is defined?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When a biconditional statement is true and when it is false?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_iff">for</xref> \subpffiff</title>
+      <exercise xml:id="exer_proof_iff_even">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="pff_iff">Use</xref> to prove that <m>n</m> is even if and only if <m>n+3</m> is odd,
+            for any integer <m>n</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_iff_solution">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="pff_iff">Use</xref> to prove that <m>2n-7=5</m> if and only if <m>n =6</m> for any integer <m>n</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pff_iff">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to format the proof of a biconditional statement?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why the second part of the proof of a biconditional statement begins with the word
+                  <q>Conversely</q>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_contrapositive">for</xref> \subcp</title>
+      <exercise xml:id="exer_cp_assorted">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Write the contrapositive of each statement.
+            <ol>
+              <li>
+                <p>
+                  For any real number <m>x</m>,
+                  if <m>3x \le 6</m>, then <m>x \le 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For any integer <m>s</m>, if <m>s^2</m> is even, then <m>s</m> is even.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For all graphs <m>G</m>,
+                  if <m>G</m> has at least 5 vertices,
+                  then <m>G</m> must have at least 5 edges.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_subgraph_acyclic">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>H</m> be a subgraph of a graph <m>G</m>.
+            Consider the statement If <m>G</m> is acyclic, then <m>H</m> is acyclic.
+            <ol>
+              <li>
+                <p>
+                  State the contrapositive of this statement and explain why it's true.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why it follows that this statement is true.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cp_irrat">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write the contrapositive of each statement.
+            <ol>
+              <li>
+                <p>
+                  For all real numbers <m>x</m> and <m>y</m>,
+                  if <m>x</m> is rational and <m>y</m> is irrational,
+                  then <m>x+y</m> is irrational.
+                  Note: from <xref ref="defn_sets_of_real_numbers"></xref>
+                  rational and irrational are negations.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For all real numbers <m>x</m> and <m>y</m>,
+                  if <m>x+y</m> is irrational,
+                  then either <m>x</m> is irrational or <m>y</m> is irrational.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For all real numbers <m>x</m> and <m>y</m>,
+                  if <m>x+y</m> is rational,
+                  then <m>x</m> is rational and <m>y</m> is rational.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_cp">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the contrapositive of <m>P \to Q</m> is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why a conditional statement and its contrapositive are equivalent?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to use a truth table to verify that a conditional statement and its contrapositive are logically equivalent?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_cp">for</xref> \subpffcp</title>
+      <exercise xml:id="exer_proof_sq_even_implies_even">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use the contrapositive <xref ref="pff_if_then_cp"/> to prove that for any integer <m>s</m>,
+            if <m>s^2</m> is even then <m>s</m> is even.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_3m_odd">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use the contrapositive <xref ref="pff_if_then_cp"/> to prove for any integer <m>m</m>,
+            if <m>3m</m> is odd, then <m>m</m> is odd.
+            (We proved the converse in <xref ref="act_pffifthen"></xref>
+            <xref ref="part_if_then_direct"/>.)
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_only_check_prime_divisors">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            In this exercise we <xref ref="thm_show_is_prime">prove</xref>
+            <xref ref="part_only_check_prime_divisors"/>.
+          </p>
+          <p>
+            Use the contrapositive <xref ref="pff_if_then_cp"/> to prove that for any integers <m>n</m>,
+            <m>p</m>,
+            and <m>m</m>, if <m>p \nmid n</m>, then <m>mp \nmid n</m>.
+            Note that this statement can be rephrased as if <m>p</m> is not a divisor of <m>n</m>,
+            then no multiple of <m>p</m> is a divisor of <m>n</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_only_check_to_sqrtn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            In this exercise we <xref ref="thm_show_is_prime">prove</xref>
+            <xref ref="part_only_check_to_sqrtn"/>.
+          </p>
+          <p>
+            Prove for any integers <m>a</m>,
+            <m>b</m>, and <m>n</m>, if <m>ab=n</m>,
+            then <m>a \le \sqrt{n}</m> or <m>b \le \sqrt{n}</m>.
+            Hint: Prove the contrapositive <xref ref="pff_if_then_cp"/>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pff_cp">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to prove a conditional statement by proving the contrapositive instead?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When we want to prove the contrapositive instead of the original conditional statement?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What we can write in a proof using the contrapositive so that the reader knows we are using the contrapositive?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_iff_using_cp_evens">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <xref ref="pff_iff">Use</xref> to prove that <m>m</m> is odd if and only if <m>m^3</m> is odd.
+            Hint: Use the contrapositive <xref ref="pff_if_then_cp"/> for the converse
+            (second part).
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="part_prove_sqrtp_irrat">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Copy the following proof by contradiction that <m>\sqrt(2)</m> is irrational,
+            being sure to figure out why each statement is true.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            Suppose not.
+            Then <m>\sqrt{2}</m> is rational.
+            By the definition of rational <xref ref="defn_sets_of_real_numbers"/>, we can write
+            <me>
+              \sqrt{2} = \frac{s}{t}
+            </me>
+            for some positive integers <m>s</m> and <m>t</m> with <m>t \neq 0</m>.
+            <xref ref="thm_equal_fractions">By</xref>,
+            we may assume that we have canceled any common factors so that <m>s</m> and <m>t</m> are coprime.
+          </p>
+          <p>
+            On the other hand,
+            multiply each side of this equation by <m>t</m> to get
+            <me>
+              s = \sqrt{2}t
+            </me>.
+            Square each side of this equation to get
+            <me>
+              s^2=2t^2
+            </me>.
+          </p>
+          <p>
+            Thus, <m>s^2</m> is even.
+            <xref ref="exer_proof_sq_even_implies_even">By</xref>,
+            it follows that <m>s</m> is even.
+            By definition of even,
+            we can write <m>s = 2k</m> for some integer <m>k</m>.
+            Substituting in we get
+            <me>
+              (2k)^2 = 2t^2
+            </me>.
+          </p>
+          <p>
+            Simplifying we get <m>t^2=2k^2</m>.
+            Thus, <m>t^2</m> is also even.
+            <xref ref="exer_proof_sq_even_implies_even">By</xref>,
+            it follows that <m>t</m> is also even.
+            Since <m>s</m> and <m>t</m> are even,
+            it follows that two is a common divisor of <m>s</m> and <m>t</m>.
+            Thus, <m>s</m> and <m>t</m> are not coprime.
+          </p>
+          <p>
+            This is a contradiction.
+            Thus <m>\sqrt{2}</m> is irrational.
+          </p>
+        </proof>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_converse_TorF_lessthan"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            True.
+            Note: In fact, <m>-10 \le x \le 10</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The converse should still include <m>\le</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Broken promise.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_converse_TorF_mod"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            True
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The converse should also involve <m>=</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Broken promise.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_TorF_iff"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: One direction is true, but the other direction is false.
+            Find a counterexample.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is true.
+            Check both directions.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One direction is true, but the other direction is false.
+            Find a counterexample.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_iff_even"></xref> Select Answers and Hints</title>
+      <p>
+        <xref ref="pff_iff">Use</xref> to prove that <m>n</m> is even if and only if <m>n+3</m> is odd,
+        for any integer <m>n</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_iff_solution"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Here is an outline of the proof.
+      </p>
+      <blockquote>
+        <em>Proof.</em>  Let <m>n</m> be an integer.
+        First, assume <m>n</m> is even.  By definition of even we can write <m>n=</m> \ldots.  Then
+        <me>
+          n+3 = \ldots = 2k'+1
+        </me>
+        where <m>k' = \ldots</m> is an integer.  Thus <m>n+3</m> is odd.
+        Next, assume <m>n+3</m> is odd.  By definition of odd we can write <m>n+3=</m> \ldots.  Then
+        <me>
+          n = \ldots = 2k'
+        </me>
+        where <m>k' = \ldots</m> is an integer.  Thus <m>n</m> is even.
+      </blockquote>
+      <p>
+        Hint: Here is an outline of the proof.
+      </p>
+      <blockquote>
+        <em>Proof.</em>  Let <m>n</m> be an integer.
+        First, assume <m>2n-7=5</m>.  Then, \ldots.  Thus <m>n=6</m>.
+        Next, assume <m>n=6</m>.  Then, <m>2n-7 = 2(6)-7 = \ldots</m>.
+      </blockquote>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_cp_assorted"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            For any real number <m>x</m>,
+            if <m>x > 2</m>, then <m>3x > 6</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The negation of even is odd.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The negation of
+            <q>at least</q>
+            is
+            <q>fewer than</q>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_subgraph_acyclic"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The negation of
+            <q>acyclic</q>
+            is
+            <q>contains a cycle.</q>
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>H</m> contains a subgraph <m>C</m> that is a cycle,
+            then <m>C</m> is a subgraph of <m>G</m> and so <m>G</m> contains a cycle.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_cp_irrat"></xref> Select Answers and Hints</title>
+      <p>
+        Hints: First,
+        <q>rational</q>
+        and
+        <q>irrational</q>
+        are negations.
+        Also, use DeMorgan's laws any time you need to negate a statement involving
+        <q>and</q>
+        or
+        <q>or</q>.
+        <ol>
+          <li>
+            <p>
+              Hint: The contrapositive begins
+              <q>For all real numbers <m>x</m> and <m>y</m>,
+              if <m>x+y</m> is rational, then <ellipsis/></q>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Your answer should include the word
+              <q>and</q>. It should not include the word
+              <q>irrational</q>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Your answer should not include the word
+              <q>rational</q>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_3m_odd"></xref> Select Answers and Hints</title>
+      <p>
+        Here is an outline of the proof.
+      </p>
+      <blockquote>
+        <em>Proof.</em> Let <m>m</m> be an integer.  We will prove the contrapositive, namely \ldots.
+        Assume, \ldots.  Then, \ldots.  Thus, \ldots.  <m>\Box</m>
+      </blockquote>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_only_check_prime_divisors"></xref> Select Answers and Hints</title>
+      <p>
+        Here is an outline of the proof.
+      </p>
+      <blockquote>
+        <em>Proof.</em> Let <m>n</m>, <m>p</m>, and <m>m</m> be integers.  We will prove the contrapositive, namely if <m>mp \mid n</m>, then <m>p \mid n</m>.
+        Assume, <m>mp \mid n</m>.  Then, by definition of divides we can write <m>n= \ldots = pk</m> where <m>k=\ldots</m> is an integer.  Thus, <m>p \mid n</m>.  <m>\Box</m>
+      </blockquote>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_only_check_to_sqrtn"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Use DeMorgan's laws.
+        Recall that <m>\sqrt{n}\sqrt{n} = n</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_iff_using_cp_evens"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: First, prove if <m>m</m> is odd, then <m>m^3</m> is odd.
+        Conversely, prove the contrapositive of the converse,
+        namely if <m>m</m> is even, then <m>m^3</m> is even.
+        Another hint:
+        <m>(2k+1)^3 = (2k+1)(2k+1)(2k+1) = (4k^2+4k+1)(2k+1)=\ldots</m>
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

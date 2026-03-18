@@ -1,0 +1,2373 @@
+<section xml:id="sec_logic_connectives">
+  <title>Logical Connectives</title>
+  <introduction>
+    <p>
+      In this section, we introduce the logical connectives for
+      <q>and</q>
+      and
+      <q>or</q>
+      along with their proof formats.
+      We discuss logical equivalence and negation and use truth tables to define connectives and verify equivalences.
+    </p>
+    <p>
+      Let's warm up our logical thinking by considering some true/false questions.
+    </p>
+    <activity xml:id="act_TorF">
+      <title>True or false?</title>
+      <p>
+        Decide if each statement is true or false and discuss how to justify your answer.
+        <ol>
+          <li xml:id="part_digit_sum23">
+            <p>
+              There are three distinct digits whose sum is 23.
+            </p>
+          </li>
+          <li xml:id="part_digit_sum25">
+            <p>
+              There are three distinct digits whose sum is 25.
+            </p>
+          </li>
+          <li xml:id="part_pos_or_neg">
+            <p>
+              Every integer is positive or negative.
+            </p>
+          </li>
+          <li xml:id="part_div3_and_div5">
+            <p>
+              Some integers are divisible by three and five.
+            </p>
+          </li>
+          <li xml:id="part_div6_but_ndiv3">
+            <p>
+              Some integers are divisible by six but not by three.
+            </p>
+          </li>
+          <li xml:id="part_graph_order5">
+            <p>
+              A graph with five vertices is the cycle <m>C_5</m> or the complete graph <m>K_5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Every graph is a tree, which means that it is connected and acyclic.
+            </p>
+          </li>
+          <li>
+            <p>
+              Every bit string of length five begins or ends with <c>0</c>.
+            </p>
+          </li>
+          <li xml:id="part_bs5_three0_or_three1">
+            <p>
+              Every bit string of length five has at least three <c>0</c> s or at least three <c>1</c> s.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </introduction>
+  <subsection xml:id="sub_and_or">
+    <title>\subandor</title>
+    <p>
+      <xref ref="act_TorF">In</xref>,
+      there are many words that indicate the logical structure of a statement.
+      Two important such words are
+      <q>and</q>
+      and
+      <q>or</q>, each of which has a specific technical meaning in mathematics and computer science.
+    </p>
+    <definition xml:id="defn_and_or_xor">
+      <title>And, or, and xor</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>statement</term> is a sentence that is either true or false.
+                For example,
+                <m>P=</m> the integer six has exactly four positive divisors. is a statement that happens to be true because the positive divisors of six are 1, 2, 3, and 6.
+                The statement <m>Q=</m> the cycle <m>C_5</m> has a vertex of degree three. is false because all the vertices of <m>C_5</m> have degree two.
+              </p>
+            </li>
+            <li>
+              <p>
+                For statements <m>P</m> and <m>Q</m>, the statement
+                <q><m>P</m> <term>and</term> <m>Q</m></q>, denoted <m>P \land Q</m>,
+                is true if both <m>P</m> and <m>Q</m> are true and false otherwise.
+                For example,
+                the statement The integer seven is positive and odd. is true because seven is positive and seven is odd.
+                The statement The integer six is positive and odd. is false,
+                even though six is positive because six is not odd.
+              </p>
+            </li>
+            <li>
+              <p>
+                For statements <m>P</m> and <m>Q</m>, the statement
+                <q><m>P</m> <term>or</term> <m>Q</m></q>, denoted <m>P \lor Q</m>,
+                is true if at least one of <m>P</m> and <m>Q</m> are true and false otherwise.
+                For example,
+                the statement The integer six is positive or odd. is true,
+                because six is positive.
+                The statement A graph with five vertices is either the cycle <m>C_5</m> or the complete graph <m>K_5</m>. from <xref ref="act_TorF"></xref>
+                <xref ref="part_graph_order5"/> is false because, for example,
+                the graph <m>P_5</m> has five vertices but it is not a cycle and it is not complete.
+              </p>
+            </li>
+            <li>
+              <p>
+                Note that <m>P \lor Q</m> is true if both <m>P</m> and <m>Q</m> are true.
+                For example,
+                the statement The integer seven is positive or odd. is true.
+                This use of
+                <q>or</q>
+                is the <term>inclusive or</term> because it includes the possibility of both statements being true.
+              </p>
+            </li>
+            <li>
+              <p>
+                When we want to exclude the possibility of both statements being true,
+                we use the <term>exclusive or</term> instead.
+                For statements <m>P</m> and <m>Q</m>, the statement
+                <q><m>P</m> <term>xor</term> <m>Q</m></q>, denoted <m>P \oplus Q</m>,
+                is true if one of <m>P</m> and <m>Q</m> is true and the other is false and false otherwise.
+                For example, when I told my kids
+                <q>you can have ice cream or brownies for dessert</q>
+                they suggested brownies with ice cream
+                (the inclusive or),
+                but I probably meant one or the other but not both
+                (the exclusive or).
+                As another example,
+                in <xref ref="exam_every_integer_even_or_odd"></xref>
+                we showed that Every integer is either even or odd,
+                but never both. which we could write more concisely as Every integer is even xor odd.
+              </p>
+            </li>
+            <li>
+              <p>
+                One way to summarize when a compound statement is true or false is to use a <term>truth table</term>
+                which includes a column for each component of the compound statement
+                (such as <m>P</m>, <m>Q</m>)
+                and for the full compound statement
+                (such as <m>P \land Q</m>)
+                and a row for each possible combination of true or false for the component statements.
+                For example, if our components are <m>P</m> and <m>Q</m>,
+                then the truth table will have four rows corresponding to the four possibilities:
+                <ul>
+                  <li>
+                    <p>
+                      <m>P</m> is true and <m>Q</m> is true;
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>P</m> is true and <m>Q</m> is false;
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>P</m> is false and <m>Q</m> is true; and
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <m>P</m> is false and <m>Q</m> is false.
+                    </p>
+                  </li>
+                </ul>
+              </p>
+              In this textbook we abbreviate true as <c>T</c> and false as <c>F</c>.
+              Some computer science textbooks use <c>1</c> for true and <c>0</c> for false instead.
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We show the truth tables for the compound statements <m>P \land Q</m>,
+      <m>P \lor Q</m>, and <m>P \oplus Q</m> in our next example.
+    </p>
+    <example xml:id="exam_truthtable_and_or_xor">
+      <title>Truth tables for and, or, and xor</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Use a truth table to illustrate the meaning of the logical connective <m>\land</m>
+                (and).
+                <solution>
+                  <p>
+                    <xref ref="table_truthtable_and"></xref>
+                    shows the truth table for <m>P \land Q</m>.
+                    Since the only time <m>P \land Q</m> is true is when both <m>P</m> and <m>Q</m> are true,
+                    the only <c>T</c> in the
+                    <m>P \land Q</m> column is in the first row.
+                    The other entries in the <m>P \land Q</m> column are all <c>F</c>.
+                  </p>
+                  <table xml:id="table_truthtable_and">
+                    <title>Truth table for the logical connective <term>and</term></title>
+                    <tabular>
+                      <row>
+                        <cell><m>P</m></cell>
+                        <cell><m>Q</m></cell>
+                        <cell><m>P \land Q</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use a truth table to illustrate the meaning of the logical connective <m>\lor</m>
+                (or).
+                <solution>
+                  <p>
+                    <xref ref="table_truthtable_or"></xref>
+                    shows the truth table for <m>P \lor Q</m>.
+                    Since <m>P \lor Q</m> is true is whenever <m>P</m> is true,
+                    the first two entries in the
+                    <m>P \land Q</m> column are <c>T</c>.
+                    Since <m>P \lor Q</m> is true whenever <m>Q</m> is true,
+                    the third entry in the <m>P \land Q</m> column is also <c>T</c>.
+                    The final entry in the <m>P \land Q</m> column is <c>F</c> because neither <m>P</m> nor <m>Q</m> are true.
+                  </p>
+                  <table xml:id="table_truthtable_or">
+                    <title>Truth table for the logical connective <term>or</term></title>
+                    <tabular>
+                      <row>
+                        <cell><m>P</m></cell>
+                        <cell><m>Q</m></cell>
+                        <cell><m>P \lor Q</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use a truth table to illustrate the meaning of the logical connective <m>\oplus</m>
+                (xor).
+                <solution>
+                  <p>
+                    <xref ref="table_truthtable_xor"></xref>
+                    shows the truth table for <m>P \oplus Q</m>.
+                    Since <m>P \oplus Q</m> is true exactly when one of <m>P</m> or <m>Q</m> is true,
+                    the <m>P \oplus Q</m> column has <c>T</c> in the second and third rows only.
+                  </p>
+                  <table xml:id="table_truthtable_xor">
+                    <title>Truth table for the logical connective <term>xor</term></title>
+                    <tabular>
+                      <row>
+                        <cell><m>P</m></cell>
+                        <cell><m>Q</m></cell>
+                        <cell><m>P \oplus Q</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{T}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{T}</cell>
+                        <cell>\str{T}</cell>
+                      </row>
+                      <row>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                        <cell>\str{F}</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to create a truth table.
+    </p>
+    <activity xml:id="act_truthtable_and_or">
+      <title>Truth tables with and and or</title>
+      <p>
+        <xref ref="table_truthtable_and_or"></xref>
+        shows the beginning of the truth table for the compound statement <m>(P \lor Q) \land R</m>.
+      </p>
+      <table xml:id="table_truthtable_and_or">
+        <title>Part of the truth table for <m>(P \lor Q) \land R</m></title>
+        <tabular>
+          <row>
+            <cell><m>P</m></cell>
+            <cell><m>Q</m></cell>
+            <cell><m>R</m></cell>
+            <cell><m>P \lor Q</m></cell>
+            <cell><m>(P \lor Q) \land R</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+          </row>
+          <row>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{F}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{F}</cell>
+          </row>
+          <row>
+            <cell>\str{T}</cell>
+            <cell>\str{F}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+          </row>
+          <row>
+            <cell>\str{T}</cell>
+            <cell>\str{F}</cell>
+            <cell>\str{F}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{F}</cell>
+          </row>
+          <row>
+            <cell>\str{F}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>\str{F}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{F}</cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+      <ol>
+        <li>
+          <p>
+            According to the truth table in <xref ref="table_truthtable_and_or"></xref>,
+            when <m>P</m> is true,
+            <m>Q</m> is false, and <m>R</m> is true, which row are we in
+            (do not count the
+            <q>header row</q>
+            with <m>P</m>, <m>Q</m>, etc.)
+            and is the statement <m>(P \lor Q) \land R</m> true or false?
+          </p>
+        </li>
+        <li>
+          <p>
+            We are missing the last couple of rows of <xref ref="table_truthtable_and_or"></xref>.
+            What are the remaining true/false options?
+            Fill in the <m>P</m>, <m>Q</m>,
+            and <m>R</m> columns for the missing rows.
+          </p>
+        </li>
+        <li>
+          <p>
+            <xref ref="table_truthtable_and_or">In</xref>
+            we included an intermediate column for <m>P \lor Q</m>.
+            Convince yourself that we correctly started that column and complete it.
+            Notice that we ignore the <m>R</m> column.
+          </p>
+        </li>
+        <li xml:id="part_finish_truthtable">
+          <p>
+            Convince yourself that we correctly started the final column for
+            <m>(P \lor Q) \land R</m> in <xref ref="table_truthtable_and_or"></xref> and complete it.
+            Notice that we need to look at only the column for <m>R</m> and the intermediate column for <m>P \lor Q</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Construct a new truth table for the compound statement <m>(P \land R) \lor (Q \land R)</m>.
+            Include intermediate columns for
+            <m>P \land R</m> and for <m>Q \land R</m>.
+            What do you notice?
+            Hint: Compare to <xref ref="table_truthtable_and_or"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If we wanted to construct a truth table for a compound statement involving four components (<m>P</m>,
+            <m>Q</m>,
+            <m>R</m>, and <m>S</m>), how many rows would it need.
+            Explain how you counted.
+            Hint: Steps.
+          </p>
+        </li>
+      </ol>
+    </activity>
+    <p>
+      Make sure that you have <xref ref="act_truthtable_and_or">completed</xref>
+      because we are going to reveal some of the answers.
+    </p>
+    <example xml:id="exam_distributive_equiv">
+      <title>Distributive rule</title>
+      <statement>
+        <p>
+          Use a truth table to verify the logical equivalence
+          <me>
+            (P \lor Q) \land R \equiv (P \land R) \lor (Q \land R)
+          </me>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The truth table is in <xref ref="table_truthtable_distrib"></xref>.
+          Notice that the columns for <m>(P \lor Q) \land R</m> and for
+          <m>(P \land R) \lor (Q \land R)</m> have the same sequence of <c>T</c> s and <c>F</c> s.
+        </p>
+        <table xml:id="table_truthtable_distrib">
+          <title>A truth table verifying the distributive equivalence <m>(P \lor Q) \land R \equiv (P \land R) \lor (Q \land R)</m></title>
+          <tabular>
+            <row>
+              <cell><m>P</m></cell>
+              <cell><m>Q</m></cell>
+              <cell><m>R</m></cell>
+              <cell><m>P \lor Q</m></cell>
+              <cell><m>(P \lor Q) \land R</m></cell>
+              <cell><m>P \land R</m></cell>
+              <cell><m>Q \land R</m></cell>
+              <cell><m>(P \land R) \lor (Q \land R)</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+            </row>
+            <row>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+            </row>
+            <row>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+            </row>
+            <row>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+            </row>
+            <row>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{T}</cell>
+            </row>
+            <row>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+            </row>
+            <row>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{T}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+            </row>
+            <row>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+              <cell>\str{F}</cell>
+            </row>
+          </tabular>
+        </table>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_pff_and_or">
+    <title>\subpffandor</title>
+    <p>
+      How can we prove statements involving and and or?
+      To prove <m>P \land Q</m>, we need to prove two things:
+      <m>P</m> and then <m>Q</m>.
+      We can summarize this idea in a proof format.
+    </p>
+    <proof>
+    <p>
+      Prove: <m>P \land Q</m>
+    </p>
+    <proof>
+      <p>
+        First, (explain why <m>P</m> is true.) Therefore, <m>P</m>.
+      </p>
+      <p>
+        Next, (explain why <m>Q</m> is true.) Therefore, <m>Q</m>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      The format for a proof of <m>P \lor Q</m> is less direct.
+      An option is to use a modified version of a proof by cases.
+      Later in this textbook, we introduce two other options:
+      proof by contradiction in <xref ref="sub_pff_contra"></xref>
+      and proof using the equivalent conditional in <xref ref="sub_pff_if_then"></xref>.
+    </p>
+    <p>
+      <xref ref="sub_pff_cases">In</xref> we introduced proof by cases.
+      In each case of the format in <xref ref="pff_cases"></xref>,
+      we proved the same statement.
+      We can modify that proof format to prove
+      <m>P \lor Q</m> by proving <m>P</m> in one case and <m>Q</m> in the other case.
+    </p>
+    <proof>
+    <p>
+      Prove: <m>P \lor Q</m>
+    </p>
+    <proof>
+      <p>
+        (Explain why there are two cases.) We consider two cases.
+      </p>
+      <p>
+        Case 1: Assume <ellipsis/>.
+        (Explain why <m>P</m> is true in this case.)
+        Therefore, <m>P</m>.
+      </p>
+      <p>
+        Case 2: Assume <ellipsis/>.
+        (Explain why <m>Q</m> is true in this case.)
+        Therefore, <m>Q</m>.
+      </p>
+      <p>
+        In either case, we have <m>P \lor Q</m>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      We present this format with two cases,
+      since that is often all we need.
+      This format can be modified to have more than two cases where in some cases <m>P</m> is true and in other cases <m>Q</m> is true.
+      Officially, this is a new proof format.
+    </p>
+    <proof>
+    <p>
+      Prove: <m>P_1 \lor P_2 \lor \cdots \lor P_k</m>
+    </p>
+    <proof>
+      <p>
+        (Explain why there are <m>n</m> cases.) We consider <m>n</m> cases.
+      </p>
+      <p>
+        Case 1: Assume <ellipsis/> (Explain why one of
+        <m>P_1, P_2, \ldots P_k</m> is true in this case.)
+      </p>
+      <p>
+        Case 2: Assume <ellipsis/> (Explain why one of
+        <m>P_1, P_2, \ldots P_k</m> is true in this case.)
+      </p>
+      <p>
+        <ellipsis/>
+      </p>
+      <p>
+        Case <m>n</m>: Assume <ellipsis/> (Explain why one of
+        <m>P_1, P_2, \ldots P_k</m> is true in this case.)
+      </p>
+      <p>
+        In (either case/all cases) we have <m>P_1 \lor P_2 \lor \cdots \lor P_k</m>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      Try working with these formats.
+    </p>
+    <activity xml:id="act_prove_and_orusingcases">
+      <title>Proving <m>\land</m> and <m>\lor</m> by using cases</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_pff_and_example">
+            <p>
+              Copy the following example of a proof of an
+              <q>and</q>
+              statement.
+              Prove that 30 is even and <m>5 \mid 30</m>.
+              <proof>
+                <p>
+                  First, <m>30 = 2(15)=2k</m> when <m>k=15</m> and so 30 is even.
+                </p>
+                <p>
+                  Next, <m>30 = 5(6) = 5k</m> when <m>k=6</m> and so <m>5 \mid 30</m>.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_pff_and_example"/> to prove that 33 is odd and <m>3 \mid 33</m>.
+            </p>
+          </li>
+          <li xml:id="part_pff_or_using_cases_example">
+            <p>
+              Copy the following example of a proof of an
+              <q>or</q>
+              statement using cases.
+              Prove that <m>n^2 \fn{ mod } 4 = 0</m> or
+              <m>n^2 \fn{ mod } 4 = 1</m> for any integer <m>n</m>.
+              Yes, this proof <xref ref="exer_proof_cases_square_mod4">was</xref>
+              in <xref ref="sec_div_alg"></xref>.
+              <proof>
+                <p>
+                  Let <m>n</m> be an integer.
+                  Then <m>n</m> is either even or odd,
+                  by <xref ref="exam_every_integer_even_or_odd"></xref>.
+                  We consider two cases.
+                </p>
+                <p>
+                  Case 1: Assume that <m>n</m> is even.
+                  By the definition of even,
+                  we can write <m>n = 2k</m> for some integer <m>k</m>.
+                  Then
+                  <me>
+                    n^2=(2k)^2=4k^2=4(k^2) = 4q=4q+0
+                  </me>
+                  where <m>q=k^2</m> is an integer.
+                  Therefore, <m>n^2 \fn{ mod } 4 = 0</m>.
+                </p>
+                <p>
+                  Case 2: Assume that <m>n</m> is odd.
+                  By the definition of odd,
+                  we can write <m>n = 2k+1</m> for some integer <m>k</m>.
+                  Then
+                  <me>
+                    n^2=(2k+1)^2 = (2k+1)(2k+1)=4k^2+4k+1 = 4(k^2+k) + 1 = 4q+1
+                  </me>
+                  where <m>q =k^2+k</m> is an integer.
+                  Therefore, <m>n^2 \fn{ mod } 4 = 1</m>.
+                </p>
+                <p>
+                  In either case,
+                  we have <m>n^2 \fn{ mod } 4 = 0</m> or <m>n^2 \fn{ mod } 4 = 1</m>.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li xml:id="part_nsqplusn_mod4">
+            <p>
+              Edit the proof in <xref ref="part_pff_or_using_cases_example"/> to prove that <m>n^2+2n \fn{ mod } 4 = 0</m> or
+              <m>n^2+2n \fn{ mod } 4 = 3</m> for any integer <m>n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_logical_equivalence_negations">
+    <title>\subequivneg</title>
+    <p>
+      <xref ref="act_truthtable_and_or">In</xref>,
+      we saw that the statements <m>(P \lor Q) \land R</m> and
+      <m>(P \land R) \lor (Q \land R)</m> have the same final column in their truth table.
+      That is, in each case
+      (row of the truth table),
+      they are both true or both false.
+      We have a name for the situation where two logical statements have the same truth values.
+    </p>
+    <definition xml:id="defn_logical_equiv">
+      <title>Logical equivalence</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_equiv_distributive">
+              <p>
+                Statements <m>S</m> and <m>T</m> are
+                <term>logically equivalent</term>,
+                denoted <m>S \equiv T</m>,
+                if <m>S</m> and <m>T</m> always have the same truth value,
+                either both statements are true or both statements are false.
+                For example,
+                we saw in <xref ref="act_truthtable_and_or"></xref> that
+                <me>
+                  (P \lor Q) \land R \equiv (P \land R) \lor (Q \land R)
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Statements <m>S</m> and <m>T</m> are
+                <term>not logically equivalent</term>,
+                denoted <m>S \not \equiv T</m> if sometimes one of the statements is true but the other is false.
+                For example,
+                <me>
+                  (P \lor Q) \land R \not \equiv P \lor (Q \land R)
+                </me>
+                as we check in <xref ref="exer_not_assoc"></xref> because,
+                for example,
+                when <m>P</m> is true and both <m>Q</m> and <m>R</m> are false,
+                the left-hand side <m>(P \lor Q) \land R</m> is false but the right-hand side <m>P \lor (Q \land R)</m> is true.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Logically equivalent statements always have the same truth values.
+      There is also a name for when two statements always have the opposite truth value as well as names for logical statements that are always true or always false.
+    </p>
+    <definition xml:id="defn_negation_tautology_contradiction">
+      <title>Negation, tautology, and contradiction</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The statements <m>S</m> and <m>T</m> are <term>negations</term>
+                if <m>S</m> and <m>T</m> always have the opposite truth value.
+                That is, <m>S</m> is true and <m>T</m> is false or <m>S</m> is false and <m>T</m> is true.
+                The statement <m>T</m> is the <term>negation</term>
+                of <m>S</m>, denoted <m>\neg S</m>.
+                For example,
+                if <m>n</m> is an integer and if <m>S</m> is the statement <m>n >2</m>,
+                then <m>\neg S</m> is the statement <m>n \le 2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A statement <m>S</m> is a <term>tautology</term> if it is always true.
+                For example,
+                the statement Either I will work on my homework Tuesday night or I will not work on my homework Tuesday night. is a tautology.
+              </p>
+            </li>
+            <li>
+              <p>
+                A statement <m>S</m> is a <term>contradiction</term> if it is always false.
+                For example,
+                the statement There is an integer <m>n</m> with <m>n>2</m> and
+                <m>n^2\lt 4</m>. is a contradiction because for an integer <m>n</m> with <m>n>2</m> we know that <m>n^2 > 4</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here are examples of truth tables involving negations.
+    </p>
+    <example xml:id="exam_truthtable_negations">
+      <title>Truth tables involving negations</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Use a truth table to illustrate the meaning of the logical operation <m>\neg</m>
+                (not).
+                <solution>
+                  <p>
+                    <xref ref="table_truthtable_not"></xref>
+                    shows the truth table for <m>\neg P</m>.
+                  </p>
+                </solution>
+                <table xml:id="table_truthtable_not">
+                  <title>Truth table for the logical operation <term>not</term></title>
+                  <tabular>
+                    <row>
+                      <cell><m>P</m></cell>
+                      <cell><m>\neg P</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                Construct a truth table for the compound statement <m>P \land \neg Q</m>.
+                <solution>
+                  <p>
+                    <xref ref="table_truthtable_andnot"></xref>
+                    shows the truth table for <m>P \land \neg Q</m>,
+                    using an intermediate column for <m>\neg Q</m>.
+                    Notice that the only time <m>P \land \neg Q</m> is true is when <m>P</m> is true and <m>Q</m> is false,
+                    which happens in the second row.
+                  </p>
+                </solution>
+                <table xml:id="table_truthtable_andnot">
+                  <title>Truth table for the compound statement <m>P \land \neg Q</m></title>
+                  <tabular>
+                    <row>
+                      <cell><m>P</m></cell>
+                      <cell><m>Q</m></cell>
+                      <cell><m>\neg Q</m></cell>
+                      <cell><m>P \land \neg Q</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use a truth table to show that <m>P \land \neg P</m> is a contradiction.
+                <solution>
+                  <p>
+                    <xref ref="table_truthtable_contradiction"></xref>
+                    shows the truth table for <m>P \land \neg P</m>.
+                    Since the final column is all <c>F</c>,
+                    it follows that <m>P \land \neg P</m> is a contradiction.
+                  </p>
+                </solution>
+                <table xml:id="table_truthtable_contradiction">
+                  <title>Truth table for the contradiction <m>P \land \neg P</m></title>
+                  <tabular>
+                    <row>
+                      <cell><m>P</m></cell>
+                      <cell><m>\neg P</m></cell>
+                      <cell><m>P \land \neg P</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                    <row>
+                      <cell>\str{F}</cell>
+                      <cell>\str{T}</cell>
+                      <cell>\str{F}</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      By the way, when the statement following the logical connective
+      <q>and</q>
+      is negative, we use the connective
+      <q>but</q>
+      instead.
+    </p>
+    <remark xml:id="rem_but_not">
+      <title>But not</title>
+      <p>
+        It is common in English to pronounce <m>P \land \neg Q</m> as
+        <q><m>P</m> but not <m>Q</m></q>. The word
+        <q>but</q>
+        has the same meaning logically as
+        <q>and</q>
+        but in English it indicates that what follows is negative in some way.
+        For example,
+        while we can say I like chocolate ice cream and I don't want any now. it is more common to say I like chocolate ice cream but I don't want any now.
+      </p>
+    </remark>
+    <p>
+      Try your hand at working with negations.
+    </p>
+    <activity xml:id="act_not_and">
+      <title>Negating and</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              <xref ref="defn_and_or_xor">In</xref>,
+              we noted that the statement The integer seven is positive and odd. is true.
+              Consider the general statement The integer <m>n</m> is positive and odd.
+              Give examples of integers <m>n</m> where the statement is false,
+              including some negative values of <m>n</m>.
+            </p>
+          </li>
+          <li xml:id="part_positive_and_odd">
+            <p>
+              For the statement The integer <m>n</m> is positive and odd. to be false,
+              what needs to be true for <m>n</m>?
+            </p>
+          </li>
+          <li xml:id="part_truth_not_and">
+            <p>
+              Construct a truth table for
+              <m>\neg(P \land Q)</m> and <m>\neg P \land \neg Q</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Look at your truth table from <xref ref="part_truth_not_and"/>.
+              Is <m>\neg(P \land Q) \equiv \neg P \land \neg Q</m>?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>\neg P \land \neg Q</m> the negation of <m>P \land Q</m>?
+              Explain.
+            </p>
+          </li>
+          <li xml:id="part_conj_not_and">
+            <p>
+              Make a conjecture about the negation of <m>P \land Q</m>.
+              Your answer should agree with your answer to <xref ref="part_positive_and_odd"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Verify your conjecture from <xref ref="part_conj_not_and"/> using a truth table.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      <xref ref="act_not_and">In</xref>,
+      we saw that the negation of
+      <m>P \land Q</m> is not <m>\neg P \land \neg Q</m>.
+      For <m>P \land Q</m> to be false,
+      we need either <m>P</m> is false or <m>Q</m> is false or both are false.
+      That is, we need <m>\neg P \lor \neg Q</m> to be true.
+      Similarly, for <m>P \lor Q</m> to be false,
+      we need both <m>P</m> is false and <m>Q</m> is false.
+      That is, we need <m>\neg P \land \neg Q</m> to be true.
+      We summarize these negations in a theorem.
+    </p>
+    <theorem xml:id="thm_demorgans">
+      <title>De Morgan's Law</title>
+      <statement>
+        <p>
+          For statements <m>P</m> and <m>Q</m>,
+          the negation of <m>P \land Q</m> is <m>\neg P \lor \neg Q</m> and the negation of
+          <m>P \lor Q</m> is <m>\neg P \land \neg Q</m>.
+          That is, we have the following logical equivalences known as
+          <term>De Morgan's Laws</term>:
+          <me>
+            \neg(P \land Q) \equiv \neg P \lor \neg Q\text{ and } \neg(P \lor Q) \equiv \neg P \land \neg Q
+          </me>
+        </p>
+      </statement>
+    </theorem>
+  </subsection>
+  <subsection xml:id="sub_pff_contra">
+    <title>\subpffcontra</title>
+    <p>
+      One method of proving that the statement <m>P</m> is true is to show that the assumption that <m>P</m> is false leads to a contradiction,
+      such as a statement of the form <m>Q \land \neg Q</m>.
+      That is, in a proof by contradiction of a statement <m>P</m>,
+      we assume that <m>P</m> is false and deduce that both <m>Q</m> and <m>\neg Q</m> are true for some statement <m>Q</m>,
+      which is impossible.
+      That impossibility tells us that <m>P</m> cannot be false,
+      and so <m>P</m> must be true.
+    </p>
+    <p>
+      As we start writing a proof by contradiction,
+      we usually do not know what the statement <m>Q</m> will be.
+      Sometimes it helps to do a little scratch work listing the consequences of <m>P</m> being false to see if we find contradictory statements <m>Q</m> and <m>\neg Q</m>.
+    </p>
+    <p>
+      A <term>proof by contradiction</term>
+      follows the following proof format.
+    </p>
+    <proof>
+    <p>
+      Prove: P
+    </p>
+    <proof>
+      <p>
+        Suppose not.
+        Then
+        (state <m>\neg P</m>).
+      </p>
+      <p>
+        First, (explain why <m>Q</m> is true.) Therefore, <m>Q</m>.
+      </p>
+      <p>
+        On the other hand,
+        (explain why <m>\neg Q</m> is true.)
+        Therefore, <m>\neg Q</m>.
+      </p>
+      <p>
+        This is a contradiction.
+        Therefore, <m>P</m>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      Notice that we are proving two things (<m>Q</m> and <m>\neg Q</m>),
+      but instead of saying
+      <q>First, <ellipsis/>.
+      Next, ldots.</q>
+      as we did in <xref ref="pff_and"></xref>, we use the expression
+      <q>First, <ellipsis/>.
+      On the other hand, ldots.</q>
+      The phrase ``on the other hand`` alerts the reader that we are changing direction towards the negation of what we just proved.
+      It is also acceptable to write ``On the one hand, <ellipsis/>.
+      On the other hand, <ellipsis/>."
+    </p>
+    <p>
+      Try writing a proof using contradiction.
+    </p>
+    <activity xml:id="act_proof_contradiction">
+      <title>Proof by contradiction: consecutive integers are coprime</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_contradiction_consec_coprime">
+            <p>
+              Copy the following example of a proof by contradiction.
+              Prove <m>\fn{gcd}(n,n+1)=1</m> for any integer <m>n</m>.<fn>
+              We proved this result in <xref ref="exer_consec_coprime"></xref>
+              using the Euclidean Algorithm.
+              </fn>
+              <proof>
+                <p>
+                  Suppose not.
+                  Then there exists an integer <m>n</m> such that <m>d=\fn{gcd}(n,n+1)\neq 1</m>.
+                </p>
+                <p>
+                  First, by the definition of the greatest common divisor <xref ref="defn_gcd"/>,
+                  <m>d \mid n</m> and <m>d \mid n+1</m>.
+                  By the definition of divides <xref ref="defn_divides"/> we can write <m>n = dk_1</m> and
+                  <m>n+1 = dk_2</m> for some integers <m>k_1</m> and <m>k_2</m>.
+                  Observe that
+                  <me>
+                    (n+1) - n = dk_2 - dk_1 = d(k_2-k_1)=dq
+                  </me>
+                  where <m>q = k_2-k_1</m> and so <m>d \mid (n+1)-n</m>.
+                  But, of course, <m>(n+1)-n=1</m> so really <m>d \mid 1</m>.
+                  Since the only positive divisor of 1 is 1, it follows that <m>d =1</m>.
+                </p>
+                <p>
+                  On the other hand, we assumed that <m>d \neq 1</m>.
+                  This is a contradiction.
+                  Thus, <m>\fn{gcd}(n,n+1)=1</m>.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_contradiction_consec_coprime"/> to prove that
+              <m>\fn{gcd}(n,n-1) = 1</m> for any integer <m>n</m>.
+              (Yes, we are again proving that consecutive integers are coprime.)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      There is a bit of controversy over the use of proof by contradiction.
+      Some mathematicians dislike contradiction proofs because they do not actually show why a statement is true,
+      only why it cannot be false.
+      Other mathematicians like contradiction proofs because they settle an argument:
+      if your reader thinks the statement is false,
+      your proof shows them that something terrible goes wrong (a contradiction).
+      We will let you decide which type of mathematician you are.
+    </p>
+    <p>
+      Because of this controversy,
+      we often rewrite a proof by contradiction using some other format,
+      if possible.
+    </p>
+    <example xml:id="exam_avoid_contradiction_consec_coprime">
+      <title>Rewriting without contradiction</title>
+      <statement>
+        <p>
+          Copy the proof by contradiction from <xref ref="act_proof_contradiction"></xref>
+          <xref ref="part_contradiction_consec_coprime"/> and edit to to give a proof without contradiction.
+        </p>
+        <p>
+          Prove that <m>\fn{gcd}(n,n+1)=1</m> for any integer <m>n</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We have crossed out the statements that should be deleted,
+          and boldfaced the statements that should be added.
+        </p>
+        <p>
+          <em>Proof.</em> \st{Suppose not.
+          Then there exists an integer <m>n</m> such that <m>d=\fn{gcd}(n,n+1)\neq 1</m>}
+        </p>
+        <p>
+          <em>Let <m>n</m> be an integer.
+          Write <m>d=\fn{gcd}(n,n+1)</m>.
+          Since 1 is a common divisor of any integer,
+          <m>d</m> is certainly positive.</em>
+        </p>
+        <p>
+          First, by the definition of greatest common divisor <xref ref="defn_gcd"/>,
+          <m>d \mid n</m> and <m>d \mid n+1</m>.
+          By the definition of divides <xref ref="defn_divides"/> we can write <m>n = dk_1</m> and
+          <m>n+1 = dk_2</m> for some integers <m>k_1</m> and <m>k_2</m>.
+          Observe that
+          <me>
+            (n+1) - n = dk_2 - dk_1 = d(k_2-k_1)
+          </me>
+          and so <m>d \mid (n+1)-n</m>.
+          But, of course, <m>(n+1)-n=1</m> so really <m>d \mid 1</m>.
+          Since the only positive divisor of 1 is 1, it follows that <m>d =1</m>.
+        </p>
+        <p>
+          \st{On the other hand, we assumed that <m>d \neq 1</m>.
+          This is a contradiction.
+          Thus <m>\fn{gcd}(n,n+1)=1</m>.}
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_and_or">for</xref> \subandor</title>
+      <exercise xml:id="exer_standard_truthtables">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Copy the standard truth tables for each expression.
+            <ol>
+              <li>
+                <p>
+                  <m>P \land Q</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>P \lor Q</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>P \oplus Q</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_translate_into_and_or">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For this exercise, <m>n</m> is a specific
+            (but unknown)
+            integer, <m>X=</m> <m>n</m> is a multiple of 6, and <m>R=</m> <m>n</m> is a multiple of 4.
+            In each part of this exercise write the statement using <m>X</m>,
+            <m>R</m>,
+            and logic symbols and find an example of an integer <m>n</m> for which the statement is true.
+            <ol>
+              <li>
+                <p>
+                  The integer <m>n</m> is a multiple 6 and a multiple of 4.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The integer <m>n</m> is a multiple of exactly one of 6 or 4.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Recall that a graph is a <term>tree</term>
+            if it is connected and acyclic.
+            <ol>
+              <li>
+                <p>
+                  Give an example of a tree and explain what you have checked.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Could a graph be connected but not a tree?
+                  Give an example and explain in words.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Could a graph be acyclic but not a tree?
+                  Give an example and explain in words.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_not_assoc">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_not_assoc">
+                <p>
+                  Construct a truth table for the compound statement <m>P \lor (Q \land R)</m>.
+                  Include an intermediate column for <m>Q \land R</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compare your answer from <xref ref="part_not_assoc"/> with the completed truth table from <xref ref="act_truthtable_and_or"></xref>
+                  <xref ref="part_finish_truthtable"/>.
+                  Is <m>P \lor (Q \land R) \equiv (P \lor Q) \land R</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_truthtable_distributive">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Construct a truth table for <m>P \land (Q \lor R)</m>.
+                  Include an intermediate column for <m>Q \lor R</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a truth table for <m>(P \land Q) \lor (P \land R)</m>.
+                  Include intermediate columns for
+                  <m>P \land Q</m> and for <m>P \land R</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do you notice?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_and_or">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the symbols <m>\land</m>,
+                  <m>\lor</m>, and <m>\oplus</m> stand for?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the logical connectives
+                  <q>and</q>,
+                  <q>or</q>, and
+                  <q>xor</q>
+                  mean?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When statements of the form <m>P \land Q</m> and
+                  <m>P \lor Q</m> are true and when they're false?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why we might create a truth table?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to create a truth table for a compound logical statement?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_and_or">for</xref> \subpffandor</title>
+      <exercise xml:id="exer_prove_odd_and_mult3">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="pff_and">Use</xref> to prove that 12 is even and <m>3 \mid 12</m>.
+            Hint: Copy the proof in <xref ref="act_prove_and_orusingcases"></xref>
+            <xref ref="part_pff_and_example"/> and edit as needed.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_nsqplusn_mod4">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="pff_or_by_cases">Use</xref>
+            to to prove that <m>n^2+2n \fn{ mod } 4 = 0</m> or
+            <m>n^2+2n \fn{ mod } 4 = 3</m> for any integer <m>n</m>.
+            Hint: Copy the proof in <xref ref="act_prove_and_orusingcases"></xref>
+            <xref ref="part_pff_or_using_cases_example"/> and edit as needed.
+            Yes, this exercise <xref ref="act_prove_and_orusingcases">repeats</xref>
+            <xref ref="part_nsqplusn_mod4"/>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_odd_and_mult3_general">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="pff_and">Use</xref> to prove that <m>3n+6</m> is even and
+            <m>3 \mid (3n+6)</m> for any integer <m>n</m>.
+            Hint: Copy the proof in <xref ref="act_prove_and_orusingcases"></xref>
+            <xref ref="part_pff_and_example"/> and edit as needed.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sq_mod5">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use Proof <xref ref="pff_or_by_cases_generalized">Format</xref>
+            to prove that for any integer <m>n</m> we have <m>n^2 \fn{ mod } 5 = 0</m>,
+            <m>n^2 \fn{ mod } 5 = 1</m>, or <m>n^2 \fn{ mod } 5 = 4</m>.
+            Hint: By the Division Algorithm
+            <m>n = 5q+r</m> with <m>0 \le r \lt 5</m>.
+            Break into five cases corresponding to <m>r=0, 1, 2, 3</m>,
+            or <m>4</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pff_and_or_by_cases">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How we prove a statement of the form <m>P \land Q</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How we prove a statement of the form <m>P \lor Q</m> using cases?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_logical_equivalence_negations">for</xref>
+      \subequivneg</title>
+      <exercise xml:id="exer_my_first_negate">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Negate each statement about an integer <m>k</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>k=10</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>k>10</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>k</m> is odd
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>10 \mid k</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_my_first_demorgans">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Negate each statement about the integers <m>a</m> and <m>b</m>.
+            Hint: Use DeMorgan's Laws <xref ref="thm_demorgans"/> and <xref ref="rem_but_not"></xref>.
+            <ol>
+              <li>
+                <p>
+                  <m>a</m> is even and <m>b</m> is even
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>a</m> is even or <m>b</m> is even
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>a</m> is even but <m>b</m> is odd
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_translate_into_and_or_with_not">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For this exercise, <m>n</m> is a specific
+            (but unknown)
+            integer, <m>X=</m> <m>n</m> is a multiple of 6, and <m>R=</m> <m>n</m> is a multiple of 4.
+            In each part of this exercise write the statement using <m>X</m>,
+            <m>R</m>,
+            and logic symbols and find an example of an integer <m>n</m> for which the statement is true.
+            <ol>
+              <li>
+                <p>
+                  The integer <m>n</m> is not a multiple of 6.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The integer <m>n</m> is a multiple of 6, but not a multiple of 4.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The integer <m>n</m> is a multiple of 4, but not a multiple of 6.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The integer <m>n</m> is not a multiple of 4 or 6.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_truthtable_andornot">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use a truth table to show that <m>P \lor \neg P</m> is a tautology.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a truth table for <m>P \lor \neg Q</m>.
+                  Include an intermediate column for <m>\neg Q</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw a truth table for <m>\neg P \land Q</m>.
+                  Include an intermediate column for <m>\neg P</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_truthtable_demorgan">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="act_not_and">In</xref>
+            we verified the first of De Morgan's Laws <xref ref="thm_demorgans"/>.
+            Construct truth tables to verify the second equivalence
+            <me>
+              \neg(P \lor Q) \equiv \neg P \land \neg Q
+            </me>.
+            Include some intermediate columns.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_equiv_negation">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What it means for statements to be logically equivalent and how we might use a truth table to verify an equivalence?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What a tautology or contradiction is and how to verify that a statement is a tautology or contradiction using a truth table.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the negation of a statement is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the symbols <m>\neg</m> and <m>\equiv</m> mean?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How the construction <m>\land \neg</m> is translated into words.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find the negation of <m>P \land Q</m> and
+                  <m>P \lor Q</m> and what those equivalences are called?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_writing_xor_without_xor">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Find a statement that is logically equivalent to
+                  <m>P \oplus Q</m> but does not use <m>\oplus</m>.
+                  You may use <m>\land</m>, <m>\lor</m>,
+                  <m>\neg</m>, and parentheses.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use a truth table to verify that the statements are equivalent.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the negation of the statement <m>P \oplus Q</m>?
+                  Describe the negation using <m>\land</m>,
+                  <m>\lor</m>, and <m>\neg</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_contra">for</xref> \subpffcontra</title>
+      <exercise xml:id="exer_prove_not_sum_3digits_equals25">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that there do not exist three distinct digits whose sum is equal to 25.
+            This statement was one of the true/false questions in <xref ref="act_TorF"></xref>
+            <xref ref="part_digit_sum25"/>.
+            Hint: The negation would be that there exist three distinct digits whose sum is 25.
+            What is the largest possible set of three distinct digits and what is their sum?
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_contradiction_coins_in_cups">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            We have nine coins and four cups.
+            We place each coin in a cup.
+            <xref ref="pff_contradiction">Use</xref>
+            to prove that some cup has three or more coins.
+            Hint: The negation would be that each cup has two or fewer coins.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_contradiction_3reg_graph_order7">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that there cannot exist a 3-regular graph of order 7.
+            Hint: <xref ref="thm_first_thm_graph_thy">By</xref>,
+            the number of edges in a graph is equal to half of the sum of the degrees of the vertices.
+            On the other hand, the number of edges must be an integer.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_bs_length5_three0s_or_three1s">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that every bit string of length five has at least three <c>0</c> s or at least three <c>1</c> s.
+                  Hint: The negation would be that there exists a bit string of length five with fewer than three <m>\bs{0}</m>s and fewer than three <m>\bs{1}</m>s.
+                  What is the longest such possible bit string?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why does the negation use
+                  <q>and</q>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_contradiction_coprime">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Suppose <m>a</m> and <m>b</m> are coprime integers and <m>p</m> is a positive prime.
+            Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that <m>p \nmid a</m> or <m>p \nmid b</m>.
+            Hint: Be careful negating the
+            <q>or</q>
+            statement.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pff_contradiction">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Why <m>Q \land \neg Q</m> is a contradiction?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to write a proof by contradiction?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How we can begin a proof by contradiction so the reader knows that we are doing a proof by contradiction?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why the phrase
+                  <q>On the other hand</q>
+                  is used in a proof by contradiction?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_not_both_even_odd">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that an integer <m>n</m> cannot be even and odd.
+            Hint: If <m>n</m> is even,
+            use the definition of even to write <m>n = 2k</m> for some integer <m>k</m>.
+            If <m>n</m> is odd,
+            use the definition of odd to write <m>n=2q+1</m> for some integer <m>q</m>.
+            Do not use <m>k</m> again.
+            Put these equations together to get <m>2k=2q+1</m>.
+            Next, solve for 1 to show that <m>2 \mid 1</m>.
+            On the other hand, the only divisors of 1 are <m>\pm1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_lg3_irrat">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Copy the following proof and fill in the blanks.<fn>
+            Thanks to Oscar Levin for the idea for this exercise.
+            </fn>
+          </p>
+          <p>
+            Prove that <m>\fn{lg}(3)</m> is irrational.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            Suppose not.
+            Then <m>\fn{lg}(3)</m> is <fillin/>.
+            By the definition of rational numbers <xref ref="defn_fraction_rational"/>, we can write
+            <me>
+              \fn{lg}(3) = \frac{s}{t}
+            </me>
+            for some integers <m>s</m> and <m>t</m> with <m>t \neq 0</m>.
+            Using the definition of <c>lg</c> <xref ref="defn_log"/>, we can write
+            <me>
+              2^{^{\frac{s}{t}}} = \underline{\hspace{.5 in}}
+            </me>.
+            Raising both sides of this equation to the power <m>t</m> we get
+            <me>
+              2^s = \underline{\hspace{.5 in}}
+            </me>
+          </p>
+          <p>
+            On the other hand,
+            any power of two is even and so <fillin/> is even and any power of three is odd and so <fillin/> is odd.
+            <xref ref="exer_not_both_even_odd">By</xref>,
+            an integer cannot be even and odd.
+            Thus,
+            <me>
+              2^s \neq \underline{\hspace{.5 in}}
+            </me>
+          </p>
+          <p>
+            This is a contradiction.
+            Thus, <m>\fn{lg}(3)</m> is irrational.
+          </p>
+        </proof>
+      </exercise>
+      <exercise xml:id="exer_proof_inf_many_primes">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/> Copy the following proof and fill in the blanks.
+          </p>
+          <p>
+            Prove that there are infinitely many primes.
+          </p>
+        </statement>
+        <proof>
+          <p>
+            Suppose not.
+            Then there would be a <fillin/> number of primes,
+            so we could list all of them.
+            Suppose that the list of all primes were <m>p_1,p_2,p_3, \ldots,p_k</m>.
+            Consider the positive integer
+            <me>
+              n = p_1p_2p_3\cdots p_k
+            </me>
+          </p>
+          <p>
+            First, <m>n = p_1(p_2p_3\cdots p_k)</m> so by the definition of
+            <m>\underline{\hspace{1in}}</m> it follows that <m>p_1 \mid n</m>.
+            Since <m>p_1</m> is prime, we know that <m>p_1 > 1</m>.
+            <xref ref="exer_consec_coprime">By</xref>,
+            we know that <m>\fn{gcd}(n,n+1) = \underline{\hspace{1in}}</m>.
+            Since <m>p_1 > 1</m> and <m>p_1 \mid n</m>,
+            it follows that <m>p_1 \nmid (n+1)</m>.
+            For each value of <m>i = 1, 2, \ldots k</m>,
+            the same argument shows that <m>p_i >1</m> and
+            <m>p_i \mid n</m> and so <m>p_i \nmid (n+1)</m>.
+            Therefore, none of the primes
+            <m>p_1,p_2,p_3, \ldots,
+            p_k</m> divides <m>\underline{\hspace{1in}}</m>.
+          </p>
+          <p>
+            On the other hand,
+            <m>p_1,p_2,p_3, \ldots,p_k</m> are the only primes.
+            It follows that <m>n+1</m> has no prime divisors.
+            Since <m>n</m> is positive, we know <m>n+1>1</m>.
+            This is a contraction of <xref ref="thm_FTOArith"></xref>
+            which says <m>\underline{\hspace{1in}}</m>.
+          </p>
+        </proof>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_translate_into_and_or"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>X \land R</m> which is true when <m>n=12</m>.
+            There are other correct examples.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\oplus</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_truthtable_distributive"></xref> Select Answers and Hints</title>
+      <ol>
+        <li xml:id="part_truthtable_dist1">
+          <p>
+            <xref ref="table_truthtable_dist1">See</xref>.
+            <table xml:id="table_truthtable_dist1">
+              <title>Truth table for the compound statement <m>P \land (Q \lor R)</m></title>
+              <tabular>
+                <row>
+                  <cell><m>P</m></cell>
+                  <cell><m>Q</m></cell>
+                  <cell><m>R</m></cell>
+                  <cell><m>Q \lor R</m></cell>
+                  <cell><m>P \land (Q \lor R)</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell></cell>
+                  <cell></cell>
+                  <cell></cell>
+                  <cell></cell>
+                  <cell></cell>
+                </row>
+                <row>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                </row>
+                <row>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                </row>
+                <row>
+                  <cell>\str{T}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                </row>
+                <row>
+                  <cell>\str{T}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{F}</cell>
+                </row>
+                <row>
+                  <cell>\str{F}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{F}</cell>
+                </row>
+                <row>
+                  <cell>\str{F}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{F}</cell>
+                </row>
+                <row>
+                  <cell>\str{F}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{T}</cell>
+                  <cell>\str{F}</cell>
+                </row>
+                <row>
+                  <cell>\str{F}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{F}</cell>
+                  <cell>\str{F}</cell>
+                </row>
+              </tabular>
+            </table>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You should get the same final column as in <xref ref="part_truthtable_dist1"/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            They are logically equivalent.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_odd_and_mult3"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: <m>12 = 2(6)</m> and <m>12 = 3(4)</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_nsqplusn_mod4"></xref> Select Answers and Hints</title>
+      <p>
+        Hint:
+        <me>
+          (2k)^2+2(2k) = 4k^2+4k = 4(\underline{\hspace{.5in}}) + 0
+        </me>
+        and
+        <me>
+          (2k+1)^2 + 2(2k+1) = 4k^2 + 8k + 3= 4(\underline{\hspace{.5in}}) + 3
+        </me>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_odd_and_mult3_general"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Make sure to copy all the words in the proof.
+        During the proof, you will need to write
+        <m>3n+6 = 2(\underline{\hspace{.5in}})</m> and <m>3n+6 = 3(\underline{\hspace{.5in}})</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sq_mod5"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The five cases are Case 1: Assume <m>n = 5q</m>; Case 2: Assume <m>n=5q+1</m>; Case 3: Assume <m>n=5q+2</m>; Case 4: Assume <m>n=5q+3</m>;
+        and Case 5: Assume <m>n=5q+4</m>.
+        In Case 4, for example, we have
+        <me>
+          n^2=(5q+3)^2=25q^2+30q+9=25q^2+30q+5+4=5(5q^2+6q+1)+4
+        </me>
+        and so <m>n^2 \fn{ mod } 5 = 4</m>.
+        Notice how we cleverly rewrite <m>9 = 5+4</m>.
+        That made it possible to factor 5 out of the 5 to show the remainder of 4.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_my_first_negate"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>k \neq 10</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure your answer includes the possibility that <m>k=10</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>k</m> is even.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use <m>\nmid</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_my_first_demorgans"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>a</m> is odd or <m>b</m> is odd
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your answer should include
+            <q>and</q>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your answer should include
+            <q>or</q>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_translate_into_and_or_with_not"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\neg X</m> An example is <m>n=10</m>.
+            There are other correct examples.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <xref ref="rem_but_not">See</xref> and use <m>\nmid</m>.
+            Include an example.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>R \land \neg X</m>.
+            Include an example.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You may use parentheses in your answer,
+            but there is also a way to write it without parentheses.
+            Include an example.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_truthtable_andornot"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The truth table only needs two rows and is similar to the table in <xref ref="table_truthtable_contradiction"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The truth table needs four rows and is similar to the table in <xref ref="table_truthtable_andnot"></xref>.
+            The last column should have three <c>T</c> and one <c>F</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The last column should have one <c>T</c> and three <c>F</c>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_truthtable_demorgan"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: One way to set up the truth table is shown in <xref ref="table_truthtable_demorgan"></xref>.
+        Feel free to copy the table,
+        check the third row, and then fill in the remaining entries.
+      </p>
+      <table xml:id="table_truthtable_demorgan">
+        <title>Truth table for the compound statement <m>P \land  (Q \lor R)</m></title>
+        <tabular>
+          <row>
+            <cell><m>P</m></cell>
+            <cell><m>Q</m></cell>
+            <cell><m>P \lor Q</m></cell>
+            <cell><m>\neg(P \lor Q)</m></cell>
+            <cell><m>\neg P</m></cell>
+            <cell><m>\neg Q</m></cell>
+            <cell><m>\neg P \land \neg Q</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>\str{T}</cell>
+            <cell>\str{F}</cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>\str{F}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{F}</cell>
+            <cell>\str{T}</cell>
+            <cell>\str{F}</cell>
+            <cell>\str{F}</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>\str{F}</cell>
+            <cell>\str{F}</cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_not_sum_3digits_equals25"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy this proof filling in the missing parts.
+      </p>
+      <proof>
+        <p>
+          Suppose not.
+          Then there exist three distinct digits whose sum is equal to 25.
+        </p>
+        <p>
+          On the other hand,
+          the largest possible set of three distinct digits is
+          <m>\{ \underline{\hspace{.1in}}, \underline{\hspace{.1in}}, \underline{\hspace{.1in}}\}</m> and their sum is <m>\underline{\hspace{.1in}} + \underline{\hspace{.1in}}+\underline{\hspace{.1in}}=\underline{\hspace{.1in}} \neq 25</m>.
+        </p>
+        <p>
+          This is a contradiction.
+          Therefore, there do not exist three distinct digits whose sum is equal to 25.
+        </p>
+      </proof>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_contradiction_3reg_graph_order7"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: If there were such a graph,
+        the sum of the degrees of the vertices would be
+        <me>
+          3+3+3+3+3+3+3=7(3)=21
+        </me>.
+      </p>
+      <p>
+        Then, use the hint.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_bs_length5_three0s_or_three1s"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: In the hint
+            <q>fewer than three <c>0</c> s</q>
+            means the number of <c>0</c> s is less than or equal to two.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: DeMorgan's Law.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_contradiction_coprime"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: If <m>p \mid a</m> and <m>p \mid b</m>,
+        then <m>p</m> is a positive common divisor of <m>a</m> and <m>b</m> that is greater than one.
+        What does that tell you about <m>\fn{gcd}(a,b)</m>?
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

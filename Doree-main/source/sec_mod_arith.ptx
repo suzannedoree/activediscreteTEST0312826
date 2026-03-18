@@ -1,0 +1,1220 @@
+<section xml:id="sec_mod_arith">
+  <title>Excursion: Modular Arithmetic</title>
+  <introduction>
+    <p>
+      Many applications of number theory use a new number system based on remainders (<c>mod</c>), which we introduce in this section.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_not_last">
+    <title>\subnotlast</title>
+    <p>
+      In this puzzle, we introduce a game.
+      To play the game, you will need an opponent
+      (another person)
+      and a pile of small objects such as coins,
+      poker chips, candies, dried beans, etc.
+    </p>
+    <activity xml:id="act_not_last">
+      <title>Not Last Puzzle</title>
+      <p>
+        The <term>Not Last</term> game starts with a pile of coins and two players, A and B. Player A removes one or two coins,
+        their choice.
+        Then player B removes one or two coins, their choice.
+        Then A goes again and then B. They continue alternating until all the coins have been removed.
+        At each turn each player must remove one or two coins.
+        Whoever takes the last coin loses (<term><em>mis&#xe8;re</em></term>) and,
+        thus, each player's goal is to be
+        <q>not last</q>.
+      </p>
+      <p>
+        For example,
+        suppose the game begins with a pile of seven coins.
+        I, as the first player (A), remove two coins leaving a pile of five coins.
+        My opponent (B) decides to remove only one coin,
+        thus leaving a pile of four.
+        I remove one more coin, leaving a pile of three.
+        My opponent chuckles as she removes two coins,
+        leaving me to remove the last coin.
+        I lose.
+      </p>
+      <p>
+        We can summarize this series of moves in the diagram:
+        <me>
+          7 \xrightarrow{A-2} 5 \xrightarrow{B-1} 4 \xrightarrow{A-1} 3 \xrightarrow{B-2} 1 \xrightarrow{A-1} 0 \text{ B wins }
+        </me>
+      </p>
+      <p>
+        I wonder if there is a different strategy where I could win with seven coins.
+        In general, for a pile of <m>n</m> coins,
+        is there a strategy by which the first player (A) can definitely win?
+        We assume, as is the custom,
+        that both players are fully knowledgeable about the game,
+        equally clever, and driven to win.
+        <ol>
+          <li>
+            <p>
+              Play four rounds of Not Last with seven coins to get a sense of the game and list the diagram for each.
+            </p>
+          </li>
+          <li>
+            <p>
+              As we often do,
+              let's begin by looking at the smallest special cases.
+              When <m>n=1</m> who wins: A or B? Explain and draw the diagram.
+            </p>
+          </li>
+          <li>
+            <p>
+              When <m>n=2</m> is there a strategy for A to win?
+              Explain and draw the diagram.
+            </p>
+          </li>
+          <li>
+            <p>
+              Repeat for <m>n=3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              When <m>n=4</m>, there is no strategy A can use to win.
+              Draw diagrams for each option (A takes one coin or A takes two coins) showing that B wins in either case.
+            </p>
+          </li>
+          <li>
+            <p>
+              Before we try larger values of <m>n</m>,
+              it is helpful to shift our perspective slightly.
+              As we play the game with <m>n</m> coins,
+              suppose there are eventually <m>k</m> coins left.
+              For the purpose of this puzzle,
+              <m>k</m> is a <term>losing position</term>
+              if the player who goes next eventually loses and <m>k</m> is a
+              <term>winning position</term>
+              if the player who goes next eventually wins.
+              Explain why <m>k=1</m> is a losing position,
+              but <m>k=2</m> and <m>k=3</m> are winning positions.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let's revisit the 4-coin game with this new perspective.
+              If A takes one coin,
+              then <m>k=3</m> which is a winning position and B goes next,
+              so B wins.
+              If A takes two coins instead,
+              then <m>k=2</m> which is also a position number and B goes next,
+              so B wins.
+              We can draw the simpler diagram,
+              using the <m>\implies</m> arrow to indicate a set of moves with known outcome.
+              <me>
+                4 \xrightarrow{A-1} 3 \implies \text{ B wins }  \ \ \text{ OR  }  4 \xrightarrow{A-2} 2 \implies \text{ B wins }
+              </me>.
+              We have just learned that <m>k=4</m> is a losing position.
+              Find a strategy by which A wins when <m>n = 5</m>.
+              Explain and draw the diagram.
+              Hint: How can A leave B in a losing position?
+            </p>
+          </li>
+          <li>
+            <p>
+              When <m>n = 6</m>, is there a strategy by which A wins?
+              Explain and draw the diagram.
+              Remember, A is trying to leave B in a losing position,
+              and vice versa.
+            </p>
+          </li>
+          <li>
+            <p>
+              When <m>n = 7</m>, is there a strategy by which A wins?
+              Explain and draw the diagram.
+            </p>
+          </li>
+          <li>
+            <p>
+              Make a table showing <m>n=1,2,3,\ldots, 10</m> in the top row and the winner (A or B) for each starting number of <m>n</m> coins in the bottom row.
+              Be sure you check that the answer is correct for yourself,
+              but you are not expected to explain your reasoning here.
+            </p>
+          </li>
+          <li>
+            <p>
+              Who do you think wins if the game starts with <m>n = 100</m> coins?
+              Is <m>k=100</m> a winning position or a losing position?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_mod_clock">
+    <title>\submod</title>
+    <p>
+      There is a way to visualize the remainder of <m>a</m> <c>mod</c> <m>n</m>.
+    </p>
+    <remark>
+      <title>Mod Clock</title>
+      <p>
+        To find <m>a</m> <c>mod</c> <m>n</m> when <m>n \ge 1</m>,
+        imagine an <m>n</m> hour
+        <q>clock</q>
+        with hours marked <m>0, 1, 2, \ldots, n-1</m> hours.
+        To find the value of <m>a</m> <c>mod</c> <m>n</m> when <m>a</m> is positive,
+        we count <m>a</m> hours clockwise from <m>0</m>.
+        The end mark is <m>a</m> <c>mod</c> <m>n</m>.
+        When <m>a</m> is negative, we instead count counterclockwise.
+      </p>
+    </remark>
+    <example xml:id="exam_eval_mod_clock">
+      <title>Evaluating \fn{mod} using the Mod Clock</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Use the 12-hour clock
+                (marked <m>0,1, \ldots, 11</m> instead of the usual <m>1,2, \ldots 12</m>)
+                shown in <xref ref="fig_mod12_clock"></xref>
+                to calculate 20 <c>mod</c> 12.
+                <solution>
+                  <p>
+                    We start at 0 and count clockwise 20 hours:
+                    <me>
+                      1,2,3,4,5,6,7,8,9,10, 11,0,1,2,3,4,5,6,7,8
+                    </me>.
+                  </p>
+                  <p>
+                    Thus 20 <c>mod</c> 12 = 8.
+                  </p>
+                </solution>
+                <figure xml:id="fig_mod12_clock">
+                  <caption>The 12-hour clock</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the 5-hour clock shown in <xref ref="fig_mod5_clock"></xref>
+                to calculate 67 <c>mod</c> 5.
+                <solution>
+                  <p>
+                    Instead of counting off 67 hours,
+                    note that 50 hours will take us around the clock 10 times,
+                    ending at 0.
+                    That leaves us <m>67-50-17</m> hours to count from there.
+                    Note that <m>15 = 3 \times 5</m>,
+                    so 15 hours will take us around the clock 3 times, ending at 0.
+                    That leaves us <m>17-15 = 2</m> hours to count from there,
+                    which ends at 2.
+                    Thus, 67 <c>mod</c> 5 = 2.
+                  </p>
+                </solution>
+                <figure xml:id="fig_mod5_clock">
+                  <caption>The 5-hour clock</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the 5-hour clock shown in <xref ref="fig_mod5_clock"></xref>
+                to calculate -12 <c>mod</c> 5.
+                <solution>
+                  <p>
+                    Since -12 is negative, we start at 0 count counterclockwise 12 hours:
+                    <me>
+                      4,3,2,1,0,4,3,2,1,0,4,3
+                    </me>.
+                  </p>
+                  <p>
+                    Thus, <m>-12</m> <c>mod</c> 5 = 3.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Practice working with the mod clock.
+    </p>
+    <activity xml:id="act_mod_clock">
+      <title>The Mod Clock</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Draw the 12-hour clock and use it to evaluate 17 <c>mod</c> 12, 127 <c>mod</c> 12, 4 <c>mod</c> 12,
+              and -2 <c>mod</c> 12.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw the 5-hour clock and use it to evaluate 17 <c>mod</c> 5, 127 <c>mod</c> 5, 4 <c>mod</c> 5, and -2 <c>mod</c> 5.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_integers_mod_n">
+    <title>\subzn</title>
+    <p>
+      We can now define the integers mod <m>n</m>.
+    </p>
+    <definition xml:id="defn_integers_modn">
+      <title>The integers mod <m>n</m></title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For a positive integer <m>n</m>,
+                the <term>integers mod</term> <m>n</m>,
+                denoted <m>\mathbb{Z}_n</m> and pronounced
+                <q>Z mod <m>n</m></q>, is the set
+                <me>
+                  \mathbb{Z}_n = \{0, 1, 2,\ldots, n-1\}
+                </me>.
+                For example,
+                <me>
+                  \mathbb{Z}_5 = \{0,1,2,3,4\}
+                </me>
+                and
+                <me>
+                  \mathbb{Z}_{12} = \{0,1,2,3,4,5,6,7,8,9,10,11\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We can define addition <m>\oplus</m> and multiplication <m>\otimes</m> on <m>\mathbb{Z}_n</m> as follows:
+                <me>
+                  a \oplus b = (a+b)~\fn{mod}~n
+                </me>
+                <me>
+                  a \otimes b = (ab)~\fn{mod}~n
+                </me>
+                For example, in <m>\mathbb{Z}_{10}</m> , we have
+                <me>
+                  5 \oplus 7 = 12~\fn{mod}~10 = 2
+                </me>,
+                <me>
+                  5 \otimes 7 = 35~\fn{mod}~10 = 5
+                </me>,
+                and
+                <me>
+                  4^2 = 4 \otimes 4 = 16 ~\fn{mod}~10 = 6
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                As in the usual order of operations (PEMDAS, <xref ref="defn_integer_algebra_order_operations"></xref>,
+                multiplication (<m>\otimes</m>) is higher priority than addition
+                (<m>\oplus</m>).
+              </p>
+            </li>
+            <li>
+              <p>
+                Addition and multiplication satisfy the
+                <term>commutative property</term>
+                <me>
+                  a \oplus b = b \oplus a \text{ and }  a \otimes b = b \otimes a
+                </me>,
+                the <term>associative property</term>
+                <me>
+                  (a \oplus b) \oplus c = a \oplus (b \oplus c) \text{ and }  (a \otimes b) \otimes c = a \otimes (b \otimes c)
+                </me>,
+                and the <term>distributive property</term>
+                <me>
+                  a \otimes (b \oplus c) = (a \otimes b) \oplus (a \otimes c)
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We can write arithmetic tables for <m>\mathbb{Z}_n</m>.
+    </p>
+    <example>
+      <title>Addition and multiplication tables for <m>\mathbb{Z}_4</m></title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Write the addition and multiplication tables for <m>\mathbb{Z}_4</m>.
+                <solution>
+                  <p>
+                    <xref ref="table_mod4_arithm"></xref> shows the tables.
+                    For example,
+                    <me>
+                      1 \oplus 3 = 4~\fn{mod}~4 = 0
+                    </me>
+                    and
+                    <me>
+                      2\otimes 3  = 6~\fn{mod}~4 = 2
+                    </me>.
+                  </p>
+                  <table xml:id="table_mod4_arithm">
+                    <title>The arithmetic tables for <m>\mathbb{Z}_4</m>, the integers mod 4</title>
+                    <tabular>
+                    <row>
+                    <cell><tabular>
+                      <row>
+                        <cell><m>\oplus</m></cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>0</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                      </row>
+                      <row>
+                        <cell>1</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>0</cell>
+                      </row>
+                      <row>
+                        <cell>2</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                      </row>
+                      <row>
+                        <cell>3</cell>
+                        <cell>3</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                      </row>
+                    </tabular></cell>
+                    <cell><nbsp/>\hspace{.5in}<nbsp/></cell>
+                    <cell><tabular>
+                      <row>
+                        <cell><m>\otimes</m></cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>0</cell>
+                        <cell>0</cell>
+                        <cell>0</cell>
+                        <cell>0</cell>
+                        <cell>0</cell>
+                      </row>
+                      <row>
+                        <cell>1</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                      </row>
+                      <row>
+                        <cell>2</cell>
+                        <cell>0</cell>
+                        <cell>2</cell>
+                        <cell>0</cell>
+                        <cell>2</cell>
+                      </row>
+                      <row>
+                        <cell>3</cell>
+                        <cell>0</cell>
+                        <cell>3</cell>
+                        <cell>2</cell>
+                        <cell>1</cell>
+                      </row>
+                    </tabular></cell>
+                    </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                True or false?
+                If <m>a \otimes b = 0</m> in <m>\mathbb{Z}_4</m>,
+                then <m>a = 0</m> or <m>b = 0</m>.
+                <solution>
+                  <p>
+                    The question is asking if there are any 0s in the multiplication table other than in the row and column headed by 0.
+                    It turns out there are and so this statement is false.
+                    As a counterexample, <m>2 \neq 0</m>,
+                    but <m>2 \otimes 2 = 4~\fn{mod}~4= 0</m> in <m>\mathbb{Z}_4</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                For which values of <m>a \in \mathbb{Z}_{4}</m>,
+                does <m>a \otimes x = 1</m> have a solution?
+                <solution>
+                  <p>
+                    The question is asking which rows in the multiplication table have a one in them?
+                    The rows headed by 1 and 3 each have a 1 because
+                    <m>1 \otimes 1 = 1</m> and also <m>3 \otimes 3 = 1</m>.
+                    The answer is <m>a = 1, 3</m>.
+                    (It is coincidence that the corresponding solutions are <m>x=1, 3</m>.)
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to work with arithmetic in the integers mod <m>n</m>.
+    </p>
+    <activity xml:id="act_arith_modn">
+      <title>Arithmetic mod <m>n</m></title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              In <m>\mathbb{Z}_5</m> confirm that
+              <m>2 \oplus 4 = 1</m> and <m>2 \otimes 4 = 3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              In <m>\mathbb{Z}_6</m> confirm that
+              <m>2 \oplus 4 = 0</m> and <m>2 \otimes 4 = 2</m>.
+            </p>
+          </li>
+          <li xml:id="part_arith_table_mod5_mod6">
+            <p>
+              Write the addition and multiplication tables for
+              <m>\mathbb{Z}_5</m> and <m>\mathbb{Z}_6</m>.
+              Hint: If you are working with a partner,
+              then one of you should do <m>\mathbb{Z}_5</m> while the other does <m>\mathbb{Z}_6</m>,
+              just check each other's work.
+              We need these tables for later parts of this activity.
+            </p>
+          </li>
+          <li>
+            <p>
+              True or false?
+              If <m>a \otimes b = 0</m> in <m>\mathbb{Z}_6</m>,
+              then <m>a = 0</m> or <m>b = 0</m>.
+              What about in <m>\mathbb{Z}_5</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              For which values of <m>a \in \mathbb{Z}_{5}</m>,
+              does <m>a \otimes x = 1</m> have a solution?
+              What about in <m>\mathbb{Z}_6</m>?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_not_last">for</xref> \subnotlast</title>
+    <introduction>
+      <exercise xml:id="exer_not_last_winning_position">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            This exercise refers to the Not Last game introduced in <xref ref="act_not_last"></xref>.
+            We know that one and four are losing positions,
+            whereas two and three are winning positions.
+            <ol>
+              <li>
+                <p>
+                  Explain why five is a winning position.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why six is a winning position.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why seven is a losing position.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_not_last_conj">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            This exercise refers to the Not Last game introduced in <xref ref="act_not_last"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Which integers <m>n</m> are a losing position?
+                  State your answer as a conjecture.
+                  Hint: Use <c>mod</c> in your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose that you are in a winning position <m>n</m> while playing the Not Last game introduced in <xref ref="act_not_last"></xref>.
+                  What is your strategy for deciding whether to take one or two coins?
+                  Be specific.
+                  Hint: Your answer should involve <m>n</m> and use <c>mod</c>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_half_game123">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In this exercise we define a new game, <term>Half</term>,
+            which starts with a pile of coins and two players, A and B. Player A goes first and then A and B take turns removing coins from the pile.
+            The rule is that at each turn,
+            a player must remove at least one coin and at most half of the coins,
+            with the exception that if there is one coin left, then they must take it.
+            For example, if there are six or seven coins,
+            the next player can take one, two, or three coins.
+            As in the Not Last game, whoever takes the last coin loses the Half game.
+            <ol>
+              <li>
+                <p>
+                  Who wins the Half game when <m>n=1,2,3</m>,
+                  the first player (A) or the second player (B)?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Who wins the Half game when <m>n=4,5,6,7</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_half_conj">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            This exercise refers to the Half game introduced in <xref ref="exer_half_game123"></xref>.
+            <xref ref="exer_half_game123">Complete</xref> before trying this exercise.
+            <ol>
+              <li>
+                <p>
+                  Which integers <m>n</m> are a losing position in the Half game?
+                  State your answer as a conjecture.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose that you are in a winning position <m>n</m> while playing Half.
+                  What is your strategy for deciding how many coins to take?
+                  Hint: your answer should involve <m>n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </introduction>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_mod_clock">for</xref>
+      \submod</title>
+      <exercise xml:id="exer_eval_mod_clock">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In each part of this exercise,
+            draw the relevant mod clock and show how to use it to evaluate the quantity.
+            Recall that we rotate clockwise for positive integers.
+            <ol>
+              <li>
+                <p>
+                  23 <c>mod</c> 5.
+                  Hint: Copy the mod 5 clock from <xref ref="fig_mod5_clock"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  23 <c>mod</c> 12.
+                  Hint: Copy the mod 12 clock from <xref ref="fig_mod12_clock"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  23 <c>mod</c> 10.
+                  Hint: The mod 10 clock has labels <m>0,1,2,3,4,5,6,7,8,9</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  23 <c>mod</c> 6.
+                  Hint: The mod 6 clock has labels <m>0,1,2,3,4,5</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_neg_mod_clock">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            In each part of this exercise,
+            draw the relevant mod clock and show how to use it to evaluate the quantity.
+            Recall that we rotate counterclockwise for negative integers.
+            <ol>
+              <li>
+                <p>
+                  <m>-10</m> <c>mod</c> 5
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>-10</m> <c>mod</c> 6
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>-10</m> <c>mod</c> 12
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>-10</m> <c>mod</c> 3
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_mod_clock">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to calculate <m>a~\fn{mod}~n</m> using a
+                  <q>mod clock</q>? Make sure your answer includes both positive and negative numbers <m>a</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What values of <m>a</m> have <m>a~\fn{mod}~n=0</m>?
+                  That is, which values of <m>a</m> end at 0 on the <c>mod</c> <m>n</m> clock?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use the idea of a mod <m>n</m> clock to explain why <m>a</m> <c>mod</c> <m>n=0</m> whenever <m>a</m> is a multiple of <m>n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the idea of a mod <m>n</m> clock to explain why <m>-1</m> <c>mod</c> <m>n=n-1</m> and <m>-2</m> <c>mod</c> <m>n=n-2</m>.
+                  Hint: The mod <m>n</m> clock has labels <m>0,1,2,\ldots,n-1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_integers_mod_n">for</xref>
+      \subzn</title>
+      <exercise xml:id="exer_arith_tables_mod2_mod3">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Write out the addition and multiplication tables for <m>\mathbb{Z}_3=\{0,1,2\}</m>.
+                  Hint: Each entry in your tables should be 0, 1, or 2.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write out the addition and multiplication tables for <m>\mathbb{Z}_2=\{0,1\}</m>.
+                  Hint: Each entry in your tables should be 0 or 1.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_arith_table_mod5_mod6_again">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            This exercise <xref ref="act_arith_modn">repeats</xref>
+            <xref ref="part_arith_table_mod5_mod6"/>.
+            <ol>
+              <li>
+                <p>
+                  Write out the arithmetic tables for <m>\mathbb{Z}_5</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write out the arithmetic tables for <m>\mathbb{Z}_6</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_solve_linear_modn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For each equation, find every solution <m>\mathbb{Z}_n</m>, if any,
+            by checking each element of
+            <m>\mathbb{Z}_n</m> to see if it is a solution.
+            <ol>
+              <li>
+                <p>
+                  Solve <m>x \oplus 4 = 1</m> in <m>\mathbb{Z}_5</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Solve <m>x \oplus 4 = 1</m> in <m>\mathbb{Z}_6</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Solve <m>2 \otimes x = 3</m> in <m>\mathbb{Z}_5</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Solve <m>2 \otimes x = 3</m> in <m>\mathbb{Z}_6</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Solve <m>3 \otimes x \oplus 1 = 3</m> in <m>\mathbb{Z}_5</m>.
+                  Note that the usual order of operations applies,
+                  so this equation means <m>(3 \otimes x) \oplus 1 = 3</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_modn_sqrtminus1_examples">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            In <m>\mathbb{Z}_n</m>, we write <m>x^2=x \otimes x</m>.
+            <ol>
+              <li>
+                <p>
+                  In <m>\mathbb{Z}_5</m>, what are the solutions,
+                  if any, of <m>x^2\oplus 1 = 0</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  In <m>\mathbb{Z}_6</m>, what are the solutions,
+                  if any, of <m>x^2\oplus 1 = 0</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  In <m>\mathbb{Z}_{10}</m>,
+                  what are the solutions, if any,
+                  of <m>x^2\oplus 1 = 0</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  In <m>\mathbb{Z}_2</m>, what are the solutions,
+                  if any, of <m>x^2\oplus 1 = 0</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_zero_divisors_examples">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example of elements <m>a</m> and <m>b</m> in
+                  <m>\mathbb{Z}_{10}</m> where <m>a \otimes b = 0</m>,
+                  but <m>a \neq 0</m> and <m>b \neq 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Can you find elements <m>a</m> and <m>b</m> in
+                  <m>\mathbb{Z}_5</m> where <m>a \otimes b = 0</m>,
+                  but <m>a \neq 0</m> and <m>b \neq 0</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_modn_units_examples">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  For which values of <m>a \in \mathbb{Z}_5</m>,
+                  does <m>a \otimes x = 1</m> have a solution?
+                </p>
+              </li>
+              <li>
+                <p>
+                  For which values of <m>a \in \mathbb{Z}_6</m>,
+                  does <m>a \otimes x = 1</m> have a solution?
+                </p>
+              </li>
+              <li>
+                <p>
+                  For which values of <m>a \in \mathbb{Z}_{10}</m>,
+                  does <m>a \otimes x = 1</m> have a solution?
+                  You should be able to answer without writing the multiplication table.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For which values of <m>a \in \mathbb{Z}_8</m>,
+                  does <m>a \otimes x = 1</m> have a solution?
+                  You should be able to answer without writing the multiplication table.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_integers_modn">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What <m>\mathbb{Z}_n</m> is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to add and multiply in the integers mod <m>n</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to construct the addition and multiplication tables mod <m>n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to solve equations in <m>\mathbb{Z}_n</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_powers_modn_examples">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In <m>\mathbb{Z}_n</m>,
+            we write <m>2^k=\underbrace{2 \otimes 2 \otimes 2 \otimes \cdots \otimes 2}_{k \text{ times } }</m>.
+            On this exercise, you are welcome to use computational technology.
+            <ol>
+              <li xml:id="part_powers2_mod5">
+                <p>
+                  In <m>\mathbb{Z}_5</m>, calculate <m>2^1</m>,
+                  <m>2^2</m>, <m>2^3</m>, <m>2^4</m>,
+                  <m>2^5</m>, <m>2^6</m>, <m>2^7</m>, and <m>2^8</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Based on the pattern in <xref ref="part_powers2_mod5"/>, conjecture the value of <m>2^{50}</m>.
+                  Explain your reasoning.
+                </p>
+              </li>
+              <li xml:id="part_powers2_mod6">
+                <p>
+                  In <m>\mathbb{Z}_6</m>, calculate <m>2^1</m>,
+                  <m>2^2</m>, <m>2^3</m>, <m>2^4</m>,
+                  <m>2^5</m>, <m>2^6</m>, <m>2^7</m>, and <m>2^8</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Based on the pattern in <xref ref="part_powers2_mod6"/>,
+                  conjecture the value of <m>2^{50}</m>.Explain your reasoning.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_zero_div_modn_conj">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/> An element <m>a</m> of
+            <m>\mathbb{Z}_n</m> is a <term>zero divisor</term>
+            if <m>a \neq 0</m> but there is an element <m>b</m> of <m>\mathbb{Z}_n</m> with
+            <m>b \neq 0</m> also, and yet <m>ab = 0</m>.
+            That is, if there is more than one 0 in the row for <m>a</m> in the multiplication table for <m>\mathbb{Z}_n</m>.
+            END<xref ref="exer_zero_divisors_examples"></xref>
+            asked for an example of a zero divisor in
+            <m>\mathbb{Z}_{10}</m> and asked whether there were zero divisors in <m>\mathbb{Z}_5</m>.
+            Conjecture which integers <m>n</m> have the property that
+            <m>\mathbb{Z}_n</m> has zero divisors and which integers <m>n</m> have the property that
+            <m>\mathbb{Z}_n</m> does not have zero divisors.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_not_last_winning_position"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Take one to leave your opponent with four,
+            which is a losing position.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You want to leave your opponent in four again.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Consider the two cases where one or two is taken.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_not_last_conj"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your answer depends on <c>mod</c> 3.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look at <m>n \fn{ mod } 3</m> and break down your answer into cases.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_eval_mod_clock"></xref> Select Answers and Hints</title>
+      <p>
+        The answers in some order are zero, one, three, and five.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_neg_mod_clock"></xref> Select Answers and Hints</title>
+      <p>
+        The answers to each part are zero or two.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_arith_tables_mod2_mod3"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Check that <m>2 \oplus 2 = 1</m> and <m>2 \otimes 2 = 1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The only unusual entry is <m>1 \oplus 1 = 0</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_arith_table_mod5_mod6_again"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The rows for two are
+            <m>2,4,1,3,0</m> and <m>0,2,4,3,1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The rows for two are
+            <m>2,4,0,2,4,0</m> and <m>0,2,4,0,2,4</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_solve_linear_modn"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>x=2</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There is one solution.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>x=4</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look at the row for two in the multiplication table.
+            Explain why there is no solution.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_modn_sqrtminus1_examples"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Two of <m>0,1,2,3,4</m> are solutions.
+            Check each one.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There is no solution.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One solution is <m>x=3</m>.
+            There is a second solution.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There is one solution.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_modn_units_examples"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>a=1,2,3,4</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>a=1</m> and one more value.
+            Look for ones in the multiplication table.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are four values of <m>a</m>, all odd.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>a=1,3,5,7</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_powers_modn_examples"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The list begins <m>2, 4, 3, \ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The list begins <m>2,4,2,\ldots</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

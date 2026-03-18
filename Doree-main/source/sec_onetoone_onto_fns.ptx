@@ -1,0 +1,2199 @@
+<section xml:id="sec_onetoone_onto_fns">
+  <title>One-to-one and Onto</title>
+  <introduction>
+    <p>
+      In this section,
+      we look at the formal definition of a function and the properties of one-to-one and onto that make a function a pairing.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_ordered_pairs">
+    <title>\suborderedpair</title>
+    <p>
+      The formal definition of function uses the concept of an ordered pair.
+      We have used ordered pairs,
+      for example, in discussing points in the <m>xy</m>-plane.
+      There is a clever way of defining an ordered pair using sets.
+      We begin with that definition.
+    </p>
+    <definition xml:id="defn_ordered_pairs">
+      <title>Ordered pairs</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For sets <m>X</m> and  <m>Y</m> and elements <m>x</m> in <m>X</m> and <m>y</m> in <m>Y</m>,
+                the <term>ordered pair</term> <m>(x,y)</m> is defined by
+                <me>
+                  (x,y) = \{\{x\}, \{x,y\}\}
+                </me>.
+                For example,
+                if <m>X = \mathbb{Z}</m> and <m>Y = \mathbb{Z}</m>, then
+                <me>
+                  (3,7) = \{\{3\}, \{3,7\}\}
+                </me>
+                whereas
+                <me>
+                  (7,3) = \{\{7\}, \{3,7\}\}
+                </me>
+                which are different.
+                Note that the same element may be used.
+                For example,
+                <me>
+                  (5,5) = \{\{5\}, \{5,5\}\}=\{\{5\},\{5\}\}=\{\{5\}\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the ordered pair <m>(x,y)</m>,
+                we say that <m>x</m> is the <term>first coordinate</term>
+                and <m>y</m> is the <term>second coordinate</term>.
+                For example,
+                in <m>(3,7)</m> the first coordinate is 3 and the second coordinate is 7.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      <xref ref="defn_function">In</xref>,
+      we define a <term>function</term>,
+      <m>f</m>, as consisting of three parts:
+      a domain set, a codomain set,
+      and a rule that for each element <m>x</m> in the domain of <m>f</m> uniquely determines a corresponding element <m>y</m> in the codomain of <m>f</m>.
+      In that definition, the term
+      <q>rule</q>
+      was undefined.
+      As we have seen, examples of rules include formulas,
+      piecewise-defined formulas, or even rules described in words.
+      We are ready to provide a formal modern definition of a rule for a function.
+    </p>
+    <definition xml:id="defn_fn_rule">
+      <title>Formal definition of rule for a function</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Given a domain set <m>X</m> and a codomain set <m>Y</m>,
+                a <term>rule for a function</term>
+                <m>f</m> is a set of ordered pairs <m>(x,y)</m> where the first coordinate of each ordered pair,
+                <m>x</m>,
+                is an element of the set <m>X</m>,
+                the second coordinate of each ordered pair, <m>y</m>,
+                is an element of the set <m>Y</m>,
+                and the set satisfies the property that each element of the domain is the first coordinate of exactly one ordered pair in the set.
+                For example,
+                if <m>X = \{1,2,3\}</m> and <m>Y=\{0,1,2,3,4\}</m>, then the set
+                <me>
+                  \{(1,0),(2,3),(3,3)\}
+                </me>
+                is the rule for a function because <m>(1,0)</m> is the unique ordered pair with first coordinate 1, <m>(2,3)</m> is the unique ordered pair with first coordinate 2, and <m>(3,3)</m> is the unique ordered pair with first coordinate 3.
+                On the other hand, the set
+                <m>\{(2,1), (2,3), (3,2)\}</m> is not the rule for a function for two reasons.
+                First, there is no ordered pair with 1 as the first coordinate.
+                Second, there are two different ordered pairs with 2 as the first coordinate.
+                Either of these reasons justifies that the set is not the rule for a function.
+              </p>
+            </li>
+            <li>
+              <p>
+                We use <term>function notation</term>
+                and write <m>f(x) =y</m> to indicate that the ordered pair <m>(x,y)</m> is in the rule for <m>f</m>.
+                For example,
+                if <m>(2,3)</m> is in the rule for a function <m>f</m>,
+                then we write <m>f(2)= 3</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <example xml:id="exam_rule_fn_ordered_pairs">
+      <title>Writing the rule for a function as a set of ordered pairs</title>
+      <statement>
+        <p>
+          For each function,
+          describe the set of ordered pairs in the rule for the function.
+          <ol>
+            <li>
+              <p>
+                The function <m>f: \{1,2,3,4,5\} \to {a,b,c,d}</m> is defined by
+                <me>
+                  f(1)=a, f(2)=d, f(3)=a, f(4)=d, f(5)=c
+                </me>.
+                We saw this function in <xref ref="exam_function_finite"></xref>
+                <solution>
+                  <p>
+                    The rule is
+                    <me>
+                      \{(1,a),(2,d),(3,a),(4,d),(5,c)\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>\fn{alt}: \mathbb{N} \to \mathbb{Z}</m> is defined by <m>\fn{alt}(n) = (-1)^n</m>.
+                We saw this function first in <xref ref="act_fn_vocab"></xref>.
+                <solution>
+                  <p>
+                    The rule is
+                    <me>
+                      \{(0,1),(1,-1),(2,1),(3,-1),(4,1),(5,-1), \ldots\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>g: \mathbb{R} \to \mathbb{R}</m> is defined by <m>g(x) = x^2+1</m>.
+                <solution>
+                  <p>
+                    The rule is the set of ordered pairs <m>(x,y)</m> where <m>y = g(x) = x^2+1</m>.
+                    That is, the rule is the set of points on the parabola shown in <xref ref="fig_parabola_graph"></xref>.
+                  </p>
+                </solution>
+                <figure xml:id="fig_parabola_graph">
+                  <caption>The graph of <m>y=x^2+1</m> from DESMOS\texttrademark.</caption>
+                  <image width="25%" source="images/parabola_DESMOS.png"/>
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's look at how to determine whether a set of ordered pairs is the rule for a function from a visual representation of the function.
+    </p>
+    <example xml:id="exam_when_graph_is_fn">
+      <title>Determining whether a dot diagram or graph in the $xy$-plane is the rule for a function</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                How can we determine whether a dot diagram is the rule for a function?
+                Give an example.
+                <solution>
+                  <p>
+                    Since each element of the domain is the first coordinate of one ordered pair,
+                    there must be exactly one arrow out of each element in the domain.
+                    For example,
+                    let <m>X = \{1,2,3\}</m> and <m>Y = \{0,1,2,3,4\}</m>.
+                    Consider the set of ordered pairs
+                    <me>
+                      \{(1,0), (2,3), (3,3)\}
+                    </me>
+                    which we saw in <xref ref="defn_fn_rule"></xref>.
+                    This set of ordered pairs is the rule for a function.
+                    The dot diagram is drawn in <xref ref="fig_finite_is_function"></xref>.
+                    Notice that there is exactly one arrow out the element 1 in the domain,
+                    exactly one arrow out the element 2 in the domain,
+                    and exactly one arrow out the element 3 in the domain.
+                  </p>
+                </solution>
+                <figure xml:id="fig_finite_is_function">
+                  <caption>The dot diagram for a set of ordered pairs that is the rule for a function.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give an example of a dot diagram that is not the rule for a function.
+                <solution>
+                  <p>
+                    Let <m>X = \{1,2,3\}</m> and <m>Y = \{0,1,2,3,4\}</m>.
+                    Consider the set of ordered pairs
+                    <me>
+                      \{(2,1), (2,3), (3,2)\}
+                    </me>
+                    which we saw in <xref ref="defn_fn_rule"></xref>.
+                    This set of ordered pairs is not the rule for a function.
+                    The dot diagram is drawn in <xref ref="fig_finite_not_function"></xref>.
+                    Notice that there are no arrows out of the element 1 in the domain.
+                    Also, there are two arrows out of the element 2.
+                  </p>
+                </solution>
+                <figure xml:id="fig_finite_not_function">
+                  <caption>The dot diagram for a set of ordered pairs that is not the rule for a function.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                How can we determine whether a graph in the <m>xy</m>-plane is the rule for a function from
+                <m>\mathbb{R}</m> to <m>\mathbb{R}</m>?
+                <solution>
+                  <p>
+                    Each element of the domain must be the <m>x</m>-coordinate of a point on the graph.
+                    That is, if we draw the vertical line <m>x=a</m> for any real number <m>a</m>,
+                    it must intersect the graph exactly once
+                    (not never and not twice or more).
+                    This result is known as the <term>vertical line test</term>.
+                    For example,
+                    <xref ref="fig_parabola_verticallinetest_graph"></xref>
+                    shows the vertical lines <m>x=-3</m> and <m>x=1</m> each cross the parabola in exactly one point.
+                  </p>
+                </solution>
+                <figure xml:id="fig_parabola_verticallinetest_graph">
+                  <caption>The graph of <m>y=x^2+1</m> from DESMOS{\texttrademark} with sample vertical lines drawn at <m>x=-3</m> and <m>x=1</m>.</caption>
+                  <image width="25%" source="images/parabola_verticallinetest_DESMOS.png"/>
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give an example of a graph in the <m>xy</m>-plane that is not the rule for a function from
+                <m>\mathbb{R}</m> to <m>\mathbb{R}</m>.
+                <solution>
+                  <p>
+                    Consider the graph of the equation
+                    <m>x^2+y^2=1</m> which is the <term>unit circle</term>
+                    drawn in <xref ref="fig_unit_circle_verticallinetest"></xref>.
+                    There are two reasons why the unit circle is not the graph of a rule of function.
+                    First, there are two points on the circle with <m>x</m>-coordinate equal 0.5, namely
+                    <m>\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)</m> and <m>\left(\frac{1}{2},^-\frac{\sqrt{3}}{2}\right)</m>.
+                    (We used a little trigonometry to get those points.)
+                    Second, there are no points on the unit circle with <m>x</m>-coordinate equal -1.5.
+                  </p>
+                </solution>
+                <figure xml:id="fig_unit_circle_verticallinetest">
+                  <caption>The graph of <m>x^2+y^2=1</m> from DESMOS{\texttrademark} with sample vertical lines drawn at <m>x=0.5</m> and <m>x = -1.5</m>.</caption>
+                  <image width="25%" source="images/unit_circle_verticallinetest_DESMOS.png"/>
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to work with the ordered pairs and the formal definition of a rule for a function.
+    </p>
+    <activity xml:id="act_formal_defn_fn">
+      <title>Ordered pairs and the formal definition of a rule for a function</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Explain why <m>(1,2) \neq (2,1)</m> using the formal definition of ordered pair, namely
+              <me>
+                (x,y) = \{\{x\}, \{x,y\}\}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why the following set of ordered pairs is not the rule for a function from
+              <m>\mathbb{N}</m> to <m>\mathbb{N}</m>:
+              <me>
+                \{(0,1),(1,1), (1,2), (2,3), (3,3), (3,4), (4,5), (5,5), (5,6), \ldots\}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why the graph of <m>x=y^2</m>,
+              drawn in <xref ref="fig_parabola_not_function"></xref>
+              is not the rule for a function from
+              <m>\mathbb{R}</m> to <m>\mathbb{R}</m>.
+              <figure xml:id="fig_parabola_not_function">
+                <caption>The graph of the equation <m>x = y^2</m>.</caption>
+                <image width="25%" source="images/parabola_not_function_DESMOS.png"/>
+              </figure>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_pairings">
+    <title>\subpairing</title>
+    <p>
+      How can we determine whether two sets are the same size?
+      For finite sets, we can pair the elements,
+      just as a child might count objects by pairing each object with one of their fingers.
+      Consider the following example.
+    </p>
+    <example xml:id="exam_pairing_finite_sets">
+      <title>Pairing finite sets</title>
+      <statement>
+        <p>
+          Give an example of a pairing of the sets
+          <m>X=\{1,2,3,4\}</m> and <m>Y=\{a,b,c,d\}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A possible pairing is
+          <me>
+            1 \leftrightarrow a,  2 \leftrightarrow b,  3 \leftrightarrow c,  4 \leftrightarrow d
+          </me>.
+          Another pairing is
+          <me>
+            1 \leftrightarrow b,  2 \leftrightarrow c,  3 \leftrightarrow d,  4 \leftrightarrow a
+          </me>.
+          We verify this example satisfies the definition of a pairing in <xref ref="defn_pairing"></xref>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      In defining a pairing,
+      we want to capture the idea that each element of the first set and each element of the second set are paired exactly once.
+    </p>
+    <definition xml:id="defn_pairing">
+      <title>Pairing</title>
+      <statement>
+        <p>
+          A <term>pairing</term>, <m>P</m>,
+          between sets <m>X</m> and <m>Y</m> is a set of ordered pairs <m>(x,y)</m> where the first coordinate,
+          <m>x</m>,
+          is an element of the set <m>X</m>,
+          the second coordinate, <m>y</m>,
+          is an element of the set <m>Y</m> and the set <m>P</m> satisfies the following properties.
+          <ol>
+            <li xml:id="part_pairing_first_coord">
+              <p>
+                Each element of <m>X</m> is the first coordinate of exactly one ordered pair in <m>P</m>.
+              </p>
+            </li>
+            <li xml:id="part_pairing_second_coord">
+              <p>
+                Each element of <m>Y</m> is the second coordinate of exactly one ordered pair in <m>P</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          When we have a pairing, we write
+          <m>x \leftrightarrow y</m> to denote that <m>(x,y)</m> is in the set.
+        </p>
+        <p>
+          For example, in <xref ref="exam_pairing_finite_sets"></xref>
+          we saw that if <m>X=\{1,2,3,4\}</m> and <m>Y=\{a,b,c,d\}</m>,
+          then the set
+          <me>
+            \{(1,b),(2,c),(3,d),(4,a)\}
+          </me>
+          is a pairing because 1 is the first coordinate of exactly one ordered pair,
+          namely <m>(1,b)</m>, 2 is the first coordinate of exactly one ordered pair,
+          namely <m>(2,c)</m>, 3 is the first coordinate of exactly one ordered pair,
+          namely <m>(3,d)</m>,
+          and 4 is the first coordinate of exactly one ordered pair,
+          namely <m>(4,a)</m>.
+          Similarly, <m>a</m> is the second coordinate of exactly one ordered pair,
+          namely <m>(4,a)</m>,
+          <m>b</m> is the second coordinate of exactly one ordered pair,
+          namely <m>(1,b)</m>,
+          <m>c</m> is the second coordinate of exactly one ordered pair,
+          namely <m>(2,c)</m>,
+          and <m>d</m> is the second coordinate of exactly one ordered pair,
+          namely <m>(3,d)</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Try pairing sets.
+    </p>
+    <activity xml:id="act_pairing">
+      <title>Pairing sets</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_pair1234_with5678">
+            <p>
+              Find a pairing between the sets
+              <m>\{1,2,3,4\}</m> and <m>\{5,6,7,8\}</m>.
+              Can you describe the pairing using a rule in the form <m>n \leftrightarrow \underline{\hspace{.5in}}</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a pairing between the set <m>\{1,2,3,4\}</m> and itself.
+            </p>
+          </li>
+          <li>
+            <p>
+              How many different pairings between the set
+              <m>\{1,2,3,4\}</m> and itself are there?
+              Hint: This question asks you to count.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at an example <xref ref="act_pairing">like</xref>.
+    </p>
+    <example xml:id="exam_count_pairings_self">
+      <title>Counting the number of pairings between a set and itself</title>
+      <statement>
+        <p>
+          How many different pairings between the set
+          <m>\{0,1,2,3,4\}</m> and itself are there?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The question
+          <q>how many</q>
+          suggests that we should count.
+          There are five elements in the set,
+          so there are five choices for which element is paired with 0.
+          Next, there are four elements we have not used yet,
+          so there are four choices for which element is paired with 1.
+          Similarly, there are three choices for which element is paired with 2 and then two choices for which element is paired with 3 and then one choice for which element is paired with 4.
+          Since steps multiply <xref ref="thm_steps_multiply"/>,
+          there are <m>(5)(4)(3)(2)(1) = 5!</m> pairings between the set <m>\{0,1,2,3,4\}</m> and itself.
+        </p>
+      </solution>
+    </example>
+    <p>
+      We can pair infinite sets.
+    </p>
+    <example xml:id="exam_pairing_infinite_sets">
+      <title>Pairing infinite sets</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Check that <m>n \leftrightarrow 2n</m> gives a pairing between
+                <m>\mathbb{Z}</m> and the set of even integers <m>\mathbb{E}</m>.
+                <solution>
+                  <p>
+                    In the dot diagram drawn in <xref ref="fig_pairing_int_evens"></xref>,
+                    each integer has exactly one arrow pointing out of it and each even integer has exactly one arrow pointing into it.
+                    Thus, we have a pairing.
+                  </p>
+                </solution>
+                <figure xml:id="fig_pairing_int_evens">
+                  <caption>A pairing between the set of integers and the set of even integers.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why <m>n \leftrightarrow n+1</m> is not a pairing between <m>\mathbb{N}</m> and itself.
+                <solution>
+                  <p>
+                    In the dot diagram drawn in <xref ref="fig_shift_1right_not_pair_naturals"></xref>,
+                    there is no arrow pointing into 0.
+                    That means there is no ordered pair with second coordinate 0 and so we do not have a pairing.
+                  </p>
+                </solution>
+                <figure xml:id="fig_shift_1right_not_pair_naturals">
+                  <caption>Dot diagram of <m>n \leftrightarrow n+1</m> showing it is not a pairing between <m>\mathbb{N}</m> and itself.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why <m>n \leftrightarrow \lfloor\frac{n}{2}\rfloor</m> is not a pairing between <m>\mathbb{N}</m> and itself.
+                <solution>
+                  <p>
+                    In the dot diagram drawn in <xref ref="fig_not_pairing_floorofhalf"></xref>,
+                    there are two different arrows pointing into 0.
+                    That means there are two ordered pairs with second coordinate 0, namely <m>(0,0)</m> and <m>(1,0)</m>.
+                  </p>
+                </solution>
+                <figure xml:id="fig_not_pairing_floorofhalf">
+                  <caption>Dot diagram of <m>n \leftrightarrow \left\lfloor \frac{n}{2} \right\rfloor</m> showing it is not a pairing between <m>\mathbb{N}</m> and itself.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a pairing of <m>\mathbb{N}</m> with itself that is not the identity pairing <m>n \leftrightarrow n</m>.
+                <solution>
+                  <p>
+                    In the dot diagram drawn in <xref ref="fig_nonid_pair_naturals"></xref>,
+                    there is exactly one arrow pointing out of each natural number and exactly one arrow pointing into each natural number.
+                    Thus, we have a pairing.
+                    By the way, we can give a formula for this function f(n) = \left\{
+                  </p>
+                  \begin{array}{cc} n+1 \amp \text{ if } n \text{ is even } \\ n-1 \amp \text{ if } n \text{ is odd } \end{array}
+                  <p>
+                    \right<m></m>..
+                  </p>
+                </solution>
+                <figure xml:id="fig_nonid_pair_naturals">
+                  <caption>A nonidentity pairing of <m>\mathbb{N}</m> with itself.</caption>
+                  image type not recognized
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_onetoone_onto">
+    <title>\subonetooneonto</title>
+    <p>
+      Every pairing defines a rule of a function because the definition of function <xref ref="defn_fn_rule"/> includes the first property of the definition of a pairing ( <xref ref="defn_pairing"></xref>
+      <xref ref="part_pairing_first_coord"/>).
+      Therefore, we can describe pairings using function notation.
+    </p>
+    <remark xml:id="rem_fn_notation_pairing">
+      <title>Function notation for pairings</title>
+      <p>
+        For sets <m>X</m> and <m>Y</m>, a pairing, <m>P</m>,
+        between <m>X</m> and <m>Y</m> defines a function
+        <m>f:X \to Y</m> by <m>f(x)=y</m> when <m>(x,y)</m> is in <m>P</m>.
+        In this context, we write <m>x \leftrightarrow f(x)</m>.
+      </p>
+    </remark>
+    <p>
+      In this section,
+      we explore the second <xref ref="defn_pairing">property</xref>
+      <xref ref="part_pairing_second_coord"/>,
+      which the rule of a function needs to satisfy to be a pairing.
+      For that purpose,
+      it is helpful to <xref ref="defn_pairing">separate</xref>
+      <xref ref="part_pairing_second_coord"/> into two parts.
+    </p>
+    <remark xml:id="rem_pairings_as_fns">
+      <title>When the rule of a function is a pairing</title>
+      <p>
+        For sets <m>X</m> and <m>Y</m>, a rule, <m>P</m>,
+        for a function <m>f:X \to Y</m> is a pairing if it satisfies the following properties.
+        <ol>
+          <li xml:id="part_existence_onto">
+            <p>
+              Existence: Each element of <m>Y</m> is the second coordinate of at least one ordered pair in <m>P</m>.
+              That is, for each element <m>y</m> in <m>Y</m>,
+              there is at least one element <m>x</m> in <m>X</m> such that <m>f(x) = y</m>. (Onto property)
+            </p>
+          </li>
+          <li xml:id="part_uniqueness_1to1">
+            <p>
+              Uniqueness: Each element of <m>Y</m> is the second coordinate of at most one ordered pair in <m>P</m>.
+              That is, or each element <m>y \in Y</m>,
+              there is at most one element <m>x \in X</m> such that <m>f(x)=y</m>. (One-to-one property)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+    <p>
+      Let's take a closer look at the existence and uniqueness properties of a pairing.
+      We start with existence.
+    </p>
+    <definition xml:id="defn_onto">
+      <title>Onto</title>
+      <statement>
+        <p>
+          A function <m>f: X \to Y</m> is <term>onto</term>
+          (or <term>surjective</term>)
+          if for each element <m>y</m> of <m>Y</m>,
+          there is at least one element <m>x \in X</m> such that <m>f(x) =y</m>.
+          That is, for each element <m>y</m> in <m>Y</m>,
+          there is at least one ordered pair in the rule for <m>f</m> with second coordinate <m>y</m>.
+          For example,
+          the functions <m>f</m> and <m>k</m> defined by the dot diagrams in <xref ref="fig_finite_functions"></xref> are onto,
+          but the function <m>g</m> is not onto because nothing maps to <m>b</m> and the function <m>h</m> is not onto because nothing maps to <m>a</m>.
+        </p>
+        <figure xml:id="fig_finite_functions">
+          <caption>Finite functions</caption>
+          image type not recognized
+        </figure>
+      </statement>
+    </definition>
+    <p>
+      We can determine whether a function is onto by identifying its image.
+    </p>
+    <example xml:id="exam_onto_image">
+      <title>Onto in terms of image</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Restate the definition of onto in terms of the image of a function.
+                <solution>
+                  <p>
+                    A function <m>f:X \to Y</m> is onto if the image of <m>f</m> is the entire codomain <m>Y</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the image to determine which of the functions in <xref ref="fig_finite_functions"></xref>. are onto.
+                <solution>
+                  <p>
+                    The image and codomain of <m>f</m> are
+                    <m>\{a,b,c,d\}</m> and so <m>f</m> is onto.
+                    The image of <m>g</m> is <m>\{a,c,d\}</m> which is not all of its codomain
+                    <m>\{a,b,c,d\}</m> and so <m>g</m> is not onto.
+                    The image of <m>h</m> is <m>\{b,c,d\}</m> which is not all of its codomain
+                    <m>\{a,b,c,d\}</m> and so <m>h</m> is not onto.
+                    Notice that the function <m>k</m> has the same rule and the same domain as <m>g</m>,
+                    but the codomain of <m>k</m> is
+                    <m>\{a,c,d\}</m> which equals the image of <m>k</m> and so <m>k</m> is onto.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's look at some additional examples.
+    </p>
+    <example xml:id="exam_not_onto">
+      <title>Show functions are not onto</title>
+      <statement>
+        <p>
+          Show that each function is not onto.
+          <ol>
+            <li>
+              <p>
+                The function <m>f:\mathbb{R} \to \mathbb{R}</m> is defined by <m>f(x) = x^2+1</m>.
+                <solution>
+                  <p>
+                    The function <m>f</m> is not onto because for any real number <m>x</m> we know that
+                    <m>x^2 \ge 0</m> and so <m>f(x) \ge 1</m>.
+                    For example,
+                    there is no value of <m>x</m> for which <m>f(x) = 0</m>.
+                    In the graph of <m>f</m>, shown in <xref ref="fig_parabola_graph"></xref>,
+                    we can see that the lowest point on the graph is <m>(0,1)</m> and the image of <m>f</m> is
+                    <m>[1,\infty)</m> which is not all of the codomain <m>\mathbb{R}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>g: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>g(n) = 3n</m>.
+                <solution>
+                  <p>
+                    The function <m>g</m> is not onto because the image is only multiples of 3.
+                    For example,
+                    there is no value of <m>n</m> for which <m>g(n) = 5</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>l:\mathbb{B} \to \mathbb{Z}</m> is defined by <m>l(b) =</m> the length of the bit string <m>b</m> where
+                <m>\mathbb{B}</m> is the set of all bit strings.
+                <solution>
+                  <p>
+                    Since the length of a bit string is nonnegative,
+                    there is no bit string <m>b</m> with <m>l(b) = -2</m>,
+                    for example.
+                    Note that if we had set the codomain as <m>\mathbb{N}</m>,
+                    then the function would be onto.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>\fn{twopart}: \mathbb{N} \to \mathbb{N}</m> defined by
+                <m>\fn{twopart}(n)</m> is the highest power of two that divides <m>n</m>.
+                We saw this function in <xref ref="act_number_functions"></xref>.
+                <solution>
+                  <p>
+                    The image of <c>twopart</c> is the set of powers of two:
+                    <me>
+                      \{1,2,4,8,16,\ldots\}
+                    </me>.
+                    Since the image is not all of the codomain <m>\mathbb{N}</m>,
+                    the function <c>twopart</c> is not onto.
+                    As a specific counterexample we could say <m>\fn{twopart}(n) = 3</m> has no solution.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Since the onto property says <m>\forall</m>y<nbsp/><m>\exists</m>x<m>~ f(x)=y</m>,
+      we can prove that a function is onto using proof formats for universally and existentially quantified statements.
+    </p>
+    <example xml:id="exam_proof_onto">
+      <title>Proof that a function is onto</title>
+      <statement>
+        <p>
+          Use the proof formats for universally and existentially quantified statements ( <xref ref="pff_forall"></xref>
+          and <xref ref="pff_exists"></xref>) to prove that the function
+          <m>h: \mathbb{R} \to \mathbb{R}</m> defined by <m>h(x) = 3x</m> is onto.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Proof.</em> Let <m>y</m> be a real number.
+          Consider <m>x = \frac{y}{3}</m> which is also a real number.
+          Then
+          <me>
+            h(x) = 3x = 3\left(\frac{y}{3}\right) = y
+          </me>.
+          Thus, there exists a real number <m>x</m> such that <m>h(x) = y</m>,
+          namely <m>x = \frac{y}{3}</m>.
+          <m>\Box</m>
+        </p>
+        <p>
+          Note that we <xref ref="pff_exists">nested</xref>
+          <xref ref="pff_forall">inside</xref>.
+          For another example of a similar proof,
+          <xref ref="act_proof_quants_nested">see</xref>
+          in <xref ref="sec_quant_cex"></xref>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Now, let's look at the uniqueness property of a pairing.
+    </p>
+    <definition xml:id="defn_onetoone">
+      <title>One-to-one</title>
+      <statement>
+        <p>
+          A function <m>f: X \to Y</m> is <term>one-to-one</term>
+          (or <term>injective</term>)
+          if for each element <m>y</m> of <m>Y</m>,
+          there is at most one element <m>x \in X</m> such that <m>f(x) =y</m>.
+          That is, for each element <m>y</m> in <m>y</m>,
+          there is at most one ordered pair in the rule for <m>f</m> with second coordinate <m>y</m>.
+          For example,
+          the functions <m>f</m> and <m>h</m> defined by the dot diagrams in <xref ref="fig_finite_functions"></xref> are one-to-one,
+          but the functions <m>g</m> and <m>k</m> are not one-to-one because,
+          for example <m>g(2)=c=g(4)</m> and <m>k(2)=c=k(4)</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at some additional examples.
+    </p>
+    <example xml:id="exam_onetoone">
+      <title>Show functions are not one-to-one</title>
+      <statement>
+        <p>
+          Show that each function is not one-to-one.
+          <ol>
+            <li>
+              <p>
+                The function <m>f:\mathbb{R} \to \mathbb{R}</m> is defined by <m>f(x) = x^2+1</m>.
+                <solution>
+                  <p>
+                    The function <m>f</m> is not one-to-one because
+                    <m>f(2) = (2)^2+1 = 5</m> and <m>f(-2) = (-2)^2+1 =5</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>\fn{countdiv}: \mathbb{Z}^+ \to \mathbb{Z}^+</m> is defined by
+                <m>\fn{countdiv}(n)=</m> the number of positive divisors of <m>n</m>.
+                <solution>
+                  <p>
+                    The positive divisors of six are 1, 2, 3, and 6 and the positive divisors of 10 are 1, 2, 5, and 10.
+                    Therefore, the function <m>\fn{countdiv}</m> is not one-to-one because
+                    <m>\fn{countdiv}(6) = 4</m> and <m>\fn{countdiv}(10) = 4</m>
+                    (because ).
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The function <m>l:\mathbb{B} \to \mathbb{Z}</m> is defined by <m>l(b) =</m> the length of the bit string <m>b</m> where
+                <m>\mathbb{B}</m> is the set of all bit strings.
+                <solution>
+                  <p>
+                    The function is not one-to-one because, for example,
+                    <m>l(\bs{1101})=4</m> and also <m>l(\bs{0011})=4</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with the definitions of one-to-one and onto.
+    </p>
+    <activity xml:id="act_four_functions">
+      <title>Four functions</title>
+      <p>
+        In each part of this problem you are given four functions.
+        For each function,
+        decide if it is onto (yes/no) and decide if it is one-to-one
+        (yes/no).
+        <ol>
+          <li>
+            <p>
+              Consider the following finite functions.
+              Hint: The graphs are drawn in <xref ref="fig_finite_fn_act"></xref>.
+              <ul>
+                <li>
+                  <p>
+                    The function <m>f:\{1,2,3,4\} \to \{0,1,2\}</m> is defined by <m>f(1) = 0, f(2) =0, f(3) = 2, f(4) = 1</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>g:\{1,2,3,4\} \to \{0,1,2\}</m> is defined by <m>g(1) = 0, g(2) =0, g(3) = 2, g(4) = 2</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>h:\{1,2,3\} \to \{0,1,2\}</m> is defined by <m>h(1) = 0, h(2) =2, h(3) = 1</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>k:\{1,2,3\} \to \{0,1,2,3\}</m> is defined by <m>k(1) = 0, k(2) =3, k(3) = 2</m>.
+                  </p>
+                </li>
+              </ul>
+            </p>
+            <figure xml:id="fig_finite_fn_act">
+              <caption>Four finite functions <xref ref="act_four_functions">for</xref>.</caption>
+              image type not recognized
+            </figure>
+          </li>
+          <li xml:id="part_four_real_fns">
+            <p>
+              Consider the following real-valued functions.
+              Hint: The graphs are drawn in <xref ref="fig_four_real_fns"></xref>.
+              <ul>
+                <li>
+                  <p>
+                    The function <m>f: \mathbb{R} \to \mathbb{R}</m> is defined by <m>f(x) = x^2</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>g: \mathbb{R} \to \mathbb{R}</m> is defined by <m>g(x) = x^3-2x+1</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>h: \mathbb{R} \to \mathbb{R}</m> is defined by <m>h(x) = 2^x</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>k: \mathbb{R} \to \mathbb{R}</m> is defined by <m>k(x) = x^3</m>.
+                  </p>
+                </li>
+              </ul>
+            </p>
+            <figure xml:id="fig_four_real_fns">
+              <caption>Graphs of the real-valued functions <m>f, g, h</m> and <m>k</m> from <xref ref="act_four_functions"></xref> <xref ref="part_four_real_fns"/>.</caption>
+              image type not recognized
+            </figure>
+          </li>
+          <li>
+            <p>
+              Consider the following functions on the integers.
+              Challenge yourself to decide without drawing the dot diagram.
+              <ul>
+                <li>
+                  <p>
+                    The function <m>f: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>f(n) = 2n</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>g: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>g(n) = n+1</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>h: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>h(n) = \fn{abs}(n)</m>,
+                    the absolute value function.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>k: \mathbb{Z} \to \mathbb{Z}</m> is defined by k(n) = \left\{\begin{array}{cl} n \amp \text{ if } n\text{ is odd } \\ \frac{n}{2} \amp \text{ if } n\text{ is even } \end{array} \right<m></m>..
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <p>
+              As usual, <m>\mathbb{B}</m> is the set of all bit strings,
+              <m>\mathbb{B}^*</m> is the set of all nonempty bit strings,
+              and <m>\lambda</m> is the empty bit string.
+              Consider the following functions on bit strings.
+              <ul>
+                <li>
+                  <p>
+                    The function <m>\fn{lastbit}:\mathbb{B}^* \to \mathbb{B}</m> is defined by
+                    <m>\fn{lastbit}(b) =</m> the last bit in the bit string <m>b</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>\fn{append}:\mathbb{B}\to \mathbb{B}^*</m> is defined by <m>\fn{append}(b)=b\bs{1}</m>,
+                    literally the bit string <m>b</m> with a <m>\bs{1}</m> added to the right.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>\fn{reverse}:\mathbb{B}\to \mathbb{B}</m> is defined by <m>\fn{reverse}(b)=\overleftarrow{b}</m>,
+                    where <m>\overleftarrow{b}</m> means the bit string <m>b</m> written in reverse order.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The function <m>f:\mathbb{B}^*\to \mathbb{B}</m> defined by
+                    <me>
+                      f(b)= \left\{ \begin{array}{ll} b \amp  \text{ if the last bit of the bit string }  b \text{ is }  \bs{0} \\ b \text{ without its last  bit }   \amp  \text{ if the last bit of the bit string }  b \text{ is }  \bs{1} \end{array}  \right
+                    </me>.
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      A function that is onto and one-to-one has a special name.
+    </p>
+    <definition xml:id="defn_bijection">
+      <title>Bijection</title>
+      <statement>
+        <p>
+          A function <m>f: X \to Y</m> is a <term>bijection</term>
+          if it is one-to-one and onto.
+          Note that <m>f</m> is a bijection exactly when <m>x \leftrightarrow f(x)</m> is a pairing.
+          For example,
+          the function <m>f</m> defined by the dot diagrams in <xref ref="fig_finite_functions"></xref> is a bijection.
+          It corresponds to the pairing
+          <me>
+            1 \leftrightarrow b,  2 \leftrightarrow c,  3 \leftrightarrow d,  4 \leftrightarrow a
+          </me>
+          which we saw in <xref ref="defn_pairing"></xref>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at some additional examples.
+    </p>
+    <example xml:id="exam_bijections">
+      <title>Examples of bijections</title>
+      <statement>
+        <p>
+          Explain how we know each of the following functions is a bijection.
+          <ol>
+            <li>
+              <p>
+                The function <m>f: \mathbb{N} \to \mathbb{N}</m> defined by
+                <me>
+                  f(n) = \left\{ \begin{array}{cl} n+1 \amp  \text{ if } n\text{ is even }  \\ n-1 \amp  \text{ if } n\text{ is odd } \end{array}  \right
+                </me>.
+                <solution>
+                  <p>
+                    We drew the graph of this function in <xref ref="fig_nonid_pair_naturals"></xref>.
+                    Note that each point in the bottom row has exactly one arrow pointing into it,
+                    and so the function is a bijection.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_bijection_RtoR">
+              <p>
+                The function <m>h: \mathbb{R} \to \mathbb{R}</m> is defined by <m>h(x) = 3x</m>.
+                <solution>
+                  <p>
+                    Given a real number <m>y</m>,
+                    there is exactly one real number <m>x</m> such that <m>h(x)=y</m>.
+                    As we saw in <xref ref="exam_proof_onto"></xref>,
+                    it must be <m>x = \frac{y}{3}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_graph_comp_bijection">
+              <p>
+                Let <m>\mathbb{G}</m> be the set of all graphs.
+                The function <m>\fn{comp}: \mathbb{G} \to \mathbb{G}</m> defined by <m>\fn{comp}(G)= \overline{G}</m>,
+                the graph-theoretic complement of <m>G</m>.
+                <solution>
+                  <p>
+                    Given a graph <m>H</m>,
+                    there is exactly one graph <m>G</m> such that <m>\fn{comp}(G) = H</m>,
+                    namely <m>G =\overline{H}</m> because <m>\fn{comp}(\overline{H}) = \overline{\overline{H}}=H</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_ordered_pairs">for</xref>
+      \suborderedpair</title>
+      <exercise xml:id="exam_ordered_pairs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain why <m>(2,5) \neq (5,2)</m> using the formal definition of ordered pair <xref ref="defn_ordered_pairs"/>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the definition of ordered pairs to write <m>(3,3)</m> as a set.
+                  Simplify your answer as much as possible.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_not_function">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain why the following set of ordered pairs is not the rule for a function from <m>\{1,2,3\}</m> to <m>\{1,2,3\}</m>:
+                  <me>
+                    \{(1,1),(2,3),(2,1),(3,2)\}
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why the following set of ordered pairs is not the rule for a function <m>\mathbb{Z}</m> to
+                  <m>\mathbb{Z}</m> (assuming the pattern continues):
+                  <me>
+                    \{ \ldots, (-3,-2),(-1,0),(1,2),(3,4),(5,6),\ldots\}
+                  </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why the graph of the hyperbola <m>x^2-y^2=1</m>,
+                  drawn in <xref ref="fig_hyperbola_notfn_DESMOS"></xref>,
+                  is not the rule for a function from
+                  <m>\mathbb{R}</m> to <m>\mathbb{R}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <figure xml:id="fig_hyperbola_notfn_DESMOS">
+            <caption>The graph of the hyperbola <m>x^2-y^2=1</m> does not define a function.</caption>
+            <image width="25%" source="images/hyperbola_notfn_DESMOS.png"/>
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dot_diagram_notfn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw all possible dot diagrams from <m>\{0,1\}</m> to <m>\{0,1\}</m> that define a function.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw four dot diagrams from <m>\{0,1\}</m> to <m>\{0,1\}</m> that do not define a function.
+                  Note that your diagram may include at most one of each arrow <m>0 \to 0</m>,
+                  <m>0 \to 1</m>,
+                  <m>1 \to 0</m>, <m>1 \to 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why there are 16 dot diagrams from <m>\{0,1\}</m> to <m>\{0,1\}</m>,
+                  again under the assumption that your diagram may include at most one of each arrow <m>0 \to 0</m>,
+                  <m>0 \to 1</m>,
+                  <m>1 \to 0</m>, <m>1 \to 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many of those 16 dot diagrams do not define a function?
+                  Hint: Subtract.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_orderedpairs_defnfn">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the formal definition of an ordered pair is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the formal definition of a rule for a function is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show that a list of ordered pairs is not the rule of a function?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show that a dot diagram or graph does not define the rule for a function.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pairings">for</xref> \subpairing</title>
+      <exercise xml:id="exer_finite_pairing">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Find a pairing between the given sets.
+            You may describe your using a formula or by drawing a dot diagram.
+            <ol>
+              <li>
+                <p>
+                  <m>\{0,1,2,3,4\}</m> and <m>\{1,2,3,4,5\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\{1,2,\ldots, 10\}</m> and <m>\{10,20,\ldots,100\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>N</m> and <m>T</m> where <m>T</m> is the nonnegative multiples of 10.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\mathbb{N}</m> and <m>\mathbb{Z}^+</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_why_not_pairing_finite">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain why <m>\{(0,1),(1,2),(2,1)\}</m> is not a pairing between <m>\{0,1,2\}</m> and <m>\{1,2\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why <m>\{(0,1),(1,2),(2,3)\}</m> is not a pairing between
+                  <m>\{0,1,2\}</m> and <m>\{0,1,2,3\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why there does not exist a pairing between <m>\{0,1,2\}</m> and <m>\{1,2\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why there does not exist a pairing between
+                  <m>\{0,1,2\}</m> and <m>\{0,1,2,3\}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_why_not_pairing_infinite">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain why <m>n \leftrightarrow n</m> is not a pairing from
+                  <m>\mathbb{N}</m> to <m>\mathbb{Z}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why <m>x \leftrightarrow \lfloor x \rfloor</m> is not a pairing from
+                  <m>\mathbb{R}</m> to <m>\mathbb{Z}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bit_string_pairings">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Describe a pairing between the two sets.
+            <ol>
+              <li>
+                <p>
+                  The set of bit strings of length 10 that begin with <c>0</c> and the set of bit strings of length 10 that end with <c>0</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The set of bit strings of length 10 that begin with <c>0</c> and the set of bit strings of length 10 that begin with <c>1</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The set of bit strings of length 10 with weight three and the set of bit strings of length 10 and weight seven.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_pairing_discrete_objects">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  In the Squares and Dominoes puzzle <xref ref="act_squares_dominoes"/>,
+                  we created strings of <m>1 \times 1</m> squares (<m>\bullet</m>) and
+                  <m>1 \times 2</m> dominoes (<m>\boldsymbol{-}</m>) that tiled a <m>1 \times n</m> grid.
+                  Describe a pairing between the set of square-domino tilings of a
+                  <m>1 \times 10</m> grid and the set of strings of <c>1</c> s and <c>2</c> where the digits in the string add to 10.
+                  For example,
+                  <c>122212</c> is such a string because <m>1+2+2+2+1+2=10</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the set <m>\{0,1,2,3,4,5,6,7,8,9\}</m>,
+                  describe a pairing between the set of 4-element subsets and the set of 6-element subsets.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe a pairing between the set of subsets of
+                  <m>\{0,1,2,3,4,5,6,7,8,9\}</m> and the set of subsets of <m>\{1,2,3,4,5,6,7,8,9,10\}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pairings">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What a pairing between sets is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to construct pairings between sets, both finite and infinite?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_any_two_intervals_same_size">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In each part of this problem,
+            find a pairing between the two sets and describe your pairing using a rule of the form <m>x \leftrightarrow</m>
+            (formula involving <m>x</m>).
+            The letters <m>a, b,c</m>,
+            and <m>d</m> represent positive real numbers with <m>d > c</m>.
+            <ol>
+              <li>
+                <p>
+                  The intervals <m>(0,1)</m> and <m>(0,b)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The intervals <m>(0,1)</m> and <m>(a,a+1)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The intervals <m>(0,1)</m> and <m>(a,a+b)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The intervals <m>(0,1)</m> and <m>(c,d)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_pairing_NandZ">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Find a pairing between <m>\mathbb{N}</m> and <m>\mathbb{Z}</m>.
+            You may describe your pairing using a dot diagram.
+            Make sure the pattern is clear.
+            Hint: Alternate between positive and negatives.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_onetoone_onto">for</xref> \subonetooneonto</title>
+      <exercise xml:id="exer_not_onto_numbers">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Each of the following functions is not onto.
+            Give a specific counterexample to prove that the function is not onto.
+            <ol>
+              <li>
+                <p>
+                  The function <m>g: \{1,2,3,4\} \to \{1,2,3,4\}</m> defined by <m>g(1)=3</m>,
+                  <m>g(2)=2</m>, <m>g(3)=4</m>, <m>g(4)=3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>h: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>h(n) = 3n-1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>f: \mathbb{R} \to \mathbb{R}</m> defined by <m>f(x) = x^2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_not_onto_discrete">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Each of the following functions is not onto.
+            Give a specific counterexample to prove that the function is not onto.
+            <ol>
+              <li>
+                <p>
+                  As usual, let <m>\mathbb{B}</m> denote the set of all bit strings.
+                  The function <m>f: \mathbb{N} \to \mathbb{B}</m> is defined by <m>f(n)=</m> the bit string consisting of <m>n</m> <c>0</c> s followed by <m>n</m> <c>1</c> s.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
+                  The function <m>\Delta: \mathbb{G}_{10} \to \mathbb{N}</m> is defined by
+                  <m>\Delta(G)</m> is the maximum degree of any vertex in <m>G</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>\fn{gplt}: \mathbb{Z}^+ \to \mathbb{N}</m> defined by
+                  <me>
+                    \fn{gplt}(n) = \left\{ \begin{array}{cl} 0 \amp  \text{ if } n=1 \\ \text{ the largest prime less than or equal to } n \amp  \text{ if } n\ge 2 \end{array}  \right
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_not_1to1_numbers">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Each of the following functions is not one-to-one.
+            Give a specific counterexample to prove that the function is not one-to-one.
+            <ol>
+              <li>
+                <p>
+                  The function <m>g: \{1,2,3,4\} \to \{1,2,3,4\}</m> defined by <m>g(1)=3</m>,
+                  <m>g(2)=2</m>, <m>g(3)=4</m>, <m>g(4)=3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>h: \mathbb{N} \to \mathbb{N}</m> defined by <m>h(n) =\lceil \frac{n}{2} \rceil</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>f: \mathbb{R} \to \mathbb{R}</m> defined by <m>f(x) = x^2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_not_1to1_discrete">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Each of the following functions is not one-to-one.
+            Give a specific counterexample to prove that the function is not one-to-one.
+            <ol>
+              <li>
+                <p>
+                  As usual, let <m>\mathbb{B}</m> denote the set of all bit strings.
+                  The function <m>\fn{runzero}: \mathbb{B} \to \mathbb{N}</m> is defined by
+                  <m>\fn{runzero}(b) =</m> the longest number of consecutive <c>0</c> s in the bit string <m>b</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
+                  The function <m>\chi: \mathbb{G}_{10} \to \mathbb{N}</m> is defined by <m>\chi(G)</m> is the chromatic number of the graph <m>G</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Euler's phi function <m>\varphi: \mathbb{Z}^+ \to \mathbb{Z}^+</m> is defined by
+                  <m>\varphi(n)=</m> the number of integers between 1 and <m>n</m> that are coprime to <m>n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_finite_onetoone_onto">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For each of the finite functions given,
+            decide whether the function is onto (yes/no) and whether the function is one-to-one
+            (yes/no).
+            No justification required for
+            <q>yes</q>
+            but give a counterexample or brief explanation when
+            <q>no</q>.
+            <ol>
+              <li>
+                <p>
+                  <m>f: \{1, 2, 3, 4\} \to \{a, b, c\}</m> defined by <m>f(1) = a, f(2) = b, f(3) = a, f(4) = c</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>g: \{1, 2, 3, 4\} \to \{a, b, c, d,e\}</m> defined by <m>g(1) = a, g(2) = b, g(3) = e, g(4) = c</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>h: \{1, 2, 3, 4\} \to \{1,2,3,4\}</m> defined by <m>h(1) = 2, h(2) = 3, h(3) = 4, h(4) = 1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>k: \{1, 2, 3, 4\} \to \{1,2,3,4\}</m> defined by <m>k(1) = 3, k(2) = 3, k(3) = 3, k(4) =3</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_identity_constant_1to1_onto">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For each function decide if it is one-to-one, onto, both,
+            or neither.
+            Briefly explain your reasoning.
+            <ol>
+              <li>
+                <p>
+                  Let <m>X</m> be a set with 10 elements.
+                  The identity function <m>i: X \to X</m> is defined by <m>i(x) = x</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>X</m> be a set with 10 elements, one of which is <m>c</m>.
+                  The constant function <m>f:X \to X</m> is defined by <m>f(x) = c</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_nplus2_onetoone_onto">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the closely related functions
+            <m>g: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>g(n) = n+2</m> and
+            <m>h: \mathbb{N} \to \mathbb{N}</m> defined by <m>h(n) = n+2</m>
+            <ol>
+              <li>
+                <p>
+                  Describe the image of <m>g</m>.
+                  Is <m>g</m> onto?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the image of <m>h</m> Is <m>h</m> onto?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_functions_on_Zn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Recall from <xref ref="defn_integers_modn"></xref>
+            that the integers mod <m>n</m>,
+            <m>\mathbb{Z}_n</m>, is the set
+            <m>\{0,1,2,\ldots,
+            n-1\}</m> with addition and multiplication defined by
+            <me>
+              a \oplus b = a + b \text{ (mod } n) \text{ and } a \otimes b = ab \text{ (mod } n)
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Consider the function <m>f: \mathbb{Z} \to \mathbb{Z}_{10}</m> defined by <m>f(a) = a \text{ mod } 10</m>.
+                  Is <m>f</m> one-to-one?
+                  Is <m>f</m> onto?
+                  Explain briefly.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the function <m>g: \mathbb{Z}_{10} \to \mathbb{Z}_{10}</m> defined by <m>g(a) = 3 \otimes a</m>.
+                  Is <m>g</m> one-to-one?
+                  Is <m>g</m> onto?
+                  Explain briefly.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the function <m>h: \mathbb{Z}_{10} \to \mathbb{Z}_{10}</m> defined by <m>h(a) = 2 \otimes a</m>.
+                  Is <m>h</m> one-to-one?
+                  Is <m>h</m> onto?
+                  Explain briefly.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_onto_finite_discrete">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Prove each function is onto by listing the elements of the codomain and for each element of the codomain,
+            identify an example of an element of the domain that maps to it.
+            <ol>
+              <li>
+                <p>
+                  The function <m>f: \{0,1,2,3,4,5\} \to \{\text{ even } , \text{ odd } \}</m> defined by
+                  <me>
+                    f(n) = \left\{ \begin{array}{cl} \text{ even }  \amp  \text{ if } n\text{ is even }  \\ \text{ odd }  \amp  \text{ if } n\text{ is odd } \end{array}  \right
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>\mathbb{G}_4</m> denote the set of all graphs with four vertices.
+                  The function <m>\fn{cleaf}: \mathbb{G}_4 \to \{0,1,2,3,4\}</m> is defined by
+                  <m>\fn{cleaf}(G)</m> is the number of leaves (degree 1 vertices) in the graph <m>G</m>.
+                  Yes, draw five graphs.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_onto_numbers">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Prove that each function is onto by copying and editing the proof in <xref ref="exam_proof_onto"></xref>.
+            <ol>
+              <li>
+                <p>
+                  The function <m>g: \mathbb{R} \to \mathbb{R}</m> defined by <m>g(x) = 2x + 3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>g: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>g(n) = n-1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bijection">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            As usual, <m>\mathbb{B}</m> is the set of all bit strings.
+            The function <m>g: \mathbb{B}^* \to \mathbb{B}^*</m> is defined by <m>g(b)</m> is the bit string <m>b</m> with its first bit changed from <c>0</c> to <c>1</c> or vice versa.
+            For example,
+            <m>g(\bs{10111}) = \bs{00111}</m> and <m>g(\bs{010}) = \bs{110}</m>.
+            Explain how we know that <m>g</m> is a bijection.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_1to1_onto">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What it means for a function to be onto?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show that a function is not onto?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove that a function is onto?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What it means for a function to be one-to-one?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show that a function is not one-to-one?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which two properties a function needs to have to be a bijection?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_horiz_line_test">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In this exercise, we introduce the
+            <term>horizontal line test</term>.
+            Consider a function <m>f: \mathbb{R} \to \mathbb{R}</m>.
+            <ol>
+              <li>
+                <p>
+                  Suppose there is a horizontal line (<m>y=t</m>) that intersect the graph of <m>f</m> in two
+                  (or more)
+                  points.
+                  What does that tell you about the function <m>f</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose there is a horizontal line (<m>y=t</m>) that does not intersect the graph of <m>f</m>.
+                  What does that tell you about the function <m>f</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose every horizontal line (<m>y=t</m>) intersects the graph of <m>f</m> in exactly one point.
+                  What does that tell you about the function <m>f</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_bijections">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  List all of the bijections
+                  <m>f: \{1,2,3\} \to \{1,2,3\}</m> by drawing dot diagram for each.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many bijections <m>f: \{1,2,3 \ldots,n\} \to \{1,2,3 \ldots,n\}</m> are there?
+                  Explain how you counted.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_onetoone_fns_part1">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_1to1_count">
+                <p>
+                  How many one-to-one functions <m>f:\{1,2\} \to \{1,2,3,4\}</m> are there?
+                  Explain how to count.
+                  Hint: In Step 1 decide on the value of <m>f(1)</m> and in Step 2 decide on the value of <m>f(2)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many one-to-one functions <m>f:\{1,2\} \to \{1,2,3 \ldots,n\}</m> are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many one-to-one functions <m>f:\{1,2,3\} \to \{1,2,3 \ldots,n\}</m> are there?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_onetoone_fns_part2">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  How many one-to-one functions
+                  <me>
+                    f:\{1,2, \ldots, k\} \to \{1,2,3 \ldots,n\}
+                  </me>
+                  are there, assuming <m>k \le n</m>?
+                  Explain briefly.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What happens if <m>k > n</m>?
+                  Explain briefly.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_countdiv_onto">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The function <m>\fn{countdiv}: \mathbb{Z}^+ \to \mathbb{Z}^+</m> is defined by
+            <m>\fn{countdiv}(n)=</m> the number of positive divisors of <m>n</m>.
+            Prove <m>\fn{countdiv}</m> is onto.
+            Hint: given <m>m \in \mathbb{Z}^+</m>,
+            use prime factorization as in <xref ref="sub_count_divisors"></xref>
+            to construct an integer with exactly <m>m</m> divisors.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_construct_fns_on_N">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Give an example of a function <m>f: \mathbb{N} \to \mathbb{N}</m> as described.
+            Be sure the domain and codomain is <m>\mathbb{N}</m>.
+            You may give a rule for the function,
+            including possibly a piecewise-defined function,
+            or you may draw an infinite dot diagram (as long at the pattern is clear.)
+            <ol>
+              <li>
+                <p>
+                  One-to-one, but not onto.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Onto, but not one-to-one.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Neither one-to-one nor onto.
+                </p>
+              </li>
+              <li>
+                <p>
+                  A bijection,
+                  but not the identity function and not the example we used in <xref ref="exam_bijections"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_not_function"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The rule contains both <m>(2,3)</m> and <m>(2,1)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: All the points have an odd first coordinate.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One explanation is that there is no point with first coordinate 0.
+            Another explanation would be to find <m>x</m>-values where there are two points on the hyperbola.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_finite_pairing"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are many correct answers to each part,
+        but the most obvious ones have a nice formula.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_why_not_pairing_finite"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            One is the second coordinate of <m>(0,1)</m> and <m>(2,1)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Zero is not the first coordinate of any ordered pair.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Once you have paired zero and one,
+            what is left to pair with two?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Once you have paired zero,
+            one, and two, what is the problem?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bit_string_pairings"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: One answer is <m>\fn{reverse}</m> from <xref ref="act_functions_bit_strings"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What is the simplest was to change a bit string that begins with <c>0</c> into a bit string that begins with <c>1</c>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Weight three means there are three <c>1</c> s and weight seven means there are three <c>0</c> s.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_not_onto_numbers"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Identify an element of the codomain that is not the output of any value in the domain.
+          </p>
+        </li>
+        <li>
+          <p>
+            There is no integer <m>k</m> with <m>h(k)=1</m> (because if <m>3k-1=1</m>,
+            then <m>k= \frac{2}{3}</m> which is not an integer.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Identify a real number <m>y</m> such that <m>x^2=y</m> has no real solution.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_not_onto_discrete"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: All values of <m>f(n)</m> are bit strings that begin with <m>\bs{0}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What is the biggest degree a vertex in a graph <m>G</m> could have when <m>G</m> has ten vertices?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: All positive values of <m>\fn{gplt}</m> are primes.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_not_1to1_numbers"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>f(1) = 3 = f(4)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Evaluate <m>g(0), g(1), g(2)</m>,
+            and so on until you hit a repeat.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your answer should include a negative integer.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_not_1to1_discrete"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Find two bit strings that have the same longest number of consecutive <c>0</c> s.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find two graphs with 10 vertices that each have chromatic number two.
+            Some graphs with chromatic number two are cycles, paths,
+            and stars.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look at the table in <xref ref="act_eulers_phi_function"></xref>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_finite_onetoone_onto"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer is yes/no.
+            Explain why the function is not one-to-one.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer is no/yes.
+            Explain why the functions is not onto.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer has not been used yet.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer has not been used yet.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_functions_on_Zn"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer is no/yes.
+            Explain why the function is not one-to-one.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make a table showing <m>g(a)</m> for <m>a = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make a table showing <m>h(a)</m> for <m>a = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_onto_finite_discrete"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>f(0)=</m> even and <m>f(1)=</m> odd.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look at the path <m>P_4</m>, the star <m>K_{1,4}</m>,
+            the cycle <m>C_4</m>,
+            the cycle <m>C_3</m> with an additional vertex and edge,
+            and a tree with longest path of length three edges.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_onto_numbers"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: If <m>2x+3 = y</m>, then solve for <m>x</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your proof should mention integers
+            (not real numbers).
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_horiz_line_test"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The answers in some order are <m>f</m> is a bijection,
+        <m>f</m> is not onto, and <m>f</m> is not one-to-one.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_count_onetoone_fns_part1"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer is 12.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use the same two steps as in <xref ref="part_1to1_count"/>.
+            Your answer should involve <m>n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use three steps.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_construct_fns_on_N"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Look <xref ref="exam_pairing_infinite_sets">at</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look <xref ref="exam_pairing_infinite_sets">at</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look <xref ref="exam_not_onto">at</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: In that example,
+            we used the cases of even (<m>n</m> mod 2 = 0) and odd
+            (<m>n</m> mod 2 = 1).
+            Try cases based on mod 3 instead.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

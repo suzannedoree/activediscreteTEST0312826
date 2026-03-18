@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+  <docinfo>
+<macros>
+\newcommand{\newpara}{}
+\newcommand{\subhs}{Counting Handshakes}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
+\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\newcommand{\subdiscrete}{What is Discrete Mathematics?}
+\newcommand{\sublearning}{Learning Discrete Mathematics}
+\newcommand{\str}{\texttt}
+\newcommand{\subsqdom}{Strings of Squares and Dominoes}
+\newcommand{\fn}{\texttt}
+\newcommand{\subsetsdigits}{Digits, Sets, and Cases}
+\newcommand{\bs}{\texttt}
+\newcommand{\substrings}{Strings and Possibility Trees}
+\newcommand{\lra}{\,\longrightarrow\,}
+\newcommand{\subintalgebra}{Algebra: Integer Algebra and the Order of Operations}
+\renewcommand{\thecbs}{\thesection.\arabic{cbs}}
+\newcommand{\substepscases}{Steps and Cases}
+\newcommand{\exerR}{Recap}
+\newcommand{\subcountingawry}{When Counting Goes Awry}
+\newcommand{\exerP}{Practice}
+\newcommand{\subfactorials}{Algebra: Factorials}
+\newcommand{\exerU}{Understand}
+\newcommand{\subsubsetschoose}{Subsets and the Binomial Coefficients}
+\newcommand{\exerE}{Explore}
+\newcommand{\subcombinecount}{Combining Counting Techniques}
+\newcommand{\subproofscountnosums}{Proof Format: Combinatorial Proof}
+\newcommand{\subbitstrings}{Bit Strings}
+\newcommand{\subcountbitstrings}{Number of Bit Strings}
+\newcommand{\subrephrasingsubset}{Detour: Rephrasing the Question}
+\newcommand{\subexplog}{Algebra: Exponential Notation and Logarithms}
+\newcommand{\subbridges}{Crossing Bridges}
+\newcommand{\subdefngraph}{The Definition of a Graph}
+\newcommand{\subgraphcomp}{Graph Complements}
+\newcommand{\subdegseq}{Degree Sequences}
+\newcommand{\substdgraphs}{Standard Graphs}
+\newcommand{\subadjmat}{The Adjacency Matrix of a Graph}
+\newcommand{\subcolormaps}{Coloring Maps}
+\newcommand{\subchromatic}{Coloring Graphs}
+\newcommand{\subgraphconj}{Graph Conjectures}
+\newcommand{\subplanarity}{Planarity}
+\newcommand{\subisograph}{Isomorphic Graphs}
+\newcommand{\subgraphtrees}{Subgraphs and Trees}
+\newcommand{\subnonisograph}{Nonisomorphic Graphs}
+\newcommand{\subgraphclassification}{Graph Classification}
+\newcommand{\subrobots}{Detour: Robots}
+\newcommand{\sublockers}{Opening and Closing Lockers}
+\newcommand{\subevenodd}{Even and Odd Integers}
+\newcommand{\subdivides}{Divisibility}
+\newcommand{\subfractions}{Algebra: Equivalent Fractions}
+\newcommand{\subdivalg}{The Division Algorithm, \fn{div}, and \fn{mod}}
+\newcommand{\subpolys}{Algebra: Polynomials}
+\newcommand{\subpffcases}{Proof Format: Proof by Cases}
+\newcommand{\subnotlast}{Not Last Game}
+\newcommand{\submod}{The Mod Clock}
+\newcommand{\subzn}{The Integers mod $n$}
+\newcommand{\subprimes}{Primes and Composites}
+\newcommand{\subprimefact}{Prime Factorization}
+\newcommand{\subcountdiv}{Detour: Listing and Counting Divisors}
+\newcommand{\subgcd}{Greatest Common Divisor}
+\newcommand{\subea}{The Euclidean Algorithm}
+\newcommand{\subcoprime}{Coprime Integers}
+\newcommand{\subandor}{And and Or}
+\newcommand{\subpffandor}{Proof Formats: $\land$ and $\lor$ by Cases}
+\newcommand{\subequivneg}{Logical Equivalence and Negations}
+\newcommand{\subpffcontra}{Proof Format: Contradiction}
+\newcommand{\subsetgame}{The Game SET}
+\newcommand{\subquant}{Quantifiers}
+\newcommand{\subpffquants}{Proof Formats: $\forall$ and $\exists$}
+\newcommand{\subcex}{Negating Quantified Statements and Counterexamples}
+\newcommand{\subifthen}{Promises: Conditional Statements}
+\newcommand{\subpffifthen}{Proof Format: Direct Proof of $\to$}
+\newcommand{\subnegcond}{Broken Promises: Negating Conditional Statements}
+\newcommand{\subpfforimplication}{Proof Formats: Proof of $\lor$ Using Implication}
+\newcommand{\subconv}{The Converse and Biconditional Statements}
+\newcommand{\subpffiff}{Proof Format: $\leftrightarrow$}
+\newcommand{\subcp}{The Contrapositive}
+\newcommand{\subpffcp}{Proof Format: $\to$ Using the Contrapositive}
+\newcommand{\subequiv}{Logical Equivalence}
+\newcommand{\subneg}{Simplifying Negations}
+\newcommand{\subinference}{Logical Inference}
+\newcommand{\subinfsetsnumbers}{Infinite sets of numbers}
+\newcommand{\subdefnfnnotation}{Function Notation and Vocabulary}
+\newcommand{\subpiecewise}{Piecewise-defined Functions}
+\newcommand{\subfndotgraphs}{Dot Diagrams and Graphs of Functions}
+\newcommand{\subfloorceiling}{Floor and Ceiling}
+\newcommand{\subnumberfn}{Number-theoretic Functions}
+\newcommand{\subfngraphs}{Graph-theoretic Functions}
+\newcommand{\subbitstringfunctions}{Functions Involving Bit Strings}
+\newcommand{\suborderedpair}{Ordered Pairs and the Definition of Function}
+\newcommand{\subpairing}{Pairings}
+\newcommand{\subonetooneonto}{One-to-one and Onto}
+\newcommand{\subperms}{Permutations}
+\newcommand{\subinverses}{Inverse Functions}
+\newcommand{\subpffunique}{Proof Format: Uniqueness}
+\newcommand{\subdefnseq}{The Definition of Sequence}
+\newcommand{\submodelseq}{Modeling with Explicitly-defined Sequences}
+\newcommand{\subseqprimes}{Detour: Sequences Involving Primes}
+\newcommand{\subelements}{Elements of a Set}
+\newcommand{\subsetbuild}{Set-Builder Notation}
+\newcommand{\subsetops}{Set Operations}
+\newcommand{\subsubsets}{Subsets of a Set}
+\newcommand{\subbsrepsubset}{Bit String Representation of Subsets}
+\newcommand{\subsetsofsets}{Sets of Sets}
+\newcommand{\subsetfn}{Detour: Set-theoretic Functions}
+\newcommand{\subdefnpartition}{The Definition of Partition}
+\newcommand{\subselfconj}{Conjugate Partitions}
+\newcommand{\subbulgsol}{Collecting Coins}
+\newcommand{\subcartprod}{The Cartesian Product of Sets}
+\newcommand{\subfncartprod}{Functions Involving Cartesian Products}
+\newcommand{\subdefnrelation}{Relations and Their Representations}
+\newcommand{\subrelppty}{Properties of Relations}
+\newcommand{\subequivclass}{Equivalence Relations and Equivalence Classes}
+\newcommand{\subcongmod}{Congruence mod $n$}
+\newcommand{\subhanoi}{The Towers of Hanoi}
+\newcommand{\subrecdefseq}{Recursively-defined Sequences}
+\newcommand{\subntr}{Modeling with Recursively-defined Sequences}
+\newcommand{\subpffmathind}{Proof Format: Mathematical Induction}
+\newcommand{\subalgind}{Algebra: Evaluating $f(n-1)$}
+\newcommand{\subpffindseq}{Proof Format: Special Case of Mathematical Induction for Proving an Explicit Rule for a Recursively-defined Sequence}
+\newcommand{\submatpowers}{Matrix Products and Powers}
+\newcommand{\subpffindmatrix}{Proof Format: Special Case of Mathematical Induction for Proving an Explicit Formula for the Power of a Matrix}
+\newcommand{\subgroups}{Finite Groups}
+\newcommand{\subproperbs}{Proper Bit Strings}
+\newcommand{\subrecsets}{Recursively-defined Sets}
+\newcommand{\subrecgraphs}{Recursively-defined Graphs}
+\newcommand{\subfib}{The Fibonacci Sequence and Higher Order Recursions}
+\newcommand{\submodelhigher}{Modeling with Higher Order Recursions}
+\newcommand{\subfibpatterns}{Detour: Fibonacci Patterns and Proof}
+\newcommand{\subpffstrongind}{Proof Format: Strong Mathematical Induction}
+\newcommand{\subhowmanysq}{Counting Squares}
+\newcommand{\subfactrep}{Factorial Representations}
+\newcommand{\subsigmapi}{Sum and Product Notation}
+\newcommand{\subbaseb}{Base $b$ Representation}
+\newcommand{\subbinary}{Binary  Representation}
+\newcommand{\subhex}{Hexadecimal Representation}
+\newcommand{\subhexforbinary}{Hex as a Shorthand for Binary}
+\newcommand{\subsumconj}{Sum Conjectures}
+\newcommand{\subprodconj}{Product Conjectures}
+\newcommand{\subsumfib}{Detour: Fibonacci Sums}
+\newcommand{\subfactorpolys}{Algebra: Factoring Polynomials}
+\newcommand{\subarithtri}{The Arithmetic Triangle}
+\newcommand{\subpascalpatterns}{Patterns in the Arithmetic Triangle}
+\newcommand{\subbinomthm}{The Binomial Theorem}
+\newcommand{\subfactorialbinom}{Explicit Formula for Binomial Coefficients}
+\newcommand{\subpffsumproofsind}{Proof Format: Special Case of Mathematical Induction for Proving Sum and Product Formulas}
+\newcommand{\subpffcombsums}{Proof Format: Combinatorial Proof of Sums}
+\newcommand{\subspecialsum}{Detour: Special Sums}
+\newcommand{\subfracalg}{Algebra: Fraction Arithmetic}
+\newcommand{\subhotelinf}{Hotel Infinity}
+\newcommand{\subdefndiscrete}{The Definition of Discrete}
+</macros>
+<latex-image-preamble>
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{tkz-euclide}
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix,arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usetikzlibrary{through,intersections,decorations,shadows,fadings}
+\usepackage{pgfplots}
+</latex-image-preamble>
+  </docinfo>
+  <book>
+    <title>\textsc{Active Discrete Mathematics:\\ Patterns, Structures, and Proof}</title>
+    <frontmatter>
+      <titlepage>
+        <author>
+          <personname>Dr.\ Suzanne Dor\'ee</personname>
+        </author>
+      </titlepage>
+    </frontmatter>
+    <xi:include href="./ch_prologue.ptx"/>
+    <xi:include href="./ch_counting.ptx"/>
+    <xi:include href="./ch_graph_theory.ptx"/>
+    <xi:include href="./ch_number_theory.ptx"/>
+    <xi:include href="./ch_logic_proof.ptx"/>
+    <xi:include href="./ch_functions.ptx"/>
+    <xi:include href="./ch_sets_rel.ptx"/>
+    <xi:include href="./ch_recursion_induction.ptx"/>
+    <xi:include href="./ch_sum_prod.ptx"/>
+    <xi:include href="./ch_epilogue.ptx"/>
+    <backmatter>
+      <xi:include href="./bibliography.ptx"/>
+    </backmatter>
+  </book>
+</pretext>

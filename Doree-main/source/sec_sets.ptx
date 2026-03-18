@@ -1,0 +1,2024 @@
+<section xml:id="sec_sets">
+  <title>Sets</title>
+  <introduction>
+    <p>
+      We have been using the idea of sets throughout this course.
+      In this section, we discuss sets more formally,
+      including how to define sets using set-builder notation.
+      We also explore ways to combine sets through set operations,
+      which have applications to working with databases.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_elements">
+    <title>\subelements</title>
+    <p>
+      As in <xref ref="sec_listing"></xref>,
+      a <term>set</term> is understood to be an unordered collection of objects called <term>elements</term>.
+      There is a lot of vocabulary related to sets.
+      We start with definitions related to the elements of a set.
+    </p>
+    <definition xml:id="defn_element">
+      <title>Elements</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                If the object <m>x</m> is an element of the set <m>S</m>,
+                then we use <term>element notation</term>
+                and write <m>x \in S</m>.
+                If <m>x</m> is not an element of <m>S</m>,
+                then we write <m>x \notin S</m>.
+                For example, if <m>S=\{1,3,4\}</m>,
+                then <m>3 \in S</m> and then <m>2 \notin S</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                An <term>ellipsis</term> is <m>\ldots</m> which is used to indicate missing items that follow a pattern.
+                For an infinite set described using <term>ellipses</term>
+                we need to recognize the pattern to know if an object is an element.
+                For example,
+                the set <m>F = \{4,8,12,\ldots, 64\}</m> is the set of multiples of 4 from 4 to 64.
+                Thus, <m>20 \in F</m> because
+                <m>4 \mid 20</m> and <m>4 \le 20 \le 64</m>.
+                On the other hand, <m>18 \notin F</m> because <m>4 \nmid 18</m> and
+                <m>80 \notin F</m> because <m>80 >64</m>.
+                We see a more rigorous way to define such sets in <xref ref="sub_setbuild"></xref>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>cardinality</term> of a finite set <m>S</m>,
+                denoted <m>|S|</m>, is the number of (distinct) elements in <m>S</m>.
+                For example,
+                <m>|\{1,3,4\}|=3</m> because there are three elements in <m>\{1,3,4\}</m> namely 1, 3, and 4.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at a set of bit strings.
+    </p>
+    <example xml:id="exam_set_bs_length3">
+      <title>The set of bit strings of length three</title>
+      <statement>
+        <p>
+          The set of all bit strings of length three is
+          <me>
+            \mathbb{B}_3=\{\bs{000}, \bs{001}, \bs{010}, \bs{011}, \bs{100}, \bs{101}, \bs{110}, \bs{111}\}
+          </me>
+          <ol>
+            <li>
+              <p>
+                Is <m>\bs{110} \in \mathbb{B}_3</m>?
+                Is <m>\bs{0111}\in \mathbb{B}_3</m>?
+                <solution>
+                  <p>
+                    Since <c>110</c> is a bit string of length three and appears on the list of elements of <m>\mathbb{B}_3</m>,
+                    we have <m>\bs{110} \in \mathbb{B}_3</m>.
+                    Since <m>\bs{0111}</m> is a bit string of length 4 and does not appear on the list of elements of <m>\mathbb{B}_3</m>,
+                    we see that <m>\bs{0111} \notin \mathbb{B}_3</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>|\mathbb{B}_3|</m>.
+                <solution>
+                  <p>
+                    We can count the elements of <m>\mathbb{B}_3</m>.
+                    There are 8 elements listed so <m>|\mathbb{B}_3|=8</m>.
+                    Note that by <xref ref="thm_number_bit_strings"></xref>,
+                    we knew there were <m>2^3=8</m> bit strings of length three so,
+                    again, <m>|\mathbb{B}_3|=8</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      A set is defined by its elements.
+    </p>
+    <definition xml:id="defn_set_equal_disjoint">
+      <title>Set equality and disjoint sets</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Sets <m>S</m> and <m>T</m> are <term>equal</term>
+                if they have the exact same set of elements.
+                For example,
+                <m>\{1,3,4\}=\{4,4,3,1\}</m> because each set has the same three elements: 1, 3, and 4.
+              </p>
+            </li>
+            <li>
+              <p>
+                At the other extreme, <m>S</m> and <m>T</m> are <term>disjoint</term>
+                if they do not have any elements in common.
+                For example, <m>\{1,3,4\}</m> and <m>\{2,7\}</m> are disjoint.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's practice working with these definitions.
+    </p>
+    <activity xml:id="act_set_elements">
+      <title>Elements of a set</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Consider the set <m>A = \{0,3,5,6\}</m>.
+              Is <m>0 \in A</m>?
+              Is <m>1 \in A</m>?
+              Calculate <m>|A|</m>, the number of elements in <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the empty set <m>\varnothing=\{ ~\}</m>.
+              What is <m>|\varnothing|</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the set <m>B = \{1, 3, 5, \ldots, 99\}</m>.
+              Is <m>13 \in B</m>?
+              Calculate <m>|B|</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the set <m>X=\{3,6,0,5\}</m>.
+              Is <m>A=X</m>?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give an example of a set of integers <m>Y</m> that is disjoint from <m>A</m>.
+              <xref ref="defn_set_equal_disjoint">By</xref>,
+              that means find a set <m>Y</m> that has no elements in common with <m>A</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_setbuild">
+    <title>\subsetbuild</title>
+    <p>
+      There are many ways to describe a set.
+      We can explicitly list some of the elements of a known set,
+      such as <m>\mathbb{Z}</m> or <m>\mathbb{R}</m>,
+      perhaps using an ellipsis (<m>\ldots</m>) if the list is long.
+      Alternatively,
+      we can select the elements of a known set that satisfy some implicit condition or build elements of an explicit format from the elements of a known set.
+    </p>
+    <definition xml:id="defn_set_builder_notation">
+      <title>Set-builder notation</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Given a set <m>S</m> and a predicate<fn>
+                A <term>predicate</term>
+                (or <term>Boolean</term>)
+                is a statement that is true or false.
+                </fn>  <m>P(x)</m> defined for all elements <m>x \in S</m>, the set
+                <me>
+                  A=\{ x \in S \mid P(x)\}
+                </me>,
+                pronounced
+                <q>the set of all elements <m>x</m> in <m>S</m> such that <m>P(x)</m></q>, is the set of all elements <m>x</m> of <m>S</m> that satisfy
+                <term>implicit condition</term> <m>P(x)</m>.
+                Note that <m>A</m> is a subset of <m>S</m>.
+                For example,
+                if <m>S=\{1,2,3,7,8\}</m> and <m>P(n)</m> is the statement
+                <q><m>n</m> is even</q>, then
+                <me>
+                  A = \{ n \in S \mid P(n)\} = \{ n \in A \mid n \text{ is even } \}= \{2,8\}
+                </me>.
+                For example, <m>2 \in A</m> because 2 is even but
+                <m>3 \notin S</m> because 3 is not even.
+              </p>
+            </li>
+            <li>
+              <p>
+                Given a set <m>S</m> and a function <m>f</m> where <m>f(x)</m> is defined for all <m>x \in S</m>, the set
+                <me>
+                  A=\{ f(x) \mid x \in S\}
+                </me>,
+                pronounced
+                <q>the set of all elements of the form <m>f(x)</m> where <m>x</m> in an element of <m>S</m></q>, is the set of all elements of the
+                <term>explicit format</term>
+                <m>f(x)</m> where <m>x\in S</m>.
+                For example,
+                if <m>S=\{1,2,3,7,8\}</m> and <m>f(n)=n^3</m>, then
+                <me>
+                  A = \{ n^3 \mid n \in S\} = \{1^3,2^3,3^3,7^3,8^3\}= \{1, 8, 27, 343, 512\}
+                </me>.
+                To show <m>343 \in A</m> we write <m>343=7^3</m>.
+                Note that <m>A</m> need not be a subset of <m>S</m>.
+                It is just built using the set <m>S</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The sets <m>\{ x \in S \mid P(x)\}</m> and <m>\{ f(x) \mid x \in S\}</m> are described in
+                <term>set-builder notation</term>
+                because the notation tells us how to build the set.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      We can also combine explicit and implicit formulas.
+    </p>
+    <example xml:id="exam_set_mult4">
+      <title>Set of multiples of 4 up to 64</title>
+      <statement>
+        <p>
+          <xref ref="defn_element">In</xref>,
+          we saw the set <m>F = \{4,8,12,\ldots, 64\}</m> which represents the set of multiples of 4 from 4 to 64.
+          Use set-builder notation to define <m>F</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          One way to define <m>F</m> would be implicitly:
+          <me>
+            F = \{ n \mid n = 4k \text{ for some integer }  k \text{ with }  1 \le k \le 16\}
+          </me>
+          where the 16 comes from the fact that <m>4(16)=64</m>.
+          We could alternatively define <m>F</m> mixing implicit and explicit forms:
+          <me>
+            F = \{ 4k \mid 1 \le k \le 16\}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      How we show <m>x \in A</m> and what we know when <m>x \in A</m> depends on how the set <m>A</m> is defined.
+    </p>
+    <remark xml:id="rem_implicit_explicit_sets">
+      <title>Elements of implicitly or explicitly-defined sets</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Given a set <m>S</m>,
+              a predicate <m>P(x)</m> defined for all elements <m>x \in S</m>,
+              and the set <m>A=\{ x \in S \mid P(x)\}</m>,
+              <ul>
+                <li>
+                  <p>
+                    To show <m>x \in A</m>,
+                    we check that <m>x \in S</m> and that <m>P(x)</m> is true.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    If we know <m>x \in A</m>,
+                    then we can conclude that <m>x \in S</m> and <m>P(x)</m> is true.
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <p>
+              Given a set <m>S</m>, a function <m>f</m> defined on <m>S</m>,
+              and the set <m>A=\{ f(x) \mid x \in S\}</m>,
+              <ul>
+                <li>
+                  <p>
+                    To show <m>y \in A</m>, we write <m>y=f(x)</m> for some <m>x \in S</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    If we know <m>y \in A</m>,
+                    then we can conclude that <m>y=f(x)</m> for some <m>x \in S</m>.
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+    <p>
+      Let's look at another example.
+    </p>
+    <example xml:id="exam_implicit_explicit_bs">
+      <title>Listing elements of implicit and explicitly-defined sets of bit strings</title>
+      <statement>
+        <p>
+          As usual, let <m>\mathbb{B}_3</m> denote the set of all bit strings of length three.
+          <ol>
+            <li>
+              <p>
+                List all elements of the implicitly-defined set
+                <me>
+                  A= \{b \in \mathbb{B}_3 \mid b \text{ has weight two } \}
+                </me>.
+                Recall from <xref ref="defn_bit_string"></xref>
+                that the weight of a bit string is the number of <c>1</c> s in the bit string.
+                <solution>
+                  <p>
+                    There are bit strings of length three and weight two are:
+                    <c>011</c>,
+                    <c>101</c>,
+                    and <c>110</c> and so <m>A = \{\bs{011}, \bs{101}, \bs{110}\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                List all elements of the explicitly-defined set
+                <me>
+                  B = \{ b\bs{1} \mid b \in \mathbb{B}_3\}
+                </me>.
+                <solution>
+                  <p>
+                    For each bit string <m>b</m> in
+                    <m>\mathbb{B}_3</m> we get a new bit string <m>b\bs{1}</m> in <m>B</m>.
+                    Thus,
+                    <me>
+                      B = \{\bs{0001}, \bs{0011}, \bs{0101}, \bs{0111}, \bs{1001}, \bs{1011}, \bs{1101}, \bs{1111}\}
+                    </me>.
+                    Note that the elements of <m>B</m> are bit strings of length 4, in <m>\mathbb{B}_4</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's look at some implicitly and explicitly-defined infinite sets.
+    </p>
+    <example xml:id="exam_sq_powers2">
+      <title>Squares and powers of two</title>
+      <statement>
+        <p>
+          Consider the explicitly-defined sets of integers
+          <me>
+            Q = \{ n^2 \mid n \in \mathbb{N}\}
+          </me>
+          and
+          <me>
+            P = \{ 2^n \mid n \in \mathbb{N}\}
+          </me>
+          <ol>
+            <li>
+              <p>
+                Describe the sets <m>Q</m> and <m>P</m> in words.
+                <solution>
+                  <p>
+                    The set <m>Q</m> is the set of all square integers and <m>P</m> is the set of all powers of two.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_16is_sq_and_power2">
+              <p>
+                Show that <m>16 \in Q</m> and <m>16 \in P</m>.
+                <solution>
+                  <p>
+                    To show <m>16 \in Q</m> we need to write 16 as a square,
+                    that is <m>16=n^2</m> for some <m>n \in \mathbb{N}</m>.
+                    We can write <m>16=4^2</m> and so <m>16 \in Q</m>.
+                  </p>
+                  <p>
+                    Similarly, to show <m>16 \in P</m> we need to write 16 as a power of two,
+                    that is <m>16=2^n</m> for some <m>n \in \mathbb{N}</m>.
+                    We can write <m>16=2^4</m> and so <m>16 \in T</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write implicit definitions for <m>Q</m> and <m>P</m>.
+                <solution>
+                  <p>
+                    As in <xref ref="part_16is_sq_and_power2"/>,
+                    to check that an integer <m>m</m> is an element of <m>Q</m> we need to find a nonnegative integer <m>n</m> such that <m>m=n^2</m>.
+                    Thus
+                    <me>
+                      Q = \{ m \in \mathbb{Z} \mid m=n^2 \text{ for some }  n \in \mathbb{N}\}
+                    </me>
+                  </p>
+                  <p>
+                    Similarly, as in <xref ref="part_16is_sq_and_power2"/>,
+                    to check that an integer <m>m</m> is an element of <m>P</m> we need to find a nonnegative integer <m>n</m> such that <m>m=2^n</m>.
+                    Thus
+                    <me>
+                      P = \{ m \in \mathbb{Z} \mid m=2^n \text{ for some }  n \in \mathbb{N}\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We can use set-builder notation to write the image of a function.
+    </p>
+    <example xml:id="exam_image_setbuilder">
+      <title>Writing the image of a function in set-builder notation</title>
+      <statement>
+        <p>
+          Write the image of the function
+          <m>f: X \to Y</m> in set builder notation.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The image of <m>f</m> is all the actual output values <m>f(x)</m>.
+          We can write the image explicitly as
+          <me>
+            \{f(x) \mid x \in X\}
+          </me>.
+          We can also write the image implicitly as
+          <me>
+            \{y \in Y \mid y = f(x) \text{ for some } x \in X\}
+          </me>
+        </p>
+      </solution>
+    </example>
+    <p>
+      Try working with set-builder notation.
+    </p>
+    <activity xml:id="act_set_builder_notation">
+      <title>Set-builder notation</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Consider the set <m>A = \{ n \in \mathbb{Z} \mid n^2+1=5\}</m>.
+              Show that <m>4 \notin A</m>,
+              list the elements of <m>A</m>, and calculate <m>|A|</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the set <m>B= \{n^2+1 \mid n \in \{-2,1,0,1,2\}\}</m>.
+              Show that <m>5 \in B</m>,
+              list the elements of <m>B</m>, and calculate <m>|B|</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the set <m>V = \{ 3k \mid 1 \le k \le 10\}</m>.
+              List the elements of <m>V</m> and calculate <m>|V|</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the set <m>T = \{ n \in \mathbb{N} \mid n \fn{~mod~} 4 = 1\}</m>.
+              Show that <m>23 \notin T</m>.
+              Give an example of an element of <m>T</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For each of the sets <m>A</m>,
+              <m>B</m>, <m>V</m>, and <m>T</m> decide if it is described implicitly,
+              explicitly, or as a combination of implicit and explicit.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_set_operations">
+    <title>\subsetops</title>
+    <p>
+      We can combine sets to form new sets.
+    </p>
+    <definition xml:id="defn_set_ops">
+      <title>Set operations</title>
+      <statement>
+        <p>
+          Let <m>S</m> and <m>T</m> be subsets of a set <m>U</m>.
+          In this context, <m>U</m> is the
+          <term>universal</term> set.
+          <ol>
+            <li>
+              <p>
+                The <term>intersection</term> of <m>S</m> and <m>T</m>,
+                denoted <m>S \cap T</m> and pronounced
+                <q><m>S</m> intersect <m>T</m></q>, is the set
+                <me>
+                  S\cap T = \{x \in U \mid x \in S \land x \in T\}
+                </me>,
+                where <m>\land</m> is the logical connective
+                <q>and</q>, as introduced in <xref ref="defn_and_or_xor"></xref>.
+                Note that <m>\cap</m> looks similar to <m>\land</m>.
+                For example,
+                we might be interested in the intersection of the set of students who have completed a discrete mathematics course and the set of students who have completed a linear algebra course,
+                because such students have the prerequisite to take an abstract algebra course.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>union</term> of <m>S</m> and <m>T</m>,
+                denoted <m>S \cup T</m> and pronounced
+                <q><m>S</m> union <m>T</m></q>, is the set
+                <me>
+                  S\cup T = \{x \in U \mid x \in S \lor x \in T\}
+                </me>,
+                where <m>\lor</m> is the logical connective
+                <q>(inclusive) or</q>, as introduced in <xref ref="defn_and_or_xor"></xref>.
+                Note that <m>\cup</m> looks similar to <m>\lor</m>.
+                For example,
+                we might be interested in the union of the set of students who are math majors and the set of students who are computer science majors because we would like to invite that whole group to a talk.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>symmetric difference</term>
+                of <m>S</m> and <m>T</m>,
+                denoted <m>S \oplus T</m>, is the set
+                <me>
+                  S \oplus T= \{ x \in U \mid x \in S  \oplus x \in T\}
+                </me>,
+                where <m>\oplus</m>
+                (or xor)
+                is the logical connective
+                <q>exclusive or</q>, as introduced in <xref ref="defn_and_or_xor"></xref>.
+                For example,
+                we might want to identify people who attended a recent performance of La Boh&#xe8;me or of Tosca,
+                but not both,
+                to offer them the opportunity to buy a season membership to the opera,
+                noting that people who already have a season membership will likely have attended both.
+                If <m>S</m> is the set of people who attended La Boh&#xe8;me and <m>T</m> is the set of people who attended Tosca,
+                then the set we want is <m>S \oplus T</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>difference</term> of <m>S</m> and <m>T</m>,
+                denoted <m>S - T</m> and pronounced
+                <q><m>S</m> without <m>T</m></q>, is the set
+                <me>
+                  S-T =\{x \in U \mid x \in S \text{ but }  x\notin T\}
+                </me>.
+                For example,
+                we might want to send a reminder to patients who received a flu vaccine last year but have not yet done so this year.
+                That would be the set <m>S -T</m> where <m>S</m> is the set of people who received a flu vaccine last year and <m>T</m> is the set of people who received a flu vaccine this year.
+                Note that <m>T-S</m> is usually different.
+                In our example,
+                <m>T-S</m> would be the patients who received their flu vaccine this year but not last year.
+                The symbol <m>-</m> looks like the logical operator <m>\neg</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>complement</term> of <m>S</m>
+                (in a universal set <m>U</m>),
+                denoted <m>\overline{S}</m>, is the set
+                <me>
+                  \overline{S}= \{ x \in U \mid x \notin S\}
+                </me>.
+                Yes, <m>\overline{S}=U-S</m>.
+                For example,
+                we might want to reach out to all students who are not yet registered for the fall term.
+                If <m>S</m> is the set of all students who have registered for fall term and <m>U</m> is the set of all students,
+                then <m>S-U</m> is the set we want.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      A diagram can be helpful in understanding and working with these set operations.
+    </p>
+    <definition xml:id="defn_venn_diagram">
+      <title>Venn diagram</title>
+      <statement>
+        <p>
+          A <em>Venn diagram</em> represents a set by a circle, square,
+          or other curve surrounding all the elements in that set.
+          The standard Venn diagram for two sets looks somewhat like a butterfly.
+          (You will have to imagine the antennae yourself.)
+          For example, the Venn diagram of sets <m>S = \{2,3,5\}</m> and
+          <m>T = \{1,2,3,4\}</m> is shown in <xref ref="fig_venn_specific"></xref>.
+        </p>
+        <figure xml:id="fig_venn_specific">
+          <caption>Venn diagram showing the sets <m>S=\{2,3,5\}</m> and <m>T=\{1,2,3,4\}</m>.</caption>
+          image type not recognized
+        </figure>
+      </statement>
+    </definition>
+    <p>
+      In the butterfly image of a Venn diagram,
+      the intersection of two sets is the body of the butterfly and the union is the entire butterfly as shown in <xref ref="fig_venn_int_union"></xref>.
+    </p>
+    <figure xml:id="fig_venn_int_union">
+      <caption>Venn diagram showing the intersection <m>S \cap T</m> and union <m>S \cup T</m></caption>
+      image type not recognized
+    </figure>
+    <p>
+      In the butterfly image of a Venn diagram,
+      the symmetric difference is the wings of the butterfly and each wing is the difference
+      (as shown in <xref ref="fig_venn_diff"></xref>).
+    </p>
+    <figure xml:id="fig_venn_diff">
+      <caption>Venn diagram showing the symmetric difference <m>S \oplus T</m> and each difference <m>S-T</m> and <m>T-S</m>.</caption>
+      image type not recognized
+    </figure>
+    <p>
+      Let's use the Venn diagrams to visualize specific examples and we work with these definitions.
+    </p>
+    <example xml:id="exam_setops">
+      <title>Set operations</title>
+      <statement>
+        <p>
+          For sets <m>S = \{2,3,5\}</m> and
+          <m>T = \{1,2,3,4\}</m> calculate the following sets.
+          You might want to look back <xref ref="fig_venn_specific">at</xref>.
+          <ol>
+            <li>
+              <p>
+                The union <m>S \cap T</m> and the intersection <m>S \cup T</m>.
+                <solution>
+                  <p>
+                    The intersection includes the elements in the overlap of <m>S</m> and <m>T</m> so <m>S \cap T = \{2,3\}</m>.
+                    The union includes all elements in <m>S</m> or <m>T</m> or both so <m>S \cup T = \{1,2,3,4,5\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                The symmetric difference <m>S \oplus T</m> and each difference <m>S-T</m> and <m>T-S</m>.
+                <solution>
+                  <p>
+                    The symmetric difference includes the elements in exactly one of <m>S</m> or <m>T</m> but not both so <m>S \oplus T = \{1,4,5\}</m>.
+                    The difference <m>S-T</m> includes the elements of <m>S</m> that are not also in <m>T</m> so <m>S-T = \{5\}</m>.
+                    Similarly, the difference <m>T-S</m> includes the elements of <m>T</m> that are not also in <m>S</m> so <m>T-S = \{1,4\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The Venn diagram for the complement of a set inside a universal set shows the elements outside of the set,
+      as shown in <xref ref="fig_venn_complement"></xref>.
+    </p>
+    <figure xml:id="fig_venn_complement">
+      <caption>Venn diagram showing the set complement <m>\overline{S}</m> in a universal set <m>U</m>.</caption>
+      image type not recognized
+    </figure>
+    <p>
+      Let's calculate some complements.
+    </p>
+    <example xml:id="exam_set_complement">
+      <title>Set complements</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>\overline{S}</m> for the set
+                <m>S = \{2, 3,5\}</m> in the universal set <m>U= \{1, 2, 3, 4, 5, 6, 7\}</m>.
+                <solution>
+                  <p>
+                    The complement includes all elements
+                    (of <m>U</m>)
+                    that are not in <m>S</m> so <m>\overline{S} = \{1, 4, 6,7\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                In the set of all bit strings <m>\mathbb{B}</m>, consider the set
+                <me>
+                  Z = \{b \in \mathbb{B} \mid b \text{ has at least one }  \bs{0}\}
+                </me>.
+                Evaluate <m>\overline{Z}</m>.
+                <solution>
+                  <p>
+                    The complement includes all bit strings that do not have at least one <c>0</c>,
+                    that is all bit strings consisting solely of <c>1</c>,
+                    and the empty string <m>\lambda</m>.
+                    That is
+                    <me>
+                      \overline{Z} = \{\lambda, 1, 11, 111, 1111, \ldots\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      When there are three sets the standard Venn diagram shows all possible overlapping regions as shown in <xref ref="fig_venn_3sets"></xref>.
+    </p>
+    <figure xml:id="fig_venn_3sets">
+      <caption>The standard Venn diagram for the three sets.</caption>
+      image type not recognized
+    </figure>
+    <p>
+      (It is a very interesting question how to draw Venn diagrams for four or more sets,
+      and whether there are pretty ways to do so.)
+    </p>
+    <p>
+      Let's consider an example with three sets.
+    </p>
+    <example xml:id="exam_set_ops_3sets">
+      <title>Set operations with three sets</title>
+      <statement>
+        <p>
+          Consider the sets <m>S = \{2,3,5\}</m>, <m>T = \{1,2,3,4\}</m>,
+          and <m>Y = \{2,4,5,6\}</m> as drawn in <xref ref="fig_venn_3sets_specific"></xref>.
+        </p>
+        <figure xml:id="fig_venn_3sets_specific">
+          <caption>The standard Venn diagram for the three sets <m>S = \{2,3,5\}</m>, <m>T = \{1,2,3,4\}</m>, and <m>Y =  \{2,4,5,6\}</m>.</caption>
+          image type not recognized
+        </figure>
+        <p>
+          In this example,
+          every element of <m>S</m> happens to already lie within <m>T \cup Y</m>,
+          but in other examples there might be some element in that part of the diagram.
+          <ol>
+            <li>
+              <p>
+                Calculate <m>(S\cap Y) \cup T</m>.
+                <solution>
+                  <p>
+                    Note that <m>S\cap Y=\{2,5\}</m>.
+                    Thus,
+                    <me>
+                      (S\cap Y) \cup T = \{2,5\} \cup \{1,2,3,4\}=\{1,2,3,4,5\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculate <m>S\cap (Y \cup T)</m>.
+                <solution>
+                  <p>
+                    Note that <m>Y \cup T=\{1,2,3,4,5,6\}</m>.
+                    Thus,
+                    <me>
+                      S\cap (Y \cup T)=S \cap \{1,2,3,4,5,6\}=\{2,3,5\}
+                    </me>
+                  </p>
+                  <p>
+                    Notice that we got different answers because the placement of the parentheses matters.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <activity xml:id="act_set_ops">
+      <title>Set operations</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              For sets <m>X = \{0,1,2,3\}</m> and <m>Y=\{2,3,4,5,6\}</m>,
+              draw the standard Venn diagram of the sets that includes each element where it belongs and calculate <m>X \cup Y</m>,
+              <m>X \cap Y</m>, <m>X - Y</m>,
+              <m>Y-X</m>, and <m>X \oplus Y</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For set <m>X = \{0,1,2,3\}</m> in the universal set <m>U = \{0,1,2,3, \ldots, 10\}</m>,
+              draw the standard Venn diagram of the sets that includes each element where it belongs and calculate <m>\overline{X}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For a general set <m>S</m> and empty set <m>\varnothing</m>,
+              simplify the following sets:
+              <m>S \cup S</m> and <m>S \cap \varnothing</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give a counterexample to the conjecture that
+              <m>\left| A \cup B \right| = \left| A \right|+ \left| B \right|</m> for all sets <m>A</m> and <m>B</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw a standard Venn diagram for generic sets <m>S</m> and <m>T</m> within the same universal set <m>U</m> and shade in <m>\overline{S \cap T}</m>.
+              Repeat for <m>\overline{S}</m> and repeat again for <m>\overline{T}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              How is <m>\overline{S \cap T}</m> related to
+              <m>\overline{S}</m> and <m>\overline{T}</m> in general?
+              Hint: This property is one of <term>DeMorgan's laws</term> for sets.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_elements">for</xref>
+      \subelements</title>
+      <exercise xml:id="exer_decide_element_finite">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Consider the set <m>B= \{1,2,7,8,10\}</m>.
+                  Is <m>10 \in B</m>?
+                  Is <m>7 \in B</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the set <m>C = \{2,4,6,8,\ldots, 30\}</m>.
+                  Is <m>10 \in C</m>?
+                  Is <m>7 \in C</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the empty set <m>\varnothing=\{ ~\}</m>.
+                  Is <m>10 \in \varnothing</m>?
+                  Is <m>7 \in \varnothing</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_decide_element_infinite">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  As usual, <m>\mathbb{N} = \{0,1,2,3,\ldots\}</m>,
+                  the set of natural numbers.
+                  Is <m>4 \in \mathbb{N}</m>?
+                  Is <m>0 \in \mathbb{N}?</m>?
+                  Is <m>-3 \in \mathbb{N}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  As usual, <m>\mathbb{Z}^+ =\{1,2,3,, \ldots</m>\}, the set of positive integers.
+                  Is <m>4 \in \mathbb{Z}^+</m>?
+                  Is <m>0 \in \mathbb{Z}^+?</m>?
+                  Is <m>-3 \in \mathbb{Z}^+</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  As usual, <m>\mathbb{Z} = \{ \ldots, -3, -2, -1, 0, 1, 2,3, \ldots\}</m>,
+                  the set of integers.
+                  Is <m>4 \in \mathbb{Z}</m>?
+                  Is <m>0 \in \mathbb{Z}?</m>?
+                  Is <m>-3 \in \mathbb{Z}</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_cardinality">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Consider the set <m>B= \{1,2,7,8,10\}</m>.
+                  Calculate <m>|B|</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the set <m>C = \{2,4,6,8,\ldots, 30\}</m>.
+                  Calculate <m>|C|</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the empty set <m>\varnothing=\{ ~\}</m>.
+                  Calculate <m>|\varnothing|</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_disjoint">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the sets <m>B= \{1,2,7,8,10\}</m> and <m>C = \{2,4,6,8,\ldots, 30\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Are <m>B</m> and <m>C</m> disjoint?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a set <m>A</m> where <m>A</m> is disjoint from <m>B</m> but <m>A</m> is not disjoint from <m>C</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a set <m>A</m> that is disjoint from <m>B</m> and disjoint from <m>C</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_elements">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What <m>\in</m> and <m>\notin</m> mean?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What <m>|S|</m> means if <m>S</m> is a set?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to decide if two sets are equal or if two sets are disjoint?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_setbuild">for</xref>
+      \subsetbuild</title>
+      <exercise xml:id="exer_6iselement">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For each set <m>S</m>, explain how we know <m>6 \in S</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>S=\{n \in \mathbb{N} \mid \lfloor\frac{n}{2}\rfloor=3\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S = \{ n \in \mathbb{N} \mid n^2 \lt 100\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S=\{3n \mid n \in \mathbb{N}\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S=\{n+1 \mid n \in \{0,1,2,3,4,5\}\}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_list_elements">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For each set <m>S</m>,
+            list the elements of <m>S</m> and evaluate <m>|S|</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>S=\{n \in \mathbb{N} \mid \lfloor\frac{n}{2}\rfloor=3\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S=\{n+1 \mid n \in \{0,1,2,3,4,5\}\}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_bs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            As usual, <m>\mathbb{B}_5</m> is the set of all bit strings of length 5.
+            Give an example of an element in each set or explain why the set is empty.
+            <ol>
+              <li>
+                <p>
+                  <m>C = \{ b \in \mathbb{B}_5 \mid b \text{ has an equal number of \bs{0}s and \bs{1}s} \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>D = \{ b \in \mathbb{B}_5 \mid b \text{ has more \bs{0}s than \bs{1}s} \}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>E = \{ b \in \mathbb{B}_5 \mid b \text{ begins } \bs{01}\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>F = \{ b \in \mathbb{B}_5 \mid \overleftarrow{b}=b \}</m>,
+                  where <m>\overleftarrow{b}</m> means the bit string <m>b</m> written in reverse order.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_def_ineq">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Give an example of an element in each set or explain why the set is empty.
+            <ol>
+              <li>
+                <p>
+                  <m>A = \{ x \in \mathbb{R} \mid 5 \lt x \lt 6\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>B =\{ x \in \mathbb{Z} \mid 5 \lt x \lt 6\}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_intervals_setbuilder">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Write each interval in set-builder notation where <m>a,
+            b \in \mathbb{R}</m> with <m>a \lt b</m>.
+            For example,
+            <m>(a,b] =\{x \in \mathbb{R} \mid a \lt x \le b\}</m>.
+            <ol>
+              <li>
+                <p>
+                  <m>(a,b)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>[a,b)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>[a,b]</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(a,\infty)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(\infty,b]</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_4letter_words">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Give an example of an element in each set.
+            <ol>
+              <li>
+                <p>
+                  <m>W_4 =</m> the set of all four letter words in English.
+                  Be appropriate.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>H= \{ w \in W_4 \mid w \text{ ends with the letters th } \}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>K= \{ w\text{ th } \mid w \in W_4\}</m>.
+                  Hint: 4
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_list_elements_binom">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For a positive integer <m>n</m>, define the set
+            <me>
+              A_n=\left\{\binom{n}{k} \mid k=0,1,2, \ldots, n \right\}
+            </me>.
+            Recall that <m>\binom{n}{k}</m> counts the number of <m>k</m>-element subsets of a set of <m>n</m> elements,
+            as defined in <xref ref="defn_binomial_coeff"></xref>.
+            <ol>
+              <li>
+                <p>
+                  List the elements of the set <m>A_3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that <m>10 \in A_5</m>.
+                  You are welcome to use computational technology to evaluate binomial coefficients.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>|A_5|</m>.
+                  You are welcome to use computational technology to evaluate binomial coefficients.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_verts">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>V=\{r,s,t,u,w,x,y,z\}</m> be the set of vertices of the graph <m>G</m> drawn in <xref ref="fig_graph_setbuilder"></xref>.
+            Give an example of an element in each set or explain why the set is empty.
+          </p>
+          <figure xml:id="fig_graph_setbuilder">
+            <caption>The graph <m>G</m> from <xref ref="sec_sets"></xref> <xref ref="exer_set_verts"></xref> and <xref ref="sec_subsets"></xref> <xref ref="exer_set_of_sets_graph"></xref>.</caption>
+            image type not recognized
+          </figure>
+          <ol>
+            <li>
+              <p>
+                <m>T = \{ v \in V \mid \text{ deg } (v) = 2\}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>L = \{ v \in V \mid \text{ deg } (v) = 1\}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>A = \{ v \in V \mid v \text{ is adjacent to the vertex } x\}</m>.
+                Recall that <m>v</m> and <m>x</m> are adjacent if <m>\{v,x\}</m> is an edge.
+                This set is the set of <em>neighbors</em> of the vertex <m>v</m>.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_setbuilder_notation">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to read and write set-builder notation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show an element is in a set defined using an implicit condition?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show an element is in a set defined using an explicit format?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_preimage">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  For the function <m>f: \mathbb{R} \to \mathbb{R}</m> defined by <m>f(x) = x^2-1</m>,
+                  identify the set <m>Z = \{x \in \mathbb{Z} \mid f(x) = 0\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the function <m>\fn{ceil}: \mathbb{R} \to \mathbb{Z}</m> defined by <m>\fn{ceil}{x}=\lceil x \rceil</m>,
+                  identify the set <m>F=\{x \in \mathbb{Z} \mid \fn{ceil}(x) = 5\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the function <m>\fn{countdiv}: \mathbb{Z} \to \mathbb{N}</m> defined by
+                  <m>\fn{countdiv}{n}=</m> the number of (positive) divisors of <m>n</m>,
+                  identify the set <m>T = \{x \in \mathbb{Z} \mid \fn{countdiv}(x) = 2\}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_fns">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Give an example of an element in each set or explain why the set is empty.
+            In each case, the elements are functions.
+            <ol>
+              <li>
+                <p>
+                  <m>F=\{f: \mathbb{Z} \to \mathbb{Z} \mid f(0) = 0\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>J=\{f: \mathbb{Z} \to \mathbb{Z} \mid f(0) = f(1)\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>L = \{f: \mathbb{Z} \to \mathbb{Z} \mid f \text{ is defined by } f(n) = an+b \text{ for some } a,b\in \mathbb{Z} \text{ with } a \neq 0\}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="set_diff_fns">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            For readers who have studied calculus,
+            <m>f'</m> is the derivative of <m>f</m>.
+            Write <m>D=\{f: \mathbb{R} \to \mathbb{R} \mid f \text{ is differentiable } \}</m>.
+            Give an example of an element in each set.
+            In each case, the elements are functions.
+            <ol>
+              <li>
+                <p>
+                  <m>D_1=\{ f \in D \mid f'(0) = 1\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>D_2=\{ f \in D \mid f(0)=1 \text{ and } f'(0)=1\}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_set_operations">for</xref>
+      \subsetops</title>
+      <exercise xml:id="exer_set_ops_2sets">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider sets <m>A = \{1, 2, 3, 4, 5, 6\}</m> and <m>B = \{2, 4, 6, 8, 10\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Draw the standard Venn diagram of the sets that includes each element where it belongs.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>A \cap B</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>A \cup B</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>A \oplus B</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>A -B</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>B -A</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_ops_3sets">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider sets <m>A = \{1, 2, 3, 4, 5, 6\}</m>,
+            <m>B = \{2, 4, 6, 8, 10\}</m>,
+            and <m>C = \{0, 5, 10\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Draw the standard Venn diagram of the three sets that includes each element where it belongs.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>A \cap (B \cup C)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>A \cup (B \cap C)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>A -(B \cap C)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>(A -B) \cap C</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_squares_powers2">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the sets <m>Q = \{ n^2 \mid n \in \mathbb{N}\}</m> and <m>P = \{2^n \mid n \in \mathbb{N}\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Is <m>8 \in Q</m>?
+                  Is <m>9 \in Q</m>?
+                  Is <m>16 \in Q</m>?
+                  Is <m>20 \in Q</m>?
+                  Briefly justify your answers.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>8 \in P</m>?
+                  Is <m>9 \in P</m>?
+                  Is <m>16 \in P</m>?
+                  Is <m>20 \in P</m>?
+                  Briefly justify your answers.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of an element in <m>P \cap Q</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of an element in <m>\overline{P \cup Q}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_squares_powers2_int">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the sets <m>Q = \{ n^2 \mid n \in \mathbb{N}\}</m> and
+            <m>P = \{2^n \mid n \in \mathbb{N}\}</m> from <xref ref="exer_squares_powers2"></xref>.
+            <ol>
+              <li>
+                <p>
+                  List the four smallest integers in <m>P \cap Q</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the set <m>P \cap Q</m> using implicit conditions.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the set <m>P \cap Q</m> using an explicit format.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bs_sets">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>V</m> denote the set of all bit strings that have at least two <c>0</c> s.
+            Let <m>W</m> denote the set of bit strings that have at most two <c>0</c> s.
+            <ol>
+              <li>
+                <p>
+                  Give an example of an element in <m>V \cap W</m>,
+                  then describe which bit strings are in <m>V \cap W</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of an element in <m>W-V</m>,
+                  then describe which bit strings are in <m>V-W</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you say about <m>V \cup W</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_ops_with_phi">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For a general set <m>S</m> and the empty set
+            <m>\varnothing</m> simplify the following sets.
+            <ol>
+              <li>
+                <p>
+                  <m>S \cap S</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S \oplus S</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S \cup \varnothing</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S - \varnothing</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_card_union">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example of finite sets <m>A</m> and <m>B</m> where <m>|A \cup B| \neq |A|+ |B|</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What has to be true about sets <m>A</m> and <m>B</m> in order to have <m>|A \cup B| = |A|+ |B|</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_distributive_sets">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw a standard Venn diagram for general sets <m>S</m>,
+                  <m>T</m>,
+                  and <m>V</m> and shade in <m>S \cap (T \cup V)</m>.
+                  Show some intermediate calculations or explain why you drew the Venn diagram you drew.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Repeat for <m>(S \cap T) \cup (S \cap V)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do notice?
+                  This property is the <term>distributive</term> property for sets.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_demorgan">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw a standard Venn diagram for general sets <m>S</m> and <m>T</m> within a universal set <m>U</m> and shade in <m>\overline{S \cup T}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Repeat for <m>\overline{S}</m> and <m>\overline{T}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How might we express <m>\overline{S \cup T}</m> in terms of
+                  <m>\overline{S}</m> and <m>\overline{T}</m>?
+                  Explain.
+                  This property is one of <term>DeMorgan's laws</term> for sets.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_set_ops">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to find <m>S \cap T</m>, <m>S \cup T</m>,
+                  <m>S \oplus T</m>, <m>S - T</m>,
+                  and <m>T-S</m> for sets <m>S</m> and <m>T</m> and how to draw the corresponding Venn diagrams?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find <m>\overline{S}</m> for a set <m>S</m> in a universal set <m>U</m> and how to draw the corresponding Venn diagram?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to draw the standard Venn diagram for three sets and work with Venn diagrams to understand set identities?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_assoc_ppty_sets">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Use Venn diagrams to explain why intersection is associative,
+                  meaning for any sets <m>A</m>,
+                  <m>B</m>, and <m>C</m> we have
+                  <me>
+                    A \cap (B \cap C) = (A \cap B) \cap C
+                  </me>.
+                  Show intermediate calculations for each side of the equation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a counterexample to show that set difference is not associative,
+                  meaning it is not true that
+                  <me>
+                    A - (B - C) = (A - B) - C
+                  </me>
+                  for all sets <m>A</m>, <m>B</m>, and <m>C</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is symmetric difference associative?
+                  That is, is
+                  <me>
+                    A \oplus (B \oplus C) = (A \oplus B) \oplus C
+                  </me>
+                  for all sets <m>A</m>, <m>B</m>, and <m>C</m>?
+                  If true, explain why using Venn diagrams
+                  (showing intermediate calculations)
+                  or if false, give a counterexample.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_incl_excl">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Given sets <m>A</m> and <m>B</m>,
+            notice that <m>|A|+|B|</m> counts each element of <m>A \cap B</m> exactly twice.
+            How might we use that fact to write
+            <m>| A \cup B|</m> in terms of <m>|A|</m> and <m>|B|</m> and
+            <m>|A \cap B|</m> for finite sets <m>A</m> and <m>B</m>?
+            This property is <term>inclusion-exclusion</term>.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_decide_element_finite"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Yes, Yes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There can be integers not listed explicitly because of the <ellipsis/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The set <m>\varnothing</m> does not have any elements.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_cardinality"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are 0, 5, and 15.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_disjoint"></xref> Select Answers and Hints</title>
+      <p>
+        Note that sets <m>S</m> and <m>T</m> are disjoint if <m>S \cap T = \varnothing</m>.
+        <ol>
+          <li>
+            <p>
+              Hint: Calculate <m>B \cap C</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Check that <m>A \cap B = \varnothing</m> and <m>A \cap C \neq \varnothing</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Check that <m>A \cap B = \varnothing</m> and <m>A \cap C = \varnothing</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_6iselement"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\lfloor\frac{6}{2}\rfloor=\lfloor3\rfloor=3</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Calculate <m>6^2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Write <m>6=3()</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Write <m>6 = () + 1</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_bs"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: One set is empty.
+        Possible elements of the other sets, in some order, are:
+        <m>\bs{01111}</m>, <m>\bs{00011}</m>, and <m>\bs{10101}</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_def_ineq"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: One set is empty.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_list_elements_binom"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\{1,3\}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find <m>k</m> such that <m>\binom{5}{k} = 10</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your set should include 10.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_fns"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Your answers should all begin
+        <q>Let <m>f: \mathbb{Z} \to \mathbb{Z}</m> be defined by <ellipsis/></q>.
+        <ol>
+          <li>
+            <p>
+              Hint: Find a rule for <m>f(n)</m> where <m>f(0)=0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Find a rule for <m>f(n)</m> where <m>f(0)</m> and <m>f(1)</m> are the same value.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Pick specific values for <m>a</m> and <m>b</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_ops_2sets"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Make sure your answers include set brackets <m>\{ \}</m>.
+        <ol>
+          <li>
+            <p>
+              Hint: Make sure each number is written once.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are three elements in <m>A \cap B</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are eight elements in <m>A \cup B</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The wings of the butterfly.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\{1,3,5\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer is different from <m>A-B</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_ops_3sets"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Make sure your answers include set brackets <m>\{ \}</m>.
+        <ol>
+          <li>
+            <p>
+              Hint: Make sure each number is written once.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are four elements in <m>A \cap (B\cup C)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are seven elements in <m>A \cup (B \cap C)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are six elements in <m>A - (B \cap C)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There is one element in <m>(A-B) \cap C</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_squares_powers2"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>9 \in Q</m> but <m>8 \notin Q</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>8 \in P</m> but <m>9 \notin P</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your answer should be a square and a power of two.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your answer should not be in <m>P</m> and should not be in <m>Q</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_squares_powers2_int"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The first two are 1 and 4.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>m \in Q</m> if <m>m = n^2</m> for some
+            <m>n \in \mathbb{N}</m> and <m>m \in P</m> if <m>m = 2^k</m> for some <m>k \in \mathbb{N}</m>.
+            (You cannot use <m>n</m> for both.)
+            The answer can be written in the form
+            <me>
+              \{m \in \mathbb{N} \mid \text{\underline{\hspace{.5in}}  and \underline{\hspace{.5in}}}  \}
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Which powers of two are squares?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bs_sets"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your example should have exactly two <c>0</c> s.
+            It can be any length.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: In one case,
+            your example should have more than two <c>0</c> s and in the other case,
+            your example should have fewer than two <c>0</c> s.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Think!
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_set_ops_with_phi"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Each answer is <m>\varnothing</m> or <m>S</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_card_union"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>|A|+|B|</m> should be larger.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure your answer to (a) does not satisfy your answer here.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

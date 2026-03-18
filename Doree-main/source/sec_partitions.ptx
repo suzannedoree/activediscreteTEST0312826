@@ -1,0 +1,1510 @@
+<section xml:id="sec_partitions">
+  <title>Excursion: Partitions</title>
+  <introduction>
+    <p>
+      Whenever we subdivide a set into categories,
+      we are using a partition of sets.
+      For example,
+      we might subdivide students at a university into three categories:
+      full-time student, part-time student,
+      or students who are not currently enrolled.
+      Partitions are useful in counting because they give non-overlapping cases.
+      For example,
+      the total number of students at a university is the sum of the number of full-time students,
+      the number of part-time students,
+      and the number of students who are not currently enrolled.
+    </p>
+    <p>
+      In this section,
+      we define the partition of a set and a related concept<ndash/> the partition of a natural number.
+      Partitions of natural numbers come up frequently in number theory and because listing or counting partitions is difficult,
+      it is common in advanced computer science classes to work with algorithms to generate partitions.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_defn_partition">
+    <title>\subdefnpartition</title>
+    <p>
+      Given a set,
+      we might want to categorize its elements in such a way that each element of the set is in exactly one category.
+      Let's make this concept formal.
+    </p>
+    <definition xml:id="defn_partition">
+      <title>partition of a set</title>
+      <statement>
+        <p>
+          A <term>partition</term> of a set <m>S</m> is a collection of nonempty subsets
+          <m>T_1, T_2, \ldots, T_k</m> such that each element of <m>S</m> is in exactly one of the subsets <m>T_i</m>.
+          Notice that a partition satisfies two properties:
+          <ol>
+            <li>
+              <p>
+                <m>S = T_1 \cup T_2 \cup \cdots \cup T_k</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>T_i</m> and <m>T_j</m> are disjoint when <m>i \neq j</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          For example,
+          <me>
+            \{1,5\} \cup \{2,4,6\} \cup \{3\}
+          </me>
+          is a partition of the set <m>S = \{1,2,3,4,5,6\}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at another example of partitions of a set.
+    </p>
+    <example xml:id="exam_partitions_setabc">
+      <title>Partitions of the set <m>\{a,b,c\}</m></title>
+      <statement>
+        <p>
+          List all partitions of the set <m>\{a,b,c\}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          One partition is just the set <m>\{a,b,c\}</m>.
+          If we group the elements into two sets we get three more partitions:
+          <m>\{a,b\} \cup \{c\}</m>,
+          <m>\{a,c\} \cup \{b\}</m>, and <m>\{a\} \cup \{b,c\}</m>.
+          There is one final partition:
+          <m>\{a\} \cup \{b\} \cup \{c\}</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      At times, we are only interested in the sizes of the sets in a partition.
+      For example, in <xref ref="defn_partition"></xref>
+      our set <m>S</m> had six elements and the subsets had two, three,
+      and one element.
+      Note that <m>6 = 2 + 3 + 1</m>.
+      This example motivates our next definition.
+    </p>
+    <definition xml:id="defn_partition_integer">
+      <title>Partition of an integer</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>partition</term> is a formal sum of positive integers listed in non-increasing order.
+                For example,
+                <m>5+3+3+2</m> is a partition since <m>5 \ge 3 \ge 3 \ge 2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>parts</term> of a partition are the numbers being added.
+                For example,
+                the partition <m>5+3+3+2</m> has four parts: 5, 3, 3, and 2.
+                Notice that repeats are counted.
+                A partition can have only one part.
+                For example, the partition 13 has only one part: 13.
+              </p>
+            </li>
+            <li>
+              <p>
+                For any positive integer <m>n</m>,
+                a <term>partition of the integer</term>
+                <m>n</m> is any partition where the sum of the positive integers in the partition is <m>n</m>.
+                For example, <m>5+3+3+2</m> is a partition of 13 because
+                <m>5+3+3+2=13</m> and 13 is also a partition of 13.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>(Young) diagram</term> of the partition
+                <m>a_1+ a_2+a_3+\ldots +a_m</m> of the integer <m>n</m> is a drawing of <m>n</m> squares with <m>a_1</m> squares in the first row,
+                <m>a_2</m> squares in the second row,
+                through <m>a_m</m> squares in the <m>m</m>th row where the squares are drawn justified to the left.
+                For example,
+                the partition <m>5+3+3+2</m> has the diagram shown in <xref ref="fig_young_5332"></xref>
+                which has five squares in the first row,
+                three squares in the second row,
+                three squares in the third row,
+                and two squares in the fourth row.
+                <figure xml:id="fig_young_5332">
+                  <caption>The diagram of the partition <m>5+3+3+2</m> of the integer 13.</caption>
+                  \ydiagram{5,3,3,2}
+                </figure>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      There is a connection between the partitions of a set and the partitions of a positive integer.
+    </p>
+    <remark xml:id="rem_part_sets_vs_integers">
+      <title>Partitions of sets and integers</title>
+      <p>
+        If <m>T_1 \cup T_2 \cup \cdots \cup T_k</m> is a partition of a set <m>S</m> having <m>n</m> elements and if we order the sets <m>T_i</m> such that the number of elements in each set are nonincreasing,
+        then <m>|T_1|+|T_2|+ \ldots +|T_k|</m> is a partition of <m>n</m>.
+      </p>
+    </remark>
+    <p>
+      Try working with partitions of an integer.
+    </p>
+    <activity xml:id="act_partition_integer">
+      <title>Partitions of an integer</title>
+      <p>
+        We often look at all of the partitions of a particular integer.
+        For example, there are three partitions of the integer three:
+        <m>3</m>, <m>2+1</m>, and <m>1+1+1</m>.
+        The corresponding diagrams are drawn in <xref ref="fig_partitions3"></xref>.
+      </p>
+      <figure xml:id="fig_partitions3">
+        <caption>The diagrams of the partitions <m>3</m>, <m>2+1</m>, and <m>1+1+1</m> of the integer 3.</caption>
+        \ydiagram{3} \hspace{.5in}
+        \ydiagram{2,1}
+        \hspace{.5in}
+        \ydiagram{1,1,1}
+      </figure>
+      <ol>
+        <li xml:id="part_partitions4">
+          <p>
+            List all the partitions of the integer four (<m>n=4</m>) and draw the diagram for each partition.
+            Hint: there are five partitions of four.
+          </p>
+        </li>
+        <li xml:id="part_partitions5">
+          <p>
+            List all the partitions of the integer five (<m>n=5</m>) and draw the diagram for each partition.
+            Be sure that you found them all.
+          </p>
+        </li>
+      </ol>
+      <p>
+        The next activity builds on this one,
+        so be sure to record your answers.
+      </p>
+    </activity>
+    <p>
+      Let's look at an example of a function defined on partition.
+    </p>
+    <example xml:id="exam_max_part_fn_partitions">
+      <title>Max part function on partitions</title>
+      <statement>
+        <p>
+          Let <m>\mathbb{P}_{10}</m> be the set of all partitions of the integer 10.
+          The function <m>\fn{maxpart}:\mathbb{P}_{10} \to \mathbb{N}</m> is defined by
+          <m>\fn{maxpart}(\alpha)</m> is the first part of <m>\alpha</m>.
+          <ol>
+            <li>
+              <p>
+                Identify the domain and codomain of <m>\fn{maxpart}</m>.
+                <solution>
+                  <p>
+                    The domain is <m>\mathbb{P}_{10}</m> and the codomain is <m>\mathbb{N}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{maxpart}(4+3+3)</m> and <m>\fn{maxpart}(10)</m>.
+                <solution>
+                  <p>
+                    We have <m>\fn{maxpart}(4+3+3)=4</m> and <m>\fn{maxpart}(10)=10</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give an example of a partition <m>\alpha</m> of the integer 10 such that <m>\fn{maxpart}(\alpha)=2</m>.
+                Is it unique?
+                <solution>
+                  <p>
+                    Note that <m>2+2+2+2+2</m> is a partition of 10 and <m>\fn{maxpart}(2+2+2+2+2)=2</m>.
+                    It is not unique because,
+                    for example, <m>\fn{maxpart}(2+2+2+2+1+1)=2</m> as well.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>\fn{maxpart}</m> onto?
+                Explain.
+                <solution>
+                  <p>
+                    No, the image of <m>\fn{maxpart}</m> is <m>\{1,2,3,4,5,6,7,8,9,10\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>\fn{maxpart}</m> one-to-one?
+                Explain.
+                <solution>
+                  <p>
+                    No, we saw two different partitions with <m>\fn{maxpart}(\alpha)=2</m>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_selfconjugate_partitions">
+    <title>\subselfconj</title>
+    <p>
+      It can be difficult to know if you have found all partitions of an integer and there is no explicit formula for the number of partitions of an integer.
+      One tool that can help check any list is the idea of conjugate partitions.
+    </p>
+    <definition xml:id="defn_conjugate_partition">
+      <title>Conjugate of a partition</title>
+      <statement>
+        <p>
+          The <term>conjugate</term> of the partition <m>\alpha</m> is the partition
+          <m>\beta = b_1+b_2+ \ldots +b_k</m> where <m>b_1</m> is the number of squares in the first column of the diagram for <m>\alpha</m>,
+          <m>b_2</m> is the number of squares in the second column of the diagram for <m>\alpha</m>,
+          and so on through <m>b_k</m> is the number of squares in the
+          <m>k^{\text{ th } }</m> column of the diagram for <m>\alpha</m> and where <m>k</m> is the number of columns in the diagram for <m>\alpha</m>.
+          For example,
+          the conjugate of the partition <m>3+1</m> is the partition <m>2+1+1</m> as we see in <xref ref="exam_conj_partition4and14"></xref>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's check the example from <xref ref="defn_conjugate_partition"></xref>.
+    </p>
+    <example xml:id="exam_conj_partition4and14">
+      <title>Calculating the conjugate of a partition</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Calculate the conjugate of the partition <m>3+1</m>.
+                <solution>
+                  <p>
+                    The diagram for the partition <m>3+1</m> is shown on the left in <xref ref="fig_young_31_211"></xref>.
+                  </p>
+                  <figure xml:id="fig_young_31_211">
+                    <caption>The diagram of the partition <m>3+1</m> of the integer four and its conjugate <m>2+1+1</m>.</caption>
+                    \ydiagram{3,1} \hspace{.5in} \ydiagram{2,1,1}
+                  </figure>
+                  <p>
+                    The diagram has two squares in the first column,
+                    one square in the second column,
+                    and one square in the third column.
+                    Therefore, the conjugate of <m>3+1</m> is the partition <m>2+1+1</m> shown on the right in <xref ref="fig_young_31_211"></xref>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Calculate the conjugate of the partition <m>6+4+2+1+1</m>.
+                <solution>
+                  <p>
+                    The conjugate of <m>6+4+2+1+1</m> is <m>5+3+2+2+1+1</m>.
+                    These partitions are drawn in <xref ref="fig_young_64211_532211"></xref>.
+                  </p>
+                  <figure xml:id="fig_young_64211_532211">
+                    <caption>The diagram of the partition <m>6+4+2+1+1</m> of the integer 14 and its conjugate <m>5+3+2+2+1+1</m>.</caption>
+                    \ydiagram{6,4,2,1,1} \hspace{.5in} \ydiagram{5,3,2,2,1,1}
+                  </figure>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      You might have noticed in <xref ref="exam_conj_partition4and14"></xref>
+      that there is a geometric relationship between the diagrams of a partition and its conjugate.
+    </p>
+    <remark xml:id="rem_conj_partitions_geom">
+      <title>Calculating conjugate partitions geometrically</title>
+      <p>
+        Given the diagram of a partition,
+        when can reflect the squares across the line of slope -1 (<m>\backslash</m>) through the upper level corner of the diagram to get the diagram of the conjugate.
+      </p>
+    </remark>
+    <p>
+      It is possible that a partition equals its conjugate.
+    </p>
+    <definition xml:id="defn_self_conj_partitions">
+      <title>Self-conjugate partitions</title>
+      <statement>
+        <p>
+          A partition is <term>self-conjugate</term>
+          if it equals its conjugate.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's explore conjugate partitions and self-conjugate partitions.
+    </p>
+    <activity xml:id="oact_selfconjugate_partitions">
+      <title>Self-conjugate partitions</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_scpartitions3">
+            <p>
+              Find the conjugate of each partition of three and draw a double-headed arrow from each partition to its conjugate or a loop from a partition to itself if the partition is self-conjugate.
+            </p>
+          </li>
+          <li xml:id="part_scpartitions4">
+            <p>
+              Repeat for each partition of four.
+            </p>
+          </li>
+          <li xml:id="part_scpartitions5">
+            <p>
+              Repeat for each partition of five.
+            </p>
+          </li>
+          <li>
+            <p>
+              Looking back at your examples of self-conjugate partitions,
+              what geometric symmetry do they have?
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw the diagram of a self-conjugate partition of <m>n</m> when <m>n=1, 3, 5, 7</m> and <m>9</m>.
+            </p>
+          </li>
+          <li xml:id="part_odd_self-conj">
+            <p>
+              Is there always a self-conjugate partition when <m>n</m> is odd?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              A classmate conjectures that for any odd integer <m>n</m>,
+              there exists a <em>unique</em>
+              (only one)
+              self-conjugate partition of <m>n</m>.
+              Do you agree?
+              Justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Can you find all three self-conjugate partitions of 12?
+              Hint: Do not list all partitions,
+              just try to build self-conjugate ones.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Conjugation defines a function on partitions.
+    </p>
+    <example xml:id="exam_conjugate_function">
+      <title>Conjugation function on partitions of an integer</title>
+      <statement>
+        <p>
+          Let <m>\mathbb{P}_4</m> be the set of partitions of the integer four.
+          Define the function <m>\fn{conj}: \mathbb{P}_4 \to \mathbb{P}_4</m> by
+          <m>\fn{conj}(\alpha) =</m> the conjugate of <m>\alpha</m>.
+          <ol>
+            <li>
+              <p>
+                Calculate <m>\fn{conj}(3+1)</m> and <m>\fn{conj}(2+2)</m>.
+                <solution>
+                  <p>
+                    In this notation,
+                    <m>\fn{conj}(3+1)=2+1+1</m> and <m>\fn{conj}(2+2)=2+2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Use the function <m>\fn{conj}</m> to describe self-conjugate partitions.
+                <solution>
+                  <p>
+                    A self-conjugate partition is precisely a partition <m>\alpha</m> such that <m>\fn{conj}(\alpha)=\alpha</m>.
+                    That is, a self-conjugate partition is a fixed point of the function <c>conj</c>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_bulgarian_solitaire">
+    <title>\subbulgsol</title>
+    <p>
+      Here is a puzzle involving partitions of integers.
+      You will need at least ten coins or other small objects.
+    </p>
+    <activity xml:id="act_bulg_sol">
+      <title>Collecting Coins Puzzle</title>
+      <p>
+        Take some coins and arrange them into piles.
+        You may have any number of piles and any number of coins in each pile.
+        A pile may have as few as one coin in it.
+        Order them largest to smallest
+        (in nonincreasing order).
+        This ordered arrangement of coins in piles is a
+        <term>state</term> of the system.
+      </p>
+      <p>
+        From that starting state,
+        collect the top coin off each pile and make one new pile out of those collected coins.
+        Notice that any pile that had just a single coin was eliminated.
+        Again, order the piles in nonincreasing order by size.
+        You now have a new state.
+      </p>
+      <p>
+        Repeat this process on the new state <mdash/> collect the top coin from each new pile,
+        make one new pile out of those collected coins,
+        and arrange the piles in order.
+        Keep repeating the process.
+        Although we can repeat this process forever,
+        we stop if we get back to a state that we had visited before.
+        <ol>
+          <li>
+            <p>
+              If you have five coins and you start with one pile of two coins and three piles of one coin each,
+              then we denote that state <m>2+1+1+1</m>.
+              Write down <m>2+1+1+1</m>,
+              perform the process, and write down the resulting state.
+              Then keep repeating the process,
+              writing down each state each time,
+              until you get to a state that you have visited before.
+            </p>
+          </li>
+          <li>
+            <p>
+              Start with six coins in two piles of three,
+              which is denoted <m>3+3</m>.
+              Perform the process, write down the resulting state,
+              and then repeat until you get to a state that you have visited before.
+            </p>
+          </li>
+          <li>
+            <p>
+              Start with seven coins in piles of four, two,
+              and one, which is denoted <m>4+2+1</m>.
+              Perform the process, write down the resulting state,
+              and then repeat until you get to a state that you have visited before.
+            </p>
+          </li>
+          <li>
+            <p>
+              A state is a <term>fixed point</term>
+              of the system if when we apply one step of the process to that state we get that state immediately again.
+              Give an example of a fixed point that you have found and find another example.
+            </p>
+          </li>
+          <li xml:id="part_bulg_sol_fixed">
+            <p>
+              Conjecture which states are fixed points and which numbers of coins have a fixed point state.
+            </p>
+          </li>
+          <li>
+            <p>
+              Thus far, we have been looking at one state at a time.
+              For a given number of coins, <m>n</m>,
+              we can visualize the entire system by drawing the directed
+              <term>state graph</term> <m>G_n</m>.
+              The vertices are all possible states and there is an arrow from each state to the state that follows from one step of the process.
+              The state graph <m>G_5</m> is drawn in <xref ref="fig_state_graph_5coins"></xref>.
+              Draw the state graphs <m>G_1</m>
+              (one coin)
+              <m>G_2</m> (two coins), <m>G_3</m>
+              (three coins),
+              and <m>G_4</m>
+              (four coins).
+              <figure xml:id="fig_state_graph_5coins">
+                <caption>The directed state graph <m>G_5</m> on five coins.</caption>
+                image type not recognized
+              </figure>
+            </p>
+          </li>
+          <li>
+            <p>
+              Now draw the state graph <m>G_6</m>
+              (six coins).
+              Be sure that you have all possible states.
+              Hint: Start with the state
+              <m>1+1+1+1+1+1</m> and perform the process until you get a repeat.
+              Then, find a state that is not yet included in your graph.
+              Repeat this process until all eleven possible states in your graph.
+            </p>
+          </li>
+          <li>
+            <p>
+              In your state graphs, how did you indicate a fixed point?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      We introduce a little more vocabulary that is used in the exercises.
+    </p>
+    <definition xml:id="defn_cycles_cyclic_states">
+      <title>Cycles and cyclic states</title>
+      <statement>
+        <p>
+          Let <m>\mathbb{P}_n</m> denote the partitions of the integer <m>n</m>,
+          as defined in <xref ref="defn_partition_integer"></xref>.
+          For a fixed positive integer <m>n</m>,
+          the process introduced in <xref ref="act_bulg_sol"></xref>
+          defines a function <m>\beta:\mathbb{P}_n \to \mathbb{P}_n</m>.
+          When we repeat this process, we are iterating the function <m>\beta</m>.
+          That is, we are calculating
+          <me>
+            s, \beta(s), \beta^s(s), \beta^3(s), \ldots
+          </me>.
+          where <m>\beta^k</m> is the <m>k</m>th iterate of the function <m>\beta</m>,
+          as defined in <xref ref="defn_fn_composition"></xref>.
+          <ol>
+            <li>
+              <p>
+                A state is <term>cyclic</term> if when we start at that state we eventually return to that state.
+                That is, <m>s</m> is cyclic if
+                <m>\beta^k(s) = s</m> for some positive integer <m>k</m>.
+                For example, with five coins the cyclic states are <m>3+2</m>,
+                <m>2+2+1</m>, and <m>3+1+1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <m>k</m><term>-cycle</term> is a list of distinct states:
+                <me>
+                  s, \beta(s), \beta^2(s), \ldots, \beta^{k-1}(s)
+                </me>
+                where <m>\beta^k(s) = s</m>.
+                The <term>length</term> of the cycle is <m>k</m>.
+                For example,
+                the three cyclic states in <m>G_5</m> form a 3-cycle.
+                As another example, any fixed points are 1-cycles.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_defn_partition">for</xref>\subdefnpartition</title>
+    <exercise xml:id="exer_partitions_set">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Check that <m>\{1,2\} \cup \{3,4,5\}</m> is a partition of <m>\{1,2,3,4,5\}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why <m>\{1,2,3\} \cup \{3,4,5\}</m> is not a partition of <m>\{1,2,3,4,5\}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why <m>\{1,2\} \cup \{3,4\}</m> is not a partition of <m>\{1,2,3,4,5\}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_partitions6">
+      <title>\exerP</title>
+      <statement>
+        <p>
+          List all partitions of six and draw their corresponding diagrams.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_partitions_set1234">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          List all of the partitions of the set <m>\{1,2,3,4\}</m>.
+          Hint: Organize your work by listing the partitions of the set corresponding to each partition of the integer four.
+          For example,
+          under <m>2+2</m> you would include the partitions <m>\{1,2\} \cup \{3,4\}</m>,
+          <m>\{1,3\} \cup \{2,4\}</m>, and <m>\{1,4\} \cup \{2,3\}</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_count_parts_fn">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          Let <m>\mathbb{P}_{10}</m> be the set of all partitions of the integer 10.
+          The function <m>\fn{countparts}:\mathbb{P}_{10} \to \mathbb{N}</m> is defined by
+          <m>\fn{countparts}(\alpha)</m> is the the number of parts of <m>\alpha</m>.
+          <ol>
+            <li>
+              <p>
+                Identify the domain and codomain of <m>\fn{countparts}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{countparts}(4+3+3)</m> and <m>\fn{countparts}(10)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find <m>\alpha \in \mathbb{P}_{10}</m> such that <m>\fn{countparts}(\alpha)=2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the image of <m>\fn{countparts}</m>.
+                Is <m>\fn{countparts}</m> onto?
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>\fn{countparts}</m> one-to-one?
+                Explain.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_even_parts_fn">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          Let <m>\mathbb{P}_{10}</m> be the set of all partitions of the integer 10.
+          The function <m>\fn{evenparts}:\mathbb{P}_{10} \to \mathbb{N}</m> is defined by
+          <m>\fn{evenparts}(\alpha)</m> is the the number of parts of <m>\alpha</m> that are even numbers.
+          <ol>
+            <li>
+              <p>
+                Identify the domain and codomain of <m>\fn{evenparts}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{evenparts}(4+3+3)</m> and <m>\fn{evenparts}(10)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find <m>\alpha \in \mathbb{P}_{10}</m> such that <m>\fn{evenparts}(\alpha)=2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the image of <m>\fn{evenparts}</m>.
+                Hint: What is the largest number of even parts that a partition of 10 can have?
+                Is <m>\fn{evenparts}</m> onto?
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>\fn{evenparts}</m> one-to-one?
+                Explain.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_one_parts_fn">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          Let <m>\mathbb{P}_{10}</m> be the set of all partitions of the integer 10.
+          The function <m>\fn{oneparts}:\mathbb{P}_{10} \to \mathbb{N}</m> is defined by
+          <m>\fn{oneparts}(\alpha)</m> is the the number of parts of size one in <m>\alpha</m>.
+          <ol>
+            <li>
+              <p>
+                Identify the domain and codomain of <m>\fn{oneparts}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{oneparts}(4+3+3)</m> and <m>\fn{oneparts}(10)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find <m>\alpha \in \mathbb{P}_{10}</m> such that <m>\fn{oneparts}(\alpha)=2</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the image of <m>\fn{oneparts}</m>.
+                Is <m>\fn{oneparts}</m> onto?
+              </p>
+            </li>
+            <li>
+              <p>
+                Is <m>\fn{oneparts}</m> one-to-one?
+                Explain.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_functions_on_partitions">
+      <title>\exerU</title>
+      <statement>
+        <p>
+          Let <m>\mathbb{P}_{k}</m> be the set of all partitions of the integer <m>k</m>.
+          The function <m>f: \mathbb{P}_{10} \to \mathbb{P}_9</m> is defined by
+          <m>f(\alpha)=</m> the partition obtained from <m>\alpha</m> by subtracting one from <m>\alpha</m>'s smallest part
+          (and ignoring any zeros.)
+          Notice that this subtraction preserves the nonincreasing order so we do get a partition.
+          <ol>
+            <li>
+              <p>
+                Identify the domain and codomain of <m>f</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>f(5+3+2+2)</m> and <m>f(9+1)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a partition <m>\alpha \in \mathbb{P}_{10}</m> such that <m>f(\alpha) = 4 + 4 + 1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why there does not exist a partition
+                <m>\beta \in \mathbb{P}_{10}</m> such that <m>f(\beta) = 3+3+3</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_dyk_defn_partition">
+      <title>\exerR</title>
+      <statement>
+        <p>
+          Do you know <ellipsis/>
+          <ol>
+            <li>
+              <p>
+                What a partition of a set is?
+              </p>
+            </li>
+            <li>
+              <p>
+                Why we might partition a set?
+              </p>
+            </li>
+            <li>
+              <p>
+                What a partition of an integer is?
+              </p>
+            </li>
+            <li>
+              <p>
+                How to draw the diagram of a partition?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_young_tableaux">
+      <title>\exerE</title>
+      <statement>
+        <p>
+          Read the Wikipedia entry on Young Tableaux at \url{https://en.wikipedia.org/wiki/Young_tableau}.
+          <ol>
+            <li>
+              <p>
+                Give an example of a standard Young tableau of shape <m>5+4+1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Give a different example of a standard Young tableau of shape <m>5+4+1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                List all the standard Young tableau of shape <m>3+1</m> using the numbers 1, 2, 3, 4.
+                Hint: The upper left-hand corner must be 1.
+              </p>
+            </li>
+            <li>
+              <p>
+                List all the standard Young tableau of shape <m>3+2</m> using the numbers 1, 2, 3, 4, 5.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_selfconjugate_partitions">for</xref> \subselfconj</title>
+    <introduction>
+      <exercise xml:id="exer_diagram_partition">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Draw the diagram for each partition and calculate the conjugate partition.
+            <ol>
+              <li>
+                <p>
+                  <m>5+4+1+1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>5+5+5</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>4+3+2+1</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_even_selfconj_examples">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain why there is no self-conjugate partition of <m>n</m> when <m>n=2</m>.
+                  Yes, you can just calculate the conjugates of the partitions of two.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the diagram of a self-conjugate partition of <m>n</m> when <m>n=4, 6, 8</m>,
+                  and <m>10</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_partitions22">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  List all of the self-conjugate partitions of 22.
+                  Be organized.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe your organization scheme,
+                  in part to convince me that you found all of them.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_conj_partition">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to find the conjugate of a partition,
+                  both numerically and geometrically?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What a self-conjugate partition is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What a fixed point of a function is?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_even_selfconj_always">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Is there always a self-conjugate partition of <m>n</m> when <m>n>2</m> is even?
+            Justify your answer.
+            Hint: can you find a pattern in your answers to <xref ref="exer_even_selfconj_examples"></xref>?
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_partition_function">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Define the function <m>p:\mathbb{Z}^+ \to \mathbb{Z}^+</m> defined by <m>p(n) =</m> the number of partitions of the integer <m>n</m>.
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>p(1)</m>, <m>p(2)</m>,
+                  <m>p(3)</m>, <m>p(4)</m>, and <m>p(5)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Read the wikipedia entry for Partition Function
+                  (number theory).
+                  According to the article, what's <m>p(100)</m>?
+                  Is there a closed-form expression
+                  (explicit formula)
+                  for <m>p</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </introduction>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_bulgarian_solitaire">for</xref>
+      \subbulgsol</title>
+      <exercise xml:id="exer_bulg_sol_10coins">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_10coins_first">
+                <p>
+                  Start with some arrangement of ten coins into piles in nonincreasing order.
+                  Record that state
+                  (as a partition).
+                  Repeat the process, recording each state as you go,
+                  until you get to a state that you have visited before.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now pick a new state with ten coins.
+                  Record that state
+                  (as a partition).
+                  Repeat the process, recording each state as you go,
+                  until you get to a state that you have visited before,
+                  which could be from <xref ref="part_10coins_first"/>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do you think happens when you start with ten coins in any state?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_7coins_graph">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw the state graph <m>G_7</m> for seven coins.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the cyclic states with seven coins.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_generalize_10coins">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Generalize your conjecture from <xref ref="exer_bulg_sol_10coins"></xref>
+            about what happens with ten coins.
+            Hint: What is special about the integer 10?
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_8coins">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let's look at what happens with eight coins.
+            <ol>
+              <li>
+                <p>
+                  Starting with <m>1+1+1+1+1+1+1+1</m>, what happens?
+                  Write the sequence of states that follow.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Starting with <m>2+2+1+1+1+1</m>, what happens?
+                  Write the sequence of states that follow.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why it follows that <m>G_8</m> is disconnected.
+                  (While <m>G_8</m> has only these two different end cycles,
+                  <m>G_n</m> can have many end cycles.)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_8coins_graph">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Draw the state graph <m>G_8</m> for eight coins.
+                  Hint: <xref ref="exer_bulg_sol_8coins">Do</xref> first.
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the cyclic states with eight coins.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_11coins">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_11coins">
+                <p>
+                  Which states with eleven coins are cyclic?
+                  Hint: There is a unique end cyclic.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your answer to <xref ref="part_11coins"/> to make a conjecture about the cyclic states with sixteen coins.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_origin_examples">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            A <term>origin state</term> is a state with no predecessors,
+            i.e.<nbsp/>no arrows into the vertex.
+            <ol>
+              <li>
+                <p>
+                  List all of the origin states with three,
+                  four, five, six, and seven coins.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that the state <m>4+4+3</m> on eleven coins is not an origin state.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain how we know that the state
+                  <m>4+2+2+1+1+1</m> on eleven coins is an origin state.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_origin_conj">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Conjecture which states are origin states,
+            as defined in <xref ref="exer_bulg_sol_origin_examples"></xref>,
+            for any number of coins.
+            Briefly explain your reasoning.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_2cycles">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give several different examples of 2-cycles from your earlier work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose there is a 2-cycle with <m>n</m> coins.
+                  Conjecture which states are in that 2-cycles.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For what values of <m>n</m> does the graph <m>G_n</m> have a 2-cycle?
+                  Answer in general.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_fixed_points_proof">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Prove your conjecture from <xref ref="act_bulg_sol"></xref>
+            <xref ref="part_bulg_sol_fixed"/> about fixed points.
+            Be sure to show that these states are fixed points and that any fixed point is one of these states.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_bulg_sol_cyclic_states">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            (For readers who have <xref ref="exer_bulg_sol_10coins">completed</xref>,
+            <xref ref="exer_bulg_sol_7coins_graph"></xref>,
+            <xref ref="exer_bulg_sol_8coins"></xref>,
+            <xref ref="exer_bulg_sol_11coins"></xref>.) Conjecture which states are cyclic states for <m>n</m> coins.
+            Hint: Draw the diagrams for the cyclic states you found earlier.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_partitions_set"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Check both parts of <xref ref="defn_partition"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: 3 is in both sets.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: 5 is not in either set.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_partitions6"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are 11.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_partitions_set1234"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: There are 15.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_count_parts_fn"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\mathbb{P}_{10}</m>, <m>\mathbb{N}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answers add up to four.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There should only be one + in your example.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What is the smallest and largest number of parts you can get?
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: No.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_even_parts_fn"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\mathbb{P}_{10}</m>, <m>\mathbb{N}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answers add up to two.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One option is to use two even numbers that add to 10.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: A partition of 10 can have up to five even parts.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: No
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_young_tableaux"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There was one on the wikipedia page.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: You need to put a 1 in the upper left-hand corner.
+          </p>
+        </li>
+        <li>
+          <p>
+            Another hint: There are three of them.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are five of them.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_diagram_partition"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The conjugate is <m>4+2+2+2+1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: All the parts of the conjugate are equal.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is self-conjugate.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_even_selfconj_examples"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: 2 and 1+1 are conjugates.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: For 8 try <m>4+2+1+1</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_even_selfconj_always"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The answer is yes.
+        Make sure that you know how to build self-conjugate partitions when <m>n</m> is odd as in <xref ref="oact_selfconjugate_partitions"></xref>
+        <xref ref="part_odd_self-conj"/>.
+        Then use the fact that an even is just one more than an odd.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bulg_sol_10coins"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: They all end on the same state.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bulg_sol_7coins_graph"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are 15 vertices.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There is one cycle.
+            List the states in that cycle.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bulg_sol_generalize_10coins"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Your conjecture should be that for some special numbers of coins, like 10,
+        that all states end in the same state.
+        Some other special numbers of coins are 1, 3, and 6.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bulg_sol_8coins"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The last new state you get
+            (before it repeats)
+            should be <m>4+2+1+1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The last new state you get
+            (before it repeats)
+            should be <m>3+3+1+1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We have found two different end cycles.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bulg_sol_8coins_graph"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There are two separate pieces and a total of 22 vertices.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are six total.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bulg_sol_11coins"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Start somewhere and see where it ends.
+            Since the end cycle is unique,
+            that cycle contains all of the cyclic elements.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>11 = 10+1</m> and <m>16=15+1</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bulg_sol_origin_examples"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The origin states for five coins are the points on the graph <m>G_5</m> with no arrows pointing in,
+            namely <m>1+1+1+1+1</m> and <m>2+1+1+1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Work backwards to find a predecessor that maps to <m>4+4+3</m> under this process.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: First explain why any predecessor would have to have at least five piles.
+            Then consider how many coins would be in the collected pile.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_bulg_sol_origin_conj"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The conjecture involves the number of parts in the partition and the size of the first part.
+      </p>
+    </subsubsection>
+  </subsection>
+</section>

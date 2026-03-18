@@ -1,0 +1,2978 @@
+<section xml:id="sec_functions">
+  <title>Functions and Their Representations</title>
+  <introduction>
+    <p>
+      In this section, we introduce the formal definition of a function,
+      look at examples of functions defined by formulas,
+      and discuss how to visually represent functions.
+      The definition of a function requires sets,
+      so we begin with the names of some common infinite sets of numbers.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_infinite_sets_numbers">
+    <title>\subinfsetsnumbers</title>
+    <p>
+      The definition of a function involves sets.
+      Functions in discrete contexts often involve sets of integers,
+      natural numbers,
+      or rational numbers as defined in <xref ref="defn_integers"></xref>
+      and <xref ref="defn_fraction_rational"></xref>.
+      It is convenient to have names for such sets.
+    </p>
+    <definition xml:id="defn_sets_of_integers">
+      <title>Sets of integers</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The <term>set of all integers</term><fn>
+                Why is <m>Z</m> is used for the set of integers?
+                Part of the reason is because <m>I</m> already stands for many other things in mathematics and physics.
+                But why <m>Z</m>?
+                In the past,
+                a lot of European mathematics was written in German and the German word for numbers is <em>Zahlen</em>
+                which starts with the letter <m>Z</m>.
+                The name <m>Z</m> for the set of all integers was introduced by the German mathematician David Hilbert who is rightfully famous for many other reasons.
+                Source: Integer. (2024, May 20).
+                In <em>Wikipedia</em>. \url{https://en.wikipedia.org/wiki/Integer}.
+                </fn> is
+                <me>
+                  \mathbb{Z} = \{ \ldots, -3,-2,-1,0,1,2,3,\ldots\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>set of all positive integers</term> is
+                <me>
+                  \mathbb{Z}^+=\{1,2,3,\ldots\}
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>set of all natural numbers</term>
+                (or <term>set of all non-negative integers</term>)
+                is
+                <me>
+                  \mathbb{N} = \{0, 1,2,3,\ldots\}
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at an example involving these sets.
+    </p>
+    <example xml:id="exam_sets_integers">
+      <title>Sets of integers</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Which of the sets <m>\mathbb{Z}</m>, <m>\mathbb{Z}^+</m>,
+                and <m>\mathbb{N}</m> have the integer 0 as an element?
+                <solution>
+                  <p>
+                    The integer 0 is an element of
+                    <m>\mathbb{Z}</m> and <m>\mathbb{N}</m>,
+                    but it is not an element of <m>\mathbb{Z}^+</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Which of the sets <m>\mathbb{Z}</m>,
+                <m>\mathbb{Z}^+</m>, and <m>\mathbb{N}</m> are subsets of the others?
+                <solution>
+                  <p>
+                    Every positive integer is a natural number so
+                    <m>\mathbb{Z}^+</m> is a subset of <m>\mathbb{N}</m>.
+                    Every positive integer and every natural number is an integer so <m>\mathbb{Z^+}</m> and
+                    <m>\mathbb{N}</m> are subsets of <m>\mathbb{Z}</m>.
+                    And, of course, each set is a subset of itself too.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Functions in more continuous contexts,
+      like algebra or calculus, often involve real numbers.
+      A formal definition of real numbers requires mathematics beyond this textbook,
+      but we start with a casual form of the definition.
+    </p>
+    <definition xml:id="defn_reals">
+      <title>Real numbers</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>real number</term> is any number that can be represented in decimal notation.
+                For example,
+                each of the following numbers is a real number: 523.7, <m>34 = 34.0</m>,
+                <m>\frac{3}{8} = .375</m>,
+                <m>-\sqrt{2} = -1.414213\ldots</m>,
+                and <m>\pi = 3.141592\ldots</m>.
+                The <ellipsis/> indicates that the decimal representation continues.
+              </p>
+            </li>
+            <li>
+              <p>
+                When the decimal notation for a real number repeats forever,
+                we use <term>bar</term> notation.
+                For example,
+                <me>
+                  \frac{7}{11} = 0.636363\ldots = 0.\overline{63}
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      It is useful to have a notation for commonly used sets of real numbers.
+    </p>
+    <definition xml:id="defn_sets_of_real_numbers">
+      <title>Sets of real numbers</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The <term>set of all rational numbers</term><fn>
+                The letter <m>Q</m> comes from the word
+                <q>quotient</q>.
+                </fn> is denoted <m>\mathbb{Q}</m>.
+                For example, <m>\frac{3}{8}</m>,
+                <m>^-\frac{7}{11} = \frac{-7}{11}</m>,
+                and <m>34 = \frac{34}{1}</m> are elements of <m>\mathbb{Q}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>set of all real numbers</term>
+                is denoted <m>\mathbb{R}</m>.
+                For example,
+                each of the following real numbers is an element of
+                <m>\mathbb{R}</m>: 523.7, <m>34</m>, <m>\frac{3}{8}</m>,
+                <m>^-\frac{7}{11}</m>, <m>-\sqrt{2}</m>, and <m>\pi</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>S</m> is a subset of real numbers,
+                then the set <m>S^+</m> is the set of all positive numbers in <m>S</m> and the set <m>S^*</m> is the set of all nonzero numbers in <m>S</m>.
+                For example,
+                <me>
+                  \mathbb{R}^+ = \text{ set of all positive real numbers }
+                </me>
+                and
+                <me>
+                  \mathbb{R}^* = \text{ set of all nonzero real numbers }
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_sets_reals">
+      <title>Sets of real numbers</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Which of the sets <m>\mathbb{Q}</m>,
+                <m>\mathbb{R}</m>, <m>\mathbb{R}^+</m>,
+                and <m>\mathbb{R}^*</m> have the integer 0 as an element?
+                <solution>
+                  <p>
+                    The integer 0 can be written as a fraction,
+                    for example <m>0 = \frac{0}{1}</m>.
+                    Thus 0 is an element of <m>\mathbb{Q}</m>.
+                    The integer 0 can be written as 0.0
+                    (or just 0).
+                    Thus 0 is an element of <m>\mathbb{R}</m>.
+                    Since the integer 0 is not positive, 0 is not an element of <m>\mathbb{R}^+</m>.
+                    Since the integer 0 is not nonzero, 0 is not an element of <m>\mathbb{R}^*</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Which of the sets <m>\mathbb{Z}</m>,
+                <m>\mathbb{Q}</m>, and <m>\mathbb{R}</m> are subsets of the others?
+                <solution>
+                  <p>
+                    Any integer <m>n</m> can be written as a fraction,
+                    for example <m>n = \frac{n}{1}</m>.
+                    Thus <m>n</m> is an element of <m>\mathbb{Q}</m> and so
+                    <m>\mathbb{Z}</m> is a subset of <m>\mathbb{Q}</m>.
+                    Any integer <m>n</m> can also be written as a real number,
+                    for example <m>n = n.0</m>
+                    (or just <m>n</m>).
+                    Thus <m>n</m> is an element of <m>\mathbb{R}</m> and so
+                    <m>\mathbb{Z}</m> is a subset of <m>\mathbb{R}</m>.
+                    Any rational number <m>\frac{a}{b}</m>,
+                    where <m>a</m> is an integer and <m>b</m> is a nonzero integer,
+                    can be written as a decimal by dividing <m>a \div b</m>.
+                    We might get a terminating decimal,
+                    like <m>\frac{3}{8}=0.375</m>,
+                    or we might get a repeating decimal,
+                    like <m>\frac{7}{11} = 0.636363\ldots = 0.\overline{63}</m>.
+                    (It turns out we cannot get a non-repeating decimal.)
+                    Thus <m>\frac{a}{b}</m> is an element of <m>\mathbb{R}</m> and so
+                    <m>\mathbb{Q}</m> is a subset of <m>\mathbb{R}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      There is a special notation for subsets of real numbers that are defined by inequalities.
+    </p>
+    <definition xml:id="defn_intervals">
+      <title>Intervals</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                An <term>interval</term> is a set of all real numbers <m>x</m> between two real numbers known as <term>bounds</term>.
+                For example, the set of all real numbers <m>x</m> such that
+                <m>11 \le x \lt 12</m> is an interval bounded below by 11 and bounded above by 12.
+                The integer 11 is an element of the interval,
+                but the integer 12 is not an element of the interval.
+              </p>
+            </li>
+            <li>
+              <p>
+                An <term>unbounded interval</term>
+                (or <term>ray</term>)
+                is a set of all real numbers greater than a real number or a set of all real numbers less than a real number.
+                For example, the set of all real numbers <m>x</m> such that
+                <m>x\ge 4.32</m> is an unbounded interval.
+                The real number 4.32 is an element of that interval.
+                The set of negative real numbers <m>x</m> is the unbounded interval defined by <m>x\lt 0</m>.
+                The real number 0 is not an element of that interval.
+              </p>
+            </li>
+            <li>
+              <p>
+                We can abbreviate an interval using
+                <term>interval notation</term>
+                where a square bracket indicates that the bound is included,
+                whereas a round bracket indicates that the bound is excluded.
+                When the interval is unbounded,
+                we use <m>\infty</m> to indicate that the interval has no upper bound and <m>-\infty</m> to indicate that the interval has no lower bound.
+                For example, the interval described by the inequality
+                <m>11 \le x \lt 12</m> is denoted <m>[11,12)</m> and the positive real numbers is denoted <m>(0,\infty)</m>.
+                Occasionally we write the full set of real numbers
+                <m>\mathbb{R}</m> as the interval <m>(-\infty,\infty)</m>.
+                END<xref ref="table_interval_notation"></xref>
+                shows examples of each type of interval notation.
+                <table xml:id="table_interval_notation">
+                  <title>Interval notation</title>
+                  <tabular>
+                    <row>
+                      <cell>Interval</cell>
+                      <cell><m>a \le x \le b</m></cell>
+                      <cell><m>a \le x \lt b</m></cell>
+                      <cell><m>a \lt x \le b</m></cell>
+                      <cell><m>a \lt x \lt b</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>Notation</cell>
+                      <cell><m>[a,b]</m></cell>
+                      <cell><m>[a,b)</m></cell>
+                      <cell><m>(a,b]</m></cell>
+                      <cell><m>(a,b)</m></cell>
+                    </row>
+                  </tabular>
+                  \vspace{.15in}
+                  <tabular>
+                    <row>
+                      <cell>Unbounded Interval</cell>
+                      <cell><m>x \ge a</m></cell>
+                      <cell><m>x > a</m></cell>
+                      <cell><m>x \le b</m></cell>
+                      <cell><m>x \lt b</m></cell>
+                      <cell><m>x</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>Notation</cell>
+                      <cell><m>[a,\infty)</m></cell>
+                      <cell><m>(a,\infty)</m></cell>
+                      <cell><m>(-\infty,b]</m></cell>
+                      <cell><m>(-\infty,b)</m></cell>
+                      <cell><m>(-\infty,\infty)</m></cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's work with interval notation.
+    </p>
+    <example xml:id="exam_interval_notation">
+      <title>Interval notation</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Write the interval <m>(12,14]</m> using inequality notation.
+                <solution>
+                  <p>
+                    For an element <m>x</m> in the interval,
+                    the round bracket at 12 tells us that <m>x > 12</m> whereas the square bracket at 14 tells us that <m>x \le 14</m>.
+                    Together we have <m>12 \lt x \le 14</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Which of the real numbers 13.7, 12,
+                and 14 are elements of the interval <m>(12,14]</m>?
+                <solution>
+                  <p>
+                    Since <m>12 \lt 13.7 \le 14</m>,
+                    the real number 13.7 is in the interval.
+                    The round bracket tells us that 12 is not in the interval.
+                    The square bracket tells us that 14 is in the interval.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write the interval <m>x \le 2</m> in interval notation.
+                <solution>
+                  <p>
+                    Since the inequality is bounded above by 2, and 2 is in the interval,
+                    we use a square bracket at 2.
+                    Since there is no lower bound on the interval, we use <m>-\infty</m>
+                    (always with a round bracket).
+                    In interval notation we have <m>(- \infty,2]</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is your turn to work with these sets.
+    </p>
+    <activity xml:id="act_sets_int_real">
+      <title>Sets of integers and real numbers</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Give an example of an element of
+              <m>\mathbb{Z}</m> that is not an element of <m>\mathbb{N}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give an example of an element of
+              <m>\mathbb{Q}</m> that is not an element of <m>\mathbb{Z}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give an example of an element of
+              <m>\mathbb{R}</m> that is not an element of <m>\mathbb{R}^+</m>.
+            </p>
+          </li>
+          <li xml:id="part_between_5and10">
+            <p>
+              Describe the set of real numbers that are in the interval <m>x \ge 5</m> and the interval <m>x \lt 10</m>.
+              Report your answer in inequality notation and in interval notation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Which integers are in the interval <m>[5,10)</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Negate the following statement:
+              <m>x</m> is an element of the interval <m>[5,10)</m>.
+              Hint: DeMorgan's law and <xref ref="part_between_5and10"/>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_defn_function_notation">
+    <title>\subdefnfnnotation</title>
+    <p>
+      Before we give a rigorous definition of a function,
+      let us look at an example.
+    </p>
+    <example xml:id="exam_garden">
+      <title>Garden</title>
+      <statement>
+        <p>
+          Each tomatillo plant in my garden produces about 100 tomatillos.
+          <ol>
+            <li>
+              <p>
+                One year I planted 3 plants.
+                Approximately how many tomatillos grew?
+                <solution>
+                  <p>
+                    I grew around <m>3 \times 100 = 300</m> tomatillos,
+                    which made a lot of salsa verde!
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                If I planted <m>n</m> plants,
+                approximately how many tomatillos would grow?
+                <solution>
+                  <p>
+                    I would grow around <m>100n</m> tomatillos.
+                    In general, we say that the number of tomatillos
+                    <term>is a function of</term> the number of plants.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We are ready to define a function and related vocabulary.
+    </p>
+    <definition xml:id="defn_function">
+      <title>Function</title>
+      <statement>
+        <p>
+          A <term>function</term>, <m>f</m>, consists of three parts:
+          a domain set, a codomain set, and a rule.
+          Specifically,
+          <ol>
+            <li>
+              <p>
+                The <term>domain</term> of the function <m>f</m> is the set of acceptable input values.
+                For example, in <xref ref="exam_garden"></xref>,
+                we could have any non-negative integer number of plants,
+                so the domain was <m>\mathbb{N}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>codomain</term> of the function <m>f</m> is the set of acceptable output values.
+                For example, in <xref ref="exam_garden"></xref>,
+                we could have any non-negative integer number of tomatillos,
+                so the codomain was also <m>\mathbb{N}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                To define a function,
+                we need to say what the domain and codomain sets are.
+                When <m>f</m> is a function with domain set <m>X</m> and codomain set <m>Y</m>,
+                we use <term>arrow notation</term> to write
+                <me>
+                  f:X \to Y
+                </me>
+                which is pronounced
+                <q><m>f</m> maps from <m>X</m> to <m>Y</m></q>.  For example, in <xref ref="exam_garden"></xref>
+                we would write <m>f: \mathbb{N} \to \mathbb{N}</m>.
+                If you want to know the domain of a function,
+                look for the set before the arrow.
+                Similarly, if you want to know the codomain of a function,
+                look for the set after the arrow.
+              </p>
+            </li>
+            <li xml:id="part_function_rule">
+              <p>
+                The third part of a function is <em>rule</em> that,
+                for each element <m>x</m> in the domain of <m>f</m>,
+                uniquely determines a corresponding element <m>y</m> in the codomain of <m>f</m>.
+                For example, in <xref ref="exam_garden"></xref>
+                for the input value of <m>n</m> plants,
+                the rule for the output value is <m>100n</m> tomatillos.
+              </p>
+            </li>
+            <li>
+              <p>
+                We use <term>function notation</term> <m>f(x)</m>, pronounced
+                <q><m>f</m> of <m>x</m>,</q>
+                to denote the output <m>y</m> corresponding to the input <m>x</m>.
+                We often write <m>y=f(x)</m>.
+                For example, in <xref ref="exam_garden"></xref>,
+                our rule was <m>f(n)=100n</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Given an input value <m>x</m> in the domain,
+                we <term>evaluate</term> the function <m>f</m> at <m>x</m> to get the corresponding output value <m>f(x)</m> in the codomain.
+                For example, in <xref ref="exam_garden"></xref>,
+                when we evaluate <m>f</m> at 3 plants we get <m>f(3) = 300</m> tomatillos.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is one more set associated with a function.
+                The <term>image</term> of the function <m>f</m> is the set of actual output values<ndash/> the set of all elements <m>y</m> in the codomain such that there exists an element <m>x</m> in the codomain with <m>f(x) = y</m>.
+                The image is a subset of the codomain.
+                For example, in <xref ref="exam_garden"></xref>,
+                we can only get multiples of 100,
+                so the image of <m>f</m> is the set of nonnegative multiples of 100:
+                <m>\{0, 100, 200, 300, \ldots\}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Many algebra and calculus textbooks do not make a distinction between the function <m>f</m> and its output value <m>f(x)</m>,
+      but being careful to make this distinction is very helpful for advanced mathematics and computer science.
+    </p>
+    <p>
+      Let's look at an example using this vocabulary.
+    </p>
+    <example xml:id="exam_fn_on1234">
+      <title>Function vocabulary with finite sets</title>
+      <statement>
+        <p>
+          Consider the function <m>a: \{1,2,3,4\} \to \{0,1,2,3\}</m> defined by <m>a(n) = n-1</m>.
+          That is, <m>a(1) = 0</m>,
+          <m>a(2)=1</m>, <m>a(3) = 2</m>, and <m>a(4) = 3</m>.
+          <ol>
+            <li>
+              <p>
+                What are the domain and codomain of the function <m>a</m>?
+                <solution>
+                  <p>
+                    The domain of <m>a</m> is <m>\{1,2,3,4\}</m> and the codomain is <m>\{0,1,2,3\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find all values of <m>n</m> such that <m>a(n) = 2</m>.
+                Is it unique?
+                <solution>
+                  <p>
+                    Note that <m>a(3)=2</m>.
+                    Yes, it is unique because no other value of <m>n</m> has <m>a(n) = 2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Does there exist a value of <m>n</m> such that <m>a(n)=4</m>?
+                Explain.
+                <solution>
+                  <p>
+                    No, no value of <m>n</m> has <m>a(n) = 4</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe the image of <m>a</m>.
+                <solution>
+                  <p>
+                    The image of <m>a</m> is the set
+                    <m>\{0,1,2,3\}</m> which happens to be the codomain.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Here is an example with infinite sets.
+    </p>
+    <example xml:id="exam_square_function">
+      <title>Function vocabulary with infinite sets</title>
+      <statement>
+        <p>
+          Consider the function <m>f: \mathbb{Z} \to \mathbb{N}</m> defined by <m>f(n) = n^2</m>.
+          <ol>
+            <li>
+              <p>
+                What are the domain and codomain of the function <m>f</m>?
+                <solution>
+                  <p>
+                    The domain of <m>f</m> is <m>\mathbb{Z}</m> and the codomain is <m>\mathbb{N}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>f(5)</m> and <m>f(-6)</m>.
+                <solution>
+                  <p>
+                    First, <m>f(5) = 5^2=25</m>.
+                    Next, <m>f(-6) = (-6)^2=(-6)(-6)=36</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find all values of <m>n</m> such that <m>f(n) = 4</m>.
+                <solution>
+                  <p>
+                    Note that <m>f(2) = 2^2=4</m> and <m>f(-2) = (-2)^2=4</m>.
+                    The values are <m>2</m> and <m>-2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Does there exist a value of <m>n</m> such that <m>f(n)=3</m>?
+                Explain.
+                <solution>
+                  <p>
+                    No, if <m>f(n)=3</m>, then we would have
+                    <m>n = \sqrt{3}</m> which is not an integer because 3 is not a perfect square.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe the image of <m>f</m>.
+                <solution>
+                  <p>
+                    The image of <m>f</m> is the set of perfect squares
+                    <me>
+                      \{0,1,4,9,16,25,36, \ldots\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Although in mathematics functions usually have a single letter name,
+      such as <m>f</m> or <m>g</m>,
+      it is common practice in computer science and in work with databases to name a function with a string,
+      often a word or abbreviation chosen to remind us of the rule of the function.
+      Let's look at an example.
+    </p>
+    <example xml:id="exam_fn_multiletter_name">
+      <title>Functions with multi-letter names</title>
+      <statement>
+        <p>
+          Consider the function <m>\fn{half}: \mathbb{Z} \to \mathbb{Q}</m> defined by <m>\fn{half}(n) = \frac{n}{2}</m>.
+          <ol>
+            <li>
+              <p>
+                What are the domain and codomain of the function <c>half</c>?
+                <solution>
+                  <p>
+                    The domain of <c>half</c> is
+                    <m>\mathbb{Z}</m> and the codomain is <m>\mathbb{Q}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>\fn{half}(-6)</m> and <m>\fn{half}(5)</m>.
+                <solution>
+                  <p>
+                    First, <m>\fn{half}(-6) = \frac{-6}{2} = -3</m>.
+                    Next, <m>\fn{half}(5) = \frac{5}{2}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find a value of <m>n</m> such that <m>\fn{half}(n) = 10</m>.
+                <solution>
+                  <p>
+                    Note that <m>\fn{half}(20) = \frac{20}{2} = 10</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Does there exist a value of <m>n</m> such that <m>\fn{half}(n)=\frac{3}{5}</m>?
+                Explain.
+                <solution>
+                  <p>
+                    No, if <m>\fn{half}(n) = \frac{3}{5}</m>,
+                    then we would have <m>\frac{n}{2} = \frac{3}{5}</m>.
+                    Using the definition of equal fractions <xref ref="thm_equal_fractions"/>,
+                    we would have <m>5n = 6</m> and so
+                    <m>n = \frac{6}{5}</m> which is not an integer.
+                    Since the domain is the integers,
+                    we cannot find an integer <m>n</m> with <m>\fn{half}(n)= \frac{3}{5}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe the image of <c>half</c>.
+                <solution>
+                  <p>
+                    Any integer is in the image of <c>half</c> because <m>\fn{half}(2a) = a</m>.
+                    Any fraction of the form <m>\frac{a}{2}</m> where <m>a</m> is an integer is also in the image of <c>half</c> because <m>\fn{half}(a) = \frac{a}{2}</m>.
+                    Thus, the image of <c>half</c> is the set
+                    <me>
+                      \left\{ \ldots, -3, ^-\frac{5}{2},-2,^-\frac{3}{2},  -1, ^-\frac{1}{2}, 0, \frac{1}{2}, 1, \frac{3}{2}, 2, \frac{5}{2}, 3, \ldots\right\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      It is time to practice working with this vocabulary.
+    </p>
+    <activity xml:id="act_fn_vocab">
+      <title>Function vocabulary</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Consider the function <m>f: \mathbb{N} \to \mathbb{N}</m> defined by <m>f(n) = 2^n</m>.
+              Identify the domain and codomain of <m>f</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>f(8)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a natural number <m>n</m> such that <m>f(n) = 8</m>.
+              Is it unique?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Describe the image of <m>f</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the function <m>\fn{alt}: \mathbb{N} \to \mathbb{Z}</m> defined by <m>\fn{alt}(n) = (-1)^n</m>.
+              Identify the domain and codomain of <c>alt</c>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>\fn{alt}(100)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a natural number <m>n</m> such that <m>\fn{alt}(n) = -1</m>.
+              Is it unique?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why there does not exist an integer <m>n</m> such that <m>\fn{alt}(n) = 2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Describe the image of <c>alt</c>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      The domain and codomain are an important part of a function.
+      Let's look at an example of related functions sharing a common rule but having different domain and codomain sets.
+    </p>
+    <example xml:id="exam_diff_fns_same_rule">
+      <title>Different functions with the same rules</title>
+      <statement>
+        <p>
+          Consider the following functions:
+          <m>f: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>f(n) = n+2</m>,
+          <m>g: \mathbb{N} \to \mathbb{Z}</m> is defined by <m>g(n) = n+2</m>,
+          and <m>h: \mathbb{N} \to \mathbb{N}</m> is defined by <m>h(n) = n+2</m>.
+          <ol>
+            <li>
+              <p>
+                How are the functions <m>f</m>,
+                <m>g</m>, and <m>h</m> different?
+                <solution>
+                  <p>
+                    One difference is their domain and codomain.
+                    The function <m>f</m> has domain
+                    <m>\mathbb{Z}</m> but the functions <m>g</m> and <m>h</m> have domain <m>\mathbb{N}</m>.
+                    The functions <m>f</m> and <m>g</m> have codomain
+                    <m>\mathbb{Z}</m> but the function <m>h</m> has codomain <m>\mathbb{N}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate each function at <m>n=3</m>.
+                <solution>
+                  <p>
+                    We have <m>f(3) = 3+2 = 5</m>,
+                    <m>g(3) = 3+2 = 5</m>, and <m>h(3) = 3+2 = 5</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate each function at <m>n=-6</m> or explain why that is not possible.
+                <solution>
+                  <p>
+                    We have <m>f(-6) = -6 + 2 = -4</m> but <m>g(-6)</m> and <m>h(-6)</m> are not defined because -6 is not an element of their domain <m>\mathbb{N}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why we cannot define a function
+                <m>k: \mathbb{Z} \to \mathbb{N}</m> by <m>k(n) = n-2</m>.
+                <solution>
+                  <p>
+                    Since 1 is in the domain <m>\mathbb{Z}</m>,
+                    if <m>k</m> were a function,
+                    then <m>k(1) = 1-2=-1</m> would need to be in the codomain.
+                    Since the codomain is <m>\mathbb{N}</m> and -1 is not an element of <m>\mathbb{N}</m>,
+                    we cannot define this function.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Compare the images of <m>f</m>, <m>g</m>, and <m>h</m>.
+                <solution>
+                  <p>
+                    The image of <m>f</m> is <m>\mathbb{Z}</m> because given any integer <m>m</m>,
+                    we can find an integer <m>n</m> such that
+                    <m>f(n) = m</m>, namely <m>n=m-2</m>.
+                    We can check that <m>f(m-2) = (m-2)+2 = m</m>.
+                    On the other hand, the image of <m>g</m> and <m>h</m> are the set
+                    <m>\{2, 3, 4, 5, \ldots\}</m> because the smallest element of the domain <m>\mathbb{N}</m> is 0.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We introduce a little more vocabulary about functions.
+    </p>
+    <definition xml:id="defn_constant_identity_fixed_points">
+      <title>Constant functions, the identity function, and fixed points</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                For sets <m>X</m> and <m>Y</m> and a specified element <m>c</m> of <m>Y</m>,
+                a function <m>f: X \to Y</m> defined by <m>f(x)=c</m> is a
+                <term>constant function</term>.
+                For example,
+                the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by
+                <m>f(n) = 3</m> is a constant function.
+                No matter what the input value <m>n</m> is, the output is always 3.
+                For example, <m>f(15) = 3</m>,
+                <m>f(-2) = 3</m>, and <m>f(3)=3</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For a set <m>X</m>, the <term>identity function</term>
+                is the function <m>i: X \to X</m> defined by <m>i</m> is <m>i(x) = x</m>.
+                For example,
+                the function <m>i: \{1,2,3,4\}\to \{1,2,3,4\}</m> defined by
+                <m>i(x) = x</m> is the identity function on <m>\{1,2,3,4\}</m>.
+                We can evaluate to get <m>i(1)=1</m>, <m>i(2)=2</m>,
+                <m>i(3)=3</m>, and <m>i(4)=4</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For a function <m>f:X\to Y</m>,
+                an element <m>a</m> of the domain <m>X</m> is a <term>fixed point</term>
+                of the function <m>f</m> if <m>f(a) = a</m>.
+                Note that <m>a</m> must also be an element of the codomain <m>Y</m>.
+                For example,
+                the function <m>\fn{sq}: \mathbb{Z} \to \mathbb{N}</m> defined by
+                <m>\fn{sq}(n) = n^2</m> has two fixed points: 0 and 1 because
+                <m>\fn{sq}(0)=0^2=0</m> and <m>\fn{sq}(1)=1^2=1</m>.
+                On the other hand, there are no fixed points of the function
+                <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = n+2</m>.
+                As another example,
+                every element of the domain is a fixed point of the identity function.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+  </subsection>
+  <subsection xml:id="sub_piecewise">
+    <title>\subpiecewise</title>
+    <p>
+      The rule for a function can be defined in pieces.
+    </p>
+    <definition xml:id="defn_piecewise_defined_function">
+      <title>Piecewise-defined function</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>piecewise-defined function</term>
+                is a function in which the domain set is divided into cases and the rule for the function<fn>
+                If you are uncomfortable that there is not a single formula for <m>f</m>,
+                then you are in good company.
+                This modern formal definition of function was not widely accepted until the early 1900s.
+                Source: wikipedia (History of the Function Concept)
+                </fn> depends on the case.
+                For example, we might define a function with domain
+                <m>\mathbb{Z}</m> where the rule uses one formula when we input an even integer and a different formula when we input an odd integer.
+              </p>
+            </li>
+            <li>
+              <p>
+                We can write a piecewise-defined function using the notation
+                <me>
+                  f(x) = \left\{ \begin{array}{cl} \text{ formula 1 }  \amp  \text{ if }  x \text{ is in case 1 }  \\ \text{ formula 2 }  \amp  \text{ if }  x \text{ is in case 2 }  \\ \vdots \amp  \vdots \\ \text{ formula }  n \amp  \text{ if }  x \text{ is in case }  n \end{array}  \right
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Our next example illustrates a piecewise-defined function.
+    </p>
+    <example xml:id="exam_piecewise_defined_function">
+      <title>Piecewise-defined function</title>
+      <statement>
+        <p>
+          Consider the function <m>p: \mathbb{Z} \to \mathbb{Z}</m> defined by
+          <m>p(n)=n+1</m> in the case where <m>n</m> is even and
+          <m>p(n) = 2n</m> in the case where <m>n</m> is odd.
+          In computer science lingo we might say
+          <q>if <m>n</m> is even, then <m>p(n)=n+1</m>, else
+          (meaning if <m>n</m> is odd)
+          <m>p(n)= 2n</m>.</q>
+          We can write this rule as
+          <me>
+            p(n) = \left\{ \begin{array}{cc} n+1 \amp  \text{ if \(n\) is even }  \\ 2n \amp  \text{ if \(n\) is odd } \end{array} \right
+          </me>
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>p(6)</m>.
+                <solution>
+                  <p>
+                    We know that 6 is even and so we are in the first case where <m>p(n) = n+1</m>.
+                    Therefore <m>p(6)=6+1=7</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>p(7)</m>.
+                <solution>
+                  <p>
+                    We know that 7 is odd and so we are in the second case where
+                    <m>p(n) = 2n</m> and so <m>p(7) = 2(7) = 14</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_8notinimage">
+              <p>
+                Does there exist an integer <m>n</m> such that <m>p(n) = 8</m>?
+                Explain
+                <solution>
+                  <p>
+                    Note that if <m>n</m> is even,
+                    then <m>p(n) = n+1</m> is odd and,
+                    therefore, cannot equal eight.
+                    On the other hand, if <m>n</m> is odd,
+                    then <m>p(n) = 2n =8</m> would imply that <m>n=4</m> which is even.
+                    No, there does not exist an integer <m>n</m> such that <m>p(n)=8</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe the image of <m>p</m>.
+                <solution>
+                  <p>
+                    Any odd integer <m>2k+1</m> is in the image because <m>2k</m> is even and so <m>p(2k) = 2k+1</m>.
+                    Any even integer of the form <m>2m</m> where <m>m</m> is odd is also in the image because <m>m</m> is odd and so <m>p(m) = 2m</m>.
+                    The integers that are not in the image are the even integers of the form <m>2m</m> where <m>m</m> is even which are the multiples of 4.
+                    The image of <m>p</m> is the set of integers that are not multiples of 4.
+                    That is, the image of <m>p</m> is
+                    <me>
+                      \{ \ldots,-9, -7, -6, -5, -3, -2, -1, 1, 2, 3, 5, 6, 7, 9 \ldots\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We can define any function on a finite domain by specifying its value at each point in the domain.
+      Technically,
+      we are using a piecewise-defined function where the cases each have one value.
+      Here is an example.
+    </p>
+    <example xml:id="exam_function_finite">
+      <title>Function on a finite set defined by a list</title>
+      <statement>
+        <p>
+          Consider the function <m>f: \{1, 2, 3, 4, 5\} \to \{a,b,c,d\}</m> defined by
+          <me>
+            f(1) = a, f(2) = d, f(3) = a, f(4) = d, f(5)= c
+          </me>
+          <ol>
+            <li>
+              <p>
+                The function <m>f</m> is piecewise-defined.
+                Write <m>f</m> in the usual piecewise notation.
+                <solution>
+                  <p>
+                    We can write
+                    <me>
+                      f(n) = \left\{ \begin{array}{cl} a \amp  \text{ if }  n =1 \\ d \amp  \text{ if }  n =2 \\ a \amp  \text{ if }  n =3 \\ d \amp  \text{ if }  n =4 \\ c \amp  \text{ if }  n =5 \end{array}  \right
+                    </me>.
+                    Alternatively, we could write
+                    <me>
+                      f(n) = \left\{ \begin{array}{cl} a \amp  \text{ if }  n =1 \text{ or }  n=3\\ d \amp  \text{ if }  n =2 \text{ or }  n=4\\ c \amp  \text{ if }  n =5 \end{array}  \right
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the domain and codomain of <m>f</m>?
+                <solution>
+                  <p>
+                    The domain of <m>f</m> is the set
+                    <m>\{1, 2, 3, 4, 5\}</m> and the codomain of <m>f</m> is the set <m>\{a,b,c,d\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find an integer <m>n</m> in
+                <m>\{1,2,3,4,5\}</m> such that <m>f(n) = a</m>.
+                How many input values of <m>n</m> have <m>f(n) = a</m>?
+                <solution>
+                  <p>
+                    Note that <m>f(1) = a</m> and so <m>n=1</m> is one such value.
+                    Another such value is <m>n=3</m> because <m>f(3)=a</m> as well.
+                    There are two values of <m>n</m> for which <m>f(n) = a</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the image of <m>f</m>?
+                <solution>
+                  <p>
+                    The actual outputs are <m>a</m>, <m>c</m>,
+                    and <m>d</m> and so the image is the set <m>\{a,c,d\}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Does there exist an integer <m>n</m> in
+                <m>\{1,2,3,4,5\}</m> with <m>f(n) = b</m>?
+                Explain.
+                <solution>
+                  <p>
+                    No, the image is <m>\{a,c,d\}</m> so <m>b</m> is not in the image.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try working with piecewise-defined functions
+    </p>
+    <activity xml:id="act_piecewise">
+      <title>Piecewise-defined functions</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              The function <m>f:\mathbb{Z} \to \mathbb{Z}</m> is defined by
+              <me>
+                f(n) = \left\{ \begin{array}{rl} 2 \amp  \text{ if }  n \text{ is positive }  \\ 1 \amp  \text{ if }  n=0 \\ 0 \amp  \text{ if }  n \text{ is negative } \end{array} \right
+              </me>.
+              Evaluate <m>f(5)</m>, <m>f(2)</m>,
+              <m>f(-4)</m>, and <m>f(0)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the image of the function <m>f</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="act_fn_vocab">In</xref>
+              we saw the function <m>\fn{alt}: \mathbb{N} \to \mathbb{Z}</m> defined by <m>\fn{alt}(n) = (-1)^n</m>.
+              Evaluate <m>\fn{alt}(0)</m>, <m>\fn{alt}(1)</m>,
+              <m>\fn{alt}(2)</m>, <m>\fn{alt}(3)</m>, and <m>\fn{alt}(4)</m>.
+              What do you notice?
+            </p>
+          </li>
+          <li>
+            <p>
+              Write a piecewise-defined definition for
+              <m>\fn{alt}</m> that does not involve powers.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_fn_dot_graph">
+    <title>\subfndotgraphs</title>
+    <p>
+      How can we visually represent a function?
+      When the domain and the codomain are subsets of <m>\mathbb{R}</m>,
+      we can draw a graph of the function on the <m>xy</m>-plane.
+      You have seen graphs of these types of functions in algebra or calculus.
+      When the domain and codomain are finite sets or subsets of <m>\mathbb{Z}</m>,
+      we can represent the function using a dot diagram.
+      Let's begin with graphs in the <m>xy</m>-plane.
+    </p>
+    <definition xml:id="defn_graph_function">
+      <title>Graph of function where the domain and codomain are subsets of <m>\mathbb{R}</m></title>
+      <statement>
+        <p>
+          Consider a function <m>f: X \to Y</m> where <m>X</m> and <m>Y</m> are subsets of <m>\mathbb{R}</m>.
+          The <term>graph of the function</term>
+          <m>f</m> is the set of points <m>(x,y)</m> on the <m>xy</m>-plane such that <m>y=f(x)</m>.
+          Note that each point on the graph is of the form <m>(x,f(x))</m>.
+          For example,
+          if <m>f:\mathbb{R} \to \mathbb{R}</m> is a function with <m>f(2)=5</m>,
+          then the point <m>(2,5)</m> is on the graph of <m>f</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Here is an example that shows how the domain of the function can influence the graph.
+    </p>
+    <example xml:id="exam_graph_10n_1">
+      <title>Graphs of the function in the $xy$-plane</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Consider the function <m>f: \mathbb{R} \to \mathbb{R}</m> is defined by <m>f(x) = 10x + 1</m>.
+                Draw the graph of the function <m>f</m> on the <m>xy</m>-plane.
+                <solution>
+                  <p>
+                    We can make a small table of values of the function and corresponding points on the graph.
+                  </p>
+                  <table xml:id="table_10xplus1">
+                    <title>Evaluating the function <m>f:\mathbb{R} \to\mathbb{R}</m> defined by <m>f(x) = 10x+1</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>x</m></cell>
+                        <cell><m>-3</m></cell>
+                        <cell><m>-2</m></cell>
+                        <cell><m>-1</m></cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell><m>f(x)=10x+1</m></cell>
+                        <cell><m>-29</m></cell>
+                        <cell><m>-19</m></cell>
+                        <cell><m>-9</m></cell>
+                        <cell>1</cell>
+                        <cell>11</cell>
+                        <cell>21</cell>
+                        <cell>31</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>point</cell>
+                        <cell><m>(-3,-29)</m></cell>
+                        <cell><m>(-2,-19)</m></cell>
+                        <cell><m>(-1,-9)</m></cell>
+                        <cell><m>(0,1)</m></cell>
+                        <cell><m>(1,11)</m></cell>
+                        <cell><m>(2,21)</m></cell>
+                        <cell><m>(3,31)</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+                  <p>
+                    Since <m>f</m> accepts all real numbers as input values,
+                    there are many more points on the graph of <m>f</m> in between the points listed in the table.
+                    For example <m>f(.1) = 2</m> and so the point <m>(.1,2)</m> is also on the graph of <m>f</m>.
+                    When we include all possible points,
+                    we get all of the points on the line,
+                    as shown on the right in <xref ref="fig_graph_10nplus1"></xref>.
+                    The equation of the line is <m>y=f(x)</m> or,
+                    equivalently, <m>y=10x+1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Consider the function <m>g: \mathbb{N} \to \mathbb{N}</m> defined by <m>g(n) = 10n+1</m>.
+                Draw the graph of the function <m>g</m> on the <m>xy</m>-plane.
+                <solution>
+                  <p>
+                    We can make a small table of values of the function and corresponding points on the graph.
+                  </p>
+                  <table xml:id="table_10nplus1">
+                    <title>Evaluating the function <m>f:\mathbb{N} \to\mathbb{N}</m> defined by <m>g(n) = 10n+1</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>n</m></cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>4</cell>
+                        <cell>5</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell><m>g(n)=10n+1</m></cell>
+                        <cell>1</cell>
+                        <cell>11</cell>
+                        <cell>21</cell>
+                        <cell>31</cell>
+                        <cell>41</cell>
+                        <cell>51</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>point</cell>
+                        <cell><m>(0,1)</m></cell>
+                        <cell><m>(1,11)</m></cell>
+                        <cell><m>(2,21)</m></cell>
+                        <cell><m>(3,31)</m></cell>
+                        <cell><m>(4,41)</m></cell>
+                        <cell><m>(5,51)</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+                  <p>
+                    Since the only acceptable input values for <m>g</m> are integers,
+                    there are no points on the graph of <m>g</m> in between the points in <xref ref="table_10nplus1"></xref>.
+                    <xref ref="fig_graph_10nplus1"></xref>
+                    shows the graph of <m>g</m> on the left.
+                    We can see that the points fall on the line <m>y = 10x+1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <figure xml:id="fig_graph_10nplus1">
+      <caption>Graph of the functions <m>f: \mathbb{N} \to \mathbb{N}</m> defined by <m>g(n) = 10n+1</m> (left) and <m>g: \mathbb{R} \to \mathbb{R}</m> defined by <m>f(x) = 10x + 1</m> (right).</caption>
+      <image width="35%" source="images/Linear_NatvsReals_DESMOS.png"/>
+    </figure>
+    <p>
+      We used the free software {DESMOS\texttrademark} available at \url{https://www.desmos.com/} to draw the graphs in <xref ref="fig_graph_10nplus1"></xref>.
+    </p>
+    <p>
+      When the domain and codomain are finite sets or subsets of <m>\mathbb{Z}</m>,
+      we can draw a different representation.
+    </p>
+    <definition xml:id="defn_dot_diagram_function">
+      <title>Dot diagram for finite or discrete functions</title>
+      <statement>
+        <p>
+          Consider a function <m>f: X \to Y</m> where <m>X</m> and <m>Y</m> are finite sets or subsets of <m>\mathbb{Z}</m>.
+          The <term>dot diagram</term> for <m>f</m> has a line of points labeled by the elements of <m>X</m> and another line of points labeled by the elements of <m>Y</m>.
+          If either set is infinite,
+          then we include <ellipsis/> at one or both ends of the line of points.
+          For each element <m>x</m> in the domain,
+          we draw an arrow from the point labeled <m>x</m> to the point labeled <m>f(x)</m>.
+          For example,
+          we draw the dot diagram for the function from <xref ref="exam_function_finite"></xref>
+          in <xref ref="fig_function_finite"></xref>.
+        </p>
+        <figure xml:id="fig_function_finite">
+          <caption>The dot diagram of the function from <xref ref="exam_function_finite"></xref>.</caption>
+          image type not recognized
+        </figure>
+      </statement>
+    </definition>
+    <p>
+      Let's look at a dot diagram for a function where the domain and codomain are infinite sets.
+    </p>
+    <example xml:id="exam_dot_diagram_shift_left1">
+      <title>Dot diagram for \fn{lshift}</title>
+      <statement>
+        <p>
+          Draw the dot diagram for the function
+          <m>\fn{lshift}: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>\fn{lshift}(m) = m-1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since the domain and codomain are the set <m>\mathbb{Z}</m> which is infinite,
+          let's draw the points in two horizontal lines.
+          <xref ref="fig_dot_diagram_shift_left1"></xref>
+          shows a portion of the dot diagram,
+          along with <ellipsis/> on each end to indicate that the pattern continues in both directions.
+          We have drawn arrows from each integer <m>m</m> to <m>\fn{lshift}(m)</m>,
+          that is from <m>m</m> to <m>m-1</m>.
+          Many arrows are missing.
+          For example,
+          the diagram does not show the arrow from -3 in the top row to -4 in the bottom row and does not show the arrow from 4 in the top row to 3 in the bottom row.
+        </p>
+        <figure xml:id="fig_dot_diagram_shift_left1">
+          <caption>The dot diagram of the function from <xref ref="exam_dot_diagram_shift_left1"></xref>.</caption>
+          image type not recognized
+        </figure>
+      </solution>
+    </example>
+    <p>
+      Practice drawing dot diagrams.
+    </p>
+    <activity xml:id="act_fn_dot_diagrams">
+      <title>Dot diagrams of functions</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              The function <m>s: \{1,2,3\} \to \{1,2,3\}</m> is defined by <m>s(1) = 2</m>,
+              <m>s(2) = 3</m>, and <m>s(3) = 1</m>.
+              Draw the dot diagram for <m>s</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The function <m>f: \mathbb{N} \to \mathbb{N}</m> defined by <m>f(n) = 2^n</m>.
+              Draw the dot diagram for <m>f</m> as in <xref ref="fig_dot_diagram_shift_left1"></xref>.
+              Note that the domain and codomain are <m>\mathbb{N}</m>,
+              so there will only be <ellipsis/> on the right.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw the dot diagram of the constant function
+              <m>h:\{1,2\} \to \{1,2\}</m> defined by <m>h(n)=2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw the dot diagram of the identity function <m>i:\{1,2\} \to \{1,2\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We just drew the dot diagram of two functions from <m>\{1,2\}</m> to <m>\{1,2\}</m>.
+              How many other functions <m>k:\{1,2\} \to \{1,2\}</m> are there?
+              Draw the dot diagram each of the other functions.
+            </p>
+          </li>
+          <li>
+            <p>
+              How many functions <m>k: \{1,2\} \to \{1,2,3,4,5\}</m> are there?
+              Explain how to count.
+              Hint: in Step 1 decide on the value of <m>k(1)</m> and then in Step 2 decide on the value of <m>k(2)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              How many functions <m>k: \{1,2\} \to \{1,2,3,\ldots, n\}</m> are there?
+              State your answer as a conjecture involving <m>n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_infinite_sets_numbers">for</xref> \subinfsetsnumbers</title>
+      <exercise xml:id="exer_subsets_inf_sets_numbers">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Which of the sets <m>\mathbb{Z}</m>, <m>\mathbb{N}</m>,
+                  and <m>\mathbb{R}^*</m> have the integer -1 as an element?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why <m>\mathbb{Z}^+</m> is a subset of <m>\mathbb{R}^*</m>,
+                  but <m>\mathbb{N}</m> is not a subset of <m>\mathbb{R}^*</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_intervals">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Write the interval <m>[0,2.3]</m> using inequality notation.
+                  Is 0 in the interval?
+                  Is 2.3 in the interval?
+                  Is 5 in the interval?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the unbounded interval
+                  <m>(2.3,\infty)</m> using inequality notation.
+                  Is 0 in the interval?
+                  Is 2.3 in the interval?
+                  Is 5 in the interval?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the interval <m>(1,5)</m> using inequality notation.
+                  Is 0 in the interval?
+                  Is 2.3 in the interval?
+                  Is 5 in the interval?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which integers are in the interval <m>(1,5)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the interval <m>x \le 2.3</m> in interval notation.
+                  Is 0 in the interval?
+                  Is 2.3 in the interval?
+                  Is 5 in the interval?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_show_rational">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Show that each of the following real numbers is rational by writing it in the form
+            <m>\frac{a}{b}</m> for some integer <m>a</m> and some nonzero integer <m>b</m>.
+            <ol>
+              <li>
+                <p>
+                  17.5
+                </p>
+              </li>
+              <li>
+                <p>
+                  0.01
+                </p>
+              </li>
+              <li>
+                <p>
+                  4
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>0.\overline{3}=0.333333\ldots</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_inf_sets_numbers">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What sets the symbols <m>\mathbb{Z}</m>, <m>\mathbb{N}</m>,
+                  <m>\mathbb{Q}</m>, and <m>\mathbb{R}</m> stand for?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How the sets <m>S^*</m> and <m>S^+</m> are related to the set <m>S</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to decide whether a number is rational?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to decide if a number is real?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to translate between inequality and interval notation?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_defn_function_notation">for</xref> \subdefnfnnotation</title>
+      <exercise xml:id="exer_hs_nplus1">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The function <m>f: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>f(n) = \frac{n(n+1)}{2}</m>.
+            Recall from <xref ref="thm_hs"></xref>
+            that <m>f(n)</m> counts the number of handshakes in a group of <m>n+1</m> people and so <m>f(n)</m> is an integer.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <m>f</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>f(5)</m> and <m>f(6)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does there exist a value of <m>n</m> such that <m>f(n) =6</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does there exist a value of <m>n</m> such that <m>f(n) = 5</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the image of the function <m>f</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_alt_factorial">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the function <m>g: \mathbb{N} \to \mathbb{Z}</m> defined by <m>g(n) = (-1)^nn!</m> where,
+            as usual <m>n!</m> denotes the factorial <xref ref="defn_factorial"/>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <m>g</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>g(4)</m> and <m>g(5)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Could we have said that the codomain of <m>g</m> is <m>\mathbb{N}</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Since 0 is a natural number, <m>g(0)</m> is defined.
+                  Evaluate <m>g(0)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_modn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Recall that <m>a \fn{ mod } n</m> is the remainder when <m>a</m> is divided by n, as introduced in <xref ref="defn_quo_rem_div_mod"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Consider the function <m>t: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>t(a) = a \fn{ mod } 3</m>.
+                  Evaluate <m>t(5)</m>, <m>t(6)</m>, and <m>t(7)</m>.
+                  What is the image of <m>t</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(a) = a \fn{ mod } 4</m>.
+                  Evaluate <m>f(5)</m>, <m>f(6)</m>, and <m>f(7)</m>.
+                  What is the image of <m>f</m>?
+                  Be careful.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Fix an integer <m>n \ge 2</m> and consider the function
+                  <m>h: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>g(a) = a \fn{ mod } n</m>.
+                  What is the image of <m>h</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_nchoose3">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Recall that <m>\binom{n}{k}</m> is the number of ways to choose a subset of <m>k</m> objects from a set of <m>n</m> objects,
+            as defined in <xref ref="defn_binomial_coeff"></xref>.
+            Consider the function <m>\fn{choosethree}: \mathbb{N} \to \mathbb{Z}</m> defined by <m>\fn{choosethree}(n) = \binom{n+3}{3}</m>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of <c>choosethree</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>\fn{choosethree}(0)</m>,
+                  <m>\fn{choosethree}{1}</m>, and <m>\fn{choosethree}{2}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_gcd15">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Recall that <m>\fn{gcd}(a,b)</m> is the greatest common divisor of <m>a</m> and <m>b</m>,
+            as defined in <xref ref="defn_gcd"></xref>.
+            Consider the function <m>f: \mathbb{N} \to \mathbb{N}</m> defined by <m>f(n) = \fn{gcd}(n,15)</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>f(24)</m>, <m>f(10)</m>, and <m>f(7)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of three different integers with <m>f(n) = 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the image of <m>f</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_cex">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            Find a counterexample.
+            <ol>
+              <li>
+                <p>
+                  Every function <m>f: \mathbb{Z} \to \mathbb{Z}</m> has <m>f(0)=0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by
+                  <m>f(n)=n+3</m> has no value of <m>n</m> for which <m>f(n) = 0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_TorF_no_fn">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Decide if each statement is true or false.
+            If true, briefly explain why.
+            If false, give a counterexample.
+            <ol>
+              <li xml:id="part_no_fn_true">
+                <p>
+                  No function <m>f</m> has <m>f(0)=1</m> and <m>f(0)=-1</m>.
+                </p>
+              </li>
+              <li xml:id="part_no_fn_false">
+                <p>
+                  No function <m>f</m> has <m>f(1)=0</m> and <m>f(-1)=0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fixed_points_RZ">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="defn_constant_identity_fixed_points"></xref>
+            defines a fixed point of a function.
+            Find a fixed point of each function.
+            <ol>
+              <li>
+                <p>
+                  The function <m>q: \mathbb{R} \to \mathbb{R}</m> is defined by <m>q(x) = 1-x</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The constant function <m>c: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>c(n) = 3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The function <m>f: \mathbb{Z} \to \mathbb{Z}</m> is defined by
+                  <m>f(a) = a \fn{ mod } 4</m> from <xref ref="exer_fn_modn"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fn_vocab">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the three parts of the definition of a function are?
+                  Hint: two are sets.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the domain, codomain,
+                  and image of a function mean in terms of input and output values?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to identify the domain and codomain of a function from <m>f: X \to Y</m> notation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find the image of a function?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to pronounce
+                  <q><m>f(x)</m></q>
+                  when <m>f</m> is a function?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why we make a distinction between <m>f</m> and <m>f(x)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate a function?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the difference is between <m>f(2)</m> and <m>f(x)=2</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate a constant function?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the rule for the identity function is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What a fixed point of a function is?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prime_quadratic">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the function <m>q: \mathbb{N} \to \mathbb{N}</m> defined by <m>q(n) = n^2+n+41</m>.
+            <ol>
+              <li>
+                <p>
+                  Check that <m>q(0)</m>, <m>q(1)</m>,
+                  <m>q(2)</m>, <m>q(3)</m>, <m>q(4)</m>,
+                  <m>q(5)</m>, <m>q(6)</m>, and <m>q(7)</m> are each prime.
+                  You may consult the list we created in <xref ref="exam_sieve"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a positive integer <m>n</m> such that <m>q(n)</m> is composite.
+                  Hint: Note that <m>q(n) = n(n+1)+41</m>.
+                  Can you see a value of <m>n</m> where <m>n</m> or <m>(n+1)</m> might factor out?
+                  You may use computational technology,
+                  but do not just look up the answer.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_consecutive_ratios">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The function <m>f: \mathbb{Z}^+ \to \mathbb{Q}</m> is defined by <m>f(n) = \frac{n+1}{n}</m>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain and codomain of the function <m>f</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>f(1)</m>, <m>f(2)</m>, and <m>f(4)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What happens if you try to use the rule for <m>f</m> to evaluate <m>f(0)</m>?
+                  Why should we not be concerned about what happens?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>f(10)</m>, <m>f(100)</m>,
+                  and <m>f(\text{ 1,000 } )</m>.
+                  Write your answers in decimal format.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about the image of <m>f</m>.
+                  Write your answer as an inequality.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_consec_prod_even_fn">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Prove that the fraction <m>\frac{n(n+1)}{2}</m> is always an integer.
+            Hint: consider cases.
+            This proof justifies that the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by
+            <m>f(n) = \frac{n(n+1)}{2}</m> from <xref ref="exer_hs_nplus1"></xref>
+            always produces output values in the codomain <m>\mathbb{Z}</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_functions_on_Zn_vocab">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Recall that <m>a \fn{ mod } 10</m> is the remainder when <m>a</m> is divided by 10,
+            as introduced in <xref ref="defn_quo_rem_div_mod"></xref>.
+            <xref ref="sec_mod_arith">In</xref>, we introduced the set
+            <me>
+              \mathbb{Z}_{10}= \{0,1,2,3,4,5,6,7,8,9\}
+            </me>
+            where addition was defined by
+            <m>a \oplus b = a + b \fn{ mod } 10</m> and multiplication was defined by <m>a \otimes b = ab \fn{ mod } 10</m>.
+            <ol>
+              <li>
+                <p>
+                  Consider the function <m>g: \mathbb{Z}_{10} \to \mathbb{Z}_{10}</m> defined by <m>g(a) = 3 \oplus a</m>.
+                  What are the domain and codomain of <m>g</m>?
+                  Evaluate <m>g(4)</m>.
+                  Give an example of an element <m>a</m> of
+                  <m>\mathbb{Z}_{10}</m> such that <m>g(a) =1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the function <m>h: \mathbb{Z}_{10} \to \mathbb{Z}_{10}</m> defined by <m>h(a) = 3 \otimes a</m>.
+                  What are the domain and codomain of <m>h</m>?
+                  Evaluate <m>h(4)</m>.
+                  Give an example of an element <m>a</m> of
+                  <m>\mathbb{Z}_{10}</m> such that <m>h(a) =1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_defn_increasing">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider a function <m>f: X \to Y</m> where <m>X</m> and <m>Y</m> are subsets of <m>\mathbb{R}</m>.
+            The function <m>f</m> is <term>increasing</term>
+            if for every number <m>a</m> and <m>b</m>,
+            if <m>a \lt b</m>, then <m>f(a) \lt f(b)</m>.
+            <ol>
+              <li>
+                <p>
+                  <xref ref="pff_if_then_direct">Use</xref>
+                  to prove that the function
+                  <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = 3n</m> is increasing.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to show that the function
+                  <m>g: \mathbb{R} \to \mathbb{R}</m> defined by <m>g(x) = x^2</m> is not increasing.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_piecewise">for</xref> \subpiecewise</title>
+      <exercise xml:id="exer_evaluate_collatz">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The Collatz function <m>c: \mathbb{Z} \to \mathbb{Z}</m> defined by
+            <me>
+              c(n) =  \left\{ \begin{array}{cl} \frac{n}{2} \amp  \text{ if }  n \text{ is even }  \\ 3n+1 \amp  \text{ if }  n \text{ is odd } \end{array} \right
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>c(3)</m> and <m>c(4)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many values of <m>n</m> have <m>c(n) = 10</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many values of <m>n</m> have <m>c(n) = 11</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_absolute_value">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The function <m>\fn{abs}: \mathbb{Z} \to \mathbb{Z}</m> is defined by
+            <me>
+              \fn{abs}(n)= \left\{ \begin{array}{rl} n \amp  \text{ if }  n \text{ is non-negative }  \\ -n \amp  \text{ if }  n \text{ is negative } \end{array} \right
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>\fn{abs}(4)</m>,
+                  <m>\fn{abs}(0)</m>, and <m>\fn{abs}(-4)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why <m>\fn{abs}(n)</m> is always non-negative.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Identify the domain, codomain,
+                  and image of <m>\fn{abs}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            Note: <m>\fn{abs}(n)</m> is often denoted <m>|n|</m>.
+            These absolute value symbols (<m>|</m>) are at the same priority in the order of operations <xref ref="defn_integer_algebra_order_operations"/> as parentheses.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fn_piecewise">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to evaluate a piecewise-defined function?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find the image of a piecewise-defined function?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_collatz_conjecture">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <xref ref="exer_evaluate_collatz">In</xref>
+            we saw the Collatz function
+            <m>c: \mathbb{Z} \to \mathbb{Z}</m> defined by c(n) = \left\{
+          </p>
+          \begin{array}{cl}
+          \frac{n}{2} \amp  \text{ if }  n \text{ is even }  \\
+          3n+1 \amp  \text{ if }  n \text{ is odd }
+          \end{array}
+          <p>
+            \right<m></m>.. In this exercise,
+            we are going <term>iterate</term> the function <m>c</m>,
+            meaning we complete <m>c(n)</m>,
+            then evaluate <m>c</m> at the answer to get <m>c(c(n))</m>,
+            then evaluate <m>c</m> at the answer to get <m>c(c(c(n)))</m>,
+            and so on.
+            <ol>
+              <li>
+                <p>
+                  Starting with <m>n=6</m>, iterate the function <m>c</m>.
+                  This means evaluate <m>c(6)</m>,
+                  then <m>c(c(6))</m>, then <m>c(c(c(6)))</m>, and so on.
+                  You may stop when the pattern becomes obvious.
+                  Write down the list of values you get starting with 6.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Repeat for <m>n=7</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do you notice?
+                  State your answer as a conjecture.
+                  This conjecture is known as the
+                  <term>Collatz conjecture</term>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          <p>
+            You may read more about the Collatz conjecture online,
+            but wait until after you finished the parts of this exercise so you don't spoil the surprise.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_8isnotinimage">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the piecewise defined function
+            <me>
+              p(n) = \left\{ \begin{array}{cc} n+1 \amp  \text{ if \(n\) is even }  \\ 2n \amp  \text{ if \(n\) is odd } \end{array} \right
+            </me>.
+            Write a formal proof that <m>p(n) \neq 8</m> for all integers <m>n</m>.
+            Hints: Use a proof by contradiction <xref ref="pff_contradiction"/>.
+            Within that proof, use proof by case <xref ref="pff_cases"/>.
+            <xref ref="exam_piecewise_defined_function">See</xref>
+            <xref ref="part_8notinimage"/> for more detail.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_fn_dot_graph">for</xref> \subfndotgraphs</title>
+      <exercise xml:id="exer_domain_codomain_finite">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Identify the domain and codomain for each finite function and draw its dot diagram.
+            <ol>
+              <li xml:id="part_first_dot_finite">
+                <p>
+                  <m>f: \{1, 2, 3, 4\} \to \{a, b, c\}</m> defined by <m>f(1) = a, f(2) = b, f(3) = a, f(4) = c</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>g: \{1, 2, 3, 4\} \to \{a, b, c, d\}</m> defined by <m>g(1) = a, g(2) = b, g(3) = a, g(4) = c</m>
+                </p>
+              </li>
+              <li xml:id="part_third_dot_finite">
+                <p>
+                  <m>h: \{1, 2, 3, 4\} \to \{1,2,3,4\}</m> defined by <m>h(1) = 2, h(2) = 3, h(3) = 4, h(4) = 1</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>k: \{1, 2, 3, 4\} \to \{1,2,3,4\}</m> defined by <m>k(1) = 3, k(2) = 3, k(3) = 3, k(4) =3</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_nmapsto3n">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            The function <m>g: \mathbb{Z} \to \mathbb{Z}</m> is defined by <m>g(n) = 3n</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>g(6)</m> and <m>g(1)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does there exist a value of <m>n</m> such that <m>g(n)=6</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does there exist a value of <m>n</m> such that <m>g(n)=1</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the image of the function <m>g</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagram of <m>g</m> including <m>n=-3,-2,-1,0,1,2,3</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_1minusx">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the function <m>g: \mathbb{R} \to \mathbb{R}</m> defined by <m>g(x) = 1-x</m>.
+            <ol>
+              <li>
+                <p>
+                  Identify the domain of <m>g</m> and the codomain of <m>g</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>g(0)</m>, <m>g(0.5)</m>,
+                  <m>g(2)</m>, and <m>g(-2)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a real number <m>x</m> with <m>g(x) = 2</m>.
+                  How many real numbers <m>x</m> have <m>g(x) = 2</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the graph of <m>g</m> on the <m>xy</m>-plane by hand.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For what values of <m>x</m> is <m>g(x) \ge 0</m>.
+                  Answer using an inequality.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fn_numbthy_dotdiagram">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Pay careful attention to the domain and codomain when drawing dot diagrams.
+            <ol>
+              <li>
+                <p>
+                  Draw the dot diagram for the function <m>t: \mathbb{Z} \to \mathbb{Z}</m> defined by
+                  <m>t(a) = a \fn{ mod } 3</m> from <xref ref="exer_fn_modn"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagram for the function <m>\fn{choosethree}: \mathbb{N} \to \mathbb{Z}</m> defined by
+                  <m>\fn{choosethree}(n) = \binom{n+3}{3}</m> from <xref ref="exer_fn_nchoose3"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagram for the function <m>f: \mathbb{N} \to \mathbb{N}</m> defined by
+                  <m>f(n) = \fn{gcd}(n,15)</m> from <xref ref="exer_fn_gcd15"></xref>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_graphing_identity_function">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            We defined the identity function in <xref ref="defn_constant_identity_fixed_points"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Draw the dot diagram of the identity function <m>i:\{1,2,3,4\} \to \{1,2,3,4\}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagram of the identity function <m>i: \mathbb{Z} \to \mathbb{Z}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the graph on the <m>xy</m>-plane of the identity function <m>i: \mathbb{R} \to \mathbb{R}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the graph on the <m>xy</m>-plane of the identity function <m>i: \mathbb{Z} \to \mathbb{Z}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_graphing_constant">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            We defined a constant function in <xref ref="defn_constant_identity_fixed_points"></xref>.
+            <ol>
+              <li>
+                <p>
+                  Draw the dot diagram of the constant function
+                  <m>c:\{1,2,3,4\} \to \{1,2,3,4\}</m> defined by <m>c(n)=2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the dot diagram of the constant function
+                  <m>c:\mathbb{Z} \to \mathbb{Z}</m> defined by <m>c(n)=2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the graph on the <m>xy</m>-plane of the constant function
+                  <m>c: \mathbb{R} \to \mathbb{R}</m> defined by <m>c(x)=2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Draw the graph on the <m>xy</m>-plane of the constant function
+                  <m>c: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>c(x)=2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_fn_dot_graphs">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to draw the dot diagram for a function when the domain and codomain are finite?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to draw the dot diagram for a function when the domain and codomain are
+                  (possibly infinite)
+                  subsets of <m>\mathbb{Z}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to draw the graph of a function when the domain and codomain are subsets of <m>\mathbb{R}</m>?
+                  For any complicated rule, you are welcome to use DESMOS\texttrademark.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How are <m>x</m> and <m>y</m> related if the point <m>(x,y)</m> is on the graph of the function <m>f</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why some graphs of functions in the <m>xy</m>-plane consist of separate points while other graphs have continuous lines or curves?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_count_functions_finite">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The first three parts of this exercise duplicate our work in <xref ref="act_fn_dot_diagrams"></xref>.
+            Hint: A question beginning
+            <q>how many</q>
+            asks you to count.
+            For example,
+            you can use that steps multiply <xref ref="thm_steps_multiply"/>.
+            <ol>
+              <li>
+                <p>
+                  How many functions <m>f:\{1,2\} \to \{1,2\}</m> are there?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many functions <m>f:\{1,2\} \to \{1,2,3\}</m> are there?
+                  Explain how to count using steps.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many functions <m>f:\{1,2\} \to \{1,2,3, \ldots n\}</m> are there?
+                  State your answer as a conjecture involving a function of <m>n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many functions <m>f:\{1,2,3\} \to \{1,2\}</m> are there?
+                  Explain how to count using steps.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many functions <m>f:\{1,2,3, \ldots n\} \to \{1,2\}</m> are there?
+                  State your answer as a conjecture involving a function of <m>n</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_desmos_lines">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In each part of this exercise,
+            use {DESMOS\texttrademark} to graph the functions <m>y =f(x)</m> on the same set of axes for
+            <m>-5 \le x \le 5</m> and <m>-15 \le x \le 15</m>.
+            Some properties that could be similar or different:
+            is/is not a line, having the same/different slope
+            (rise over run),
+            having the same/different <m>y</m>-intercept
+            (point where the graph crosses the <m>y</m>-axis),
+            being increasing (uphill as move left to right)/decreasing
+            (downhill as move left to right).
+            <ol>
+              <li>
+                <p>
+                  Compare the graphs of <m>y=x</m> and <m>y = -x</m> by saying what is similar and different.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compare the graphs <m>y = x+1</m> and <m>y = 1-x</m> by saying what is similar and different.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compare the graphs of <m>y=x</m>, <m>y=2x</m>,
+                  and <m>y=3x</m> by saying what is similar and different.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compare the graphs of <m>y = x+1</m>, <m>y = x+2</m>,
+                  and <m>y = x+3</m> by saying what is similar and different.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compare the graphs of <m>y=x+1</m> and
+                  <m>y = x^2+1</m> by saying what is similar and different.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_subsets_inf_sets_numbers"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: two of the sets contain -1.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: 0 in <m>\mathbb{N}</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_intervals"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>0 \le x \le 2.3</m>, yes, yes, no.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>x > 2.3</m>, no, no, yes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: answer should involve <m>\lt</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: three integers.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: the answer involves <m>-\infty</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_alt_factorial"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\mathbb{N}</m>, <m>\mathbb{Z}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            -24, 120 (Show work.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: no
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>(-1)^0=1</m> and <m>0!=1</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fn_modn"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            2, 0, 1, <m>\{0,1,2\}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: evaluate <m>f(8)</m> too
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: what are the possible values of <m>a \fn{ mod } n</m>?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fn_nchoose3"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\mathbb{N}</m>, <m>\mathbb{Z}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\binom{5}{3}=10</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fn_gcd15"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answers in some order are 1, 3, 5.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Make sure none of your examples are divisible by three or divisible by five
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What are the divisors of 15?
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_functions_on_Zn_vocab"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\mathbb{Z}_{10}</m>, <m>\mathbb{Z}_{10}</m>, 7, 8
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>3 \otimes 4 = 2</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_defn_increasing"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your proof should begin ``<em>Proof.</em>
+            Let <m>a</m> and <m>b</m> be integers.
+            Assume <m>a \lt b</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find real numbers <m>a</m> and <m>b</m> where <m>a \lt b</m> but <m>a^2 \ge b^2</m>.
+            Consider negatives.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_absolute_value"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answers are 0 and 4.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Consider two cases.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: For the image consider (b).
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_collatz_conjecture"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            3, 10, 5, 16, 8, 4, 2, 1, 4, 2, 1, 4, 2, 1, <ellipsis/>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It should end the same way.
+          </p>
+        </li>
+        <li>
+          <p>
+            It always hits 1 and then repeats.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_domain_codomain_finite"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            The domain is <m>\{1,2,3,4\}</m>.
+            The codomain is <m>\{a,b,c\}</m>,
+            and the dot diagram is shown in <xref ref="fig_answer_exer_domain_codomain_finite"></xref>.
+            <figure xml:id="fig_answer_exer_domain_codomain_finite">
+              <caption>The dot diagram <xref ref="exer_domain_codomain_finite">for</xref> <xref ref="part_first_dot_finite"/></caption>
+              image type not recognized
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Note that <m>d</m> is in the codomain although no arrow points into it.
+          </p>
+        </li>
+        <li>
+          <p>
+            The domain and codomain are <m>\{1,2,3,4\}</m>.
+            The dot diagram is shown in <xref ref="fig_answer_exer_domain_codomain_finite2"></xref>.
+            <figure xml:id="fig_answer_exer_domain_codomain_finite2">
+              <caption>The dot diagram <xref ref="exer_domain_codomain_finite">for</xref> <xref ref="part_third_dot_finite"/></caption>
+              image type not recognized
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: All arrows should point to 3.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_nmapsto3n"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            18, 3
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: yes
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: no
+          </p>
+        </li>
+        <li>
+          <p>
+            The multiples of three.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The domain and codomain are
+            <m>\mathbb{Z}</m> so there should be <ellipsis/> on the left and right for each row.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_1minusx"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>\mathbb{R}</m>, <m>\mathbb{R}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answers in some order are <m>-1, 0.5, 1, 3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Solve <m>1-x=2</m>.
+            There is one solution.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The graph is a line of slope -1 with <m>y</m>-intercept 1 and <m>x</m>-intercept 1.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>x \le 1</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_fn_numbthy_dotdiagram"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: All arrows should point to 0, 1, or 2.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The domain is <m>\mathbb{N}</m> so the dot diagram has <m>\ldots</m> on the right,
+            but the codomain is <m>\mathbb{Z}</m> so the dot diagram has <m>\ldots</m> on the left and right.
+            There should be an arrow from 0 to 1 and an arrow from 1 to 4.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The domain and codomain are
+            <m>\mathbb{N}</m> so the dot diagram has <m>\ldots</m> on the right.
+            Every arrow points to 1, 3, 5, or 15.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_graphing_identity_function"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: All arrows should point horizontally.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: All arrows should point vertically.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The graph is the line <m>y=x</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The graph consists of isolated points on the line <m>y=x</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_graphing_constant"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: All arrows should point into 2.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: All arrows should point into 2.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The graph is a horizontal line.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The graph consists of isolated dots along that horizontal line.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

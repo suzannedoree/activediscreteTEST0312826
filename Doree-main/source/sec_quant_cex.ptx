@@ -1,0 +1,2021 @@
+<section xml:id="sec_quant_cex">
+  <title>Quantifiers</title>
+  <introduction>
+    <p>
+      <xref ref="act_TorF">In</xref> there were statements involving variables in which the truth of the statement depended on whether the statement was about all values,
+      some values, or no values of the variables.
+      Each of the words
+      <q>all</q>,
+      <q>some</q>, and
+      <q>no</q>
+      has a specific meaning in mathematics and computer science.
+      In this section, we consider such <term>quantifiers</term>
+      and their negations and formally introduce the idea of a
+      <term>counterexample</term>.
+      We also look at how to prove quantified statements.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_set_game">
+    <title>\subsetgame</title>
+    <p>
+      Let's start with a puzzle.
+    </p>
+    <p>
+      The game SET\texttrademark<nbsp/> is produced by SET Enterprises,
+      part of Monster Play.
+      You can learn to play the game at \url{https://tinyurl.com/learntoplaySET}. There is a lot of information about this game on the Internet.
+      Resist the temptation to use any resources to find answers to this
+      (or any)
+      activity.
+      The fun part is figuring it out for yourself!
+    </p>
+    <activity xml:id="act_set_game">
+      <title>The game SET\texttrademark</title>
+      <p>
+        In the game SET\texttrademark,
+        there is a deck of special cards.
+        Each card has the image of some number of a colored shape with some level of shading.
+        If there is more than one shape on a card,
+        the others shapes on the card are repeats of that shape with the same color and level of shading.
+        For example, there is a card that has two striped,
+        purple ovals, as shown in <xref ref="fig_SET_2SPO"></xref>.
+      </p>
+      <figure xml:id="fig_SET_2SPO">
+        <caption>The SET\texttrademark <nbsp/> card with two striped, purple ovals. (<em>2SPO)</em></caption>
+        <image width="50%" source="images/2SPO.png"/>
+      </figure>
+      <p>
+        There are four characteristic of the image on each card:
+        number, shading, color, and shape.
+        Each characteristic has three options as summarized in <xref ref="table_set_game_card_options"></xref>.
+      </p>
+      <table xml:id="table_set_game_card_options">
+        <title>The options for each characteristic for the image on each card in the game SET\texttrademark</title>
+        <tabular>
+          <row>
+            <cell>characteristic</cell>
+            <cell>options (with their abbreviations)</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>number</cell>
+            <cell><em>1</em>, <em>2</em>, or <em>3</em></cell>
+          </row>
+          <row>
+            <cell>shading</cell>
+            <cell>none (<em>N</em>), striped (<em>S</em>), or full (<em>F</em>)</cell>
+          </row>
+          <row>
+            <cell>color</cell>
+            <cell>red (<em>R</em>), purple (<em>P</em>), or green (<em>G</em>)</cell>
+          </row>
+          <row>
+            <cell>symbol</cell>
+            <cell>oval (<em>O</em>), diamond (<em>D</em>), or squiggle (<em>Q</em>)</cell>
+          </row>
+        </tabular>
+      </table>
+      <ol>
+        <li>
+          <p>
+            Write the abbreviation for each card shown in <xref ref="figure_set_game_2cards"></xref>.
+            The card on the left is green and the card on the right is red.
+            <figure xml:id="figure_set_game_2cards">
+              <caption>Two cards from the game SET\texttrademark.</caption>
+              <image width="50%" source="images/1FGD.png"/> <nbsp/><nbsp/> <image width="50%" source="images/3NRQ.png"/>
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            For each combination of options there is exactly one card in the deck with that combination.
+            How many cards are there in the game SET\texttrademark?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            A set of three cards is a <term>SET</term>
+            if for each of the characteristics either the images on the three cards all agree or are all different.
+            That is, all four of the following conditions must be met.
+            <ul>
+              <li>
+                <p>
+                  All three cards have the same number or there is one with 1, one with 2, and one with 3.
+                </p>
+              </li>
+              <li>
+                <p>
+                  All three cards have the same shading or there is one with none,
+                  one striped, and one full.
+                </p>
+              </li>
+              <li>
+                <p>
+                  All three cards have the same color or there is one red,
+                  one purple, and one green.
+                </p>
+              </li>
+              <li>
+                <p>
+                  All three cards have the same symbol or there is one oval,
+                  one diamond, and one squiggle.
+                </p>
+              </li>
+            </ul>
+          </p>
+          Check that the set of three cards shown in <xref ref="figure_show_set"></xref> is a SET.
+          <figure xml:id="figure_show_set">
+            <caption>An example of a SET.</caption>
+            <image width="50%" source="images/IsSET.png"/> \{<em>2NRO</em>, <em>2SRO</em>, <em>2FRO</em>\}
+          </figure>
+        </li>
+        <li>
+          <p>
+            Is the set of three cards shown in <xref ref="figure_decide_if_set"></xref> a SET? Justify your answer.
+            <figure xml:id="figure_decide_if_set">
+              <caption>Is this set of three cards a SET?</caption>
+              <image width="50%" source="images/AnotherSET.png"/> \{<em>1SGQ</em>, <em>2SPO</em>, <em>3SRD</em>\}
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why the set of three cards shown in <xref ref="figure_show_not_set"></xref> is not a SET.
+            <figure xml:id="figure_show_not_set">
+              <caption>An example of three cards that are not a SET.</caption>
+              <image width="50%" source="images/NotSET.png"/> \{<em>1FGD</em>, <em>1NPD</em>, <em>1NRD</em>\}
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the set of three cards shown in <xref ref="figure_all_diff_set"></xref> a SET? Justify your answer.
+            <figure xml:id="figure_all_diff_set">
+              <caption>Is this different set of three cards a SET?</caption>
+              <image width="50%" source="images/AllDiffSET.png"/> \{<em>1SPO</em>, <em>2FGD</em>, <em>3NRQ</em>\}
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            What third card makes a SET with the pair of cards from <xref ref="figure_set_game_2cards"></xref>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Given a pair of cards,
+            explain how we can find a third card that makes a SET with the given pair.
+            Be sure to explain in general (tell someone step-by-step how to find the missing third card.)
+          </p>
+        </li>
+      </ol>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_quantifiers">
+    <title>\subquant</title>
+    <p>
+      In the game SET\texttrademark,
+      a set of three cards forms a SET if for each characteristic,
+      all the cards agree or none of the cards agree.
+      A set of three cards is not a SET if,
+      for some characteristic,
+      the cards have two of one kind and one of a different kind.
+      Part of the challenge of learning the game is grappling with words like
+      <q>each</q>,
+      <q>all</q>,
+      <q>none</q>, and
+      <q>some</q>
+      which are examples of quantifiers.
+    </p>
+    <definition xml:id="defn_quantifiers">
+      <title>Quantifiers</title>
+      <statement>
+        <p>
+          Quantifiers can be defined on any set.
+          Throughout this definition, our examples use the set of integers.
+          <ol>
+            <li>
+              <p>
+                We indicate that a statement <m>P</m> depends on a variable <m>n</m> by writing <m>P(n)</m> instead of <m>P</m>.
+                The notation <m>P(n)</m> is <term>predicate notation</term>.
+                For example,
+                if <m>P(n)</m> means that the integer <m>n</m> is odd,
+                then <m>P(3)</m> means that the integer <m>3</m> is odd,
+                which is true,
+                but <m>P(10)</m> means that the integer <m>10</m> is odd,
+                which is false.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>universal quantifier</term>,
+                denoted <m>\forall</m>, means
+                <q>for all</q>.
+                <ul>
+                  <li>
+                    <p>
+                      The statement <m>\forall n P(n)</m> means that <m>P(n)</m> is true for all values of <m>n</m>.
+                      For example,
+                      if <m>P(n)</m> means that the integer <m>2n</m> is even,
+                      then <m>\forall n ~ P(n)</m> means that every integer of the form <m>2n</m> is even,
+                      which is true.
+                      On the other hand, if <m>Q(n)</m> means that <m>3 \mid n</m>,
+                      then <m>\forall n ~ Q(n)</m> means that every integer is divisible by three,
+                      which is false because, for example, 17 is not divisible by three.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      The statement <m>\forall n(\neg P(n))</m> means <m>P(n)</m> is false for all values of <m>n</m>.
+                      For example,
+                      if <m>R(n)</m> means that the integer <m>2n+1</m> is even,
+                      then <m>\forall n (\neg R(n))</m> means that no integer of the form <m>2n+1</m> is even,
+                      which is true.
+                    </p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>existential quantifier</term>,
+                denoted <m>\exists</m> means
+                <q>there exists.</q>
+                <ul>
+                  <li>
+                    <p>
+                      The statement <m>\exists n ~ P(n)</m> means that <m>P(n)</m> is true for some value(s) of <m>n</m>.
+                      For example, if <m>Q(n)</m> means that <m>3 \mid n</m>,
+                      then <m>\exists n ~ Q(n)</m> means that some integer is divisible by three,
+                      which is true because, for example, 12 is divisible by three.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      The statement <m>\exists n (\neg P(n))</m> means that <m>P(n)</m> is false for some value(s) of <m>n</m>.
+                      For example, if <m>Q(n)</m> means <m>3 \mid n</m>,
+                      then <m>\exists n (\neg Q(n))</m> means that some integer is not divisible by three,
+                      which is true because, for example, 17 is not divisible by three.
+                    </p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      There are many different English words and phrases that indicate quantifiers.
+    </p>
+    <remark>
+      <title>English words indicating quantifiers</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Words and phrases that indicate a universal quantifier include:
+              a, all, always, any, each, every, everyone, etc.
+            </p>
+          </li>
+          <li>
+            <p>
+              Words and phrases that indicate a universal quantifier followed by a negation include:
+              impossible, never, no, no one, none, nothing, etc.
+            </p>
+          </li>
+          <li>
+            <p>
+              Words and phrases that indicate an existential quantifier include:
+              at least one, can, contains, has,
+              possible, some, someone, sometimes,
+              there exist, there exists there is, there are, etc.
+            </p>
+          </li>
+          <li>
+            <p>
+              Note that some words and phrases that indicate the existential quantifier are plural,
+              but it takes only one value of <m>n</m> where <m>S(n)</m> is true to make the statement <m>\exists n ~ S(n)</m> true.
+              For example, in mathematics, some means at least one.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </remark>
+    <p>
+      Universally quantified statements are sometimes written without an explicit quantifier.
+      For example,
+      we might say <m>2n</m> is even when we really mean <m>2n</m> is even for all integers <m>n</m>.
+    </p>
+    <remark xml:id="rem_default_universal">
+      <title>Default universal</title>
+      <p>
+        If a statement about variables does not explicitly state a quantifier,
+        the default assumption is that the quantifier is universal.
+      </p>
+    </remark>
+    <p>
+      Practice working with quantified statements.
+    </p>
+    <activity xml:id="act_TorF_again">
+      <title>More true or false?</title>
+      <p>
+        Identify a word or phrase that indicates a quantifier,
+        decide if each statement is true or false,
+        and discuss how to justify your answer.
+        <ol>
+          <li xml:id="part_exists_5vert_5edge">
+            <p>
+              There is a graph that has five vertices and five edges.
+            </p>
+          </li>
+          <li xml:id="part_forall_5vert_5edge">
+            <p>
+              Any graph with five vertices has five edges.
+            </p>
+          </li>
+          <li xml:id="part_more_edges_than_verts">
+            <p>
+              No graph has more edges than vertices.
+            </p>
+          </li>
+          <li xml:id="part_sq_has3div">
+            <p>
+              Some square integers have exactly three positive divisors.
+            </p>
+          </li>
+          <li xml:id="part_sq_ex3div">
+            <p>
+              Any square integer has exactly three positive divisors.
+            </p>
+          </li>
+          <li xml:id="part_regular_graph">
+            <p>
+              Some graphs are regular.
+              Recall that in a <term>regular</term> graph,
+              every vertex has the same degree.
+            </p>
+          </li>
+          <li xml:id="part_not_regular_graphs">
+            <p>
+              Some graphs are not regular.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at a few more examples identifying words or phrases that indicate a quantifier.
+    </p>
+    <example xml:id="exam_words_quants">
+      <title>Identifying quantifiers</title>
+      <statement>
+        <p>
+          In each statement,
+          find a word or phrase that indicates a quantifier and say which:
+          <m>\forall</m> or <m>\exists</m>.
+          In some parts, both quantifiers are involved.
+          (We saw these statements in <xref ref="act_TorF"></xref>
+          and <xref ref="act_TorF_again"></xref>.)
+          <ol>
+            <li>
+              <p>
+                There are three distinct digits whose sum is 23.
+                <solution>
+                  <p>
+                    The phrase
+                    <q>there are</q>
+                    indicates an existential quantifier <m>\exists</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Some integers are divisible by three and five.
+                <solution>
+                  <p>
+                    The word
+                    <q>some</q>
+                    indicates an existential quantifier <m>\exists</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                A graph with five vertices is the cycle <m>C_5</m> or the complete graph <m>K_5</m>.
+                <solution>
+                  <p>
+                    The word
+                    <q>a</q>
+                    indicates a universal quantifier <m>\forall</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                No graph has more edges than vertices.
+                <solution>
+                  <p>
+                    The word
+                    <q>no</q>
+                    indicates a universal quantifier <m>\forall</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_bs5_contains1">
+              <p>
+                Every bit string of length five contains at least one <c>1</c>.
+                <solution>
+                  <p>
+                    The word
+                    <q>every</q>
+                    indicates a universal quantifier <m>\forall</m> and the word
+                    <q>contains</q>
+                    indicates an existential quantifier <m>\exists</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_pff_quants">
+    <title>\subpffquants</title>
+    <p>
+      How do we prove that a quantified statement is true?
+    </p>
+    <p>
+      To prove an existentially quantified statement,
+      all we need to do is provide an example.
+      Here is the proof format.
+    </p>
+    <proof>
+    <p>
+      Prove: <m>\exists n ~ P(n)</m>.
+    </p>
+    <proof>
+      <p>
+        Consider <m>n=</m>
+        (example).
+      </p>
+      <p>
+        (Explain why <m>P(n)</m> is true.)
+      </p>
+      <p>
+        Therefore, <m>P(n)</m> is true for some
+        (describe type of object)
+        <m>n</m>, namely <m>n=</m>
+        (example).
+      </p>
+    </proof>
+    </proof>
+    <p>
+      In the first sentence of <xref ref="pff_exists"></xref>
+      we present an example without any explanation of how we found that example.
+      Mathematicians sometimes explain where the example came from,
+      but that explanation is not a required part of the proof.
+      Let's look at a quick example.
+    </p>
+    <example xml:id="exam_exists_graph_5vert_5edge">
+      <title>There is a graph with five vertices and five edges</title>
+      <statement>
+        <p>
+          <xref ref="act_TorF_again">Prove</xref>
+          <xref ref="part_exists_5vert_5edge"/> that there is a graph that has five vertices and five edges.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The phrase
+          <q>there is</q>
+          indicates an existentially quantified statement,
+          so we <xref ref="pff_exists">follow</xref>.
+        </p>
+        <p>
+          <em>Proof.</em> Consider the cycle <m>C_5</m>.
+          Recall that <m>C_5</m> has five vertices and five edges.
+          Therefore, there is a graph that has five vertices and five edges,
+          namely <m>C_5</m>.
+        </p>
+      </solution>
+    </example>
+    <p>
+      The proof of a universally quantified statement is more complicated because we have to prove that the statement holds for all possible examples.
+      In some cases, we can simply check every example.
+    </p>
+    <example xml:id="exam_check_every_example">
+      <title>Checking every example</title>
+      <statement>
+        <p>
+          <xref ref="sec_mod_arith">In</xref>,
+          we introduced the integers mod 5, <m>\mathbb{Z}_5=\{0,1,2,3,4\}</m>.
+          In <m>\mathbb{Z}_5</m>,
+          multiplication is defined by <m>a \otimes b = ab \fn{ mod } 5</m>.
+          Prove that there is no solution to <m>x^2=2</m> in <m>\mathbb{Z}_5</m>.
+          Note that <m>x^2 = x \otimes x</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We can check each element of
+          <m>\mathbb{Z}_5</m> to see if it is a solution.
+          Our work is displayed in <xref ref="tab_dne_sqrt2_mod5"></xref>.
+          Since none of the elements of <m>\mathbb{Z}_5</m> is a solution,
+          we can conclude that there is no solution to <m>x^2=2</m> in <m>\mathbb{Z}_5</m>.
+        </p>
+        <table xml:id="tab_dne_sqrt2_mod5">
+          <title>Checking that <m>x^2=2</m> has no solution in <m>\mathbb{Z}_5</m></title>
+          <tabular>
+            <row>
+              <cell><m>x</m></cell>
+              <cell>evaluate <m>x^2</m> in <m>\mathbb{Z}_5</m></cell>
+              <cell>does <m>x^2=2</m>?</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>0</cell>
+              <cell><m>0^2 = 0\fn{ mod } 5= 0</m></cell>
+              <cell>no</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell><m>1^2 = 1\fn{ mod } 5= 1</m></cell>
+              <cell>no</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell><m>2^2 = 4\fn{ mod } 5= 4</m></cell>
+              <cell>no</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell><m>3^2 = 9\fn{ mod } 5= 4</m></cell>
+              <cell>no</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>4</cell>
+              <cell><m>4^2 = 16\fn{ mod } 5= 1</m></cell>
+              <cell>no</cell>
+            </row>
+          </tabular>
+        </table>
+      </solution>
+    </example>
+    <p>
+      In the previous example, we were able to check all five possible examples.
+      But if the list of possible examples is very long or infinite,
+      it is not reasonable or possible to check every example,
+      and it is not enough to just check some examples.
+      Here is the proof format.
+    </p>
+    <proof>
+    <p>
+      Prove: <m>\forall n ~ P(n)</m>.
+    </p>
+    <proof>
+      <p>
+        Let <m>n</m> be an
+        (describe the type of object).
+      </p>
+      <p>
+        (Explain why <m>P(n)</m> is true.)
+      </p>
+      <p>
+        Therefore, <m>P(n)</m> is true for all
+        (describe the type of object)
+        <m>n</m>.
+      </p>
+    </proof>
+    </proof>
+    <p>
+      The proof begins by naming an arbitrary object,
+      <m>n</m>, of the type described.
+      This first sentence invites the reader to select any value of <m>n</m>.
+      Next, we show that the statement is true for that particular but unknown <m>n</m>.
+      Our proof must work for whatever value <m>n</m> the reader selected.
+    </p>
+    <p>
+      Let's look at a quick example.
+    </p>
+    <example xml:id="exam_6qminus10_is_even">
+      <title><m>6q-10</m> is even</title>
+      <statement>
+        <p>
+          Use the definition of even to prove that for every integer <m>q</m>,
+          the integer <m>6q-10</m> is even.
+          (This proof <xref ref="sec_even_odd_divides">was</xref>
+          <xref ref="exer_linears_even_odd"></xref>
+          <xref ref="part_6qminus10_is_even"/>.)
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The phrase
+          <q>for every</q>
+          indicates a universally quantified statement,
+          so we <xref ref="pff_forall">follow</xref>.
+        </p>
+        <p>
+          <em>Proof.</em> Let <m>q</m> be an integer.
+          Then <m>6q-10=2(3q-5)=2k</m> where <m>k=3q-5</m> is an integer.
+          By the definition of even, it follows that <m>6q-10</m> is even.
+          Therefore, for every integer <m>q</m>,
+          the integer <m>6q-10</m> is even.
+        </p>
+      </solution>
+    </example>
+    <p>
+      As usual, after we introduce new proof formats,
+      we give you the opportunity to practice.
+    </p>
+    <activity xml:id="act_proof_quants">
+      <title>Proofs of quantified statements</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_exists_int_4div">
+            <p>
+              Copy the following proof.
+              Note that the phrase
+              <q>there is</q>
+              indicates an existentially quantified statement,
+              so we <xref ref="pff_exists">use</xref>.
+              Prove that there is an integer that has exactly four positive divisors.
+              <proof>
+                <p>
+                  Consider the integer six.
+                  The positive divisors of six are 1, 2, 3, and 6.
+                  Thus, six has exactly four positive divisors.
+                  Therefore, there is an integer that has exactly four positive divisors.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_exists_int_4div"/> to prove that there is an integer with exactly three positive divisors.
+            </p>
+          </li>
+          <li xml:id="part_ndivnfactorial">
+            <p>
+              Copy the following proof.
+              Note that the phrase
+              <q>for any</q>
+              indicates a universally quantified statement,
+              so we <xref ref="pff_forall">use</xref>.
+              Prove <m>n \mid n!</m> for any integer <m>n</m>.
+              <proof>
+                <p>
+                  Let <m>n</m> be an integer.
+                  Note that <m>n!=n(n-1)!=nk</m> where
+                  <m>k=(n-1)!</m> By the definition of divides,
+                  it follows that <m>n \mid n!</m> Therefore,
+                  <m>n \mid n!</m> for every integer <m>n</m>.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_ndivnfactorial"/> to prove
+              <m>2 \mid 2^n</m> for any integer <m>n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Many interesting mathematical statements involve both existential and universal quantifiers.
+      Fortunately, we do not need new proof formats.
+      Instead, we can nest proof formats one inside the other,
+      as if they were Matryoshka dolls<fn>
+      See wikipedia Matryoshka doll.
+      </fn> or nested loops in computer programming.
+      Try writing proofs that nest the proof formats for existentially and universally quantified statements.
+    </p>
+    <activity xml:id="act_proof_quants_nested">
+      <title>Proofs of nested quantified statements</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_proof_forall_exists">
+            <p>
+              Copy the following proof.
+              Note that we <xref ref="pff_forall">use</xref> and,
+              within that format, we <xref ref="pff_exists">use</xref>.
+              We have indented the lines to highlight the nesting.
+              Prove that for any integer <m>n</m> there is an integer <m>m</m> such that <m>n+m=100</m>.
+              <proof>
+                <p>
+                  Let <m>n</m> be an integer.
+                </p>
+                <p>
+                  Consider the integer <m>m=100-n</m>.
+                </p>
+                <p>
+                  Then <m>n+m=n+(100-n)=100</m>.
+                </p>
+                <p>
+                  Thus, there is an integer <m>m</m> with <m>n+m=100</m>,
+                  namely <m>m=100-n</m>.
+                </p>
+                <p>
+                  Therefore, for any integer <m>n</m> there is an integer <m>m</m> such that <m>n+m=100</m>.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_proof_forall_exists"/> to prove that for any integer <m>n</m> there is an integer <m>k</m> such that <m>n-k=100</m>.
+              Hint: Solve for <m>k</m> before starting to write the proof.
+            </p>
+          </li>
+          <li xml:id="part_proof_exists_forall">
+            <p>
+              Copy the following proof.
+              Note that we <xref ref="pff_exists">use</xref> and,
+              within that format, we <xref ref="pff_forall">use</xref>.
+              Notice that we are nesting the quantifiers in the opposite order from <xref ref="part_proof_forall_exists"/>.
+              We have indented the lines to highlight the nesting.
+              Prove that there exists an integer <m>z</m> such that <m>zn=z</m> for any integer <m>n</m>.
+              <proof>
+                <p>
+                  Consider the integer <m>z=0</m>.
+                </p>
+                <p>
+                  Let <m>n</m> be an integer.
+                </p>
+                <p>
+                  Then <m>zn=(0)(n)=0=z</m>.
+                </p>
+                <p>
+                  Thus, <m>zn=z</m> for any integer <m>n</m>.
+                </p>
+                <p>
+                  Therefore, there exists an integer <m>z</m> such that <m>zn=z</m> for any integer <m>n</m>,
+                  namely <m>z=0</m>.
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              Edit the proof in <xref ref="part_proof_exists_forall"/> to prove that there exists an integer <m>w</m> such that <m>wn=n</m> for any integer <m>n</m>.
+              Hint: Solve for <m>w</m> before starting to write to write the proof.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      The last sentences of the proofs in <xref ref="act_proof_quants_nested"></xref> may seem repetitive.
+      They are logically necessary and a good idea for you to write as you are first learning proofs,
+      but in practice mathematicians often omit those final sentences.
+    </p>
+    <remark xml:id="rem_omit_last_sentence_proof_quants">
+      <title>Omitting the concluding sentence of proofs of quantified statements</title>
+      <p>
+        It is common to omit the concluding sentence(s) of a proof of a quantified statement.
+      </p>
+    </remark>
+    <p>
+      Here is an example <xref ref="rem_omit_last_sentence_proof_quants">using</xref>.
+    </p>
+    <example xml:id="exam_omit_last_sentence_proof_quants">
+      <title>Omitting the concluding lines of a proof of a quantified statement</title>
+      <statement>
+        <p>
+          Write a shorter version of the proof from <xref ref="act_proof_quants_nested"></xref>
+          <xref ref="part_proof_forall_exists"/>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Prove that there exists an integer <m>z</m> such that <m>zn=z</m>for any integer <m>n</m>.
+        </p>
+        <p>
+          <em>Proof.</em> Consider the integer <m>z=0</m> and let <m>n</m> be any integer.
+          Then <m>zn=(0)(n)=0=z</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_cex">
+    <title>\subcex</title>
+    <p>
+      How do we prove that a quantified statement is false?
+      To answer this question,
+      we need to recognize the negations of quantified statements.
+      You may want to <xref ref="act_TorF">revisit</xref>
+      and <xref ref="act_TorF_again"></xref>
+      to see if you can state these negations for yourself before reading on.
+    </p>
+    <theorem xml:id="thm_neg_quants">
+      <title>Negating quantified statements</title>
+      <statement>
+        <p>
+          For any statement <m>P(n)</m>,
+          we have the following negations of quantified statements.
+          <ol>
+            <li xml:id="part_neg_forall">
+              <p>
+                Negating a universally quantified statement:
+                <me>
+                  \neg \left( \forall n ~ P(n) \right) \equiv \exists n (\neg P(n))
+                </me>.
+              </p>
+            </li>
+            <li xml:id="part_neg_exists">
+              <p>
+                Negating an existentially quantified statement:
+                <me>
+                  \neg \left( \exists n ~ P(n) \right) \equiv \forall n (\neg P(n))
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Let's unpack this theorem a bit.
+    </p>
+    <example xml:id="exam_neg_forall">
+      <title>Negating a universally quantified statement</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Explain <xref ref="thm_neg_quants">why</xref>
+                <xref ref="part_neg_forall"/> is correct.
+                <solution>
+                  <p>
+                    The statement <m>\forall n ~ P(n)</m> says <m>P(n)</m> is always true.
+                    The negation would say <m>P(n)</m> is not always true which is equivalent to saying <m>P(n)</m> is sometimes false.
+                  </p>
+                  <p>
+                    The statement <m>\exists n (\neg P(n))</m> says
+                    <m>\neg P(n)</m> is sometimes true which is equivalent to saying <m>P(n)</m> is sometimes false.
+                  </p>
+                  <p>
+                    Thus <m>\neg(\forall n ~ P(n)) \equiv \exists n (\neg P(n))</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain <xref ref="thm_neg_quants">why</xref>
+                <xref ref="part_neg_exists"/> is correct.
+                <solution>
+                  <p>
+                    The statement <m>\exists n ~ P(n)</m> says <m>P(n)</m> is sometimes true.
+                    The negation would say <m>P(n)</m> is never true which is equivalent to saying <m>P(n)</m> is always false.
+                  </p>
+                  <p>
+                    The statement <m>\forall n (\neg P(n))</m> says
+                    <m>\neg P(n)</m> is always true which is equivalent to saying <m>P(n)</m> is always false.
+                  </p>
+                  <p>
+                    Thus <m>\neg(\exists n ~ P(n)) \equiv \forall n (\neg P(n))</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      <xref ref="thm_neg_quants">By</xref>,
+      to prove that a universally quantified statement is false,
+      all it takes is one example where it is false.
+      There is a special name for an example that shows that a universally quantified statement is false.
+    </p>
+    <definition xml:id="defn_cex">
+      <title>Counterexample</title>
+      <statement>
+        <p>
+          A <em>counterexample</em> is an example where a universally-quantified statement is false.
+          For example,
+          a counterexample to the false statement Every square integer has exactly three positive divisors. from <xref ref="act_TorF"></xref>
+          <xref ref="part_sq_has3div"/> is the integer 16 because <m>16=4^2</m> is a square,
+          but 16 has five positive divisors: 1, 2, 4, 8, and 16.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Practice finding counterexamples.
+    </p>
+    <activity xml:id="act_cex_my_first">
+      <title>Counterexamples</title>
+      <p>
+        Each of the following universally quantified statements is false.
+        Find a specific counterexample to each statement.
+        Hints: It might help to write the negation.
+        Make sure to use DeMorgan's Laws <xref ref="thm_demorgans"/> if the statement involves
+        <q>and</q>
+        or
+        <q>or</q>.
+        <ol>
+          <li>
+            <p>
+              Every integer is divisible by three.
+            </p>
+          </li>
+          <li>
+            <p>
+              No integer is divisible by three and five.
+            </p>
+          </li>
+          <li>
+            <p>
+              Any integer is divisible by three or five.
+            </p>
+          </li>
+          <li>
+            <p>
+              Every prime is odd.
+            </p>
+          </li>
+          <li>
+            <p>
+              Any composite is even.
+            </p>
+          </li>
+          <li>
+            <p>
+              Each integer has at least two positive divisors.
+            </p>
+          </li>
+          <li>
+            <p>
+              No integer has more than five positive divisors.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      While a counterexample is enough to prove that a universally quantified statement is false,
+      to prove that an existentially quantified statement is false,
+      we have to prove that a universally quantified statement is true <xref ref="pff_forall">using</xref>.
+    </p>
+  </subsection>
+  <subsection>
+    <title>Exercises <xref ref="sub_set_game">for</xref> \subsetgame</title>
+    <introduction>
+      <exercise xml:id="exer_set_game_online">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Play the SET\texttrademark<nbsp/> game online here: \url{https://buddyboardgames.com/set}. Invite friends to join you or play on your own.
+            Note that once someone finds a SET, those three cards are removed and replaced by three new cards,
+            which is how the in-person game works.
+            Play for at least 15 minutes and tell me how that went for you.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_game_daily_puzzle">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Try to solve the Daily SET Puzzle at \url{https://www.setgame.com/set/puzzle}. Note that each time you find a SET, it is recorded in a table on the side.
+            There will be exactly six different SETs you can find.
+            Cards may be repeated in different SETs.
+            You have to wait until the next day to try it again.
+            Try to solve this Daily Puzzle for at least 15 minutes
+            (or until you solve it)
+            and tell me how that went for you.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_game_plane">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            A <term>plane</term> is a collection of four cards that they can be grouped in two pairs where each pair is
+            <q>missing</q>
+            the same third card to create a SET. Give an example of a plane whose missing card is <em>2SPO</em>
+            shown in <xref ref="fig_SET_2SPO"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_game_cards_noset">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Create a deal of eight purple cards that does not contain any SET. Briefly justify why there is no SET.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Create a deal of 12 cards that does not contain any SET. Briefly justify why there is no SET. Hint: Use at least two different colors.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_set_game_count_sets_total">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Given one card, how many different SETs could it be in?
+                  Justify your answer.
+                  Caution: It is easy to count each SET twice by mistake.
+                  If so, just divide by two to get the correct count.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many different SETs could be made from cards in the deck
+                  (not all at the same time).
+                  Explain your reasoning.
+                  Caution: It is easy to over count by mistake.
+                  If so, figure out what to divide by to get the correct count.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </introduction>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_quantifiers">for</xref> \subquant</title>
+      <exercise xml:id="exer_quant_word_graphs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the graph <m>G</m> drawn in <xref ref="fig_elephant_quants"></xref>.
+            Recall that a <term>leaf</term> is a vertex with degree one.
+            For each statement about <m>G</m>,
+            identify a word or phrase that indicates a quantifier and decide if each statement is true or false.
+            Briefly justify your answer.
+          </p>
+          <figure xml:id="fig_elephant_quants">
+            <caption>The graph <m>G</m> <xref ref="sec_quant_cex">for</xref> <xref ref="exer_quant_word_graphs"></xref>.</caption>
+            image type not recognized
+          </figure>
+          <ol>
+            <li>
+              <p>
+                There is a vertex of degree four in <m>G</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                No vertex in <m>G</m> has degree two.
+              </p>
+            </li>
+            <li>
+              <p>
+                Every degree leaf in <m>G</m> is adjacent to a degree four vertex.
+              </p>
+            </li>
+            <li>
+              <p>
+                Some degree three vertices in <m>G</m> are adjacent to a leaf.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_quant_coprime">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For each statement,
+            identify a word or phrase that indicates a quantifier and decide if each statement is true or false.
+            Briefly justify your answer.
+            <ol>
+              <li>
+                <p>
+                  The integers <m>n</m> and <m>n+1</m> are always coprime.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Sometimes, the integers <m>n</m> and <m>n+2</m> are coprime.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The integers <m>n</m> and <m>n+3</m> are never coprime.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equals_own_sq_predicate">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For any integer <m>n</m>, the statement <m>S(n)</m> means that <m>n^2=n</m>.
+            Decide if each statement is true or false.
+            Briefly justify your answers.
+            <ol>
+              <li>
+                <p>
+                  <m>S(1)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S(-1)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S(2)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S(0)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_equals_own_sq_quants">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For any integer <m>n</m>, the statement <m>T(n)</m> means that <m>n^2>n</m>.
+            Decide if each statement is true or false.
+            Briefly justify your answers.
+            <ol>
+              <li>
+                <p>
+                  <m>\forall n ~ T(n)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\exists n ~ T(n)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\exists n ~ \neg T(n)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_list_integers_true">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For any integer <m>n</m>,
+            the statement <m>S(n)</m> means that <m>n</m> is greater than six and <m>E(n)</m> means that <m>n</m> is less than 11.
+            For what value(s) of <m>n</m>,
+            if any, is each statement true?
+            Report your answer as a list,
+            using <m>\ldots</m> to indicate an infinite set.
+            No explanation required.
+            <ol>
+              <li>
+                <p>
+                  <m>S(n) \land E(n)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\neg S(n)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\neg S(n) \land \neg T(n)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S(n) \oplus E(n)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>S(n) \lor E(n)</m> (think!)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_quants">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the symbols <m>\forall</m> and <m>\exists</m> stand for?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which common words indicate an existential or universal quantifier?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Whether a statement with
+                  <q>no</q>
+                  or
+                  <q>none</q>
+                  is universally quantified or existentially quantified?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When a statement of the form
+                  <m>\forall n ~ P(n)</m> is true and when it is false?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When a statement of the form
+                  <m>\exists n ~ P(n)</m> is true and when it is false?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_quants_not_distribute_or">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Give an example of predicates <m>P(n)</m> and <m>Q(n)</m> such that <m>\forall n (P(n) \lor Q(n))</m> is true,
+            but <m>(\forall n~ P(n)) \lor (\forall n~ Q(n))</m> is false.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_follows_social_media">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The predicate <m>F(a,b)</m> means that person <m>a</m> follows person <m>b</m> on social media.
+            <ol>
+              <li>
+                <p>
+                  Write as a sentence: <m>\forall a ~ F(a, \text{ Selena Gomez } )</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write as a sentence: <m>\exists b ~ F(\text{ Selena Gomez } , b)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain the difference between
+                  <m>\forall a ~ \exists b ~ F(a,b)</m> and <m>\exists b ~ \forall a ~ F(a,b)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_quants">for</xref> \subpffquants</title>
+      <exercise xml:id="exer_easy_proofs_exists">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="pff_exists">Use</xref>
+            to prove each of the following statements.
+            <ol>
+              <li>
+                <p>
+                  There is a prime greater than 20.
+                </p>
+              </li>
+              <li>
+                <p>
+                  There is a prime that divides 20.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Some bit strings have length 20.
+                </p>
+              </li>
+              <li>
+                <p>
+                  There exists a graph with 20 vertices.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_all_odd_degree">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In the graph <m>G</m> drawn in <xref ref="fig_all_odd_degree"></xref>,
+            prove that every vertex in <m>G</m> has odd degree by checking every example,
+            as in <xref ref="exam_check_every_example"></xref>.
+          </p>
+          <figure xml:id="fig_all_odd_degree">
+            <caption>The graph <m>G</m> in <xref ref="sec_quant_cex"></xref> <xref ref="exer_all_odd_degree"></xref>.</caption>
+            image type not recognized
+          </figure>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_easy_proofs_forall">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="pff_forall">Use</xref>
+            to prove each of the following statements.
+            <ol>
+              <li>
+                <p>
+                  For every integer <m>q</m>, the integer <m>6q+1</m> is odd.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>n \mid (n^2+n)</m> for any integer <m>n</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_proof_exists_forall">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="pff_forall">Use</xref>
+            and <xref ref="pff_exists"></xref>
+            to prove that there is an integer <m>z</m> such that <m>n+z=n</m> for any integer <m>n</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rational_soln">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <xref ref="pff_forall">Use</xref>
+            and <xref ref="pff_exists"></xref>
+            to prove that the equation <m>2n+1=k</m> has a rational solution for any integer <m>k</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_pff_quants">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to prove that a universally quantified statement is true?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove that an existentially quantified statement is true?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to nest proof formats?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_cex">for</xref> \subcex</title>
+      <exercise xml:id="exer_cex_graphs">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            Provide a counterexample.
+            <ol>
+              <li>
+                <p>
+                  Any graph with five vertices has five edges.
+                </p>
+              </li>
+              <li>
+                <p>
+                  No graph has more edges than vertices.
+                </p>
+              </li>
+              <li>
+                <p>
+                  A graph with five vertices is the cycle <m>C_5</m> or the complete graph <m>K_5</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Every graph is regular.
+                  Recall that a graph is <term>regular</term>
+                  if every vertex has the same degree.
+                </p>
+              </li>
+              <li>
+                <p>
+                  No graph has chromatic number greater than four.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cex_numberthy">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            Provide a counterexample.
+            <ol>
+              <li>
+                <p>
+                  Every prime is odd.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Any composite is even.
+                </p>
+              </li>
+              <li>
+                <p>
+                  No two composites are coprime.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Every integer has a prime divisor.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cex_bs">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            Provide a counterexample.
+            <ol>
+              <li>
+                <p>
+                  All bit strings of length six have an even number of <c>0</c> s.
+                </p>
+              </li>
+              <li>
+                <p>
+                  No bit string of length seven can both begin and end with <c>00</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Every bit string of length five begins or ends with <c>0</c>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_neg_numberthy">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            Write the negation.
+            Hint: The negation should be true.
+            Another hint: Use DeMorgan's Laws <xref ref="thm_demorgans"/>.
+            <ol>
+              <li>
+                <p>
+                  Every integer is divisible by three and five.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Any integer is divisible by three or five.
+                </p>
+              </li>
+              <li>
+                <p>
+                  No integer is divisible by three and five.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Some integer is divisible by three but not divisible by six.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rearrange_3letter_word">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example to prove that the following statement is true: There is a 3-letter word where there are 3! ways to arrange the letters
+                  (not all of which have to be real words).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to prove that the following statement is false: For any 3-letter word,
+                  there are 3! ways to arrange the letters (not all of which have to be real words.)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_cex">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  Why the negation of a universally quantified statement is an existentially quantified statement,
+                  and vice versa?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove that a universally quantified statement is false?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to prove that an existentially quantified statement is false?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What a counterexample is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which theorem can help us negate a statement involving
+                  <q>and</q>
+                  or
+                  <q>or</q>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_irregular_graphs">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Let <m>G</m> be a graph with <m>n \ge 2</m> vertices.
+            <ol>
+              <li>
+                <p>
+                  What is the largest possible degree of a vertex in <m>G</m>?
+                  Hint: Your answer should involve <m>n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Could <m>G</m> have a vertex of degree zero and a vertex of degree <m>n-1</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  State the negation of the statement: There are at least two vertices in <m>G</m> that have equal degree.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use contradiction to prove that there are at least two vertices in <m>G</m> that have equal degree.
+                  Hint: Consider what would happen if the <m>n</m> vertices each had different degrees.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cex_gcd">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Each of the following statements is false.
+            Provide a counterexample.
+            <ol>
+              <li>
+                <p>
+                  Consider the statement <m>\fn{gcd}(a,2b) = \fn{gcd}(a,b)</m>.
+                  Give an example of integers <m>a</m> and <m>b</m> where the statement is true and give a counterexample to show the statement is not true in general.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the statement <m>\fn{gcd}(a,2b) = 2\fn{gcd}(a,b)</m>.
+                  Give an example of integers <m>a</m> and <m>b</m> where the statement is true and give a counterexample to show the statement is not true in general.
+                </p>
+              </li>
+              <li>
+                <p>
+                  When is <m>\fn{gcd}(a,2b) = \fn{gcd}(a,b)</m> and when is <m>\fn{gcd}(a,2b) = 2\fn{gcd}(a,b)</m>?
+                  Your answers should involve <m>a</m> and <m>b</m>.
+                  Hint: Prime factorization.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_quant_word_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <q>There is</q>
+            indicates an existential quantifier.
+            The statement is true.
+            For example, the vertex <m>s_2</m> has degree four.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint:
+            <q>No</q>
+            indicates a universal quantifier.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The leaves are <m>s_1</m> and <m>s_2</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_quant_coprime"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <q>Always</q>
+            indicates a universal quantifier.
+            The statement is true.
+            We proved it in <xref ref="act_proof_contradiction"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is true.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is false.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_equals_own_sq_quants"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: You can find an example of an integer <m>n</m> with <m>n^2=n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            True.
+            For example <m>3^2>3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: True.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_follows_social_media"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Everybody follows Selena Gomez on social media.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your answer should be different from (a).
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try using words
+            <q>everybody</q>
+            and
+            <q>somebody</q>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_easy_proofs_exists"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <em>Proof.</em> Consider <m>n=23</m>.
+            Note that <m>23 > 20</m> and 23 is prime because <m>2 \nmid 23</m>,
+            <m>3 \nmid 23</m>, and <m>\sqrt{23} \lt 5</m>.
+            (It is okay if you just wrote
+            <q>23 is prime</q>.)
+            Therefore, there is a prime greater than 20, namely 23.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>2 \mid 20</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find a bit string of length 20.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use a standard graph with 20 vertices.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_all_odd_degree"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and <xref ref="tab_all_odd_deg">complete</xref>.
+      </p>
+      <table xml:id="tab_all_odd_deg">
+        <title>Checking that every vertex of the graph <m>G</m> from <xref ref="fig_all_odd_degree"></xref> has odd degree</title>
+        <tabular>
+          <row>
+            <cell>vertex</cell>
+            <cell>degree</cell>
+            <cell>odd?</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>a</m></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>b</m></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>c</m></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>d</m></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>e</m></cell>
+            <cell>3</cell>
+            <cell>yes</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell><m>f</m></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_easy_proofs_forall"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Edit the proof in <xref ref="exam_6qminus10_is_even"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Edit the proof in <xref ref="act_proof_quants"></xref>
+            <xref ref="part_ndivnfactorial"/>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_proof_exists_forall"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Edit the proof in <xref ref="act_proof_quants_nested"></xref><xref ref="part_proof_exists_forall"/>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rational_soln"></xref>  Select Answers and Hints</title>
+      <p>
+        Hint: Edit the proof in <xref ref="act_proof_quants_nested"></xref>
+        <xref ref="part_proof_forall_exists"/>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_cex_graphs"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Your graph should have five vertices but not five edges.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your graph should have more edges than vertices.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your graph should have five vertices and not be <m>C_5</m> or <m>K_5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Your graph should have at least two different numbers in its degree sequence.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look <xref ref="exam_chromatic_K4_C5">at</xref>
+            <xref ref="part_chromatic_K4"/>.
+            That is not a counterexample,
+            but you can generalize to find a counterexample.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_cex_numberthy"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There is only one even prime.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: One counterexample is <m>15=3 \times 5</m>.
+            Find a different counterexample.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Find two composites that are not coprime.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The number 1 is not prime.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_neg_numberthy"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Some integers are divisible by three or five.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <xref ref="thm_demorgans">Use</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint:
+            <q>No</q>
+            indicates the universal quantifier.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try starting the negation with
+            <q>No</q>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

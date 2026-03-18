@@ -1,0 +1,1999 @@
+<section xml:id="sec_matrix">
+  <title>Excursion: Matrices and Finite Groups</title>
+  <introduction>
+    <p>
+      Matrices (arrays) are a common discrete structure.
+      They are used to store information of all kinds,
+      including graphs, as we saw in <xref ref="sec_std_graphs"></xref>.
+      In this section, we learn how to multiply
+      <m>2 \times 2</m> matrices and look for patterns in the powers of <m>2 \times 2</m> matrices.
+      We verify our conjectures using mathematical induction.
+      Finally, we look at the abstract concept of a group.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_matrix_powers">
+    <title>\submatpowers</title>
+    <p>
+      We begin with some definitions.
+    </p>
+    <definition xml:id="defn_matrix">
+      <title>Matrix multiplication and powers</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <m>m \times n</m> <term>matrix</term>
+                is an array with <term>entries</term>
+                in each of <m>m</m> rows and <m>n</m> columns.
+                For example,
+                <me>
+                  C = \left[ \begin{array}{ccc} -2 \amp  3 \amp  0 \\ -1 \amp  1 \amp  2 \end{array}  \right]
+                </me>
+                is a <m>2 \times 3</m> matrix.
+              </p>
+            </li>
+            <li>
+              <p>
+                In this textbook, we only work with <term>square</term>
+                matrices where the number of rows equals the number of columns.
+                For example,
+                <me>
+                  B = \left[ \begin{array}{rr} 2 \amp  -3 \\ 1 \amp  2 \end{array}  \right]
+                </me>
+                is a square <m>2 \times 2</m> matrix.
+              </p>
+            </li>
+            <li>
+              <p>
+                Two special <m>2 \times 2</m> matrices are the <term>zero matrix</term>
+                <m>\mathbf{0} = \left[ \begin{array}{cc} 0 \amp 0\\ 0 \amp 0 \end{array} \right]</m> and the
+                <term>identity matrix</term>
+                <m>I = \left[ \begin{array}{cc} 1 \amp 0\\ 0 \amp 1 \end{array} \right]</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For <m>2 \times 2</m> matrices,
+                the complicated formula for <term>matrix multiplication</term> is
+                <me>
+                  \left[ \begin{array}{cc} a_1 \amp  b_1 \\ c_1 \amp  d_1 \end{array}  \right]\left[ \begin{array}{cc} a_2 \amp  b_2 \\ c_2 \amp  d_2 \end{array}  \right]=\left[ \begin{array}{cc} a_1a_2 + b_1c_2 \amp  a_1b_2+b_1d_2\\ c_1a_2 + d_1c_2 \amp  c_1b_2+d_1d_2 \end{array}  \right]
+                </me>.
+                To obtain the entry in the <m>i</m>th row and the <m>j</m>th column of the matrix product,
+                we use the <m>i</m>th row of the first matrix and the <m>j</m>th column of the second matrix.
+                For example,
+                the entry in the first row and second column of the matrix product is
+                <m>a_1b_2+b_1d_2</m> which uses the first row (<m>a_1</m> and <m>b_1</m>) of the first matrix and the second column (<m>b_2</m> and <m>d_2</m>) of the second matrix.
+                For example, consider the matrices
+                <m>A=\left[ \begin{array}{rr} -1 \amp  2 \\ 0 \amp  3 \end{array}  \right]</m> and <m>B=\left[ \begin{array}{rr} 2 \amp  -3 \\ 1 \amp  2 \end{array}  \right]</m>.
+                Then
+                <me>
+                  AB=\left[ \begin{array}{rr} -1 \amp  2 \\ 0 \amp  3 \end{array}  \right]\left[ \begin{array}{rr} 2 \amp  -3 \\ 1 \amp  2 \end{array}  \right] =\left[ \begin{array}{cc} (-1)(2)+(2)(1) \amp  (-1)(-3)+(2)(2)\\ (0)(2)+(3)(1) \amp  (0)(-3)+(3)(2) \end{array}  \right] = \left[ \begin{array}{rr} 0 \amp  7 \\ 3 \amp  6 \end{array}  \right]
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Matrix multiplication is <term>associative</term>
+                <me>
+                  A(BC)=(AB)C
+                </me>
+                but it is not commutative.
+                For example,
+                for those same matrices <m>A</m> and <m>B</m> we have
+                <me>
+                  BA = \left[ \begin{array}{rr} 2 \amp  -3 \\ 1 \amp  2 \end{array}  \right]\left[ \begin{array}{rr} -1 \amp  2 \\ 0 \amp  3 \end{array}  \right] =\left[ \begin{array}{cc} (2)(-1)+(-3)(0) \amp  (2)(2)+(-3)(3))\\ (1)(-1)+(2)(0) \amp  (1)(2)+(2)(3) \end{array}  \right] = \left[ \begin{array}{rr} -2 \amp  -5 \\ -1 \amp  8 \end{array}  \right]
+                </me>
+              </p>
+            </li>
+            <li>
+              <p>
+                For a square matrix <m>A</m> and a positive integer <m>s</m>,
+                the <term>matrix power</term> is
+                <me>
+                  A^s= \underbrace{AA\cdots A}_{s \text{ times } }
+                </me>
+                For example,
+                <me>
+                  \left[ \begin{array}{rr} -1 \amp  2 \\ 0 \amp  3 \end{array}  \right]^2 = \left[ \begin{array}{rr} -1 \amp  2 \\ 0 \amp  3 \end{array}  \right]\left[ \begin{array}{rr} -1 \amp  2 \\ 0 \amp  3 \end{array}  \right] =\left[ \begin{array}{cc} (-1)(-1)+2(0) \amp  (-1)(2)+(2)(3)\\ (0)(-1)+(3)(0) \amp  (0)(2)+(3)(3) \end{array}  \right] = \left[ \begin{array}{rr} 1 \amp  4 \\ 0 \amp  9 \end{array}  \right]
+                </me>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      In our next example, we look at higher powers of a matrix.
+    </p>
+    <example xml:id="exam_matrix_power">
+      <title>Pattern in matrix powers</title>
+      <statement>
+        <p>
+          Consider the matrix <m>A = \left[ \begin{array}{cc} 1 \amp  1\\ 0 \amp  1 \end{array}  \right]</m>.
+          <ol>
+            <li>
+              <p>
+                Calculate <m>A^2</m> and <m>A^3</m>.
+                <solution>
+                  <p>
+                    We have
+                    <me>
+                      A^2 =  \left[ \begin{array}{cc} 1 \amp  1\\ 0 \amp  1 \end{array}  \right] \left[ \begin{array}{cc} 1 \amp  1\\ 0 \amp  1 \end{array}  \right] = \left[ \begin{array}{cc} 1+0 \amp  1+1\\ 0+0 \amp  0+1 \end{array}  \right] =  \left[ \begin{array}{cc} 1 \amp  2\\ 0 \amp  1 \end{array}  \right]
+                    </me>.
+                    Next,
+                    <me>
+                      A^3 =  AA^2= \left[ \begin{array}{cc} 1 \amp  1\\ 0 \amp  1 \end{array}  \right] \left[ \begin{array}{cc} 1 \amp  2\\ 0 \amp  1 \end{array}  \right] =  \left[ \begin{array}{cc} 1+0 \amp  2+1\\ 0+0 \amp  0+1 \end{array}  \right] =  \left[ \begin{array}{cc} 1 \amp  3\\ 0 \amp  1 \end{array}  \right]
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Make a conjecture about an explicit formula for <m>A^n</m> for <m>n \ge 1</m>.
+                <solution>
+                  <p>
+                    Based on our examples,
+                    we might conjecture that <m>A^n=\left[ \begin{array}{cc} 1 \amp n\\ 0 \amp 1 \end{array} \right]</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's practice calculating matrix products and powers.
+    </p>
+    <activity xml:id="act_matrix_mult_powers">
+      <title>Matrix multiplication and powers</title>
+      <p>
+        <nbsp/> Consider the matrix <m>A=\left[ \begin{array}{cc} 1 \amp 0 \\ 3 \amp 1 \end{array} \right]</m>.
+        <ol>
+          <li>
+            <p>
+              Calculate <m>A^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Calculate <m>A^3</m> using that <m>A^3=AA^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Conjecture an explicit formula for <m>A^n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      We can define functions that involve matrices.
+    </p>
+    <example xml:id="exam_matrix_functions">
+      <title>Functions that involve matrices</title>
+      <statement>
+        <p>
+          Let <m>\mathscr{M}(\mathbb{Z})</m> be the set of
+          <m>2 \times 2</m> matrices with integer entries.
+          <ol>
+            <li>
+              <p>
+                Consider the function <m>f: \mathbb{Z} \to \mathscr{M}(\mathbb{Z})</m> defined by <m>f(n) = \left[ \begin{array}{cc} 1 \amp 0 \\ 3n \amp 1 \end{array} \right]</m>.
+                Identify the domain and codomain of <m>f</m> and evaluate <m>f(2)</m>.
+                <solution>
+                  <p>
+                    The domain is <m>\mathbb{Z}</m>,
+                    the codomain is <m>\mathscr{M}(\mathbb{Z})</m>,
+                    and <m>f(2) = \left[ \begin{array}{cc} 1 \amp 0 \\ 6 \amp 1 \end{array} \right]</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Consider the function <m>\fn{det}: \mathscr{M}(\mathbb{Z}) \to \mathbb{Z}</m> defined by <m>\fn{det} \left( \left[ \begin{array}{cc} a \amp b \\ c \amp d \end{array} \right] \right) = ad-bc</m>.
+                Identify the domain and codomain of
+                <m>\fn{det}</m> and evaluate <m>\fn{det}\left( \left[ \begin{array}{cc} 1 \amp 2 \\ 3 \amp 5 \end{array} \right] \right)</m>.
+                <solution>
+                  <p>
+                    The domain is <m>\mathscr{M}(\mathbb{Z})</m>,
+                    the codomain is <m>\mathbb{Z}</m>,
+                    and <m>\fn{det}\left( \left[ \begin{array}{cc} 1 \amp 2 \\ 3 \amp 5 \end{array} \right] \right)=(1)(5)-(2)(3) = -1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li xml:id="part_mult_matrix_fn">
+              <p>
+                Consider the function <m>T: \mathscr{M}(\mathbb{Z}) \to \mathscr{M}(\mathbb{Z})</m> defined by
+                <m>T(A) = MA</m> where <m>M = \left[ \begin{array}{cr} 1 \amp  2 \\ 0 \amp  -1 \end{array}  \right]</m>.
+                Identify the domain and codomain of <m>T</m> and evaluate <m>T\left( \left[ \begin{array}{cc} 1 \amp  2 \\ 3 \amp  5 \end{array}  \right] \right)</m>.
+                <solution>
+                  <p>
+                    The domain is <m>\mathscr{M}(\mathbb{Z})</m>,
+                    the codomain is also <m>\mathscr{M}(\mathbb{Z})</m>, and
+                    <me>
+                      T\left( \left[ \begin{array}{cc} 1 \amp  2 \\ 3 \amp  5 \end{array}  \right] \right) = \left[ \begin{array}{cr} 1 \amp  2 \\ 0 \amp  -1 \end{array}  \right] \left[ \begin{array}{cc} 1 \amp  2 \\ 3 \amp  5 \end{array}  \right] = \left[ \begin{array}{cc} 1+6 \amp  2+10 \\ 0-3 \amp  0-5 \end{array}  \right] = \left[ \begin{array}{rr} 7 \amp  12 \\ -3 \amp  -5 \end{array}  \right]
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We can also define sets that involve matrices.
+    </p>
+    <example xml:id="exam_matrix_sets">
+      <title>Sets that involve matrices</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Give two examples of elements in the set
+                <me>
+                  \left\{\left[ \begin{array}{cc} a \amp  b \\ 0 \amp  a \end{array}  \right] \mid a, b \in \mathbb{Z} \right\}
+                </me>
+                <solution>
+                  <p>
+                    We can choose any integer values of <m>a</m> and <m>b</m>.
+                    For example, when <m>a = 2</m> and <m>b=3</m>,
+                    we get the element <m>\left[ \begin{array}{cc} 2 \amp 3 \\ 0 \amp 2 \end{array} \right]</m>.
+                    As another example, when <m>a = 1</m> and <m>b=0</m>,
+                    we get the element <m>I</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Confirm that <m>I</m> and <m>C = \left[ \begin{array}{cc} 0 \amp  -1 \\ -1 \amp  0 \end{array}  \right]</m> are elements of the set <m>\mathscr{B} = \left\{ B \in \mathscr{M}(\mathbb{Z}) \mid B^2=I \right\}</m>
+                <solution>
+                  <p>
+                    We check that
+                    <me>
+                      I^2 = \left[ \begin{array}{cc} 1 \amp  0 \\ 0 \amp  1 \end{array}  \right] \left[ \begin{array}{cc} 1 \amp  0 \\ 0 \amp  1 \end{array}  \right] = \left[ \begin{array}{cc} 1+0 \amp  0+0 \\ 0+0 \amp  0+1 \end{array}  \right] = \left[ \begin{array}{cc} 1 \amp  0 \\ 0 \amp  1 \end{array}  \right] = I
+                    </me>.
+                    Thus <m>I \in \mathscr{B}</m>.
+                    Next, we check that
+                    <me>
+                      C^2= \left[ \begin{array}{cc} 0 \amp  -1 \\ -1 \amp  0 \end{array}  \right] \left[ \begin{array}{cc} 0 \amp  -1 \\ -1 \amp  0 \end{array}  \right] = \left[ \begin{array}{cc} 0+1 \amp  0+0 \\ 0+0 \amp  1+0 \end{array}  \right] = \left[ \begin{array}{cc} 1 \amp  0 \\ 0 \amp  1 \end{array}  \right] = I
+                    </me>.
+                    Thus <m>C \in \mathscr{B}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Give an explicit definition of the set
+                <me>
+                  \mathscr{A}= \{ A \in \mathscr{M}(\mathbb{Z}) \mid NA = \mathbf{0}\}
+                </me>
+                where <m>N = \left[ \begin{array}{cc} 1 \amp  2 \\ 1 \amp  2 \end{array}  \right]</m>.
+                <solution>
+                  <p>
+                    Suppose <m>A = \left[ \begin{array}{cc} a \amp  b \\ c \amp  d \end{array}  \right] \in \mathscr{A}</m>.
+                    Then
+                    <me>
+                      NA = \left[ \begin{array}{cc} 1 \amp  2 \\ 1 \amp  2 \end{array}  \right] \left[ \begin{array}{cc} a \amp  b \\ c \amp  d \end{array}  \right] = \left[ \begin{array}{cc} a+2c \amp  b+2d \\ a+2c \amp  b+2d \end{array}  \right] = \left[ \begin{array}{cc} 0 \amp  0 \\ 0 \amp  0 \end{array}  \right]
+                    </me>.
+                    We must have <m>a+2c = 0</m> which means <m>a = -2c</m>.
+                    We must also have <m>b+2d = 0</m> which means <m>b = -2d</m>.
+                    That is,
+                    <me>
+                      A = \left[ \begin{array}{rr} -2c \amp  -2d \\ c \amp  d \end{array}  \right]
+                    </me>.
+                    We can write
+                    <me>
+                      \mathscr{A} = \left\{ \left[ \begin{array}{rr} -2c \amp  -2d \\ c \amp  d \end{array}  \right] \mid c, d \in \mathbb{Z} \right\}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_pff_verify_power_matrix">
+    <title>\subpffindmatrix</title>
+    <p>
+      We can use mathematical induction to verify our conjectures about powers of matrices.
+    </p>
+    <proof>
+    <p>
+      For a matrix <m>A</m>, prove <m>A^n=</m>
+      (matrix with explicit rule for each entry as a function of <m>n</m>)
+      for <m>n \ge 1</m>.
+    </p>
+    <proof>
+      <p>
+        Write <m>M_n=</m>
+        (matrix with explicit rule for each entry as a function of <m>n</m>).
+        Induct on <m>n</m>.
+      </p>
+      <p>
+        First, when <m>n=1</m> we know that <m>A^1=A=</m>
+        (matrix <m>A</m>)
+        and also <m>M_1=</m>
+        (evaluate and simplify to get the same answer).
+      </p>
+      <p>
+        Next, assume <m>A^{n-1}=M_{n-1}=</m>
+        (evaluate and simplify),
+        for some integer <m>n > 1</m>.
+        Then
+        <me>
+          A^n= AA^{n-1} = AM_{n-1} = \text{ (multiply matrices) }  = \cdots \text{ (use algebra) }  \cdots = M_n
+        </me>
+      </p>
+    </proof>
+    </proof>
+    <p>
+      Try using this new proof format.
+    </p>
+    <activity xml:id="act_math_ind_matrix">
+      <title>Matrix power proof by mathematical induction</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_shear_power">
+            <p>
+              For the matrix <m>A = \left[ \begin{array}{cc} 1 \amp  1\\ 0 \amp  1 \end{array}  \right]</m>,
+              in <xref ref="exam_matrix_power"></xref>
+              we conjectured that <m>A^n=\left[ \begin{array}{cc} 1 \amp  n\\ 0 \amp  1 \end{array}  \right]</m> for <m>n \ge 1</m>.
+              Copy the following proof by mathematical induction justifying our conjecture.
+              <proof>
+                <p>
+                  Write <m>M_n=\left[ \begin{array}{cc} 1 \amp n\\ 0 \amp 1 \end{array} \right]</m>.
+                  Induct on <m>n</m>.
+                </p>
+                <p>
+                  First, when <m>n=1</m> we have
+                  <m>A^1 = A = \left[ \begin{array}{cc} 1 \amp 1\\ 0 \amp 1 \end{array} \right]</m> and also <m>M_1=\left[ \begin{array}{cc} 1 \amp 1\\ 0 \amp 1 \end{array} \right]</m>.
+                </p>
+                <p>
+                  Next, assume <m>A^{n-1} = M_{n-1} = \left[ \begin{array}{cc} 1 \amp  n-1 \\ 0 \amp  1 \end{array}  \right]</m> for some integer <m>n \ge 2</m>.
+                  Then
+                  <me>
+                    A^n = AA^{n-1} =AM_{n-1} = \left[ \begin{array}{cc} 1 \amp  1\\ 0 \amp  1 \end{array}  \right]\left[ \begin{array}{cc} 1 \amp  n-1\\ 0 \amp  1 \end{array}  \right] = \left[ \begin{array}{cc} 1+0 \amp  (n-1)+1\\ 0+0 \amp  0+1 \end{array}  \right] = \left[ \begin{array}{cc} 1 \amp  n\\ 0 \amp  1 \end{array}  \right]=M_n
+                  </me>
+                </p>
+              </proof>
+            </p>
+          </li>
+          <li>
+            <p>
+              What was the inductive hypothesis (part we assumed)?
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain the algebra step-by-step in the last line of the proof.
+            </p>
+          </li>
+          <li>
+            <p>
+              For the matrix <m>A=\left[ \begin{array}{cc} 1 \amp  0 \\ 3 \amp  1 \end{array}  \right]</m>,
+              in <xref ref="act_matrix_mult_powers"></xref> we conjectured that
+              <me>
+                A^n=\left[ \begin{array}{cc} 1 \amp  0 \\ 3n \amp  1 \end{array}  \right]
+              </me>
+              for <m>n \ge 1</m>.
+              Prove this conjecture using mathematical induction by changing what needs to be changed in the proof form <xref ref="part_shear_power"/>.
+              Caution:  When you are evaluating <m>M_{n-1}</m> be sure to put <m>(n-1)</m> in parentheses.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_finite_groups">
+    <title>\subgroups</title>
+    <p>
+      We have seen several examples of finite sets with an operation.
+      For example, in <xref ref="sec_mod_arith"></xref>,
+      we saw <m>\mathbb{Z}_n</m>,
+      the integers mod <m>n</m> with the operations of addition and multiplication.
+      <xref ref="sec_perms">In</xref>,
+      we saw permutations with the operation of function composition.
+      And now we have seen <m>2 \times 2</m> matrices with matrix multiplication.
+      These structures have several common properties.
+      Let's look at one abstraction, a finite group.
+      Here is the definition.
+    </p>
+    <definition xml:id="defn_group">
+      <title>Group</title>
+      <statement>
+        <p>
+          Let <m>G</m> be a set with an operation <m>\star</m> such that
+          <ol>
+            <li>
+              <p>
+                <m>G</m> is <term>closed</term> under <m>\star</m>:
+                <m>a \star b \in G</m> for all elements <m>a, b \in G</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\star</m> is <term>associative</term>:
+                <m>a \star (b \star c) = (a \star b) \star c</m> for all elements <m>a,
+                b,c \in G</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is an <term>identity</term>
+                element <m>e \in G</m> such that <m>a \star e = a</m> and
+                <m>e \star a = a</m> for all elements <m>a \in G</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                For each element <m>a \in G</m>,
+                there exists an <term>inverse</term>
+                element <m>b \in G</m> such that
+                <m>a \star b = e</m> and <m>b \star a = e</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at a few examples.
+    </p>
+    <example xml:id="exam_intmod4_add_group">
+      <title><m>\mathbb{Z}_4</m> is a group under addition</title>
+      <statement>
+        <p>
+          <xref ref="sec_mod_arith">In</xref>
+          we saw that the integers mod 4 is the set
+          <m>\mathbb{Z}_4 =\{0,1,2,3\}</m> with addition defined by <m>a \oplus b = (a+b) \fn{ mod } 4</m>.
+          <ol>
+            <li>
+              <p>
+                Write the addition table for <m>\mathbb{Z}_4</m>.
+                <solution>
+                  <p>
+                    We show the addition table in <xref ref="tab_add_mod4"></xref>.
+                    For example, <m>2 \oplus 3 = 5 \fn{ mod } 4 = 1</m>.
+                  </p>
+                  <table xml:id="tab_add_mod4">
+                    <title>The addition table <m>\mathbb{Z}_4</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>\oplus</m></cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>0</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                      </row>
+                      <row>
+                        <cell>1</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>0</cell>
+                      </row>
+                      <row>
+                        <cell>2</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                      </row>
+                      <row>
+                        <cell>3</cell>
+                        <cell>3</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Check that <m>\mathbb{Z}_4</m> is a group under addition.
+                <solution>
+                  <p>
+                    First, every entry in table is 0, 1, 2, or 3 so
+                    <m>\mathbb{Z}_4</m> is closed under <m>\oplus</m>.
+                    Next, <m>\oplus</m> is associative because
+                    <me>
+                      a \oplus (b \oplus c) = (a+(b+c)) \fn{ mod } 4 =  ((a+b)+c) \fn{ mod } 4 = (a \oplus b) \oplus c
+                    </me>
+                    where we used that addition in <m>\mathbb{Z}</m> is associative.
+                    The identity element is 0, as you can check in the table.
+                    Note that <m>0\oplus0 = 0</m>,
+                    <m>1 \oplus 3 = 0</m>, <m>2 \oplus 2 = 0</m>,
+                    and <m>3 \oplus 1 = 0</m>.
+                    Therefore, the inverse of 0 is 0, the inverse of 1 is 3, the inverse of 2 is 2, and the inverse of 3 is 1.
+                    Sometimes we say the <term>additive identity</term>
+                    or the <term>additive inverse</term>
+                    to emphasis the operation is addition.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Here is an example that involves multiplication.
+    </p>
+    <example xml:id="exam_mult_gp_mod12">
+      <title>Finite multiplicative group mod <m>12</m></title>
+      <statement>
+        <p>
+          Recall that the integers mod 12 are <m>\mathbb{Z}_{12} =\{0,1,2,\ldots, 11\}</m>.
+          Multiplication is defined by <m>a \otimes b = (ab) \fn{ mod } 12</m>.
+          Consider the subset <m>\mathbb{U}_{12} = \{1, 5, 7, 11\}</m> of <m>\mathbb{Z}_{12}</m>.
+          <ol>
+            <li>
+              <p>
+                Write the multiplication table for <m>\mathbb{U}_{12}</m>.
+                <solution>
+                  <p>
+                    We show the multiplication table in <xref ref="tab_mult_units_mod12"></xref>.
+                    For example,
+                    <m>5 \oplus 7 = 35 \fn{ mod } 12 = 11</m> because <m>35-12-12=11</m>.
+                  </p>
+                  <table xml:id="tab_mult_units_mod12">
+                    <title>The multiplication table for <m>\mathbb{U}_{12}</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>\otimes</m></cell>
+                        <cell>1</cell>
+                        <cell>5</cell>
+                        <cell>7</cell>
+                        <cell>11</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>1</cell>
+                        <cell>1</cell>
+                        <cell>5</cell>
+                        <cell>7</cell>
+                        <cell>11</cell>
+                      </row>
+                      <row>
+                        <cell>5</cell>
+                        <cell>5</cell>
+                        <cell>1</cell>
+                        <cell>11</cell>
+                        <cell>7</cell>
+                      </row>
+                      <row>
+                        <cell>7</cell>
+                        <cell>7</cell>
+                        <cell>11</cell>
+                        <cell>1</cell>
+                        <cell>5</cell>
+                      </row>
+                      <row>
+                        <cell>11</cell>
+                        <cell>11</cell>
+                        <cell>7</cell>
+                        <cell>5</cell>
+                        <cell>1</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Check that <m>\mathbb{U}_{12}</m> is a group under multiplication.
+                <solution>
+                  <p>
+                    First, every entry in table is 1, 5, 7, or 1 so
+                    <m>\mathbb{U}_{12}</m> is closed under <m>\otimes</m>.
+                    Next, <m>\otimes</m> is associative because
+                    <me>
+                      a \otimes (b \otimes c) = (a(bc)) \fn{ mod } 12 =  ((ab)c) \fn{ mod } 12 = (a \otimes b) \otimes c
+                    </me>
+                    where we used that multiplication in <m>\mathbb{Z}</m> is associative.
+                    The identity element is 1, as you can check in the table.
+                    Note that <m>1\otimes 1 = 1</m>, <m>5 \otimes 5 = 1</m>,
+                    <m>7 \otimes 7 = 1</m>, and <m>11 \otimes 11 = 1</m>.
+                    Therefore, the inverse of 1 is 1, the inverse of 5 is 5, the inverse of 7 is 7, and the inverse of 11 is 11.
+                    Sometimes we say the <term>multiplicative identity</term>
+                    or the <term>multiplicative inverse</term>
+                    to emphasis the operation is multiplication.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The groups in <xref ref="exam_intmod4_add_group"></xref>
+      and <xref ref="exam_mult_gp_mod12"></xref> have an additional property.
+    </p>
+    <definition xml:id="defn_abelian">
+      <title>Commutative group</title>
+      <statement>
+        <p>
+          A group <m>G</m> with operation <m>\star</m> is <term>abelian</term>
+          (or <term>commutative</term>)
+          if <m>a \star b = b \star a</m> for all elements <m>a,
+          b \in G</m>.
+          For example,
+          <m>\mathbb{Z}_4</m> and <m>\mathbb{U}_{12}</m> are abelian.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's look at a group that is not abelia.
+    </p>
+    <example xml:id="exam_nonabel_permgp">
+      <title>Nonabelian group</title>
+      <statement>
+        <p>
+          Let <m>\mathbb{S}_3</m> be the set of all permutations on the set
+          <m>\{1,2,3\}</m> with the operation <m>\circ</m> which is function composition,
+          introduced in <xref ref="sec_perms"></xref>.
+          Write
+          <me>
+            \iota = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 1 \amp  2 \amp  3 \end{array}  \right)  \sigma_1 = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 2 \amp  3 \amp  1 \end{array}  \right)  \sigma_2 = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 3 \amp  1 \amp  2 \end{array}  \right)
+          </me>
+          <me>
+            \tau_1 = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 1 \amp  3 \amp  2 \end{array}  \right)  \tau_2 = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 3 \amp  2 \amp  1 \end{array}  \right)  \tau_3 = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 2 \amp  1 \amp  3 \end{array}  \right)
+          </me>
+          <ol>
+            <li>
+              <p>
+                Write the operation table for <m>\mathbb{S}_3 = \{ \iota, \sigma_1, \sigma_2, \tau_1, \tau_2, \tau_3\}</m>.
+                <solution>
+                  <p>
+                    We show the operation table in <xref ref="tab_sym3"></xref>.
+                    For example,
+                    <me>
+                      \tau_1 \circ \sigma_1 = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 1 \amp  3 \amp  2 \end{array}  \right) \circ \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 2 \amp  3 \amp  1 \end{array}  \right) = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 3 \amp  2 \amp  1 \end{array}  \right)= \tau_2
+                    </me>.
+                  </p>
+                  <p>
+                    Recall that we can compose permutations using dot diagrams as in <xref ref="fig_tau1_sigma1_perms"></xref>.
+                  </p>
+                  <figure xml:id="fig_tau1_sigma1_perms">
+                    <caption>Calculating the composite of permutations <m>\tau_1 \circ \sigma_1</m> in <m>\mathbb{S}_3</m> using dot diagrams.</caption>
+                    image type not recognized
+                  </figure>
+                  <p>
+                    Be careful as
+                    <me>
+                      \sigma_1 \circ \tau_1 = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 2 \amp  3 \amp  1 \end{array}  \right) \circ \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 1 \amp  3 \amp  2 \end{array}  \right) = \left( \begin{array}{ccc} 1 \amp  2 \amp  3 \\ 2 \amp  1 \amp  3 \end{array}  \right)= \tau_3
+                    </me>.
+                  </p>
+                  <table xml:id="tab_sym3">
+                    <title>The operation table for <m>\mathbb{S}_3</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>\circ</m></cell>
+                        <cell><m>\iota</m></cell>
+                        <cell><m>\sigma_1</m></cell>
+                        <cell><m>\sigma_2</m></cell>
+                        <cell><m>\tau_1</m></cell>
+                        <cell><m>\tau_2</m></cell>
+                        <cell><m>\tau_3</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell><m>\iota</m></cell>
+                        <cell><m>\iota</m></cell>
+                        <cell><m>\sigma_1</m></cell>
+                        <cell><m>\sigma_2</m></cell>
+                        <cell><m>\tau_1</m></cell>
+                        <cell><m>\tau_2</m></cell>
+                        <cell><m>\tau_3</m></cell>
+                      </row>
+                      <row>
+                        <cell><m>\sigma_1</m></cell>
+                        <cell><m>\sigma_1</m></cell>
+                        <cell><m>\sigma_2</m></cell>
+                        <cell><m>\iota</m></cell>
+                        <cell><m>\tau_3</m></cell>
+                        <cell><m>\tau_1</m></cell>
+                        <cell><m>\tau_2</m></cell>
+                      </row>
+                      <row>
+                        <cell><m>\sigma_2</m></cell>
+                        <cell><m>\sigma_2</m></cell>
+                        <cell><m>\iota</m></cell>
+                        <cell><m>\sigma_1</m></cell>
+                        <cell><m>\tau_2</m></cell>
+                        <cell><m>\tau_3</m></cell>
+                        <cell><m>\tau_1</m></cell>
+                      </row>
+                      <row>
+                        <cell><m>\tau_1</m></cell>
+                        <cell><m>\tau_1</m></cell>
+                        <cell><m>\tau_2</m></cell>
+                        <cell><m>\tau_3</m></cell>
+                        <cell><m>\iota</m></cell>
+                        <cell><m>\sigma_1</m></cell>
+                        <cell><m>\sigma_2</m></cell>
+                      </row>
+                      <row>
+                        <cell><m>\tau_2</m></cell>
+                        <cell><m>\tau_2</m></cell>
+                        <cell><m>\tau_3</m></cell>
+                        <cell><m>\tau_1</m></cell>
+                        <cell><m>\sigma_2</m></cell>
+                        <cell><m>\iota</m></cell>
+                        <cell><m>\sigma_1</m></cell>
+                      </row>
+                      <row>
+                        <cell><m>\tau_3</m></cell>
+                        <cell><m>\tau_3</m></cell>
+                        <cell><m>\tau_1</m></cell>
+                        <cell><m>\tau_2</m></cell>
+                        <cell><m>\sigma_1</m></cell>
+                        <cell><m>\sigma_2</m></cell>
+                        <cell><m>\iota</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Check that <m>\mathbb{S}_3</m> is a group under function composition.
+                <solution>
+                  <p>
+                    First, every entry in table is <m>\iota</m>,
+                    <m>\sigma_1</m>, <m>\sigma_2</m>,
+                    <m>\tau_1</m>, <m>\tau_2</m>,
+                    or <m>\tau_3</m> so <m>\mathbb{S}_3</m> is closed under <m>\circ</m>.
+                    Next, <m>\circ</m> is associative because
+                    <me>
+                      (\alpha \circ (\beta \circ \gamma)) (n) = \alpha((\beta \circ \gamma)(n)) = \alpha(\beta(\gamma(n))) =  (\alpha \circ \beta) (\gamma(n)) = ((\alpha \circ \beta ) \circ \gamma) (n)
+                    </me>
+                    for <m>n=1,2,3</m>.
+                    Thus <m>\alpha \circ (\beta \circ \gamma)= (\alpha \circ \beta ) \circ \gamma</m>.
+                    The identity element is <m>\iota</m>,
+                    as you can check in the table.
+                    Note that the inverse of <m>\iota</m> is <m>\iota</m>,
+                    the inverse of <m>\sigma_1</m> is <m>\sigma_2</m>,
+                    the inverse of <m>\sigma_2</m> is <m>\sigma_1</m>,
+                    the inverse of <m>\tau_1</m> is <m>\tau_1</m>,
+                    the inverse of <m>\tau_2</m> is <m>\tau_2</m>,
+                    and the inverse of <m>\tau_3</m> is <m>\tau_3</m>.
+                    Sometimes we say the <term>identity function</term>
+                    or the <term>inverse function</term>
+                    to emphasis the operation is composition.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Now it is your turn to work with a finite group.
+    </p>
+    <activity xml:id="act_finite_gp_matrices">
+      <title>Finite group of matrices</title>
+      <p>
+        Consider the following matrices<fn>
+        If you have studied linear algebra,
+        the transformations corresponding to these matrices are as follows.
+        <m>I</m> is the matrix of the identity transformation,
+        <m>R</m> is the matrix of the rotation by 90<m>^\circ</m> counterclockwise,
+        <m>S</m> is the matrix of the rotation by 180<m>^\circ</m>,
+        <m>T</m> is the matrix of rotation by 90<m>^\circ</m> clockwise,
+        <m>H</m> is the matrix of the reflection across the horizontal <m>x</m>-axis,
+        <m>V</m> is the matrix of the reflection across the vertical <m>y</m>-axis,
+        <m>P</m> is the matrix of the reflection across the positive slope line <m>y=x</m>,
+        and <m>N</m> is the matrix of the reflection across the negative slope line <m>y=-x</m>.
+        </fn>:
+        <me>
+          I = \left[ \begin{array}{cc} 1 \amp  0 \\ 0 \amp  1 \end{array}  \right] R = \left[ \begin{array}{rr} 0 \amp  -1 \\ 1 \amp  0 \end{array}  \right] S = \left[ \begin{array}{rr} -1 \amp  0 \\ 0 \amp  -1 \end{array}  \right] T = \left[ \begin{array}{rr} 0 \amp  1 \\ -1 \amp  0 \end{array}  \right]
+        </me>
+        <me>
+          H = \left[ \begin{array}{rr} 1 \amp  0 \\ 0 \amp  -1 \end{array}  \right] V = \left[ \begin{array}{rr} -1 \amp  0 \\ 0 \amp  1 \end{array}  \right] P = \left[ \begin{array}{rr} 0 \amp  1 \\ 1 \amp  0 \end{array}  \right] N = \left[ \begin{array}{rr} 0 \amp  -1 \\ -1 \amp  0 \end{array}  \right]
+        </me>
+      </p>
+      <p>
+        Let <m>\mathbb{D} = \{I, R, S, T, H, V, P, N\}</m>.
+        <ol>
+          <li xml:id="part_matrix_missing_table">
+            <p>
+              Calculate each of the following products:
+              <m>RS</m>, <m>TV</m>, <m>IN</m>, and <m>P^2</m>.
+              If you are working with a partner,
+              feel free to each take two of the products.
+            </p>
+          </li>
+          <li>
+            <p>
+              The rest of the (matrix) multiplication table for
+              <m>\mathbb{D}</m> shown in <xref ref="tab_mult_D8_matrices"></xref>.
+              There are a few extra dividing lines to help you read the table.
+              <table xml:id="tab_mult_D8_matrices">
+                <title>(Most of) the multiplication table for the matrix group <m>\mathbb{D}</m></title>
+                <tabular>
+                  <row>
+                    <cell><times/></cell>
+                    <cell><m>I</m></cell>
+                    <cell><m>R</m></cell>
+                    <cell><m>S</m></cell>
+                    <cell><m>T</m></cell>
+                    <cell><m>H</m></cell>
+                    <cell><m>V</m></cell>
+                    <cell><m>P</m></cell>
+                    <cell><m>N</m></cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>I</m></cell>
+                    <cell><m>I</m></cell>
+                    <cell><m>R</m></cell>
+                    <cell><m>S</m></cell>
+                    <cell><m>T</m></cell>
+                    <cell><m>H</m></cell>
+                    <cell><m>V</m></cell>
+                    <cell><m>P</m></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>R</m></cell>
+                    <cell><m>R</m></cell>
+                    <cell><m>S</m></cell>
+                    <cell></cell>
+                    <cell><m>I</m></cell>
+                    <cell><m>P</m></cell>
+                    <cell><m>N</m></cell>
+                    <cell><m>V</m></cell>
+                    <cell><m>H</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>S</m></cell>
+                    <cell><m>S</m></cell>
+                    <cell><m>T</m></cell>
+                    <cell><m>I</m></cell>
+                    <cell><m>R</m></cell>
+                    <cell><m>V</m></cell>
+                    <cell><m>H</m></cell>
+                    <cell><m>N</m></cell>
+                    <cell><m>P</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>T</m></cell>
+                    <cell><m>T</m></cell>
+                    <cell><m>S</m></cell>
+                    <cell><m>R</m></cell>
+                    <cell><m>I</m></cell>
+                    <cell><m>N</m></cell>
+                    <cell><m>P</m></cell>
+                    <cell></cell>
+                    <cell><m>V</m></cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>H</m></cell>
+                    <cell><m>H</m></cell>
+                    <cell><m>N</m></cell>
+                    <cell><m>V</m></cell>
+                    <cell><m>P</m></cell>
+                    <cell><m>I</m></cell>
+                    <cell><m>S</m></cell>
+                    <cell><m>T</m></cell>
+                    <cell><m>R</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>V</m></cell>
+                    <cell><m>V</m></cell>
+                    <cell><m>P</m></cell>
+                    <cell><m>H</m></cell>
+                    <cell><m>N</m></cell>
+                    <cell><m>S</m></cell>
+                    <cell><m>I</m></cell>
+                    <cell><m>R</m></cell>
+                    <cell><m>T</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>P</m></cell>
+                    <cell><m>P</m></cell>
+                    <cell><m>H</m></cell>
+                    <cell><m>N</m></cell>
+                    <cell><m>V</m></cell>
+                    <cell><m>R</m></cell>
+                    <cell><m>T</m></cell>
+                    <cell></cell>
+                    <cell><m>S</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>N</m></cell>
+                    <cell><m>N</m></cell>
+                    <cell><m>V</m></cell>
+                    <cell><m>P</m></cell>
+                    <cell><m>H</m></cell>
+                    <cell><m>T</m></cell>
+                    <cell><m>R</m></cell>
+                    <cell><m>S</m></cell>
+                    <cell><m>I</m></cell>
+                  </row>
+                </tabular>
+              </table>
+              Check that each matrix occurs within the table once per row and once per column.
+              If not, check your answers to <xref ref="part_matrix_missing_table"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              What can you check in the operation table to confirm that
+              <m>\mathbb{D}</m> is closed under matrix multiplication?
+            </p>
+          </li>
+          <li>
+            <p>
+              Which element of <m>\mathbb{D}</m> is the identity.
+              We say that matrix is the <term>identity matrix</term>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the (matrix) inverse of each matrix.
+            </p>
+          </li>
+          <li>
+            <p>
+              Since that matrix multiplication is associative,
+              it follows that <m>\mathbb{D}</m> is a group.
+              Matrix multiplication is typically not commutative, but is <m>\mathbb{D}</m>?
+              Explain.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_matrix_powers">for</xref>
+      \submatpowers</title>
+      <p>
+        Calculate all matrix products and powers by hand,
+        being sure to show the steps of your work.
+        You are welcome to use technology to check your answers.
+      </p>
+      <exercise xml:id="exer_mult_matrices">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Consider the matrices
+            <me>
+              A= \left[ \begin{array}{cc} 1 \amp  2\\ 3 \amp  4 \end{array}  \right]  B = \left[ \begin{array}{cc} 2 \amp  -1\\ 1 \amp  0 \end{array}  \right]  C= \left[ \begin{array}{cc} 1 \amp  0\\ 0 \amp  0 \end{array}  \right]  D=\left[ \begin{array}{cc} 0 \amp  0\\ 1 \amp  1 \end{array}  \right]  I=\left[ \begin{array}{cc} 1 \amp  0\\ 0 \amp  1 \end{array}  \right]
+            </me>.
+            Calculate each matrix product:
+            <m>AB</m>, <m>BA</m>, <m>IB</m>,
+            <m>AI</m>, <m>CD</m>, and <m>C^2</m>.
+            Make sure to show work.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_power_linears">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  For the matrix <m>A=\left[ \begin{array}{cc} 1 \amp 0 \\ 1 \amp 1 \end{array} \right]</m>,
+                  calculate <m>A^2</m>, <m>A^3</m>, and <m>A^4</m>,
+                  and conjecture a formula for <m>A^n</m> for <m>n \ge 1</m>.
+                  Make sure to show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the matrix <m>B=\left[ \begin{array}{cc} 1 \amp 2 \\ 0 \amp 1 \end{array} \right]</m>,
+                  calculate <m>B^2</m>, <m>B^3</m>, and <m>B^4</m>,
+                  and conjecture a formula for <m>B^n</m> for <m>n \ge 1</m>.
+                  Make sure to show work.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_matrix_functions_easy">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Let <m>\mathscr{M}(\mathbb{Z})</m> be the set of
+            <m>2 \times 2</m> matrices with integer entries.
+            <ol>
+              <li>
+                <p>
+                  Consider the function <m>f: \mathbb{Z} \to \mathscr{M}(\mathbb{Z})</m> defined by <m>f(n) = \left[ \begin{array}{cc} n \amp 0 \\ 0 \amp 2n \end{array} \right]</m>.
+                  Identify the domain and codomain of <m>f</m> and evaluate <m>f(3)</m>.
+                </p>
+              </li>
+              <li xml:id="part_det_fn">
+                <p>
+                  Consider the function <m>\fn{det}: \mathscr{M}(\mathbb{Z}) \to \mathbb{Z}</m> defined by <m>\fn{det} \left( \left[ \begin{array}{cc} a \amp b \\ c \amp d \end{array} \right] \right) = ad-bc</m>.
+                  Identify the domain and codomain of
+                  <m>\fn{det}</m> and evaluate <m>\fn{det}\left( \left[ \begin{array}{rr} 2 \amp 0 \\ -4 \amp 3 \end{array} \right] \right)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Consider the function <m>T: \mathscr{M}(\mathbb{Z}) \to \mathscr{M}(\mathbb{Z})</m> defined by
+                  <m>T(A) = AM</m> where <m>M = \left[ \begin{array}{cr} 1 \amp 2 \\ 0 \amp -1 \end{array} \right]</m>.
+                  Identify the domain and codomain of <m>T</m> and evaluate <m>T\left( \left[ \begin{array}{cc} 1 \amp 2 \\ 3 \amp 5 \end{array} \right] \right)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_power_matrix_exponentials">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  For the unit matrix <m>J=\left[ \begin{array}{cc} 1 \amp 1 \\ 1 \amp 1 \end{array} \right]</m>,
+                  calculate <m>J^2</m>, <m>J^3</m>, and <m>J^4</m>,
+                  and conjecture a formula for <m>J^n</m> for <m>n \ge 1</m>.
+                  Make sure to show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the matrix <m>Q=\left[ \begin{array}{cc} 1 \amp 0 \\ 1 \amp 2 \end{array} \right]</m>,
+                  calculate <m>Q^2</m>, <m>Q^3</m>, and <m>Q^4</m>,
+                  and conjecture a formula for <m>Q^n</m> for <m>n \ge 1</m>.
+                  Make sure to show work.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_power_rotation_matrix">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  For the matrix <m>S=\left[ \begin{array}{cc} 0 \amp 1 \\ 0 \amp 0 \end{array} \right]</m>,
+                  calculate <m>S^2</m> and <m>S^3</m> and explain what you think <m>S^{30}</m> equals.
+                  Make sure to show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the matrix <m>W=\left[ \begin{array}{cc} 0 \amp 0 \\ 1 \amp 1 \end{array} \right]</m>,
+                  calculate <m>W^2</m> and <m>W^3</m> and explain what you think <m>W^{30}</m> equals.
+                  Make sure to show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the matrix <m>R=\left[ \begin{array}{cc} 0 \amp -1 \\ 1 \amp 0 \end{array} \right]</m>,
+                  calculate <m>R^2</m>, <m>R^3</m>, and <m>R^4</m>,
+                  and <m>R^5</m> and explain what you think <m>R^{30}</m> equals.
+                  Make sure to show work.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_cex_matrix">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give an example of <m>2 \times 2</m> matrices <m>M</m> and <m>N</m> with <m>MN \neq NM</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a <m>2 \times 2</m> matrix <m>M</m> such that <m>M \neq \mathbf{0}</m>,
+                  but <m>M^2 = \mathbf{0}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of a <m>2 \times 2</m> matrix <m>M</m> such that <m>M \neq I</m>,
+                  but <m>M^2 = I</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_matrix_functions_harder">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>\mathscr{M}(\mathbb{Z})</m> be the set of
+            <m>2 \times 2</m> matrices with integer entries.
+            <ol>
+              <li>
+                <p>
+                  Consider the function <m>f: \mathbb{Z}^+ \to \mathscr{M}(\mathbb{Z})</m> defined by <m>c(n) = \left[ \begin{array}{cc} 0 \amp 1 \\ -1 \amp 0 \end{array} \right]^n</m>.
+                  Evaluate <m>c(3)</m>.
+                </p>
+              </li>
+              <li xml:id="part_trace_fn">
+                <p>
+                  Consider the function <m>\fn{trace}: \mathscr{M}(\mathbb{Z}) \to \mathbb{Z}</m> defined by <m>\fn{trace} \left( \left[ \begin{array}{cc} a \amp b \\ c \amp d \end{array} \right] \right) = a+d</m>.
+                  Evaluate <m>\fn{trace}\left( \left[ \begin{array}{rr} 2 \amp 0 \\ -4 \amp 3 \end{array} \right] \right)</m>.
+                </p>
+              </li>
+              <li xml:id="part_transpose_fn">
+                <p>
+                  Consider the function <m>\fn{transpose}: \mathscr{M}(\mathbb{Z}) \to \mathscr{M}(\mathbb{Z})</m> defined by <m>\fn{transpose}\left( \left[ \begin{array}{cc} a \amp b \\ c \amp d \end{array} \right] \right) = \left[ \begin{array}{cc} a \amp c \\ b \amp d \end{array} \right]</m>.
+                  Evaluate <m>\fn{transpose}\left( \left[ \begin{array}{cc} 1 \amp 2 \\ 3 \amp 5 \end{array} \right] \right)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_det_onto_1to1">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the the function <m>\fn{det}</m> from <xref ref="exer_matrix_functions_easy"></xref> <xref ref="part_det_fn"/>.
+            <ol>
+              <li>
+                <p>
+                  Prove that the function <m>\fn{det}</m> is onto.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to prove that the function <m>\fn{det}</m> is not one-to-one.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_matrix_sets">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Give two examples of elements in the set
+                  <me>
+                    \left\{\left[ \begin{array}{cc} 0 \amp  a \\ b \amp  a+b \end{array}  \right] \mid a, b \in \mathbb{Z} \right\}
+                  </me>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Confirm that <m>I</m> and <m>U = \left[ \begin{array}{cc} 0 \amp 0 \\ 0 \amp 1 \end{array} \right]</m> are elements of the set <m>\mathscr{E} = \left\{ E \in \mathscr{M}(\mathbb{Z}) \mid E^2=E \right\}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_matrix">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to multiply <m>2 \times 2</m> matrices?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to raise a <m>2 \times 2</m> matrix to a positive integer power?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to recognize a pattern in the powers of a matrix?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_matrix_sets_fn">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Give an example of an element in each set and then give an explicit definition of each set.
+            <ol>
+              <li>
+                <p>
+                  <m>\mathscr{C}= \{ A \in \mathscr{M}(\mathbb{Z}) \mid \fn{trace}(A)=0\}</m> where
+                  <m>\fn{trace}</m> is the function defined in <xref ref="exer_matrix_functions_harder"></xref> <xref ref="part_trace_fn"/>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\mathscr{D}= \{ A \in \mathscr{M}(\mathbb{Z}) \mid \fn{transpose}(A)=A\}</m> where
+                  <m>\fn{transpose}</m> is the function defined in <xref ref="exer_matrix_functions_harder"></xref>
+                  <xref ref="part_transpose_fn"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_pff_verify_power_matrix">for</xref>
+      \subpffindmatrix</title>
+      <exercise xml:id="exer_prove_power_shear_matrix">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            For the matrix <m>A=\left[ \begin{array}{cc} 1 \amp 0 \\ 1 \amp 1 \end{array} \right]</m>,
+            use mathematical induction to prove that <m>A^n = \left[ \begin{array}{cc} 1 \amp 0 \\ n \amp 1 \end{array} \right]</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_power_unit_matrix">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For the matrix <m>J=\left[ \begin{array}{cc} 1 \amp 1 \\ 1 \amp 1 \end{array} \right]</m>,
+            use mathematical induction to prove that <m>J^n=\left[ \begin{array}{cc} 2^{n-1} \amp 2^{n-1} \\ 2^{n-1} \amp 2^{n-1} \end{array} \right]</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_power_another_matrix">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For the matrix <m>Q=\left[ \begin{array}{cc} 1 \amp 0 \\ 1 \amp 2 \end{array} \right]</m>,
+            use mathematical induction to prove that <m>Q^n=\left[ \begin{array}{cc} 1 \amp 0 \\ 2^{n-1} \amp 2^n \end{array} \right]</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_power_dilationshear_matrix">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For the matrix <m>M=\left[ \begin{array}{cc} 2 \amp 1 \\ 0 \amp 2 \end{array} \right]</m>,
+            use mathematical induction to prove that <m>M^n=\left[ \begin{array}{cc} 2^n \amp n2^{n-1}\\ 0 \amp 2^n \end{array} \right]</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_power_complicated_matrix">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            For the matrix <m>K=\left[ \begin{array}{cc} 3 \amp 0 \\ 1 \amp 2 \end{array} \right]</m>,
+            use mathematical induction to prove that <m>K^n=\left[ \begin{array}{cc} 3^n \amp 0 \\ 3^n-2^n\amp 2^n \end{array} \right]</m> for <m>n\ge 1</m>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_matrix_proof">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How use mathematical induction to prove an explicit formula for the power of a matrix?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to write <m>A^n</m> in terms of <m>A^{n-1}</m> for a square matrix <m>A</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prove_power_diagonal_matrix">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Let <m>a</m> and <m>b</m> be integers,
+            and consider the <term>diagonal matrix</term>
+            <m>D=\left[ \begin{array}{cc} a \amp 0 \\ 0 \amp b \end{array} \right]</m>.
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>D^2</m>, <m>D^3</m>, and <m>D^4</m>,
+                  and conjecture a formula for <m>D^n</m> for <m>n \ge 1</m>.
+                  Your answers will involve <m>a</m> and <m>b</m>.
+                  Make sure to show work.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove your conjecture using mathematical induction.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_finite_groups">for</xref>
+      \subgroups</title>
+      <exercise xml:id="exer_Z5_add_group">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <xref ref="sec_mod_arith">In</xref>
+            we saw that the integers mod 5 is the set
+            <m>\mathbb{Z}_5 =\{0,1,2,3,4\}</m> with addition defined by <m>a \oplus b = (a+b) \fn{ mod } 5</m>.
+            <ol>
+              <li>
+                <p>
+                  Copy the addition table for
+                  <m>\mathbb{Z}_5</m> in <xref ref="tab_add_mod5"></xref>
+                  and fill in the missing entries.
+                  <table xml:id="tab_add_mod5">
+                    <title>The addition table <m>\mathbb{Z}_5</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>\oplus</m></cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>4</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>0</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell></cell>
+                        <cell>4</cell>
+                      </row>
+                      <row>
+                        <cell>1</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>4</cell>
+                        <cell>0</cell>
+                      </row>
+                      <row>
+                        <cell>2</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell></cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                      </row>
+                      <row>
+                        <cell>3</cell>
+                        <cell>3</cell>
+                        <cell>4</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                      </row>
+                      <row>
+                        <cell>4</cell>
+                        <cell>4</cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell></cell>
+                        <cell>3</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do you see in the addition table that shows
+                  <m>\mathbb{Z}_5</m> is closed under addition?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the additive identity in <m>\mathbb{Z}_5</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  List each element of <m>\mathbb{Z}_5</m> and its additive inverse.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\mathbb{Z}_5</m> abelian?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_U10_mult_group">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Recall that the set of integers mod 10 is
+            <m>\mathbb{Z}_{10}=\{0,1,2,3,4,5,6,7,8,9\}</m> with multiplication defined by <m>a \otimes b = (ab) \fn{ mod } 10</m>.
+            Consider the subset <m>\mathbb{U}_{10} = \{1, 3, 7, 9\}</m> of <m>\mathbb{Z}_{10}</m>.
+            <ol>
+              <li>
+                <p>
+                  Copy the multiplication table for
+                  <m>\mathbb{U}_{10}</m> in <xref ref="tab_mult_units_mod10"></xref>
+                  and fill in the missing entries.
+                  <table xml:id="tab_mult_units_mod10">
+                    <title>The multiplication table <m>\mathbb{U}_{10}</m></title>
+                    <tabular>
+                      <row>
+                        <cell><m>\otimes</m></cell>
+                        <cell>1</cell>
+                        <cell>3</cell>
+                        <cell>7</cell>
+                        <cell>9</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>1</cell>
+                        <cell>1</cell>
+                        <cell>3</cell>
+                        <cell>7</cell>
+                        <cell>9</cell>
+                      </row>
+                      <row>
+                        <cell>3</cell>
+                        <cell>3</cell>
+                        <cell>9</cell>
+                        <cell></cell>
+                        <cell>7</cell>
+                      </row>
+                      <row>
+                        <cell>7</cell>
+                        <cell>7</cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell>3</cell>
+                      </row>
+                      <row>
+                        <cell>9</cell>
+                        <cell>9</cell>
+                        <cell>7</cell>
+                        <cell>3</cell>
+                        <cell></cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do you see in the multiplication table that shows
+                  <m>\mathbb{U}_{10}</m> is closed under multiplication?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the multiplicative identity in <m>\mathbb{U}_{10}</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  List each element of <m>\mathbb{U}_5</m> and its multiplicative inverse.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is <m>\mathbb{U}_{10}</m> abelian?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_S4_group">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>\mathbb{S}_4</m> be the set of all permutations on the set
+            <m>\{1,2,3,4\}</m> with the operation <m>\circ</m> which is function composition,
+            introduced in <xref ref="sec_perms"></xref>.
+            It turns out that <m>\mathbb{S}_4</m> is a group.
+            <ol>
+              <li>
+                <p>
+                  How many elements are in <m>\mathbb{S}_4</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the identity element in <m>\mathbb{S}_4</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the inverse of the permutation <m>\left( \begin{array}{cccc} 1 \amp 2 \amp 3 \amp 4 \\ 3 \amp 4 \amp 2 \amp 1 \end{array} \right)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give a counterexample to show that <m>\mathbb{S}_4</m> is not abelian.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_another_matrix_group">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider the following matrices:
+            <me>
+              I = \left[ \begin{array}{cc} 1 \amp  0 \\ 0 \amp  1 \end{array}  \right] R = \left[ \begin{array}{rr} 0 \amp  -1 \\ 1 \amp  0 \end{array}  \right] S = \left[ \begin{array}{rr} -1 \amp  0 \\ 0 \amp  -1 \end{array}  \right] T = \left[ \begin{array}{rr} 0 \amp  1 \\ -1 \amp  0 \end{array}  \right]
+            </me>
+          </p>
+          <p>
+            Let <m>\mathbb{Y} = \{I, R, S, T\}</m>.
+            <ol>
+              <li>
+                <p>
+                  Write the operation table for <m>\mathbb{Y}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Check that <m>\mathbb{Y}</m> is a group under function composition.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_groups">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What are some examples of groups?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the definition of a group?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How can we use the operation table of a group to check the group is closed under the operation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the identity of a group is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to find the inverse of an element in a group from the operation table?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_latin_squares">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            The operation table for a finite group is an example of a <term>Latin square</term>
+            which is an <m>n \times n</m> matrix whose entries are <m>n</m> different symbols such that each symbol occurs exactly once in each row and each column.
+            Latin squares have application in the design of agricultural experiments in statistics and any Suduko board is a Latin Square.
+            <ol>
+              <li>
+                <p>
+                  Construct a <m>3 \times 3</m> Latin square using the symbols <m>1, 2, 3</m> where the first row is <m>1, 2, 3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a <m>4 \times 4</m> Latin square using the symbols
+                  <m>0, 1, 2, 3</m> where the first row is <m>0, 1, 2, 3</m>.
+                  Hint: <xref ref="exam_intmod4_add_group"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Construct a different <m>4 \times 4</m> Latin square using the symbols
+                  <m>0, 1, 2, 3</m> where the first row is <m>0, 1, 2, 3</m>.
+                  Hint: <xref ref="exer_U10_mult_group"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Read the Wikipedia entry on Latin Squares \url{https://en.wikipedia.org/wiki/Latin_square}. How many different
+                  <m>5\times 5</m> Latin squares are there (on <m>1,2,3,4,5</m>)?
+                  Note: Look at the second column in the table.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_mult_matrices"></xref> Select Answers and Hints</title>
+      <p>
+        The answers, in some order, are
+        <me>
+          \left[ \begin{array}{rr} 2 \amp  -1\\ 1 \amp  0 \end{array}  \right] \left[ \begin{array}{rr} -1 \amp  0\\ 1 \amp  2 \end{array}  \right] \left[ \begin{array}{cc} 1 \amp  0\\ 0 \amp  0 \end{array}  \right] \left[ \begin{array}{rr} 4 \amp  -1\\ 10 \amp  -3 \end{array}  \right] \left[ \begin{array}{cc} 0 \amp  0\\ 0 \amp  0 \end{array}  \right] \left[ \begin{array}{cc} 1 \amp  2\\ 3 \amp  4 \end{array}  \right]
+        </me>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_power_linears"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>A^3=\left[ \begin{array}{cc} 1 \amp 0 \\ 3 \amp 1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>B^3=\left[ \begin{array}{cc} 1 \amp 6 \\ 0 \amp 1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_matrix_functions_easy"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Not sure where to start?
+        Look <xref ref="exam_matrix_functions">at</xref>.
+        <ol>
+          <li>
+            <p>
+              Hint: The domain is <m>\mathbb{Z}</m> and the codomain is <m>\mathscr{M}(\mathbb{Z})</m>.
+              Also, <m>f(3)</m> is a matrix.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: 6
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer is not the same as <xref ref="exam_matrix_functions">for</xref>
+              <xref ref="part_mult_matrix_fn"/> because they calculated <m>MA</m> and we want <m>AM</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_power_matrix_exponentials"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: All four entries are equal.
+            Careful, they are not <m>2^n</m>, but that is close.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The answer involves 0, 1, <m>2^{n-1}</m>, and <m>2^n</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_matrix_sets"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Not sure where to start?
+        Look <xref ref="exam_matrix_sets">at</xref>.
+        <ol>
+          <li>
+            <p>
+              Hint: Your answers should be two different matrices.
+              You can pick any integers you want for <m>a</m> and <m>b</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: You need to check that <m>I</m> and <m>U</m> satisfy the implicit condition that defines <m>\mathscr{E}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_power_shear_matrix"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from <xref ref="act_math_ind_matrix"></xref>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_power_unit_matrix"></xref> Select Answers and Hints</title>
+      <proof>
+        <p>
+          Write <m>M_n=\left[ \begin{array}{cc} 2^{n-1} \amp 2^{n-1} \\ 2^{n-1} \amp 2^{n-1} \end{array} \right]</m>.
+          Induct on <m>n</m>.
+        </p>
+        <p>
+          First, when <m>n=1</m> we have
+          <m>J^1 = J = \left[ \begin{array}{cc} 1 \amp 1 \\ 1 \amp 1 \end{array} \right]</m> and also <m>M_1=\left[ \begin{array}{cc} 2^0 \amp 2^0\\ 2^0 \amp 2^0 \end{array} \right]= \left[ \begin{array}{cc} 1 \amp 1 \\ 1 \amp 1 \end{array} \right]</m>.
+        </p>
+        <p>
+          Next, assume <m>J^{n-1} = M_{n-1} = \left[ \begin{array}{cc} 2^{n-2} \amp  2^{n-2} \\ 2^{n-2} \amp  2^{n-2} \end{array}  \right]</m> for some integer <m>n \ge 2</m>.
+          Then
+          <me>
+            J^n = JJ^{n-1} =AM_{n-1} = \left[ \begin{array}{cc} 1 \amp  1 \\ 1 \amp  1 \end{array}  \right]\left[ \begin{array}{cc} 2^{n-2} \amp  2^{n-2}\\ 2^{n-2} \amp  2^{n-2} \end{array}  \right] = \ldots =M_n
+          </me>
+        </p>
+      </proof>
+      <p>
+        Fill in the missing algebra using <m>2^{n-2}+2^{n-2} = 2 \cdot 2^{n-2} = 2^{n-1}</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_power_another_matrix"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from the Answers to <xref ref="exer_prove_power_unit_matrix"></xref>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_power_dilationshear_matrix"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from the Answers to <xref ref="exer_prove_power_unit_matrix"></xref>.
+        Note that
+        <me>
+          2(n-1)2^{n-2}+1(2^{n-1})=(n-1)2\cdot 2^{n-2} + 2^{n-1}=(n-1)2^{n-1} + 2^{n-1}
+        </me>.
+        To finish the algebra, factor out <m>2^{n-1}</m> to get
+        <me>
+          ((n-1)+1)2^{n-1} =n2^{n-1}
+        </me>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_power_complicated_matrix"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: Copy and edit the proof from the Answers to <xref ref="exer_prove_power_unit_matrix"></xref>.
+        Note that
+        <me>
+          1(3^{n-1})+2(3^{n-1}-2^{n-1})=3^{n-1}+2(3^{n-1}) -2(2^{n-1})
+        </me>.
+        To finish the algebra, factor out <m>3^{n-1}</m> to get
+        <me>
+          (1+2)3^{n-1}-2\cdot 2^{n-1} =3\cdot 3^{n-1}-2\cdot 2^{n-1}=3^n-2^n
+        </me>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prove_power_diagonal_matrix"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>D^n =\left[ \begin{array}{cc} a^n \amp 0 \\ 0 \amp b^n \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>M_{n-1}=\left[ \begin{array}{cc} a^{n-1} \amp 0 \\ 0 \amp b^{n-1} \end{array} \right]</m>
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_Z5_add_group"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The missing entries, in some order, are 2, 3, and 4.
+          </p>
+        </li>
+        <li>
+          <p>
+            All of the entries are 0, 1, 2, 3, or 4.
+          </p>
+        </li>
+        <li>
+          <p>
+            0
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: For example, the additive inverse of 2 is 3.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Check if <m>a \oplus b = b \oplus a</m> for all <m>a,
+            b \in \mathbb{Z}_5</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_U10_mult_group"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The missing entries are 1 or 9.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: What are the entries?
+          </p>
+        </li>
+        <li>
+          <p>
+            1
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: For example, 9 is its own inverse.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Check if <m>a \otimes b = b \otimes a</m> for all <m>a,
+            b \in \mathbb{U}_{10}</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_S4_group"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: We counted this number in <xref ref="exam_perm_fns1234"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: It is the identity permutation as in <xref ref="exam_perm_fns1234"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look <xref ref="exam_inverse_perm">at</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look <xref ref="exam_composing_perms">at</xref>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_another_matrix_group"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: These are the same matrices as in <xref ref="act_finite_gp_matrices"></xref>.
+            The operation table should be <m>4 \times 4</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Check each part of the definition of group,
+            as we did in <xref ref="exam_nonabel_permgp"></xref>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

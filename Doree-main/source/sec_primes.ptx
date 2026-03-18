@@ -1,0 +1,2396 @@
+<section xml:id="sec_primes">
+  <title>Primes</title>
+  <introduction>
+    <p>
+      <term>Primes</term> are integers whose only divisors are one and itself.
+      Many modern encryption systems that keep your data safe are based on the difficulty of factoring an integer that is the product of two very large primes.
+      Any integer can be written as the product of primes, with repeats allowed.
+      This <term>prime factorization</term>
+      allows us to list and count the divisors of an integer more easily.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_primes">
+    <title>\subprimes</title>
+    <activity xml:id="act_viz_divisors">
+      <title>Visualizing divisors</title>
+      <p>
+        We begin our discussion of primes with a visualization of divisors.
+        <ol>
+          <li>
+            <p>
+              Watch the animation at \url{tinyurl.com/vizdivisors}.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw the circle pictures from the animation for integers 1-12.
+              You are welcome to draw dots instead of circles.
+            </p>
+          </li>
+          <li>
+            <p>
+              Draw the circle pictures from the animation for the integers 81 and 100.
+            </p>
+          </li>
+          <li>
+            <p>
+              What can you say about an integer whose representation is a circle?
+            </p>
+          </li>
+          <li>
+            <p>
+              In words, explain how the visualization is determined from the number.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      As we saw in the opening activity,
+      some integers can be drawn as equal-sized groups of circles corresponding to the divisors of the integers.
+      Some integers can only be drawn as one circle of circles because the only divisors of that integer are one and itself.
+      Such integers are primes.
+      Here is the formal definition.
+    </p>
+    <definition xml:id="defn_prime">
+      <title>Prime</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A positive integer <m>n>1</m> is <term>prime</term>
+                if its only positive divisors are one and <m>n</m>.
+                For example, two, three, and five are prime.
+                Note that one is not considered prime.
+              </p>
+            </li>
+            <li>
+              <p>
+                A positive integer <m>n>1</m> is
+                <term>composite</term> if it is not prime.
+                For example,
+                four is composite because its positive divisors are one, two,
+                and four, not just one and four.
+                Note that one is also not composite.
+              </p>
+            </li>
+            <li>
+              <p>
+                The terms
+                <q>prime</q>
+                and
+                <q>composite</q>
+                are adjectives
+                (used to describe an integer)
+                and nouns (a type of integer).
+              </p>
+            </li>
+            <li>
+              <p>
+                The integer <m>d</m> is a <term>nontrivial positive divisor</term>
+                of <m>n</m> if <m>d \mid n</m> and <m>1 \lt d \lt n</m>.
+                For example, 2 is a nontrivial positive divisor of 4.
+                In general, an integer is composite if it has a nontrivial divisor,
+                and an integer is prime if it does not have any nontrivial positive divisors.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Let's practice working with these definitions.
+    </p>
+    <example xml:id="exam_show_prime">
+      <title>Show an integer is prime or composite</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_7_is_prime">
+              <p>
+                Show that the integer seven is prime.
+                <solution>
+                  <p>
+                    We can check that <m>2 \nmid 7</m>
+                    (for example, by calculating
+                    <m>7 \div 2 = 3.5</m> which is not an integer),
+                    <m>3 \nmid 7</m>, <m>4 \nmid 7</m>,
+                    <m>5 \nmid 7</m>, and <m>6 \nmid 7</m>.
+                    Therefore, the only positive divisors of seven are one and seven.
+                    Thus, seven is prime.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that the integer 99 is composite.
+                <solution>
+                  <p>
+                    We could list all the divisors of 99, but that is not necessary.
+                    We just need one nontrivial positive divisor of 99.
+                    For example, <m>99 = 9(11)</m> and so <m>9 \mid 99</m>.
+                    That is, 9 is a nontrivial positive divisor of 99.
+                    Thus, 99 is composite.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      The strategy we used in <xref ref="exam_show_prime"></xref>
+      <xref ref="part_7_is_prime"/> does not generalize well to larger numbers.
+      For example, if we wanted to show that 97 is prime,
+      then that method would require us to check that 2, 3, 4, <ellipsis/>, 96 are not divisors of 97.
+      It is useful to note two facts that allow us to check a much shorter list of divisors.
+    </p>
+    <theorem xml:id="thm_show_is_prime">
+      <title>Show an integer is prime</title>
+      <statement>
+        <p>
+          Let <m>n</m> be an integer.
+          <ol>
+            <li xml:id="part_only_check_prime_divisors">
+              <p>
+                Let <m>p</m> be a prime.
+                If <m>p</m> is not a divisor of <m>n</m>,
+                then no multiple of <m>p</m> is a divisor of <m>n</m>.
+              </p>
+            </li>
+            <li xml:id="part_only_check_to_sqrtn">
+              <p>
+                If <m>n</m> has no nontrivial positive divisors less than or equal to
+                <m>\sqrt{n}</m>, then <m>n</m> is prime.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We can use this theorem to show that 97 is prime.
+    </p>
+    <example xml:id="exam_sieve">
+      <title>Sieve of Eratosthenes</title>
+      <statement>
+        <p>
+          Use the Sieve of Eratosthenes to show that 97 is prime.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We start with a grid showing the integers 1-100 in rows of 10 in <xref ref="table_sieve"></xref>.
+          We plan to cross out one and all composite integers and to circle all prime integers.
+        </p>
+        <p>
+          To begin we cross out one, circle two,
+          and then cross out every other number thereafter,
+          which are the even integers.
+          Because an even integer has positive divisor two,
+          the only prime even integer is two itself.
+          Next, circle three and then cross out every third number thereafter,
+          which are the multiples of three.
+          Repeat the process for the next two integers that have not yet been crossed out,
+          five and then seven.
+          Since each integer in the top row is crossed out or circled,
+          circle all the remaining integers that have not been crossed out to get the grid shown in <xref ref="table_sieve"></xref>.(You can watch this algorithm in action at \url{https://www.youtube.com/watch?v=V08g_lkKj6Q}.)
+        </p>
+        <table xml:id="table_sieve">
+          <title>Sieve of Eratosthenes</title>
+          <tabular>
+            <row>
+              <cell>\xcancel{<nbsp/>1}</cell>
+              <cell>\circled{2}</cell>
+              <cell>\circled{3}</cell>
+              <cell>\xcancel{<nbsp/>4}</cell>
+              <cell>\circled{5}</cell>
+              <cell>\xcancel{<nbsp/>6}</cell>
+              <cell>\circled{7}</cell>
+              <cell>\xcancel{<nbsp/>8}</cell>
+              <cell>\xcancel{<nbsp/>9}</cell>
+              <cell>\xcancel{10}</cell>
+            </row>
+            <row>
+              <cell>\circled{11}</cell>
+              <cell>\xcancel{12}</cell>
+              <cell>\circled{13}</cell>
+              <cell>\xcancel{14}</cell>
+              <cell>\xcancel{15}</cell>
+              <cell>\xcancel{16}</cell>
+              <cell>\circled{17}</cell>
+              <cell>\xcancel{18}</cell>
+              <cell>\circled{19}</cell>
+              <cell>\xcancel{20}</cell>
+            </row>
+            <row>
+              <cell>\xcancel{21}</cell>
+              <cell>\xcancel{22}</cell>
+              <cell>\circled{23}</cell>
+              <cell>\xcancel{24}</cell>
+              <cell>\xcancel{25}</cell>
+              <cell>\xcancel{26}</cell>
+              <cell>\xcancel{27}</cell>
+              <cell>\xcancel{28}</cell>
+              <cell>\circled{29}</cell>
+              <cell>\xcancel{30}</cell>
+            </row>
+            <row>
+              <cell>\circled{31}</cell>
+              <cell>\xcancel{32}</cell>
+              <cell>\xcancel{33}</cell>
+              <cell>\xcancel{34}</cell>
+              <cell>\xcancel{35}</cell>
+              <cell>\xcancel{36}</cell>
+              <cell>\circled{37}</cell>
+              <cell>\xcancel{38}</cell>
+              <cell>\xcancel{39}</cell>
+              <cell>\xcancel{40}</cell>
+            </row>
+            <row>
+              <cell>\circled{41}</cell>
+              <cell>\xcancel{42}</cell>
+              <cell>\circled{43}</cell>
+              <cell>\xcancel{44}</cell>
+              <cell>\xcancel{45}</cell>
+              <cell>\xcancel{46}</cell>
+              <cell>\circled{47}</cell>
+              <cell>\xcancel{48}</cell>
+              <cell>\xcancel{49}</cell>
+              <cell>\xcancel{50}</cell>
+            </row>
+            <row>
+              <cell>\xcancel{51}</cell>
+              <cell>\xcancel{52}</cell>
+              <cell>\circled{53}</cell>
+              <cell>\xcancel{54}</cell>
+              <cell>\xcancel{55}</cell>
+              <cell>\xcancel{56}</cell>
+              <cell>\xcancel{57}</cell>
+              <cell>\xcancel{58}</cell>
+              <cell>\circled{59}</cell>
+              <cell>\xcancel{60}</cell>
+            </row>
+            <row>
+              <cell>\circled{61}</cell>
+              <cell>\xcancel{62}</cell>
+              <cell>\xcancel{63}</cell>
+              <cell>\xcancel{64}</cell>
+              <cell>\xcancel{65}</cell>
+              <cell>\xcancel{66}</cell>
+              <cell>\circled{67}</cell>
+              <cell>\xcancel{68}</cell>
+              <cell>\xcancel{69}</cell>
+              <cell>\xcancel{70}</cell>
+            </row>
+            <row>
+              <cell>\circled{71}</cell>
+              <cell>\xcancel{72}</cell>
+              <cell>\circled{73}</cell>
+              <cell>\xcancel{74}</cell>
+              <cell>\xcancel{75}</cell>
+              <cell>\xcancel{76}</cell>
+              <cell>\xcancel{77}</cell>
+              <cell>\xcancel{78}</cell>
+              <cell>\circled{79}</cell>
+              <cell>\xcancel{80}</cell>
+            </row>
+            <row>
+              <cell>\xcancel{81}</cell>
+              <cell>\xcancel{82}</cell>
+              <cell>\circled{83}</cell>
+              <cell>\xcancel{84}</cell>
+              <cell>\xcancel{85}</cell>
+              <cell>\xcancel{86}</cell>
+              <cell>\xcancel{87}</cell>
+              <cell>\xcancel{88}</cell>
+              <cell>\circled{89}</cell>
+              <cell>\xcancel{90}</cell>
+            </row>
+            <row>
+              <cell>\xcancel{91}</cell>
+              <cell>\xcancel{92}</cell>
+              <cell>\xcancel{93}</cell>
+              <cell>\xcancel{94}</cell>
+              <cell>\xcancel{95}</cell>
+              <cell>\xcancel{96}</cell>
+              <cell>\circled{97}</cell>
+              <cell>\xcancel{98}</cell>
+              <cell>\xcancel{99}</cell>
+              <cell>\xcancel{100}</cell>
+            </row>
+          </tabular>
+        </table>
+        <p>
+          Notice that nowhere in this process do we divide, we only skip-count.<fn>
+          <term>Skip-counting</term> is the process of counting by a number greater than 1.
+          </fn> How do we know that the circled integers
+          <me>
+            11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 67, 73, 79, 83, 89, 97
+          </me>
+          are prime?
+          Each of these integers is not divisible by two, three, five,
+          or seven since we crossed out all the multiples of two,
+          three, five,
+          or seven.
+          <xref ref="thm_show_is_prime">By</xref>
+          <xref ref="part_only_check_prime_divisors"/>,
+          each of these integers is not divisible by four, six, eight,
+          or 10 because two was not a divisor and is not divisible by nine because three was not a divisor.
+          That is, each of these integers are not divisible by <m>2, 3, 4, 5, 6, 7, 8, 9</m>,
+          or <m>10</m>.
+          <xref ref="thm_show_is_prime">By</xref>
+          <xref ref="part_only_check_to_sqrtn"/> and since <m>\sqrt{100} = 10</m>,
+          each of these remaining integers must be prime.
+        </p>
+        <p>
+          In particular, 97 is prime.
+        </p>
+      </solution>
+    </example>
+    <p>
+      Now, it is your turn to work with prime and composite integers.
+    </p>
+    <activity xml:id="act_prime_composite">
+      <title>Primes and composites</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Without using any computational technology,
+              show that each of the following integers is composite:
+              <me>
+                320, 321, 322, 324, 325, 326, 327, 328, 330
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Using computational technology,
+              check that <m>17 \mid 323</m> and <m>7 \mid 329</m>.
+              What can you conclude about the integers 323 and 329?
+            </p>
+          </li>
+          <li>
+            <p>
+              Using computational technology,
+              check that <m>331</m> is not divisible by <m>2, 3, 5, 7, 11, 13, 17</m>,
+              and that <m>\sqrt{331} \lt 19</m>.
+              What can you conclude about the integer 331?
+            </p>
+          </li>
+          <li xml:id="part_mersenne_was_mistaken">
+            <p>
+              In the mid-17th century Marin Mersenne conjectured that If <m>p</m> is prime,
+              then <m>2^p-1</m> is prime.
+              Prove that he was mistaken by finding a prime <m>p</m> where <m>2^p-1</m> is a composite.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+  </subsection>
+  <subsection xml:id="sub_prime_fact">
+    <title>\subprimefact</title>
+    <p>
+      Another reason why primes are important is that they are the multiplicative building blocks of all integers in the sense that every natural number <m>n > 1</m> can be written as the product of prime numbers.
+      To see why, let's see what happens if we factor an integer as much as possible.
+    </p>
+    <example xml:id="exam_factor120">
+      <title>Factoring 120</title>
+      <statement>
+        <p>
+          Factor 120 as much as possible.
+        </p>
+        <solution>
+          <p>
+            An easy factorization is <m>120 = 12 \cdot 10</m>.
+            Since both 12 and 10 are composite,
+            they can be factored nontrivially.
+            For example, <m>12 = 2 \cdot 6</m> and <m>10 = 2 \cdot 5</m>.
+            Now, two and five are prime so they cannot be further factored,
+            but six is composite and <m>6 = 2 \cdot 3</m>.
+            Since two and three are prime,
+            no further factorization is possible.
+            This factorization is shown in the <em>factor tree</em>
+            in <xref ref="figure_factoring120"></xref>,
+            and we have circled the prime factors.
+            Putting our work together, we can write
+            <me>
+              120 = 2 \cdot 2 \cdot 3 \cdot 2 \cdot 5 = 2^3 \cdot 3 \cdot 5
+            </me>.
+          </p>
+        </solution>
+        <figure xml:id="figure_factoring120">
+          <caption>A factor tree for the integer <m>120=2^3 \cdot 3 \cdot 5</m>.</caption>
+          image type not recognized
+        </figure>
+      </statement>
+    </example>
+    <p>
+      <xref ref="exam_factor120">In</xref>, we wrote
+      <me>
+        120 = 2 \cdot 2 \cdot 3 \cdot 2 \cdot 5 = 2^3 \cdot 3 \cdot 5
+      </me>.
+    </p>
+    <p>
+      Note that this product is a product of primes.
+    </p>
+    <definition xml:id="defn_prime_fact">
+      <title>Prime factorization</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                A <term>prime factorization</term>
+                of a positive integer <m>n>1</m> is a product of primes equal to <m>n</m>.
+                For example, a prime factorization of 120 is
+                <me>
+                  120 = 2 \cdot 2 \cdot 3 \cdot 2 \cdot 5
+                </me>.
+                Note that a prime is its own prime factorization.
+                For example, a prime factorization of <m>5</m> is <m>5</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We often group repeat primes together and write primes in increasing order to write a prime factorization of <m>n</m> in
+                <term>standard order</term> as
+                <me>
+                  n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}
+                </me>
+                where <m>p_1, p_2, \ldots,
+                p_k</m> are distinct primes with <m>p_1 \lt  p_2 \lt  \ldots \lt  p_k</m> and
+                <m>e_1, e_2, \ldots,
+                e_k</m> are positive integer exponents.
+                For example, a prime factorization of 120 in standard order is
+                <me>
+                  120 = 2^3 \cdot 3 \cdot 5
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The integer 1 does not have a prime factorization,
+                but occasionally we refer to 1 as the prime factorization of 1 because it fits the format with all exponents (<m>e_1, e_2, \ldots e_k</m>) set equal to 0.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Any integer <m>n>1</m> has a prime factorization.
+      To see why, repeat the process from <xref ref="exam_factor120"></xref>.
+      If <m>n</m> is prime, then we are done.
+      Otherwise, <m>n</m> is composite and we can nontrivially factor <m>n</m>.
+      Any time we have a composite factor,
+      we nontrivially factor it.
+      When we run out of composites,
+      all the remaining numbers must be prime.
+      Then we arrange the primes in standard order,
+      from smallest prime to largest,
+      using exponential notation to record any multiple occurrences of primes.
+    </p>
+    <p>
+      It might be surprising to learn that the prime factorization of an integer in standard form is unique.
+      For example, in <xref ref="exam_factor120"></xref>
+      if we had started with <m>120 = 2 \cdot 60</m> or <m>120 = 3 \cdot 40</m> or
+      <m>120 = 4 \cdot 30</m> or any other factorization,
+      we would get different factor trees but the same final prime factorization of 120 in standard form which is <m>120 = 2^3 \cdot 3 \cdot 5</m>.
+      We state this existence and uniqueness as a theorem.
+    </p>
+    <theorem xml:id="thm_FTOArith">
+      <title>Fundamental Theorem of Arithmetic</title>
+      <statement>
+        <p>
+          Each integer <m>n >1</m> can be expressed as the product of primes,
+          and when written in standard order,
+          this prime factorization is unique.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      For example, a consequence of <xref ref="thm_FTOArith"></xref>
+      is that if the prime factorization of an integer <m>n</m> does not include the prime <m>p</m>,
+      then <m>p \nmid n</m>.
+    </p>
+    <p>
+      Try working with prime factorizations.
+    </p>
+    <activity xml:id="act_prime_fact">
+      <title>Prime factorization</title>
+      <p>
+        <nbsp/> Do not use computational technology or other resources on this problem.
+        <ol>
+          <li>
+            <p>
+              Use a factor tree to find the prime factorization of 120 starting with <m>2 \cdot 60</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use a factor tree to find the prime factorization of 72.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the prime factorization of <m>10^4</m>.
+              Hint: <m>10^4</m> is already partially factored.
+              Continue to factor it further.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the prime factorization of <m>12^5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the prime factorization of 10!
+              Hint: 10! is already partially factored.
+              Continue to factor it further.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the power of 7 in the prime factorization of 15!
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the highest power of 10 dividing 15! and explain how that information tells us how many zeros are at the end of 15! when 15! is multiplied exactly.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at examples similar to <xref ref="act_prime_fact"></xref>.
+    </p>
+    <example xml:id="exam_prime_fact">
+      <title>Prime factorization</title>
+      <statement>
+        <p>
+          <nbsp/> Do not use computational technology or other resources on this problem.
+          <ol>
+            <li>
+              <p>
+                Find the prime factorization of <m>75^5</m>.
+                <solution>
+                  <p>
+                    Note that <m>75^5</m> is already partially factored.
+                    We can continue to factor it further using <m>75 = 3\cdot5^2</m>.
+                    We get
+                    <me>
+                      75^5=(3\cdot5^2)^5 =3^5 \cdot \left(5^2\right)^5 = 3^5\cdot 5^{10}
+                    </me>.
+                    Note that we <xref ref="thm_simplify_exp">used</xref>
+                    to simplify <m>\left(5^2\right)^5=5^{10}</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find the prime factorization of 12!
+                <solution>
+                  <p>
+                    Note that <m>12!</m> is already partially factored.
+                    We can continue to factor it further using
+                    <me>
+                      12! = (12)(11)(10)(9)(8)(7)(6)(5)(4)(3)(2)(1)
+                    </me>.
+                    We get
+                    <md>
+                      <mrow>12! \amp = (12)(11)(10)(9)(8)(7)(6)(5)(4)(3)(2)(1)</mrow>
+                      <mrow>\amp = (2^2 \cdot 3)(11)(2 \cdot 5)(3^2)(2^3)(7)(2\cdot 3)(5)(2^2)(3)(2)</mrow>
+                      <mrow>\amp = 2^{10}\cdot 3^5 \cdot 5^2 \cdot 7 \cdot 11</mrow>
+                    </md>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Find the highest power of 10 dividing 12! and explain how that information tells us how many zeros are at the end of 12! when 12! is multiplied exactly.
+                <solution>
+                  <p>
+                    The highest power of 5 that divides 12! is <m>5^2</m>.
+                    To get a divisor of 10, we must have a <m>2 \cdot 5</m>.
+                    Therefore, the highest power of 10 that divides 12! is <m>10^2</m>.
+                    Each power of 10 contributes one zero at the end of the number.
+                    Since there are two 10s,
+                    it follows that there are two zeros at the end of 12! when 12! is multiplied exactly.
+                    (By the way,
+                    we can use computational technology to check that 12! = \text{ 479,001,600 } , which indeed ends with two zeros.)
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_count_divisors">
+    <title>\subcountdiv</title>
+    <p>
+      In the Lockers Puzzle <xref ref="act_lockers"/>,
+      as solved in <xref ref="exam_open_lockers"></xref>,
+      we saw that whether a locker was open or closed depended on the number of divisors of the locker number,
+      but it is not easy to list or count the divisors of an integer.
+      In this section, we explore how prime factorization can help.
+    </p>
+    <p>
+      We start with an example,
+      looking at how the prime factorization of an integer tells us information about the prime factorization of its divisors.
+    </p>
+    <example xml:id="exam_list_divisors_from_prime_fact">
+      <title>Prime factorization of divisors</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li xml:id="part_list_div16">
+              <p>
+                List the positive divisors of the integer 16.
+                Compare the prime factorization of 16 with the prime factorization of its positive divisors.
+                <solution>
+                  <p>
+                    The positive divisors of <m>16=2^4</m> are <m>1, 2, 4, 8</m> and <m>16</m>.
+                    The prime factorizations of these divisors are <m>1, 2^1, 2^2, 2^3</m>,
+                    and <m>2^4</m>.
+                    We can display this list in a table.
+                    <xref ref="table_divisors16"></xref>
+                    lists the divisors in prime factored form and then the divisors themselves.
+                  </p>
+                </solution>
+                <table xml:id="table_divisors16">
+                  <title>The positive divisors of 16</title>
+                  <tabular>
+                    <row>
+                      <cell></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell><m>2^2</m></cell>
+                      <cell><m>2^3</m></cell>
+                      <cell><m>2^4</m></cell>
+                    </row>
+                    <row bottom="medium">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell >1</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell><m>2^2</m></cell>
+                      <cell><m>2^3</m></cell>
+                      <cell><m>2^4</m></cell>
+                    </row>
+                  </tabular>
+                  \hspace{1in}
+                  <tabular>
+                    <row>
+                      <cell></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell><m>2^2</m></cell>
+                      <cell><m>2^3</m></cell>
+                      <cell><m>2^4</m></cell>
+                    </row>
+                    <row bottom="medium">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell >1</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                      <cell>4</cell>
+                      <cell>8</cell>
+                      <cell>16</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_list_div50">
+              <p>
+                List the positive divisors of the integer 50.
+                Compare the prime factorization of 50 with the prime factorization of its positive divisors.
+                <solution>
+                  <p>
+                    The positive divisors of <m>50=2\cdot 5^2</m> are <m>1, 2, 5, 10, 25</m> and <m>50</m>.
+                    The prime factorizations of these divisors are
+                    <m>1, 2^1, 5^1, 2 \cdot 5, 5^2</m> and <m>2\cdot 5^2</m>.
+                    <xref ref="table_divisors50"></xref>
+                    lists the divisors in prime factored form and then the divisors themselves.
+                    Notice that going across a row of this table,
+                    we multiply by two and going down a column of this table,
+                    we multiply by five.
+                  </p>
+                </solution>
+                <table xml:id="table_divisors50">
+                  <title>The positive divisors of 50</title>
+                  <tabular>
+                    <row>
+                      <cell></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                    </row>
+                    <row bottom="medium">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell >1</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>5</cell>
+                      <cell>5</cell>
+                      <cell><m>2\cdot 5</m></cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell><m>5^2</m></cell>
+                      <cell><m>5^2</m></cell>
+                      <cell><m>2\cdot 5^2</m></cell>
+                    </row>
+                  </tabular>
+                  \hspace{1in}
+                  <tabular>
+                    <row>
+                      <cell></cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                    </row>
+                    <row bottom="medium">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell >1</cell>
+                      <cell>1</cell>
+                      <cell>2</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>5</cell>
+                      <cell>5</cell>
+                      <cell>10</cell>
+                    </row>
+                    <row bottom="minor">
+                      <cell></cell>
+                      <cell></cell>
+                      <cell></cell>
+                    </row>
+                    <row>
+                      <cell>25</cell>
+                      <cell>25</cell>
+                      <cell>50</cell>
+                    </row>
+                  </tabular>
+                </table>
+              </p>
+            </li>
+            <li xml:id="part_list_div72">
+              <p>
+                List the positive divisors of the integer 72.
+                Compare the prime factorization of 72 with the prime factorization of its positive divisors.
+                <solution>
+                  <p>
+                    The positive divisors of <m>72=2^2 \cdot 3^2</m> are <m>1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36</m> and <m>72</m>.
+                    The prime factorizations of these divisors are
+                    <m>1, 2^1, 3^1, 2^2, 2 \cdot 3, 2^3, 3^2, 2^2 \cdot 3, 2 \cdot 3^2, 2^3 \cdot 3, 2^2 \cdot 3^2</m>,
+                    and <m>2^2 \cdot 3^2</m>.
+                    <xref ref="table_divisors72"></xref>
+                    lists the divisors in prime factored form and then the divisors themselves.
+                    Notice that going across a row of this table,
+                    we multiply by two and going down a column of this table,
+                    we multiply by three.
+                  </p>
+                  <table xml:id="table_divisors72">
+                    <title>The positive divisors of 72</title>
+                    <tabular>
+                      <row>
+                        <cell></cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell><m>2^2</m></cell>
+                        <cell><m>2^3</m></cell>
+                      </row>
+                      <row bottom="medium">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell >1</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell><m>2^2</m></cell>
+                        <cell><m>2^3</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>3</cell>
+                        <cell>3</cell>
+                        <cell><m>2 \cdot 3</m></cell>
+                        <cell><m>2^2\cdot 3</m></cell>
+                        <cell><m>2^3\cdot 3</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell><m>3^2</m></cell>
+                        <cell><m>3^2</m></cell>
+                        <cell><m>2 \cdot 3^2</m></cell>
+                        <cell><m>2^2 \cdot 3^2</m></cell>
+                        <cell><m>2^3 \cdot 3^2</m></cell>
+                      </row>
+                    </tabular>
+                    \hspace{1in}
+                    <tabular>
+                      <row>
+                        <cell></cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell><m>4</m></cell>
+                        <cell><m>8</m></cell>
+                      </row>
+                      <row bottom="medium">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell >1</cell>
+                        <cell><m>1</m></cell>
+                        <cell><m>2</m></cell>
+                        <cell><m>4</m></cell>
+                        <cell><m>8</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell>3</cell>
+                        <cell><m>3</m></cell>
+                        <cell><m>6</m></cell>
+                        <cell><m>12</m></cell>
+                        <cell><m>24</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell><m>9</m></cell>
+                        <cell><m>9</m></cell>
+                        <cell><m>18</m></cell>
+                        <cell><m>36</m></cell>
+                        <cell><m>72</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try listing and counting divisors using prime factorization.
+    </p>
+    <activity xml:id="act_list_count_divisors_using_prime_fact">
+      <title>Listing and counting divisors using prime factorization</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li xml:id="part_countdiv64">
+            <p>
+              What are the possible prime factorizations of a divisor of <m>64 = 2^6</m>?
+              List the positive divisors of the integer 64 in a table as in <xref ref="exam_list_divisors_from_prime_fact"></xref>
+              <xref ref="part_list_div16"/>.
+              How many positive divisors does the integer 64 have?
+            </p>
+          </li>
+          <li xml:id="part_countdiv2000">
+            <p>
+              What are the possible prime factorizations of a divisor of <m>\text{ 2,000 } = 2^4 5^3</m>?
+              List the positive divisors of the integer \text{ 2,000 } in a table as in <xref ref="exam_list_divisors_from_prime_fact"></xref>
+              <xref ref="part_list_div72"/>.
+              You may leave the divisors in prime-factored form.
+              How many positive divisors does the integer \text{ 2,000 } have?
+            </p>
+          </li>
+          <li xml:id="part_divisors_primesq">
+            <p>
+              List the positive divisors of <m>p^2</m> where <m>p</m> is a prime.
+              How many positive divisors does the integer <m>p^2</m> have?
+            </p>
+          </li>
+          <li xml:id="part_divisors_primecubed">
+            <p>
+              List the positive divisors of <m>p^3</m> where <m>p</m> is a prime.
+              How many positive divisors does the integer <m>p^3</m> have?
+            </p>
+          </li>
+          <li>
+            <p>
+              For a prime <m>p</m> and positive integer <m>a</m>,
+              how many positive divisors does <m>p^a</m> have?
+              Check that your conjecture gives the same number of positive divisors of the integer 64 as found in <xref ref="part_countdiv64"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give an example of an integer with exactly 21 positive divisors.
+              Hint: Use a power of a prime.
+            </p>
+          </li>
+          <li>
+            <p>
+              For distinct primes <m>p</m> and <m>q</m>,
+              list the positive divisors of an integer
+              <m>p^4\cdot q^3</m> in a table as in <xref ref="part_countdiv2000"/>.
+              How many positive divisors does <m>p^4\cdot q^3</m> have?
+            </p>
+          </li>
+          <li>
+            <p>
+              For distinct primes <m>p</m> and <m>q</m>,
+              conjecture the number of positive divisors of <m>p^a\cdot q^b</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Give an example of an integer with exactly 21 positive divisors,
+              where that integer is not a power of a prime.
+              Hint: What could the prime factorization be?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Our examples have involved integers whose prime factorization has one or two distinct primes.
+      Here is an example of an integer whose prime factorization has three distinct primes.
+    </p>
+    <example xml:id="exam_list_divisors_from_prime_fact_600">
+      <title>Prime factorization of divisors of the integer 600</title>
+      <statement>
+        <p>
+          <nbsp/> List the positive divisors of the integer 600 using its prime factorization.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The prime factorization of the integer 600 is
+          <me>
+            600=2^3 \cdot 3 \cdot 5^2
+          </me>.
+        </p>
+        <p>
+          Since there are three prime divisors,
+          we would need a 3-dimensional table which we can represent using three 2-dimensional tables based on the power of 5 in the divisor,
+          as shown in <xref ref="table_divisors600_pfform"></xref>.
+          The list of divisors of 600 is, therefore
+          <me>
+            1, 2, 4, 8, 3, 6, 12, 24, 5, 10, 20, 40, 15, 30, 60, 120, 25, 50, 100, 200, 75, 150, 300, 600
+          </me>.
+        </p>
+        <table xml:id="table_divisors600_pfform">
+          <title>The prime factorization of the positive divisors of 600</title>
+          <tabular>
+            <row>
+              <cell>1</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell><m>2^2</m></cell>
+              <cell><m>2^3</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  >1</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell><m>2^2</m></cell>
+              <cell><m>2^3</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell>3</cell>
+              <cell><m>2 \cdot 3</m></cell>
+              <cell><m>2^2\cdot 3</m></cell>
+              <cell><m>2^3\cdot 3</m></cell>
+            </row>
+          </tabular>
+          \vspace{.25in}
+          <tabular>
+            <row>
+              <cell>5</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell><m>2^2</m></cell>
+              <cell><m>2^3</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  >1</cell>
+              <cell>5</cell>
+              <cell><m>2\cdot 5</m></cell>
+              <cell><m>2^2\cdot 5</m></cell>
+              <cell><m>2^3\cdot 5</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell><m>3 \cdot 5</m></cell>
+              <cell><m>2 \cdot 3 \cdot 5</m></cell>
+              <cell><m>2^2\cdot 3 \cdot 5</m></cell>
+              <cell><m>2^3\cdot 3 \cdot 5</m></cell>
+            </row>
+          </tabular>
+          \vspace{.25in}
+          <tabular>
+            <row>
+              <cell><m>5^2</m></cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell><m>2^2</m></cell>
+              <cell><m>2^3</m></cell>
+            </row>
+            <row bottom="medium">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell  >1</cell>
+              <cell><m>5^2</m></cell>
+              <cell><m>2 \cdot 5^2</m></cell>
+              <cell><m>2^2\cdot 5^2</m></cell>
+              <cell><m>2^3\cdot 5^2</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell><m>3\cdot 5^2</m></cell>
+              <cell><m>2 \cdot 3\cdot 5^2</m></cell>
+              <cell><m>2^2\cdot 3\cdot 5^2</m></cell>
+              <cell><m>2^3\cdot 3\cdot 5^2</m></cell>
+            </row>
+          </tabular>
+        </table>
+      </solution>
+    </example>
+    <p>
+      Notice that we can count the number of positive divisors of an integer from its prime factorization.
+    </p>
+    <example xml:id="exam_count_div_from_prime_fact">
+      <title>Counting divisors from the prime factorization</title>
+      <statement>
+        <p>
+          In each part of this exercise,
+          show how to count the number of divisors from the prime factorization.
+          <ol>
+            <li>
+              <p>
+                How many positive divisors does the integer 16 have?
+                Explain.
+                <solution>
+                  <p>
+                    <xref ref="exam_list_divisors_from_prime_fact">In</xref>
+                    <xref ref="part_list_div16"/>,
+                    we see that the positive divisors of
+                    <m>16 = 2^4</m> have a prime factorization of the form <m>2^a</m> where <m>a=0,1,2,3,4</m>.
+                    There are five choices for <m>a</m>.
+                    Thus, the integer 16 has five positive divisors.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many positive divisors does the integer 50 have?
+                Explain.
+                <solution>
+                  <p>
+                    <xref ref="exam_list_divisors_from_prime_fact">In</xref>
+                    <xref ref="part_list_div50"/>,
+                    we see that the positive divisors
+                    <m>50 = 2 \cdot 5^2</m> have a prime factorization of the form
+                    <m>2^a\cdot 5^b</m> where <m>a=0,1</m> and <m>b = 0,1,2</m>.
+                    There are two choices for <m>a</m> and three choices for <m>b</m>.
+                    Since steps multiply <xref ref="thm_steps_multiply"/>,
+                    the integer 50 has <m>2 \times 3 = 6</m> positive divisors.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many positive divisors does the integer 72 have?
+                Explain.
+                <solution>
+                  <p>
+                    <xref ref="exam_list_divisors_from_prime_fact">In</xref>
+                    <xref ref="part_list_div72"/>,
+                    we see that the positive divisors of
+                    <m>72 = 2^3 \cdot 3^2</m> have a prime factorization of the form <m>2^a\cdot 3^b</m> where
+                    <m>a=0,1,2,3</m> and <m>b = 0,1,2</m>.
+                    There are four choices for <m>a</m> and three choices for <m>b</m>.
+                    Since steps multiply <xref ref="thm_steps_multiply"/>,
+                    the integer 72 has <m>4 \times 3 = 12</m> positive divisors.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                How many positive divisors does the integer 600 have?
+                Explain.
+                <solution>
+                  <p>
+                    <xref ref="exam_list_divisors_from_prime_fact_600">In</xref>,
+                    we see that the positive divisors of
+                    <m>600 = 2^3 \cdot 3 \cdot 5^2</m> have a prime factorization of the form
+                    <m>2^a \cdot 3^b \cdot 5^c</m> where <m>a=0,1,2,3</m>,
+                    <m>b=0,1</m>, and <m>c=0,1,2</m>.
+                    There are four choices for <m>a</m>,
+                    two choices for <m>b</m>, and three choices for <m>c</m>.
+                    Since steps multiply <xref ref="thm_steps_multiply"/>,
+                    the integer 600 has <m>4 \times 2 \times 3 = 24</m> positive divisors.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We state our findings in a theorem.
+    </p>
+    <theorem xml:id="thm_list_count_div_from_prime_fact">
+      <title>Listing and counting divisors using prime factorization</title>
+      <statement>
+        <p>
+          Let <m>n</m> be an integer with prime factorization
+          <me>
+            n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}
+          </me>
+          where <m>p_1, p_2, \ldots,
+          p_k</m> are distinct primes with <m>p_1 \lt  p_2 \lt  \ldots \lt  p_k</m> and
+          <m>e_1, e_2, \ldots,
+          e_k</m> are positive integer exponents.
+          <ol>
+            <li>
+              <p>
+                The positive divisors of <m>n</m> are integers of the form
+                <me>
+                  p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}
+                </me>
+                where each exponent <m>a_i=0,1,2, \ldots, e_i</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The integer <m>n</m> has exactly
+                <me>
+                  (e_1+1)(e_2+1) \cdots (e_k+1)
+                </me>
+                positive divisors.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      We can <xref ref="thm_list_count_div_from_prime_fact">use</xref>
+      to find examples of integers with a certain number of divisors.
+    </p>
+    <example xml:id="exam_int_10div">
+      <title>Integers with exactly 10 positive divisors</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Describe the possible prime factorizations of an integer <m>n</m> that has exactly 10 positive divisors.
+                <solution>
+                  <p>
+                    <xref ref="thm_list_count_div_from_prime_fact">By</xref>,
+                    we are looking for an integer with prime factorization
+                    <me>
+                      n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}
+                    </me>
+                    such that
+                    <me>
+                      (e_1+1)(e_2+1) \cdots (e_k+1)=10
+                    </me>.
+                  </p>
+                  <p>
+                    One possibility is that there is only one prime <m>p</m> with <m>e+1=10</m> and so <m>e=9</m>.
+                    In that case, the prime factorization is <m>n = p^9</m>.
+                    The corresponding table would be <m>1 \times 10</m>.
+                    The other possibility is that there are two primes,
+                    <m>p</m> and <m>q</m> where <m>e_1+1=5</m> and <m>e_2+1=2</m> and so <m>e_1=4</m> and <m>e_2=1</m>.
+                    In that case, the prime factorization is <m>n=p^4q</m>.
+                    The corresponding table would be <m>2 \times 5</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the smallest integer having exactly 10 positive divisors?
+                <solution>
+                  <p>
+                    The smallest integer of the form <m>p^9</m> is <m>2^9=512</m>.
+                    The smallest integer of the form <m>p^4q</m> is <m>2^4\cdot 3 = 48</m>.
+                    Thus, the smallest integer having exactly 10 divisors is 48.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_primes">for</xref> \subprimes</title>
+      <exercise xml:id="exer_twin_primes">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/> If <m>p</m> is prime and <m>p+2</m> is also prime,
+            then <m>p</m> and <m>p+2</m> are <term>twin primes</term>.
+            Watch the animation at \url{tinyurl.com/vizdivisors} again and record ten pairs of twin primes.
+            For example, 3 and 5 form one pair of twin primes.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_101_110_prime">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/> Consider the integers
+            <me>
+              101, 102, 103, 104, 105, 106, 107, 108, 109, 110
+            </me>.
+          </p>
+          <p>
+            Answer the following questions without using computational technology.
+            Briefly justify your answers.
+            <ol>
+              <li>
+                <p>
+                  Which of these integers are a multiple of two (even)?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which of these integers are a multiple of three?
+                  Hint: Some multiples of three are <m>90, 93, 96</m>, and <m>99</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which of these integers are a multiple of five?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which of these integers are a multiple of seven?
+                  Hint: Some multiples of seven are <m>70, 77, 84, 91</m>,
+                  and <m>98</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which of these integers are prime?
+                  Note that <m>\sqrt{121} = 11</m>,
+                  so each of these integers has a square root less than 11.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_sieve">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_sieve49">
+                <p>
+                  Make a grid showing the integers 1-49 in rows of seven.
+                  Use this process explained in <xref ref="exam_sieve"></xref>
+                  to cross out one and all composite integers and to circle all prime integers.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your answer to <xref ref="part_sieve49"/> to list all primes less than 50.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_extending_sieve">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> <xref ref="exam_sieve">In</xref>,
+            we found all primes less than 100.
+            The only prime divisors we used to cross out numbers were two,
+            three, five,
+            and seven.
+            <ol>
+              <li>
+                <p>
+                  Why did we stop there (versus checking 11, 13, etc.)?
+                  Hint: Cite a relevant theorem.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Notice that the primes we checked were in the top row (1-10).
+                  We used 1-10 for a specific reason.
+                  What is that reason?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If we wanted to use a Sieve of Eratosthenes to find all primes up to 225,
+                  how many integers should we have in the top row?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which prime divisors would we use to cross out numbers if we were building a Sieve up to 225?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_mersenne_primes">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/> As we saw in <xref ref="act_prime_composite"></xref><xref ref="part_mersenne_was_mistaken"/>, Mersenne conjectured that integers of the form <m>2^p-1</m> are prime whenever <m>p</m> is prime.
+            Primes of this form are <term>Mersenne</term> primes.
+            <ol>
+              <li>
+                <p>
+                  Without using computational technology,
+                  check that <m>2^2-1, 2^3-1, 2^5-1</m>,
+                  and <m>2^7-1</m> are prime.
+                  Note that <m>2^7=128</m>.
+                  (If you do not know this power yet,
+                  work on learning the powers of two.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Note that <m>2^6-1 = 63=7 \cdot 9</m> is composite.
+                  Explain why this example does not contradict Mersenne's conjecture.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prove that Mersenne was mistaken by finding a prime <m>p</m> where <m>2^p-1</m> is a composite.
+                  Yes, this question <xref ref="act_prime_composite">repeats</xref>
+                  <xref ref="part_mersenne_was_mistaken"/>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the Internet to find the largest known Mersenne prime today.
+                  Cite your source
+                  (webpage).
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_consecutive_composites">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Explain why if <m>1 \le k \le n</m>, then <m>k \mid n!</m>.
+                  Hint: Write <m>n!</m> in more detail than usual as
+                  <me>
+                    n! = n(n-1)(n-2) \cdots (k+1)(k)(k-1) \cdots (3)(2)(1)
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why it follows that the integer <m>n! + k</m> is composite for <m>k=2,3 \ldots n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain how it follows that for any integer <m>n\ge2</m>,
+                  there are at least <m>n-1</m> consecutive composite integers.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_primes">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What the definition of prime is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to show that an integer is composite?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Whether the integer one is prime,
+                  composite, both, or neither?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to identify prime integers <m>\lt 100</m> using the Sieve of Eratosthenes?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise>
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Go to \url{https://tinyurl.com/monsters100}. Explain how the monsters for 6, 8, and 9 are built from the prime monsters.
+            Be specific.<fn>
+            These illustrations are from the children's book
+            <em>You Can Count on Monsters: The First 100 Numbers and Their Characters</em>
+            by Richard Schwartz who is a mathematics professor at Brown University.
+            Dr.<nbsp/>Schwartz is also the author of the visualizing divisors animation from <xref ref="act_viz_divisors"></xref>.
+            </fn>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_divisor_plot">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Go to \url{http://www.divisorplot.com/} and look at the divisor plot.
+            To get it to restart, click on <c>Introductory</c>.
+            You can control the scroll speed at the bottom of the page,
+            including stopping the scroll,
+            by deselecting the scroll option.
+            <ol>
+              <li>
+                <p>
+                  What is the animation showing?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How can you see if a number is prime?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How can you see if a number is a perfect square?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_divides_graph_1to100">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            Consider the graph <m>G</m> whose vertices are
+            <m>\{1,2,3,\ldots,100\}</m> where there is an edge between distinct vertices <m>b</m> and <m>c</m> if <m>b \mid c</m> or <m>c \mid b</m>.
+            <ol>
+              <li>
+                <p>
+                  Evaluate the degree of vertices one, five, and 12.
+                  Justify your answers.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate the degree of vertices 41 and 53.
+                  Note that 41 and 53 are prime.Justify your answers.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Recall that a <term>leaf</term> is a vertex of degree one.
+                  How many leaves does <m>G</m> have?
+                  You may want to look <xref ref="exam_sieve">at</xref>.
+                  Again, justify your answer.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_zero_div_mod_composite">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/> Explain why for any composite <m>n</m>,
+            we can find integers <m>a</m> and <m>b</m> such that
+            <m>a \fn{ mod } n \neq 0</m> and <m>b \fn{ mod } n \neq 0</m>,
+            but <m>ab \fn{ mod } n = 0</m>.
+            Note that such integers <m>a</m> and <m>b</m> are
+            <term>zero divisors</term> in <m>\mathbb{Z}_n</m>,
+            as defined in <xref ref="exer_zero_div_modn_conj"></xref>
+            in <xref ref="sec_mod_arith"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_fermat_little">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In this exercise, we explore <m>a^n \fn{ mod } n</m>.
+            You are welcome to use computational technology to evaluate powers and <c>mod</c>,
+            such as the website \url{https://planetcalc.com/8977/}.
+            <ol>
+              <li>
+                <p>
+                  Calculate <m>0^3 \fn{ mod } 3</m>,
+                  <m>1^3 \fn{ mod } 3</m>, and <m>2^3 \fn{ mod } 3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>0^4 \fn{ mod } 4</m>, <m>1^4 \fn{ mod } 4</m>,
+                  <m>2^4 \fn{ mod } 4</m>,and <m>3^4 \fn{ mod } 4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>0^5 \fn{ mod } 5</m>,
+                  <m>1^5 \fn{ mod } 5</m>, <m>2^5 \fn{ mod } 5</m>,
+                  <m>3^5 \fn{ mod } 5</m>, and <m>4^5 \fn{ mod } 5</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate <m>0^6 \fn{ mod } 6</m>,
+                  <m>1^6 \fn{ mod } 6</m>, <m>2^6 \fn{ mod } 6</m>, <m>3^6 \fn{ mod } 6</m>,
+                  <m>4^6 \fn{ mod } 6</m>, and <m>5^6 \fn{ mod } 6</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you say about <m>a^n \fn{ mod } n</m> when <m>n</m> is prime?
+                  Does the same hold when <m>n</m> is not prime?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_prime_fact">for</xref> \subprimefact</title>
+      <exercise xml:id="exer_factor_trees">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Use a factor tree to find the prime factorization of each integer.
+            You may use the list of primes from <xref ref="exam_sieve"></xref> as needed.
+            <ol>
+              <li>
+                <p>
+                  32
+                </p>
+              </li>
+              <li>
+                <p>
+                  200
+                </p>
+              </li>
+              <li>
+                <p>
+                  105
+                </p>
+              </li>
+              <li>
+                <p>
+                  656
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prime_fact__powers">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  Without using computational technology,
+                  find the prime factorization of <m>8^4</m>.
+                  Hint: Use <m>8=2^3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Without using computational technology,
+                  find the prime factorization of <m>100^3</m>.
+                  Hint: Use <m>100=2^25^2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prime_fact_25_">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            On this exercise, do not use computational technology.
+            <ol>
+              <li>
+                <p>
+                  Find the prime factorization of <m>25!</m> Show some work.
+                  You may use the list of primes from <xref ref="exam_sieve"></xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture the number of zeros at the end of <m>25!</m> and explain your reasoning.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_prime_fact">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to use a factor tree to find the prime factorization of an integer?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the standard form of the prime factorization is?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What the Fundamental Theorem of Arithmetic says?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_prime_fact_sq_cube">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  The natural number <m>s</m> is a
+                  <term>(perfect) square</term>
+                  if <m>s = n^2</m> for some integer <m>n</m>.
+                  Find the prime factorization of each square <m>121 = 11^2</m>,
+                  <m>64 = 8^2</m>,
+                  and <m>\text{ 62,500 } =250^2</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you say about the prime factorization of a square?
+                  Hint: If you do not recognize a pattern, try simplifying
+                  <me>
+                    s = n^2 = \left(p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}\right)^2
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The natural number <m>c</m> is a
+                  <term>(perfect) cube</term>
+                  if <m>c = n^3</m> for some integer <m>n</m>.
+                  Find the prime factorization of each cube <m>125 = 5^3</m>,
+                  <m>64 = 4^3</m>, and <m>\text{ 456,533 } = 77^3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you say about the prime factorization of a cube?
+                  Hint: If you do not recognize a pattern, try simplifying
+                  <me>
+                    s = n^3 = \left(p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}\right)^3
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_squarefree">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/> An integer is <term>square-free</term>
+            if every prime in its prime factorization is raised to the first power.
+            For example, <m>35 = 5 \cdot 7</m> is square-free,
+            but <m>40 = 2^3 \cdot 5</m> is not square-free.
+            <ol>
+              <li>
+                <p>
+                  Use prime factorization to show that 105 and 106 are square-free.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use prime factorization to show that 80 and 90 are not square-free.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why if an integer <m>n</m> is not square-free,
+                  then it is divisible by <m>p^2</m> for some prime <m>p</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_2part">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/> By the uniqueness of the prime factorization <xref ref="thm_FTOArith"/>,
+            any integer <m>n > 1</m> can be expressed in the form
+            <m>n = 2^ab</m> where <m>a \ge 0</m> is an integer and <m>b</m> is an odd integer.
+            The <em>2-part</em> of <m>n</m> is <m>2^a</m>.
+            For example, the 2-part of 60 is 4 because
+            <m>60 = 2^2 \cdot 3 \cdot 5=2^2 \cdot 15</m> where 15 is odd and <m>2^2 = 4</m>.
+            Show how to use the prime factorization of each integer to calculate its 2-part.
+            <ol>
+              <li>
+                <p>
+                  \text{ 1,000 }
+                </p>
+              </li>
+              <li>
+                <p>
+                  \text{ 1,024 }
+                </p>
+              </li>
+              <li>
+                <p>
+                  \text{ 1,025 }
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_count_divisors">for</xref> \subcountdiv</title>
+      <exercise xml:id="exer_list_divisors_1or2_primes">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/> Make a table as in <xref ref="exam_list_divisors_from_prime_fact"></xref>
+            to list the positive divisors of each integer.
+            You may leave the divisors in prime-factored form
+            <ol>
+              <li>
+                <p>
+                  <m>125=5^3</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>99 = 3^2 \cdot 11</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>100 = 2^2 \cdot 5^2</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_countdiv_no_list">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            In this exercise,
+            use the prime factorization to count the number of positive divisors.
+            You do not need to list the divisors or make a table of divisors,
+            but you might want to think about the dimensions of the table.
+            <ol>
+              <li>
+                <p>
+                  How many positive divisors does <m>81 = 3^4</m> have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many positive divisors does <m>88 = 2^3 \cdot 11</m> have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many positive divisors does <m>500 = 2^2 \cdot 5^3</m> have?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many positive divisors does <m>500 = 2^2 \cdot 5^3</m> have?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_int_3or4_div">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Primes have exactly two positive divisors.
+            We saw in <xref ref="act_list_count_divisors_using_prime_fact"></xref>,
+            that an integer <m>n=p^2</m> where <m>p</m> is a prime has exactly three positive divisors and an integer <m>n=p^3</m> where <m>p</m> is a prime has exactly four positive divisors.
+            <ol>
+              <li>
+                <p>
+                  If <m>n</m> is an integer with exactly three positive divisors,
+                  what can we say about the prime factorization of <m>n</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Give an example of an integer <m>n</m> that has exactly four positive divisors,
+                  but <m>n \neq p^3</m> for any prime <m>p</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_integers_7or8_divisors">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  If an integer has exactly seven positive divisors,
+                  what is the form of its prime factorization?
+                  Hint: The table of divisors must be <m>7 \times 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If an integer has exactly eight positive divisors,
+                  what are the two possible forms of its prime factorization?
+                  Hint: The table of divisors could be
+                  <m>8 \times 1</m> or <m>4 \times 2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_table_divisors_3primes">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            On this exercise, do not use computational technology.
+            <ol>
+              <li>
+                <p>
+                  Make a table as in <xref ref="exam_list_divisors_from_prime_fact_600"></xref>
+                  to list the positive divisors of <m>360 = 2^3 \cdot 3^2 \cdot 5</m>.
+                  You may leave the divisors in prime-factored form.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many positive divisors does <m>\text{ 11,858 } = 2\cdot 7^2 \cdot 11^2</m> have?
+                  Note that you do not need to list them or make a table.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_list_count_div">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to organize the positive divisors of an integer into tables based on the prime factorization of the integer?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to count the number of positive divisors of an integer from its prime factorization?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to construct examples of integers having a certain number of positive divisors?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_integers_12divisors">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li>
+                <p>
+                  If an integer has exactly 12 positive divisors,
+                  what are the four possible forms of its prime factorization?
+                  Hint: The table could be <m>12 \times 1</m>,
+                  <m>6 \times 2</m>, <m>4 \times 3</m>,
+                  or <m>3 \times 2 \times 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  There are five integers between one and 100 that have exactly 12 divisors.
+                  Find them.
+                  That means without using any resources!
+                  Be sure to show some work.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_twin_primes"></xref> Select Answers and Hints</title>
+      <p>
+        Hint: The list begins with <m>\{3,5\}, \{5,7\},\{11,13\},\{17,19\}, \ldots</m>.
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_101_110_prime"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Evens.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>99+3=1-2</m> is a multiple of three.
+            Then count by three.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Ends in zero or five.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>98+7=105</m> is a multiple of seven.
+            The next multiple of seven is <m>105+7=112</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are four integers remaining.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_sieve"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: In the first row, one, four,
+            and six should be crossed out.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Compare your answers to the list from <xref ref="exam_sieve"></xref>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_extending_sieve"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\sqrt{100}=10</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>10^2=100</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            15
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Less than 15.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_mersenne_primes"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: three, seven, and 21 are prime
+            (<xref ref="exam_sieve">see</xref>).
+            For 127 check if it is a multiple of two,
+            three, five, seven, and 11.
+          </p>
+        </li>
+        <li>
+          <p>
+            6 is not prime.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Evaluate <m>2^{11}-1</m>, <m>2^{13}-1</m>,
+            <m>2^{17}-1</m>, <ellipsis/> and stop when you find a composite.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: As of September 2025,
+            the most recently found example was from October 2024.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_divides_graph_1to100"></xref> Select Answers and Hints</title>
+      <p>
+        Note that edges connect two distinct integers.
+        For example, even though <m>1 \mid 1</m>,
+        there is no edge between one and itself.
+        <ol>
+          <li>
+            <p>
+              Hint: <m>\fn{deg}(1)=99</m>.
+              For 5 and 12, count divisors and multiples.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: 41 and 53 have different degrees.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: If <m>b>50</m>, then <m>2b >100</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_factor_trees"></xref> Select Answers and Hints</title>
+      <p>
+        Do not forget to draw the tree.
+        <ol>
+          <li>
+            <p>
+              <m>2^5</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The prime factorization includes only two primes:
+              two and five.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The prime factorization includes exactly three primes.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prime_fact_25_"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The answer is of the form
+            <me>
+              2^{22} \cdot 3^b \cdot 5^c \cdot 7^d \cdot 11^e \cdot 13 \cdot 17 \cdot 19 \cdot 23
+            </me>.
+            Find the correct values of <m>b</m>,
+            <m>c</m>, <m>d</m>, and <m>e</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Count the fives.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_prime_fact_sq_cube"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>\text{ 62,500 } =2^2 \cdot 5^6</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look at the exponents of the prime factorization.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>\text{ 456,533 } = 7^3 \cdot 11^3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Look at the exponents of the prime factorization.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_list_divisors_1or2_primes"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The divisors are <m>1, 5, 5^2</m>, and <m>5^3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use columns labeled <m>1, 3, 3^2</m> and rows labeled <m>1, 11</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There are nine divisors.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_countdiv_no_list"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Five
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The table will have four columns and two rows.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The table will have three columns and four rows.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Count columns and rows.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_int_3or4_div"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Four and nine are examples.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Try small values of <m>n</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_integers_7or8_divisors"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: There can only be one prime divisor.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Integers with an <m>8 \times 1</m> table have one prime divisor and integers with a
+            <m>4 \times 2</m> table have two prime divisors.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

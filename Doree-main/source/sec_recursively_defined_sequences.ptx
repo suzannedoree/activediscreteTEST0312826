@@ -1,0 +1,1710 @@
+<section xml:id="sec_recursively_defined_sequences">
+  <title>Recursively-defined Sequences</title>
+  <introduction>
+    <p>
+      <xref ref="sec_explicitly_defined_sequences">In</xref>,
+      we looked at sequences defined by an explicit rule.
+      Another way of defining a sequence uses a recursive rule in which each term is defined in terms of the previous term(s).
+      In this section,
+      we evaluate recursively-defined sequences and model with recursively-defined sequences.
+      But first, we start with an activity.
+    </p>
+  </introduction>
+  <subsection xml:id="sub_towers_hanoi">
+    <title>\subhanoi</title>
+    <p>
+      The puzzle we are about to do is famous.
+      Do not look for information about it online <mdash/> that will spoil the fun.
+    </p>
+    <activity xml:id="act_hanoi">
+      <title>Towers of Hanoi Puzzle</title>
+      <p>
+        <nbsp/> Given a disks of various diameters stacked in order on the first of three towers (pegs) as shown in <xref ref="fig_hanoi_start_end"></xref>,
+        it is only physically possible to lift the top disk up off any peg and put it down on another peg.
+        Your goal is to move the entire tower of disks from the first tower to the third tower subject to two rules:
+        <ul>
+          <li>
+            <title>Rule 1:</title>
+            <p>
+              You may only move one disk at a time.
+            </p>
+          </li>
+          <li>
+            <title>Rule 2:</title>
+            <p>
+              You may not put a larger disk on top of a smaller one.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <figure xml:id="fig_hanoi_start_end">
+        <caption>The starting and end configurations for the Towers of Hanoi game.</caption>
+        <image width="50%" source="images/TowerHanoiStart.png"/>
+        <image width="50%" source="images/TowerHanoiEnd.png"/>
+      </figure>
+      <ol>
+        <li xml:id="part_hanoi3">
+          <p>
+            Go to \url{\http://www.dynamicdrive.com/dynamicindex12/towerhanoi.htm} to play the Towers of Hanoi game.
+            You can move a disk by clicking on it and dragging it to another peg.
+            Solve the puzzle for three disks.
+          </p>
+        </li>
+        <li>
+          <p>
+            Solve the puzzle for four disks without using the solve button.
+          </p>
+        </li>
+        <li>
+          <p>
+            Now, use the solve button to solve the puzzle for four disks.
+            Keep track of when and where the largest disk moves.
+            Where are the other disks when it moves?
+            Hint: The largest disk moves once.
+          </p>
+        </li>
+        <li xml:id="part_hanoi_3to4">
+          <p>
+            The minimum number of moves to solve the puzzle with three disks is seven.
+            To solve the puzzle for four disks we need to move the top three disks,
+            then the largest disk,
+            and then we need to move the top three disks again.
+            Explain why this strategy gives a solution to the puzzle with four disks in
+            <me>
+              7+1+7=15
+            </me>
+            moves.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the solve button to solve the puzzle for four disks again and look for the minimum number of moves.
+          </p>
+        </li>
+        <li xml:id="part_hanoi_guess5">
+          <p>
+            Generalize our strategy from <xref ref="part_hanoi_3to4"/> to guess how many moves it will take to solve the puzzle with five disks.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the solve button to check your answer to <xref ref="part_hanoi_guess5"/>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider the sequence <m>h</m> where <m>h_n</m> is the minimum number of moves needed to solve the puzzle with <m>n</m> disks for <m>n \ge 1</m>.
+            The minimum number of moves needed to solve the puzzle with <m>n-1</m> disks would then be <m>h_{n-1}</m>.
+            Make a conjecture about a rule for <m>h_n</m> in terms of <m>h_{n-1}</m>.
+          </p>
+        </li>
+        <li xml:id="part_hanoi_terms">
+          <p>
+            We saw that <m>h_3=7</m>, <m>h_4=15</m>, and <m>h_5=31</m>.
+            Use the solve button to calculate <m>h_6</m> and <m>h_7</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Based on the numbers from <xref ref="part_hanoi_terms"/>,
+            make a conjecture about an explicit rule for <m>h_n</m>.
+          </p>
+        </li>
+      </ol>
+    </activity>
+    <p>
+      Let's take a closer look <xref ref="act_hanoi">at</xref>.
+    </p>
+    <example xml:id="exam_hanoi_recursion">
+      <title>Tower of Hanoi puzzle</title>
+      <statement>
+        <p>
+          Consider the sequence <m>h</m> where <m>h_n</m> is the minimum number of moves needed to solve the puzzle with <m>n</m> disks for <m>n \ge 1</m>.
+          The minimum number of moves needed to solve the puzzle with <m>n-1</m> disks would then be <m>h_{n-1}</m>.
+          Make a conjecture about a rule for <m>h_n</m> in terms of <m>h_{n-1}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          To solve the puzzle for <m>n</m> disks,
+          we can break the process into three phases.
+          <ul>
+            <li>
+              <title>Phase 1</title>
+              <p>
+                Relocate the top <m>n-1</m> disks in the pile to Tower 2. [<m>h_{n-1}</m> moves]
+              </p>
+            </li>
+            <li>
+              <title>Phase 2</title>
+              <p>
+                Move the largest disk to Tower 3. [1 move]
+              </p>
+            </li>
+            <li>
+              <title>Phase 3</title>
+              <p>
+                Relocate the top <m>n-1</m> disks in the pile to Tower 3. [<m>h_{n-1}</m> moves]
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          This analysis tells us that
+          <me>
+            h_n=2h_{n-1}+1
+          </me>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_seq_recursive">
+    <title>\subrecdefseq</title>
+    <p>
+      <xref ref="sec_explicitly_defined_sequences">In</xref>,
+      we worked with sequences that were defined explicitly,
+      by a formula or in words.
+      Let's take a closer look at two of those sequences.
+    </p>
+    <example xml:id="exam_first_look_rec_seq">
+      <title>First look at recursively-defined sequences</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Consider the sequence <m>a_n</m> from <xref ref="act_eval_seq"></xref>
+                that was defined by <m>a_n=10n+2</m> for <m>n\ge 0</m>.
+                The first few terms are
+                <me>
+                  2, 12, 32, 42, 52, \ldots
+                </me>.
+                What do we notice about how each term is calculated from the previous term?
+                <solution>
+                  <p>
+                    Each term (<m>a_n</m>) is ten more than the previous term (<m>a_{n-1}</m>) . That is,
+                    <me>
+                      2 \xrightarrow[+ 10]{} 12 \xrightarrow[+ 10]{} 22 \xrightarrow[+ 10]{} 32 \xrightarrow[+ 10]{} 42 \xrightarrow[+ 10]{} 52
+                    </me>.
+                  </p>
+                  <p>
+                    Thus for <m>n\ge 1</m> we have
+                    <me>
+                      a_n=a_{n-1}+10
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Consider the sequence <m>b_i</m> from <xref ref="act_eval_seq"></xref>
+                that was defined by <m>b_i=2\cdot10^i</m> for <m>i\ge 0</m>.
+                The first few terms are
+                <me>
+                  2, 20,200,2000,20000, \ldots
+                </me>.
+                What do we notice about how each term is calculated from the previous term?
+                <solution>
+                  <p>
+                    Each term (<m>b_i</m>) is ten times the previous term
+                    (<m>b_{i-1}</m>).
+                    That is,
+                    <me>
+                      2 \xrightarrow[\times 10]{} 20 \xrightarrow[\times 10]{} 200 \xrightarrow[\times 10]{} 2000 \xrightarrow[\times 10]{} 20000
+                    </me>.
+                  </p>
+                  <p>
+                    Thus for <m>i\ge 1</m> we have
+                    <me>
+                      b_i=10b_{i-1}
+                    </me>
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Let's look at a sequence defined by such a rule.
+    </p>
+    <example xml:id="exam_double_and_add3">
+      <title>Double and add three</title>
+      <statement>
+        <p>
+          Consider the sequence <m>c</m> is defined by the <m>c_0=1</m> and
+          <me>
+            c_k=2c_{k-1}+3
+          </me>
+          for <m>k \ge 1</m>.
+          Note that the rule for this sequence is actually piecewise-defined
+          <me>
+            c_k = \left\{\begin{array}{cl} 1 \amp  \text{ if }  k=0 \\ 2c_{k-1}+3 \amp  \text{ if }  k\ge 1 \end{array}  \right
+          </me>.
+          Also notice that the second part of the rule gives an infinite list of equations:
+          <md>
+            <mrow>(k=1)  c_1\amp =2c_0+3</mrow>
+            <mrow>(k=2)  c_2\amp =2c_1+3</mrow>
+            <mrow>(k=3)  c_3\amp =2c_2+3</mrow>
+            <mrow>(k=4)  c_4\amp =2c_3+3</mrow>
+            <mrow>\amp  \vdots</mrow>
+          </md>
+        </p>
+        <p>
+          It is often helpful to think of the rule in words To get each term,
+          we double the previous term and then add 3.
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>c_4</m>.
+                <solution>
+                  <p>
+                    First recall that <m>c_0=1</m>.
+                    When <m>k=1</m> the rule tells us
+                    <me>
+                      c_1=2c_0+3=2(1)+3=5
+                    </me>.
+                  </p>
+                  <p>
+                    Next, when <m>k=2</m> we get
+                    <me>
+                      c_2=2c_1+3=2(5)+3=13
+                    </me>.
+                  </p>
+                  <p>
+                    When <m>k=3</m> we have
+                    <me>
+                      c_3=2c_2+3=2(13)+3 = 29
+                    </me>.
+                  </p>
+                  <p>
+                    Finally, when <m>k=4</m> we find
+                    <me>
+                      c_4=2c_3+3=2(29)+3=61
+                    </me>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write an explicit rule for <m>c_k</m>.
+                <solution>
+                  <p>
+                    Since we are multiplying the previous term by 2 each time,
+                    it is reasonable to suspect that an explicit formula involves a power of 2.
+                    <xref ref="table_exam_double_and_add3"></xref>
+                    compares the first five terms of <m>c</m> to the powers of 2.
+                    Since there is no obvious pattern with <m>2^k</m> we have listed <m>2^{k+1}</m> and then <m>2^{k+2}</m> as well.
+                    It looks like <m>c_k</m> is 3 smaller than <m>2^{k+2}</m> and so we conjecture that <m>c_k=2^{k+2}-3</m>.
+                  </p>
+                  <p>
+                    We can check that the definition gives
+                    <m>c_5=2c_4+3=2(61)+3 = 125</m> and our explicit formula gives <m>c_5=2^{5+2}-3 = 128-3 = 125</m>.
+                    We will see how to verify these conjectures in <xref ref="sec_math_ind"></xref>.
+                  </p>
+                  <table xml:id="table_exam_double_and_add3">
+                    <title>The terms of the sequence from <xref ref="exam_double_and_add3"></xref> compared to the powers of 2</title>
+                    <tabular>
+                      <row>
+                        <cell><m>k</m></cell>
+                        <cell>0</cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>3</cell>
+                        <cell>4</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell><m>c_k</m></cell>
+                        <cell>1</cell>
+                        <cell>5</cell>
+                        <cell>13</cell>
+                        <cell>29</cell>
+                        <cell>61</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell><m>2^k</m></cell>
+                        <cell>1</cell>
+                        <cell>2</cell>
+                        <cell>4</cell>
+                        <cell>8</cell>
+                        <cell>16</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell><m>2^{k+1}</m></cell>
+                        <cell>2</cell>
+                        <cell>4</cell>
+                        <cell>8</cell>
+                        <cell>16</cell>
+                        <cell>32</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                        <cell></cell>
+                      </row>
+                      <row>
+                        <cell><m>2^{k+2}</m></cell>
+                        <cell>4</cell>
+                        <cell>8</cell>
+                        <cell>16</cell>
+                        <cell>32</cell>
+                        <cell>64</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      We state the formal definitions.
+    </p>
+    <definition>
+      <title>Recursively-defined sequence</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                The first term
+                (or first few terms)
+                of a sequence is the <term>initial condition(s)</term>.
+                If a sequence <m>a</m> starts at <m>s</m> for some nonnegative integer <m>s</m>,
+                then the initial condition is <m>a_s</m>
+                (and perhaps subsequent terms such as <m>a_{s+1}</m>, <m>a_{s+2}</m>, etc.)
+                For example,
+                the initial condition for the sequence <m>c</m> defined in <xref ref="exam_double_and_add3"></xref> was <m>c_0=1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A <term>recursion</term>
+                (or <term>recursive rule</term>)
+                for a sequence specifies how each term (<m>a_n</m>) can be calculated from the previous term(s)
+                (<m>a_{n-1}</m> and perhaps <m>a_{n-2}</m>,
+                <m>a_{n-3}</m>, and so on).
+                For example,
+                the recursion for the sequence <m>c</m> defined in <xref ref="exam_double_and_add3"></xref> was <m>c_n=2c_{n-1}+3</m>.
+                A recursion may involve the index <m>n</m> as well as previous term(s).
+                A recursion should use the previous term(s) in a nontrivial way.
+                We do not consider explicitly-defined rules
+                (that use the index but not previous terms)
+                to be recursive.
+              </p>
+            </li>
+            <li>
+              <p>
+                A sequence is <em>recursively-defined</em>
+                if we are given a recursion and enough initial conditions to evaluate the recursion at all values.
+                For example,
+                the recursion for the sequence <m>c</m> defined in <xref ref="exam_double_and_add3"></xref> starts at <m>k=1</m>,
+                so we needed the initial condition to provide the value of <m>c_0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A recursive rule that involves only one previous term is <term>first order</term>.
+                For example,
+                the sequence <m>c</m> defined in <xref ref="exam_double_and_add3"></xref> is first-order.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Now it is your turn to work with recursively-defined sequences.
+    </p>
+    <activity xml:id="act_eval_rec_def_seq">
+      <title>Evaluating recursively-defined sequences</title>
+      <p>
+        <nbsp/>
+        <ol>
+          <li>
+            <p>
+              Evaluate the first four terms of the sequence defined by <m>t_0=3</m> and <m>t_i=3t_{i-1}-5</m> for <m>i \ge 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>v_3</m> for the sequence defined by <m>v_0=2</m> and <m>v_m=v_{m-1}^2-1</m> for <m>m \ge 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>a_5</m> for the sequence defined by <m>a_1 = 5</m> and <m>a_n=a_{n-1}+2n</m> for <m>n\ge 2</m>.
+              Note that the recursion involves the index <m>n</m>.
+              For example, when <m>n=2</m> we get
+              <m>a_2=a_1+2(2)=5+4=9</m> and when <m>n=3</m> we have <m>a_3=a_2+2(3)=9+6=15</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>b_4</m> for the sequence defined by <m>b_1=1</m> and <m>b_k=kb_{k-1}</m> for <m>k \ge 2</m>.
+              What do you notice?
+              Write an explicit formula for <m>b_k</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>c_4</m> for the sequence defined by <m>c_0=0</m> and <m>c_i=c_{i-1}+i</m> for <m>i \ge 1</m>.
+              What do you notice?
+              Write an explicit formula for <m>c_i</m>.
+              Hint: Handshakes.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      As we saw in <xref ref="act_eval_rec_def_seq"></xref>,
+      a recursion can involve the index.
+      Let's look at some similar examples.
+    </p>
+    <example xml:id="exam_eval_rec_def_seq_involving_index">
+      <title>Evaluating recursively-defined sequences that involve the index</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Evaluate <m>d_5</m> for the sequence defined by <m>d_1 = 1</m> and <m>d_n=d_{n-1}+2n-1</m> for <m>n\ge 2</m>.
+                What do you notice?
+                Write an explicit formula for <m>d_n</m>.
+                <solution>
+                  <p>
+                    When <m>n=2</m>, we have <m>d_2=d_1+2(2)-1=1+3=4</m>.
+                  </p>
+                  <p>
+                    When <m>n=3</m>, we have <m>d_3=d_2+2(3)-1=4+5=9</m>.
+                  </p>
+                  <p>
+                    When <m>n=4</m>, we have <m>d_4=d_3+2(4)-1=9+7=16</m>.
+                  </p>
+                  <p>
+                    When <m>n=5</m>, we have <m>d_5=d_4+2(5)-1=16+9 = 25</m>.
+                  </p>
+                  <p>
+                    Notice <m>d_1=1 = 1^2</m>, <m>d_2=4=2^2</m>,
+                    <m>d_3=9=3^2</m>, <m>d_4=16=4^2</m>, and <m>d_5=25=5^2</m>.
+                  </p>
+                  <p>
+                    We conjecture that <m>d_n=n^2</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>s_4</m> for the sequence defined by <m>s_1=10</m> and <m>s_k=ks_{k-1}</m> for <m>k \ge 2</m>.
+                What do you notice?
+                Write an explicit formula for <m>b_k</m>.
+                <solution>
+                  <p>
+                    When <m>k=2</m>, we have <m>s_2=sb_1 = 2(10) = 20</m>.
+                  </p>
+                  <p>
+                    When <m>k=3</m>, we have <m>s_3=3s_2 = 3(20) = 60</m>.
+                  </p>
+                  <p>
+                    When <m>k=4</m>, we have <m>s_4=4s_3 = 4(60) = 240</m>.
+                  </p>
+                  <p>
+                    Notice that <m>s_1=10=10(1!)</m>,
+                    <m>s_2=20=10(2!)</m>, <m>s_3=60=10(3!)</m>,
+                    and <m>s_4=240=10(4!)</m>.
+                  </p>
+                  <p>
+                    We conjecture that <m>s_k=10(k!)=10k!</m>
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Evaluate <m>t_4</m> for the sequence defined by <m>t_0=0</m> and <m>t_i=t_{i-1}+2i</m> for <m>i \ge 1</m>.
+                What do you notice?
+                Write an explicit formula for <m>t_i</m>.
+                Hint: Factor.
+                <solution>
+                  <p>
+                    When <m>i=1</m>, we have <m>t_1=t_0+2(1) = 0+2=2</m>.
+                  </p>
+                  <p>
+                    When <m>i=2</m>, we have <m>t_2=t_1+2(2) = 2+4=6</m>.
+                  </p>
+                  <p>
+                    When <m>i=3</m>, we have <m>t_3=t_2+2(3) = 6+6=12</m>.
+                  </p>
+                  <p>
+                    When <m>i=4</m>, we have <m>t_4=t_3+2(4) = 12+8=20</m>.
+                  </p>
+                  <p>
+                    Notice that <m>t_0=0=(0)(1)</m>, <m>t_1=2=(1)(2)</m>,
+                    <m>t_2=6=(2)(3)</m>, <m>t_3=12=(3)(4)</m>, and <m>t_4=20=(4)(5)</m>.
+                  </p>
+                  <p>
+                    We conjecture that <m>t_i=i(i+1)</m> for <m>i \ge 0</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="sub_next_term_recursive">
+    <title>\subntr</title>
+    <p>
+      In the examples we have seen so far,
+      we have gone from a sequence defined recursively to a list of terms or explicitly-defined rule.
+      It is particularly useful to go the opposite direction,
+      from a list or explicitly-defined rule to a recursively-defined sequence.
+      Let's try modeling with such sequences.
+    </p>
+    <example xml:id="exam_write_rec_from_list">
+      <title>Write the recursive rule for sequence from list</title>
+      <statement>
+        <p>
+          <nbsp/>
+          <ol>
+            <li>
+              <p>
+                Write a simple recursive rule that generates a sequence <m>a</m> that begins
+                <me>
+                  5, 6, 7, 8, 9, 10, \ldots
+                </me>
+                <solution>
+                  <p>
+                    To get from each term to the next we add 1.
+                    That is,
+                    <me>
+                      5 \xrightarrow[+ 1]{} 6 \xrightarrow[+ 1]{} 7 \xrightarrow[+ 1]{} 8 \xrightarrow[+ 1]{} 9 \xrightarrow[+ 1]{} 10
+                    </me>.
+                  </p>
+                  <p>
+                    Thus <m>a_0=5</m> and <m>a_n=a_{n-1}+1</m> for <m>n \ge 1</m>.
+                    By the way, an explicit rule for this sequence is <m>a_n=n+5</m> for <m>n\ge 0</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                Write a simple recursive rule that generates a sequence <m>b_n</m> defined by <m>b_n=(n+1)(2n+1)</m> for <m>n \ge 0</m>.
+                Hint: The recursive definition depends on the index as well as the previous term.
+                <solution>
+                  <p>
+                    Let's find the first few terms of <m>b</m>.
+                    We get <m>b_0 = (1)(1) = 1</m>,
+                    <m>b_1 = (2)(3) = 6</m>, <m>b_3 = (4)(7) = 28</m>,
+                    <m>b_4 = (5)(9) = 45</m>, and <m>b_5 = (6)(11) = 66</m>.
+                    That is, the sequence <m>b</m> begins
+                    <me>
+                      1, 6, 15, 28, 45, 66, \ldots
+                    </me>
+                  </p>
+                  <p>
+                    Look at what we add to get each term from the previous term:
+                    <me>
+                      1 \xrightarrow[+ 5]{} 6 \xrightarrow[+ 9]{} 15 \xrightarrow[+ 13]{} 28 \xrightarrow[+ 17]{} 45 \xrightarrow[+ 21]{} 66
+                    </me>.
+                  </p>
+                  <p>
+                    The values we are adding
+                    <me>
+                      5,9,13,17,21,\ldots
+                    </me>
+                    appear to depend on the index.
+                    An explicit rule for these terms we are adding is <m>4n+1</m> for <m>n \ge 1</m>.
+                    A recursive rule is <m>b_0=1</m> and
+                    <me>
+                      b_n=b_{n-1}+4n+1
+                    </me>
+                    for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+    <p>
+      Try writing recursive definitions.
+    </p>
+    <activity xml:id="act_next_term_rec">
+      <title>Modeling with recursively-defined sequences</title>
+      <p>
+        Write a simple recursive rule that generates each sequence.
+        Make sure you state where the index starts and include the initial condition.
+        Start your indexing at 0 or 1
+        (your choice).
+        <ol>
+          <li>
+            <p>
+              <m>1, 6, 11, 16, 21, \ldots</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>2, -10, 50, -250, 1250,\ldots</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>2, \frac{1}{2}, 2, \frac{1}{2}, 2, \frac{1}{2}, \ldots</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>5, 10, 30, 120, 600, \ldots</m> Hint: What do we multiply by to get from each term to the next?
+              Write a recursion that involves the index.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>5, 9, 17, 33, 65, 129, \ldots</m>.
+              Write a recursion that does not involve the index.
+              Hint: The recursion begins by doubling the previous term.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>5, 9, 17, 33, 65, 129, \ldots</m>.
+              Now write a recursion that involves the index.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </activity>
+    <p>
+      Let's look at more examples writing the recursion from a list.
+    </p>
+    <example xml:id="exam_next_term_recursive">
+      <title>Modeling with recursively-defined sequences</title>
+      <statement>
+        <p>
+          Write a simple recursive rule that generates each sequence.
+          Make sure you state where the index starts and include the initial condition.
+          Start your indexing at 0 or 1
+          (your choice).
+          <ol>
+            <li>
+              <p>
+                <m>3, 6, 18, 72, 360, \ldots</m>   Write a recursion that involves the index.
+                <solution>
+                  <p>
+                    Look at what we multiply by to get each term from the previous term:
+                    <me>
+                      3 \xrightarrow[\times 2]{} 6 \xrightarrow[\times 3]{} 18 \xrightarrow[\times 4]{} 72 \xrightarrow[\times 5]{} 360
+                    </me>.
+                  </p>
+                  <p>
+                    If we set <m>a_1=3</m>, then
+                    <m>a_2=6 =2(3)=2a_1</m>, <m>a_3=18 =3(6)=3a_2</m>,
+                    <m>a_4=72 =4(18)=4a_3</m>, and <m>a_5=360 =5(72)=5a_4</m>.
+                  </p>
+                  <p>
+                    We conjecture that <m>a_1=</m> and <m>a_n=na_{n-1}</m> for <m>n \ge 2</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>4, 7, 13, 25, 49, 97, \ldots</m>.
+                Write a recursion that does not involve the index.
+                Hint: The recursion begins by doubling the previous term.
+                <solution>
+                  <p>
+                    Let's set <m>b_0 = 4</m>.
+                    Notice that <m>b_1=7 = 2(4)-1=2b_0-1</m>,
+                    <m>b_2=13 = 2(7)-1=2b_1-1</m>,
+                    <m>b_3=25 = 2(13)-1=2b_2-1</m>,
+                    <m>b_4=49 = 2(25)-1=2b_3-1</m>,
+                    and <m>b_5=97 = 2(49)-1=2b_4-1</m>.
+                    We conjecture that <m>b_0 = 4</m> and <m>b_n=2b_{n-1}-1</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>4, 7, 13, 25, 49, 97, \ldots</m>.
+                Now write a recursion that involves the index.
+                <solution>
+                  <p>
+                    Look at what we add to get each term from the previous term:
+                    <me>
+                      4 \xrightarrow[+ 3]{} 7 \xrightarrow[+ 6]{} 13 \xrightarrow[+ 12]{} 25 \xrightarrow[+ 24]{} 49 \xrightarrow[+ 48]{} 97
+                    </me>.
+                  </p>
+                  <p>
+                    The terms we added are <m>3, 6, 12, 24, 48, \ldots</m>.
+                    Each integer we added is twice the previous integer,
+                    so an explicit form is <m>3\cdot 2^n</m> for <m>n \ge 0</m>.
+                    That is, we have
+                    <me>
+                      4 \xrightarrow[+ 3\cdot 2^0]{} 7 \xrightarrow[+ 3\cdot 2^1]{} 13 \xrightarrow[+ 3\cdot 2^2]{} 25 \xrightarrow[+ 3\cdot 2^3]{} 49 \xrightarrow[+ 3\cdot 2^4]{} 97
+                    </me>.
+                  </p>
+                  <p>
+                    Thus, we have <m>b_0=4</m>, <m>b_1 = 7 = 4+ 3\cdot 2^0</m>,
+                    <m>b_2 = 13 = 7+ 3\cdot 2^1</m>,
+                    <m>b_3 = 25 = 13+ 3\cdot 2^2</m>,
+                    <m>b_4 = 49 = 25+ 3\cdot 2^3</m>,
+                    and <m>b_5 = 97 = 49+ 3\cdot 2^4</m>.
+                  </p>
+                  <p>
+                    We conjecture that <m>b_0=4</m> and <m>b_n=b_{n-1}+3\cdot2^{n-1}</m> for <m>n \ge 1</m>.
+                  </p>
+                </solution>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection>
+    <title>Exercises</title>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_towers_hanoi">for</xref>
+      \subhanoi</title>
+      <exercise xml:id="exer_hanoi89">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_hanoi8">
+                <p>
+                  Use the recursion from <xref ref="exam_hanoi_recursion"></xref>
+                  to calculate the minimum number of moves needed to solve the Tower of Hanoi puzzle with 2, 3, 4, 5, 6, 7, 8 disks.
+                  Hint: It takes one move to solve the puzzle with one disk.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Go to \url{\http://www.dynamicdrive.com/dynamicindex12/towerhanoi.htm} and watch the solution for eight disks.
+                  Does the minimum number of moves agree with your answer to <xref ref="part_hanoi8"/>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the minimum number of moves needed to solve the Tower of Hanoi puzzle with nine disks?
+                  Explain how to use the recursion to answer.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_hanoi_explicit">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Let <m>h_n</m> be the minimum number of moves needed to solve the Tower of Hanoi puzzle with <m>n</m> disks.
+            <ol>
+              <li>
+                <p>
+                  List the first eight terms of <m>h_n</m> from our work <xref ref="act_hanoi">on</xref>
+                  <xref ref="exer_hanoi89">or</xref>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conjecture an explicit formula for <m>h_n</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the explicit formula to calculate <m>h_9</m> and <m>h_{10}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_hanoi_exist_soln">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Use the phases discussed in <xref ref="exam_hanoi_recursion"></xref>
+            to explain why there exists a solution to the Tower of Hanoi puzzle for any number of disks.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_hanoi_label_states">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            In the Tower of Hanoi puzzle,
+            label the towers 1, 2, and 3.
+            An arrangement of <m>n</m> disks can be represented by the <m>n-tuple</m>
+            <me>
+              (a_1,a_2,\ldots, a_{n-1}, a_n)
+            </me>
+            where <m>a_1</m> is the tower number of the largest disk,
+            <m>a_2</m> is the tower number of the next largest disk,
+            <ellipsis/>,
+            <m>a_{n-1}</m> is the tower number of the next-to-smallest disk,
+            and <m>a_n</m> is the tower number of the smallest disk.
+            In this notation, the starting state is
+            <m>(1,1,\ldots, 1,1)</m> and the ending state is <m>(2,2,\ldots, 2,2)</m>.
+            <ol>
+              <li>
+                <p>
+                  Represent the state in <xref ref="fig_hanoi5"></xref> with a 5-tuple.
+                  <figure xml:id="fig_hanoi5">
+                    <caption>A state of the Tower of Hanoi puzzle with five disks.</caption>
+                    <image width="50%" source="images/Hanoi_state.png"/>
+                  </figure>
+                </p>
+              </li>
+              <li>
+                <p>
+                  List the states in a minimal solution of the Tower of Hanoi with three disks.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many possible states are there in the Tower of Hanoi with three disks?
+                  Explain how you counted.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why each tuple uniquely determines a state.
+                  That is, this representation is a pairing between the states of the Tower of Hanoi puzzle and the elements of <m>\{1,2,3\}^3</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_hanoi_graphs">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            In this problem we introduce the
+            <term>graph of Hanoi</term>.
+            <m>H_3</m> which has a vertex for each possible state.
+            As we saw in <xref ref="exer_hanoi_label_states"></xref>,
+            each state corresponds to a unique <m>3</m>-tuple in <m>\{1,2,3\}^3</m>.
+            There is an edge between two vertices in <m>H_33</m> if we can move between those two states with a single move in the puzzle.
+            For example,
+            there is an edge between <m>(1,1,1)</m> and <m>(1,1,2)</m> corresponding to moving the smallest disk from tower 1 to tower 2 and there is an edge between <m>(1,2,2)</m> and <m>(3,2,2)</m> corresponding to moving the largest disk from tower 1 to tower 3
+            (which is possible because the other two disks are on tower 2).
+            Draw <m>H_3</m>.
+            Be sure to label the vertices.
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_seq_recursive">for</xref>
+      \subrecdefseq</title>
+      <exercise xml:id="exer_rec_def_seq_6terms">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Evaluate the first six terms of each sequence.
+            Your list should begin with the initial condition.
+            <ol>
+              <li>
+                <p>
+                  <m>p_0= 10</m> and <m>p_m = p_{m-1} + 3</m> for <m>m \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>q_0= 10</m> and <m>q_n = 3q_{n-1}</m> for <m>n \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>r_0= 10</m> and <m>r_k = r_{k-1}^2</m> for <m>k \ge 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_def_seq_find_term">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Evaluate the indicated term of each sequence.
+            <ol>
+              <li>
+                <p>
+                  Evaluate <m>u_6</m> where <m>u_1= 3</m> and <m>u_i = u_{i-1}+1</m> for <m>i \ge 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>v_4</m> where <m>v_1= 1</m> and <m>v_n = 2v_{n-1}-1</m> for <m>n \ge 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Evaluate <m>w_3</m> where <m>w_1= 2</m> and <m>w_j = (w_{j-1}+1)^2</m> for <m>j \ge 2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exam_rec_def_seq_first6_uses_index">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Evaluate the first six terms of each sequence.
+            Your list should begin with the initial condition.
+            Notice that the rule uses the index as well as the previous term.
+            <ol>
+              <li>
+                <p>
+                  <m>a_1= 2</m> and <m>a_j = ja_{j-1}</m> for <m>j \ge 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>b_1= 1</m> and <m>b_n = b_{n-1}+n</m> for <m>n \ge 2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>c_1= 1</m> and <m>c_m = c_{m-1}+2m-1</m> for <m>m \ge 2</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exam_rec_def_seq_find_term_uses_index">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Evaluate the indicated term of each sequence.
+            Notice that the rule uses the index as well as the previous term.
+            <ol>
+              <li>
+                <p>
+                  Find <m>x_4</m> where <m>x_0= 1</m> and <m>x_i = ix_{i-1}+1</m> for <m>i \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find <m>y_4</m> where <m>y_0= 1</m> and <m>y_k = 2y_{k-1}+k</m> for <m>k \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find <m>z_3</m> where <m>z_0= 1</m> and <m>z_n = z_{n-1}+2n</m> for <m>n \ge 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_def_seq_conj_explicit">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Make a reasonable conjecture about an explicit rule for each sequence from <xref ref="exer_rec_def_seq_6terms"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_def_seq_conj_explicit_again">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Make a reasonable conjecture about an explicit rule for each sequence from <xref ref="exer_rec_def_seq_find_term"></xref>.
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_rec_def_seq">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  What we call a rule that defines each term of a sequence using previous terms of the sequence?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to evaluate recursively-defined sequences?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Why you need an initial condition to define a recursively-defined sequence?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+    <subsubsection>
+      <title>Exercises <xref ref="sub_next_term_recursive">for</xref>  \subntr</title>
+      <exercise xml:id="exer_ntr_first">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Write the initial condition and a simple recursive rule for each sequence.
+            Start your indexing at 0 or 1
+            (your choice).
+            <ol>
+              <li>
+                <p>
+                  <m>5, 7, 9, 11, 13, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>0.1, 0.01, 0.001, 0.0001, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>5, -5, 5, -5, 5, -5, \ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_write_recursion_arith_geom">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Write the initial condition and a simple recursive rule for each sequence.
+            Hint: Start by listing the first six terms.
+            <ol>
+              <li>
+                <p>
+                  <m>a_n = 5n</m> for <m>n \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>b_n=5n+1</m> for <m>n \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>c_n=5n-1</m> for <m>n \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>s_m = 2^m</m> for <m>m \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>t_m = 3\cdot 2^m</m> for <m>m \ge 0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>u_m = \frac{3}{2^m}</m> for <m>m \ge 0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_write_recursion_more">
+        <title>\exerP</title>
+        <statement>
+          <p>
+            Write the initial condition and a simple recursive rule for each sequence.
+            Hint: Start by listing the first six terms.
+            <ol>
+              <li>
+                <p>
+                  <m>d_n = 2n+3</m> for <m>i \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>h_k = 2^k</m> for <m>i \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>w_i = i</m> for <m>i \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>v_m = 4</m> for <m>m \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>z_j = (-1)^j</m> for <m>k \ge 1</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_seq_two_diff_powers2">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider a sequence <m>a</m> beginning
+            <me>
+              3, 4, 6, 10, 18, 34, 66, \ldots
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Write a simple explicit rule generating this sequence.
+                  Start your indexing at 0.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a simple recursive rule for this sequence that involves the previous term and the index.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a simple recursive rule for this sequence that does not involve the index.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_rec_seq_two_diff_powers10">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Consider a sequence <m>b</m> beginning
+            <me>
+              11, 101, 1001, 10001, \ldots
+            </me>
+            <ol>
+              <li>
+                <p>
+                  Write a simple explicit rule generating this sequence.
+                  Start your indexing at 1.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a simple recursive rule for this sequence that involves the previous term and the index.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write the initial condition and a simple recursive rule for this sequence that does not involve the index.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_ntr_uses_index">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write the initial condition and a simple recursive rule for each sequence.
+            Start your indexing at 0 or 1
+            (your choice).
+            Hint: The recursion involves the index as well as the previous term.
+            <ol>
+              <li>
+                <p>
+                  <m>3, 4, 6, 9, 13, 18, \ldots</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>2, 5, 10, 17, 26, 37, \ldots</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_write_recursion_uses_index">
+        <title>\exerU</title>
+        <statement>
+          <p>
+            Write the initial condition and a simple recursive rule for each sequence.
+            Hint: The recursion involves the index as well as the previous term.
+            Start by listing the first six terms.
+            <ol>
+              <li>
+                <p>
+                  <m>a_k = 5k!</m> for <m>k \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>b_k = \frac{1}{k!}</m> for <m>k \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>c_n = n(n-1)</m> for <m>n \ge 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>d_m = m(2m+1)</m> for <m>m \ge 0</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_dyk_next_term_rec">
+        <title>\exerR</title>
+        <statement>
+          <p>
+            Do you know <ellipsis/>
+            <ol>
+              <li>
+                <p>
+                  How to model with recursively-defined sequences?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How to write a recursion that for linear,
+                  exponential, handshakes, or factorials?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      <exercise xml:id="exer_savings_annuity">
+        <title>\exerE</title>
+        <statement>
+          <p>
+            <nbsp/>
+            <ol>
+              <li xml:id="part_savings">
+                <p>
+                  We deposit $\text{ 10,000 } into a bank account that earns 3% interest annually.
+                  Write <m>a_n=</m> the account balance at the end of <m>n</m> years.
+                  Note that interest is paid at the end of each year.
+                  Calculate <m>a_0</m>, <m>a_1</m>,
+                  and <m>a_2</m> and write a recursive rule for <m>a_n</m>.
+                  Simplify your answer using <m>1 + .03 = 1.03</m>.
+                  Note: you might know an explicit rule,
+                  but this question asks for a recursive rule,
+                  so <m>a_{n-1}</m> should be involved in your answer.
+                </p>
+              </li>
+              <li xml:id="part_annuity">
+                <p>
+                  As before, we deposit $\text{ 10,000 } into a bank account that earns 3% interest annually but then we deposit another $\text{ 10,000 } at the end of each year.
+                  Write <m>b_n=</m> the account balance at the end of <m>n</m> years.
+                  Note that interest is paid at the end of each year before we deposit the additional $\text{ 10,000 } . Calculate <m>b_0</m>,
+                  <m>b_1</m>,
+                  and <m>b_2</m> and write a recursive rule for <m>b_n</m>.
+                  Simplify your answer using <m>1 + .03 = 1.03</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </subsubsection>
+  </subsection>
+  <subsection>
+    <title>Select Answers and Hints</title>
+    <subsubsection>
+      <title><xref ref="exer_hanoi89"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The terms are <m>1, 3, 7, \ldots, 255</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Yes
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Use the recursion from <xref ref="exam_hanoi_recursion"></xref>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_hanoi_explicit"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Same list as in <xref ref="exer_hanoi89"></xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Since we are doubling, the explicit formula likely involves <m>2^n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>h_{10} = 1023</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_hanoi_label_states"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>(1,1,3,2,1)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The list is <m>(1,1,1), (1,1,3), \ldots, (3,3,3)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: There is a state for each element of <m>\{1,2,3\}^3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: On any tower,
+            the disks can only be stacked from largest on the bottom to smallest on the top.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rec_def_seq_6terms"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The terms are <m>10, 13, \ldots, 25</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The terms are <m>10, 30, \ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The terms are <m>10, 100, \ldots</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rec_def_seq_find_term"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            8
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The sequence is constant.
+          </p>
+        </li>
+        <li>
+          <p>
+            100
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exam_rec_def_seq_first6_uses_index"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The terms are <m>2, 4, \ldots, 1440</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The terms are <m>1, 3, \ldots</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The terms are <m>1, 4, \ldots</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exam_rec_def_seq_find_term_uses_index"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: <m>x_2=3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>y_2=3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>z_2=3</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rec_def_seq_conj_explicit"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Since we are repeatedly adding three,
+            the explicit formula involves <m>3m</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Since we are repeatedly multiplying by three,
+            the explicit formula involves <m>3^n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The formula is a power of 10, but not just <m>10^k</m>.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ntr_first"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            <m>a_0=5</m> and <m>a_n=a_{n-1}+2</m> for <m>n \ge 1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We are multiplying by 0.1.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We are multiplying by -1.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_write_recursion_arith_geom"></xref> Select Answers and Hints</title>
+      <ol>
+        <li xml:id="part_answer_recursion5n">
+          <p>
+            <m>a_0=0</m> and <m>a_n=a_{n-1}+5</m> for <m>n \ge 1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Same recursion as <xref ref="part_answer_recursion5n"/> but different initial condition.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Same recursion as <xref ref="part_answer_recursion5n"/> but different initial condition.
+          </p>
+        </li>
+        <li xml:id="part_answer_recursion2tothem">
+          <p>
+            Hint: The first six terms are <m>1, 2, 4, 8, 16, 32</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Same recursion as <xref ref="part_answer_recursion2tothem"/> but different initial condition.
+          </p>
+        </li>
+        <li>
+          <p>
+            : Hint: We are dividing by two.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_write_recursion_more"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Adding two.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Multiplying by two.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We are adding a constant.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: Describe how each term is related to the previous term.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: We are multiplying by a constant.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rec_seq_two_diff_powers2"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Handshakes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>a_0=3</m> and the recursion adds one,
+            then adds two, then adds three, etc.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The recursion begins by doubling the previous term.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_rec_seq_two_diff_powers10"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: Compare to the powers of 10.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: <m>b_1=11</m>.
+            Calculate what we are adding to get from each term to the next.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The recursion begins by multiplying the previous term by ten.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_ntr_uses_index"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: The recursion adds one,
+            then adds two, then adds three, etc.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: The recursion adds three,
+            then adds five, then adds seven, etc.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+    <subsubsection>
+      <title><xref ref="exer_write_recursion_uses_index"></xref> Select Answers and Hints</title>
+      <ol>
+        <li>
+          <p>
+            Hint: To get from each term to the next, we multiply by <m>k</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: To get from each term to the next, we divide by <m>k</m>.
+            Use a fraction.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: To get from each term to the next, we add two,
+            then add four, then add six, etc.
+          </p>
+        </li>
+        <li>
+          <p>
+            Hint: To get from each term to the next,
+            we add three, then add seven, then add eleven, etc.
+          </p>
+        </li>
+      </ol>
+    </subsubsection>
+  </subsection>
+</section>

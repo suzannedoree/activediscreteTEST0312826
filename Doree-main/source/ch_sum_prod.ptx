@@ -1,0 +1,50 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="ch_sum_prod">
+  <title>Sums and Products</title>
+  <introduction>
+    <p>
+      <xref ref="thm_hs">In</xref> and <xref ref="sec_std_graphs"></xref>,
+      we saw that the number of handshakes in a group of <m>n</m> people or the number of edges of the complete graph <m>K_n</m>, is
+      <me>
+        1 + 2 + 3 + \ldots + (n-1)  = \binom{n}{2} = \frac{n(n-1)}{2}
+      </me>.
+      We often use sums in counting because cases add <xref ref="thm_cases_add"/>.
+    </p>
+    <p>
+      Similarly, in <xref ref="sec_counting_steps_cases"></xref>
+      and <xref ref="sec_perms"></xref>,
+      we saw that the number of ways to order <m>n</m> distinct objects,
+      or the number of permutations of the set <m>\{1, 2, 3, \ldots,
+      n\}</m>, is
+      <me>
+        n(n-1)(n-2) \cdots(3)(2)(1)= n!
+      </me>
+    </p>
+    <p>
+      We often use products in counting because steps multiply <xref ref="thm_steps_multiply"/>.
+    </p>
+    <p>
+      In this chapter, we explore sums and products.
+      We begin with two activities involving sums in <xref ref="sec_model_sum_prod"></xref>,
+      one of which introduces a representation of integers using sums of factorials.
+      We also introduce summation and product notation.
+      <xref ref="sec_binary_hex"></xref>
+      continues our discussion of representing integers using sums,
+      this time of binary, hexadecimal,
+      and other base representations.
+      Sums and products of an arbitrary number of integers are defined recursively,
+      and so it is reasonable to investigate if there are explicit formulas for sums and products in <xref ref="sec_sum_conj"></xref>.
+      We return to counting and polynomial algebra in <xref ref="sec_arith_triangle"></xref>
+      where we explore recursive and explicit formulas for
+      <m>\binom{n}{k}</m> as well as patterns in the Arithmetic triangle,
+      some of which involve sums.
+      Finally, in <xref ref="sec_sum_proofs"></xref>
+      we look at techniques for proving a summation or product formula including proof by mathematical induction,
+      combinatorial proof, and other proofs.
+    </p>
+  </introduction>
+  <xi:include  href="sec_model_sum_prod.ptx"/>
+  <xi:include  href="sec_binary_hex.ptx"/>
+  <xi:include  href="sec_sum_conj.ptx"/>
+  <xi:include  href="sec_arith_triangle.ptx"/>
+  <xi:include  href="sec_sum_proofs.ptx"/>
+</chapter>
