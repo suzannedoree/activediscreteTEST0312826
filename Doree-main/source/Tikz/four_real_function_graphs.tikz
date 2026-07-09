@@ -1,0 +1,111 @@
+%Used in \Cref{sec_onetoone_onto_fns}.
+
+\begin{tikzpicture}% y=x^2
+[baseline=(current bounding box.north)]
+\begin{axis}[
+    axis equal,
+    width=2in,
+    height=2in,
+    axis lines=middle,
+    axis line style={very thick},
+    grid style={thin,densely dotted,black!50},
+    grid=major,
+    xticklabels={},
+    yticklabels={},
+    xtick distance=1, ytick distance=1,
+    %extra x ticks=2, extra y ticks=4,
+    xmin=-3.2, xmax=3.2,
+    ymin=-3.2, ymax=9.2,
+    xlabel=$x$,
+    ylabel=$y$]
+    \addplot[
+    <->,
+    domain=-3.2:3.2,
+    samples=500]
+        (x,{x^2});
+\end{axis}
+\node at (2,4) {$y=f(x)$};
+\end{tikzpicture}
+\hspace{.15in} %%%%%
+\begin{tikzpicture}% y=x^3-2x+1
+[baseline=(current bounding box.north)]
+\begin{axis}[
+    axis equal,
+    width=2in,
+    height=2in,
+    axis lines=middle,
+    axis line style={very thick},
+    grid style={thin,densely dotted,black!50},
+    grid=major,
+    xticklabels={},
+    yticklabels={},
+    xtick distance=1, ytick distance=1,
+    %extra x ticks=2, extra y ticks=4,
+    xmin=-3.2, xmax=3.2,
+    ymin=-3.2, ymax=10.2,
+    xlabel=$x$,
+    ylabel=$y$]
+    \addplot[
+    <->,
+    domain=-3.2:3.2,
+    samples=500]
+        (x,{x^3-2*x+1});
+\end{axis}
+\node at (2,4) {$y=g(x)$};
+\end{tikzpicture}
+\hspace{.15in} %%%%%
+\begin{tikzpicture}% y=2^x
+[baseline=(current bounding box.north)]
+\begin{axis}[
+    axis equal,
+    width=2in,
+    height=2in,
+    axis lines=middle,
+    axis line style={very thick},
+    grid style={thin,densely dotted,black!50},
+    grid=major,
+    xticklabels={},
+    yticklabels={},
+    xtick distance=1, ytick distance=1,
+    %extra x ticks=2, extra y ticks=4,
+    xmin=-3.2, xmax=3.2,
+    ymin=-3.2, ymax=10.2,
+    xlabel=$x$,
+    ylabel=$y$]
+    \addplot[
+    <->,
+    domain=-5.2:4.2,
+    samples=500]
+        (x,{2^x});
+\end{axis}
+\node at (2,4) {$y=h(x)$};
+\end{tikzpicture}
+\hspace{.15in} %%%%%
+\begin{tikzpicture}% y=x^3
+[baseline=(current bounding box.north)]
+\begin{axis}[
+    axis equal,
+    width=2in,
+    height=2in,
+    axis lines=middle,
+    axis line style={very thick},
+    grid style={thin,densely dotted,black!50},
+    grid=major,
+    xticklabels={},
+    yticklabels={},
+    xtick distance=1, ytick distance=1,
+    %extra x ticks=2, extra y ticks=4,
+    xmin=-3.2, xmax=3.2,
+    ymin=-3.2, ymax=10.2,
+    xlabel=$x$,
+    ylabel=$y$]
+    \addplot[
+    <->,
+    domain=-3.2:3.2,
+    samples=500]
+        (x,{x^3});
+\end{axis}
+\node at (2,4) {$y=k(x)$};
+\end{tikzpicture}
+
+

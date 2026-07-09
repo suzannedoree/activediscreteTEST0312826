@@ -1,0 +1,33 @@
+%Used in \Cref{sec_graph_models}
+
+% 3-regular of order 8
+\begin{tikzpicture}
+[scale =.55, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertices{circle}{$c$,$b$,$a$,$h$,$g$,$f$,$e$,$d$}
+\Edges($a$,$b$,$c$,$d$,$e$,$f$,$g$,$h$,$a$)
+\Edges($a$,$d$)
+\Edges($h$,$e$)
+\Edges($b$,$g$)
+\Edges($c$,$f$)
+\end{tikzpicture}
+%%%%%%
+\hspace{.5in}
+%%%%%%
+% 5-regular of order 8
+\begin{tikzpicture}
+[scale =.55, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertices{circle}{$c$,$b$,$a$,$h$,$g$,$f$,$e$,$d$}
+\Edges($a$,$b$,$c$,$d$,$e$,$f$,$g$,$h$,$a$)
+\Edges($a$,$e$)
+\Edges($b$,$f$)
+\Edges($c$,$g$)
+\Edges($d$,$h$)
+\Edges($a$,$c$,$e$,$g$,$a$)
+\Edges($b$,$d$,$f$,$h$,$b$)
+\end{tikzpicture}

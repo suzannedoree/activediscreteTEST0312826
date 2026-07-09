@@ -1,0 +1,15 @@
+%Used in \Cref{sec_GS_CC}
+
+    \begin{tikzpicture}
+        [scale =2]
+        \GraphInit[vstyle=Welsh]
+        \SetGraphUnit{1}
+        \SetVertexNoLabel
+        \Vertices{circle}{$B$,$A$, $F$,$E$,$D$,$C$}
+        \Edges($A$, $B$, $C$, $D$, $E$, $F$, $A$)
+        \Edges($A$, $C$, $E$, $A$)
+        \Edges($B$, $D$, $F$, $B$) 
+        \Edges($A$, $D$)
+        \Edges($B$, $E$)
+        \Edges($C$, $F$)
+    \end{tikzpicture}

@@ -1,0 +1,33 @@
+%Used in \Cref{sec_wrap_up}.
+
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetUpEdge[style={->,>=triangle 45}]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+%
+\Vertex[LabelOut,Lpos=180,x=0,y=4]{1}
+\node at (-3.7,4) {$1+1+1+1+1$};
+%
+\Vertex[LabelOut,Lpos= 180,x=3.6,y=4]{2}
+\node at (3.6,5.1) {$5$};
+%
+\Vertex[LabelOut,Lpos=180,x=6.6,y=2]{3}
+\node at (6.8,3.1) {$4+1$};
+%
+\Vertex[LabelOut,Lpos=180,x=10.2,y=2]{4}
+\node at (10,3.1) {$3+2$};
+%
+\Vertex[LabelOut,Lpos=0,x=13.2,y=4]{5}
+\node at (15.5,4) {$2+2+1$};
+%
+\Vertex[LabelOut,Lpos= 0,x=13.2,y=0]{6}
+\node at (15.5,0) {$3+1+1$};
+%
+\Vertex[LabelOut,Lpos=0,x=3.6,y=0]{7}
+\node at (.7,0) {$2+1+1+1$};
+%
+\Edges(1,2,3,4,5,6,4)
+\Edges(7,3)
+\end{tikzpicture}

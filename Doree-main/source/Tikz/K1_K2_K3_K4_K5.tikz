@@ -1,0 +1,55 @@
+ %Used in \Cref{sec_graph_models}       
+ 
+% K1
+     \begin{tikzpicture}
+        [scale =.5]
+        \GraphInit[vstyle=Welsh]
+        \SetGraphUnit{2}
+        \SetVertexNoLabel
+    
+        \Vertex[LabelOut,Lpos=90,x=0,y=0]{$A$}
+    \end{tikzpicture}
+\hspace{.35in} %%%
+% K2
+    \begin{tikzpicture}
+        [scale =.5]
+        \GraphInit[vstyle=Welsh]
+        \SetGraphUnit{2}
+        \SetVertexNoLabel
+        \Vertex[LabelOut,Lpos=90,x=0,y=0]{$A$}
+        \Vertex[LabelOut,Lpos= 90,x=3,y=0]{$B$}
+        \Edges($A$, $B$)
+    \end{tikzpicture}
+\hspace{.35in} %%%
+% K3
+    \begin{tikzpicture}
+        [scale =.5]
+        \GraphInit[vstyle=Welsh]
+        \SetGraphUnit{2}
+        \SetVertexNoLabel
+        \Vertices{circle}{$B$,$A$,$C$}
+        \Edges($A$, $B$, $C$, $A$)
+    \end{tikzpicture}
+\hspace{.35in} %%%
+% K4
+    \begin{tikzpicture}
+        [scale =.5]
+        \GraphInit[vstyle=Welsh]
+        \SetGraphUnit{2}
+        \SetVertexNoLabel
+        \Vertices{circle}{$B$,$A$,$D$,$C$}
+        \Edges($A$, $B$, $C$, $D$, $A$)
+        \Edges($A$, $C$)
+        \Edges($B$, $D$)
+    \end{tikzpicture}
+\hspace{.35in} %%%
+% K5
+    \begin{tikzpicture}
+        [scale =.5]
+        \GraphInit[vstyle=Welsh]
+        \SetGraphUnit{2}
+        \SetVertexNoLabel
+        \Vertices{circle}{$B$,$A$,$E$,$D$,$C$}
+        \Edges($A$, $B$, $C$, $D$, $E$, $A$)
+        \Edges($A$, $C$, $E$, $B$, $D$, $A$)
+    \end{tikzpicture}

@@ -1,0 +1,39 @@
+%Used in \Cref{sec_graph_ism}
+
+\begin{tikzpicture}
+[scale =.5, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (0,4) {$\overline{G}$ labeled};
+\Vertices{circle}{$c$,$u$,$b$,$v$,$z$,$a$}
+\Edges($v$,$a$,$b$,$c$)
+\Edges($u$,$a$)
+\end{tikzpicture}
+\hspace{.5in} %%%%%%%%%
+\begin{tikzpicture}
+[scale =.5, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (0,4) {$\overline{H}$ labeled};
+\Vertices{circle}{$z$,$b$,$u$,$v$,$c$,$a$}
+\Edges($v$,$a$,$b$,$c$)
+\Edges($u$,$a$)
+\end{tikzpicture}
+\hspace{.5in} %%%%%%%%%%%
+\begin{tikzpicture}
+[scale =.5, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (6,4) {simplified drawing};
+\Vertex[LabelOut,Lpos=-90,x=6,y=2]{$c$}
+\Vertex[LabelOut,Lpos=-90,x=4,y=2]{$b$}
+\Vertex[LabelOut,Lpos=-90,x=2,y=2]{$a$}
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$u$}
+\Vertex[LabelOut,Lpos=-90,x=0,y=1]{$v$}
+\Vertex[LabelOut,Lpos=-90,x=8,y=2]{$z$}
+\Edges($v$,$a$,$b$,$c$)
+\Edges($u$,$a$)
+\end{tikzpicture}

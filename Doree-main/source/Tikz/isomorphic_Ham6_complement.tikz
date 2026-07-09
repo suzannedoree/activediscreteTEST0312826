@@ -1,0 +1,23 @@
+%Used in \Cref{sec_graph_ism}
+
+\begin{tikzpicture}
+[scale =.5, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (0,2.5) {$\overline{G}$};
+\Vertices{circle}{$c$,$b$,$a$,$f$,$e$,$d$}
+\Edges($f$,$d$,$a$,$c$)
+\Edges($b$,$d$)
+\end{tikzpicture}
+\hspace{1in}%%%%%
+\begin{tikzpicture}
+[scale =.5, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (0,2.5) {$\overline{H}$};
+\Vertices{circle}{$e$,$a$,$b$,$f$,$c$,$d$}
+\Edges($f$,$d$,$a$,$c$)
+\Edges($b$,$d$)
+\end{tikzpicture}

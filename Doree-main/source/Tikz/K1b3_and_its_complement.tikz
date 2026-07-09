@@ -1,0 +1,26 @@
+%Used in \Cref{sec_graph_thy} \Cref{defn_graph_complement}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=180,x=0,y=3]{$a$}
+\Vertex[LabelOut,Lpos= 0,x=3,y=3]{$b$}
+\Vertex[LabelOut,Lpos=0,x=3,y=0]{$c$}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$d$}
+\Edges($b$, $a$, $c$)
+\Edges($a$, $d$)
+\end{tikzpicture}
+\hspace{1in}
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=180,x=0,y=3]{$a$}
+\Vertex[LabelOut,Lpos= 0,x=3,y=3]{$b$}
+\Vertex[LabelOut,Lpos=0,x=3,y=0]{$c$}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$d$}
+\Edges($c$, $b$, $d$, $c$)
+\end{tikzpicture}

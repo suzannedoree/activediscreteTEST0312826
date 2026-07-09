@@ -1,0 +1,21 @@
+%% Venn diagram for sets $S = \{2,3,5\}$ and $T\={1,2,3,4\}$.
+%Used in \Cref{sub_set_operations}.
+
+\begin{tikzpicture}[fill=gray]
+% left hand
+\scope
+\clip (1,0) circle (1);
+\endscope
+% right hand
+\scope
+\clip (0,0) circle (1);
+\endscope
+% outline, labels, and points
+\draw (0,0) circle (1) (-1,.75)  node [text=black,above] {$S$}
+      (1,0) circle (1) (2, .75)  node [text=black,above] {$T$}
+      (.5,.15)node [text=black,above] {$2$}
+        (.5,-.45)node [text=black,above] {$3$}
+          (-.4,-.25)node [text=black,above] {$5$}
+            (1.4,.15)node [text=black,above] {$1$}
+              (1.4,-.45)node [text=black,above] {$4$};
+\end{tikzpicture}

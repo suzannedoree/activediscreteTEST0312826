@@ -1,0 +1,68 @@
+%Used in \Cref{sec_graph_models}
+
+% P4 comp
+\begin{tikzpicture}
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    %\SetVertexNoLabel
+    \node at (2.25,-4) {$\overline{G}$};
+    \node at (2.25,4) {}; % to raise graph   
+    % Give the vertices names but NO labels. The names cannot be in math mode to use the draw command (sigh), so we'll label them later
+    \node[circle, draw] (A) at (0,0) {}; 
+    \node[circle, draw] (B) at (1.5,0) {};
+    \node[circle, draw] (C) at (3,0) {};
+    \node[circle, draw] (D) at (4.5,0) {};
+
+    % next, curve them
+    \draw (B)  to [out=60,in=120,in looseness=1.7] (D);
+     \draw (A)  to [out=60,in=120,in looseness=1.7] (D);
+      \draw (A)  to [out=60,in=120,in looseness=1.7] (C);
+
+     % now, create labels which can be in math mode
+     \node at (0,-1) {$a$};
+     \node at (1.5,-1) {$b$};
+     \node at (3,-1) {$c$};
+    \node at (4.5,-1) {$d$};
+\end{tikzpicture}
+%%%%%%%%%%%%%
+\hspace{.35in}
+%%%%%%%%%%%%%
+% C5 comp
+\begin{tikzpicture}
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    %\SetVertexNoLabel
+    \node at (0,-4) {$\overline{H}$};
+    \Vertices{circle}{$a$,$b$,$c$,$d$,$e$}
+    \Edges($a$,$c$,$e$,$b$,$d$,$a$)
+\end{tikzpicture}
+%%%%%%%%%%%%%
+\hspace{.35in} 
+%%%%%%%%%%%%%
+% C_4 with dot in middle comp
+\begin{tikzpicture}
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    %\SetVertexNoLabel
+    \node at (1.5,-4) {$\overline{J}$};
+
+    \node[circle, draw] (A) at (0,1.5) {};
+    \node[circle, draw] (B) at (3,1.5) {};
+    \node[circle, draw] (C) at (3,-1.5) {};
+    \node[circle, draw] (D) at (0,-1.5) {};
+    \node[circle, draw] (X) at (1.5,0) {};
+
+    \draw (A)  to [out=45,in=45,in looseness=.6] (C);
+    \draw (B)  to [out=135,in=135,in looseness=.6] (D);
+    \Edges(A,X,B)
+    \Edges(C,X,D)
+
+    \node at (-1,1.5) {$a$};
+    \node at (4,1.5) {$b$};
+    \node at (4,-1.5) {$c$};
+    \node at (-1,-1.5) {$d$};
+    \node at (1.5,-1) {$x$}; 
+\end{tikzpicture}

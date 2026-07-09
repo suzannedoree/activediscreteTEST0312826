@@ -1,0 +1,26 @@
+%Used in \Cref{sec_graph_thy} and again in 
+%\Cref{sec_fn_words}
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertex[LabelOut,Lpos= 90,x=0,y=9]{$n$}
+\Vertex[LabelOut,Lpos= 90,x=3,y=9]{$p$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=9]{$q$}
+\Vertex[LabelOut,Lpos= -90,x=0,y=6]{$r$}
+\Vertex[LabelOut,Lpos= -90,x=3,y=6]{$s$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=6]{$t$}
+\Vertex[LabelOut,Lpos= 90,x=9,y=6]{$u$}
+\Vertex[LabelOut,Lpos= 90,x=12,y=6]{$v$}
+\Vertex[LabelOut,Lpos= 180,x=6,y=3]{$w$}
+\Vertex[LabelOut,Lpos= -90,x=9,y=3]{$x$}
+\Vertex[LabelOut,Lpos= 180,x=6,y=0]{$y$}
+\Vertex[LabelOut,Lpos= 180,x=6,y=-3]{$z$}
+\Edges($r$, $s$, $w$, $y$, $z$)
+\Edges($y$,$x$,$v$)
+\Edges($n$,$s$,$p$)
+\Edges($x$,$u$,$q$)
+\Edges($w$,$t$)
+\end{tikzpicture}

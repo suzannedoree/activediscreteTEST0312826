@@ -1,0 +1,34 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (4,5) {$G_1$};
+\node at (4,-2) {}; % To raise graph to match G2
+\Vertex[LabelOut,Lpos=90,x=0,y=2]{$a$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=2]{$b$}
+\Vertex[LabelOut,Lpos= 90,x=4,y=2]{$c$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=2]{$d$}
+\Vertex[LabelOut,Lpos= 90,x=8,y=2]{$e$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=0]{$x$}
+\Edges($a$, $b$, $c$, $d$, $e$)
+\Edges($c$,$x$)
+\end{tikzpicture}
+\hspace{1in} %%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (4,5) {$G_2$};
+\Vertex[LabelOut,Lpos=90,x=0,y=2]{$a$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=2]{$b$}
+\Vertex[LabelOut,Lpos= 90,x=4,y=2]{$c$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=0]{$d$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=-2]{$e$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=2]{$x$}
+\Edges($a$, $b$, $c$, $d$, $e$)
+\Edges($c$,$x$)
+\end{tikzpicture}

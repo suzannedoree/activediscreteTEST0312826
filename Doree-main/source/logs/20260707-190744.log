@@ -1,0 +1,125 @@
+INFO    : Building target web
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.1/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.43.1/core/xsl/utilities/pretext-enhanced-source.xsl
+WARNING : Schema validation could not be completed: no validator was available (jing is not installed and lxml could not compile the schema). Continuing with build.
+INFO    : Generating any needed assets.
+WARNING : Now generating latex images
+INFO    : converting latex-image pictures from /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx to svg graphics for placement in /workspaces/activediscreteTEST0312826/Doree-main/generated-assets/latex-image
+INFO    : extracting latex-image pictures from /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx
+INFO    : string parameters passed to extraction stylesheet: {'cli.version': '2.43', 'publisher': '/home/codespace/.ptx/2.43.1/templates/publication.ptx'}
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/assets
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.1/core/xsl/extract-latex-image.xsl
+INFO    : successful application of /home/codespace/.ptx/2.43.1/core/xsl/extract-latex-image.xsl
+INFO    : converting fig_tikz_example-2.tex to fig_tikz_example-2.pdf
+ERROR   : LaTeX compilation of fig_tikz_example-2.tex failed.
+Re-run, requesting "source" as the format, to analyze the image.
+Likely creating the entire document as PDF will fail similarly.
+The transcript of the LaTeX run follows.
+WARNING : LaTeX compilation of fig_tikz_example-2.tex failed
+ERROR   : Unable to generate some latex-image assets:
+ LaTeX compilation failed for 1 "latex-image"(s).
+Review the log for error messages, and LaTeX transcripts.
+Images are:
+  fig_tikz_example-2.tex
+INFO    : Removing temporary directory /tmp/ptx-odlkuol3
+INFO    : Finished generating assets.
+
+INFO    : Preparing to build into /workspaces/activediscreteTEST0312826/Doree-main/source/build/web.
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/assets
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.1/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /home/codespace/.ptx/2.43.1/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 8.1.8
+INFO    : Downloading Runestone Services, version 8.1.8
+INFO    : Extracting Runestone Services from archive file
+INFO    : Building custom css theme: theme-default-modern
+INFO    : converting /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx to HTML in /tmp/ptx-var0e2wt
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.1/core/xsl/pretext-html.xsl
+INFO    : messages from the log for XSL processing:
+INFO    : * PTX:INFO:   checking all deprecated elements.
+WARNING : * PTX:DEPRECATE: (2024-10-08) elements previously included in a "titlepage" element inside the "frontmatter" (author, editor, credit, date, and event) should now be placed in "frontmatter/bibinfo".  To ensure a title page is created, put only the empty element "titlepage-items" inside "titlepage".  Until you move these elements, we will try to honor your intent. (1 time)
+INFO    : *              located at: pretext/book/frontmatter/titlepage
+INFO    : *              located within: "Active Discrete Mathematics: Patterns, Structures, and Proof" (title)
+INFO    : * --------------
+WARNING : * PTX:DEPRECATE: (2026-05-11) the "me" and "men" elements have been deprecated.  The replacement is an "md" with no "mrow" children, and numbering is controlled by the "@number" attribute, or a global setting in "docinfo". (5 times)
+INFO    : *              located at: pretext/book/chapter/activity/p/ol/li/p/me
+INFO    : *              located within: "act_handshakes" (xml:id), "Handshakes puzzle" (title)
+INFO    : *              located at: pretext/book/chapter/example/solution/p/me
+INFO    : *              located within: "exam_hs6" (xml:id), "Six students shake hands" (title)
+INFO    : *              located at: pretext/book/chapter/example/solution/p/me
+INFO    : *              located within: "exam_hs6" (xml:id), "Six students shake hands" (title)
+INFO    : *              located at: pretext/book/chapter/example/solution/p/me
+INFO    : *              located within: "exam_hs6" (xml:id), "Six students shake hands" (title)
+INFO    : *              located at: pretext/book/chapter/p/me
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+INFO    : * --------------
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_graph_theory] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/example/solution/p/xref
+INFO    : *              located within: "exam_hs6" (xml:id), "Six students shake hands" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [exer_math_ind_sum_evens] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [exer_comb_pf_sum_hs] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sec_sum_proofs] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_counting] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_graph_theory] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_number_theory] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_logic_proof] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_functions] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_sets_rel] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_recursion_induction] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_sum_prod] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_squares_dominoes] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sec_listing] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/p/xref
+INFO    : *              located within: "ch_prologue" (xml:id), "Prologue: Handshakes" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_graph_theory] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/example/solution/p/xref
+INFO    : *              located within: "exam_hs6" (xml:id), "Six students shake hands" (title)
+INFO    : successful application of /home/codespace/.ptx/2.43.1/core/xsl/pretext-html.xsl
+INFO    : Removing temporary directory /tmp/ptx-var0e2wt
+INFO    : Removing temporary directory /tmp/ptx-4j6fg31x
+INFO    : 
+Finished build for target web. Run `pretext view web` to see the results.
+
+CRITICAL: There were errors during the build.  See above.
+INFO    : ------------------------
+CRITICAL: Failed to build without errors.  Exiting...
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

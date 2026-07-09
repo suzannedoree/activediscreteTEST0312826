@@ -1,0 +1,46 @@
+\subsection{\emph{Chessboard Tilings Puzzle}}
+\label{sub_chessboard_tiling}
+\hspace{-.25in} 
+Challenge yourself:
+
+A \textbf{chessboard} is formed by $8 \times 8$ squares, alternately colored black and white as shown. If it's a different size or if squares have been removed, we'll just call it a \textbf{board}.
+
+For our purposes, a \textbf{domino} is a $1 \times 2 $ piece which is blank as shown on the left and an \textbf{L-shaped piece} is formed of three squares as shown on the right.  Each square of the domino and L-shaped piece is supposed to the same size as the square on the chessboard.
+
+We say that pieces \textbf{tile} a board if we can cover all the squares on the board using pieces, including turning the direction of the pieces, such that none overlap (or hang off). 
+
+\includegraphics[scale=.6]{Puzzles/Puzzle Images/ChessboardFull.pdf}
+
+\includegraphics[scale=.65]{Puzzles/Puzzle Images/Grid2Shaded.pdf}
+
+\begin{enumerate} 
+\item How can we tile the chessboard with dominoes?
+  
+\item Is that tiling unique?
+  
+\item Form a new board by taking out the upper left corner of the chessboard.  Can we domino tile that board?  Explain. 
+  
+\item Form a new board by taking both the upper left and lower right corner out of the chessboard. Can we domino tile this board?  Explain.  \emph{Hint:  count black and white squares}
+     
+
+\newpage
+\item Why can't we tile the chessboard with L-shaped pieces? 
+%\emph{Hint:  each L-shaped piece covers exactly 3 squares.  Compare the number of squares that can be covered by L-shaped pieces to the total number of squares on the chessboard.}
+   
+
+\item Go back to that board formed by taking the upper left corner out of the chessboard.  Show how we can tile this board with L-shaped pieces.  \emph{Hint:  work in pencil or on scratch paper first.}
+
+\includegraphics[scale=1]{Puzzles/Puzzle Images/ChessboardMinus.pdf}
+
+%\newpage
+%\hspace{- .4in} \textbf{Possible extra credit:} 
+
+\item Let $B_n$ denote the $n \times n$ chessboard with the upper left corner removed.  We just L-tiled $B_8$. Which of these can be L-tiled:  $B_2$, $B_3$, $B_4$?  Justify your answers.       
+
+\item Show how to L-tile $B_{16}$ \emph{Attach additional pages with drawing.  Stuck?  read hint to next problem.}
+
+\item Use mathematical induction to prove that $B_{2^n}$ can be L-tiled for all integers $n \ge 1$.
+
+\emph{Attach additional pages for your proof.}   \emph{Hint:  subdivide $B_{2^n}$ into 4 squares.  Place an L-shaped piece in the center so that without that piece you have four copies of $B_{2^{n-1}}$.}
+
+\end{enumerate}

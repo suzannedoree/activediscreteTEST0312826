@@ -1,0 +1,45 @@
+%Used in \Cref{sec_subgraph_isomorphic}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+%\node at (-2,4) {$T_3$};
+\Vertex[LabelOut,Lpos=90,x=0,y=0]{$a$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=0]{$b$}
+\Vertex[LabelOut,Lpos= 90,x=4,y=0]{$c$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=0]{$d$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=-2]{$u$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=-4]{$v$}
+\Vertex[LabelOut,Lpos= 90,x=4,y=2]{$w$}
+\Vertex[LabelOut,Lpos= 90,x=7.5,y=1.4]{$y$}
+\Vertex[LabelOut,Lpos= 90,x=7.5,y=-1.4]{$z$}
+\Edges($a$, $b$, $c$, $d$)
+\Edges($b$, $u$, $v$)
+\Edges($c$, $w$)
+\Edges($y$,$d$,$z$)
+\end{tikzpicture}
+\hspace{1 in} %%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+%\node at (-2,4) {$T_4$};
+\node at (0,-4) {}; % to raise T4
+\Vertex[LabelOut,Lpos=90,x=0,y=0]{$z$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=0]{$d$}
+\Vertex[LabelOut,Lpos= 90,x=4,y=0]{$c$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=0]{$b$}
+\Vertex[LabelOut,Lpos= 90,x=8,y=0]{$u$}
+\Vertex[LabelOut,Lpos= 90,x=10,y=0]{$v$}
+%%
+\Vertex[LabelOut,Lpos= 90,x=6,y=2]{$a$}
+\Vertex[LabelOut,Lpos= 90,x=4,y=2]{$w$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=2]{$y$}
+\Edges($a$, $b$, $c$, $d$)
+\Edges($b$, $u$, $v$)
+\Edges($c$, $w$)
+\Edges($y$,$d$,$z$)
+\end{tikzpicture}

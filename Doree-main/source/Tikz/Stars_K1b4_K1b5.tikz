@@ -1,0 +1,30 @@
+%Used in \Cref{sec_graph_models}.
+
+% Star K_1,4
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{2}
+\SetVertexNoLabel
+\Vertices{circle}{$B$,$A$,$D$,$C$}
+\Vertex[LabelOut,Lpos= -90,x=0,y=0]{$Z$}
+\Edges($A$, $Z$, $C$)
+\Edges($B$, $Z$, $D$)
+\AddVertexColor{black}{$Z$}
+\end{tikzpicture}
+%
+\hspace{.35in} %%%%
+%
+% Star K_1,5
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{2}
+\SetVertexNoLabel
+\Vertices{circle}{$B$,$A$,$E$,$D$,$C$}
+\Vertex[LabelOut,Lpos= -90,x=0,y=0]{$Z$}
+\Edges($A$, $Z$, $C$)
+\Edges($B$, $Z$, $D$)
+\Edges($Z$, $E$)
+\AddVertexColor{black}{$Z$}
+\end{tikzpicture}

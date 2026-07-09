@@ -1,0 +1,48 @@
+%Used in \Cref{sec_arith_triangle}.
+
+% Thank you Gemini!
+% My prompt was: I'm writing a discrete math textbook.  We're learning about the arithmetic triangle (Pascal's triangle).  I want to illustrate how the recursion gets us from the row starting 1, 7 to the row starting 1,8.  The recursion is that you add the two numbers from the previous row. (Or you can look up Pascal's identity).  I have a graphic, which I'll paste at the end of this note.  I would like to replace it with a Tikz image that shows what I have , but adds line segments of slope 1 and -1 between entries of the top row and the bottom row as follows.  Negative slope lines from 1 to 8, from 7 to 28, from 21 to 56, etc.  Positive slope lines from 8 to 7 from 2 to 21, from 56 to 35, etc.  They can be blue and maybe the second row would also be blue??  Here's the existing rows: 
+
+\begin{tikzpicture}[
+    x=1.3cm, % Adjust horizontal spacing here. 1.3cm is approx 0.5in center-to-center
+    y=1.5cm, % Adjust vertical spacing here
+    every node/.style={font=\large, anchor=base},
+    top row/.style={black},
+    bottom row/.style={blue}
+    ]
+
+% --- Define data ---
+\def\rowSeven{1, 7, 21, 35, 35, 21, 7, 1}
+\def\rowEight{1, 8, 28, 56, 70, 56, 28, 8, 1}
+
+% --- Place Row 7 (Top Row) ---
+% These are offset horizontally by 0.5 units to sit between the row below
+\foreach \val [count=\i from 0] in \rowSeven {
+    \node[top row] (T-\i) at (\i + 0.5, 1) {$\val$};
+}
+
+% --- Place Row 8 (Bottom Row) ---
+\foreach \val [count=\i from 0] in \rowEight {
+    \node[bottom row] (B-\i) at (\i, 0) {$\val$};
+}
+
+% --- Draw Connections ---
+\begin{scope}[blue, thick, shorten <=4pt, shorten >=4pt]
+    % We iterate through the top row items (T-0 to T-7).
+    % Each T-i connects to the node directly below-left (B-i)
+    % and directly below-right (B-{i+1}).
+    \foreach \i in {0,...,7} {
+        % Define the index for the bottom right connection
+        \pgfmathtruncatemacro{\nextB}{\i+1}
+
+        % Line of positive slope (visually bottom-left to top-right)
+        % Connects B-\i up to T-\i
+        \draw (B-\i) -- (T-\i);
+
+        % Line of negative slope (visually top-left to bottom-right)
+        % Connects T-\i down to B-\nextB
+        \draw (T-\i) -- (B-\nextB);
+    }
+\end{scope}
+
+\end{tikzpicture}

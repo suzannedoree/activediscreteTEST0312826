@@ -1,0 +1,14 @@
+%% Complement of Set
+%Used in \Cref{sub_set_operations}.
+
+
+\begin{tikzpicture}[fill=gray]
+\scope
+\clip (-1.5,-1.5) rectangle (1.5,1.5)
+      (0,0) circle (1);
+\fill  (-1.5,-1.5) rectangle (1.5,1.5) ;
+\endscope
+\draw (0,0) circle (1) (-.9,.65)  node [text=black,above] {$S$}
+      (-1.5,-1.5) rectangle (1.5,1.5) 
+      (0,1.65) node [text=black,above] {$\overline{S}$};
+\end{tikzpicture}

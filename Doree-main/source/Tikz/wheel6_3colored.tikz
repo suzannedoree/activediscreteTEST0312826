@@ -1,0 +1,19 @@
+%Used in \Cref{sec_std_graphs}.
+
+\begin{tikzpicture}
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    \SetVertexNoLabel
+% W6
+    \Vertices{circle}{a,b,c,d,e,f}
+    \Vertex[x=0,y=0]{z}
+    \Edges(a,b,c,d,e,f,a)
+    \Edges(a,z,b)
+    \Edges(c,z,d)
+    \Edges(e,z,f)
+
+% Coloring the Vertices        
+        \AddVertexColor{black}{a,c,e}
+        \AddVertexColor{gray}{b,d,f}
+\end{tikzpicture}

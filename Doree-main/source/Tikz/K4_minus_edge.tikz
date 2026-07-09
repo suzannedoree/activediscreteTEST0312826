@@ -1,0 +1,51 @@
+%Used in \Cref{sec_graph_models}.
+\begin{tikzpicture}
+[scale =.75, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1}
+%\SetVertexNoLabel
+%
+% Drawing as a line with curves back
+%
+    \Vertex[LabelOut,Lpos=-90,x=2,y=0]{1}
+    \Vertex[LabelOut,Lpos= -90,x=3,y=0]{2}
+    \Vertex[LabelOut,Lpos=-90,x=4,y=0]{3}
+    \Vertex[LabelOut,Lpos= -90,x=5,y=0]{4}
+    % Edges of line
+    \Edges(1,2,3,4)
+    % Curves back (needs semicolon!)
+    \draw (2)  to [out=60,in=120,in looseness=1.7] (4);
+    \draw (1)  to [out=-60,in=-120,in looseness=1.7] (4);
+%
+% Drawing as a square
+%
+    \Vertex[LabelOut,Lpos=180,x=7,y=0,L=1]{A}
+    \Vertex[LabelOut,Lpos= 180,x=7,y=1.5,L=2]{B}
+    \Vertex[LabelOut,Lpos= 0,x=8.5,y=1.5,L=3]{C} 
+    \Vertex[LabelOut,Lpos= 0,x=8.5,y=0,L=4]{D}           
+    % Edges of square
+    \Edges(A,B,C,D,A)
+    \Edges(B,D)
+%    
+% Drawing as a random mess
+%    
+    \Vertex[LabelOut,Lpos=180,x=11,y=-1.5,L=1]{x}
+    \Vertex[LabelOut,Lpos= 0,x=14,y=0,L=2]{y}
+    \Vertex[LabelOut,Lpos= 180,x=11,y=0,L=4]{w}  
+    \Vertex[LabelOut,Lpos= 180,x=11,y=1.5,L=3]{z}
+    % Edges of random mess
+    \Edges(w,x,y,z,w) 
+    \Edges(y,w)
+%
+% Drawing as curves
+%
+    \Vertex[LabelOut,Lpos= -90,x=16,y=0,L=3]{d}  
+    \Vertex[LabelOut,Lpos= -90,x=17,y=0,L=2]{c} 
+    \Vertex[LabelOut,Lpos= -90,x=18,y=0,L=4]{b}            
+    \Vertex[LabelOut,Lpos=-90,x=19,y=0,L=1]{a} 
+    % Edges of many curves
+    \Edges(a,b,c,d)    
+    \draw (c)  to [out=60,in=120,in looseness=1.7] (a);
+    \draw (d)  to [out=60,in=120,in looseness=1.7] (b);
+    
+\end{tikzpicture}

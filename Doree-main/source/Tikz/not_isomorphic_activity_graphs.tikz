@@ -1,0 +1,41 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$a_1$}
+\Vertex[LabelOut,Lpos=90,x=3,y=3]{$b_1$}
+\Vertex[LabelOut,Lpos=90,x=6,y=3]{$c_1$}
+\Vertex[LabelOut,Lpos=90,x=9,y=3]{$d_1$}
+\Vertex[LabelOut,Lpos=-90,x=0,y=0]{$a_2$}
+\Vertex[LabelOut,Lpos=-90,x=3,y=0]{$b_2$}
+\Vertex[LabelOut,Lpos=-90,x=6,y=0]{$c_2$}
+\Vertex[LabelOut,Lpos=-90,x=9,y=0]{$d_2$}
+\Edges($a_1$, $b_1$, $c_1$, $d_1$)
+\Edges($a_2$, $b_2$, $c_2$, $d_2$)
+\Edges($a_1$,$a_2$)
+\Edges($b_1$,$c_2$)
+\Edges($b_2$,$c_1$)
+\end{tikzpicture}
+\hspace{1 in} %%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$a_1$}
+\Vertex[LabelOut,Lpos=90,x=3,y=3]{$b_1$}
+\Vertex[LabelOut,Lpos=90,x=6,y=3]{$c_1$}
+\Vertex[LabelOut,Lpos=90,x=9,y=3]{$d_1$}
+\Vertex[LabelOut,Lpos=-90,x=0,y=0]{$a_2$}
+\Vertex[LabelOut,Lpos=-90,x=3,y=0]{$b_2$}
+\Vertex[LabelOut,Lpos=-90,x=6,y=0]{$c_2$}
+\Vertex[LabelOut,Lpos=-90,x=9,y=0]{$d_2$}
+\Edges($a_1$, $b_1$, $c_1$, $d_1$)
+\Edges($a_2$, $b_2$, $c_2$, $d_2$)
+\Edges($a_1$,$a_2$)
+\Edges($b_1$,$b_2$)
+\Edges($c_2$,$c_1$)
+\end{tikzpicture}

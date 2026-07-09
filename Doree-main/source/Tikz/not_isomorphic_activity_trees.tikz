@@ -1,0 +1,37 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.4]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{2}
+\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=90,x=0,y=0]{$a$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=0]{$b$}
+\Vertex[LabelOut,Lpos= 90,x=4,y=0]{$c$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=0]{$d$}
+\Vertex[LabelOut,Lpos= 90,x=8,y=0]{$e$}
+\Vertex[LabelOut,Lpos= 90,x=10,y=0]{$f$}
+\Vertex[LabelOut,Lpos= 90,x=4,y=-2]{$r$}
+\Vertex[LabelOut,Lpos= 90,x=8,y=-2]{$s$}
+\Edges($a$, $b$, $c$, $d$, $e$,$f$)
+\Edges($c$,$r$)
+\Edges($e$,$s$)
+\end{tikzpicture}
+\hspace{1 in} %%%%%
+\begin{tikzpicture}
+[scale =.4]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{2}
+\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=90,x=0,y=0]{$a$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=0]{$b$}
+\Vertex[LabelOut,Lpos= 90,x=4,y=0]{$c$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=0]{$d$}
+\Vertex[LabelOut,Lpos= 90,x=8,y=0]{$e$}
+\Vertex[LabelOut,Lpos= 90,x=10,y=0]{$f$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=-2]{$r$}
+\Vertex[LabelOut,Lpos= 90,x=8,y=-2]{$s$}
+\Edges($a$, $b$, $c$, $d$, $e$,$f$)
+\Edges($b$,$r$)
+\Edges($e$,$s$)
+\end{tikzpicture}

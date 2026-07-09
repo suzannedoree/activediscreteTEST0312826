@@ -3,21 +3,18 @@
   <docinfo>
 <macros>
 \newcommand{\newpara}{}
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\subcountawry}{\bf{When\ Counting\ Goes\ Awry}}  
+\newcommand{\seccountingstepscases}{\bf{Counting\ with\ Steps\ and\ Cases}}
+\newcommand{\subalgfac}{\bf{Algebra:\ Factorials}}
+\newcommand{\seccountingsubsets}{\bf{Counting\ Subsets}}
+\newcommand{\secbitstrings}{\bf{Counting\ Bit\ Strings}}
+
 \newcommand{\subhs}{Counting Handshakes}
-\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
-\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+% \circled temporarily disabled for TikZ image compilation
+% \newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 \newcommand{\subdiscrete}{What is Discrete Mathematics?}
 \newcommand{\sublearning}{Learning Discrete Mathematics}
-\newcommand{\str}{\texttt}
-\newcommand{\subsqdom}{Strings of Squares and Dominoes}
-\newcommand{\fn}{\texttt}
-\newcommand{\subsetsdigits}{Digits, Sets, and Cases}
-\newcommand{\bs}{\texttt}
-\newcommand{\substrings}{Strings and Possibility Trees}
-\newcommand{\lra}{\,\longrightarrow\,}
-\newcommand{\subintalgebra}{Algebra: Integer Algebra and the Order of Operations}
-\renewcommand{\thecbs}{\thesection.\arabic{cbs}}
-\newcommand{\substepscases}{Steps and Cases}
 \newcommand{\exerR}{Recap}
 \newcommand{\subcountingawry}{When Counting Goes Awry}
 \newcommand{\exerP}{Practice}
@@ -151,6 +148,7 @@
 \newcommand{\subfracalg}{Algebra: Fraction Arithmetic}
 \newcommand{\subhotelinf}{Hotel Infinity}
 \newcommand{\subdefndiscrete}{The Definition of Discrete}
+\newcommand{\seclisting}{Organized Listing}
 </macros>
 <latex-image-preamble>
 \usepackage{tikz}
@@ -166,7 +164,7 @@
 </latex-image-preamble>
   </docinfo>
   <book>
-    <title>\textsc{Active Discrete Mathematics:\\ Patterns, Structures, and Proof}</title>
+    <title><sc>Active Discrete Mathematics: Patterns, Structures, and Proof</sc></title>
     <frontmatter>
       <titlepage>
         <author>
@@ -176,8 +174,11 @@
     </frontmatter>
     <xi:include href="./ch_prologue.ptx"/>
     <xi:include href="./ch_counting.ptx"/>
+
     <xi:include href="./ch_graph_theory.ptx"/>
+
     <xi:include href="./ch_number_theory.ptx"/>
+    <!--
     <xi:include href="./ch_logic_proof.ptx"/>
     <xi:include href="./ch_functions.ptx"/>
     <xi:include href="./ch_sets_rel.ptx"/>
@@ -187,5 +188,6 @@
     <backmatter>
       <xi:include href="./bibliography.ptx"/>
     </backmatter>
+    -->
   </book>
 </pretext>

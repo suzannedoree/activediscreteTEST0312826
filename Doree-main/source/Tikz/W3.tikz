@@ -1,0 +1,14 @@
+%Used in \Cref{sec_std_graphs}.
+
+\begin{tikzpicture}
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    \SetVertexNoLabel
+% W3
+    \Vertices{circle}{a,b,c}
+    \Vertex[x=0,y=0]{z}
+    \Edges(a,b,c,a)
+    \Edges(a,z,b)
+    \Edges(c,z)
+\end{tikzpicture}

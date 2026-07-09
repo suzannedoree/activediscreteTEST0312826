@@ -1,0 +1,50 @@
+
+
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (2,-2) { 0 edges};
+\Vertex[LabelOut,Lpos=90,x=0,y=0]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=4,y=0]{$C$}
+\end{tikzpicture}
+\hspace{.5in} %%%%%%%%%%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (2,-2) {1 edge};
+\Vertex[LabelOut,Lpos=90,x=0,y=0]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=4,y=0]{$C$}
+\Edges($A$, $B$)
+\end{tikzpicture}
+\hspace{.5in} %%%%%%%%%%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (2,-2) {2 edges};
+\Vertex[LabelOut,Lpos=90,x=0,y=0]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=4,y=0]{$C$}
+\Edges($A$, $B$, $C$)
+\end{tikzpicture}
+\hspace{.5in} %%%%%%%%%%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (2,-2) {3 edges};
+\Vertex[LabelOut,Lpos=90,x=0,y=0]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=4,y=0]{$C$}
+\Edges($A$, $B$, $C$, $A$)
+\end{tikzpicture}

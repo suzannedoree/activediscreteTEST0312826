@@ -1,0 +1,23 @@
+%Used in \Cref{sec_graph_models}.
+\begin{tikzpicture}
+    [scale =.5]
+        \GraphInit[vstyle=Welsh]
+        \SetGraphUnit{2}
+        \SetVertexNoLabel
+        \Vertex[LabelOut,Lpos=90,x=0,y=3]{$A$}
+        \Vertex[LabelOut,Lpos= 90,x=2,y=3]{$B$}
+        \Vertex[LabelOut,Lpos=-90,x=4,y=3]{$C$}
+        \Vertex[LabelOut,Lpos= -90,x=6,y=3]{$D$}
+        \Vertex[LabelOut,Lpos= -90,x=8,y=3]{$E$}
+        \Vertex[LabelOut,Lpos=90,x=2,y=0]{$X$}
+        \Vertex[LabelOut,Lpos= 90,x=4,y=0]{$Y$}
+        \Vertex[LabelOut,Lpos=-90,x=6,y=0]{$Z$}
+        % \foreach \x in {$A$, $B$, $C$, $D$, $E$}
+        % \foreach \y in {$X$,$Y$,$Z$} 
+        % \draw (\x) -- (\y); 
+        \Edges($A$, $X$, $B$, $Y$, $C$, $Z$, $D$)
+        \Edges($A$, $Y$, $D$, $X$, $C$)
+        \Edges($X$, $E$, $Y$)
+        \Edges($B$, $Z$, $A$, $Z$, $E$)
+        \AddVertexColor{black}{$A$, $B$, $C$, $D$, $E$}
+    \end{tikzpicture}

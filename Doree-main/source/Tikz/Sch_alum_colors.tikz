@@ -1,0 +1,35 @@
+%Used in \Cref{sec_graph_models}.
+
+\begin{tikzpicture}
+    [scale =.4]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    %\SetVertexNoLabel
+% Vert
+    % First column
+        \Vertex[LabelOut,Lpos=90,x=0,y=4]{M}
+        \Vertex[LabelOut,Lpos=180,x=0,y=2]{C}
+        \Vertex[LabelOut,Lpos=-90,x=0,y=0]{A}
+    % Second column
+        \Vertex[LabelOut,Lpos=90,x=4,y=4]{P}
+        \Vertex[LabelOut,Lpos=180,x=4,y=2]{R}
+        \Vertex[LabelOut,Lpos=-90,x=4,y=0]{V}
+    % Third column
+        \Vertex[LabelOut,Lpos=90,x=8,y=4]{N}
+        \Vertex[LabelOut,Lpos=180,x=8,y=2]{I}
+        \Vertex[LabelOut,Lpos=-90,x=8,y=0]{L}
+    % Straight Edges    
+        \Edges(M,C,A) 
+        \Edges(P,R,V) 
+        \Edges(N,I,L) 
+        \Edges(A,V)
+        \Edges(M,P,N) %MN
+    % Curved Edges
+        \draw (M)  to [out=-45,in=45,in looseness=1.7] (A);
+        \draw (P)  to [out=-45,in=45,in looseness=1.7] (V);
+        \draw (N)  to [out=-45,in=45,in looseness=1.7] (L);
+        \draw (M)  to [out=30,in=150,in looseness=1.7] (N);
+    % Coloring the Vertices        
+        \AddVertexColor{black}{M,R,L}
+        \AddVertexColor{gray}{C,V,N}
+\end{tikzpicture}

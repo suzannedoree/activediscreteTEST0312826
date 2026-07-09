@@ -1,0 +1,35 @@
+%Used in \Cref{sec_color_graphs}
+
+\begin{tikzpicture}
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+        \SetVertexNoLabel
+    % bottom row
+    \Vertex[LabelOut,Lpos=90,x=0,y=0]{a1}
+    \Vertex[
+    LabelOut,Lpos=90,x=2,y=0]{b1} 
+    \Vertex[LabelOut,Lpos=90,x=4,y=0]{c1}
+    \Vertex[LabelOut,Lpos=90,x=6,y=0]{d1}    
+
+    \Edges(a1,b1,c1,d1)
+    % middle row
+    \Vertex[LabelOut,Lpos=90,x=0,y=2]{a2}
+    \Vertex[LabelOut,Lpos=90,x=2,y=2]{b2} 
+    \Vertex[LabelOut,Lpos=90,x=4,y=2]{c2}
+    \Vertex[LabelOut,Lpos=90,x=6,y=2]{d2}    
+
+    \Edges(a2,b2,c2,d2)
+    % top row
+    \Vertex[LabelOut,Lpos=90,x=0,y=4]{a3}
+    \Vertex[LabelOut,Lpos=90,x=2,y=4]{b3} 
+    \Vertex[LabelOut,Lpos=90,x=4,y=4]{c3}
+    \Vertex[LabelOut,Lpos=90,x=6,y=4]{d3}    
+    
+    \Edges(a3,b3,c3,d3)
+    % vertical edges
+    \Edges(a1,a2,a3)
+    \Edges(b1,b2,b3)
+    \Edges(c1,c2,c3)
+    \Edges(d1,d2,d3)
+\end{tikzpicture}

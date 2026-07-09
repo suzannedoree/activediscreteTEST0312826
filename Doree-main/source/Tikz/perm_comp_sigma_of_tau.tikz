@@ -1,0 +1,64 @@
+%Used in \Cref{sec_onetoone_onto_fns}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+%\SetUpEdge[style={->,>=triangle 45}]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+%%
+\node at (2,8) {$\tau$};
+\node at (6,8) {$\sigma$};
+%%
+\Vertex[LabelOut,Lpos=180,x=0,y=6]{$1$}
+\Vertex[LabelOut,Lpos= 180,x=0,y=4]{$2$}
+\Vertex[LabelOut,Lpos=180,x=0,y=2]{$3$}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$4$}
+%%
+\Vertex[LabelOut,Lpos=0,x=4,y=6]{$ 1$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=4]{$ 2$}
+\Vertex[LabelOut,Lpos=0,x=4,y=2]{$ 3$}
+\Vertex[LabelOut,Lpos=0,x=4,y=0]{$ 4$}
+%%
+\Vertex[LabelOut,Lpos=0,x=8,y=6]{$ 1 $}
+\Vertex[LabelOut,Lpos= 0,x=8,y=4]{$ 2 $}
+\Vertex[LabelOut,Lpos=0,x=8,y=2]{$ 3 $}
+\Vertex[LabelOut,Lpos=0,x=8,y=0]{$ 4 $}
+%%
+\Edges($1$, $ 2$)
+\Edges($2$, $ 1$)
+\Edges($3$, $ 4$)
+\Edges($4$, $ 3$)
+%%
+\Edges($ 1$, $ 2 $)
+\Edges($ 2$, $ 3 $)
+\Edges($ 3$, $ 4 $)
+\Edges($ 4$, $ 1 $)
+\end{tikzpicture}
+%\hspace{.25in} %%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+%\SetUpEdge[style={->,>=triangle 45}]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+%%
+\node at (2,8) {$\sigma \circ \tau$};
+\node at (-2,3) {$=$};
+%%
+\Vertex[LabelOut,Lpos=180,x=0,y=6]{$1$}
+\Vertex[LabelOut,Lpos= 180,x=0,y=4]{$2$}
+\Vertex[LabelOut,Lpos=180,x=0,y=2]{$3$}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$4$}
+%%
+\Vertex[LabelOut,Lpos=0,x=4,y=6]{$ 1$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=4]{$ 2$}
+\Vertex[LabelOut,Lpos=0,x=4,y=2]{$ 3$}
+\Vertex[LabelOut,Lpos=0,x=4,y=0]{$ 4$}
+%%
+\Edges($1$, $ 3$)
+\Edges($2$, $ 2$)
+\Edges($3$, $ 1$)
+\Edges($4$, $ 4$)
+\end{tikzpicture}
+

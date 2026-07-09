@@ -1,0 +1,43 @@
+%Used in \Cref{sec_bit_strings}
+
+\begin{tikzpicture}[
+    grow=right,
+    level distance=2.1cm,
+    sibling distance=6.0cm,
+    every node/.style={anchor=west},
+    level 2/.style={sibling distance=3.2cm},
+    level 3/.style={sibling distance=1.8cm},
+    level 4/.style={sibling distance=1.0cm}
+]
+\node {$\bullet$}
+    child { node {\texttt{1}}
+        child { node {\texttt{1}}
+            child { node {\texttt{0}}
+                child { node {\texttt{0 -> 1100}} }
+            }
+        }
+        child { node {\texttt{0}}
+            child { node {\texttt{1}}
+                child { node {\texttt{0 -> 1010}} }
+            }
+            child { node {\texttt{0}}
+                child { node {\texttt{1 -> 1001}} }
+            }
+        }
+    }
+    child { node {\texttt{0}}
+        child { node {\texttt{1}}
+            child { node {\texttt{1}}
+                child { node {\texttt{0 -> 0110}} }
+            }
+            child { node {\texttt{0}}
+                child { node {\texttt{1 -> 0101}} }
+            }
+        }
+        child { node {\texttt{0}}
+            child { node {\texttt{1}}
+                child { node {\texttt{1 -> 0011}} }
+            }
+        }
+    };
+\end{tikzpicture}

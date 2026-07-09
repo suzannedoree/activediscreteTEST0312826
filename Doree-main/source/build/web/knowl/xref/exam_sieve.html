@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h2 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sieve of Eratosthenes.</span>
+</h2>
+<div class="para">Use the Sieve of Eratosthenes to show that 97 is prime.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_sieve-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para">We start with a grid showing the integers 1-100 in rows of 10 in <a href="sec_primes.html#table_sieve" class="xref" data-knowl="./knowl/xref/table_sieve.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 4.4.5: Sieve of Eratosthenes">Table 4.4.5</a>. We plan to cross out one and all composite integers and to circle all prime integers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_sieve-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">To begin we cross out one, circle two, and then cross out every other number thereafter, which are the even integers. Because an even integer has positive divisor two, the only prime even integer is two itself. Next, circle three and then cross out every third number thereafter, which are the multiples of three. Repeat the process for the next two integers that have not yet been crossed out, five and then seven. Since each integer in the top row is crossed out or circled, circle all the remaining integers that have not been crossed out to get the grid shown in <a href="sec_primes.html#table_sieve" class="xref" data-knowl="./knowl/xref/table_sieve.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 4.4.5: Sieve of Eratosthenes">Table 4.4.5</a>.(You can watch this algorithm in action at \url{https://www.youtube.com/watch?v=V08g_lkKj6Q}.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_sieve-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Sieve of Eratosthenes<div class="autopermalink" aria-hidden="true" data-description="Table 4.4.5: Sieve of Eratosthenes"><a tabindex="-1" href="#table_sieve" title="Copy heading and permalink for Table 4.4.5: Sieve of Eratosthenes" aria-label="Copy heading and permalink for Table 4.4.5: Sieve of Eratosthenes">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{ 1}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{2}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{3}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{ 4}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{5}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{ 6}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{7}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{ 8}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{ 9}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{10}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\circled{11}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{12}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{13}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{14}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{15}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{16}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{17}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{18}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{19}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{20}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{21}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{22}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{23}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{24}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{25}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{26}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{27}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{28}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{29}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{30}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\circled{31}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{32}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{33}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{34}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{35}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{36}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{37}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{38}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{39}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{40}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\circled{41}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{42}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{43}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{44}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{45}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{46}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{47}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{48}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{49}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{50}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{51}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{52}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{53}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{54}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{55}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{56}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{57}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{58}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{59}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{60}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\circled{61}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{62}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{63}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{64}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{65}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{66}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{67}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{68}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{69}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{70}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\circled{71}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{72}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{73}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{74}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{75}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{76}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{77}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{78}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{79}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{80}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{81}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{82}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{83}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{84}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{85}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{86}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{87}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{88}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{89}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{90}</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{91}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{92}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{93}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{94}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{95}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{96}</td>
+<td class="l m b0 r0 l0 t0 lines">\circled{97}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{98}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{99}</td>
+<td class="l m b0 r0 l0 t0 lines">\xcancel{100}</td>
+</tr>
+</table></div>
+</figure>
+<div class="para logical">
+<div class="para">Notice that nowhere in this process do we divide, we only skip-count.<details class="ptx-footnote" aria-live="polite" id="exam_sieve-3-4-1"><summary class="ptx-footnote__number" title="Footnote 4.4.1"><sup> 1 </sup></summary>
+<div class="ptx-footnote__contents" id="exam_sieve-3-4-1">
+<dfn class="terminology">Skip-counting</dfn> is the process of counting by a number greater than 1.
+</div></details> How do we know that the circled integers</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_show_is_prime.html ./knowl/xref/part_only_check_prime_divisors.html ./knowl/xref/thm_show_is_prime.html ./knowl/xref/part_only_check_to_sqrtn.html">
+\begin{equation*}
+11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 67, 73, 79, 83, 89, 97
+\end{equation*}
+</div>
+<div class="para">are prime? Each of these integers is not divisible by two, three, five, or seven since we crossed out all the multiples of two, three, five, or seven. <a href="sec_primes.html#thm_show_is_prime" class="xref" data-knowl="./knowl/xref/thm_show_is_prime.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.3: Show an integer is prime">By 4.4.3</a> <a href="sec_primes.html#part_only_check_prime_divisors" class="xref" data-knowl="./knowl/xref/part_only_check_prime_divisors.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 1">Item 1</a>, each of these integers is not divisible by four, six, eight, or 10 because two was not a divisor and is not divisible by nine because three was not a divisor. That is, each of these integers are not divisible by <span class="process-math">\(2, 3, 4, 5, 6, 7, 8, 9\text{,}\)</span> or <span class="process-math">\(10\text{.}\)</span> <a href="sec_primes.html#thm_show_is_prime" class="xref" data-knowl="./knowl/xref/thm_show_is_prime.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.3: Show an integer is prime">By 4.4.3</a> <a href="sec_primes.html#part_only_check_to_sqrtn" class="xref" data-knowl="./knowl/xref/part_only_check_to_sqrtn.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 2">Item 2</a> and since <span class="process-math">\(\sqrt{100} = 10\text{,}\)</span> each of these remaining integers must be prime.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_sieve-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">In particular, 97 is prime.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_sieve-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 4.4.4.1"><a tabindex="-1" href="#exam_sieve-3" title="Copy heading and permalink for Solution 4.4.4.1" aria-label="Copy heading and permalink for Solution 4.4.4.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.4.4: Sieve of Eratosthenes"><a tabindex="-1" href="#exam_sieve" title="Copy heading and permalink for Example 4.4.4: Sieve of Eratosthenes" aria-label="Copy heading and permalink for Example 4.4.4: Sieve of Eratosthenes">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec_primes.html#exam_sieve">In Context</a></span>
+</body>
+</html>

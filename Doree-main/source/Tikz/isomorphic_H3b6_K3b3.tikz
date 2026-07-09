@@ -1,0 +1,30 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertices{circle}{$a$,$b$,$c$,$d$,$e$,$r$}
+\Edges($a$, $b$, $c$, $d$, $e$,$r$,$a$)
+\Edges($c$,$r$)
+\Edges($b$,$e$)
+\Edges($a$,$d$)
+\end{tikzpicture}
+\hspace{1 in} %%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$a$}
+\Vertex[LabelOut,Lpos= 90,x=0,y=0]{$b$}
+\Vertex[LabelOut,Lpos= 90,x=3,y=3]{$c$}
+\Vertex[LabelOut,Lpos= 90,x=3,y=0]{$d$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=3]{$e$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=0]{$r$}
+\Edges($a$, $b$, $c$, $d$, $e$,$r$,$a$)
+\Edges($c$,$r$)
+\Edges($b$,$e$)
+\Edges($a$,$d$)
+\end{tikzpicture}

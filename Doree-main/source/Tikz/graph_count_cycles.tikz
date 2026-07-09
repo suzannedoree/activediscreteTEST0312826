@@ -1,0 +1,73 @@
+%Used in \Cref{sec_graph_thy}.
+
+%% G
+\begin{tikzpicture}
+    [scale =.35]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{1.6}
+    %\SetVertexNoLabel
+    \node at (3,6) {$G$};
+    % bottom row
+    \Vertex[LabelOut,Lpos=-90,x=0,y=0]{$x$}
+    \Vertex[LabelOut,Lpos=-90,x=3,y=0]{$y$} 
+    \Vertex[LabelOut,Lpos=-90,x=6,y=0]{$z$}
+    \Edges($x$,$y$,$z$)
+    % top row
+    \Vertex[LabelOut,Lpos=90,x=0,y=3]{$a$}
+    \Vertex[LabelOut,Lpos=90,x=3,y=3]{$b$} 
+    \Vertex[LabelOut,Lpos=90,x=6,y=3]{$c$}
+    \Edges($a$,$b$,$c$)
+    % vertical edges
+    \Edges($b$,$y$)
+    \Edges($c$,$z$)
+    % the rest of the Xs
+    \Edges($a$,$y$)
+    \Edges($x$,$b$,$z$)
+\end{tikzpicture}
+%%
+\hspace{.5in} %%%%%
+%%
+%% H
+\begin{tikzpicture}
+    [scale =.35]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{1.6}
+    %\SetVertexNoLabel
+        \node at (3,6) {$H$};
+    % new top row
+    \Vertex[LabelOut,Lpos=-90,x=3,y=0]{$x$}
+    % next layer
+    \Vertex[LabelOut,Lpos= 90,x=0,y=3]{$b$} 
+    \Vertex[LabelOut,Lpos= 90,x=6,y=3]{$y$} 
+    % leaves  
+    \Vertex[LabelOut,Lpos=-90,x=6,y=0]{$z$} 
+    \Vertex[LabelOut,Lpos=-90,x=0,y=0]{$c$}
+    % edges
+    \Edges($x$,$y$,$z$)
+    \Edges($b$,$c$)
+    \Edges($b$,$y$)
+    \Edges($x$,$b$)
+\end{tikzpicture}
+%%
+\hspace{.5in} %%%%%
+%%
+%% K
+\begin{tikzpicture}
+    [scale =.35]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{1.6}
+    %\SetVertexNoLabel
+        \node at (3,6) {$K$};
+    % new top row
+    \Vertex[LabelOut,Lpos=-90,x=4,y=0]{$a$}
+    % next layer
+    \Vertex[LabelOut,Lpos= 90,x=0,y=3]{$b$} 
+    \Vertex[LabelOut,Lpos= 90,x=6,y=3]{$y$} 
+    % leaves  
+    \Vertex[LabelOut,Lpos=-90,x=8,y=0]{$c$} 
+    \Vertex[LabelOut,Lpos=-90,x=0,y=0]{$z$}
+    % edges
+    \Edges($a$,$y$,$c$)
+    \Edges($b$,$z$)
+    \Edges($b$,$y$)
+\end{tikzpicture}

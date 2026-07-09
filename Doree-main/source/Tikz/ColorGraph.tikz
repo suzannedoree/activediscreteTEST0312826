@@ -1,0 +1,22 @@
+%Appears in \Cref{sec_std_graphs}
+
+\begin{tikzpicture}
+[scale =.25, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{2}
+\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$d$}
+\Vertex[LabelOut,Lpos=180,x=0,y=8]{$a$}
+\Vertex[LabelOut,Lpos=0,x=12,y=8]{$b$}
+\Vertex[LabelOut,Lpos=0,x=12,y=0]{$c$}
+%
+\Vertex[LabelOut,Lpos=-90,x=4,y=2]{$w$}
+\Vertex[LabelOut,Lpos=90,x=4,y=6]{$t$}
+\Vertex[LabelOut,Lpos=-90,x=8,y=2]{$v$}
+\Vertex[LabelOut,Lpos=90,x=8,y=6]{$u$}
+
+\Edges($d$, $a$, $b$, $c$,$d$)
+\Edges($t$,$u$, $v$, $w$, $t$)
+\Edges($d$,$t$, $a$, $w$, $d$)
+\Edges($b$,$v$, $c$, $u$, $b$)
+\end{tikzpicture} 

@@ -1,0 +1,31 @@
+%Used in \Cref{sub_defn_relation}.
+
+\begin{tikzpicture}[scale =.5,
+>=triangle 45,
+auto,node distance=1.5cm, thick,
+    main node/.style={minimum size=.45 cm, circle,fill=none ,draw}] 
+    %% VERTS
+    \node[main node] [label=left:1] (1) {} ; 
+    \node[main node] [label=right:2] [right of=1] (2) {};
+    \node[main node] [label=right:3] (3) [below right of =2]{};
+    \node[main node] [label=right:4] (4) [below left of =3]{};
+    \node[main node] [label=left:5] (5) [left of =4]{};
+     \node[main node] [label=left:6] (6) [above left of=5]{};
+   
+    %% ARROWS
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}] (2) edge  node { }    (1);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](3) edge  node { }    (1);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](4) edge  node { }    (1);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](5) edge  node { }    (1);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](6) edge  node { }    (1);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](3) edge  node { }    (2);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](4) edge  node { }    (2);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](5) edge  node { }    (2);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](6) edge  node { }    (2);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](4) edge  node { }    (3);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](5) edge  node { }    (3);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](6) edge  node { }    (3);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](5) edge  node { }    (4);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](6) edge  node { }    (4);
+    \path[->,every loop/.style={min distance=1mm,in=60,out=120,looseness=20}](6) edge  node { }    (5);
+\end{tikzpicture}

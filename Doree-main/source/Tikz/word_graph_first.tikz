@@ -1,0 +1,18 @@
+%Used in \Cref{sec_graph_models}.
+
+\begin{tikzpicture}
+    [scale =.75]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+        %\SetVertexNoLabel
+    % bottom row
+    \Vertices{circle}{CAT,APT,ACT,PUN,PIT,PAT,HIT,HOT,HAT}
+    % rearrange the letters
+    \Edges(ACT,CAT)
+    % replace one letter, in order
+    \Edges(ACT,APT,PAT)
+    \Edges(CAT,HAT,PAT,CAT)
+    \Edges(HAT,HOT,HIT,HAT)
+    \Edges(PAT,PIT, HIT)
+    
+\end{tikzpicture}

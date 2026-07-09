@@ -1,0 +1,39 @@
+%Used in \Cref{sec_graph_thy}.
+
+%% A
+\begin{tikzpicture}
+[scale =.55, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertices{circle}{$c$,$b$,$a$,$h$,$g$,$f$,$e$,$d$}
+\Edges($a$,$b$,$c$,$d$,$e$,$f$,$g$,$h$,$a$)
+\Edges($a$,$d$)
+\Edges($c$,$g$)
+\Edges($a$,$f$)
+\end{tikzpicture}
+%%
+\hspace{.5in}
+%%
+%% B
+\begin{tikzpicture}
+[scale =.55, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertices{circle}{$c$,$d$,$a$,$f$,$g$}
+\Edges($a$,$f$,$g$,$c$,$d$,$a$)
+\end{tikzpicture}
+%%
+\hspace{.5in}
+%%
+%% C
+\begin{tikzpicture}
+[scale =.55, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertices{circle}{$c$,$d$,$a$,$g$}
+\Edges($a$,$g$,$c$,$d$,$a$)
+\end{tikzpicture}
+

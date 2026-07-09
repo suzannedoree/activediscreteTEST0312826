@@ -1,0 +1,37 @@
+%Used in \Cref{sec_graph_ism}.
+ 
+\begin{tikzpicture}
+[scale=1.2,auto=left,every node/.style={circle,draw=black, fill=white, inner sep=.06in}]
+\def \n {8}
+\def \radius {1cm}
+\def \margin {8} % margin in angles, depends on the radius
+\foreach \s in {1,...,\n}
+{
+  \node(\s) at ({360/\n * (\s - 1)}:\radius) {};
+}
+\draw[thick] (1) to (2) to (3) to (4) to (5) to (6) to (7) to (8) to (1);
+\draw[thick] (1) to (4) to (8) to (5) to (1); 
+\draw[thick] (2) to (6) to (3) to (7) to (2); 
+\draw[thick] (1) to (6);
+\draw[thick] (2) to (5);
+\draw[thick] (3) to (8);
+\draw[thick] (4) to (7);
+\end{tikzpicture}
+\hspace{1in} %%%%%
+\begin{tikzpicture}
+[scale=1.2,auto=left,every node/.style={circle,draw=black, fill=white, inner sep=.06in}]
+\def \n {8}
+\def \radius {1cm}
+\def \margin {8} % margin in angles, depends on the radius
+\foreach \s in {1,...,\n}
+{
+  \node(\s) at ({360/\n * (\s - 1)}:\radius) {};
+}
+\draw[thick] (1) to (2) to (3) to (4) to (5) to (6) to (7) to (8) to (1);
+\draw[thick] (1) to (5) ;
+\draw[thick] (2) to (6) ;
+\draw[thick] (3) to (7) ;
+\draw[thick] (4) to (8) ;
+\draw[thick] (1) to (3) to (5) to (7) to (1);
+\draw[thick] (2) to (4) to (6) to (8) to (2);
+\end{tikzpicture}

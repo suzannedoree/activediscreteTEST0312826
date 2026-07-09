@@ -1,0 +1,60 @@
+%Used in \Cref{sec_relations}.
+
+
+% \begin{tikzpicture}[scale =.5,
+% >=triangle 45,
+% auto,node distance=1.5cm, thick,
+%     main node/.style={minimum size=.45 cm, circle,fill=none ,draw}] 
+%     \node[main node] [label=right:1] (1) {} ; 
+%     \node[main node] [label=left:2] [below left of=1] (2) {};
+%     \node[main node] [label=right:3] (3) [below right of =1]{};
+%     \path[->,
+%     every loop/.style={min distance=1mm,in=60,out=120,looseness=15}] 
+%     (1) edge[loop] node { }  (1);
+%     \path[<->,
+%     every loop/.style={min distance=1mm,in=60,out=120,looseness=20}] 
+%     (2) edge  node { }    (3);
+% \end{tikzpicture}
+
+
+% \begin{tikzpicture}
+% [scale =.5]
+% \GraphInit[vstyle=Welsh]
+% \SetUpEdge[style={->,>=triangle 90,auto,very thick}]
+% \SetGraphUnit{2}
+\begin{tikzpicture}[scale =.5,
+>=triangle 45,
+auto,node distance=1.5cm, thick,
+    main node/.style={minimum size=.45 cm, circle,fill=none ,draw}] 
+% INTEGERS
+\node[main node] [label=below:-3] (a) {} ; 
+\node[main node] [label=below:-2] [right of=a] (b) {};
+\node[main node] [label=below:-1] [right of=b] (c) {};
+\node[main node] [label=below:0] [right of=c] (d) {};
+\node[main node] [label=below:1] [right of=d] (e) {};
+\node[main node] [label=below:2] [right of=e] (f) {};
+\node[main node] [label=below:3] [right of=f] (g) {};
+% ELLIPSES ON LEFT AND RIGHT
+\filldraw[black] (-2,0) circle (0pt) node{\Large{\ldots}};
+\filldraw[black] (20,0) circle (0pt) node{\Large{\ldots}};
+% \Vertex[LabelOut,Lpos=-90,x=-6,y=0]{-3}
+% \Vertex[LabelOut,Lpos=-90,x=-4,y=0]{-2}
+% \Vertex[LabelOut,Lpos=-90,x=-2,y=0]{-1}
+% \Vertex[LabelOut,Lpos=-90,x=0,y=0]{0}
+% \Vertex[LabelOut,Lpos=-90,x=2,y=0]{1}
+% \Vertex[LabelOut,Lpos=-90,x=4,y=0]{2}
+% \Vertex[LabelOut,Lpos=-90,x=6,y=0]{3}
+
+% ARROWS
+%\draw (1)  to [out=60,in=120,in looseness=1.7] (0);
+\draw[<->, thick, black, bend left=30] (a) to (b);
+\draw[<->, thick, black, bend left=30] (b) to (c);
+\draw[<->, thick, black, bend left=30] (c) to (d);
+\draw[<->, thick, black, bend left=30] (d) to (e);
+\draw[<->, thick, black, bend left=30] (e) to (f);
+\draw[<->, thick, black, bend left=30] (f) to (g);
+% \Edges(1,0)
+% \Edges(1,2)
+
+
+\end{tikzpicture}

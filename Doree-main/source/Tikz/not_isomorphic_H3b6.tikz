@@ -1,0 +1,39 @@
+% Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertices{circle}{$a$,$b$,$c$,$d$,$e$,$r$}
+\Edges($a$, $b$, $c$, $d$, $e$,$r$,$a$)
+\Edges($c$,$r$)
+\Edges($b$,$e$)
+\Edges($a$,$d$)
+\end{tikzpicture}
+\hspace{1in}%%%%%
+% \begin{tikzpicture}
+% [scale=.85,auto=left,every node/.style={circle,draw=black, fill=white, inner sep=.06in}]
+% \def \n {6}
+% \def \radius {1cm}
+% \def \margin {6} % margin in angles, depends on the radius
+% \foreach \s in {1,...,\n}
+% {
+%   \node(\s) at ({360/\n * (\s - 1)}:\radius) {};
+% }
+% \draw[thick] (1) to (2) to (3) to (4) to (5) to (6) to (1);
+% \draw[thick] (1) to (4); 
+% \draw[thick] (2) to (6);
+% \draw[thick] (3) to (5);
+% \end{tikzpicture}
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertices{circle}{$a$,$b$,$c$,$d$,$e$,$r$}
+\Edges($a$, $b$, $c$, $d$, $e$,$r$,$a$)
+\Edges($b$,$r$)
+\Edges($c$,$e$)
+\Edges($a$,$d$)
+\end{tikzpicture}

@@ -1,0 +1,26 @@
+%Used in \Cref{sec_std_graphs}.
+% Ladder = Lattice $L_{2 \times 4}$$
+
+\begin{tikzpicture}
+    [scale =.75]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+        %\SetVertexNoLabel
+    % bottom row
+    \Vertex[LabelOut,Lpos=-90,x=0,y=0]{$w_1$}
+    \Vertex[LabelOut,Lpos=-90,x=1.5,y=0]{$w_2$} 
+    \Vertex[LabelOut,Lpos=-90,x=3,y=0]{$w_3$}
+    \Vertex[LabelOut,Lpos=-90,x=4.5,y=0]{$w_4$}    
+    \Edges($w_1$,$w_2$,$w_3$,$w_4$)
+    % top row
+    \Vertex[LabelOut,Lpos=90,x=0,y=1.5]{$v_1$}
+    \Vertex[LabelOut,Lpos=90,x=1.5,y=1.5]{$v_2$} 
+    \Vertex[LabelOut,Lpos=90,x=3,y=1.5]{$v_3$}
+    \Vertex[LabelOut,Lpos=90,x=4.5,y=1.5]{$v_4$}  
+    \Edges($v_1$,$v_2$,$v_3$,$v_4$)
+    % vertical edges
+    \Edges($v_1$,$w_1$)
+    \Edges($v_2$,$w_2$)
+    \Edges($v_3$,$w_3$)
+    \Edges($v_4$,$w_4$)
+\end{tikzpicture}

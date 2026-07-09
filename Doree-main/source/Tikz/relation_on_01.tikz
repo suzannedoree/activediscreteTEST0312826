@@ -1,0 +1,15 @@
+%Used in \Cref{sub_defn_relation}.
+
+\begin{tikzpicture}[scale =.5,
+>=triangle 45,
+auto,node distance=1.5cm, thick,
+    main node/.style={minimum size=.45 cm, circle,fill=none ,draw}] 
+    \node[main node]  (0) {};
+    \node[main node]  (1) [right of =0]{};
+    \path[->,
+    every loop/.style={min distance=1mm,in=60,out=120,looseness=15}] 
+    (1) edge[loop] node { }  (1);
+    \path[<-,
+    every loop/.style={min distance=1mm,in=60,out=120,looseness=20}] 
+    (0) edge  node { }    (1);
+\end{tikzpicture}

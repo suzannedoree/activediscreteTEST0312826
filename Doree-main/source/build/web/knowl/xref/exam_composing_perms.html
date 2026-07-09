@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h2 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Composing permutations.</span>
+</h2>
+<div class="para logical">
+<div class="para">Consider the permutations</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sigma_of_tau.html ./knowl/xref/exam_composing_perms.html ./knowl/xref/part_sigma_of_tau.html ./knowl/xref/fig_tau_of_sigma.html ./knowl/xref/exam_composing_perms.html ./knowl/xref/part_tau_of_sigma.html ./knowl/xref/fig_sigma_sq.html ./knowl/xref/exam_composing_perms.html ./knowl/xref/part_sigma_sq.html ./knowl/xref/fig_tau_sq.html ./knowl/xref/exam_composing_perms.html ./knowl/xref/part_tau_sq.html">
+\begin{equation*}
+\sigma = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 2 \amp  3 \amp  4 \amp  1 \end{array}  \right ) \text{ and } \tau= \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4\\ 2 \amp  1 \amp  4 \amp  3 \end{array}  \right )
+\end{equation*}
+</div>
+<ol class="decimal" id="exam_composing_perms-2-1-2">
+<li>
+<div class="para">Calculate <span class="process-math">\(\sigma \circ \tau\text{.}\)</span> 
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">We have</div>
+<div class="displaymath process-math">
+\begin{align*}
+(\sigma \circ \tau)(1) \amp = \sigma(\tau(1))=\sigma(2)=3\\
+(\sigma \circ \tau)(2) \amp = \sigma(\tau(2))=\sigma(1)=2\\
+(\sigma \circ \tau)(3) \amp = \sigma(\tau(3))=\sigma(4)=1\\
+(\sigma \circ \tau)(4) \amp = \sigma(\tau(4))=\sigma(3)=4
+\end{align*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_sigma_of_tau-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Thus</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sigma_of_tau.html">
+\begin{equation*}
+\sigma \circ \tau = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 3 \amp  2 \amp  1 \amp  4 \end{array}  \right )\text{.}
+\end{equation*}
+</div>
+<div class="para">There is a quicker way to compute this composite using the unlabeled dot diagrams shown in <a href="sec_perms.html#fig_sigma_of_tau" class="xref" data-knowl="./knowl/xref/fig_sigma_of_tau.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.4.9">Figure 6.4.9</a>. To read this diagram, start with the uppermost dot on the left which represents 1. Moving right, follow the path to end on the third dot on the right which represents 3. Thus the composite maps 1 to 3. Repeat with each dot on the left following the path.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_sigma_of_tau-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The unlabeled dot diagram used to compute <span class="process-math">\(\sigma \circ \tau\)</span> from <a href="sec_perms.html#exam_composing_perms" class="xref" data-knowl="./knowl/xref/exam_composing_perms.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.4.8: Composing permutations">Example 6.4.8</a> <a href="sec_perms.html#part_sigma_of_tau" class="xref" data-knowl="./knowl/xref/part_sigma_of_tau.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 1">Item 1</a>.<div class="autopermalink" aria-hidden="true" data-description="Figure 6.4.9"><a tabindex="-1" href="#fig_sigma_of_tau" title="Copy heading and permalink for Figure 6.4.9" aria-label="Copy heading and permalink for Figure 6.4.9">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#part_sigma_of_tau-1-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
+</div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_sigma_of_tau-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#part_sigma_of_tau" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">Calculate <span class="process-math">\(\tau \circ \sigma\text{.}\)</span> 
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Following the paths in <a href="sec_perms.html#fig_tau_of_sigma" class="xref" data-knowl="./knowl/xref/fig_tau_of_sigma.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.4.10">Figure 6.4.10</a> we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_tau_of_sigma.html">
+\begin{equation*}
+\tau \circ \sigma = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 1 \amp  4 \amp  3 \amp  2 \end{array}  \right )\text{.}
+\end{equation*}
+</div>
+<div class="para">Notice that the order mattered, in that <span class="process-math">\(\sigma \circ \tau \ne \tau \circ \sigma\text{.}\)</span> That is, composition of permutations is not commutative.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_tau_of_sigma-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The unlabeled dot diagram used to compute <span class="process-math">\(\tau \circ \sigma\)</span> from <a href="sec_perms.html#exam_composing_perms" class="xref" data-knowl="./knowl/xref/exam_composing_perms.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.4.8: Composing permutations">Example 6.4.8</a> <a href="sec_perms.html#part_tau_of_sigma" class="xref" data-knowl="./knowl/xref/part_tau_of_sigma.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 2">Item 2</a>.<div class="autopermalink" aria-hidden="true" data-description="Figure 6.4.10"><a tabindex="-1" href="#fig_tau_of_sigma" title="Copy heading and permalink for Figure 6.4.10" aria-label="Copy heading and permalink for Figure 6.4.10">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#part_tau_of_sigma-1-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
+</div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_tau_of_sigma-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#part_tau_of_sigma" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li>
+<div class="para">Calculate <span class="process-math">\(\sigma^2=\sigma \circ \sigma\text{.}\)</span> 
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Following the paths in <a href="sec_perms.html#fig_sigma_sq" class="xref" data-knowl="./knowl/xref/fig_sigma_sq.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.4.11">Figure 6.4.11</a> we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_sigma_sq.html">
+\begin{equation*}
+\sigma^2=\sigma \circ \sigma = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 3 \amp  4 \amp  1 \amp  2 \end{array}  \right )
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_sigma_sq-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The unlabeled dot diagram used to compute <span class="process-math">\(\sigma \circ \sigma\)</span> from <a href="sec_perms.html#exam_composing_perms" class="xref" data-knowl="./knowl/xref/exam_composing_perms.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.4.8: Composing permutations">Example 6.4.8</a> <a href="sec_perms.html#part_sigma_sq" class="xref" data-knowl="./knowl/xref/part_sigma_sq.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 3">Item 3</a>.<div class="autopermalink" aria-hidden="true" data-description="Figure 6.4.11"><a tabindex="-1" href="#fig_sigma_sq" title="Copy heading and permalink for Figure 6.4.11" aria-label="Copy heading and permalink for Figure 6.4.11">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#part_sigma_sq-1-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
+</div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_sigma_sq-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 3"><a tabindex="-1" href="#part_sigma_sq" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li>
+<div class="para">Calculate <span class="process-math">\(\tau^2=\tau \circ \tau\text{.}\)</span> 
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Following the paths in <a href="sec_perms.html#fig_tau_sq" class="xref" data-knowl="./knowl/xref/fig_tau_sq.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.4.12">Figure 6.4.12</a> we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig_tau_sq.html">
+\begin{equation*}
+\tau^2=\tau \circ \tau = \left ( \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 1 \amp  2 \amp  3 \amp  4 \end{array}  \right ) = i\text{,}
+\end{equation*}
+</div>
+<div class="para">the identity permutation.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_tau_sq-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The unlabeled dot diagram used to compute <span class="process-math">\(\tau \circ \tau\)</span> from <a href="sec_perms.html#exam_composing_perms" class="xref" data-knowl="./knowl/xref/exam_composing_perms.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.4.8: Composing permutations">Example 6.4.8</a> <a href="sec_perms.html#part_tau_sq" class="xref" data-knowl="./knowl/xref/part_tau_sq.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 4">Item 4</a>.<div class="autopermalink" aria-hidden="true" data-description="Figure 6.4.12"><a tabindex="-1" href="#fig_tau_sq" title="Copy heading and permalink for Figure 6.4.12" aria-label="Copy heading and permalink for Figure 6.4.12">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#part_tau_sq-1-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
+</div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_tau_sq-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 4"><a tabindex="-1" href="#part_tau_sq" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_composing_perms-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 6.4.8: Composing permutations"><a tabindex="-1" href="#exam_composing_perms" title="Copy heading and permalink for Example 6.4.8: Composing permutations" aria-label="Copy heading and permalink for Example 6.4.8: Composing permutations">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec_perms.html#exam_composing_perms">In Context</a></span>
+</body>
+</html>

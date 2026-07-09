@@ -1,0 +1,17 @@
+%Used in \Cref{sec_graph_thy}.
+
+\begin{tikzpicture}
+[scale =.55, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertices{circle}{$w$,$v$,$u$,$t$,$z$,$y$,$x$}
+\Edges($u$,$w$,$y$,$t$,$v$,$x$,$z$,$u$)
+\Vertex[LabelOut,Lpos=45,x=3,y=1.5]{$a$}
+\Vertex[LabelOut,Lpos=45,x=3,y=-1.5]{$b$}
+\Edges($a$,$w$,$b$)
+\Vertex[LabelOut,Lpos=180,x=-3.5,y=1]{$c$}
+\Vertex[LabelOut,Lpos=180,x=-3.5,y=-1]{$d$}
+\Edges($c$,$t$)
+\Edges($d$,$z$)
+\end{tikzpicture}

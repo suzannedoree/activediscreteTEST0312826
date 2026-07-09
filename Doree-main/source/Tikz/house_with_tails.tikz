@@ -1,0 +1,28 @@
+%Used in \Cref{sec_graph_thy}
+% House with tails
+
+\begin{tikzpicture}
+    [scale =.35]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{1.6}
+        %\SetVertexNoLabel
+    % bottom row
+    \Vertex[LabelOut,Lpos=-90,x=0,y=0]{$a$}
+    \Vertex[LabelOut,Lpos=-90,x=3,y=0]{$b$} 
+    \Vertex[LabelOut,Lpos=-90,x=6,y=0]{$c$}
+    \Vertex[LabelOut,Lpos=-90,x=9,y=0]{$d$}    
+    \Vertex[LabelOut,Lpos=-90,x=12,y=0]{$e$}
+    \Edges($a$,$b$,$c$,$d$,$e$)
+    % top row and roof peak
+    \Vertex[LabelOut,Lpos=90,x=4.5,y=5]{$j$}
+    \Vertex[LabelOut,Lpos=135,x=3,y=3]{$i$} 
+    \Vertex[LabelOut,Lpos=45,x=6,y=3]{$h$}
+    \Vertex[LabelOut,Lpos=90,x=9,y=3]{$g$}    
+    \Vertex[LabelOut,Lpos=90,x=12,y=3]{$f$}
+    % tails
+    \Edges($f$,$g$,$c$)
+    \Edges($h$,$i$,$j$,$h$)
+    % vertical edges
+    \Edges($b$,$i$)
+    \Edges($c$,$h$)
+\end{tikzpicture}

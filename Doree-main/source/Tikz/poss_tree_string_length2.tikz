@@ -1,0 +1,27 @@
+%Used in \Cref{sec_listing}
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \node (root) at (0,0) {$\bullet$};
+
+  \node (c)  at (2, 1.8) {\texttt{c}};
+  \node (b)  at (2, 0.0) {\texttt{b}};
+  \node (a)  at (2,-1.8) {\texttt{a}};
+
+  \node (c6) at (4, 2.3) {\texttt{c6}};
+  \node (c2) at (4, 1.3) {\texttt{c2}};
+  \node (b6) at (4, 0.5) {\texttt{b6}};
+  \node (b2) at (4,-0.5) {\texttt{b2}};
+  \node (a6) at (4,-1.3) {\texttt{a6}};
+  \node (a2) at (4,-2.3) {\texttt{a2}};
+
+  \draw (root) -- (c);
+  \draw (root) -- (b);
+  \draw (root) -- (a);
+
+  \draw (c) -- (c6);
+  \draw (c) -- (c2);
+  \draw (b) -- (b6);
+  \draw (b) -- (b2);
+  \draw (a) -- (a6);
+  \draw (a) -- (a2);
+\end{tikzpicture}

@@ -1,0 +1,78 @@
+%Used in \Cref{sec_sum_conj}.
+
+% THanks Gemini -- I modified from sum to product myself!
+
+\begin{tikzpicture}[
+    % --- Styles ---
+    term node/.style={font=\large, anchor=base},
+    % Plus node centered for clean line connections
+    op node/.style={font=\large, anchor=center, yshift=0.5ex}, 
+    % Blue color for products
+    prod node/.style={font=\bfseries\large, text=blue!80!black, anchor=base},
+    connector line/.style={draw=gray!70, thick, shorten >=3pt, shorten <=3pt}
+]
+
+%================CONFIGURATION================
+\def\numterms{6}
+
+% Geometry settings
+% \hunit: Horizontal spacing
+% \vsep: Vertical separation
+\def\hunit{1.5} 
+\def\vsep{1.8}
+%=============================================
+
+% Initialize running product at 1
+\def\currentProd{1}
+
+\foreach \i [count=\c] in {1,...,\numterms} {
+
+    % --- 1. Calculate Positions ---
+    % Top Term Position
+    \pgfmathsetmacro{\xTerm}{(\c-1) * 2 * \hunit}
+    
+    % Operator Position (x)
+    \pgfmathsetmacro{\xOp}{\xTerm + \hunit}
+    
+    % Bottom Product Position
+    % SLOPE 1 CONSTRAINT: xProd = xOp - vsep
+    \pgfmathsetmacro{\xProd}{\xOp - \vsep}
+
+
+    % --- 2. Calculate Math (Product) ---
+    \pgfmathsetmacro{\newProd}{int(\currentProd * 2)}
+    \global\let\currentProd=\newProd
+
+
+    % --- 3. Draw Elements ---
+    
+    % Draw the Number in the Top Row
+    \node[term node] at (\xTerm, \vsep) {2};
+
+    % Draw the Plus Sign
+    \node[op node] (Op\c) at (\xOp, \vsep) {$\times$};
+
+    % Draw the Partial Product
+    \node[prod node] (S\c) at (\xProd, 0) {\currentProd};
+
+    % Draw the Connector Line
+    \draw[connector line] (S\c) -- (Op\c);
+
+
+    % --- 4. Handle End of Sequence (Ellipses) ---
+    \ifnum\c=\numterms
+        % Calculate positions for ellipses 
+        \pgfmathsetmacro{\xTopEllipsis}{\xOp + \hunit*0.8}
+        % Maintain vertical alignment with top ellipsis
+        \pgfmathsetmacro{\xBottomEllipsis}{\xTopEllipsis} 
+        
+        \node[term node] at (\xTopEllipsis, \vsep) {$\ldots$};
+        % Note: We place the bottom ellipsis directly below the top one
+        % to show the sequence continues indefinitely. 
+        \node[term node] at (\xTopEllipsis, 0) {$\ldots$};
+    \fi
+}
+
+\end{tikzpicture}
+
+% \end{document}

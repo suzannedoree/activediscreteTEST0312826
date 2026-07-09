@@ -1,0 +1,48 @@
+%Used in \Cref{sec_graph_ism}.
+
+% K_{1,3}
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (1.5,-2) {$3, 1,1,1$};
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=3,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=3,y=0]{$C$}
+\Vertex[LabelOut,Lpos=-90,x=0,y=0]{$D$}
+\Edges($B$, $A$, $C$)
+\Edges($A$, $D$)
+\end{tikzpicture}
+%%%%%%%%
+\hspace{1in} %%%%%%%%
+%%%%%%%%
+% C_3 \cup K_1
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (1.5,-2) {$2, 2, 2, 0$};
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=3,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=3,y=0]{$C$}
+\Vertex[LabelOut,Lpos=-90,x=0,y=0]{$D$}
+\Edges($C$, $B$, $D$, $C$)
+\end{tikzpicture}
+%%%%%%%%
+\hspace{1in} %%%%%%%%
+%%%%%%%%
+% P_4 bent
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (1.5,-2) {$2, 2, 1,1$};
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=3,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=3,y=0]{$C$}
+\Vertex[LabelOut,Lpos=-90,x=0,y=0]{$D$}
+\Edges($D$,$A$, $B$,$C$)
+\end{tikzpicture}

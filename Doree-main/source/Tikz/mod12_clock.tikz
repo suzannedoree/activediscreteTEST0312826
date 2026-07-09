@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+\node[circle,draw,minimum size=4cm] (a) at (0,0) {};
+\filldraw (a.center) circle [radius=0.1cm];
+\foreach \k in {0,1,...,11}
+{
+\draw (90-360/12*\k:1.8) -- (90-360/12*\k:2);
+\draw (90-360/12*\k:1.5) node[font=\large] {\k};
+}
+\end{tikzpicture}

@@ -1,4 +1,4 @@
-<section xml:id="sec_counting_steps_cases">
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_counting_steps_cases">
   <title>Counting with Steps and Cases</title>
   <introduction>
     <p>
@@ -90,10 +90,11 @@
     </activity>
   </introduction>
   <subsection xml:id="sub_steps_cases">
-    <title>\substepscases</title>
+    <title><m>\substepscases</m></title>
     <p>
-      Be sure to <xref ref="act_lunch">try</xref>
-      before continuing to read because we are about to discuss two strategies<ndash/> steps and cases,
+      Be sure to try <xref ref="act_lunch"></xref>
+      before continuing to read because we are about
+       to discuss two strategies<ndash/> steps and cases,
       that help us find the solution.
     </p>
     <example xml:id="exam_salad_and_pizza">
@@ -512,14 +513,21 @@
     <p>
       Now it is your turn to practice counting using steps and uses.
     </p>
+
     <activity xml:id="act_passwords">
       <title>Passwords</title>
       <p>
         In this problem, a password is a string of eight characters.
         Imagine building each password by filling in the eight spaces:
-        <me>
-          \underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~
-        </me>
+        
+      <figure xml:id="fig_password8_spaces">
+      <caption>Eight spaces to fill when building a password.</caption>
+      <image width="60%">
+      <latex-image>
+      <xi:include href="Tikz/password8.tikz" parse="text"/> 
+      </latex-image></image>
+    </figure>
+        
       </p>
       <p>
         Use steps and/or cases to count how many different passwords are possible in each situation.
@@ -567,7 +575,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_counting_awry">
-    <title>\subcountingawry</title>
+    <title><m>\subcountawry</m></title>
     <p>
       In each of the examples so far in this section,
       we have been able to count using steps, cases,
@@ -746,7 +754,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_factorials">
-    <title>\subfactorials</title>
+    <title><m>\subalgfac</m></title>
     <p>
       <xref ref="exam_perms_1to4">In</xref>,
       we saw that the number of permutations of the set
@@ -1055,14 +1063,14 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_steps_cases">for</xref> \substepscases</title>
+      <title>Exercises <xref ref="sub_steps_cases">for</xref> <m>\substepscases</m></title>
       <p>
         When counting, <xref ref="rem_not_eval_counts_2">follow</xref>.
         In particular, if the answer is greater than 20,
         leave it in a format that could be easily evaluated on a calculator.
       </p>
       <exercise xml:id="exer_alphanumeric_passwords">
-        <title>\exerP</title>
+        <title><m>\exerP</m></title>
         <statement>
           <p>
             As in <xref ref="act_passwords"></xref>,
@@ -1093,7 +1101,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_PIN">
-        <title>\exerP</title>
+        <title><m>\exerP</m></title>
         <statement>
           <p>
             In this problem,
@@ -1125,7 +1133,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_perms_12345">
-        <title>\exerP</title>
+        <title><m>\exerP</m></title>
         <statement>
           <p>
             <nbsp/>
@@ -1147,7 +1155,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_tech_teams">
-        <title>\exerP</title>
+        <title><m>\exerP</m></title>
         <statement>
           <p>
             A small technology firm has six designers,
@@ -1172,7 +1180,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_passwords_special_characters">
-        <title>\exerU</title>
+        <title><m>\exerU</m></title>
         <statement>
           <p>
             As in <xref ref="act_passwords"></xref>,
@@ -1212,7 +1220,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_license_plates">
-        <title>\exerU</title>
+        <title><m>\exerU</m></title>
         <statement>
           <p>
             Each state of the United States decides on its own format for license plates.
@@ -1246,7 +1254,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_phone_numbers">
-        <title>\exerU</title>
+        <title><m>\exerU</m></title>
         <statement>
           <p>
             Telephone numbers in the United States have the format <c>201-345-6789</c>.
@@ -1295,7 +1303,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_steps_cases">
-        <title>\exerR</title>
+        <title><m>\exerR</m></title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1332,7 +1340,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_perms_of_six">
-        <title>\exerE</title>
+        <title><m>\exerE</m></title>
         <statement>
           <p>
             How many permutations of <m>\{\str{1},\str{2},\str{3},\str{4},\str{5},\str{6}\}</m> satisfy each restriction?
@@ -1374,9 +1382,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_counting_awry">for</xref> \subcountingawry</title>
+      <title>Exercises <xref ref="sub_counting_awry">for</xref> <m>\subcountawry</m></title>
       <exercise xml:id="exer_password_not_steps">
-        <title>\exerP</title>
+        <title><m>\exerP</m></title>
         <statement>
           <p>
             In this problem,
@@ -1409,7 +1417,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_count100_awry">
-        <title>\exerP</title>
+        <title><m>\exerP</m></title>
         <statement>
           <p>
             <xref ref="exam_count100">In</xref>,
@@ -1435,7 +1443,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_double_count_hs">
-        <title>\exerU</title>
+        <title><m>\exerU</m></title>
         <statement>
           <p>
             In the Handshakes puzzle <xref ref="act_handshakes"/>,
@@ -1464,7 +1472,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_counting_awry">
-        <title>\exerR</title>
+        <title><m>\exerR</m></title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1489,7 +1497,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_inclusion_exclusion_2sets">
-        <title>\exerE</title>
+        <title><m>\exerE</m></title>
         <statement>
           <p>
             <nbsp/>
@@ -1525,9 +1533,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_factorials">for</xref> \subfactorials</title>
+      <title>Exercises <xref ref="sub_factorials">for</xref> <m>\subalgfac</m></title>
       <exercise xml:id="exer_evaluate_factorials">
-        <title>\exerP</title>
+        <title><m>\exerP</m></title>
         <statement>
           <p>
             Show how to calculate each quantity without using technology.
@@ -1547,7 +1555,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_set1ton">
-        <title>\exerP</title>
+        <title><m>\exerP</m></title>
         <statement>
           <p>
             <nbsp/>
@@ -1568,7 +1576,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_application_factorial">
-        <title>\exerP</title>
+        <title><m>\exerP</m></title>
         <statement>
           <p>
             <nbsp/>
@@ -1594,7 +1602,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_single_factorial">
-        <title>\exerU</title>
+        <title><m>\exerU</m></title>
         <statement>
           <p>
             <nbsp/>
@@ -1615,7 +1623,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_factor_factorials">
-        <title>\exerU</title>
+        <title><m>\exerU</m></title>
         <statement>
           <p>
             Factor and simplify <m>m!+m(m!)</m>.
@@ -1624,7 +1632,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_factorials">
-        <title>\exerR</title>
+        <title><m>\exerR</m></title>
         <statement>
           <p>
             Do you know <ellipsis/>

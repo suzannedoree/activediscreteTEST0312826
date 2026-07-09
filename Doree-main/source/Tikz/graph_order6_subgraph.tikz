@@ -1,0 +1,31 @@
+%Used in \Cref{sec_subgraph_isomorphic}.
+
+
+% Subgraph H
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (1,5.5) {$H$};
+\Vertex[LabelOut,Lpos=135,x=0,y=3.5]{$a$} 
+\Vertex[LabelOut,Lpos=45,x=1.6,y=3.5]{$b$}
+\Vertex[LabelOut,Lpos=-135,x=0,y=1]{$e$} 
+\Vertex[LabelOut,Lpos=-45,x=1.6,y=1]{$d$} 
+\Edges($e$,$b$,$d$,$e$,$a$)
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in} %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+% G
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (0,3) {$G$};
+\Vertices{circle}{$c$,$b$, $a$, $f$,$e$, $d$}
+\Edges($a$, $b$, $c$, $d$, $e$,$a$)
+\Edges($c$,$f$)
+\Edges($e$,$b$,$d$)
+\end{tikzpicture}
