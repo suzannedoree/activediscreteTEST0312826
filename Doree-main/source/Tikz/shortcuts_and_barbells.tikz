@@ -7,8 +7,8 @@ auto,node distance=1.5cm, thick,
     \node at (0,3.5) {$x$, $y$, $z$ distinct};
     \node at (0,2.5){shortcut};
     \node[main node] [label=above:$x$]  (x) {} ; 
-    \node[main node] [label=below:$y$] [below left of=1] (y) {};
-    \node[main node]  [label=below:$z$] (z) [below right of =1]{};
+    \node[main node] [label=below:$y$] [below left of=x] (y) {};
+    \node[main node]  [label=below:$z$] (z) [below right of=x]{};
         \path[->,
     every loop/.style={min distance=1mm,in=60,out=120,looseness=20}] 
     (x) edge  node { }    (y);
@@ -26,8 +26,8 @@ auto,node distance=1.5cm, thick,
     main node/.style={minimum size=.45 cm, circle,fill=none ,draw}] 
     \node at (0,3.5) {$x=y$};
     \node at (0,2.5){always true/ignore};
-    \node[main node] [label=below:$x$] [below left of=1] (x) {};
-    \node[main node]  [label=below:$z$] (c) [below right of =1]{};
+    \node[main node] [label=below:$x$] (x) {};
+    \node[main node]  [label=below:$z$] [right of=x] (z) {};
         \path[->,
     every loop/.style={min distance=1mm,in=60,out=120,looseness=20}] 
     (x) edge  node { }    (z);
@@ -42,8 +42,8 @@ auto,node distance=1.5cm, thick,
     main node/.style={minimum size=.45 cm, circle,fill=none ,draw}] 
     \node at (0,3.5) {$y=z$};
     \node at (0,2.5){always true/ignore};
-    \node[main node] [label=below:$x$] [below left of=1] (x) {};
-    \node[main node]  [label=below:$z$] (c) [below right of =1]{};
+    \node[main node] [label=below:$x$] (x) {};
+    \node[main node]  [label=below:$z$] [right of=x] (z) {};
         \path[->,
     every loop/.style={min distance=1mm,in=60,out=120,looseness=20}]
     (x) edge  node { }    (z);
@@ -58,8 +58,8 @@ auto,node distance=1.5cm, thick,
     main node/.style={minimum size=.45 cm, circle,fill=none ,draw}] 
     \node at (0,3.8) {$x=z\neq y$};
     \node at (0,2.8){barbells};
-    \node[main node] [label=below:$x$] [below left of=1] (x) {};
-    \node[main node]  [label=below:$y$] (y) [below right of =1]{};
+    \node[main node] [label=below:$x$] (x) {};
+    \node[main node]  [label=below:$y$] [right of=x] (y) {};
         \path[<->,
     every loop/.style={min distance=1mm,in=60,out=120,looseness=20}]
     (x) edge  node { }    (y);
