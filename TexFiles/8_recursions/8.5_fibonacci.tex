@@ -1,0 +1,873 @@
+\section{\secfibhigher}
+\label{sec_fibonacci_higher}
+
+In this section, we return to look at higher order recursively-defined sequences, especially the famous Fibonacci sequence.  We look at how to model sequences using higher order recursions and how to use recursions to solve counting problems.  Next, the Fibonacci sequence has many patterns, which we explore and prove using mathematical induction.  Finally, we introduce a strong form of mathematical induction that, among other things, can be used to prove explicit forms for higher order recursively-defined sequences.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subfib}{The Fibonacci Sequence and Higher Order Recursions}
+\subsection{\subfib}
+\label{sub_fibonacci}
+
+In the Squares and Dominoes puzzle (\Cref{act_squares_dominoes}), the Proper Bit Strings puzzle (\Cref{act_proper_bs}), and the lopsided tree activity (\Cref{act_rec_trees}), we saw a sequence where each term was the sum of the two previous terms. The most famous sequence satisfying that recursion is the Fibonacci sequence.  
+
+\begin{defn}[Fibonacci sequence]
+\label{defn_fibonacci}
+~
+    \begin{apart}
+        \item The \vocab{Fibonacci sequence} is defined by $F_0=0$, $F_1=1$ and 
+        $$F_n=F_{n-1}+F_{n-2}$$
+        for $n \ge 2$.  The sequence begins 
+        $$0,1,1,2,3,5,8,13,21,34,55,89, \ldots$$ as we see in \Cref{exam_fib_list}.
+        \item An integer is \vocab{Fibonacci} if it is a term of the Fibonacci sequence.  For example, 13 and 89 are Fibonacci.
+    \end{apart}
+\end{defn}
+
+Let's see how we found the terms of the Fibonacci sequence.
+
+\begin{exam}[The Fibonacci sequence]
+\label{exam_fib_list}
+    Find the first twenty terms of the Fibonacci sequence: $F_0, F_1, \ldots, F_{19}$.
+        \begin{soln}
+            The initial conditions tell us that $F_0=0$ and $F_1=1$. Next, we use the recursion with $n=2$ to get $$F_2=F_1+F_0 = 1+0=1.$$
+            Continuing to use the recursion with $n=$ 3, 4, 5 and 6 we get
+            $$F_3=F_2+F_1 = 1+1=2,$$
+            $$F_4=F_3+F_2 = 2+1=3,$$
+            $$F_5=F_4+F_3 = 3+2=5,$$ and
+            $$F_6=F_5+F_4 = 5+3=8.$$
+            We continue this pattern to get the rest of the first twenty terms as listed in \Cref{table_first20_fib}.  For example, when $n=15$ we have
+            $$F_{15}=F_{14}+F_{13} = 377+233=610.$$
+        \end{soln}
+        \begin{table}[hbtp]
+            \centering
+            \begin{tabular}{ll ll ll l}
+                $F_0=0$ & \hspace{.5in} & $F_5=5$ & \hspace{.5in} & $F_{10}=55$ & \hspace{.5in} & $F_{15}=610$\\
+                $F_1=1$ && $F_6=8$ && $F_{11}=89$ && $F_{16}=987$ \\
+                $F_2=1$ && $F_7=13$ && $F_{12}=144$ && $F_{17}=1597$\\
+                $F_3=2$ && $F_8=21$ && $F_{13}=233$ && $F_{18}=2584$\\
+                $F_4=3$ && $F_9=34$ && $F_{14}=377$ && $F_{19}=4181$\\
+            \end{tabular}
+            \caption{The first twenty Fibonacci numbers.}
+            \label{table_first20_fib}
+        \end{table}
+\end{exam}
+
+Let's practice using the recursion for the Fibonacci sequence.
+
+\begin{exam}[Write as a single Fibonacci number]
+\label{exam_write_as_fib}
+    Use the recursive rule for the Fibonacci sequence to simplify each expression as a single Fibonacci number.  
+        \begin{apart}
+            \item $F_{98} + F_{99}$     
+                \begin{soln}
+                    The terms $F_{98}$ and $F_{99}$ are consecutive terms of the Fibonacci sequence, so their sum equals the next term. In order we have  $F_{98}, F_{99}, F_{100}$. Thus, $F_{98} + F_{99}=F_{100}$.
+                \end{soln}
+            \item $F_n+F_{n-1}$
+                \begin{soln}
+                    The terms $F_n$ and $F_{n-1}$ are consecutive terms of the Fibonacci sequence, so their sum equals the next term.  In order we have $F_{n-1}, F_n, F_{n+1}$. Thus, $F_n+F_{n-1}=F_{n+1}$.  
+                \end{soln}
+            \item $F_{3n} - F_{3n-1}$
+                \begin{soln}
+                    The terms $F_{3n}$ and $F_{3n-1}$ are consecutive terms of the Fibonacci sequence. In order we have $F_{3n-2}, F_{3n-1}, F_{3n}$. Thus, $F_{3n-2} + F_{3n-1} = F_{3n}$.  Subtracting $F_{3n-1}$ from each side of the equation we get  $F_{3n} - F_{3n-1}= F_{3n-2}$.
+                \end{soln}
+        \end{apart}
+\end{exam}
+
+Notice that the recursive rule for the Fibonacci sequence uses two previous terms.  We have a name for sequences defined by recursions that use more than one previous term.
+
+\begin{defn}[Higher order recursions]
+\label{defn_higher_order_rec}
+~
+    \begin{apart}
+        \item A recursive rule that involves the two previous terms is \vocab{second order}.  The most famous second order recursion is the Fibonacci sequence. 
+        
+        \item A recursive rule that involves the $k$ previous terms is \vocab{$k^{\text{th}}$ order}.  For example, the \vocab{tribonacci sequence} defined by $t_0=0$, $t_1=1$, $t_2=1$, and $t_n=t_{n-1}+t_{n-2}+t_{n-3}$ for $n\ge 3$ is third order.
+        
+        \item Note that a recursive of order $k$ needs $k$ \vocab{initial conditions}.  For example, a first order needs the first term, a second order needs the first two terms, a third order needs the first three terms, and so on.
+    \end{apart}
+\end{defn}
+
+Let's look at examples of evaluating higher order recursively-defined sequences.
+
+\begin{exam}[Evaluating higher order recursively-defined sequences]
+\label{exam_rec_seq_higher_order}
+    Write the first five terms of each sequence.  Your list should begin with the initial conditions.
+        \begin{apart}
+            \item The \vocab{Lucas sequence} is defined by $L_0=2$, $L_1=1$, and $L_n=L_{n-1}+L_{n-2}$ for $n\ge 2$. The Lucas sequence has the same recursion as the Fibonacci sequence, but because the initial conditions are different we get a different sequence.
+                \begin{soln}
+                    We are told that $L_0=2$ and $L_1=1$.  When $n=2$, the recursion gives us 
+                        $$L_2=L_1+L_0=2+1=3.$$
+                    Next, when $n=3$ we get 
+                        $$L_3=L_2+L_1=3+1=4.$$
+                    Finally, when $n=4$ we have
+                        $$L_4=L_3+L_2=4+3=7.$$
+                    The first five terms of the Lucas sequence are $2,1,3,5,7$.
+                \end{soln}
+            \item The sequence $a_n$ is defined by $a_1=2$, $a_2=-3$, and $a_n=a_{n-2}+(-1)^{n+1}2$ for $n\ge 3$.  Notice that this sequence  is second order, even though $a_{n-1}$ is not part of the recursion.
+                \begin{soln}
+                    We are told that $a_1=2$ and $a_2=-3$.  When $n=3$, the recursion gives us 
+                        $$a_3=a_1+(-1)^{3+1}2=2+2=4.$$
+                    Next, when $n=4$ we get 
+                        $$a_4=a_2+(-1)^{4+1}2=-3-2=-5.$$
+                    Finally, when $n=5$ we have
+                        $$a_5=a_3+(-1)^{5+1}2=4+2=6.$$
+                    The first five terms are $2,-3,4,-5,6$. We saw this sequence in
+                    \Cref{exam_next_term_explicit}(\ref{part_NTE_exam_alt_linear}) and found an explicit rule for this sequence is $a_n=(-1)^n(n+2)$ for $n \ge 0$.
+                \end{soln}            
+            \item The tribonacci sequence $t_n$ is defined by $t_0=0$, $t_1=1$, $t_2=1$, and $t_n=t_{n-1}+t_{n-2}+t_{n-3}$ for $n\ge 3$.
+                \begin{soln}
+                    We are told that $t_0=0$, $t_1=1$, and $t_2=1$.  When $n=3$ we get 
+                        $$t_3=t_2+t_1+t_0=1+1+2.$$
+                    Next, when $n=4$ we have
+                        $$t_4=t_3+t_2+t_1=2+1+1=4.$$
+                    The first five terms of this sequence are $0,1,1,2,4$.  We saw this sequence in \Cref{sec_listing} \Cref{exer_trominoes_examples} where we were tiling the $1 \times n$ board using $1\times 1$ squares, $1 \times 2$ dominoes, and $1\times 3$ trominoes.
+                \end{soln}        
+        \end{apart}
+\end{exam}
+
+Try working with the Fibonaccis and higher order recursions.
+
+\begin{act}[Higher order recursively-defined sequences]
+\label{act_eval_model_higher_order}
+~
+    \begin{actpart}
+        \item Use the recursion that defines Fibonacci sequence: $F_n=F_{n-1}+F_{n-2}$ and that $F_5=5$ and $F_6=8$ to calculate $F_7$, $F_8$, $F_9$, and $F_{10}$.
+        \item Evaluate the first five terms of the sequence defined by $a_0=3$, $a_1=2$ and $a_n = a_{n-1}+2a_{n-2}$ for $n \ge 2$. Your list should begin with the initial conditions.  
+        \item Evaluate $w_5$ where $w_0=-1$, $w_1=2$, $w_2=1$ and $w_n = w_{n-1}w_{n-2}w_{n-3}$ for $n \ge 3$.
+        \item Use the recursive rule for the Fibonacci sequence to write $F_{39} + F_{40}$ as a single Fibonacci number.  Repeat for $F_{n-1} + F_n$.
+    \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\submodelhigher}{Modeling with Higher Order Recursions}
+\subsection{\submodelhigher}
+\label{sub_model_higher_order_rec}
+
+Higher order recursions can be used to describe sequences and also to count.
+
+\begin{exam}[Modeling with higher order recursively-defined sequences]
+\label{exam_ntr_higher}
+    For each list, find a simple pattern generating a sequence.  Write the initial conditions and a higher order recursive rule for the sequence. Start your indexing at 0. 
+        \begin{apart}
+            \item The sequence $a$ begins 2, 5, 6, 10, 15, 24, 38, \ldots.
+                \begin{soln}
+                    Look at what happens when we add consecutive terms.  We get $2+5=7$, $5+6=11$, $6+10=16$, and so on.  In each case, we get one more than the next term.  That is, each term is the one less than the sum of the previous two terms.  A recursive definition is $a_0=2$, $a_1=5$, and $a_n=a_{n-1}+a_{n-2}-1$ for $n \ge 2$.
+                \end{soln}
+            \item The sequence $b$ begins $2, 5, 10, 50, 500, 25000, \ldots$.
+                \begin{soln}
+                    Look at what happens when we multiply consecutive terms. We get $2 \times  5= 10$, $5 \times 10=50$, and $10 \times 50 = 500$. In each case, we get the next term of the sequence. A recursive definition is $b_0=2$, $b_1=5$, and $b_n=b_{n-1}b_{n-2}$ for $n \ge 2$.
+                \end{soln}
+       \end{apart}
+\end{exam}
+
+Sometimes there are different order recursions that generate the same sequence.
+
+\begin{exam}[Different order recursions]
+\label{exam_diff_order_rec}
+    Consider the sequence $c$ that begins $$2, 5, 10, 13, 18, 21, 26, \ldots.$$ 
+        \begin{apart}
+            \item Write a third order recursive definition for the sequence, starting your index at 0.
+                \begin{soln}
+                   We want to combine 2, 5, and 10 to make 13 and then use the same combination with 5, 10, and 13 to make 18.  Note that $13 = 10 + 5-2$ and $18 = 13 + 10 -5$.  A recursion is $c_0=2$, $c_1=5$, $c_2=10$, and $c_n=c_{n-1}+c_{n-2}-c_{n-3}$ for $n \ge 3$.
+                \end{soln}
+            \item Write a first order recursive definition for the sequence, starting your index at 0.
+                \begin{soln}
+                    Notice how we can add either three or five to get from each term to the next:
+                        $$2 \xrightarrow[+ 3]{} 5 \xrightarrow[+ 5]{} 10 \xrightarrow[+ 3]{} 13 \xrightarrow[+ 5]{} 18 \xrightarrow[+ 3]{} 21 \xrightarrow[+ 5]{} 26.$$
+                    Since the number we add alternates, the formula involves $(-1)^n$.  Using that $3 = 4-1$ and $5 = 4+1$ we get the first order recursive definition $c_0=2$ and $c_n=c_{n-1}+4+(-1)^n$ for $n \ge 1$.
+                \end{soln}
+        \end{apart}
+\end{exam}
+
+Recursions can also be used to list or count objects.  Let's start with a first order recursion to get the idea.
+
+\begin{exam}[Using a recursion to count bit strings containing at least one \bs{0}]
+\label{exam_count_bit_strings_using_recursion_first}
+~
+    How many bit strings of length $n$ include at least one \bs{0}?  Count directly and then show how to write a recursion to count.
+    
+        \begin{soln}
+            By \Cref{thm_number_bit_strings}, there are $2^n$ bit strings of length $n$.  The only bit string that does not have any \bs{0}s is \bs{11} $\cdots$ \bs{1}.  Therefore, by \Cref{thm_count_complement}, there are $2^n-1$ bit strings of length $n$ that include at least one \bs{0}.
+                 
+            How can we write a recursion to count?  Write $z_n=$ the number of bit strings of length $n$ that include at least one \bs{0}.  Note that the only bit string of length 1 that includes at least one \bs{0} is \bs{0} itself and so $z_1=1$.  Given a bit string of length $n$ that has at least one \bs{0}, we consider two cases.  
+            
+            Case 1: The bit string begins with \bs{1}.  In this case, the other $n-1$ bits must include at least one \bs{0}.  There are $z_{n-1}$ such bit strings.
+
+            Case 2: The bit string begins with \bs{0}.  In this case, we have at least one \bs{0} no matter what the other $n-1$ bits are. They can be any bit string of length $n-1$.  By \Cref{thm_number_bit_strings}, there are $2^{n-1}$ bit strings of length $n-1$.  Therefore, there are $2^{n-1}$ such bit strings.
+
+            Since cases add (\Cref{thm_cases_add}), we get 
+                $$z_n=z_{n-1}+2^{n-1}$$  
+            for $n\ge 2$ and the initial condition is $z_1=1$.
+        \end{soln}
+\end{exam}
+
+We can also count using higher order recursions.
+
+\begin{exam}[Using a recursion to count bit strings that do not contain \bs{00}]
+\label{exam_count_bit_strings_using_recursion_second}
+    Write a recursion that counts the number of bit strings of length $n$ that do not contain \bs{00}, meaning they do not contain two or more consecutive zeros.
+        \begin{soln}
+            Write $c_n=$ the number of bit strings of length $n$ that do not contain \bs{00}. Note that neither bit strings of length 1 contains \bs{00} and so $c_1=2$.  Also note that three of the bit strings of length 2 do not contain \bs{00}, namely \bs{01}, \bs{10}, and \bs{11}, and so $c_2=3$.  Given a bit string of length $n$ that does not include \bs{00}, we consider two cases.
+
+            Case 1: The bit string begins with \bs{1}.  In this case, the other $n-1$ bits cannot include \bs{00}.  There are $c_{n-1}$ such bit strings.
+
+            Case 2:  The bit string begins with \bs{0}.  In this case, the next bit must be \bs{1} so that we avoid \bs{00}.  The other $n-2$ bits cannot include \bs{00}.   There are $c_{n-2}$ such bit strings.
+
+            Since cases add (\Cref{thm_cases_add}), we have
+                $$c_n=c_{n-1}+c_{n-2}$$
+            for $n\ge 3$ and initial conditions $c_1=2$ and $c_2=3$.  
+        \end{soln}
+\end{exam}
+
+Try modeling with higher order recursively-defined sequences.
+
+\begin{act}[Modeling with higher order recursively-defined sequences]
+\label{act_model_higher_order_rec}  
+~
+    \begin{actpart}
+        \item Find a simple pattern generating a sequence $a$ that begins 
+            $$3, 1, 5, 7, 13, 21, 35, 57, \ldots$$
+        Write the initial conditions and a higher order recursive rule for the sequence. Start your indexing at 0. Hint: Start by adding the two previous terms.% add two + 1 to get next
+        \item We want to tile a $1 \times n$ board using $1 \times 1$ squares that are either red (\str{R}), blue (\str{B}), and green (\str{G}) in such a way that we never place two  red tiles next to each other.  That is, the tiling does not contain \str{RR}.  Let $t_n=$ the number of such tilings.  Write a second order recursive definition for $t_n$, including two initial conditions. Hint: Break into cases based on whether the tiling starts with \str{G}, \str{B}, or \str{R}. In the case where it starts with \str{R}, explaining why the next tile must be \str{B} or \str{G}.
+    \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subfibpatterns}{Detour: Fibonacci Patterns and Proof}
+\subsection{\subfibpatterns}
+\label{sub_fib_patterns_proof}
+
+There are many patterns satisfied by the Fibonacci sequence.  
+
+\begin{act}[Fibonacci patterns]
+\label{act_fib_patterns}
+    For this activity, it is useful have a list of the first twenty Fibonacci numbers, as in \Cref{table_first20_fib}.
+    \begin{actpart}
+        \item \label{part_fib_conj_even} Which Fibonacci numbers are even?  Begin your conjecture ``$F_n$ is even if \ldots''.
+        \item \label{part_fib_cassini_conj} Something interesting happens when you multiply a Fibonacci number and the Fibonacci number two later in the sequence. For example, $$F_4 \cdot F_6 = (3)(8) = 24 = 5^2 -1 = F_5^2 - 1$$ and $$F_5 \cdot F_7 = (5)(13) = 65 = 8^2 + 1 = F_6^2 + 1.$$  What's the general pattern?  State your answer as a conjecture. 
+        \item Use the Euclidean Algorithm (\Cref{sub_euclidean_alg}) to evaluate $\fn{gcd}(F_8,F_7)=\fn{gcd}(21,13)$. What do you notice? Hint: Recall that the first two steps are  $21 \fn{ mod } 13 = 8$ and then $13 \fn{ mod } 8 = 5.$
+        \item \label{part_fib_matrix_conj} Consider the $2 \times 2$ matrix $A= \left[ \begin{array}{cc} 1 & 1\\ 1 & 0 \end{array} \right]$. Calculate $A^2$, $A^3$, and $A^4$ as defined in \Cref{defn_matrix} and conjecture the explicit formula for $A^n$.
+    \end{actpart}
+\end{act}
+
+Let's explore some patterns similar to \Cref{act_fib_patterns} and also discuss how to prove these patterns hold.  First, we look at a divisibility statement that involves the Fibonacci sequence.
+
+\begin{exam}[Fibonacci numbers that are multiples of three]
+\label{exam_fib_mult3}
+~
+    \begin{apart}
+        \item \label{part_fib_conj_mult3} When does $3 \mid F_n$? State your answer as a conjecture.
+            \begin{soln}
+                The first few Fibonacci numbers that are divisible by 3 are $F_4=3$, $F_8=21$, $F_{12}=144$, and $F_{16}=987$.  It appears that $3 \mid F_n$ when $4 \mid n$.  Notice that $3=F_4$ so we can get fancy and rewrite our conjecture as $F_4 \mid F_n$ when $4 \mid n$.  We can also write our conjecture explicitly as $3 \mid F_{4n}$.
+            \end{soln}
+        \item \label{part_every_fourth_fib} Use the recursive rule and algebra to prove $F_{4n} =5F_{4n-4} + 3F_{4n-5}$ for $n \ge 0$.
+            \begin{soln}
+                The recursive rule for the Fibonacci sequence allows us to write any Fibonacci number as the sum of the two preceding Fibonacci numbers.  We repeatedly use this idea, and simplify by collecting like terms, to get
+                    \begin{align*}
+                        F_{4n} & = F_{4n-1} + F_{4n-2} \\
+                        & = \left(F_{4n-2}+F_{4n-3}\right) + F_{4n-2}\\
+                        & = 2F_{4n-2} + F_{4n-3} \\
+                        & = 2 \left(F_{4n-3}+F_{4n-4}\right) + F_{4n-3} \\
+                        & = 3 F_{4n-3}+2F_{4n-4} \\
+                        & = 3 \left(F_{4n-4} + F_{4n-5}\right) +2F_{4n-4} \\
+                        & = 5 F_{4n-4} + 3F_{4n-5}.
+                    \end{align*}
+                Whew!
+            \end{soln}
+        \item \label{part_fib_mult3_proof} Use the identity from (\ref{part_every_fourth_fib}) and mathematical induction to prove that $3 \mid F_{4n}$ for $n \ge 0$.
+        \begin{soln}
+            \emph{Proof}  First, when $n=0$ we have $F_{4(0)}=F_0=0$ and $3 \mid 0$ so $3 \mid F_{4(0)}$.
+
+            Next, assume $3 \mid F_{4(n-1)} = F_{4n-4}$ for some integer $n > 0$.  By the definition of divides we can write $F_{4n-4}=3k$ for some integer $k$.  Then using the identity from (\ref{part_every_fourth_fib}) we have
+                \begin{align*}
+                    F_{4n} & = 5 F_{4n-4} + 3F_{4n-5} \\
+                    & = 5(3k) + 3F_{4n-5} \\
+                    & = 3(5k+F_{4n-5}).
+                \end{align*}
+            Thus $3 \mid F_{4n}$.
+        \end{soln}            
+    \end{apart}
+\end{exam}
+
+Let's look at the greatest common divisor of Fibonacci numbers.
+
+\begin{exam}[Fibonaccis and the \fn{gcd}]
+\label{exam_fib_gcd}
+~
+    \begin{apart}
+        \item Use the Euclidean Algorithm (\Cref{sub_euclidean_alg}) to evaluate $\fn{gcd}(F_{10},F_9)=\fn{gcd}(55,34)$. What do you notice? 
+            \begin{soln}
+                The steps of the Euclidean Algorithm are    
+                $$55 \fn{ mod } 34 = 21$$
+                $$34 \fn{ mod } 21 = 13$$
+                $$21 \fn{ mod } 13 = 8$$
+                $$13 \fn{ mod } 8 = 5$$
+                $$8 \fn{ mod } 5 = 3$$
+                $$5 \fn{ mod } 3 = 2$$
+                $$3 \fn{ mod } 2 = 1$$
+                $$2 \fn{ mod } 1 = 0$$
+                Thus, $\fn{gcd}(55,34)=1.$  They are coprime.  
+
+                Notice how we calculated each of the previous Fibonacci numbers.  In fact, the Fibonacci are a ``worst-case scenario'' for the Euclidean Algorithm, meaning it takes the most steps possible relatively to the size of the integers.
+            \end{soln}
+        \item \label{part_gcd14434} Use the Euclidean Algorithm (\Cref{sub_euclidean_alg}) to evaluate $\fn{gcd}(F_{12},F_9)=\fn{gcd}(144,34)$. What do you notice?
+            \begin{soln}
+                The steps of the Euclidean Algorithm are
+                $$144 \fn{ mod } 34 = 8$$
+                $$34 \fn{ mod } 8 = 2$$
+                $$8 \fn{ mod } 2 = 0.$$
+                Thus $\fn{gcd}{144,34} = 2$.  
+
+                Look what happens if we write the answer in terms of the Fibonacci numbers.  We get $\fn{gcd}(F_{12},F_9)=F_3$.
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+Next, let's look at the matrix with powers that involve the Fibonacci sequence from \Cref{act_fib_patterns}.
+
+\begin{exam}[Fibonacci matrix]
+\label{exam_fib_matrix}
+    Consider the $2 \times 2$ matrix $A= \left[ \begin{array}{cc} 1 & 1\\ 1 & 0 \end{array} \right]$.  
+        \begin{apart}
+            \item Calculate $A^2$, $A^3$, and $A^4$.
+                \begin{soln}
+                    First,
+                        $$A^2= \left[ \begin{array}{cc} 1 & 1\\ 1 & 0 \end{array} \right]\left[ \begin{array}{cc} 1 & 1\\ 1 & 0 \end{array} \right]= \left[ \begin{array}{cc} 2 & 1\\ 1 & 1 \end{array} \right].$$
+
+                    Next,
+                        $$A^3= A\cdot A^2=\left[ \begin{array}{cc} 1 & 1\\ 1 & 0 \end{array} \right]\left[ \begin{array}{cc} 2 & 1\\ 1 & 1 \end{array} \right]= \left[ \begin{array}{cc} 3 & 2\\ 2 & 1 \end{array} \right].$$
+
+                    Last,
+                        $$A^4= A\cdot A^3=\left[ \begin{array}{cc} 1 & 1\\ 1 & 0 \end{array} \right]\left[ \begin{array}{cc} 3 & 2\\ 2 & 1 \end{array} \right]= \left[ \begin{array}{cc} 5 & 3\\ 3 & 2 \end{array} \right].$$
+                \end{soln}
+            \item Make a conjecture about an explicit formula for $A^n$.
+                \begin{soln}
+                    Notice that each power of $A$ has Fibonacci numbers as entries.  For example,
+                        $$A^4= \left[ \begin{array}{cc} 5 & 3\\ 3 & 2 \end{array} \right]
+                        = \left[ \begin{array}{cc} F_5 & F_4\\ F_4 & F_3 \end{array} \right].$$
+                    We might reasonably conjecture that
+                        $$A^n= \left[ \begin{array}{cc} F_{n+1} & F_n \\ F_n & F_{n-1} \end{array} \right]$$
+                    for $n \ge 1$.
+                \end{soln}
+            \item \label{part_proof_matrix_fib} Use mathematical induction (\Cref{pff_math_ind_matrix}) to prove your conjecture.
+                \begin{soln}  We use \Cref{pff_math_ind_matrix}.
+                
+                    \emph{Proof.}  Induct on $n$.  Write $M_n = \left[ \begin{array}{cc} F_{n+1} & F_n \\ F_n & F_{n-1} \end{array} \right]$.
+                    
+                    First, when $n=1$ we have $A^1=A = \left[ \begin{array}{cc} 1 & 1\\ 1 & 0 \end{array} \right]$ and $M_1 = \left[ \begin{array}{cc} F_{2} & F_1 \\ F_1 & F_0 \end{array} \right] = \left[ \begin{array}{cc} 1 & 1 \\ 1 & 0 \end{array} \right]$.
+
+                    Next, assume $$A^{n-1} = M_{n-1} = \left[ \begin{array}{cc} F_n & F_{n-1} \\ F_{n-1} & F_{n-2} \end{array} \right]$$
+                    for some integer $n > 1$.  Then 
+                        \begin{align*}
+                            A^n & = AA^{n-1} \\
+                            & = \left[ \begin{array}{cc} 1 & 1\\ 1 & 0 \end{array} \right]\left[ \begin{array}{cc} F_n & F_{n-1} \\ F_{n-1} & F_{n-2} \end{array} \right] \\
+                            & = \left[ \begin{array}{cc} F_n+F_{n-1} & F_{n-1}+F_{n-2}\\ F_n & F_{n-1} \end{array} \right] \\
+                            & = \left[ \begin{array}{cc} F_{n+1} & F_n\\ F_n & F_{n-1} \end{array} \right] \\ 
+                            & =M_n.
+                        \end{align*}                        
+                \end{soln}
+        \end{apart} 
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subpffstrongind}{Proof Format: Strong Mathematical Induction}
+\subsection{\subpffstrongind}
+\label{sub_pff_strong_math_ind}
+
+There is a stronger form of mathematical induction.  As in the usual proof by mathematical induction, we prove some statement $P(n)$ for $n \ge s$ for some integer $s$. The base case is the same, we check $P(s)$.  In the induction step, instead of just assuming $P(n-1)$, we assume $P(k)$ for $k= s, s+1, \ldots, n-2, n-1$.  That is, we assume $P(k)$ whenever $s \le k < n$.  As before, we use this assumption to prove $P(n)$.  Here is the formal proof format.
+
+\begin{pff}[Strong mathematical induction]
+\label{pff_strong_math_ind}
+    Prove $P(n)$ for $n \ge s$.
+    \begin{proof}
+        Induct on $n$. First, when $n=s$ (explain why $P(s)$ is true).
+
+        Next, assume for some integer $n > s$ that $P(k)$ for any integer $k$ with $s \le k< n$ .  Then (explain why $P(n)$ is true).
+    \end{proof}
+\end{pff}
+
+We consider an example.
+
+\begin{exam}[Using strong mathematical induction]
+\label{exam_strong_math_ind}
+    Use strong mathematical induction (\Cref{pff_strong_math_ind}) to prove that every integer can be written as the product of a power of two and an odd integer.   
+        \begin{soln}
+            \emph{Proof} Induct on $n$. 
+
+            First, when $n=1$ we can write $1=2^0(1)$ which is a product of a power of two (namely $2^0$) and an odd integer (namely 1) so the result holds.
+
+            Next, assume for some integer $n > 1$ that any integer $k$ with $1 \le k<n$ can be written as the product of a power of two and an odd integer.  We consider two cases.
+
+                Case 1: $n$ is odd.  In this case, $n = 2^0(n)$ which is the product of a power of two (namely $2^0$) and an odd integer (namely $n$) so the result holds.
+
+                Case 2: $n$ is even.  In this case, by definition of even we can write  $n = 2k$ for some integer $k$.  Note that $1 \le k<n$ so by our inductive hypothesis, $k$ can be written as the product of a power of two and an odd integer.  Write $k = 2^im$ where $i$ is a nonnegative integer and $m$ is an odd integer.  Then $$n=2k=2\left(2^im\right)=2^{i+1}m$$ which is the product of a power of two (namely $2^{i+1}$) and an odd integer (namely $m$).
+
+                In either case, $n$ can be written as the product of a power of two and an odd integer.
+        \end{soln}
+\end{exam}
+
+We can use a special case of strong mathematical induction to verify an explicit rule for a second-order recursively-defined sequence.  Strong mathematical induction can be extended to any higher order recursion.
+
+\begin{pff}[Strong mathematical induction: special case proving an explicit rule for a second order recursively-defined sequence]
+\label{pff_strong_math_ind_seq}
+    Given the sequence $a$ defined recursively by $a_s=$ and $a_{s+1}=$ (initial conditions) and $a_n=$ (recursive rule) for $n \ge s+2$, prove $a_n=$ (explicit rule) for $n \ge s$.
+    \begin{proof}
+        Write $f(n) = $(explicit rule).  Induct on $n$.
+
+        First, when $n=s$ we know that $a_s=$ (initial condition) and also $f(s)=$ (evaluate and simplify to get the same answer).  Similarly, when $n=s+1$ we know that $a_{s+1}=$ (initial condition) and also $f(s+1)=$ (evaluate and simplify to get the same answer).
+
+        Next, assume $a_{n-1}=f(n-1)= $ (evaluate and simplify) and $a_{n-2} = f(n-2) = $ (evaluate and simplify), for some integer $n > s+1$.  Then 
+            \begin{align*}
+                a_n & = \text{(recursive rule)} \\
+                & = \cdots \text{(use the inductive hypothesis to replace } a_{n-1} \text{ by } f(n-1) \text{ and } a_{n-2} \text{ by } f(n-2) \cdots \\ 
+                & = \cdots \text{(use algebra)} \cdots \\
+                & = f(n).
+            \end{align*}
+    \end{proof}
+\end{pff}
+
+As usual, when we introduce a new proof format, we give you an example of a proof to copy and edit.
+
+\begin{act}[Strong mathematical induction]
+\label{act_strong_math_ind_lucas}
+    In \Cref{exam_rec_seq_higher_order} we saw the \vocab{Lucas numbers} defined by $L_0=2$, $L_1=1$, and $L_n=L_{n-1}+L_{n-2}$ for $n \ge 2$.   As usual, the Fibonacci sequence is defined by $F_0=0$, $F_1=1$, and $F_n=f_{n-1}+F_{n-2}$ for $n \ge 2$.
+        \begin{actpart}
+            \item Copy the following proof.
+
+            Use the special case of strong mathematical induction (\Cref{pff_strong_math_ind_seq}) to prove that $L_n = 2F_{n+1}-F_{n}$ for all integers $n \ge 0$.
+
+            \emph{Proof.} Write $f(n) = 2F_{n+1}-F_{n}$. Induct on $n$.
+
+            First, when $n=0$ we have $L_0=2$ and also 
+            $$f(0) =2F_1-F_0=2(1)-(0)=2.$$  Similarly, when $n=1$ we have $L_1=1$ and also $$f(1) =2F_2-F_1=2(1)-(1)=1.$$
+
+            Next, assume $$L_{n-1} = f(n-1)= 2F_n-F_{n-1}$$
+            and $$L_{n-2} = f(n-2) = 2F_{n-1}-F_{n-2}$$
+            for some integer $n>1$.  Then
+                \begin{align*}
+                    L_n & = L_{n-1}+L_{n-2} \\ 
+                    & = \left(2F_{n}-F_{n-1}\right) + \left(2F_{n-1}-F_{n-2}\right) \\
+                    & = 2F_{n}+2F_{n-1} -F_{n-1}-F_{n-2} \\
+                    & = 2\left(F_{n}+F_{n-1}\right)-\left(F_{n-1}+F_{n-2}\right) \\
+                    & = 2F_{n+1}-F_n \\
+                    & = f(n)
+                \end{align*}
+            \item Explain the algebra step-by-step in the last chain of equations of the proof.
+            \item The sequence $v$ is defined by $v_1=1$, $v_2=1$, and $$v_n=v_{n-1}+v_{n-2}+1$$ for $n \ge 3$.  The sequence $w$ is defined by $w_3=2$, $w_4=3$, and $$w_n = w_{n-1}+w_{n-2}$$ for $n\ge 5$.  Use the special case of strong mathematical induction (\Cref{pff_strong_math_ind_seq}) to prove that  $$v_n=2w_n-1$$ for $n \ge 3$.
+
+            Note: We saw these two sequences in \Cref{act_rec_trees} where we recursively defined the trees $T_n$.  In that activity $w_n=$ the number of leaves in $T_n$ and $v_n=$ the number of vertices in $T_n$.    
+        \end{actpart}
+\end{act}
+
+Let's look at another example of using strong mathematical induction to verify the explicit form of a second order recursively-defined sequence.
+
+\begin{exam} [Verifying the explicit form of second order recursively-defined sequence]
+\label{exam_strong_math_ind_explicit}
+    Consider the sequence $a_n$ defined recursively by $a_0= 1$, $a_1 =6$, and $a_n =6a_{n-1} -9a_{n-2}$ for $ n \ge 2$.   Use the special case of strong mathematical induction (\Cref{pff_strong_math_ind_seq}) to prove that $a_n = (n+1)3^n$ for $n \ge 0$.
+        \begin{soln}
+            \emph{Proof.} Write $f(n) = (n+1)3^n$. Induct on $n$.
+
+            First, when $n=0$ we have $a_0=1$ and $$f(0)=(1)3^0=1\cdot 1 = 1.$$  Similarly, when $n=1$ we have $a_1=6$ and $$f(1)=(2)3^1= 2\cdot 3 = 6.$$
+
+            Next, assume $$a_{n-1}=f(n-1)=n\cdot 3^{n-1}$$ and $$a_{n-2}=f(n-2)=(n-1)\cdot 3^{n-2}$$ for some integer $n > 1$.  Then
+                \begin{align*}
+                    a_n & = 6a_{n-1} -9a_{n-2} \\
+                    & = 6f(n-1)-9f(n-2) \\
+                    & = 6\left(n3^{n-1}\right) -9\left((n-1)3^{n-2}\right) \\
+                    & = n\cdot 6\cdot 3^{n-1}- (n-1)\cdot 9 \cdot 3^{n-2} \\
+                    & = n\cdot 2 \cdot 3 \cdot 3^{n-1}- (n-1)\cdot 3^2 \cdot 3^{n-2} \\ 
+                    & = n\cdot 2 \cdot 3^n- (n-1) \cdot 3^n \\ 
+                    & =(2n-(n-1))3^n \\
+                    & = (n+1)3^n 
+                \end{align*}
+            \hfill $\Box$
+            
+            Notice it was convenient to write $6=2\cdot 3$ because $3 \cdot 3^{n-1} = 3^n$. Similarly, it was convenient to write $9 = 3^2$ because $3^2\cdot3^{n-2}=3^n$.
+        \end{soln}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exercises}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_fibonacci} \subfib}
+
+\begin{exer}[\exerP] % list Fibonaccis]
+\label{exer_list_fibs}
+~
+    \begin{exerpart}
+        \item List all Fibonacci numbers less than 1000 without looking at \Cref{table_first20_fib} or any other resources, except to check.
+        \item Evaluate $F_{20}$ and $F_{21}$.  Show work.
+    \end{exerpart} 
+\end{exer} 
+
+\begin{exer}[\exerP] % first five terms of higher order recursively-defined sequence]
+\label{exer_eval_terms_higher_order}
+    Evaluate the first five terms of each sequence. Your list should begin with the initial conditions.
+        \begin{exerpart}
+            \item The sequence defined by $a_1=3$, $a_2=2$ and $a_i = a_{i-1}a_{i-2}$ for $i \ge 3$.
+            \item The sequence defined by $b_0=3$, $b_1=2$ and $b_k=2b_{k-1}-b_{k-2}$ for $k\ge 2$.
+            \item The sequence defined by $c_1=2$, $c_2=1$, $c_3=0$ and $c_n = c_{n-1} + 2c_{n-3}$ for $n \ge 4$.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % write as single Fibonacci]
+\label{exer_write_single_fib}
+    Use the recursive rule for the Fibonacci sequence to simplify each expression as a single Fibonacci number.
+        \begin{exerpart}
+            \item $F_{23}+F_{24}$
+            \item $F_{n-1}+F_{n-2}$
+            \item $F_{n+1}+F_n$
+            \item $F_{2n-1}+F_{2n-2}$
+            \item $F_{2n}-F_{2n-1}$
+        \end{exerpart}    
+\end{exer}
+
+\begin{exer}[\exerU] % evaluate specified term of higher-order recursively-defined sequence]
+\label{exer_eval_specific_term_higher_order}
+~
+        \begin{exerpart}
+            \item Evaluate $u_4$ where $u_0=2$, $u_1=2$ and $u_n = u_{n-1}u_{n-2}$ for $n \ge 2$. % Ans 4, 8, 32
+            \item Evaluate $v_4$ where $v_1=2$, $v_2=3$ and $v_m = v_{m-1}(v_{m-2}+1)$ for $m \ge 3$.% v_3=3(2+1)=9, v_4=9(3+1)=36
+            \item Evaluate $x_6$ where $x_1=2$, $x_2=1$, $x_3=3$ and $x_j = 2x_{j-1} - x_{j-3}$ for $j \ge 4$. % Ans 4, 7, 11, 18  
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % evaluate third order and conjecture closed form.
+\label{exer_third_order}
+~
+    \begin{exerpart}
+        \item Evaluate the first five terms of the sequence defined by $c_0=1$, $c_1=2$, $c_2=3$ and $c_n = c_{n-1}+c_{n-2}-c_{n-3}$ and $n \ge 3$. Your list should begin with the initial conditions. 
+        \item Conjecture an explicit rule for the sequence.
+    \end{exerpart}
+\end{exer}\label{part_third_order_rec} 
+
+\begin{exer}[\exerR] % The Fibonacci Sequence and Higher Order Recursions
+\label{exer_dyk_fib_higher}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What the initial conditions and recursive rule are that define the Fibonacci sequence?
+            \item How to list the first ten terms of the Fibonacci sequence?
+            \item What the order of a recursion is?
+            \item How to list the first several terms of a higher order recursively-defined sequence?
+            \item Why we need more than one initial condition in the definition of a higher order recursion?
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_model_higher_order_rec} \submodelhigher}
+
+\begin{exer}[\exerP] % modeling with higher-order recursively-defined sequence]
+\label{exer_model_higher_order}
+    For each list, find a simple pattern generating a sequence.  Write the initial conditions and a second order recursive rule for the sequence. Start your indexing at 0 or 1 (your choice).  
+        \begin{exerpart}
+            \item $3, 1, 4, 5, 9, 14, 23, 37,  \underline{\hspace{.3in}~}, \ldots$. % add two to get next
+            \item $2, 5, -3, 8, -11, 19, -30, 49,  \underline{\hspace{.3in}~}, \ldots$  %subtract two to get next
+            \item $3, 10, 30, 300, 9000, 2700000 \underline{\hspace{.3in}~}, \ldots$  % multiply two to get next            
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % SQUARES AND TRIOMINOES
+\label{exer_squares_triominoes}
+Let $b_n$ count the number of ways to tile a $1 \times n$ grid using squares ($1 \times 1$) and triominoes ($1 \times 3$).
+    \begin{exerpart}
+        \item Calculate $b_1$, $b_2$, $b_3$, and $b_4$ by listing the options.
+        \item Find a higher order recursive definition for $b_n$, including initial conditions and explain your reasoning.
+        \item Check that your recursion gives the correct value for $b_4$.
+    \end{exerpart} 
+\end{exer}
+
+\begin{exer}[\exerU] % counting colored tilings, part 1]
+\label{exer_count_colored_tilings_first}
+    We want to count ways to tile a $1 \times n$ board using red (\str{R}), blue (\str{B}), and green (\str{G}) $1 \times 1 $ square tiles.
+        \begin{apart}
+            \item \label{part_red_green_tiles} Let $a_n$ be the number of tilings that do not use any blue tiles. Write an explicit rule for $a_n$.
+            
+            \item Let $b_n$ be the number of tilings that contain at least one blue tile. First, write an explicit rule for $b_n$ and then, write a recursive definition for $b_n$.  Hint: Break into cases based on whether the tiling starts with \str{G}, \str{B}, or \str{R}.
+            
+            \item Let $c_n$ be the number of tilings where any green tile is immediately followed by a blue tile. Write a recursive definition for $c_n$.  % Same hint
+        \end{apart}
+\end{exer}
+
+\begin{exer}[\exerU] % bit strings that do not contain \bs{000}]
+\label{exer_bs_without_000}
+   Calculate the initial conditions and write a recursive rule defining $r_n=$ the number of bit strings of length $n$ that do not contain $\bs{000}$, meaning that do not contain three or more consecutive \bs{0}s, for $n \ge 1$.  Hint: Look at \Cref{exam_count_bit_strings_using_recursion_second}.  What are the cases here?
+\end{exer}
+
+\begin{exer}[\exerR] % Modeling with Higher Order Recursions
+\label{exer_dyk_model_higher_rec}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to find a higher order recursive definition for a sequence?
+            \item Why we might use recursions to count?
+            \item How to count using recursions?
+            \item How many initial conditions we need to define a higher order recursively-defined sequence?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % Recursion to count partitions
+\label{exer_rec_count_partitions}
+    Watch the video at \url{https://www.youtube.com/watch?v=F4zYDx-EfZI} that explains how to count partitions of an integer (as defined in \Cref{sec_partitions}) using recursions.  
+        \begin{exerpart}
+            \item According to the video, what is $P_k(n)$? 
+            \item Copy the final recursion they present for calculating $P_k(n)$.  
+            \item What were the two cases they used to get this recursion? 
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_fib_patterns_proof} \subfibpatterns}
+
+\begin{exer}[\exerP] % Fib mult 5 and mult 8
+\label{exer_fib_mult5_mult8}
+~
+    \begin{apart}
+        \item Which Fibonacci numbers are divisible by 5? Include some examples to support your conjecture.
+        \item Which Fibonacci numbers are divisible by 8? Include some examples to support your conjecture.
+    \end{apart}            
+\end{exer}
+
+\begin{exer}[\exerP] % another Fibonacci matrix]
+\label{exer_fib_matrix_another_conj}  
+    Consider the $2 \times 2$ matrix $B= \left[\begin{array}{cc} 0 & 1\\ 1 & 1 \end{array} \right]$.
+        \begin{exerpart}
+            \item Calculate $B^2$, $B^3$, and $B^4$.
+            \item Make a conjecture about an explicit formula for $B^n$.  
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] % greatest common divisors of Fibonaccis]
+\label{exer_fib_gcd_eval}
+    In each part, find the \fn{gcd} using the Euclidean Algorithm.
+        \begin{exerpart}
+            \item Evaluate $\fn{gcd}(F_4,F_6)$.
+            \item Evaluate $\fn{gcd}(F_6,F_9)$.
+            \item Evaluate $\fn{gcd}(F_5,F_{11})$.
+            \item Evaluate $\fn{gcd}(F_{10},F_{15})$.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % Conjecture Honsberger's identity]
+\label{exer_fib_honsberger}
+~
+    \begin{apart}
+        \item Evaluate $F_2F_4+F_3F_5$ and write your answer as a single Fibonacci number.
+        \item Evaluate $F_4F_7+F_5F_8$ and write your answer as a single Fibonacci number.
+        \item Conjecture how to write $F_kF_n+F_{k+1}F_{n+1}$ as a single Fibonacci number.
+    \end{apart}
+\end{exer}
+
+\begin{exer}[\exerU] % Even Fibonacci identity
+\label{exer_even_fib_identity}
+    Prove that the Fibonacci numbers satisfy the identity
+        $$F_{3n}= 2F_{3n-2}+F_{3n-3}$$ 
+    for $n \ge 1$.  
+\end{exer}
+
+\begin{exer}[\exerU] % Even Fibonacci proof
+\label{exer_even_fib_proof}
+    Copy and edit the proof from \Cref{exam_fib_mult3} (\ref{part_fib_mult3_proof}) to use mathematical induction to prove that $F_{3n}$ is even for $n \ge 0$.   
+\end{exer}
+
+\begin{exer}[\exerU] % proof of formula for $F_{5n}$ using the recursive rule]
+\label{exer_mult5_fib_identity}
+    Use the recursive rule and algebra to prove $F_{5n} =5F_{5n-4} + 3F_{5n-5}$ for $n \ge 0$.
+\end{exer}
+
+\begin{exer} [\exerU] % proof of which Fibonaccis are divisible by five using mathematical induction.] 
+\label{exer_fib_div5_proof}
+    Use mathematical induction and the identity from \Cref{exer_mult5_fib_identity} to prove that $5 \mid F_{5n}$ for $n \ge 0$.
+\end{exer}
+
+\begin{exer}[\exerU] % another Fibonacci matrix proof]
+\label{exer_fib_matrix_another_proof}
+    Consider the $2 \times 2$ matrix $B= \left[ \begin{array}{cc} 0 & 1\\ 1 & 1 \end{array} \right]$.  Use mathematical induction (\Cref{pff_math_ind_matrix}) to prove your conjecture about $B^n$ from \Cref{exer_fib_matrix_another_conj}.   
+\end{exer}
+
+\begin{exer}[\exerU greatest common divisors of Fibonaccis conjecture]
+\label{exer_fib_gcd_conj}
+~
+    \begin{exerpart}
+        \item In \Cref{exam_fib_gcd}, we saw $\fn{gcd}(F_{10},F_{9}) = 1 = F_1$ and $\fn{gcd}(F_{12},F_9)=F_3$.  Now write each of your answers to \Cref{exer_fib_gcd_eval} as a Fibonacci number.
+        \item Conjecture how to write $\fn{gcd}(F_m,F_n)$ as a Fibonacci number.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % Detour: Fibonacci Patterns and Proof
+\label{exer_dyk_fib_patterns}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to recognize and describe patterns in the Fibonacci sequence?
+            \item How to prove Fibonacci identities using the recursion and algebra?
+            \item How to prove divisibility statements about the Fibonaccis using mathematical induction?
+            \item SU: Anything else here??
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % Fib generalized divisibility conj]
+\label{exer_fib_gen_div_conj}
+~
+    When does $F_k \mid F_n$?  Include some examples to support your conjecture.  Hint: Look at \Cref{act_fib_patterns}, \Cref{exam_fib_mult3}, and \Cref{exer_fib_mult5_mult8}.
+\end{exer}
+
+\begin{exer}[\exerE] % consecutive Fibonaccis are coprime]
+\label{exer_consec_fib_coprime_proof}
+    Use mathematical induction to prove that consecutive Fibonacci numbers are coprime, meaning $\fn{gcd}(F_n,F_{n+1})=1$.  Hint: In the inductive step, write $d = \fn{gcd}(F_n,F_{n+1})$ and note $d \ge 1$.  By definition of greatest common divisor, it follows that $d \mid F_n$ and $d \mid F_{n+1}$. Use the recursive rule for the Fibonacci sequence to show that $d \mid F_{n-1}$. Since then $d \mid F_{n-1}$ and $d \mid F_n$, it follows that $d$ is a positive common divisor of $F_{n-1}$ and $F_n$.  Explain why it follows that $d=1$.
+\end{exer}
+
+\begin{exer}[\exerE] % Prove Cassini by induction
+    Use mathematical induction to prove our conjecture from \Cref{act_fib_patterns} (\ref{part_fib_cassini_conj}) that $$F_{n-1} F_{n+1} = F_n^2 + (-1)^n$$
+    for $n \ge 1$.  Hint: During the inductive step write $F_{n-1} F_{n+1} = F_{n-1}\left(F_n+F_{n-1}\right)$. Then replace $(F_{n-1})^2$ using the inductive hypothesis.  Note that $-(-1)^{n-1}= (-1)(-1)^{n-1}=(-1)^n$.   
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_pff_strong_math_ind} \subpffstrongind}
+
+\begin{exer}[\exerP] % number of \bs{1}s in proper bit string]
+\label{exer_properbs_number0s}
+    For \Cref{act_proper_bs}, we defined proper bit strings.  Use strong mathematical induction (\Cref{pff_strong_math_ind}) to prove that any proper bit string has an even number of \bs{1}s.  Hint: In the inductive step consider two cases based on if the bit string ends in \bs{1} or ends in \bs{0}. 
+\end{exer}
+
+\begin{exer}[\exerP] % Using strong mathematical induction to prove linear explicit rule for second order recursively-defined sequence]
+\label{exer_math_ind_second_order_linear}
+    Consider the sequence $a$ defined recursively by $a_0= 3$, $a_1 =5$, and $a_n =2a_{n-1} -a_{n-2}$ for $ n \ge 2$.   Use the special case of strong mathematical induction (\Cref{pff_strong_math_ind_seq}) to prove that $a_n = 2n+3$ for $n \ge 0$.   
+\end{exer}
+
+\begin{exer}[\exerU] % starting \bs{1}s of proper bit string]
+\label{exer_properbs_starting0s}
+    For \Cref{act_proper_bs}, we defined proper bit strings.  Use strong mathematical induction (\Cref{pff_strong_math_ind}) to prove that if a proper bit string $b$ of length $n$ has exactly weight $2k$, then $b$ begins with (at least) $k$ \bs{1}s. Hint: In the inductive step, consider two cases based on if  $b$ ends in \bs{1} or ends in \bs{0}.
+\end{exer}
+
+\begin{exer}[\exerU] % Using strong mathematical induction
+\label{exer_math_ind_second_order_powerof2} 
+    Consider the sequence $b_n$ defined recursively by $b_0= 0$, $b_1 =2$, and $b_n =4b_{n-1} -4b_{n-2}$ for $ n \ge 2$.  Use the special case of strong mathematical induction (\Cref{pff_strong_math_ind_seq}) to prove that $b_n = n2^n$ for $n \ge 0$.
+\end{exer}
+
+\begin{exer}[\exerU] % Using strong mathematical induction 
+ \label{exer_math_ind_second_order_powerof5}   
+    Consider the sequence $c$ defined recursively by $c_0=3$, $c_1=20$, and $c_n=10c_{n-1} -25c_{n-2}$ for $n \ge 2$.   Use the special case of strong mathematical induction (\Cref{pff_strong_math_ind_seq}) to prove that $c_n=(n+3)5^n$ for $n \ge 0$.
+\end{exer}
+
+\begin{exer}[\exerU] % Using strong mathematical induction 
+\label{exer_strong_math_ind_alternating} 
+    Consider the sequence $a_n$ is defined by $a_1=2$, $a_2=-3$, and $a_n=a_{n-2}+(-1)^{n+1}2$ for $n\ge 3$. We saw this sequence in \Cref{exam_rec_seq_higher_order}.  Use the special case of strong mathematical induction (\Cref{pff_strong_math_ind_seq}) to prove that $a_n=(-1)^n(n+2)$ for $n \ge 0$.
+\end{exer}
+
+\begin{exer}[\exerR] % Proof Format: Strong Mathematical Induction
+\label{exer_dyk_strong_math_ind}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What strong mathematical induction is?
+            \item How to use the special case of strong mathematical induction to prove an explicit rule for a second order recursively-defined sequence?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % Binet's formula]
+\label{exer_binets_formula}
+    Our goal for this exercise is to prove an explicit formula for the Fibonacci sequence.  
+    
+    Write $\alpha = \displaystyle \frac{1+\sqrt{5}}{2}$ and $\beta = \displaystyle \frac{1-\sqrt{5}}{2}$.   
+        \begin{exerpart}
+            \item Check that  $\alpha^2 = \alpha + 1$.  It turns out that $\beta^2 = \beta + 1$, but you are not asked to check that.
+            \item  Use the special case of strong mathematical induction (\Cref{pff_strong_math_ind_seq}) to prove \vocab{Binet's formula}:  $$F_n = \frac{1}{\sqrt{5}}\left(\alpha^n-\beta^n\right)$$ for $n \ge 0$.  
+            
+            Hint: In the inductive step use that $\alpha^{n-1}= \alpha \cdot \alpha^{n-2}$ and $\beta^{n-1}= \beta \cdot \beta^{n-2}$.  When appropriate, factor out $\alpha^{n-2}$ and $\beta^{n-2}$.  Replace $\alpha +1$ with $\alpha^2$ and replace $\beta + 1$ with $\beta^2$.
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\answers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_fibonacci} \subfib}
+
+\subsubsection*{\Cref{exer_list_fibs} \answers}
+\begin{apart}
+    \item Hint: You can use \Cref{table_first20_fib} to check.
+    \item Hint: $F_{21}$ is over 10,000.
+\end{apart}
+
+\subsubsection*{\Cref{exer_eval_terms_higher_order} \answers}
+\begin{apart}
+    \item Hint: $a_5=72$
+    \item Hint: $b_4=-1$
+    \item Hint: $c_5=6$
+\end{apart}
+
+\subsubsection*{\Cref{exer_eval_specific_term_higher_order} \answers}
+The answers, in some order, are 18, 32, and 36.
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_model_higher_order_rec} \submodelhigher}
+
+\subsubsection*{\Cref{exer_model_higher_order} \answers}
+\begin{apart}
+    \item Hint: Add
+    \item Hint: Subtract
+    \item Hint: Multiply
+\end{apart}
+
+\subsubsection*{\Cref{exer_count_colored_tilings_first} \answers}
+\begin{apart}
+    \item Hint: There are two choices for each tile.  Steps multiply.
+    \item Hint: For the explicit formula use your answer to (\ref{part_red_green_tiles}). For the recursive formula, if it starts with \str{R} or \str{G}, then the remainder must include \str{B}, but if it starts with \str{B}, then the remainder can be any tiling using the three colors.
+    \item Hint: Break into cases based on whether the tiling starts with \str{G}, \str{B}, or \str{R}.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_fib_patterns_proof} \subfibpatterns}
+
+\subsubsection*{\Cref{exer_fib_mult5_mult8} \answers}
+\begin{apart}
+    \item Hint: 0, 5, 55, and 610 are all divisible by 5. Which terms of the Fibonacci sequence are those?
+    \item Hint: $8 \mid 2584$
+\end{apart}
+
+\subsubsection*{\Cref{exer_fib_matrix_another_conj} \answers}
+\begin{apart}
+    \item Hint: $B^4=\left[\begin{array}{cc} 2 & 3\\ 3 & 5 \end{array} \right]$.
+    \item Hint: It involves $F_{n-1}$, $F_n$, and $F_{n+1}$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_fib_gcd_eval} \answers}
+The answers, in some order, are 1 (twice), 2, and 5.
+
+\subsubsection*{\Cref{exer_even_fib_identity} \answers}
+Hint: First, use the recursive definition for the Fibonacci sequence to write $F_{3n}=F_{3n-1} + F_{3n-2}$.  Next, use the definition again to write $F_{3n-1}=F_{3n-2}+F_{3n-3}$. Finally, put these equations together and simplify by collecting like terms.
+
+\subsubsection*{\Cref{exer_even_fib_proof} \answers}
+Hint: The inductive hypothesis is that $F_{3(n-1)}=F_{3n-3}$ is even. Use the identity from \Cref{exer_even_fib_identity}.
+
+\subsubsection*{\Cref{exer_fib_matrix_another_proof} \answers}
+Hint: Copy and edit the proof from \Cref{exam_fib_matrix} (\ref{part_proof_matrix_fib}).
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_pff_strong_math_ind} \subpffstrongind}
+
+\subsubsection*{\Cref{exer_math_ind_second_order_linear} \answers}
+Hint: The inductive hypothesis is that $a_{n-1}=2(n-1)+3$ and $a_{n-2}=2(n-2)+3$.
+
+\subsubsection*{\Cref{exer_math_ind_second_order_powerof2} \answers}
+Hint: Copy and edit the proof in \Cref{exam_strong_math_ind_explicit}.  It is convenient to write $4 = 2^2$.
+
+
+
+
+
+
+
+
+
+ 
+
+
+

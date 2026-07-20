@@ -2,7 +2,7 @@
   <title>Quantifiers</title>
   <introduction>
     <p>
-      <xref ref="act_TorF">In</xref> there were statements involving variables in which the truth of the statement depended on whether the statement was about all values,
+      In <xref ref="act_TorF"></xref> there were statements involving variables in which the truth of the statement depended on whether the statement was about all values,
       some values, or no values of the variables.
       Each of the words
       <q>all</q>,
@@ -16,7 +16,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_set_game">
-    <title>\subsetgame</title>
+    <title>The Game SET</title>
     <p>
       Let's start with a puzzle.
     </p>
@@ -176,7 +176,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_quantifiers">
-    <title>\subquant</title>
+    <title>Quantifiers</title>
     <p>
       In the game SET\texttrademark,
       a set of three cards forms a SET if for each characteristic,
@@ -451,7 +451,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_pff_quants">
-    <title>\subpffquants</title>
+    <title>Proof Formats: $\forall$ and $\exists$</title>
     <p>
       How do we prove that a quantified statement is true?
     </p>
@@ -460,7 +460,7 @@
       all we need to do is provide an example.
       Here is the proof format.
     </p>
-    <proof>
+    <proof xml:id="pff_exists">
     <p>
       Prove: <m>\exists n ~ P(n)</m>.
     </p>
@@ -491,7 +491,7 @@
       <title>There is a graph with five vertices and five edges</title>
       <statement>
         <p>
-          <xref ref="act_TorF_again">Prove</xref>
+          Prove <xref ref="act_TorF_again"></xref>
           <xref ref="part_exists_5vert_5edge"/> that there is a graph that has five vertices and five edges.
         </p>
       </statement>
@@ -500,7 +500,7 @@
           The phrase
           <q>there is</q>
           indicates an existentially quantified statement,
-          so we <xref ref="pff_exists">follow</xref>.
+          so we follow <xref ref="pff_exists"></xref>.
         </p>
         <p>
           <em>Proof.</em> Consider the cycle <m>C_5</m>.
@@ -518,7 +518,7 @@
       <title>Checking every example</title>
       <statement>
         <p>
-          <xref ref="sec_mod_arith">In</xref>,
+          In <xref ref="sec_mod_arith"></xref>,
           we introduced the integers mod 5, <m>\mathbb{Z}_5=\{0,1,2,3,4\}</m>.
           In <m>\mathbb{Z}_5</m>,
           multiplication is defined by <m>a \otimes b = ab \fn{ mod } 5</m>.
@@ -603,7 +603,7 @@
       and it is not enough to just check some examples.
       Here is the proof format.
     </p>
-    <proof>
+    <proof xml:id="pff_forall">
     <p>
       Prove: <m>\forall n ~ P(n)</m>.
     </p>
@@ -638,7 +638,7 @@
         <p>
           Use the definition of even to prove that for every integer <m>q</m>,
           the integer <m>6q-10</m> is even.
-          (This proof <xref ref="sec_even_odd_divides">was</xref>
+          (This proof was <xref ref="sec_even_odd_divides"></xref>
           <xref ref="exer_linears_even_odd"></xref>
           <xref ref="part_6qminus10_is_even"/>.)
         </p>
@@ -648,7 +648,7 @@
           The phrase
           <q>for every</q>
           indicates a universally quantified statement,
-          so we <xref ref="pff_forall">follow</xref>.
+          so we follow <xref ref="pff_forall"></xref>.
         </p>
         <p>
           <em>Proof.</em> Let <m>q</m> be an integer.
@@ -674,7 +674,7 @@
               Note that the phrase
               <q>there is</q>
               indicates an existentially quantified statement,
-              so we <xref ref="pff_exists">use</xref>.
+              so we use <xref ref="pff_exists"></xref>.
               Prove that there is an integer that has exactly four positive divisors.
               <proof>
                 <p>
@@ -697,7 +697,7 @@
               Note that the phrase
               <q>for any</q>
               indicates a universally quantified statement,
-              so we <xref ref="pff_forall">use</xref>.
+              so we use <xref ref="pff_forall"></xref>.
               Prove <m>n \mid n!</m> for any integer <m>n</m>.
               <proof>
                 <p>
@@ -736,8 +736,8 @@
           <li xml:id="part_proof_forall_exists">
             <p>
               Copy the following proof.
-              Note that we <xref ref="pff_forall">use</xref> and,
-              within that format, we <xref ref="pff_exists">use</xref>.
+              Note that we use <xref ref="pff_forall"></xref> and,
+              within that format, we use <xref ref="pff_exists"></xref>.
               We have indented the lines to highlight the nesting.
               Prove that for any integer <m>n</m> there is an integer <m>m</m> such that <m>n+m=100</m>.
               <proof>
@@ -769,8 +769,8 @@
           <li xml:id="part_proof_exists_forall">
             <p>
               Copy the following proof.
-              Note that we <xref ref="pff_exists">use</xref> and,
-              within that format, we <xref ref="pff_forall">use</xref>.
+              Note that we use <xref ref="pff_exists"></xref> and,
+              within that format, we use <xref ref="pff_forall"></xref>.
               Notice that we are nesting the quantifiers in the opposite order from <xref ref="part_proof_forall_exists"/>.
               We have indented the lines to highlight the nesting.
               Prove that there exists an integer <m>z</m> such that <m>zn=z</m> for any integer <m>n</m>.
@@ -815,7 +815,7 @@
       </p>
     </remark>
     <p>
-      Here is an example <xref ref="rem_omit_last_sentence_proof_quants">using</xref>.
+      Here is an example using <xref ref="rem_omit_last_sentence_proof_quants"></xref>.
     </p>
     <example xml:id="exam_omit_last_sentence_proof_quants">
       <title>Omitting the concluding lines of a proof of a quantified statement</title>
@@ -837,12 +837,12 @@
     </example>
   </subsection>
   <subsection xml:id="sub_cex">
-    <title>\subcex</title>
+    <title>Negating Quantified Statements and Counterexamples</title>
     <p>
       How do we prove that a quantified statement is false?
       To answer this question,
       we need to recognize the negations of quantified statements.
-      You may want to <xref ref="act_TorF">revisit</xref>
+      You may want to revisit <xref ref="act_TorF"></xref>
       and <xref ref="act_TorF_again"></xref>
       to see if you can state these negations for yourself before reading on.
     </p>
@@ -884,7 +884,7 @@
           <ol>
             <li>
               <p>
-                Explain <xref ref="thm_neg_quants">why</xref>
+                Explain why <xref ref="thm_neg_quants"></xref>
                 <xref ref="part_neg_forall"/> is correct.
                 <solution>
                   <p>
@@ -903,7 +903,7 @@
             </li>
             <li>
               <p>
-                Explain <xref ref="thm_neg_quants">why</xref>
+                Explain why <xref ref="thm_neg_quants"></xref>
                 <xref ref="part_neg_exists"/> is correct.
                 <solution>
                   <p>
@@ -925,7 +925,7 @@
       </statement>
     </example>
     <p>
-      <xref ref="thm_neg_quants">By</xref>,
+      By <xref ref="thm_neg_quants"></xref>,
       to prove that a universally quantified statement is false,
       all it takes is one example where it is false.
       There is a special name for an example that shows that a universally quantified statement is false.
@@ -997,14 +997,14 @@
     <p>
       While a counterexample is enough to prove that a universally quantified statement is false,
       to prove that an existentially quantified statement is false,
-      we have to prove that a universally quantified statement is true <xref ref="pff_forall">using</xref>.
+      we have to prove that a universally quantified statement is true using <xref ref="pff_forall"></xref>.
     </p>
   </subsection>
   <subsection>
-    <title>Exercises <xref ref="sub_set_game">for</xref> \subsetgame</title>
+    <title>Exercises for <xref ref="sub_set_game"></xref> The Game SET</title>
     <introduction>
       <exercise xml:id="exer_set_game_online">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Play the SET\texttrademark<nbsp/> game online here: \url{https://buddyboardgames.com/set}. Invite friends to join you or play on your own.
@@ -1015,7 +1015,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_set_game_daily_puzzle">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Try to solve the Daily SET Puzzle at \url{https://www.setgame.com/set/puzzle}. Note that each time you find a SET, it is recorded in a table on the side.
@@ -1029,7 +1029,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_set_game_plane">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             A <term>plane</term> is a collection of four cards that they can be grouped in two pairs where each pair is
@@ -1040,7 +1040,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_set_game_cards_noset">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1060,7 +1060,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_set_game_count_sets_total">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1088,9 +1088,9 @@
       </exercise>
     </introduction>
     <subsubsection>
-      <title>Exercises <xref ref="sub_quantifiers">for</xref> \subquant</title>
+      <title>Exercises for <xref ref="sub_quantifiers"></xref> Quantifiers</title>
       <exercise xml:id="exer_quant_word_graphs">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the graph <m>G</m> drawn in <xref ref="fig_elephant_quants"></xref>.
@@ -1100,10 +1100,10 @@
             Briefly justify your answer.
           </p>
           <figure xml:id="fig_elephant_quants">
-            <caption>The graph <m>G</m> <xref ref="sec_quant_cex">for</xref> <xref ref="exer_quant_word_graphs"></xref>.</caption>
+            <caption>The graph <m>G</m> for <xref ref="sec_quant_cex"></xref> <xref ref="exer_quant_word_graphs"></xref>.</caption>
             <image width="60%">
               <latex-image>
-                <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                <xi:include href="Tikz/elephant.tikz" parse="text"/>
               </latex-image>
             </image>
           </figure>
@@ -1132,7 +1132,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_quant_coprime">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             For each statement,
@@ -1159,7 +1159,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equals_own_sq_predicate">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             For any integer <m>n</m>, the statement <m>S(n)</m> means that <m>n^2=n</m>.
@@ -1191,7 +1191,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equals_own_sq_quants">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             For any integer <m>n</m>, the statement <m>T(n)</m> means that <m>n^2>n</m>.
@@ -1218,7 +1218,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_list_integers_true">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For any integer <m>n</m>,
@@ -1259,7 +1259,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_quants">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1300,7 +1300,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_quants_not_distribute_or">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Give an example of predicates <m>P(n)</m> and <m>Q(n)</m> such that <m>\forall n (P(n) \lor Q(n))</m> is true,
@@ -1309,7 +1309,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_follows_social_media">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             The predicate <m>F(a,b)</m> means that person <m>a</m> follows person <m>b</m> on social media.
@@ -1336,12 +1336,12 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_quants">for</xref> \subpffquants</title>
+      <title>Exercises for <xref ref="sub_pff_quants"></xref> Proof Formats: $\forall$ and $\exists$</title>
       <exercise xml:id="exer_easy_proofs_exists">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="pff_exists">Use</xref>
+            Use <xref ref="pff_exists"></xref>
             to prove each of the following statements.
             <ol>
               <li>
@@ -1369,7 +1369,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_all_odd_degree">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             In the graph <m>G</m> drawn in <xref ref="fig_all_odd_degree"></xref>,
@@ -1380,17 +1380,17 @@
             <caption>The graph <m>G</m> in <xref ref="sec_quant_cex"></xref> <xref ref="exer_all_odd_degree"></xref>.</caption>
             <image width="60%">
               <latex-image>
-                <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                <xi:include href="Tikz/all_odd_verts.tikz" parse="text"/>
               </latex-image>
             </image>
           </figure>
         </statement>
       </exercise>
       <exercise xml:id="exer_easy_proofs_forall">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="pff_forall">Use</xref>
+            Use <xref ref="pff_forall"></xref>
             to prove each of the following statements.
             <ol>
               <li>
@@ -1408,27 +1408,27 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_exists_forall">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <xref ref="pff_forall">Use</xref>
+            Use <xref ref="pff_forall"></xref>
             and <xref ref="pff_exists"></xref>
             to prove that there is an integer <m>z</m> such that <m>n+z=n</m> for any integer <m>n</m>.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_rational_soln">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <xref ref="pff_forall">Use</xref>
+            Use <xref ref="pff_forall"></xref>
             and <xref ref="pff_exists"></xref>
             to prove that the equation <m>2n+1=k</m> has a rational solution for any integer <m>k</m>.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_pff_quants">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1454,9 +1454,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_cex">for</xref> \subcex</title>
+      <title>Exercises for <xref ref="sub_cex"></xref> Negating Quantified Statements and Counterexamples</title>
       <exercise xml:id="exer_cex_graphs">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Each of the following statements is false.
@@ -1494,7 +1494,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_cex_numberthy">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Each of the following statements is false.
@@ -1525,7 +1525,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_cex_bs">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Each of the following statements is false.
@@ -1551,7 +1551,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_neg_numberthy">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Each of the following statements is false.
@@ -1584,7 +1584,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_rearrange_3letter_word">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1606,7 +1606,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_cex">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1645,7 +1645,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_irregular_graphs">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Let <m>G</m> be a graph with <m>n \ge 2</m> vertices.
@@ -1678,7 +1678,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_cex_gcd">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Each of the following statements is false.
@@ -1836,7 +1836,7 @@
     <subsubsection>
       <title><xref ref="exer_all_odd_degree"></xref> Select Answers and Hints</title>
       <p>
-        Hint: Copy and <xref ref="tab_all_odd_deg">complete</xref>.
+        Hint: Copy and complete <xref ref="tab_all_odd_deg"></xref>.
       </p>
       <table xml:id="tab_all_odd_deg">
         <title>Checking that every vertex of the graph <m>G</m> from <xref ref="fig_all_odd_degree"></xref> has odd degree</title>
@@ -1963,7 +1963,7 @@
         </li>
         <li>
           <p>
-            Hint: Look <xref ref="exam_chromatic_K4_C5">at</xref>
+            Hint: Look at <xref ref="exam_chromatic_K5_C5"></xref>
             <xref ref="part_chromatic_K4"/>.
             That is not a counterexample,
             but you can generalize to find a counterexample.
@@ -2007,7 +2007,7 @@
         </li>
         <li>
           <p>
-            Hint: <xref ref="thm_demorgans">Use</xref>.
+            Hint: Use <xref ref="thm_demorgans"></xref>.
           </p>
         </li>
         <li>

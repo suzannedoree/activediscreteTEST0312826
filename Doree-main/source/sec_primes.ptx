@@ -10,7 +10,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_primes">
-    <title>\subprimes</title>
+    <title>Primes and Composites</title>
     <activity xml:id="act_viz_divisors">
       <title>Visualizing divisors</title>
       <p>
@@ -338,13 +338,13 @@
           or seven since we crossed out all the multiples of two,
           three, five,
           or seven.
-          <xref ref="thm_show_is_prime">By</xref>
+          By <xref ref="thm_show_is_prime"></xref>
           <xref ref="part_only_check_prime_divisors"/>,
           each of these integers is not divisible by four, six, eight,
           or 10 because two was not a divisor and is not divisible by nine because three was not a divisor.
           That is, each of these integers are not divisible by <m>2, 3, 4, 5, 6, 7, 8, 9</m>,
           or <m>10</m>.
-          <xref ref="thm_show_is_prime">By</xref>
+          By <xref ref="thm_show_is_prime"></xref>
           <xref ref="part_only_check_to_sqrtn"/> and since <m>\sqrt{100} = 10</m>,
           each of these remaining integers must be prime.
         </p>
@@ -397,7 +397,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_prime_fact">
-    <title>\subprimefact</title>
+    <title>Prime Factorization</title>
     <p>
       Another reason why primes are important is that they are the multiplicative building blocks of all integers in the sense that every natural number <m>n > 1</m> can be written as the product of prime numbers.
       To see why, let's see what happens if we factor an integer as much as possible.
@@ -431,14 +431,14 @@
           <caption>A factor tree for the integer <m>120=2^3 \cdot 3 \cdot 5</m>.</caption>
           <image width="60%">
             <latex-image>
-              <xi:include href="Tikz/smiley.tikz" parse="text"/>
+              <xi:include href="Tikz/prime_fact_120.tikz" parse="text"/>
             </latex-image>
           </image>
         </figure>
       </statement>
     </example>
     <p>
-      <xref ref="exam_factor120">In</xref>, we wrote
+      In <xref ref="exam_factor120"></xref>, we wrote
       <me>
         120 = 2 \cdot 2 \cdot 3 \cdot 2 \cdot 5 = 2^3 \cdot 3 \cdot 5
       </me>.
@@ -597,7 +597,7 @@
                     <me>
                       75^5=(3\cdot5^2)^5 =3^5 \cdot \left(5^2\right)^5 = 3^5\cdot 5^{10}
                     </me>.
-                    Note that we <xref ref="thm_simplify_exp">used</xref>
+                    Note that we used <xref ref="thm_simplify_exp"></xref>
                     to simplify <m>\left(5^2\right)^5=5^{10}</m>.
                   </p>
                 </solution>
@@ -646,7 +646,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_count_divisors">
-    <title>\subcountdiv</title>
+    <title>Detour: Listing and Counting Divisors</title>
     <p>
       In the Lockers Puzzle <xref ref="act_lockers"/>,
       as solved in <xref ref="exam_open_lockers"></xref>,
@@ -1196,7 +1196,7 @@
                 Explain.
                 <solution>
                   <p>
-                    <xref ref="exam_list_divisors_from_prime_fact">In</xref>
+                    In <xref ref="exam_list_divisors_from_prime_fact"></xref>
                     <xref ref="part_list_div16"/>,
                     we see that the positive divisors of
                     <m>16 = 2^4</m> have a prime factorization of the form <m>2^a</m> where <m>a=0,1,2,3,4</m>.
@@ -1212,7 +1212,7 @@
                 Explain.
                 <solution>
                   <p>
-                    <xref ref="exam_list_divisors_from_prime_fact">In</xref>
+                    In <xref ref="exam_list_divisors_from_prime_fact"></xref>
                     <xref ref="part_list_div50"/>,
                     we see that the positive divisors
                     <m>50 = 2 \cdot 5^2</m> have a prime factorization of the form
@@ -1230,7 +1230,7 @@
                 Explain.
                 <solution>
                   <p>
-                    <xref ref="exam_list_divisors_from_prime_fact">In</xref>
+                    In <xref ref="exam_list_divisors_from_prime_fact"></xref>
                     <xref ref="part_list_div72"/>,
                     we see that the positive divisors of
                     <m>72 = 2^3 \cdot 3^2</m> have a prime factorization of the form <m>2^a\cdot 3^b</m> where
@@ -1248,7 +1248,7 @@
                 Explain.
                 <solution>
                   <p>
-                    <xref ref="exam_list_divisors_from_prime_fact_600">In</xref>,
+                    In <xref ref="exam_list_divisors_from_prime_fact_600"></xref>,
                     we see that the positive divisors of
                     <m>600 = 2^3 \cdot 3 \cdot 5^2</m> have a prime factorization of the form
                     <m>2^a \cdot 3^b \cdot 5^c</m> where <m>a=0,1,2,3</m>,
@@ -1304,7 +1304,7 @@
       </statement>
     </theorem>
     <p>
-      We can <xref ref="thm_list_count_div_from_prime_fact">use</xref>
+      We can use <xref ref="thm_list_count_div_from_prime_fact"></xref>
       to find examples of integers with a certain number of divisors.
     </p>
     <example xml:id="exam_int_10div">
@@ -1318,7 +1318,7 @@
                 Describe the possible prime factorizations of an integer <m>n</m> that has exactly 10 positive divisors.
                 <solution>
                   <p>
-                    <xref ref="thm_list_count_div_from_prime_fact">By</xref>,
+                    By <xref ref="thm_list_count_div_from_prime_fact"></xref>,
                     we are looking for an integer with prime factorization
                     <me>
                       n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}
@@ -1360,9 +1360,9 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_primes">for</xref> \subprimes</title>
+      <title>Exercises for <xref ref="sub_primes"></xref> Primes and Composites</title>
       <exercise xml:id="exer_twin_primes">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/> If <m>p</m> is prime and <m>p+2</m> is also prime,
@@ -1373,7 +1373,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_101_110_prime">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/> Consider the integers
@@ -1420,7 +1420,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_sieve">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -1442,10 +1442,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_extending_sieve">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <nbsp/> <xref ref="exam_sieve">In</xref>,
+            <nbsp/> In <xref ref="exam_sieve"></xref>,
             we found all primes less than 100.
             The only prime divisors we used to cross out numbers were two,
             three, five,
@@ -1480,7 +1480,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_mersenne_primes">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/> As we saw in <xref ref="act_prime_composite"></xref><xref ref="part_mersenne_was_mistaken"/>, Mersenne conjectured that integers of the form <m>2^p-1</m> are prime whenever <m>p</m> is prime.
@@ -1505,7 +1505,7 @@
               <li>
                 <p>
                   Prove that Mersenne was mistaken by finding a prime <m>p</m> where <m>2^p-1</m> is a composite.
-                  Yes, this question <xref ref="act_prime_composite">repeats</xref>
+                  Yes, this question repeats <xref ref="act_prime_composite"></xref>
                   <xref ref="part_mersenne_was_mistaken"/>.
                 </p>
               </li>
@@ -1521,7 +1521,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_consecutive_composites">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1551,7 +1551,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_primes">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1582,7 +1582,7 @@
         </statement>
       </exercise>
       <exercise>
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Go to \url{https://tinyurl.com/monsters100}. Explain how the monsters for 6, 8, and 9 are built from the prime monsters.
@@ -1596,7 +1596,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_divisor_plot">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Go to \url{http://www.divisorplot.com/} and look at the divisor plot.
@@ -1625,7 +1625,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_divides_graph_1to100">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Consider the graph <m>G</m> whose vertices are
@@ -1647,7 +1647,7 @@
                 <p>
                   Recall that a <term>leaf</term> is a vertex of degree one.
                   How many leaves does <m>G</m> have?
-                  You may want to look <xref ref="exam_sieve">at</xref>.
+                  You may want to look at <xref ref="exam_sieve"></xref>.
                   Again, justify your answer.
                 </p>
               </li>
@@ -1656,7 +1656,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_zero_div_mod_composite">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/> Explain why for any composite <m>n</m>,
@@ -1671,7 +1671,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_fermat_little">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             In this exercise, we explore <m>a^n \fn{ mod } n</m>.
@@ -1716,9 +1716,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_prime_fact">for</xref> \subprimefact</title>
+      <title>Exercises for <xref ref="sub_prime_fact"></xref> Prime Factorization</title>
       <exercise xml:id="exer_factor_trees">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use a factor tree to find the prime factorization of each integer.
@@ -1749,7 +1749,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prime_fact__powers">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1773,7 +1773,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prime_fact_25_">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             On this exercise, do not use computational technology.
@@ -1794,7 +1794,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_prime_fact">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1819,7 +1819,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prime_fact_sq_cube">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1866,7 +1866,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_squarefree">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/> An integer is <term>square-free</term>
@@ -1895,7 +1895,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_2part">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/> By the uniqueness of the prime factorization <xref ref="thm_FTOArith"/>,
@@ -1927,9 +1927,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_count_divisors">for</xref> \subcountdiv</title>
+      <title>Exercises for <xref ref="sub_count_divisors"></xref> Detour: Listing and Counting Divisors</title>
       <exercise xml:id="exer_list_divisors_1or2_primes">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/> Make a table as in <xref ref="exam_list_divisors_from_prime_fact"></xref>
@@ -1956,7 +1956,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_countdiv_no_list">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             In this exercise,
@@ -1989,7 +1989,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_int_3or4_div">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Primes have exactly two positive divisors.
@@ -2013,7 +2013,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_integers_7or8_divisors">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -2038,7 +2038,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_table_divisors_3primes">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             On this exercise, do not use computational technology.
@@ -2061,7 +2061,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_list_count_div">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -2086,7 +2086,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_integers_12divisors">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -2201,7 +2201,7 @@
         <li>
           <p>
             Hint: three, seven, and 21 are prime
-            (<xref ref="exam_sieve">see</xref>).
+            (see <xref ref="exam_sieve"></xref>).
             For 127 check if it is a multiple of two,
             three, five, seven, and 11.
           </p>

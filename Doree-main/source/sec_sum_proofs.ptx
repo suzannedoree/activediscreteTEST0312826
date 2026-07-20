@@ -16,7 +16,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_pff_sum_proofs_induction">
-    <title>\subpffsumproofsind</title>
+    <title>Proof Format: Special Case of Mathematical Induction for Proving Sum and Product Formulas</title>
     <p>
       We can use mathematical induction to prove explicit formulas for summations and products.
       We begin with the proof format for a summation.
@@ -172,7 +172,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_pff_comb_sums">
-    <title>\subpffcombsums</title>
+    <title>Proof Format: Combinatorial Proof of Sums</title>
     <p>
       We can use mathematical induction to prove the explicit formula of a sum of the form <m>\displaystyle \sum_{k=s}^na_k=f(n)</m>,
       but the recursive step of these proofs is based on the fact that the terms <m>a_k</m> do not depend on the upper limit <m>n</m>.
@@ -184,7 +184,7 @@
       This extended proof format is especially useful for proofs involving binomial coefficients, since,
       by definition, they count objects.
     </p>
-    <proof>
+    <proof xml:id="pff_comb_proof_sum">
     <p>
       Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m> where the terms <m>a_k</m> may depend on <m>n</m>,
       prove that <m>\displaystyle \sum_{k=s}^na_k=f(n)</m> for <m>n \ge s</m>.
@@ -269,7 +269,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_special_sums">
-    <title>\subspecialsum</title>
+    <title>Detour: Special Sums</title>
     <p>
       We have seen a variety of specific summations that have an explicit formula.
       In this section,
@@ -324,7 +324,7 @@
             <p>
               In the Handshakes puzzle <xref ref="act_handshakes"/>,
               we saw a formula for the sum of the first <m>n</m> integers,
-              <xref ref="thm_hs">namely</xref>, which says
+              namely <xref ref="thm_hs"></xref>, which says
               <me>
                 \sum_{k=1}^nk=\frac{n(n+1)}{2}
               </me>.
@@ -356,7 +356,7 @@
       </p>
     </activity>
     <p>
-      Make sure you <xref ref="act_special_sums">complete</xref>
+      Make sure you complete <xref ref="act_special_sums"></xref>
       because we are about to reveal many of the answers.
     </p>
     <example xml:id="exam_finite_geom_sum">
@@ -511,7 +511,7 @@
     </theorem>
     <p>
       We have seen the sum of the first <m>n</m> integers, the handshake numbers,
-      in many places starting <xref ref="act_handshakes">with</xref>.
+      in many places starting with <xref ref="act_handshakes"></xref>.
       There are also formulas for the sum of the first <m>n</m> squares and cubes.
     </p>
     <theorem xml:id="thm_sum_formula_polys">
@@ -561,7 +561,7 @@
                 Evaluate <m>\displaystyle \sum_{k=1}^{10}k^2=1 + 4 + 9 + \ldots + 100</m>
                 <solution>
                   <p>
-                    <xref ref="thm_sum_formula_polys">By</xref>
+                    By <xref ref="thm_sum_formula_polys"></xref>
                     <xref ref="part_sum_squares"/> with <m>n=10</m> we have
                     <me>
                       \sum_{k=1}^{10}k^2 = \frac{10(10+1)(2(10)+1)}{6} = \frac{(10)(11)(21)}{6} = 385
@@ -575,7 +575,7 @@
                 Evaluate <m>\displaystyle \sum_{k=1}^{10}k= 1 + 2 + 3 + \ldots + 10</m>
                 <solution>
                   <p>
-                    <xref ref="thm_sum_formula_polys">By</xref>
+                    By <xref ref="thm_sum_formula_polys"></xref>
                     <xref ref="part_sum_hs"/> with <m>n=10</m> we have
                     <me>
                       \sum_{k=1}^{10}k= \frac{10(10+1)}{2} = \frac{(10)(11)}{2} = 55
@@ -589,7 +589,7 @@
                 Evaluate <m>\displaystyle \sum_{k=1}^{10}1=\underbrace{1+1+\ldots+1}_{10 \text{ times } }</m>
                 <solution>
                   <p>
-                    <xref ref="thm_sum_formula_polys">By</xref>
+                    By <xref ref="thm_sum_formula_polys"></xref>
                     <xref ref="part_sum_constant"/> with <m>n=10</m> we have <m>\displaystyle \sum_{k=1}^{10}1=10</m>.
                     Not sure we really needed a formula here.
                   </p>
@@ -621,7 +621,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_fraction_algebra">
-    <title>\subfracalg</title>
+    <title>Algebra: Fraction Arithmetic</title>
     <p>
       Some of our summation formulas involve fractions.
       Let's review fraction arithmetic.
@@ -652,7 +652,7 @@
                 we need the two fractions to have the same denominator
                 (<term>common denominator</term>).
                 If two fractions have different denominators,
-                we can replace one or both fractions with equivalent fractions that have a common denominator <xref ref="thm_equal_fractions">using</xref>.
+                we can replace one or both fractions with equivalent fractions that have a common denominator using <xref ref="thm_equal_fractions"></xref>.
               </p>
             </li>
           </ol>
@@ -804,7 +804,7 @@
                 <m>\displaystyle \frac{1}{2} \cdot \frac{5}{6}</m>.
                 <solution>
                   <p>
-                    <xref ref="defn_multiplying_fractions">By</xref>,
+                    By <xref ref="defn_multiplying_fractions"></xref>,
                     <me>
                       \frac{1}{2} \cdot \frac{5}{6} = \frac{(1)(5)}{(2)(6)} = \frac{5}{12}
                     </me>.
@@ -830,7 +830,7 @@
                 Write as one fraction and simplify <m>\displaystyle 5 \cdot \frac{3}{10}</m>.
                 <solution>
                   <p>
-                    To <xref ref="defn_multiplying_fractions">use</xref>,
+                    To use <xref ref="defn_multiplying_fractions"></xref>,
                     we need to write 5 as the fraction <m>\frac{5}{1}</m>.
                     Next,
                     <me>
@@ -909,10 +909,10 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_sum_proofs_induction">for</xref>
-      \subpffsumproofsind</title>
+      <title>Exercises for <xref ref="sub_pff_sum_proofs_induction"></xref>
+      Proof Format: Special Case of Mathematical Induction for Proving Sum and Product Formulas</title>
       <exercise xml:id="exer_math_ind_sum_odds">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n(2k -1)=n^2</m> for <m>n\ge 1</m>.
@@ -920,7 +920,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_evens">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{j=1}^n(2j) = n(n+1)</m> for <m>n \ge 1</m>.
@@ -928,7 +928,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_factorials">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk(k!) = (n+1)!-1</m> for <m>n\ge 1</m>.
@@ -937,7 +937,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_geom_sum5">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n4 \cdot 5^k = 5^{n+1}-1</m> for <m>n\ge 1</m>.
@@ -945,7 +945,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_prod_1plus_recip">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \prod_{k=1}^n \left(1 + \frac{1}{k}\right) = n+1</m> for <m>n\ge 1</m>.
@@ -953,7 +953,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_prod_evens">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \prod_{j=1}^n(2j) = 2^nn!</m> for <m>n \ge 1</m>.
@@ -961,7 +961,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_sum_firstn_Fib_proof">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use mathematical induction to prove that
@@ -970,7 +970,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_4kplus1">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n(4k-1) = n(2n+1)</m> for <m>n\ge 0</m>.
@@ -978,7 +978,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_recip_powers2">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=0}^n\frac{1}{2^k} = 2 - \frac{1}{2^n}</m> for <m>n \ge 1</m>.
@@ -986,7 +986,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_sum_firstn_Fib_sq_proof">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that
@@ -995,7 +995,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_sum_alt_fib_proof">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that
@@ -1004,7 +1004,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_multpowers2">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk \cdot 2^k = (n-1)2^{n+1}+2</m> for <m>n \ge 1</m>.
@@ -1012,7 +1012,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_alt_sq">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that
@@ -1023,27 +1023,27 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_squares">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk^2=\frac{n(n+1)(2n+1)}{6}</m> for <m>n\ge 1</m>.
-            This exercise <xref ref="thm_sum_formula_polys">proves</xref>
+            This exercise proves <xref ref="thm_sum_formula_polys"></xref>
             <xref ref="part_sum_squares"/>.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_cubes">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk^3=\left(\frac{n(n+1)}{2}\right)^2</m> for <m>n\ge 1</m>.
-            This exercise <xref ref="thm_sum_formula_polys">proves</xref>
+            This exercise proves <xref ref="thm_sum_formula_polys"></xref>
             <xref ref="part_sum_cubes"/>.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_poly">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that
@@ -1054,7 +1054,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_frac">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that
@@ -1065,7 +1065,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_hs_recip">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n\frac{2}{k(k+1)}=\frac{2n}{n+1}</m> for <m>n\ge 1</m>.
@@ -1073,7 +1073,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_sum_proofs">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1093,22 +1093,22 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_geom_sum_formula">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Use mathematical induction to prove that
           </p>
           <p>
             <m>\displaystyle \sum_{k=0}^nar^k=a\left(\frac{r^{n+1}-1}{r-1}\right)</m> for <m>n \ge 0</m>.
-            This exercise <xref ref="thm_geom_sum_finite">proves</xref>.
+            This exercise proves <xref ref="thm_geom_sum_finite"></xref>.
           </p>
         </statement>
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_comb_sums">for</xref> \subpffcombsums</title>
+      <title>Exercises for <xref ref="sub_pff_comb_sums"></xref> Proof Format: Combinatorial Proof of Sums</title>
       <exercise xml:id="exer_count_cats_dogs">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Suppose there are <m>n</m> cats and <m>n</m> dogs and we want to choose <m>n</m> animals.
@@ -1135,7 +1135,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_comb_pf_sum_binom_sq">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Give a combinatorial proof that
@@ -1149,7 +1149,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_comb_pf_sum_weighted_binom_sq">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Give a combinatorial proof that
@@ -1163,7 +1163,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_comb_pf_sums">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1185,7 +1185,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_comb_pf_sum_hs">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Give a combinatorial proof that
@@ -1202,11 +1202,11 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_comb_pf_sum_hockey_stick">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Give a combinatorial proof
-            (<xref ref="pff_comb_proof_sum">using</xref>)
+            (using <xref ref="pff_comb_proof_sum"></xref>)
             that
             <me>
               \sum_{k=m}^n \binom{k}{m} = \binom{n+1}{m+1}
@@ -1222,7 +1222,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_comb_pf_factorials">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Consider the set <m>S = \{0, 1, 2, \ldots, n\}</m>.
@@ -1259,10 +1259,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_fib_in_pascal">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
-            <xref ref="act_squares_dominoes">In</xref>,
+            In <xref ref="act_squares_dominoes"></xref>,
             we saw that the number of ways to tile a
             <m>1 \times n</m> board using <m>1 \times 1</m> squares and
             <m>1 \times 2</m> dominoes was <m>F_{n+1}</m>,
@@ -1304,12 +1304,12 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_special_sums">for</xref> \subspecialsum</title>
+      <title>Exercises for <xref ref="sub_special_sums"></xref> Detour: Special Sums</title>
       <exercise xml:id="exer_eval_sum_formulas_geom">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="thm_geom_sum_finite">Use</xref> to evaluate each sum.
+            Use <xref ref="thm_geom_sum_finite"></xref> to evaluate each sum.
             <ol>
               <li>
                 <p>
@@ -1326,10 +1326,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_eval_sum_formulas_polys">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="thm_sum_formula_polys">Use</xref> to evaluate each sum.
+            Use <xref ref="thm_sum_formula_polys"></xref> to evaluate each sum.
             <ol>
               <li>
                 <p>
@@ -1351,17 +1351,17 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_using_sum_formulas_polys_lin">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <xref ref="thm_linearity_sums">Use</xref>
+            Use <xref ref="thm_linearity_sums"></xref>
             and <xref ref="thm_sum_formula_polys"></xref>
             to evaluate <m>\displaystyle \sum_{k=1}^n(2k+1)(k+3)</m> and write your answer in factored form.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_sum_prod_powersofx">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use summation formulas to simplify each of the following expressions.
@@ -1382,7 +1382,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_special_sums">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1408,7 +1408,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_perfect">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             The integer <m>b</m> is a <term>proper divisor</term>
@@ -1468,7 +1468,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_infinite_geom_sum">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             For readers who have studied calculus,
@@ -1494,7 +1494,7 @@
                   Evaluate <m>\displaystyle \sum_{k=1}^\infty (ar^k)</m> when <m>-1 \lt r \lt 1</m>.
                   Simplify your answer,
                   including multiplying the top and bottom of the your limit by -1
-                  (<xref ref="thm_equal_fractions">using</xref>).
+                  (using <xref ref="thm_equal_fractions"></xref>).
                 </p>
               </li>
             </ol>
@@ -1503,10 +1503,10 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_fraction_algebra">for</xref>
-      \subfracalg</title>
+      <title>Exercises for <xref ref="sub_fraction_algebra"></xref>
+      Algebra: Fraction Arithmetic</title>
       <exercise xml:id="exer_add_sub_fractions">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             On this problem,
@@ -1529,7 +1529,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_add_sub_fractions_withn">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1551,7 +1551,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_fraction_arith">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1687,7 +1687,7 @@
       <p>
         Hints: Make sure to choose <m>n</m> animals in total.
         If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
-        Look <xref ref="thm_sym_arith_triangle">at</xref>.
+        Look at <xref ref="thm_sym_arith_triangle"></xref>.
       </p>
     </subsubsection>
     <subsubsection>
@@ -1695,7 +1695,7 @@
       <p>
         Hints: Make sure to choose <m>n</m> animals in total.
         If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
-        Also, look <xref ref="exer_count_cats_dogs">at</xref>
+        Also, look at <xref ref="exer_count_cats_dogs"></xref>
         <xref ref="part_picked_fav_cat"/>.
       </p>
     </subsubsection>
@@ -1739,7 +1739,7 @@
       <ol>
         <li>
           <p>
-            Hint: <xref ref="thm_geom_sum_finite">Use</xref>.
+            Hint: Use <xref ref="thm_geom_sum_finite"></xref>.
           </p>
         </li>
         <li>

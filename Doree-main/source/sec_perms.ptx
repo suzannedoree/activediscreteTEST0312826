@@ -13,7 +13,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_permutations">
-    <title>\subperms</title>
+    <title>Permutations</title>
     <p>
       Permutations are used in many applications.
       For example,
@@ -120,7 +120,7 @@
                   <caption>The dot diagram and unlabeled dot diagram for <m>\sigma = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4  2 \amp  3 \amp  4 \amp  1 \end{array}  \right)</m>.</caption>
                   <image width="60%">
                     <latex-image>
-                      <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                      <xi:include href="Tikz/perm_1234_sigma.tikz" parse="text"/>
                     </latex-image>
                   </image>
                 </figure>
@@ -146,7 +146,7 @@
                   <caption>The dot diagram and unlabeled dot diagram for <m>i = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4  1 \amp  2 \amp  3 \amp  4 \end{array}  \right)</m>.</caption>
                   <image width="60%">
                     <latex-image>
-                      <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                      <xi:include href="Tikz/perm_1234_identity.tikz" parse="text"/>
                     </latex-image>
                   </image>
                 </figure>
@@ -172,7 +172,7 @@
       </statement>
     </example>
     <p>
-      <xref ref="exam_perm_fns1234">In</xref>,
+      In <xref ref="exam_perm_fns1234"></xref>,
       we drew an unlabeled version of the dot diagrams where we omitted the vertex labels (always 1, 2, <ellipsis/> <m>n</m> from top to bottom) and the arrows
       (always left-to-right).
       The unlabeled version can save writing and so we use it in our examples,
@@ -268,7 +268,7 @@
                     <caption>The unlabeled dot diagram used to compute <m>\sigma \circ \tau</m> from <xref ref="exam_composing_perms"></xref> <xref ref="part_sigma_of_tau"/>.</caption>
                     <image width="60%">
                       <latex-image>
-                        <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                        <xi:include href="Tikz/perm_comp_sigma_of_tau.tikz" parse="text"/>
                       </latex-image>
                     </image>
                   </figure>
@@ -292,7 +292,7 @@
                     <caption>The unlabeled dot diagram used to compute <m>\tau \circ \sigma</m> from <xref ref="exam_composing_perms"></xref> <xref ref="part_tau_of_sigma"/>.</caption>
                     <image width="60%">
                       <latex-image>
-                        <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                        <xi:include href="Tikz/perm_comp_tau_of_sigma.tikz" parse="text"/>
                       </latex-image>
                     </image>
                   </figure>
@@ -313,7 +313,7 @@
                     <caption>The unlabeled dot diagram used to compute <m>\sigma \circ \sigma</m> from <xref ref="exam_composing_perms"></xref> <xref ref="part_sigma_sq"/>.</caption>
                     <image width="60%">
                       <latex-image>
-                        <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                        <xi:include href="Tikz/perm_comp_sigma_sq.tikz" parse="text"/>
                       </latex-image>
                     </image>
                   </figure>
@@ -335,7 +335,7 @@
                     <caption>The unlabeled dot diagram used to compute <m>\tau \circ \tau</m> from <xref ref="exam_composing_perms"></xref> <xref ref="part_tau_sq"/>.</caption>
                     <image width="60%">
                       <latex-image>
-                        <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                        <xi:include href="Tikz/perm_comp_tau_sq.tikz" parse="text"/>
                       </latex-image>
                     </image>
                   </figure>
@@ -399,7 +399,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_inverses">
-    <title>\subinverses</title>
+    <title>Inverse Functions</title>
     <p>
       How often have you done something on a computer,
       decided it was a mistake, and hit undo?
@@ -558,7 +558,7 @@
                   <caption>Calculating <m>\sigma^{-1} \circ \sigma</m> using dot diagrams.</caption>
                   <image width="60%">
                     <latex-image>
-                      <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                      <xi:include href="Tikz/perm_sigma_inv.tikz" parse="text"/>
                     </latex-image>
                   </image>
                 </figure>
@@ -706,7 +706,7 @@
     </theorem>
   </subsection>
   <subsection xml:id="sub_pff_unique">
-    <title>\subpffunique</title>
+    <title>Proof Format: Uniqueness</title>
     <p>
       How do we prove that a function
       <m>f: X \to Y</m> is one-to-one or that a function is invertible?
@@ -717,7 +717,7 @@
       Ironically, there are two different proof formats for proving uniqueness.
       The first is direct.
     </p>
-    <proof>
+    <proof xml:id="pff_unique_direct">
       <p>
         (Uniqueness,
         direct) Prove: There is at most one <m>n</m> with <m>P(n)</m>.
@@ -747,7 +747,7 @@
       That is, we can prove if <m>P(n_1)</m> and <m>P(n_2)</m>,
       then <m>n_1=n_2</m>.
     </p>
-    <proof>
+    <proof xml:id="pff_unique_indirect">
       <p>
         (Uniqueness,
         indirect) Prove: There is at most one <m>n</m> with <m>P(n)</m>.
@@ -816,7 +816,7 @@
     </activity>
     <p>
       Recall that the one-to-one property was the uniqueness part of the definition of pairing <xref ref="defn_pairing"/>.
-      Thus, we can <xref ref="pff_unique_indirect">use</xref>
+      Thus, we can use <xref ref="pff_unique_indirect"></xref>
       to prove that a function is one-to-one.
       Recall from <xref ref="defn_onetoone"></xref> that a function
       <m>f: X \to Y</m> is <term>one-to-one</term>
@@ -844,7 +844,7 @@
       <statement>
         <p>
           Prove that the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = 2n+1</m> is one-to-one,
-          <xref ref="rem_alt_defn_onetoone">using</xref>.
+          using <xref ref="rem_alt_defn_onetoone"></xref>.
         </p>
       </statement>
       <solution>
@@ -884,11 +884,11 @@
       that there is at least one <m>n</m> with <m>P(n)</m> and second,
       that there is at most one <m>n</m> with <m>P(n)</m>.
       The first proves existence,
-      which we can do <xref ref="pff_exists">using</xref>.
+      which we can do using <xref ref="pff_exists"></xref>.
       The second proves uniqueness,
-      which we can do directly <xref ref="pff_unique_direct">using</xref>.
+      which we can do directly using <xref ref="pff_unique_direct"></xref>.
     </p>
-    <proof>
+    <proof xml:id="pff_exists_unique">
       <p>
         Prove: <m>\exists ! n ~ P(n)</m>
       </p>
@@ -950,9 +950,9 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_permutations">for</xref> \subperms</title>
+      <title>Exercises for <xref ref="sub_permutations"></xref> Permutations</title>
       <exercise xml:id="exer_perm_rho">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the permutation with 2-line notation
@@ -975,7 +975,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_perm_compose_dg">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Calculate the composite <m>\delta \circ \gamma</m> where
@@ -1001,7 +1001,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_perms_compose">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use dot diagrams to compose the permutations written in 2-line notation.
@@ -1032,7 +1032,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_iterate_rho">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use dot diagrams to calculate <m>\rho^2</m> and <m>\rho^3</m> when
@@ -1044,7 +1044,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_iterations_perms">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Find an example of a nonidentity permutation on
@@ -1077,7 +1077,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_permutations">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1117,7 +1117,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_transpositions">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             A <term>transposition</term> is a permutation that only switches two elements.
@@ -1151,9 +1151,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_inverses">for</xref> \subinverses</title>
+      <title>Exercises for <xref ref="sub_inverses"></xref> Inverse Functions</title>
       <exercise xml:id="exer_perms_inverse">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use dot diagrams to calculate the inverse of each permutation.
@@ -1184,7 +1184,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_compose_fns_at3">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the functions <m>p:\mathbb{N} \to \mathbb{N}</m> defined by <m>p(n) = 10^n</m> and
@@ -1205,7 +1205,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_symmetric_group3">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1228,7 +1228,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_compose_bs_functions">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the functions <m>\fn{trim}: \mathbb{B}^* \to \mathbb{B}</m> defined by
@@ -1261,7 +1261,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_inverse_piecewise">
-        <title>\exerU inverse of piecewise function</title>
+        <title>Understand inverse of piecewise function</title>
         <statement>
           <p>
             Consider the function <m>f: \mathbb{N} \to \mathbb{N}</m> defined by
@@ -1286,7 +1286,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_iterates_linear">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1313,7 +1313,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_inverses">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1353,7 +1353,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_inverses_of_finite_order_fns">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Suppose <m>f:X \to X</m> is a bijection and, as usual,
@@ -1375,9 +1375,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_unique">for</xref> \subpffunique</title>
+      <title>Exercises for <xref ref="sub_pff_unique"></xref> Proof Format: Uniqueness</title>
       <exercise xml:id="exer_direct_unique">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Give a direct proof <xref ref="pff_unique_direct"/> that the equation <m>2x+3=a</m> has at most one integer solution.
@@ -1385,11 +1385,11 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_onetoone">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Prove that the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = n+ 3</m> is one-to-one,
-            <xref ref="rem_alt_defn_onetoone">using</xref>.
+            using <xref ref="rem_alt_defn_onetoone"></xref>.
           </p>
         </statement>
       </exercise>
@@ -1398,12 +1398,12 @@
           <p>
             {Understand} Prove there exists a unique rational solution to the equation
             <m>2x + a = 2b</m> for any integers <m>a</m> and <m>b</m>.
-            Hint: <xref ref="pff_exists_unique">Use</xref>.
+            Hint: Use <xref ref="pff_exists_unique"></xref>.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_pff_unique">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1428,7 +1428,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_div_alg_prove_uniqueness">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             In this exercise,

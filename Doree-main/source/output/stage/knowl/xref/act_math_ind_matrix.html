@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h2 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Matrix power proof by mathematical induction.</span>
+</h2>
+<div class="para logical">
+<div class="para"> </div>
+<ol class="decimal" id="act_math_ind_matrix-2-2">
+<li>
+<div class="para">For the matrix <span class="process-math">\(A = \left[ \begin{array}{cc} 1 \amp  1\\ 0 \amp  1 \end{array}  \right]\text{,}\)</span> in <a href="sec_matrix.html#exam_matrix_power" class="xref" data-knowl="./knowl/xref/exam_matrix_power.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.3.2: Pattern in matrix powers">Example 8.3.2</a> we conjectured that <span class="process-math">\(A^n=\left[ \begin{array}{cc} 1 \amp  n\\ 0 \amp  1 \end{array}  \right]\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span> Copy the following proof by mathematical induction justifying our conjecture. 
+<details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para">Write <span class="process-math">\(M_n=\left[ \begin{array}{cc} 1 \amp n\\ 0 \amp 1 \end{array} \right]\text{.}\)</span> Induct on <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_shear_power-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">First, when <span class="process-math">\(n=1\)</span> we have <span class="process-math">\(A^1 = A = \left[ \begin{array}{cc} 1 \amp 1\\ 0 \amp 1 \end{array} \right]\)</span> and also <span class="process-math">\(M_1=\left[ \begin{array}{cc} 1 \amp 1\\ 0 \amp 1 \end{array} \right]\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_shear_power-1-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Next, assume <span class="process-math">\(A^{n-1} = M_{n-1} = \left[ \begin{array}{cc} 1 \amp  n-1 \\ 0 \amp  1 \end{array}  \right]\)</span> for some integer <span class="process-math">\(n \ge 2\text{.}\)</span> Then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^n = AA^{n-1} =AM_{n-1} = \left[ \begin{array}{cc} 1 \amp  1\\ 0 \amp  1 \end{array}  \right]\left[ \begin{array}{cc} 1 \amp  n-1\\ 0 \amp  1 \end{array}  \right] = \left[ \begin{array}{cc} 1+0 \amp  (n-1)+1\\ 0+0 \amp  0+1 \end{array}  \right] = \left[ \begin{array}{cc} 1 \amp  n\\ 0 \amp  1 \end{array}  \right]=M_n
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_shear_power-1-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Proof 1"><a tabindex="-1" href="#part_shear_power-1-5" title="Copy heading and permalink for Proof 1" aria-label="Copy heading and permalink for Proof 1">🔗</a></div>
+</article></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_shear_power-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#part_shear_power" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">What was the inductive hypothesis (part we assumed)?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_math_ind_matrix-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#act_math_ind_matrix-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li>
+<div class="para">Explain the algebra step-by-step in the last line of the proof.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_math_ind_matrix-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 3"><a tabindex="-1" href="#act_math_ind_matrix-2-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">For the matrix <span class="process-math">\(A=\left[ \begin{array}{cc} 1 \amp  0 \\ 3 \amp  1 \end{array}  \right]\text{,}\)</span> in <a href="sec_matrix.html#act_matrix_mult_powers" class="xref" data-knowl="./knowl/xref/act_matrix_mult_powers.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.3.1: Matrix multiplication and powers">Activity 8.3.1</a> we conjectured that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/act_matrix_mult_powers.html ./knowl/xref/part_shear_power.html">
+\begin{equation*}
+A^n=\left[ \begin{array}{cc} 1 \amp  0 \\ 3n \amp  1 \end{array}  \right]
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(n \ge 1\text{.}\)</span> Prove this conjecture using mathematical induction by changing what needs to be changed in the proof form <a href="sec_matrix.html#part_shear_power" class="xref" data-knowl="./knowl/xref/part_shear_power.html" data-reveal-label="Reveal" data-close-label="Close" title="Item 1">Item 1</a>. Caution:  When you are evaluating <span class="process-math">\(M_{n-1}\)</span> be sure to put <span class="process-math">\((n-1)\)</span> in parentheses.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_math_ind_matrix-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 4"><a tabindex="-1" href="#act_math_ind_matrix-2-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_math_ind_matrix-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Activity 8.3.2: Matrix power proof by mathematical induction"><a tabindex="-1" href="#act_math_ind_matrix" title="Copy heading and permalink for Activity 8.3.2: Matrix power proof by mathematical induction" aria-label="Copy heading and permalink for Activity 8.3.2: Matrix power proof by mathematical induction">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec_matrix.html#act_math_ind_matrix">In Context</a></span>
+</body>
+</html>

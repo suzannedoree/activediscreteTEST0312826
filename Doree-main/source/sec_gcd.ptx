@@ -16,7 +16,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_gcd">
-    <title>\subgcd</title>
+    <title>Greatest Common Divisor</title>
     <p>
       We begin with the definition.
     </p>
@@ -210,7 +210,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_euclidean_alg">
-    <title>\subea</title>
+    <title>The Euclidean Algorithm</title>
     <p>
       The greatest common divisor is useful but difficult to compute directly,
       either by listing the divisors or by finding and using the prime factorizations.
@@ -270,8 +270,8 @@
       </statement>
     </theorem>
     <p>
-      We leave the proofs of these observations <xref ref="exer_gcd_extreme">for</xref><xref ref="part_proof_EAthm_stop"/> and <xref ref="exer_proof_EAthm_recursion"></xref>.
-      The algorithm repeatedly <xref ref="thm_Euclidean_algorithm">applies</xref>
+      We leave the proofs of these observations for <xref ref="exer_gcd_extreme"></xref><xref ref="part_proof_EAthm_stop"/> and <xref ref="exer_proof_EAthm_recursion"></xref>.
+      The algorithm repeatedly applies <xref ref="thm_Euclidean_algorithm"></xref>
       <xref ref="part_EAthm_recursion"/>,
       which by <xref ref="part_EAthm_smaller"/> gives smaller positive remainders at each step.
       After a finite number of steps, we are left with zero,
@@ -295,7 +295,7 @@
           </me>.
         </p>
         <p>
-          <xref ref="thm_Euclidean_algorithm">By</xref>
+          By <xref ref="thm_Euclidean_algorithm"></xref>
           <xref ref="part_EAthm_recursion"/>,
           it follows that <m>\fn{gcd}(240,100)=\fn{gcd}(100,40)</m>.
         </p>
@@ -306,7 +306,7 @@
           </me>.
         </p>
         <p>
-          <xref ref="thm_Euclidean_algorithm">By</xref>
+          By <xref ref="thm_Euclidean_algorithm"></xref>
           <xref ref="part_EAthm_recursion"/>,
           it follows that <m>\fn{gcd}(100,40)=\fn{gcd}(40,20)</m>.
         </p>
@@ -317,7 +317,7 @@
           </me>.
         </p>
         <p>
-          <xref ref="thm_Euclidean_algorithm">By</xref>
+          By <xref ref="thm_Euclidean_algorithm"></xref>
           <xref ref="part_EAthm_recursion"/> and <xref ref="part_EAthm_stop"/>,
           it follows that <m>\fn{gcd}(40,20)=\fn{gcd}(20,0)=20</m>.
         </p>
@@ -352,7 +352,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_coprime">
-    <title>\subcoprime</title>
+    <title>Coprime Integers</title>
     <p>
       Many of the applications of the greatest common divisor use coprimality.
       The Euclidean Algorithm provides an efficient way to check if two integers are coprime,
@@ -400,7 +400,7 @@
                     The divisors of 16 are <m>\pm1</m>,
                     <m>\pm2</m>, <m>\pm4</m>, <m>\pm8</m>, and <m>\pm16</m>.
                     Since <m>n</m> is odd, we know <m>2 \nmid n</m>.
-                    <xref ref="thm_show_is_prime">By</xref>
+                    By <xref ref="thm_show_is_prime"></xref>
                     <xref ref="part_only_check_prime_divisors"/>, it follows that no even integer divides <m>n</m>.
                     All divisors of 16 are even, except for <m>\pm1</m>.
                     Therefore, the only common divisors of 16 and <m>n</m> are <m>\pm1</m> and so <m>\fn{gcd}(16,n)=1</m>.
@@ -479,7 +479,7 @@
                 Calculate <m>\varphi(15)</m>
                 <solution>
                   <p>
-                    <xref ref="exam_coprime">By</xref>
+                    By <xref ref="exam_coprime"></xref>
                     <xref ref="part_coprime15"/> these circled integers from <xref ref="part_1to15_for_finding_phi"/> are coprime to 15.
                     Thus, the integers from one to 15 that are coprime to 15 are
                     <me>
@@ -656,9 +656,9 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_gcd">for</xref> \subgcd</title>
+      <title>Exercises for <xref ref="sub_gcd"></xref> Greatest Common Divisor</title>
       <exercise xml:id="exer_gcd_listing_divisors">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Calculate each greatest common divisor by listing the divisors and common divisors.
@@ -684,7 +684,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_coprime_listing_divisors">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Show each pair of integers is coprime by listing the divisors and common divisors.
@@ -710,7 +710,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_gcd_evens">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -718,7 +718,7 @@
               <li>
                 <p>
                   Give an example of two even integers whose greatest common divisor equals two.
-                  Do not use the same example <xref ref="exam_gcd_list_div">as</xref>.
+                  Do not use the same example as <xref ref="exam_gcd_list_div"></xref>.
                 </p>
               </li>
               <li xml:id="part_gcd_cex_evens">
@@ -737,7 +737,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_gcd_extreme">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Evaluate each greatest common divisor in terms of the positive integer <m>n</m> and explain your reasoning.
@@ -757,7 +757,7 @@
                   <m>\gcd(n,0)</m> Hint: For any nonzero integer <m>b</m> we have
                   <m>0 = b(0)</m> and so it follows that <m>b \mid 0</m>.
                   What does that tell you about the divisors of 0?
-                  This part <xref ref="thm_Euclidean_algorithm">proves</xref>
+                  This part proves <xref ref="thm_Euclidean_algorithm"></xref>
                   <xref ref="part_EAthm_stop"/>.
                 </p>
               </li>
@@ -766,14 +766,14 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_gcd72600">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
             <ol>
               <li xml:id="part_common_div72600">
                 <p>
-                  <xref ref="table_divisors72">Use</xref>
+                  Use <xref ref="table_divisors72"></xref>
                   and <xref ref="table_divisors600_pfform"></xref>
                   to list the common divisors of 72 and 600.
                   You may leave the divisors in prime-factored form.
@@ -789,7 +789,7 @@
         </statement>
       </exercise>
       <exercise xml:id="gcd_of_primes__cicadas">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -813,7 +813,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_gcd_with_prime">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -838,7 +838,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_gcd_from_prime_fact_examples">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/> Calculate each greatest common divisor using the prime factorization.
@@ -873,7 +873,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_gcd">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -908,7 +908,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_gcd_from_prime_fact_conjecture">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Explain how to find the greatest common divisor of two integers from their prime factorization.
@@ -929,7 +929,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_gcd_integer_points_on_line">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -964,7 +964,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_product_divides">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Consider the statement <m>Q</m>: For any positive integers <m>a</m><m>,b</m>,
@@ -997,7 +997,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_modn_units_conj">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/> An element <m>a</m> of
@@ -1005,7 +1005,7 @@
             if there is a solution of <m>a \otimes x = 1</m> in <m>\mathbb{Z}_n</m>.
             Note that zero cannot be a unit because
             <m>0 \otimes x = 0 \neq 1</m> and one is always a unit because <m>1 \otimes 1 = 1</m>.
-            <xref ref="sec_mod_arith">In</xref>
+            In <xref ref="sec_mod_arith"></xref>
             <xref ref="exer_modn_units_examples"></xref>,
             we calculated the examples in <xref ref="tab_units_modn"></xref>.
           </p>
@@ -1087,9 +1087,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_euclidean_alg">for</xref> \subea</title>
+      <title>Exercises for <xref ref="sub_euclidean_alg"></xref> The Euclidean Algorithm</title>
       <exercise xml:id="exer_ea_examples">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use the Euclidean Algorithm to calculate each greatest common divisor.
@@ -1115,7 +1115,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ea_fib">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             We saw the <term>Fibonacci</term>
@@ -1147,7 +1147,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_gcd_linears">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use the Euclidean Algorithm to calculate <c>gcd</c><m>(3n+2,2n+1)</m>,
@@ -1156,7 +1156,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_consec_coprime">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use the Euclidean Algorithm to show that any two consecutive positive integers are coprime.
@@ -1165,7 +1165,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_euclidean_alg">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1186,9 +1186,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_coprime">for</xref> \subcoprime</title>
+      <title>Exercises for <xref ref="sub_coprime"></xref> Coprime Integers</title>
       <exercise xml:id="exer_euler_phi28">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -1209,7 +1209,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_euler_phi17181920">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/> Evaluate each quantity using the method from <xref ref="exam_eulers_phi15"></xref>.
@@ -1239,7 +1239,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_extreme_phi">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1265,7 +1265,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_coprime">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1285,14 +1285,14 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_conj_phi_powerp">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
             <ol>
               <li>
                 <p>
-                  Look <xref ref="act_eulers_phi_function">at</xref>
+                  Look at <xref ref="act_eulers_phi_function"></xref>
                   <xref ref="part_phi_power2"/> and <xref ref="part_phi_power3"/>.
                   Generalize your conjecture to evaluate
                   <m>\varphi(p^k)</m> when <m>p</m> is prime.
@@ -1309,7 +1309,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_conj_phi_powerp">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/> Justify your conjecture from <xref ref="exer_conj_phi_powerp"></xref> by counting.

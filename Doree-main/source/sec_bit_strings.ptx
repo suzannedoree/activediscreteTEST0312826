@@ -19,7 +19,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_bitstrings">
-    <title>\subbitstrings</title>
+    <title>Bit Strings</title>
     <p>
       We start with a definition.
     </p>
@@ -194,10 +194,10 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_count_bit_strings">
-    <title>\subcountbitstrings</title>
+    <title>Number of Bit Strings</title>
     <p>
       One special situation that is counted using steps is the number of bit strings of length <m>n</m>.
-      Make sure that you have <xref ref="act_listing_bit_strings">completed</xref>
+      Make sure that you have completed <xref ref="act_listing_bit_strings"></xref>
       because we are about to reveal the answers.
     </p>
     <example xml:id="exam_conjecture_number_bit_strings">
@@ -217,9 +217,9 @@
           <c>01</c>,
           <c>10</c>,
           <c>11</c>).
-          <xref ref="exam_bit_string_length3">In</xref>,
+          In <xref ref="exam_bit_string_length3"></xref>,
           we listed the eight bit strings of length three.
-          <xref ref="act_countingbs">In</xref>,
+          In <xref ref="act_countingbs"></xref>,
           we counted 16 bit strings of length four and 32 bit strings of length five.
           Notice that each integer is twice the previous number,
           suggesting that we are multiplying by two.
@@ -461,7 +461,7 @@
                 Count the number of bit strings of length five and weight three.
                 <solution>
                   <p>
-                    <xref ref="thm_bit_string_exactly_k">By</xref>,
+                    By <xref ref="thm_bit_string_exactly_k"></xref>,
                     there are <m>\binom{5}{3}</m> bit strings of length five and weight three.
                     Note that <m>\binom{5}{3}=10</m>,
                     which should agree with the tree you drew in <xref ref="act_listing_bit_strings"></xref>
@@ -475,7 +475,7 @@
                 Count the number of bit strings of length eight and weight two.
                 <solution>
                   <p>
-                    <xref ref="thm_bit_string_exactly_k">By</xref>,
+                    By <xref ref="thm_bit_string_exactly_k"></xref>,
                     there are <m>\binom{8}{2}</m> bit strings of length eight and weight two,
                     which is the answer to <xref ref="act_countingbs"></xref><xref ref="part_bs_length8_weight2"/>.
                   </p>
@@ -487,7 +487,7 @@
                 How many bit strings of length 100 are exactly half <c>0</c> s and half <c>1</c> s?
                 <solution>
                   <p>
-                    <xref ref="thm_bit_string_exactly_k">By</xref>
+                    By <xref ref="thm_bit_string_exactly_k"></xref>
                     there are <m>\binom{100}{50}</m> such bit strings.
                   </p>
                 </solution>
@@ -499,11 +499,11 @@
     </example>
   </subsection>
   <subsection xml:id="sub_rephrasing_subset">
-    <title>\subrephrasingsubset</title>
+    <title>Detour: Rephrasing the Question</title>
     <p>
       Sometimes a counting problem does not mention bit strings,
       but we can rephrase the problem in terms of bit strings,
-      which is convenient because we <xref ref="thm_number_bit_strings">know</xref>
+      which is convenient because we know <xref ref="thm_number_bit_strings"></xref>
       and <xref ref="thm_bit_string_exactly_k"></xref>.
       Try your hand at such an example.
     </p>
@@ -553,7 +553,7 @@
         </li>
         <li>
           <p>
-            Explain how to <xref ref="thm_bit_string_exactly_k">use</xref> to count the number of paths.
+            Explain how to use <xref ref="thm_bit_string_exactly_k"></xref> to count the number of paths.
             You should get the same answer as in <xref ref="part_froma1_toc4_count"/>.
           </p>
         </li>
@@ -574,9 +574,9 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_exp_log">
-    <title>\subexplog</title>
+    <title>Algebra: Exponential Notation and Logarithms</title>
     <p>
-      <xref ref="thm_number_bit_strings">In</xref>,
+      In <xref ref="thm_number_bit_strings"></xref>,
       we proved that there are <m>2^n</m> bit strings of length <m>n</m> where
       <me>
         2^n=\underbrace{2\times 2 \times \ldots \times 2}_{n \text{ times } }
@@ -933,7 +933,7 @@
                 Simplify <m>2^42^6</m> by writing it as a single power.
                 <solution>
                   <p>
-                    <xref ref="defn_exp_notation">Using</xref>, we have
+                    Using <xref ref="defn_exp_notation"></xref>, we have
                     <md>
                       <mrow>2^42^6 \amp = (\underbrace{2\times 2\times 2 \times 2}_{4 \text{ times } }) \times (\underbrace{2\times 2\times 2 \times 2 \times 2 \times 2}_{6 \text{ times } })</mrow>
                       <mrow>\amp = \underbrace{2\times 2\times 2\times 2\times 2 \times 2 \times 2 \times 2 \times 2 \times 2}_{10 \text{ times } })</mrow>
@@ -952,7 +952,7 @@
                 Simplify <m>(10^2)^3</m> by writing it as a single power.
                 <solution>
                   <p>
-                    <xref ref="defn_exp_notation">Using</xref>, we have
+                    Using <xref ref="defn_exp_notation"></xref>, we have
                     <md>
                       <mrow>(10^2)^3 \amp = (\underbrace{10^2\times 10^2\times 10^2}_{3 \text{ times } })</mrow>
                       <mrow>\amp = (\underbrace{(10 \times 10)\times (10 \times 10)\times (10 \times 10)}_{3 \text{ times } })</mrow>
@@ -1024,7 +1024,7 @@
           <ol>
             <li xml:id="part_thm_simplify_22nminus1">
               <p>
-                Simplify <m>2\cdot2^{n-1}</m> <xref ref="thm_simplify_exp">using</xref>.
+                Simplify <m>2\cdot2^{n-1}</m> using <xref ref="thm_simplify_exp"></xref>.
                 <solution>
                   <p>
                     We can write <m>2=2^1</m> to get
@@ -1069,9 +1069,9 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_bitstrings">for</xref> \subbitstrings</title>
+      <title>Exercises for <xref ref="sub_bitstrings"></xref> Bit Strings</title>
       <exercise xml:id="exer_bit_string_length">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -1096,7 +1096,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_bit_strings_length5_weight2">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             List all bit strings of length five and weight two using a possibility tree.
@@ -1104,7 +1104,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_bstrees">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             In each part,
@@ -1132,7 +1132,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_defnbs">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1162,7 +1162,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_hamming_distance">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             The <term>Hamming distance</term>
@@ -1215,9 +1215,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_count_bit_strings">for</xref> \subcountbitstrings</title>
+      <title>Exercises for <xref ref="sub_count_bit_strings"></xref> Number of Bit Strings</title>
       <exercise xml:id="exer_count_bs20">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use the relevant theorems.
@@ -1242,7 +1242,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_count_bs9">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use the relevant theorems.
@@ -1271,7 +1271,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_count_bs100">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1307,7 +1307,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_numberbs">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1327,7 +1327,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_bal_ternary_strings">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             A <term>balanced ternary string</term>
@@ -1363,7 +1363,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ABCD_strings">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Consider strings using only the characters <c>A</c>,
@@ -1393,7 +1393,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_number_perms">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1414,9 +1414,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_rephrasing_subset">for</xref> \subrephrasingsubset</title>
+      <title>Exercises for <xref ref="sub_rephrasing_subset"></xref> Detour: Rephrasing the Question</title>
       <exercise xml:id="exer_froma1toc4">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             We are interested in going from <m>a_1</m> to <m>c_4</m> in <xref ref="fig_froma1_toc4"></xref>.
@@ -1438,7 +1438,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_stars_and_bars">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             You have fifteen (identical) coins.
@@ -1480,7 +1480,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_rephrase_question">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1501,7 +1501,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_integer_simplex">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             In this problem we build on the ideas of <xref ref="exer_stars_and_bars"></xref>.
@@ -1528,9 +1528,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_exp_log">for</xref> \subexplog</title>
+      <title>Exercises for <xref ref="sub_exp_log"></xref> Algebra: Exponential Notation and Logarithms</title>
       <exercise xml:id="exer_evaluate_powers">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             On this exercise, do not use technology.
@@ -1556,7 +1556,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_eval_logs">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             On this exercise, do not use technology.
@@ -1589,7 +1589,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_single_power">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Write each quantity as a single power.
@@ -1624,7 +1624,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_factoring_powers">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             In this problem, all letters represent positive integers.
@@ -1642,7 +1642,7 @@
               <li>
                 <p>
                   Factor and simplify <m>10^n-9(10^{n-1})</m>.
-                  Hint: <xref ref="exer_single_power">See</xref>
+                  Hint: See <xref ref="exer_single_power"></xref>
                   <xref ref="part_10power"/> and <xref ref="part_another_10power"/>.
                 </p>
               </li>
@@ -1651,7 +1651,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_exp_log">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1691,7 +1691,7 @@
         </statement>
       </exercise>
       <exercise xml:id="x2048_game">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1714,7 +1714,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_defn_lg">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1733,7 +1733,7 @@
               </li>
               <li xml:id="part_2tosum">
                 <p>
-                  Simplify <m>2^{a+b}</m> <xref ref="thm_simplify_exp">using</xref>
+                  Simplify <m>2^{a+b}</m> using <xref ref="thm_simplify_exp"></xref>
                   and <xref ref="part_lg_to_exp"/>.
                   Your answer should be in terms of <m>u</m> and <m>v</m>.
                 </p>
@@ -1757,7 +1757,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_power_vs_factorial">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>

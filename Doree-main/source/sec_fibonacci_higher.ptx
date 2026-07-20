@@ -14,7 +14,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_fibonacci">
-    <title>\subfib</title>
+    <title>The Fibonacci Sequence and Higher Order Recursions</title>
     <p>
       In the Squares and Dominoes puzzle <xref ref="act_squares_dominoes"/>,
       the Proper Bit Strings puzzle <xref ref="act_proper_bs"/>,
@@ -390,7 +390,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_model_higher_order_rec">
-    <title>\submodelhigher</title>
+    <title>Modeling with Higher Order Recursions</title>
     <p>
       Higher order recursions can be used to describe sequences and also to count.
     </p>
@@ -500,7 +500,7 @@
       </statement>
       <solution>
         <p>
-          <xref ref="thm_number_bit_strings">By</xref>,
+          By <xref ref="thm_number_bit_strings"></xref>,
           there are <m>2^n</m> bit strings of length <m>n</m>.
           The only bit string that does not have any <c>0</c> s is <c>11</c> <m>\cdots</m> <c>1</c>.
           Therefore, by <xref ref="thm_count_complement"></xref>,
@@ -524,7 +524,7 @@
           In this case,
           we have at least one <c>0</c> no matter what the other <m>n-1</m> bits are.
           They can be any bit string of length <m>n-1</m>.
-          <xref ref="thm_number_bit_strings">By</xref>,
+          By <xref ref="thm_number_bit_strings"></xref>,
           there are <m>2^{n-1}</m> bit strings of length <m>n-1</m>.
           Therefore, there are <m>2^{n-1}</m> such bit strings.
         </p>
@@ -620,7 +620,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_fib_patterns_proof">
-    <title>\subfibpatterns</title>
+    <title>Detour: Fibonacci Patterns and Proof</title>
     <p>
       There are many patterns satisfied by the Fibonacci sequence.
     </p>
@@ -895,7 +895,7 @@
                 Use mathematical induction <xref ref="pff_math_ind_matrix"/> to prove your conjecture.
                 <solution>
                   <p>
-                    We <xref ref="pff_math_ind_matrix">use</xref>.
+                    We use <xref ref="pff_math_ind_matrix"></xref>.
                   </p>
                   <p>
                     <em>Proof.</em> Induct on <m>n</m>.
@@ -933,7 +933,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_pff_strong_math_ind">
-    <title>\subpffstrongind</title>
+    <title>Proof Format: Strong Mathematical Induction</title>
     <p>
       There is a stronger form of mathematical induction.
       As in the usual proof by mathematical induction,
@@ -945,7 +945,7 @@
       As before, we use this assumption to prove <m>P(n)</m>.
       Here is the formal proof format.
     </p>
-    <proof>
+    <proof xml:id="pff_strong_math_ind">
     <p>
       Prove <m>P(n)</m> for <m>n \ge s</m>.
     </p>
@@ -1020,7 +1020,7 @@
       We can use a special case of strong mathematical induction to verify an explicit rule for a second-order recursively-defined sequence.
       Strong mathematical induction can be extended to any higher order recursion.
     </p>
-    <proof>
+    <proof xml:id="pff_strong_math_ind_seq">
     <p>
       Given the sequence <m>a</m> defined recursively by <m>a_s=</m> and <m>a_{s+1}=</m>
       (initial conditions)
@@ -1068,7 +1068,7 @@
     <activity xml:id="act_strong_math_ind_lucas">
       <title>Strong mathematical induction</title>
       <p>
-        <xref ref="exam_rec_seq_higher_order">In</xref>
+        In <xref ref="exam_rec_seq_higher_order"></xref>
         we saw the <term>Lucas numbers</term> defined by <m>L_0=2</m>,
         <m>L_1=1</m>, and <m>L_n=L_{n-1}+L_{n-2}</m> for <m>n \ge 2</m>.
         As usual, the Fibonacci sequence is defined by <m>F_0=0</m>,
@@ -1205,16 +1205,16 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection xml:id="part_third_order_rec">
-      <title>Exercises <xref ref="sub_fibonacci">for</xref> \subfib</title>
+      <title>Exercises for <xref ref="sub_fibonacci"></xref> The Fibonacci Sequence and Higher Order Recursions</title>
       <exercise xml:id="exer_list_fibs">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
             <ol>
               <li>
                 <p>
-                  List all Fibonacci numbers less than 1000 without looking <xref ref="table_first20_fib">at</xref>
+                  List all Fibonacci numbers less than 1000 without looking at <xref ref="table_first20_fib"></xref>
                   or any other resources, except to check.
                 </p>
               </li>
@@ -1229,7 +1229,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_eval_terms_higher_order">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Evaluate the first five terms of each sequence.
@@ -1258,7 +1258,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_write_single_fib">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use the recursive rule for the Fibonacci sequence to simplify each expression as a single Fibonacci number.
@@ -1293,7 +1293,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_eval_specific_term_higher_order">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1321,7 +1321,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_third_order">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1344,7 +1344,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_fib_higher">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1380,9 +1380,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_model_higher_order_rec">for</xref> \submodelhigher</title>
+      <title>Exercises for <xref ref="sub_model_higher_order_rec"></xref> Modeling with Higher Order Recursions</title>
       <exercise xml:id="exer_model_higher_order">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             For each list, find a simple pattern generating a sequence.
@@ -1410,7 +1410,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_squares_triominoes">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Let <m>b_n</m> count the number of ways to tile a
@@ -1439,7 +1439,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_count_colored_tilings_first">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             We want to count ways to tile a
@@ -1472,18 +1472,18 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_bs_without_000">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Calculate the initial conditions and write a recursive rule defining <m>r_n=</m> the number of bit strings of length <m>n</m> that do not contain <m>\bs{000}</m>,
             meaning that do not contain three or more consecutive <c>0</c> s, for <m>n \ge 1</m>.
-            Hint: Look <xref ref="exam_count_bit_strings_using_recursion_second">at</xref>.
+            Hint: Look at <xref ref="exam_count_bit_strings_using_recursion_second"></xref>.
             What are the cases here?
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_model_higher_rec">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1513,7 +1513,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_rec_count_partitions">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Watch the video at \url{https://www.youtube.com/watch?v=F4zYDx-EfZI} that explains how to count partitions of an integer
@@ -1541,9 +1541,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_fib_patterns_proof">for</xref> \subfibpatterns</title>
+      <title>Exercises for <xref ref="sub_fib_patterns_proof"></xref> Detour: Fibonacci Patterns and Proof</title>
       <exercise xml:id="exer_fib_mult5_mult8">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -1565,7 +1565,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_fib_matrix_another_conj">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the <m>2 \times 2</m> matrix <m>B= \left[\begin{array}{cc} 0 \amp 1\\ 1 \amp 1 \end{array} \right]</m>.
@@ -1585,7 +1585,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_fib_gcd_eval">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             In each part,
@@ -1616,7 +1616,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_fib_honsberger">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1641,7 +1641,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_even_fib_identity">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Prove that the Fibonacci numbers satisfy the identity
@@ -1653,7 +1653,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_even_fib_proof">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Copy and edit the proof from <xref ref="exam_fib_mult3"></xref>
@@ -1662,7 +1662,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_mult5_fib_identity">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use the recursive rule and algebra to prove <m>F_{5n} =5F_{5n-4} + 3F_{5n-5}</m> for <m>n \ge 0</m>.
@@ -1670,7 +1670,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_fib_div5_proof">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction and the identity from <xref ref="exer_mult5_fib_identity"></xref>
@@ -1679,7 +1679,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_fib_matrix_another_proof">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the <m>2 \times 2</m> matrix <m>B= \left[ \begin{array}{cc} 0 \amp 1\\ 1 \amp 1 \end{array} \right]</m>.
@@ -1688,14 +1688,14 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_fib_gcd_conj">
-        <title>\exerU greatest common divisors of Fibonaccis conjecture</title>
+        <title>Understand greatest common divisors of Fibonaccis conjecture</title>
         <statement>
           <p>
             <nbsp/>
             <ol>
               <li>
                 <p>
-                  <xref ref="exam_fib_gcd">In</xref>,
+                  In <xref ref="exam_fib_gcd"></xref>,
                   we saw <m>\fn{gcd}(F_{10},F_{9}) = 1 = F_1</m> and <m>\fn{gcd}(F_{12},F_9)=F_3</m>.
                   Now write each of your answers to <xref ref="exer_fib_gcd_eval"></xref> as a Fibonacci number.
                 </p>
@@ -1710,7 +1710,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_fib_patterns">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1740,19 +1740,19 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_fib_gen_div_conj">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/> When does <m>F_k \mid F_n</m>?
             Include some examples to support your conjecture.
-            Hint: Look <xref ref="act_fib_patterns">at</xref>,
+            Hint: Look at <xref ref="act_fib_patterns"></xref>,
             <xref ref="exam_fib_mult3"></xref>,
             and <xref ref="exer_fib_mult5_mult8"></xref>.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_consec_fib_coprime_proof">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Use mathematical induction to prove that consecutive Fibonacci numbers are coprime,
@@ -1769,7 +1769,7 @@
         </statement>
       </exercise>
       <exercise>
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Use mathematical induction to prove our conjecture from <xref ref="act_fib_patterns"></xref>
@@ -1786,12 +1786,12 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_strong_math_ind">for</xref> \subpffstrongind</title>
+      <title>Exercises for <xref ref="sub_pff_strong_math_ind"></xref> Proof Format: Strong Mathematical Induction</title>
       <exercise xml:id="exer_properbs_number0s">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="act_proper_bs">For</xref>,
+            For <xref ref="act_proper_bs"></xref>,
             we defined proper bit strings.
             Use strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that any proper bit string has an even number of <c>1</c> s.
             Hint: In the inductive step consider two cases based on if the bit string ends in <c>1</c> or ends in <c>0</c>.
@@ -1799,7 +1799,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_second_order_linear">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the sequence <m>a</m> defined recursively by <m>a_0= 3</m>,
@@ -1810,10 +1810,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_properbs_starting0s">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <xref ref="act_proper_bs">For</xref>,
+            For <xref ref="act_proper_bs"></xref>,
             we defined proper bit strings.
             Use strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that if a proper bit string <m>b</m> of length <m>n</m> has exactly weight <m>2k</m>,
             then <m>b</m> begins with
@@ -1825,7 +1825,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_second_order_powerof2">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the sequence <m>b_n</m> defined recursively by <m>b_0= 0</m>,
@@ -1836,7 +1836,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_second_order_powerof5">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the sequence <m>c</m> defined recursively by <m>c_0=3</m>,
@@ -1847,7 +1847,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_strong_math_ind_alternating">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the sequence <m>a_n</m> is defined by <m>a_1=2</m>,
@@ -1859,7 +1859,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_strong_math_ind">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1879,7 +1879,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_binets_formula">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Our goal for this exercise is to prove an explicit formula for the Fibonacci sequence.
@@ -1923,7 +1923,7 @@
       <ol>
         <li>
           <p>
-            Hint: You can <xref ref="table_first20_fib">use</xref> to check.
+            Hint: You can use <xref ref="table_first20_fib"></xref> to check.
           </p>
         </li>
         <li>

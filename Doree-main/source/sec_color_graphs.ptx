@@ -1,5 +1,5 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_color_graphs">
-  <title>\seccolorgraphs</title>
+  <title>Coloring Graphs</title>
   <introduction>
     <p>
       In many logistical applications of graph theory,
@@ -18,7 +18,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_color_maps">
-    <title>\subcolormaps</title>
+    <title>Coloring Maps</title>
     <p>
       Another application of graph coloring is coloring regions of a map.
       We begin with an activity.
@@ -116,7 +116,7 @@
                   <caption>A map of midwest states.</caption>
                   <image width="60%">
                     <latex-image>
-                      <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                      <xi:include href="Tikz/map_states_midwest.tikz" parse="text"/>
                     </latex-image>
                   </image>
                 </figure>
@@ -138,7 +138,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_chromatic_number">
-    <title>\subchromatic</title>
+    <title>Coloring Graphs</title>
     <p>
       Let's formalize the idea of coloring the vertices of a graph.
     </p>
@@ -221,7 +221,7 @@
                     <caption>Coloring the cycle <m>C_5</m>.</caption>
                     <image width="60%">
                       <latex-image>
-                        <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                        <xi:include href="Tikz/C5_3colored.tikz" parse="text"/>
                       </latex-image>
                     </image>
                   </figure>
@@ -274,7 +274,7 @@
                 <caption>The graph <m>E</m>.</caption>
                 <image width="60%">
                   <latex-image>
-                    <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                    <xi:include href="Tikz/elephant_nolabel.tikz" parse="text"/>
                   </latex-image>
                 </image>
               </figure>
@@ -284,7 +284,7 @@
       </p>
     </activity>
     <p>
-      Let's look <xref ref="act_chromatic_number">at</xref>
+      Let's look at <xref ref="act_chromatic_number"></xref>
       <xref ref="part_color_W5"/> and <xref ref="part_color_E"/>.
     </p>
     <example xml:id="exam_chromatic_complicated">
@@ -315,7 +315,7 @@
                   <caption>A 4-coloring of the wheel <m>W_5</m>.</caption>
                   <image width="60%">
                     <latex-image>
-                      <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                      <xi:include href="Tikz/wheel5_4colored.tikz" parse="text"/>
                     </latex-image>
                   </image>
                 </figure>
@@ -341,7 +341,7 @@
                   <caption>A 4-coloring of the graph <m>E</m>.</caption>
                   <image width="60%">
                     <latex-image>
-                      <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                      <xi:include href="Tikz/elephant_4colored.tikz" parse="text"/>
                     </latex-image>
                   </image>
                 </figure>
@@ -389,13 +389,13 @@
                 Draw a graph representing the situation where each event is a vertex and an edge connects two events if they cannot be scheduled in the same time block.
                 <solution>
                   <p>
-                    <xref ref="fig_schedule_alumni">See</xref>.
+                    See <xref ref="fig_schedule_alumni"></xref>.
                   </p>
                   <figure xml:id="fig_schedule_alumni">
                     <caption>Graph for scheduling alumni events.</caption>
                     <image width="60%">
                       <latex-image>
-                        <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                        <xi:include href="Tikz/Sch_alum.tikz" parse="text"/>
                       </latex-image>
                     </image>
                   </figure>
@@ -420,13 +420,13 @@
                 and white = late afternoon.
                 <solution>
                   <p>
-                    <xref ref="fig_schedule_alumni_colors">See</xref>.
+                    See <xref ref="fig_schedule_alumni_colors"></xref>.
                   </p>
                   <figure xml:id="fig_schedule_alumni_colors">
                     <caption>Graph for scheduling alumni events where colors represent event time.</caption>
                     <image width="60%">
                       <latex-image>
-                        <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                        <xi:include href="Tikz/Sch_alum_colors.tikz" parse="text"/>
                       </latex-image>
                     </image>
                   </figure>
@@ -449,7 +449,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_graph_conj">
-    <title>\subgraphconj</title>
+    <title>Graph Conjectures</title>
     <p>
       We have looked at several specific graphs and calculated quantities such as the number of vertices and edges,
       the degree sequence, and the chromatic number.
@@ -470,7 +470,7 @@
         <p>
           By definition, <m>K_s</m> has <m>s</m> vertices.
           Recall that <m>K_s</m> models the number of handshakes in a group of <m>s</m> people.
-          <xref ref="thm_hs">By</xref>,
+          By <xref ref="thm_hs"></xref>,
           the number of edges is <m>1+2+3+\ldots+(s-1) = \frac{s(s-1)}{2}</m>.
           Alternatively, there is an edge for each pair of vertices.
           Thus, the number of edges is equal to the number of ways to select two out of <m>s</m> vertices,
@@ -547,9 +547,9 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_color_maps">for</xref> \subcolormaps</title>
+      <title>Exercises for <xref ref="sub_color_maps"></xref> Coloring Maps</title>
       <exercise xml:id="exer_map_coloring_website">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Go to the website: \url{https://mathigon.org/course/graph-theory/map-colouring} to color more complicated maps.
@@ -560,7 +560,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_color_northestUS">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Copy the map of the northeast states drawn in <xref ref="fig_NE_states"></xref>
@@ -574,7 +574,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_midwest_color">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -599,7 +599,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_color_maps">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -619,7 +619,7 @@
         </statement>
       </exercise>
       <exercise>
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/> Read the Quanta magazine article
@@ -679,9 +679,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_chromatic_number">for</xref> \subchromatic</title>
+      <title>Exercises for <xref ref="sub_chromatic_number"></xref> Coloring Graphs</title>
       <exercise xml:id="exer_coloring_standard_graphs">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Draw each graph and color the vertices with the fewest possible colors.
@@ -718,7 +718,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_chromatic_number_classmates_graph">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -744,7 +744,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_coloring_complete">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Draw each graph and color the vertices with the fewest possible colors.
@@ -775,7 +775,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_color_complicated_graph">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the graph <m>H</m> drawn in <xref ref="fig_complicated_graph"></xref>.
@@ -784,7 +784,7 @@
             <caption>The graph <m>H</m> from <xref ref="exer_color_complicated_graph"></xref>.</caption>
             <image width="60%">
               <latex-image>
-                <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                <xi:include href="Tikz/ColorGraph.tikz" parse="text"/>
               </latex-image>
             </image>
           </figure>
@@ -808,7 +808,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_schedule_meetings">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             There are seven people and seven committees.
@@ -818,7 +818,7 @@
             Is there a way to do it?
           </p>
           <table xml:id="table_committee_members">
-            <title>Committee (cmte) members <xref ref="exer_schedule_meetings">for</xref></title>
+            <title>Committee (cmte) members for <xref ref="exer_schedule_meetings"></xref></title>
             <tabular>
               <row>
                 <cell>Person on Cmte?</cell>
@@ -995,7 +995,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_chr_ineq">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             What can we say about the chromatic number <m>k</m> of a graph <m>G</m> if <ellipsis/>?
@@ -1016,7 +1016,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_color_graphs">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1046,7 +1046,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_graph_color_algorithm">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Here is an algorithm to 4-color the vertices of graph <m>G</m> when the maximum degree of any vertex in <m>G</m> is three.
@@ -1074,7 +1074,7 @@
                     <caption>Use an algorithm to color the vertices of this graph</caption>
                     <image width="60%">
                       <latex-image>
-                        <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                        <xi:include href="Tikz/H3b8.tikz" parse="text"/>
                       </latex-image>
                     </image>
                   </figure>
@@ -1098,7 +1098,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_examples_chromatic_number">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1125,9 +1125,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_graph_conj">for</xref> \subgraphconj</title>
+      <title>Exercises for <xref ref="sub_graph_conj"></xref> Graph Conjectures</title>
       <exercise xml:id="exer_graph_conjecture_Kbst">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the complete bipartite graphs <m>K_{s,t}</m> for <m>s,t \ge 1</m>.
@@ -1138,7 +1138,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_graph_conj_wheels">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the wheels <m>W_s</m> for <m>s \ge 3</m>.
@@ -1149,7 +1149,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_graph_conj_ladders">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the ladders <m>L_{2 \times t}</m> for <m>t \ge 2</m>.
@@ -1160,7 +1160,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_graph_conj">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1182,7 +1182,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_grid_graphs">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             For <m>s,t \ge 1</m>, the <term>grid graph</term>
@@ -1223,7 +1223,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_perfect_binary_trees">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <xref ref="fig_perfect_binary_trees"></xref>
@@ -1234,7 +1234,7 @@
             <caption>The perfect binary trees <m>B_1</m>, <m>B_2</m>, and <m>B_3</m>.</caption>
             <image width="60%">
               <latex-image>
-                <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                <xi:include href="Tikz/Perfect_Binary_Tree.tikz" parse="text"/>
               </latex-image>
             </image>
           </figure>
@@ -1297,7 +1297,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_size_graph_comp">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1393,12 +1393,12 @@
         </li>
         <li>
           <p>
-            <xref ref="fig_wheel6_3colored">See</xref>.
+            See <xref ref="fig_wheel6_3colored"></xref>.
             <figure xml:id="fig_wheel6_3colored">
               <caption>A 3-coloring of the wheel <m>W_6</m>.</caption>
               <image width="60%">
                 <latex-image>
-                  <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                  <xi:include href="Tikz/wheel6_3colored.tikz" parse="text"/>
                 </latex-image>
               </image>
             </figure>
@@ -1557,7 +1557,7 @@
         <caption>The grid graph <m>L_{3 \times 4}</m>.</caption>
         <image width="60%">
           <latex-image>
-            <xi:include href="Tikz/smiley.tikz" parse="text"/>
+            <xi:include href="Tikz/L3x4.tikz" parse="text"/>
           </latex-image>
         </image>
       </figure>

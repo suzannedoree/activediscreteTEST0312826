@@ -12,7 +12,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_matrix_powers">
-    <title>\submatpowers</title>
+    <title>Matrix Products and Powers</title>
     <p>
       We begin with some definitions.
     </p>
@@ -307,11 +307,11 @@
     </example>
   </subsection>
   <subsection xml:id="sub_pff_verify_power_matrix">
-    <title>\subpffindmatrix</title>
+    <title>Proof Format: Special Case of Mathematical Induction for Proving an Explicit Formula for the Power of a Matrix</title>
     <p>
       We can use mathematical induction to verify our conjectures about powers of matrices.
     </p>
-    <proof>
+    <proof xml:id="pff_math_ind_matrix">
     <p>
       For a matrix <m>A</m>, prove <m>A^n=</m>
       (matrix with explicit rule for each entry as a function of <m>n</m>)
@@ -400,13 +400,13 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_finite_groups">
-    <title>\subgroups</title>
+    <title>Finite Groups</title>
     <p>
       We have seen several examples of finite sets with an operation.
       For example, in <xref ref="sec_mod_arith"></xref>,
       we saw <m>\mathbb{Z}_n</m>,
       the integers mod <m>n</m> with the operations of addition and multiplication.
-      <xref ref="sec_perms">In</xref>,
+      In <xref ref="sec_perms"></xref>,
       we saw permutations with the operation of function composition.
       And now we have seen <m>2 \times 2</m> matrices with matrix multiplication.
       These structures have several common properties.
@@ -458,7 +458,7 @@
       <title><m>\mathbb{Z}_4</m> is a group under addition</title>
       <statement>
         <p>
-          <xref ref="sec_mod_arith">In</xref>
+          In <xref ref="sec_mod_arith"></xref>
           we saw that the integers mod 4 is the set
           <m>\mathbb{Z}_4 =\{0,1,2,3\}</m> with addition defined by <m>a \oplus b = (a+b) \fn{ mod } 4</m>.
           <ol>
@@ -698,7 +698,7 @@
                     <caption>Calculating the composite of permutations <m>\tau_1 \circ \sigma_1</m> in <m>\mathbb{S}_3</m> using dot diagrams.</caption>
                     <image width="60%">
                       <latex-image>
-                        <xi:include href="Tikz/smiley.tikz" parse="text"/>
+                        <xi:include href="Tikz/perm_finite_group_S3.tikz" parse="text"/>
                       </latex-image>
                     </image>
                   </figure>
@@ -1025,15 +1025,15 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_matrix_powers">for</xref>
-      \submatpowers</title>
+      <title>Exercises for <xref ref="sub_matrix_powers"></xref>
+      Matrix Products and Powers</title>
       <p>
         Calculate all matrix products and powers by hand,
         being sure to show the steps of your work.
         You are welcome to use technology to check your answers.
       </p>
       <exercise xml:id="exer_mult_matrices">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the matrices
@@ -1048,7 +1048,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_power_linears">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -1074,7 +1074,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_matrix_functions_easy">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Let <m>\mathscr{M}(\mathbb{Z})</m> be the set of
@@ -1105,7 +1105,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_power_matrix_exponentials">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1131,7 +1131,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_power_rotation_matrix">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1163,7 +1163,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_cex_matrix">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1190,7 +1190,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_matrix_functions_harder">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Let <m>\mathscr{M}(\mathbb{Z})</m> be the set of
@@ -1219,7 +1219,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_det_onto_1to1">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the the function <m>\fn{det}</m> from <xref ref="exer_matrix_functions_easy"></xref> <xref ref="part_det_fn"/>.
@@ -1239,7 +1239,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_matrix_sets">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1262,7 +1262,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_matrix">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1287,7 +1287,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_matrix_sets_fn">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Give an example of an element in each set and then give an explicit definition of each set.
@@ -1311,10 +1311,10 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_verify_power_matrix">for</xref>
-      \subpffindmatrix</title>
+      <title>Exercises for <xref ref="sub_pff_verify_power_matrix"></xref>
+      Proof Format: Special Case of Mathematical Induction for Proving an Explicit Formula for the Power of a Matrix</title>
       <exercise xml:id="exer_prove_power_shear_matrix">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             For the matrix <m>A=\left[ \begin{array}{cc} 1 \amp 0 \\ 1 \amp 1 \end{array} \right]</m>,
@@ -1323,7 +1323,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_power_unit_matrix">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For the matrix <m>J=\left[ \begin{array}{cc} 1 \amp 1 \\ 1 \amp 1 \end{array} \right]</m>,
@@ -1332,7 +1332,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_power_another_matrix">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For the matrix <m>Q=\left[ \begin{array}{cc} 1 \amp 0 \\ 1 \amp 2 \end{array} \right]</m>,
@@ -1341,7 +1341,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_power_dilationshear_matrix">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For the matrix <m>M=\left[ \begin{array}{cc} 2 \amp 1 \\ 0 \amp 2 \end{array} \right]</m>,
@@ -1350,7 +1350,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_power_complicated_matrix">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For the matrix <m>K=\left[ \begin{array}{cc} 3 \amp 0 \\ 1 \amp 2 \end{array} \right]</m>,
@@ -1359,7 +1359,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_matrix_proof">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1379,7 +1379,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_power_diagonal_matrix">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Let <m>a</m> and <m>b</m> be integers,
@@ -1405,13 +1405,13 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_finite_groups">for</xref>
-      \subgroups</title>
+      <title>Exercises for <xref ref="sub_finite_groups"></xref>
+      Finite Groups</title>
       <exercise xml:id="exer_Z5_add_group">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="sec_mod_arith">In</xref>
+            In <xref ref="sec_mod_arith"></xref>
             we saw that the integers mod 5 is the set
             <m>\mathbb{Z}_5 =\{0,1,2,3,4\}</m> with addition defined by <m>a \oplus b = (a+b) \fn{ mod } 5</m>.
             <ol>
@@ -1509,7 +1509,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_U10_mult_group">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Recall that the set of integers mod 10 is
@@ -1596,7 +1596,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_S4_group">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Let <m>\mathbb{S}_4</m> be the set of all permutations on the set
@@ -1629,7 +1629,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_another_matrix_group">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the following matrices:
@@ -1655,7 +1655,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_groups">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1690,7 +1690,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_latin_squares">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             The operation table for a finite group is an example of a <term>Latin square</term>
@@ -1759,7 +1759,7 @@
       <title><xref ref="exer_matrix_functions_easy"></xref> Select Answers and Hints</title>
       <p>
         Hint: Not sure where to start?
-        Look <xref ref="exam_matrix_functions">at</xref>.
+        Look at <xref ref="exam_matrix_functions"></xref>.
         <ol>
           <li>
             <p>
@@ -1774,7 +1774,7 @@
           </li>
           <li>
             <p>
-              Hint: The answer is not the same as <xref ref="exam_matrix_functions">for</xref>
+              Hint: The answer is not the same as for <xref ref="exam_matrix_functions"></xref>
               <xref ref="part_mult_matrix_fn"/> because they calculated <m>MA</m> and we want <m>AM</m>.
             </p>
           </li>
@@ -1801,7 +1801,7 @@
       <title><xref ref="exer_matrix_sets"></xref> Select Answers and Hints</title>
       <p>
         Hint: Not sure where to start?
-        Look <xref ref="exam_matrix_sets">at</xref>.
+        Look at <xref ref="exam_matrix_sets"></xref>.
         <ol>
           <li>
             <p>
@@ -1972,12 +1972,12 @@
         </li>
         <li>
           <p>
-            Hint: Look <xref ref="exam_inverse_perm">at</xref>.
+            Hint: Look at <xref ref="exam_inverse_perm"></xref>.
           </p>
         </li>
         <li>
           <p>
-            Hint: Look <xref ref="exam_composing_perms">at</xref>.
+            Hint: Look at <xref ref="exam_composing_perms"></xref>.
           </p>
         </li>
       </ol>

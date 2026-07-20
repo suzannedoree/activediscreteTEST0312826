@@ -12,7 +12,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_converse">
-    <title>\subconv</title>
+    <title>The Converse and Biconditional Statements</title>
     <p>
       The statement <m>P \to Q</m> promises that if <m>P</m> is true,
       then <m>Q</m> is also true.
@@ -337,7 +337,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_pff_iff">
-    <title>\subpffiff</title>
+    <title>Proof Format: $\leftrightarrow$</title>
     <p>
       Since the biconditional is defined as
       <me>
@@ -361,7 +361,7 @@
       <q>Conversely</q>
       instead.
     </p>
-    <proof>
+    <proof xml:id="pff_iff">
     <p>
       <nbsp/> Prove: <m>P \leftrightarrow Q</m>
     </p>
@@ -440,7 +440,7 @@
         <p>
           First, assume <m>d \mid n</m>.
           By definition of divides, <m>n=dk</m> for some integer <m>k</m>.
-          <xref ref="thm_equal_fractions">By</xref>, it follows that
+          By <xref ref="thm_equal_fractions"></xref>, it follows that
           <me>
             \frac{n}{d} = \frac{dk}{d(1)} = \frac{k}{1} = k
           </me>
@@ -452,7 +452,7 @@
           <me>
             \frac{n}{d} = k = \frac{k}{1}
           </me>.
-          <xref ref="thm_equal_fractions">By</xref>,
+          By <xref ref="thm_equal_fractions"></xref>,
           it follows that <m>n(1) = k(d)</m> or,
           equivalently, <m>n=dk</m>.
           By the definition of divides, <m>d \mid n</m>.
@@ -462,7 +462,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_contrapositive">
-    <title>\subcp</title>
+    <title>The Contrapositive</title>
     <p>
       While a conditional statement and its converse are not logically equivalent,
       there is a related conditional that is logically equivalent to a conditional.
@@ -632,13 +632,13 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_pff_cp">
-    <title>\subpffcp</title>
+    <title>Proof Format: $\to$ Using the Contrapositive</title>
     <p>
       Since a conditional and its contrapositive are logically equivalent,
       we have a new way to prove <m>P \to Q</m>:
       we can prove its contrapositive <m>\neg Q \to \neg P</m> instead.
     </p>
-    <proof>
+    <proof xml:id="pff_if_then_cp">
     <p>
       Prove: <m>P \to Q</m>
     </p>
@@ -801,9 +801,9 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_converse">for</xref> \subconv</title>
+      <title>Exercises for <xref ref="sub_converse"></xref> The Converse and Biconditional Statements</title>
       <exercise xml:id="exer_converse_TorF_lessthan">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the statement: for any real number <m>x</m>,
@@ -829,7 +829,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_converse_TorF_divides">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the statement: for all integers <m>n</m>,
@@ -855,7 +855,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_converse_TorF_mod">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the statement: for any integers <m>a</m> and <m>b</m>,
@@ -882,7 +882,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_converse_inverse_equiv">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use a truth table to show that the converse <m>Q \to P</m> and the inverse
@@ -893,7 +893,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_TorF_iff">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Decide if each biconditional statement
@@ -921,7 +921,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_neg_biconditional">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -945,7 +945,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_converse_iff">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -976,26 +976,26 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_iff">for</xref> \subpffiff</title>
+      <title>Exercises for <xref ref="sub_pff_iff"></xref> Proof Format: $\leftrightarrow$</title>
       <exercise xml:id="exer_proof_iff_even">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="pff_iff">Use</xref> to prove that <m>n</m> is even if and only if <m>n+3</m> is odd,
+            Use <xref ref="pff_iff"></xref> to prove that <m>n</m> is even if and only if <m>n+3</m> is odd,
             for any integer <m>n</m>.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_iff_solution">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="pff_iff">Use</xref> to prove that <m>2n-7=5</m> if and only if <m>n =6</m> for any integer <m>n</m>.
+            Use <xref ref="pff_iff"></xref> to prove that <m>2n-7=5</m> if and only if <m>n =6</m> for any integer <m>n</m>.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_pff_iff">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1017,9 +1017,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_contrapositive">for</xref> \subcp</title>
+      <title>Exercises for <xref ref="sub_contrapositive"></xref> The Contrapositive</title>
       <exercise xml:id="exer_cp_assorted">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Write the contrapositive of each statement.
@@ -1047,7 +1047,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_subgraph_acyclic">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Let <m>H</m> be a subgraph of a graph <m>G</m>.
@@ -1068,7 +1068,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_cp_irrat">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Write the contrapositive of each statement.
@@ -1101,7 +1101,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_cp">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1127,9 +1127,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_cp">for</xref> \subpffcp</title>
+      <title>Exercises for <xref ref="sub_pff_cp"></xref> Proof Format: $\to$ Using the Contrapositive</title>
       <exercise xml:id="exer_proof_sq_even_implies_even">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use the contrapositive <xref ref="pff_if_then_cp"/> to prove that for any integer <m>s</m>,
@@ -1138,7 +1138,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_3m_odd">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use the contrapositive <xref ref="pff_if_then_cp"/> to prove for any integer <m>m</m>,
@@ -1149,10 +1149,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_only_check_prime_divisors">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            In this exercise we <xref ref="thm_show_is_prime">prove</xref>
+            In this exercise we prove <xref ref="thm_show_is_prime"></xref>
             <xref ref="part_only_check_prime_divisors"/>.
           </p>
           <p>
@@ -1165,10 +1165,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_only_check_to_sqrtn">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            In this exercise we <xref ref="thm_show_is_prime">prove</xref>
+            In this exercise we prove <xref ref="thm_show_is_prime"></xref>
             <xref ref="part_only_check_to_sqrtn"/>.
           </p>
           <p>
@@ -1180,7 +1180,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_pff_cp">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1205,17 +1205,17 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_iff_using_cp_evens">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
-            <xref ref="pff_iff">Use</xref> to prove that <m>m</m> is odd if and only if <m>m^3</m> is odd.
+            Use <xref ref="pff_iff"></xref> to prove that <m>m</m> is odd if and only if <m>m^3</m> is odd.
             Hint: Use the contrapositive <xref ref="pff_if_then_cp"/> for the converse
             (second part).
           </p>
         </statement>
       </exercise>
       <exercise xml:id="part_prove_sqrtp_irrat">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Copy the following proof by contradiction that <m>\sqrt(2)</m> is irrational,
@@ -1231,7 +1231,7 @@
               \sqrt{2} = \frac{s}{t}
             </me>
             for some positive integers <m>s</m> and <m>t</m> with <m>t \neq 0</m>.
-            <xref ref="thm_equal_fractions">By</xref>,
+            By <xref ref="thm_equal_fractions"></xref>,
             we may assume that we have canceled any common factors so that <m>s</m> and <m>t</m> are coprime.
           </p>
           <p>
@@ -1247,7 +1247,7 @@
           </p>
           <p>
             Thus, <m>s^2</m> is even.
-            <xref ref="exer_proof_sq_even_implies_even">By</xref>,
+            By <xref ref="exer_proof_sq_even_implies_even"></xref>,
             it follows that <m>s</m> is even.
             By definition of even,
             we can write <m>s = 2k</m> for some integer <m>k</m>.
@@ -1259,7 +1259,7 @@
           <p>
             Simplifying we get <m>t^2=2k^2</m>.
             Thus, <m>t^2</m> is also even.
-            <xref ref="exer_proof_sq_even_implies_even">By</xref>,
+            By <xref ref="exer_proof_sq_even_implies_even"></xref>,
             it follows that <m>t</m> is also even.
             Since <m>s</m> and <m>t</m> are even,
             it follows that two is a common divisor of <m>s</m> and <m>t</m>.
@@ -1342,7 +1342,7 @@
     <subsubsection>
       <title><xref ref="exer_proof_iff_even"></xref> Select Answers and Hints</title>
       <p>
-        <xref ref="pff_iff">Use</xref> to prove that <m>n</m> is even if and only if <m>n+3</m> is odd,
+        Use <xref ref="pff_iff"></xref> to prove that <m>n</m> is even if and only if <m>n+3</m> is odd,
         for any integer <m>n</m>.
       </p>
     </subsubsection>

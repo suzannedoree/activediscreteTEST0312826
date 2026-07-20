@@ -1,0 +1,832 @@
+\section{\secinference}
+\label{sec_inference}
+
+Logical equivalences such as Demorgan's laws (\Cref{thm_demorgans}) and the broken promise (\Cref{thm_broken_promise}) help us negate statements, which is useful for constructing counterexamples to false statements, for writing proofs by contradiction, and for stating the contrapositive.  The contrapositive equivalence (\Cref{thm_cp}) and implication equivalence (\Cref{thm_implication}) gave us new proof formats for proving conditionals and ``or'' statements, respectively. Logical equivalences can also help simplify complicated compound statements, which has applications to computer science. In this section, we return to discuss logical equivalences in more detail and also introduce logical inference. 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subequiv}{Logical Equivalence}
+\subsection{\subequiv}
+\label{sub_logical_equiv}
+
+In this section, we look at a long list of logical equivalences and see how to derive new logical equivalences from this list.  We begin by introducing some new logical equivalences involving negations, tautologies, and contradictions.
+
+\begin{thm}[Equivalences involving negations, tautologies, and contradictions]
+\label{thm_obvious_logical_equivalences}  
+    For any logical statement $P$, tautology \str{T}, and contradiction \str{F}, we have the following logical equivalences.
+        \begin{apart}
+            \item \label{part_equiv_idem} \vocab{Idempotent}\footnote{The word ``idempotent'' comes from the roots ``idem'' meaning self (as in the word ``identity'') and ``potent'' meaning power (in the normal English sense, as in ``omnipotent'') but used in mathematics to mean raised to an exponent. The word ``idempotent'' means the object equals its own power.}
+                $$P \land P \equiv P\text{ and }P \lor P \equiv P.$$
+            \item \label{part_equiv_id} \vocab{Identity}
+                $$P \land \str{T} \equiv P\text{ and }P \lor \str{F} \equiv P.$$
+            \item \label{part_equiv_dom} \vocab{Domination}
+                $$P \lor \str{T} \equiv \str{T}\text{ and }P \land \str{F}  \equiv \str{F}.$$
+            \item \label{part_equiv_neg} \vocab{Negation}
+                $$P \lor \neg P \equiv \str{T}\text{ and }P \land \neg P \equiv \str{F}.$$
+            \item \label{part_equiv_doubleneg} \vocab{Double negation}
+                $$\neg (\neg P) \equiv P$$
+        \end{apart}
+\end{thm}
+
+These logical equivalences can be confirmed using a truth table, but they should also make sense.  Let's look closely at a couple of these equivalences.
+
+\begin{exam}[Understanding logical equivalences: negation, tautology, and contradiction]
+\label{exam_understand_equiv_negTF}
+    For each equivalence from \Cref{thm_obvious_logical_equivalences}, explain words why it is true.  Recall that by \Cref{defn_logical_equiv} that two statements are logical equivalent if they have the same truth values and so we can check if one statement is true, then so is the other and if one statement is false, then so is the other.  
+        \begin{apart}
+            \item $P \lor P \equiv P$ 
+                \begin{soln}
+                    If $P \lor P$ is true, then either $P$ is true or $P$ is true.  In either case, $P$ is true.  If $P \lor P$ is false, then $P$ is false and $P$ is false. (We used Demorgan's laws, \Cref{thm_demorgans} to negate the ``or''.) In either case $P$ is false.  Thus, $P \lor P \equiv P$.
+                \end{soln}
+            \item $\neg (\neg P) \equiv P$ 
+                \begin{soln}
+                    If $\neg (\neg P)$ is true, then by definition of negation (\Cref{defn_negation_tautology_contradiction}) $\neg P$ is false and so $P$ is true.  If $\neg (\neg P)$ is false, then by definition of negation (\Cref{defn_negation_tautology_contradiction}) $\neg P$ is true and so $P$ is false. Thus, $\neg (\neg P) \equiv P$
+                \end{soln}
+            \item $P \land \str{F}  \equiv \str{F}$ 
+                \begin{soln}
+                    For the statement $P \land \str{F}$ to be true, we would need both $P$ and $\str{F}$ to be true.  But $\str{F}$ is a contradiction so it is always false.  Therefore $P \land \str{F}$ is also always false. That is, $P \land \str{F} \equiv \str{F}$.
+                \end{soln}
+        \end{apart}
+\end{exam}
+
+The equivalence in \Cref{defn_logical_equiv} (\ref{part_equiv_distributive}), for example, is one of several equivalences that have names that may be familiar since we used the same names in integer algebra (\Cref{defn_integer_algebra_order_operations}).
+
+\begin{thm}[Commutative, associative, and distributive equivalences]
+\label{thm_logical_equiv_comm_assoc_dist}
+For any logical statements $P$, $Q$, and $R$, we have the following logical equivalences.
+    \begin{apart}
+        \item \label{part_equiv_comm} \vocab{Commutative property} 
+        $$P \land Q \equiv Q \land P$$
+        $$P \lor Q \equiv Q \lor P$$
+
+        \item \label{part_equiv_assoc} \vocab{Associative property}
+        $$ P \land (Q \land R) \equiv (P \land Q) \land R$$
+        $$ P \lor (Q \lor R) \equiv (P \lor Q) \lor R$$
+
+        \item \label{part_equiv_dist} \vocab{Distributive property}
+        $$ P \land (Q \lor R) \equiv (P \land Q) \lor (P \land R)$$
+        $$ P \lor (Q \land R) \equiv (P \lor Q) \land (P \lor R)$$
+    \end{apart}
+\end{thm}
+
+Each of the statements in \Cref{thm_logical_equiv_comm_assoc_dist} can be confirmed using a truth table.  
+
+For reference, we repeat the implication and contraposition logical equivalences here. 
+
+\begin{thm}[Implication and contraposition equivalences, revisited]
+\label{thm_equiv_implication_cp__again}
+    For statements $P$, $Q$, and $R$, we have the following equivalences.
+        \begin{apart}
+            \item \label{part_equiv_impl} \vocab{Implication} (\Cref{thm_implication})
+                $$ P \to Q \equiv \neg P \lor Q$$
+                $$ R \lor Q \equiv \neg R \to Q$$
+            \item \label{part_equiv_cp} \vocab{Contraposition} (\Cref{thm_cp})
+                $$(P \to Q) \equiv (\neg Q \to \neg P)$$
+       \end{apart}
+\end{thm}
+
+We also repeat the equivalences that help us negate compound statements.
+
+\begin{thm}[Negating compound statements, revisited]
+\label{thm_equiv_neg_and_or_ifthen}
+    For statements $P$ and $Q$, we have the following equivalences.
+        \begin{apart}
+            \item \vocab{DeMorgan's laws}  (\Cref{thm_demorgans})
+                $$\neg(P \land Q) \equiv \neg P \lor \neg Q$$
+                $$\neg(P \lor Q) \equiv \neg P \land \neg Q.$$  
+
+            \item \vocab{Broken promise} (\Cref{thm_broken_promise})
+                $$\neg(P \to Q) \equiv P \land \neg Q$$
+        \end{apart}
+\end{thm}
+
+We can use this long list of equivalences to prove new equivalences.
+
+\begin{act}[Proofs of Logical Equivalences]
+\label{act_proof_logical_equiv}
+~
+    \begin{actpart}
+        \item \label{part_fillinblankproof_cpequiv} Many lists of equivalences omit contraposition because it can be proved from the other equivalences. Fill in the missing equivalences in \Cref{tab_fillinblankproof_cpequiv} to prove contraposition.
+
+        \begin{table}[hbtp]
+            \centering
+            \begin{tabular}{lrclll}
+                 \emph{Proof:} & $ P \to Q$ & $\equiv$ & $\neg P \lor Q$ & ~\hspace{.25in}~& using   \underline{\hspace{1in}}  \\ 
+                 & & $\equiv$ & $Q \lor \neg P$ && using   \underline{\hspace{1in}}  \\ 
+                 & & $\equiv$ & $\neg (\neg Q) \lor \neg P$ && using   \underline{\hspace{1in}}  \\ 
+                 & & $\equiv$ & $\neg Q \to \neg P$ && using   \underline{\hspace{1in}} ~ \hfill ~$\Box$ \\ 
+            \end{tabular}
+            \caption{Fill in the blanks to prove the contraposition equivalence for \Cref{act_proof_logical_equiv} (\ref{part_fillinblankproof_cpequiv}).}
+            \label{tab_fillinblankproof_cpequiv}
+        \end{table}
+
+        \item \label{part_fillinblanksproof_ifthenand} Fill in the missing steps of the proof in \Cref{tab_fillinblanksproof_ifthenand} using the equivalences given.  What new equivalence did we just prove?
+
+        \begin{table}[hbtp]
+            \centering
+            \begin{tabular} {lrclll}
+                \emph{Proof:} & $P \to (Q \land R)$ & $\equiv$ & \underline{\hspace{1in}} & ~\hspace{.25in}~& using implication  \\ 
+                && $\equiv$ & \underline{\hspace{1in}} && using the distributive property \\ 
+                && $\equiv$ & \underline{\hspace{1in}} && using implication (twice) ~ \hfill ~$\Box$ \\ 
+            \end{tabular}
+            \caption{Fill in the blanks to expand $P \to (Q \land R)$ for \Cref{act_proof_logical_equiv} (\ref{part_fillinblanksproof_ifthenand}).}
+            \label{tab_fillinblanksproof_ifthenand}
+        \end{table}
+
+        \item \label{part_proof_mp_using_equiv} Fill in the missing equivalences in \Cref{table_equiv_proof_mp} to prove $((P \land (P \to Q)) \to Q) \equiv \str{T}$. This tautology that shows that \emph{modus ponens} (which we will see in \Cref{thm_logical_infer} (\ref{part_thm_infer_mp}) is valid.
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{lrclll}
+                         \emph{Proof:} & $ (P \land (P \to Q)) \to Q$ & $\equiv$ & $(P \land (\neg P \lor Q)) \to Q$ & ~\hspace{.25in}~& using \underline{\hspace{.75in}} \\ 
+                         & & $\equiv$ & $((P \land \neg P) \lor (P \land Q)) \to Q$ && using \underline{\hspace{.75in}} \\
+                         & & $\equiv$ & $(\str{F} \lor (P \land Q)) \to Q$ && using \underline{\hspace{.75in}}  \\ 
+                         & & $\equiv$ & $(P \land Q) \to Q$ && using \underline{\hspace{.75in}}\\ 
+                         & & $\equiv$ & $\neg(P \land Q) \lor Q$ && using \underline{\hspace{.75in}} \\
+                         & & $\equiv$ & $(\neg P \lor \neg Q) \lor Q$ && using \underline{\hspace{.75in}} \\
+                         & & $\equiv$ & $\neg P \lor (\neg Q \lor Q)$ && using \underline{\hspace{.75in}} \\
+                         & & $\equiv$ & $\neg P \lor \str{T}$ && using \underline{\hspace{.75in}} \\
+                         & & $\equiv$ & $\str{T}$ && using \underline{\hspace{.75in}} ~ \hfill ~$\Box$ \\
+                    \end{tabular}
+                    \caption{Using equivalences to prove \emph{modus ponens} is valid for \Cref{act_proof_logical_equiv} (\ref{part_proof_mp_using_equiv}).}
+                    \label{table_equiv_proof_mp}
+                \end{table}
+    \end{actpart}
+\end{act}
+
+Make sure to complete \Cref{act_proof_logical_equiv} because we are about to reveal some of the answers.
+
+\begin{exam}[Proofs of Logical Equivalences]
+\label{exam_proof_logical_equiv} 
+~
+    \begin{apart}
+        \item \label{part_fillinblankproof_cpequiv_answers} Many lists of equivalences omit contraposition because it can be proved from the other equivalences. Fill in the missing equivalences in \Cref{tab_fillinblankproof_cpequiv} to prove contraposition.
+            \begin{soln}
+                See \Cref{tab_fillinblankproof_cpequiv_answers}.
+            \end{soln}
+            
+            \begin{table}[hbtp]
+            \centering
+            \begin{tabular}{lrclll}
+                 \emph{Proof:} & $ P \to Q$ & $\equiv$ & $\neg P \lor Q$ & ~\hspace{.25in}~& using implication \\ 
+                 & & $\equiv$ & $Q \lor \neg P$ && using the commutative property  \\ 
+                 & & $\equiv$ & $\neg (\neg Q) \lor \neg P$ && using double negation \\ 
+                 & & $\equiv$ & $\neg Q \to \neg P$ && using implication ~ \hfill ~$\Box$ \\ 
+            \end{tabular}
+            \caption{Using equivalences to prove the contraposition equivalence for \Cref{exam_proof_logical_equiv} (\ref{part_fillinblankproof_cpequiv_answers}).}
+            \label{tab_fillinblankproof_cpequiv_answers}
+        \end{table}
+
+        \item \label{part_fillinblanksproof_ifthenand_equiv} Fill in the missing steps of the proof in \Cref{tab_fillinblanksproof_ifthenand} using the equivalences given.  What new equivalence did we just prove?
+
+            \begin{soln}
+                See \Cref{tab_fillinblanksproof_ifthenand_answers}.  We just proved a new equivalence: $$P \to (Q \land R) \equiv (P \to Q) \land (P \to R).$$
+            \end{soln}
+            
+        \begin{table}[hbtp]
+            \centering
+            \begin{tabular} {crclll}
+                \emph{Proof.} & $P \to (Q \land R)$ & $\equiv$ & $\neg P \lor (Q \land R)$ & ~\hspace{.25in}~& using implication  \\ 
+                && $\equiv$ & $(\neg P \lor Q) \land (\neg P \lor R)$ && using the distributive property \\ 
+                && $\equiv$ & $(P \to Q) \land (P \to R)$ && using implication (twice) ~ \hfill ~$\Box$ \\ 
+            \end{tabular}
+            \caption{Using equivalences to expand $P \to (Q \land R)$for \Cref{exam_proof_logical_equiv} (\ref{part_fillinblanksproof_ifthenand}).}
+            \label{tab_fillinblanksproof_ifthenand_answers}
+        \end{table}
+    \end{apart}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subneg}{Simplifying Negations}
+\subsection{\subneg}
+\label{sub_simplify_neg}
+
+We can use logical equivalences to simplify the negation of a statement.
+
+\begin{exam}[Negating a complicated statement] 
+\label{exam_neg_complicated}
+    Negate the statement $$(P \lor R) \land (Q \lor\neg R)$$ and simplify your negation so that there are no negation signs in front of parentheses. State which equivalences you use.
+        \begin{soln}
+            We simplify the negation in \Cref{tab_neg_complicated}.
+        \end{soln}
+
+        \begin{table}[hbtp]
+            \centering
+            \begin{tabular} {rclll}
+                $\neg ((P \lor R) \land (Q \lor \neg R))$ & $\equiv$ & $\neg (P \lor R) \lor \neg (Q \lor \neg R)$ && using De Morgan's laws\\
+                & $\equiv$ & $(\neg P \land \neg R) \lor (\neg Q \land \neg (\neg R))$ && using De Morgan's laws (twice) \\
+                & $\equiv$ & $(\neg P \lor \neg R) \land (\neg Q \lor R)$ &&  using double negation.
+            \end{tabular}
+            \caption{Using equivalences to negate the complicated statement from \Cref{exam_neg_complicated}.}
+            \label{tab_neg_complicated}
+        \end{table}
+\end{exam}
+
+\begin{act}[Simplifying complicated statements]
+\label{act_simplify_complicated_statements}
+    Negate each statement and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses. State which equivalences you use.
+        \begin{actpart}
+            \item $P \lor \neg Q$
+            \item $\neg P \to Q$
+            \item $P \land (Q \to R)$
+        \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subinference}{Logical Inference}
+\subsection{\subinference}
+\label{sub_proof_inf}
+
+The primary tool that drives our explanations in proofs are logical inferences.
+
+\begin{defn}[Logical Inferences]
+\label{defn_logical_infer}
+~
+    \begin{apart}
+        \item \label{part_defn_infer} For statements $S$ and statement $C$, a \vocab{logical inference}, denoted $$S \implies C,$$ is a rule saying if we know that statement $S$ is true, then we can conclude that statement $C$ is also true.  For example, in \Cref{exam_truthtable_compound_conditionals} (\ref{part_truthtable_simplification}) we proved that $(P \land Q) \to P$ is a tautology.  Therefore, if we know that $S=P \land Q$ is true, we can conclude that $C=P$ is true. We write $$P \land Q \implies P.$$ (This inference is \Cref{thm_logical_infer} (\ref{part_thm_infer_simp}).) 
+        
+        \item An logical inference can also involve multiple statements. That is, for statements $S_1$, $S_2$, \ldots, $S_k$, and $C$.  The logical inference 
+            $$\left. \begin{array}{c} 
+            S_1 \\ S_2 \\ \vdots \\ S_k \\\end{array} \right\} \implies C$$
+        means that if we know that statements $S_1$, $S_2$, \ldots, $S_k$ are true, then we can conclude that statement $C$ is also true.  For example, if we know that $P$ is true and $Q$ is true, then we can conclude that $P \land Q$ is true. We write
+            $$\left. \begin{array} {cc} P \\ Q \end{array} \right\} \implies P \land Q.$$
+        (This inference is \Cref{thm_logical_infer} (\ref{part_thm_infer_conj}).) 
+        
+        \item A logical inference $S \implies C$ is \vocab{valid} if the corresponding conditional statement $S \to C$ is a tautology or, equivalently, if $(S \to C) \equiv \str{T}$.  For example, $(P \land Q) \implies P$ is a valid inference because $(P \land Q) \to P$ is a tautology.
+    \end{apart} 
+\end{defn}
+
+There are five key logical inferences.
+
+\begin{thm}[Logical inferences]
+\label{thm_logical_infer}
+   For any logical statements $P$ and $Q$ we have the following valid logical inferences.
+   \begin{apart}
+        \item \label{part_thm_infer_simp} \vocab{Simplification} $$P \land Q \implies P$$
+        \item \label{part_thm_infer_add} \vocab{Addition} $$P \implies P \lor Q$$
+        \item \label{part_thm_infer_conj} \vocab{Conjunction} $$\left. \begin{array} {cc} P \\ Q \end{array} \right\} \implies P \land Q$$
+        \item \label{part_thm_infer_mp} \vocab{\emph{Modus ponens (m.p.)}}
+        $$\left. \begin{array} {cc} P  \\P  \to Q\end{array} \right\} \implies Q$$
+        \item \label{part_thm_infer_mt} \vocab{\emph{Modus tollens (m.t.)}}
+        $$\left. \begin{array} {cc} \neg Q \\ P \to Q \end{array} \right\} \implies \neg P$$
+    \end{apart}
+\end{thm}
+
+We explained why simplification and conjunction are valid in \Cref{defn_logical_infer}.  Let's look at why \emph{modus ponens} is valid.
+
+\begin{exam}[Why \emph{modus ponens} is valid]
+\label{exam_mp_valid}
+    We proved \emph{modus ponens} in \Cref{act_proof_logical_equiv} (\ref{part_proof_mp_using_equiv}) using equivalences. In this example, we look at two different ways to show that \emph{modus ponens} is a valid inference. 
+        \begin{apart}
+            \item Explain in words why \emph{modus ponens} makes sense.
+                \begin{soln}
+                    Suppose we know that $P$ is true and that $P \to Q$ is true.  The statement $P \to Q$ promises that if $P$ is true, then $Q$ is guaranteed to be true.  Since $P$ is indeed true, it follows that $Q$ is true.
+                \end{soln}
+            \item \label{part_proof_mp_using_truthtable} Prove \emph{modus ponens} is valid using a truth table.
+                \begin{soln}
+                    To prove \emph{modus ponens} is valid, we need to prove that $(P \land (P \to Q)) \to Q$ is a tautology. The truth table is shown in \Cref{table_truthtable_mp}. Notice that the last column is all \str{T}, so $(P \land (P \to Q)) \to Q$ is a tautology.  Therefore, \emph{modus ponens} is valid.
+                \end{soln}
+            
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{cc|c|c|c}
+                        $P$ & $Q$ & $P \to Q$ & $P \land (P \to Q)$ & $(P \land (P \to Q)) \to Q$ \\ \hline  
+                        \str{T} & \str{T} & \str{T} & \str{T} & \str{T} \\
+                        \str{T} & \str{F} & \str{F}& \str{F} & \str{T} \\
+                        \str{F} & \str{T} & \str{T} & \str{F}& \str{T} \\
+                        \str{F} & \str{F} & \str{T}& \str{F} & \str{T}\\ 
+                    \end{tabular}
+                    \caption{Truth table showing \emph{modus ponens} is valid for \Cref{exam_mp_valid} (\ref{part_proof_mp_using_truthtable}).}
+                    \label{table_truthtable_mp}
+                \end{table}
+        \end{apart}
+\end{exam}    
+
+Let's look at how to use logical inferences to write proofs.    
+
+\begin{exam}[Validity of \emph{modus tollens}]
+\label{exam_prove_mt_using_equiv_and_infer}
+    Prove \emph{modus tollens} is valid using equivalences and the other inferences.
+            \begin{soln}
+                We want to prove that if $P \to Q$ and $\neg Q$ are each true, then $\neg P$ is true.
+                As we work through the proof, let's number each statement for future reference.
+                
+                \emph{Proof.}
+                Assume \ding{192} $P \to Q$ and \ding{193} $\neg Q$.  
+                
+                By \ding{192} and contraposition (\Cref{thm_cp}), it follows that \ding{194} $\neg Q \to \neg P$.  
+                
+                By \ding{193}, \ding{194}, and \emph{modus ponens}, it follows that $\neg P$. ~ \hfill ~$\Box$             
+            \end{soln}
+\end{exam}
+
+Your turn to work with logical inferences.  
+
+\begin{act}[Proofs with equivalences and inferences]
+\label{act_proofs_equiv_infer}
+~
+    \begin{actpart}  
+        \item Fill in the missing inferences to prove $P \land Q \implies P \lor Q$.
+
+            \emph{Proof.}
+            Assume \ding{192} $P \land Q$.  
+        
+            By \ding{192} and \underline{\hspace{.75 in}} it follows that \ding{193} $P$.  
+        
+            By \ding{193} and \underline{\hspace{.75 in}}, it follows that $P \lor Q$.~ \hfill ~$\Box$ 
+    
+        \item Fill in the missing conclusions to prove the \vocab{transitivity} inference     
+            $$\left. \begin{array} {cc}
+            P \to Q \\
+            Q \to R \\ 
+            \end{array} \right\} \implies P \to R.$$
+
+            \emph{Proof.} Assume \ding{192} $P \to Q$ and \ding{193} $Q \to R$.
+        
+            We will use a direct proof (\Cref{pff_if_then_direct}) to prove $P \to R$.  
+        
+            Assume \ding{194} $P$. 
+
+            By \ding{194}, \ding{192}, and \emph{modus ponens}, it follows that \ding{195} \underline{\hspace{.75 in}}.
+
+            By \ding{195}, \ding{193}, and \emph{modus ponens}, it follows that \underline{\hspace{.75 in}}.
+
+            Thus, $P \to R$.~ \hfill ~$\Box$ 
+
+        \item \label{part_proof_equiv_infer_another} Fill in the missing equivalences, inferences, or conclusions to prove 
+            $$\left. \begin{array} {cc}
+            \neg(Q \lor R) \\
+            P \to Q \\
+            \end{array} \right\} \implies \neg (P \lor R).$$
+
+            \emph{Proof.}
+            Assume \ding{192} $\neg(Q \lor R)$ and \ding{193} $P \to Q$.
+        
+            By \ding{192} and DeMorgan's Law it follows that \ding{194} \underline{\hspace{.75 in}}.
+        
+            By \ding{194} and \underline{\hspace{.75 in}}, it follows that \ding{194} $\neg Q$.
+
+            By \ding{194}, \ding{193}, and \emph{modus tollens}, it follows that \ding{195} \underline{\hspace{.75 in}}.
+
+            By \ding{194} and \underline{\hspace{.75 in}}, it follows that \ding{196} $\neg R \land \neg Q$.
+
+            By \ding{196} and simplification, it follows that \ding{197} \underline{\hspace{.75 in}}.
+
+            By \ding{195}, \ding{197}, and conjunction, it follows that \ding{198} \underline{\hspace{.75 in}}.
+
+            By \ding{198} and \underline{\hspace{.75 in}}, it follows that $\neg(P \lor R)$. ~ \hfill ~$\Box$ 
+    \end{actpart}
+\end{act}
+
+Let's look at the proof from \Cref{{act_proofs_equiv_infer}} (\ref{part_proof_equiv_infer_another}).
+
+\begin{exam}[Proof using equivalences and inferences]
+\label{exam_proof_equiv_infer}
+    Fill in the missing equivalences, inferences, or conclusions to prove 
+            $$\left. \begin{array} {cc}
+            \neg(Q \lor R) \\
+            P \to Q \\
+            \end{array} \right\} \implies \neg (P \lor R).$$
+
+    \emph{Proof.}
+        Assume \ding{192} $\neg(Q \lor R)$ and \ding{193} $P \to Q$.
+        
+        By \ding{192} and DeMorgan's Law it follows that \ding{194} $\neg Q \land \neg R$.
+        
+        By \ding{194} and simplification, it follows that \ding{194} $\neg Q$.
+
+        By \ding{194}, \ding{193}, and \emph{modus tollens}, it follows that \ding{195} $\neg P$.
+
+        By \ding{194} and the commutative property, it follows that \ding{196} $\neg R \land \neg Q$.
+
+        By \ding{196} and simplification, it follows that \ding{197} $\neg R$.
+
+        By \ding{195}, \ding{197}, and conjunction, it follows that \ding{198} $\neg P \land \neg R$.
+
+        By \ding{198} and Demorgan's laws, it follows that $\neg(P \lor R)$. ~ \hfill ~$\Box$ 
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Exercises}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_logical_equiv} \subequiv}
+
+\begin{exer}[\exerP] % understanding logical equivalences
+\label{exer_understanding_equiv_negTF}
+    For each equivalence, explain words why it is true.  Recall that by \Cref{defn_logical_equiv} that two statements are logical equivalent if they have the same truth values and so we can check if one statement is true, then so is the other and if one statement is false, then so is the other.  
+        \begin{exerpart}
+            \item $P \land P \equiv P$           
+            \item $P \land \str{T}  \equiv P$ 
+            \item $P \lor \str{T} \equiv \str{T}$  Hint: Begin with for the statement $P \lor \str{T}$ to be false, we would need both \ldots
+        \end{exerpart}   
+\end{exer}
+
+\begin{exer}[\exerP] % confirm assoc using truth table
+\label{exer_truthtable_assoc}  
+    Use a truth table to verify the associative property for $\land$: $$P \land (Q \land R) \equiv (P \land Q) \land R.$$
+    Include intermediate columns for $Q \land R$ and $P \land Q$.
+\end{exer}
+
+\begin{exer}[\exerU] % xor equivalence
+\label{exer_xor_equiv}
+~
+    \begin{apart}
+        \item Explain in words why $P \oplus Q \equiv (P \lor Q) \land \neg (P \land Q)$.
+        \item Use a truth table to verify that $P \oplus Q \equiv (P \lor Q) \land \neg (P \land Q)$.
+    \end{apart}
+\end{exer}
+
+\begin{exer}[\exerU] % prove broken promise
+\label{exer_proof_equiv_broken_promise}
+    Many lists of equivalences omit broken promise because it can be proved from the other equivalences.  Fill in the missing equivalences in \Cref{tab_proof_equiv_broken_promise} to prove broken promise.
+
+    \begin{table}[hbtp]
+        \centering
+        \begin{tabular} {lrclll}
+            \emph{Proof:} & $\neg(P \to Q)$ & $\equiv$ & $\neg(\neg P \lor Q)$ & ~\hspace{.25in}~& using \underline{\hspace{1in}}  \\ 
+            & & $\equiv$ & $\neg(\neg P) \land \neg Q$ && busing \underline{\hspace{1in}}  \\ 
+            & & $\equiv$ & $P \land \neg Q$ && using \underline{\hspace{1in}} ~ \hfill ~$\Box$ \\ 
+        \end{tabular}
+        \caption{Fill in the blanks to prove broken promise for \Cref{exer_proof_equiv_broken_promise}.}
+        \label{tab_proof_equiv_broken_promise}
+    \end{table}
+\end{exer}
+
+\begin{exer}[\exerU] % Rewrite P implies Q implies R
+\label{exer_proof_equiv_PtoQtoR}
+    Fill in the missing equivalences in \Cref{tab_proof_equiv_PtoQtoR} to prove $P \to (Q \to R)\equiv (P \land Q) \to R$.  
+
+    \begin{table}[hbtp]
+        \centering
+        \begin{tabular} {lrclll}
+            \emph{Proof:} & $P \to (Q \to R)$ & $\equiv$ & $\neg P \lor (Q \to R)$ & ~\hspace{.25in}~& using \underline{\hspace{1in}}  \\ 
+            & & $\equiv$ & $\neg P \lor (\neg Q \lor R)$ && using \underline{\hspace{1in}}  \\ 
+            & & $\equiv$ & $(\neg P \lor \neg Q) \lor R $ && using \underline{\hspace{1in}}  \\ 
+            & & $\equiv$ & $\neg(P \land Q) \lor R $ && using \underline{\hspace{1in}}  \\ 
+            & & $\equiv$ & $(P \land Q) \to R$ && using \underline{\hspace{1in}} ~ \hfill ~$\Box$ \\ 
+\end{tabular}
+        \caption{Fill in the blanks to prove $P \to (Q \to R) \equiv (P \land Q) \to R$ for \Cref{exer_proof_equiv_PtoQtoR}}
+        \label{tab_proof_equiv_PtoQtoR}
+    \end{table}
+\end{exer}
+
+\begin{exer}[\exerU] % Justify modus ponens -- repeat from activity
+\label{exer_proof_mp_using_equiv}
+    This exercise repeats \Cref{act_proof_logical_equiv} (\ref{part_proof_mp_using_equiv}).  Fill in the missing equivalences in \Cref{table_equiv_proof_mp} to prove $((P \land (P \to Q)) \to Q) \equiv \str{T}$.  
+\end{exer}
+
+\begin{exer}[\exerU] % simplify equiv
+\label{exer_simplify_equiv}
+    Use equivalences to simplify $(P \land Q) \lor (P \land \neg Q)$.  
+\end{exer}
+
+\begin{exer}[\exerU] % another ifthen equiv
+\label{exer_another_equiv_ifthen}
+    Use equivalences to prove $\neg(\neg Q \land P) \equiv P \to Q$.
+\end{exer}
+
+\begin{exer}[\exerR] % Logical Equivalences
+\label{exer_dyk_logical_equiv}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What it means for two statements to be logically equivalent?
+            \item How to use a truth table to verify that a logical equivalence is valid?
+            \item What the commutative, associative, and distributive properties tell us? 
+            \item What the double negation equivalence says? 
+            \item How to use logical equivalences to prove new logical equivalences?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % equivalences about xor
+\label{exer_equiv_xor}
+    Use a truth table to verify the following equivalences involving xor.
+        \begin{exerpart}
+            \item \vocab{Commutative property} $P \oplus Q \equiv Q \oplus P$
+            \item \vocab{Associative property} $ P \oplus (Q \oplus R) \equiv (P \oplus Q) \oplus R$
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % Sheffer stroke
+\label{exer_sheffer_stroke}
+    For statements $P$ and $Q$, the \vocab{Sheffer stroke} (\vocab{nand}), denoted $P \mid Q$, is defined by $$P \mid Q \equiv \neg (P \land Q)$$
+        \begin{exerpart}
+            \item Construct a truth table for $P \mid Q$.
+            \item Use equivalences to simplify $P \mid \str{T}$ and $P \mid \str{F}$.
+            \item Use equivalences to simplify $Q \mid Q$.
+            \item Use equivalences to simplify $P \mid (Q \mid Q)$.
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_simplify_neg} \subneg}
+
+\begin{exer}[\exerP] % negating simple statements with 2 variables
+\label{exer_neg_simple_2vars}
+    Negate each statement and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses. State which equivalences you use.
+        \begin{exerpart}                 
+            \item $P \land \neg Q$
+            \item $\neg P \lor \neg Q$
+            \item $\neg P \to \neg Q$
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % negating complicated statements with $\land$ and $\lor$]
+\label{exer_neg_complicated_and_or}
+    Negate each statement and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses. State which equivalences you use.
+        \begin{exerpart}           
+            \item $P \lor (Q \land R)$
+            \item $(P \land R) \lor (Q \land \neg R)$
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % negating  statements with $to$]
+\label{exer_neg_ifthen}
+    Negate each statement and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses. State which equivalences you use.
+        \begin{exerpart}           
+            \item $P \to (Q \lor \neg R)$
+            \item $(P \to Q) \land (R \to \neg Q)$ 
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % Simplifying Negations
+\label{exer_dyk_simplify_neg}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What DeMorgan's laws say?
+            \item What the broken promise equivalence says?
+            \item How to simplify negations using equivalences? 
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %Negating a biconditional
+\label{exer_negating_biconditional_using_equiv}
+~
+    \begin{apart}
+        \item Recall that $P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)$. Negate $P \leftrightarrow Q$ and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses. State which equivalences you use.
+        \item Recall that $P \oplus Q \equiv (P \lor Q) \land \neg (P \land Q)$.  Negate $P \oplus Q$ and use logical equivalences to simplify your negation so that there are no negation signs in front of parentheses. State which equivalences you use.
+        \item What do you notice?
+    \end{apart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_proof_inf} \subinference}
+
+\begin{exer}[\exerP] % prove $P \land Q \implies Q$]
+\label{exer_proof_PandQimpliesQ}
+    Fill in the missing conclusions to prove $P \land Q \implies Q$. 
+
+        \emph{Proof.} Assume \ding{192} $P \land Q$.  
+        
+        By \ding{192} and the commutative property it follows that \ding{193} \underline{\hspace{.75 in}}.
+        
+        By \ding{193} and simplification, it follows that \underline{\hspace{.75 in}}.~ \hfill ~$\Box$ 
+\end{exer}
+
+\begin{exer}[\exerP] % prove complicated inference]
+\label{exer_prove_complicated_infer}
+    Fill in the missing inferences to prove the inference $$\left. 
+        \begin{array} {cc}
+        P \\
+        P \to Q \\
+        P \to R \\ 
+        \end{array} \right\} \implies Q \land R.$$
+
+        \emph{Proof.} Assume \ding{192} $P$, \ding{193} $P \to Q$ and \ding{194} $P \to R$. 
+
+        By \ding{192}, \ding{193}, and \underline{\hspace{.75 in}}, it follows that \ding{195} $Q$.
+
+        By \ding{192}, \ding{194}, and \underline{\hspace{.75 in}}, it follows that \ding{196} $R$.
+
+        By \ding{195}, \ding{196}, and \underline{\hspace{.75 in}}, it follows that  $Q \land R$.~ \hfill ~$\Box$ 
+\end{exer}
+
+\begin{exer}[\exerP] % double mp
+\label{exer_proof_doublemp_equiv_infer}
+~
+    \begin{exerpart}
+        \item Use equivalences and inferences to prove $$\left. \begin{array} {c} P \\ P \to Q \\ Q \to R \end{array} \right\} \implies R.$$
+        \item Use equivalences and inferences from our lists to prove
+            $$\left. \begin{array} {cc} P \land Q \\ P \to R \\ Q \to S\end{array} \right\} \implies R \land S.$$
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % Or form of mp
+\label{exer_or_form_mp}
+~
+    \begin{exerpart}
+        \item Explain in your own words why $\left. \begin{array} {cc} P \lor Q \\ \neg P \end{array} \right\} \implies Q$.
+        \item Fill in the missing equivalences and inferences to prove $\left. \begin{array} {cc} P \lor Q \\ \neg P \end{array} \right\} \implies Q$.
+
+            \emph{Proof.}  Assume \ding{192} $ P\lor Q$ and \ding{193} $\neg P$.  \\
+            By \underline{\hspace{.75 in}} it follows from \ding{192} that $\neg (\neg P) \lor Q$.  \\
+            By \underline{\hspace{.75 in}}, it follows that $\neg P \to Q$.  \\
+            We know $\neg P$ from \ding{193}, so by \underline{\hspace{.75 in}} it follows that $Q$ \hfill $\Box$
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % Justify proof by cases.
+\label{exer_proof_equiv_infer_proof_by_cases}
+    Fill in the missing equivalences, inferences, or conclusions, to prove the inference that justifies proof by cases (\Cref{pff_cases}.  
+        $$\left. \begin{array} {c}
+            P \lor Q \\
+            P \to R \\
+            Q \to R \\
+        \end{array} \right \} \implies R$$
+
+         \emph{Proof.}  Assume \ding{192} $P \lor Q$, \ding{193} $P \to R$, and \ding{194} $Q \to R$.  
+
+         By \ding{193}, \ding{194}, and conjunction it follows that \ding{195} \underline{\hspace{.75 in}}.
+
+         By \ding{195} and implication (twice), it follows that \ding{196} \underline{\hspace{.75 in}}.
+
+         By \ding{196} and the commutative property (twice), it follows that
+         \ding{197} \underline{\hspace{.75 in}}.
+
+         By \ding{197} and the distributive property, it follows that
+         \ding{198} \underline{\hspace{.75 in}}.
+
+         By \ding{198} and the commutative property, it follows that
+         \ding{199} \underline{\hspace{.75 in}}.
+
+         By \ding{199} and Demorgan's law, it follows that
+         \ding{200} \underline{\hspace{.75 in}}.
+
+         By \ding{199} and implication, it follows that
+         \ding{201} \underline{\hspace{.75 in}}.
+
+         By \ding{201}, \ding{192}, and \underline{\hspace{.75 in}} it follows that $R$. ~ \hfill ~$\Box$ 
+\end{exer}
+
+\begin{exer}[\exerU] % proof of random inference
+\label{exer_proof_infer_random}
+    Fill in the missing equivalences and inferences to prove 
+        $$\left. \begin{array} {cc} P \land Q  \\ \neg(\neg R \land P) \end{array} \right\} \implies P \land R.$$
+
+        \emph{Proof.}  Assume \ding{192} $ P\land Q$ and \ding{193} $\neg(\neg R \land P)$. 
+        
+        By \underline{\hspace{.75 in}} it follows from \ding{193} that $\neg (\neg R) \lor \neg P$.  
+
+        By \underline{\hspace{.75 in}}, it follows that $R \lor \neg P$.  
+
+        By \underline{\hspace{.75 in}}, it follows that $ \neg P \lor R$.  
+
+        By \underline{\hspace{.75 in}}, it follows that $ P \to R$.  
+
+        By \underline{\hspace{.75 in}}, it follows from \ding{192} that $P$. 
+
+        By \underline{\hspace{.75 in}}, it follows that $R$.\hfill $\Box$
+\end{exer}
+
+\begin{exer}[\exerU] % proof another random inference
+\label{exer_proof_infer_random2}
+    Consider the inference  
+        $$\left. \begin{array} {cc} P \to \neg Q  \\ R \to (P \land Q)\end{array} \right\} \implies \neg R.$$  Fill in the missing steps to prove it, using the equivalences and inferences given.
+            
+            \emph{Proof.} Assume \ding{192} $P \to \neg Q$ and \ding{193} $R \to (P \land Q)$. 
+            
+            By \ding{192} and implication, it follows that \ding{194} \underline{\hspace{.75 in}}.
+            
+            By \ding{193} and DeMorgan's laws, it follows that \ding{195}\underline{\hspace{.75 in}}.
+            
+            By \ding{193}, \ding{195}, \emph{modus tollens}, it follows that \underline{\hspace{.75 in}}. \hfill $\Box$   
+\end{exer}
+
+\begin{exer}[\exerU] % yet another inference
+\label{exer_proof_infer_contradiction}
+~
+    Use equivalences and inferences from our lists to prove
+            $$\left. \begin{array} {cc} \neg P \to Q \\ \neg P \to \neg Q \end{array} \right\} \implies P$$  
+        which is the inference that justifies proof by contradiction (\Cref{pff_contradiction}). Hint: Start with conjunction.
+\end{exer}
+
+\begin{exer}[\exerR] % Logical Inference
+\label{exer_dyk_logical_inference}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What a logical inference is?
+            \item How to use a truth table to verify a logical inference?
+            \item What \emph{modus ponens} and \emph{modus ponens} say and how to use them in a proof?
+            \item Why the simplification, conjunction, and addition inferences are valid?
+            \item How to use logical equivalences and logical inferences to prove new logical inferences?
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\answers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_logical_equiv} \subequiv}
+
+\subsubsection*{\Cref{exer_understanding_equiv_negTF} \answers}
+\begin{apart}
+    \item If $P \land P$ is true, then $P$ is true and $P$ is true. That is, $P$ is true.  On the other hand, if $P \land P$ is false, then $P$ is false or $P$ is false.  That is, $P$ is false.
+    \item Hint: Follow the format from (a).
+    \item Hint: Follow the hint.  It should never be false. 
+\end{apart}
+
+\subsubsection*{\Cref{exer_truthtable_assoc} \answers}
+Hint: Your truth table should have seven columns: $P$, $Q$, $R$, $Q \land R$, $P \land (Q \land R)$, $P \land Q$, and $(P \land Q) \land R$.  Your truth table should have eight rows.  The fifth column and the seventh column should match.
+
+\subsubsection*{\Cref{exer_xor_equiv} \answers}
+\begin{apart}
+    \item Hint: If $P \oplus Q$ is true, then $P$ is true or $Q$ is true, but not both.  Since at least one of $P$ or $Q$ is true, it follows that $P \lor Q$ is true.  Since not both are true, it follows that $P \land Q$ is false.  That is, $\neg(P \land Q)$ is true.  Thus, $(P \lor Q) \land \neg(P \land Q)$ is true. Now explain what happens if $P \oplus Q$ is false.
+    \item Hint: Your truth table should have seven columns $P$, $Q$, $P \oplus Q$, $P \lor Q$, $P \land Q$, $\neg(P \land Q)$, and $(P \lor Q) \land \neg (P \land Q)$.  Your truth table should have four rows.  The third and seventh columns should match. 
+\end{apart}
+
+\subsubsection*{\Cref{exer_proof_equiv_broken_promise} \answers}
+Hint: The three reasons, in some order, are DeMorgan's laws, double negation, and implication.
+
+\subsubsection*{\Cref{exer_proof_equiv_PtoQtoR} \answers}
+Hint: The proof uses the associative property, DeMorgan's laws, and implication.
+
+\subsubsection*{\Cref{exer_proof_mp_using_equiv} \answers}
+Hint: The first three reasons are, in some order, the distributive property, implication, and negation.  Other reasons used include DeMorgan's laws and identity.
+
+\subsubsection*{\Cref{exer_simplify_equiv} \answers}
+Hint: Start with the distributive property to get $$(P \land Q) \lor (P \land \neg Q) \equiv P \land (Q \lor \neg Q).$$
+Next, use negation.
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_simplify_neg} \subneg}
+
+\subsubsection*{\Cref{exer_neg_simple_2vars} \answers}
+\begin{apart}
+\item The answer is $\neg P \lor Q$ Show the steps of your work and state which equivalences you use.
+\item Hint: The answer has no negations.
+\item Hint: Use broken promise.
+\end{apart}
+
+\subsubsection*{\Cref{exer_neg_ifthen} \answers}
+\begin{apart}
+    \item The answer is $P \land (\neg Q \land R)$. Show the steps of your work and state which equivalences you use.
+    \item Hint: The answer includes $\lor$.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_proof_inf} \subinference}
+
+\subsubsection*{\Cref{exer_proof_PandQimpliesQ} \answers}
+$Q \land P$, $Q$
+
+\subsubsection*{\Cref{exer_prove_complicated_infer} \answers}
+Hint: The proof uses conjunction and \emph{modus ponens}.
+
+\subsubsection*{\Cref{exer_proof_doublemp_equiv_infer} \answers}
+\begin{apart}
+    \item Hint: The proof uses \emph{modus ponens} twice.
+    \item Hint: Use simplification, but be careful.  It says $P \land Q \implies P$.  If you later want to conclude $Q$ instead, you need to use the commutative property first.
+\end{apart}
+
+\subsubsection*{\Cref{exer_proof_equiv_infer_proof_by_cases} \answers}
+Hint: The first blank should say $(P \to R) \land (Q \to R)$.
+
+\subsubsection*{\Cref{exer_proof_infer_random2} \answers}
+Hint: The second blank is $\neg(P \land Q)$.
+
+\subsubsection*{\Cref{exer_proof_infer_contradiction} \answers}
+Hint: Use conjunction to get $(\neg P \to Q) \land (\neg P \to \neg Q)$. Next, use implication (twice), double negation (twice), the distributive property, negation, and then identity.
+
+
+
+
+
+
+% \newpage %%%%%%%
+
+% \begin{tabular} {ll} 
+% & \\ \vocab{EQUIVALENCES} & \\  & \\
+% \vocab{Idempotent:} & $P \land P \equiv P$ and $P \lor P \equiv P$ \\ 
+% \vocab{Identity:} & $P \land \vocab{T} \equiv P$ and $P \lor \vocab{F} \equiv P$  \\ 
+% \vocab{Domination:} & $P \lor \vocab{T} \equiv \vocab{T}$ and $P \land \vocab{F}  \equiv \vocab{F} $  \\ 
+% \vocab{Negation:} & $P \lor \neg P \equiv \vocab{T}$ and $P \land \neg P \equiv \vocab{F}$ \\ 
+% \vocab{Double negation:} & $ \neg (\neg P) \equiv P$ \\ 
+% where & \vocab{T} represents a \vocab{tautology} (always true statement) \\
+% & and \vocab{F} represents a \vocab{contradiction} (always false statement). \\ 
+% & \\
+% \vocab{Commutative:} & $P \land Q \equiv Q \land P$ and $P \lor Q \equiv Q \lor P$ \\ 
+%  \vocab{Associative:} & $P \land (Q \land R) \equiv (P \land Q) \land R$ and $P \lor (Q \lor R) \equiv (P \lor Q) \lor R $ \\ 
+% \vocab{Distributive:} & $P \land (Q \lor R) \equiv (P \land Q) \lor (P \land R)$ and $P \lor (Q \land R) \equiv (P \lor Q) \land (P \lor R)$ \\ 
+% & \\
+
+% \vocab{Implication:} & $P \to Q \equiv \neg P \lor Q$ and $R \lor Q \equiv \neg R \to Q$\\ 
+% \vocab{Contraposition:} & $P \to Q \equiv \neg Q \to \neg P$ \\ 
+% & \\
+% \vocab{DeMorgan's laws:} & $\neg (P \land Q) \equiv (\neg P \lor \neg Q)$ and $\neg (P \lor Q)  \equiv (\neg P \land \neg Q)$ \\ 
+% \vocab{Broken promise:} & $\neg(P \to Q) \equiv P \land \neg Q$ \\
+% & \\
+
+% \end{tabular}
+
+% \begin{tabular} {lllll} 
+% &&&& \\ \textbf{INFERENCES} &&&& \\  
+% \textbf{Addition:} & $P \implies P \lor Q$ &~ \hspace{.25in} ~& \textbf{\emph{Modus ponens}:} & $\left. \begin{array} {cc} P \to Q \\P  \end{array} \right\} \implies Q$\\ 
+% &&&& \\
+% \textbf{Simplification:} & $P \land Q \implies P$ &&&  \\ 
+% &&&& \\
+% \textbf{Conjunction:} & $\left. \begin{array} {cc} P \\ Q \end{array} \right\} \implies P \land Q$ && \textbf{\emph{Modus tollens}:} & $\left. \begin{array} {cc} P \to Q \\ \neg Q \end{array} \right\} \implies \neg P$\\ 
+% &&&& \\ 
+% \end{tabular}
+

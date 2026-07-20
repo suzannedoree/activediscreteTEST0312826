@@ -1,0 +1,1121 @@
+\section{\secexplicitseq}
+\label{sec_explicitly_defined_sequences}
+
+We began our exploration of discrete mathematics by listing and counting objects.  But what exactly is a ``list'' when the list is 
+infinite such as 
+$$1,3,5,7,9,11,\ldots?$$
+In this section, we define such infinite lists (sequences) using functions, look at examples of evaluating sequences, and practice modeling with sequences.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subdefnseq}{The Definition of Sequence}
+\subsection{\subdefnseq}
+\label{sub_defn_seq}
+
+We begin with a formal definition.
+
+\begin{defn}[Sequence]
+\label{defn_seq}
+~
+    \begin{apart}
+        \item \label{part_defn_seq} A \vocab{sequence} is a function whose domain is a set of the form $\{s,s+1,s+2,s+3,\ldots\}$ where $s$ is an integer. Note that when $s=0$ this set is $\mathbb{N}$ and when $s=1$ this set is $\mathbb{Z}^+$. For example, the function $f: \mathbb{N} \to \mathbb{Q}$ defined by $$f(n) = \frac{n-1}{n+1}$$ is a sequence.  
+        
+        \item A sequence \vocab{starts at} $s$ if its domain is $\{s,s+1,s+2,s+3,\ldots\}$. For example, the sequence from (\ref{part_defn_seq}) starts at 0 because the domain is $\mathbb{N}$.  We primarily consider sequences that start at 0 or 1.
+
+        \item As a shorthand, we use \vocab{sequence notation} to write $a_n=f(n)$ for $n \ge s$. For example, the sequence from (\ref{part_defn_seq}) can be defined by $$a_n = \frac{n-1}{n+1} \text{ for }n \ge 0.$$ 
+        This notation specifies the domain and rule for the function but not the codomain and so it should only be used when the codomain is clear from the context or stated separately.
+
+        \item A sequence can be described using a \vocab{list} of its terms: $$a_s, a_{s+1}, a_{s+2}, \ldots.$$
+        For example, in the sequence from (\ref{part_defn_seq}) we calculate
+            \begin{align*}
+                a_0 & = \frac{0-1}{0+1}=\frac{-1}{1}=-1 \\
+                a_1 & = \frac{1-1}{1+1}=\frac{0}{2}=0 \\
+                a_2 & = \frac{2-1}{2+1}=\frac{1}{3} \\
+                a_3 & = \frac{3-1}{3+1}=\frac{2}{4}=\frac{1}{2} \\
+                a_4 & = \frac{4-1}{4+1}=\frac{3}{5} \\
+                a_5 & = \frac{5-1}{5+1}=\frac{4}{6}=\frac{2}{3} \\
+            \end{align*}
+        and so the sequence corresponds to the list beginning
+        $$-1, 0, \frac{1}{3}, \frac{1}{2}, \frac{3}{5}, \ldots.$$
+
+        \item We can list the first few terms of a sequence using a \vocab{table}, as in \Cref{tab_seq_in_table}.
+
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{c|c|c|c|c|c|c}
+                    $n$ & $s$ & $s+1$ & $s+2$ & $s+3$ & $s+4$ & $s+5$ \\ \hline
+                    $a_n$ & $a_s$ & $a_{s+1}$ & $a_{s+2}$ & $a_{s+3}$ & $a_{s+4}$ & $a_{s+5}$ \\
+                \end{tabular}
+                \caption{Displaying a sequence in a table.}
+                \label{tab_seq_in_table}
+            \end{table}
+            
+        For example, we can list the first terms of $a_n = \frac{n-1}{n+1}$ for $n \ge 0$ in \Cref{tab_seq_in_table_frac}.
+
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{c|c|c|c|c|c|c}
+                    $n$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\ \hline
+                    $a_n$ & $-1$ & $0$ & $\frac{1}{3}$ & $\frac{1}{2}$ & $\frac{3}{5}$ & $\frac{2}{3}$\\
+                \end{tabular}
+                \caption{The first few terms of the sequence $a$ defined by $a_n = \frac{n-1}{n+1}$ for $n \ge 0$.}
+                \label{tab_seq_in_table_frac}
+            \end{table}
+           
+        \item The expression $a_n$ is pronounced ``$a$ sub $n$''.  The (input) value of $n$ is the \vocab{index} of the term and the (output) value of $a_n$ is the \vocab{term} of the sequence.  For example, in the sequence from (\ref{part_defn_seq}), the term $a_3$ is $\frac{1}{2}$ and its index is $3$.
+
+        \item A sequence is \vocab{explicitly-defined} (or \vocab{in closed form}) if there is a rule for $a_n$ that depends only on $n$ and constants.  For example, the sequence from (\ref{part_defn_seq}) is explicitly-defined. 
+    \end{apart}
+\end{defn}
+
+Let's look at some examples of sequences.
+
+\begin{exam}[Evaluating explicitly-defined sequences]
+\label{exam_eval_seq}
+    For each sequence, evaluate the first four terms and evaluate the 100th term.
+        \begin{apart}
+            \item \label{part_eval_seq_linear} The sequence $a$ is defined by $a_n= 2n$ for $n \ge 0$. 
+                \begin{soln}
+                    We calculate 
+                    $a_0 = 2(0) = 0$, 
+                    $a_1 = 2(1) = 1$, 
+                    $a_2 = 2(2) = 4$, and 
+                    $a_3 = 2(3) = 6$.  The first four terms are  $0, 2, 4, 6$. To find $a_{100}$ we calculate 
+                    $a_{100}= 2(100) = 200.$ 
+                \end{soln} 
+
+            \item \label{part_eval_seq_exponential} The sequence $b$ is defined by $b_k = 2^k$ for $k \ge 0$.
+                \begin{soln}
+                    We calculate 
+                    $b_0 = 2^0 = 1$, 
+                    $b_1 = 2^1 = 2$, 
+                    $b_2 = 2^2 = 4$, and 
+                    $b_3 = 2^3 = 8$.  The first four terms are  $1,2,4,8$. To find $b_{100}$ we calculate 
+                    $b_{100}= 2^{100}.$
+                \end{soln} 
+
+            \item \label{part_eval_seq_factorial} The sequence $c$ is defined by $c_m = 10m!$ for $m \ge 0$.
+                \begin{soln}
+                    We calculate 
+                    $c_0 = 10\cdot0! = 10\cdot1= 10$, 
+                    $c_1 = 10\cdot1! = 10\cdot1= 10$, 
+                    $c_2 = 10\cdot2! = 10\cdot2= 20$, and 
+                    $c_3 = 10\cdot3! = 10\cdot6= 60$.  The first four terms are  $10, 10, 20, 60$. To find $c_{100}$ we calculate 
+                    $c_{100}= 10\cdot(100!).$ 
+                \end{soln}
+
+            \item \label{part_eval_seq_hs} The sequence $h$ is defined by $h_n = \frac{n(n-1)}{2}$ for $n \ge 1$.
+                \begin{soln}
+                    We calculate 
+                    $h_1 = \frac{1(1-1)}{2}= \frac{0}{2} = 0$, 
+                    $h_2 = \frac{2(2-1)}{2}= \frac{2}{2} = 1$, 
+                    $h_3 = \frac{3(3-1)}{2}= \frac{6}{2} = 3$, and 
+                    $h_4 = \frac{4(4-1)}{2}= \frac{12}{2} = 6$.  The first four terms are  $0,1,3,6$. To find $h_{100}$ we calculate 
+                    $h_{100}=\frac{100(100-1)}{2}= \frac{9900}{2} = 4950$. 
+                \end{soln}
+
+            \item \label{part_eval_seq_alt_sq} The sequence $t$ is defined by $t_j=\frac{(-1)^j}{j^2}$ for $j \ge 1$.
+                \begin{soln}
+                    We calculate 
+                    $t_1 = \frac{(-1)^1}{1^2}=\frac{-1}{1}=-1$, 
+                    $t_2 \frac{(-1)^2}{2^2}= \frac{1}{4}$, 
+                    $t_3 \frac{(-1)^3}{3^2}= ^-\frac{1}{9}$, and 
+                    $t_4 \frac{(-1)^4}{4^2} = \frac{1}{16}$.  The first four terms are  $-1, \frac{1}{4}, ^-\frac{1}{9}, \frac{1}{16}$. To find 
+                    $t_{100}$ we calculate $s_{100}=\frac{(-1)^{200}}{200^2} = \frac{1}{40000}.$ 
+                \end{soln}
+
+            \item \label{part_eval_seq_poly} The sequence $u$ is defined by $u_m = m(2m-1)$ for $m \ge 1$.
+                \begin{soln}
+                    We calculate $u_1 = 1(2(1)-1)=1(1)=1$, 
+                    $u_2 = 2(2(2)-1)=2(3)=6$, 
+                    $u_3 =3(2(3)-1)=3(5)=15$,  and 
+                    $u_4 =4(2(4)-1)=4(7)=28$.  The first four terms are  $1, 6, 15, 28$. To find 
+                    $u_{100}$ we calculate 
+                    $u_{100}= 100(2(100)-1)=100(199)=19900$. 
+                \end{soln}
+
+            \item The sequence $v$ is defined by $v_i =  \left\lfloor \frac{i}{2} \right \rfloor$ for $i \ge 0$. 
+                \begin{soln}
+                    We calculate $v_0 = \left\lfloor \frac{0}{2} \right \rfloor = \left\lfloor 0 \right \rfloor= 0$, 
+                    $v_1 = \left\lfloor \frac{1}{2} \right \rfloor = \left\lfloor 0.5 \right \rfloor= 0$,  
+                    $v_2 = \left\lfloor \frac{2}{2} \right \rfloor = \left\lfloor 1 \right \rfloor= 1$,  and 
+                    $v_3 = \left\lfloor \frac{3}{2} \right \rfloor = \left\lfloor 1.5 \right \rfloor= 1$, .  The first four terms are  $0, 0, 1, 1$. To find $v_{100}$ we calculate 
+                    $v_{100}= \left\lfloor \frac{100}{2} \right \rfloor = \left\lfloor 50 \right \rfloor= 50.$ 
+                \end{soln}
+      \end{apart}
+\end{exam}
+
+Like any function, a sequence can have a rule defined in words and can involve discrete objects.
+
+\begin{exam}[Evaluating sequences with rules defined in words]
+\label{exam_eval_seq_words}
+    For each sequence, evaluate the first seven terms.
+        \begin{apart}
+            \item The sequence $d$ is defined by $d_k =$ the number of digits in $2^k$ for $k \ge 1$.  
+            \begin{soln}
+                First, $d_1$ is the number of digits in $2^1=2$ and so $d_1=1$.  
+                Next, $d_2$ is the number of digits in $2^2=4$ and so $d_2=1$.  
+                Then, $d_3$ is the number of digits in $2^3=8$ and so, once again, $d_3=1$.  
+                Next, $d_4$ is the number of digits in $2^4=16$ and so $d_4=2$.  
+                Then, $d_5$ is the number of digits in $2^5=32$ and so $d_5=2$.  
+                Next, $d_6$ is the number of digits in $2^6=64$ and so $d_6 = 2$ yet again.  
+                Last, $d_7$ is the number of digits in $2^7=128$ and so $b_7=3$.  
+                The first seven terms are $1,1,1,2,2,2,3$.
+            \end{soln}
+
+            \item The sequence $p$ is defined by $$p_m = \left\{ \begin{array} {cl} \frac{m}{2} & \text{if } m \text{ is even} \\ 2m & \text{if } m \text{ is odd} \\ \end{array} \right.$$ for $m \ge 0$. 
+                \begin{soln}
+                    First, 0 is even and so $p_0 = \frac{0}{2} = 0$.  
+                    Next, 1 is odd and so $p_1=2(1) = 2$.  
+                    Then, 2 is even and so $p_2=\frac{2}{2}=1$.  
+                    Next, 3 is odd and so $p_3=2(3) = 6$.
+                    Then, 4 is even and so $p_4=\frac{4}{2}=2$.
+                    Next, 5 is odd and so $p_5=2(5) = 10$.
+                    Last, 6 is even and so $p_6=\frac{6}{2}=3$.
+                    The first seven terms are $0, 2, 1, 6, 2, 10, 3$.
+                \end{soln}
+            \item The sequence $s$ is defined by $s_j=\{0,1,2,\ldots,j-1\}$ for $j \ge 1$.  
+                \begin{soln}
+                    First, when $j=1$ the set goes from 0 to $j-1=0$ and so $s_1=\{0\}$.  The \ldots notation can be a bit misleading here, just think of $s_j$ as the set of consecutive integers starting at 0 and ending at $j-1$. Next, when $j=2$ the set goes from 0 to $j-1=1$ and so $s_2=\{0,1\}$.  Then $s_3=\{0,1,2\}$, $s_4=\{0,1,2,3\}$, $s_5=\{0,1,2,3,4\}$, and $s_6=\{0,1,2,3,4,5\}$.  The first four terms are $\{0\},\{0,1\},\{0,1,2\},\{0,1,2,3\}, \{0,1,2,3,4\}, \{0,1,2,3,4,5\}$.
+                \end{soln}
+    \end{apart}
+\end{exam}
+
+Try working with sequences.  
+
+\begin{act}[Evaluating explicitly-defined sequences]
+\label{act_eval_seq}
+    For each sequence, evaluate the first five terms and the term with index $20$.
+        \begin{actpart}
+            \item The sequence $a$ is defined by $a_n=10n + 2$ for $n \ge 0$.
+            \item The sequence $b$ is defined by $b_i = 2(10^i)$ for $i \ge 0$.        
+            \item The sequence $c$ is defined by $c_n = \frac{(-1)^nn}{n^2+1}$ for $n \ge 1$.    
+            \item The sequence $y$ is defined by $y_n$ is the set of positive divisors of $n$ for $n \ge 1$.
+            \item The sequence $z$ is defined by $z_m=$ the bit string of length $m$ consisting of all \bs{1}s for $m \ge 1$.
+        \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\submodelseq}{Modeling with Explicitly-defined Sequences}
+\subsection{\submodelseq}
+\label{sub_model_seq}
+
+In the examples we have seen so far, we have gone from a sequence defined by a rule to a list or table.  It is particularly useful to go the opposite direction, from the list or table to a rule.  Let's try modeling with sequences.
+
+\begin{act}[Modeling with explicitly-defined sequences]
+\label{act_next_term_explicit}
+    Write a simple explicit rule that generates each sequence.  It might help to write the terms in a table.  Make sure you say where the index starts.
+        \begin{actpart}
+            \item The sequence $a$ begins $4,4,4,4,4,4,4,4,\ldots$. 
+            
+            Hint: Start the index at 0.
+            
+            \item The sequence $b$ begins $5,-5,5,-5,5,-5,5,-5,\ldots$. 
+            
+            Hint: Start the index at 0.  Use $(-1)^n$ to get the alternation.
+            
+            \item The sequence $c$ begins $5, 7, 9, 11, 13,\ldots$. 
+            
+            Hint: Start the index at 0. We add two to get from each term to the next, so the answer likely involves $2+2+\ldots +2 = 2n$. Make a table comparing $n$, $2n$, and the terms of the sequence.
+
+            \item The sequence $d$ begins $2, -3, 4, -5, 6, -7,\ldots$.  
+            
+            Note: Start the index at 0 or 1 (your choice).
+      
+            \item The sequence $e$ begins $5,10,20,40,80, \ldots$.  
+            
+            Hint: Start the index at 0. We multiply by two to get from each term to the next, so the answer likely involves $2\times 2 \times \ldots \times 2 = 2^n$. Make a table comparing $n$, $2^n$, and the terms of the sequence.
+
+            \item The sequence $f$ begins $11, 101, 1001, 10001, 100001, \ldots$. 
+            
+            Note: Start the index at 0 or 1 (your choice).
+            
+            \item The sequence $g$ begins $0, \frac{1}{2}, \frac{2}{3}, \frac{3}{4}, \frac{4}{5}, \ldots$.  
+
+            Hint: Find a formula for the numerator sequence ($0,1,2,3,4,\ldots$) and then find a different formula for the denominator sequence ($1,2,3,4,5,\ldots$).
+            
+            Note: Start the index at 0 or 1 (your choice), but the numerator and denominator need to start at the same index.
+
+            \item The sequence $s$ begins $\frac{2}{3}, 1, \frac{6}{5}, \frac{4}{3}, \frac{10}{7}, \frac{3}{2}, \frac{14}{9}, \ldots$. 
+            
+            Hint: The fractions were likely reduced, so consider rewriting as equivalent fractions over more convenient denominators.
+
+            Note: Start the index at 0 or 1 (your choice).
+            
+            \item The sequence $t$ begins $5, 10, 30, 120, 600, \ldots$. 
+            
+            Hint: Start the index at 1.  To get from each term to the next we multiply by 2, then multiply by 3, then by multiply by 4, then multiply by 5, so the answer likely involves $1 \times 2 \times 3 \times \cdots \times n = n!$.  Make a table comparing $n$, $n!$, and the terms of the sequence.
+            
+            \item The sequence $u$ begins $5, 6, 8, 11, 15, 20, \ldots$. 
+            
+            Hint: Start the index at 1. To get from each term to the next we add 1, then add 2, then we add 3, then we add 4, then we add 5, so the answer likely involves $1+2+3+ \ldots n-1=\frac{n(n-1)}{2}$ or $1+2+3+ \ldots n = \frac{n(n+1)}{2}$, which we first saw in the Handshakes Puzzle (\Cref{act_handshakes}). Make a table comparing $n$, $\frac{n(n-1)}{2}$, and the terms of the sequence.
+            
+            \item The sequence $v$ begins $3, 10, 21, 36, 55, \ldots $.  
+            
+            Hint: Start the index at 1.  Make a table comparing $n$ and the terms of the sequence.  Factor out $n$.  % Answer n(n+1)
+
+            \item The sequence $w$ begins $1,1,1,2,2,2,3,3,3,4,4,4, \ldots$.  
+            
+            Hint: The terms repeat so likely either floor or ceiling is involved.
+
+            Note: Start the index at 0 or 1 (your choice).
+
+            \item The sequence $x$ begins $2, 3, 6, 12, 18, 27, \ldots$.
+
+            Hint: Start the index at 1. Make a table showing the index $n$, $n^2$, and the terms.
+            
+        \end{actpart}
+\end{act}
+
+Let's look at some examples similar to the sequences in \Cref{act_next_term_explicit}.
+
+\begin{exam}[Modeling with explicitly-defined sequences]
+\label{exam_next_term_explicit}
+        Write a simple explicit rule that generates each sequence.  
+            \begin{apart}
+            \item \label{part_NTE_exam_frac} The sequence $a$ begins $1, \frac{1}{2}, \frac{1}{3},\frac{1}{4},\frac{1}{5},\ldots$. 
+                \begin{soln}
+                    Let's make a table comparing $n$, the numerator sequence, and the denominator sequence, in \Cref{tab_NTE_exam_frac}. Notice that the numerator is the constant 1 and the denominator equals the index $n$ if we start at $n=1$.  A possible formula is $a_n = \frac{1}{n}$ for $n \ge 1$. 
+                \end{soln}
+
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c |c|c|c}
+                        $n$ & 1 & 2 & 3 & 4 & 5  \\ \hline
+                        numerator & 1 & 1 & 1 & 1 & 1 \\ \hline
+                        denominator & 1 & 2 & 3 & 4 & 5 \\ \hline
+                        $a_n$ & 1 & $\frac{1}{2}$ & $\frac{1}{3}$ & $\frac{1}{4}$ & $\frac{1}{5}$\\
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_frac}).}
+                    \label{tab_NTE_exam_frac}
+                \end{table}
+                
+            \item \label{part_NTE_exam_linear} The sequence $b$ begins $5,8,11,14,17,20,\ldots$. 
+                \begin{soln}
+                    We add three to get from each term to the next, so the answer likely involves $3+3+\ldots +3 = 3n$.  Let's make a table comparing $n$, $3n$, and the terms of the sequence starting at $n=0$, in \Cref{tab_NTE_exam_linear}. Notice that we can get from $3n$ to $b_n$ by adding five. A possible formula is $b_n = 3n+5$ for $n \ge 0$.
+                \end{soln}
+
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c |c|c|c |c}
+                        $n$ & 0 & 1 & 2 & 3 & 4 & 5  \\ \hline
+                        $3n$ & 0 & 3 & 6 & 9 & 12 & 15  \\ \hline
+                        $b_n$ & 5 & 8 & 11 & 14 & 17 & 20\\
+                        & $=0+5$ & $=3+5$ & $=6+5$ & $=9+5$ & $=12+5$ & $=15+5$ \\ 
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_linear}).}
+                    \label{tab_NTE_exam_linear}
+                \end{table}
+                
+            \item \label{part_NTE_exam_alt_linear} The sequence $c$ begins $2, -3, 4, -5, 6, -7,\ldots$.  
+                \begin{soln}
+                    We can use $(-1)^n$ to get the alternation, so let's make a table comparing $n$, $(-1)^n$, and the absolute value of the terms of the sequence starting at $n=0$, in \Cref{tab_NTE_exam_alt_linear}. Notice that the absolute value of the terms of the sequence are two more than the index $n$.   A possible formula is $c_n = (-1)^n(n+2)$ for $n \ge 0$.
+                \end{soln}
+
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c |c|c|c |c}
+                        $n$ & 0 & 1 & 2 & 3 & 4 & 5  \\ \hline
+                        $(-1)^n$ & 1 & -1 & 1 & -1 & 1 & -1\\ \hline
+                        $|c_n|$ & 2 & 3 & 4 & 5 & 6 & 7\\ \hline
+                        $c_n$ & 2 & -3 & 4 & -5 & 6 & -7\\ 
+                         & $=1(0+2)$ & $=-1(1+2)$ & $=1(2+2)$ & $=-1(3+2)$ & $=1(4+2)$ & $=-1(5+2)$ \\ 
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_alt_linear}).}
+                    \label{tab_NTE_exam_alt_linear}
+                \end{table}
+            
+            \item \label{part_NTE_exam_frac_odds} The sequence $d$ begins $\frac{2}{3}, \frac{4}{7}, \frac{6}{11}, \frac{8}{15}, \ldots$.  
+                \begin{soln}
+                    Let's make a table comparing $n$, the numerator sequence, the denominator sequence, and the terms of the sequence starting at $n=1$ in \Cref{tab_NTE_exam_frac_odds}. Notice the numerator is twice the index so it equals $2n$.  For the denominator, we add four to get from each term to the next, so the answer likely involves $4+4+\ldots +4 = 4n$.  Let's add a row for $4n$ to our table.  We can get from $4n$ to the denominator by subtracting one.  A possible formula is $d_n = \frac{2n}{4n-1}$ for $n \ge 1$.
+                \end{soln}
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c| c|c}
+                        $n$ & 1 & 2 & 3 & 4   \\ \hline
+                        $2n$ & 2 & 4 & 6 & 8\\  \hline
+                        numerator & 2 & 4 & 6 & 8\\  \hline
+                        $4n$ & 4 & 8 & 12 & 16 \\ \hline
+                        denominator & 3 & 7 & 11 & 15\\ 
+                        & $=4-1$ & $=8-1$ & $=12-1$ & $=16-1$\\ \hline
+                        $d_n$ & $\frac{2}{3}$ & $ \frac{4}{7}$ & $ \frac{6}{11}$ & $ \frac{8}{15}$\\
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_frac_odds}).}
+                    \label{tab_NTE_exam_frac_odds}
+                \end{table}
+                
+            \item \label{part_NTE_exam_exp} The sequence $e$ begins $2,20,200,2000,20000, \ldots$.  
+                \begin{soln}
+                    We multiply by 10 to get from each term to the next, so the answer likely involves $10 \times 10 \times \ldots \times 10 = 10^n$. Let's make a table comparing $n$, $10^n$, and the terms of the sequence starting at $n=0$, in \Cref{tab_NTE_exam_exp}. We can get from $10^n$ to the terms by multiplying by two. A possible formula is $e_n = 2(10^n)$ for $n \ge 0$. 
+                \end{soln}
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c |c|c|c }
+                        $n$ & 0 & 1 & 2 & 3 & 4   \\ \hline
+                        $10^n$ & 1 & 10 & 100 & 1000 & 10000 \\ \hline
+                        $e_n$ & 2 & 20 & 200 & 2000 & 20000\\
+                         & $= 2(1)$ & $= 2(10)$ & $= 2(100)$ & $= 2(1000)$ & $= 2(10000)$
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_exp}).}
+                    \label{tab_NTE_exam_exp}
+                \end{table}
+
+            \item \label{part_NTE_exam_powers2_plus1} The sequence $f$ begins $2, 3, 5, 9, 17, \ldots$.      
+                \begin{soln}
+                    To get from each term to the next we add two, then add four, then add eight, and then add 16 so perhaps the pattern involves powers of two again.  Let's make a table comparing $n$, $2^n$, and the terms of the sequence starting at $n=0$, in \Cref{tab_NTE_exam_powers2_plus1}. We can get from $2^n$ to the terms by adding one. A possible formula is $f_n = 2^n+1$ for $n \ge 0$.
+                \end{soln}
+                 \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c| c|c|c}
+                        $n$ & 0 & 1 & 2 & 3 & 4   \\ \hline
+                        $2^n$ & 1 & 2 & 4 & 8 & 16\\ \hline
+                        $f_n$ & 2 &  3 &  5 &  9 &  17\\
+                        & $=1+1$  & $=2+1$ & $=4+1$ & $=8+1$ & $=16+1$
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_powers2_plus1}).}
+                    \label{tab_NTE_exam_powers2_plus1}
+                \end{table}
+
+            \item \label{part_NTE_exam_powers2_minus1} The sequence $s$ begins $1, 3, 7, 15, 31, \ldots$.     
+                \begin{soln}
+                    To get from each term to the next we add one, add two, then add four, then add eight, so perhaps the pattern involves powers of two.  Let's make a table comparing $n$, $2^n$, and the terms of the sequence starting at $n=0$, in \Cref{tab_NTE_exam_powers2_minus1}. The powers of two and the terms differ by one, but they are not aligned.  Let's write each term using powers of two. We see the power of two is one larger than the index, so the pattern involves $2^{n+1}$.  A possible formula is $s_n = 2^{n+1}-1$ for $n \ge 0$.
+                \end{soln} 
+                 \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c| c|c|c}
+                        $n$ & 0 & 1 & 2 & 3 & 4   \\ \hline
+                        $2^n$ & 1 & 2 & 4 & 8 & 16\\ \hline
+                        $f_n$ & 1 & 3 & 7 & 15 & 31\\ 
+                        & $=2-1$ & $=4-1$ & $=8-1$ & $=16-1$ & $=32-1$ \\
+                        & $=2^1-1$ & $=2^2-1$ & $=2^3-1$ & $=2^4-1$ & $=2^5-1$
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_powers2_minus1}).}
+                    \label{tab_NTE_exam_powers2_minus1}
+                \end{table}
+
+            \item \label{part_NTE_exam_factorial} The sequence $t$ begins $4, 5, 9, 27, 123, 603, \ldots$. 
+                \begin{soln}
+                    The terms are growing large quickly.  Let's look at their ratios $\frac{5}{4} = 1.25$, $\frac{9}{5} = 1.8$, $\frac{27}{9}=3$, $\frac{123}{27} = 4.55...$, $\frac{603}{123} = 4.90...$.  It's almost like we are multiplying by one, then multiplying by two, then by three, then by four, then by five.  That pattern would involve $1 \times 2 \times \cdots \times n =n!$ Let's make a table comparing $n$, $n!$, and the terms of the sequence starting at $n=1$, in \Cref{tab_NTE_exam_factorial}. A possible formula is $t_n = n!+3$ for $n \ge 1$.
+                \end{soln}
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c| c|c|c| c}
+                        $n$ & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+                        $n!$ & 1 & 2 & 6 & 24 & 120 & 600\\ \hline
+                        $t_n$ & 4 & 5 & 9 & 27 & 123 & 603\\
+                        & $=1+3$ & $=2+3$ & $=6+3$ & $=24+3$ & $=120+3$ & $=600+3$
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_factorial}).}
+                    \label{tab_NTE_exam_factorial}
+                \end{table}
+            
+            \item \label{part_NTE_exam_hs} The sequence $u$ begins $3, 9, 18, 30, 45, 63, \ldots$.            
+                \begin{soln}
+                    Since all the terms are multiples of three, let's start by factoring out three from each term to get $1, 3, 6, 10, 15, 21, \ldots $. To get from each term to the next we add one, add two, then add three, then add four, so the answer likely involves $1+2+3+ \ldots n-1=\frac{n(n-1)}{2}$ or $1+2+3+ \ldots n = \frac{n(n+1)}{2}$, which we first saw in the Handshakes Puzzle (\Cref{act_handshakes}). Let's make a table comparing $n$, $\frac{n(n-1)}{2}$, and the terms of the sequence starting at $n=1$, in \Cref{tab_NTE_exam_hs}. Notice that we can get from the handshake numbers to the terms by multiplying by three.  A possible formula is $u_n = 3\frac{n(n-1)}{2}$ for $n \ge 1$.
+                \end{soln}
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c| c|c|c| c}
+                        $n$ & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+                        $\frac{n(n-1)}{2}$ & 1 & 3 & 6 & 10 & 15 & 21\\ \hline 
+                        $u_n$ & 3 & 9 & 18 & 30 & 45 & 63\\
+                        & $=3(1)$ & $=3(3)$ & $=3(6)$ & $=3(10)$ & $=3(15)$ & $=3(21)$
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_hs}).}
+                    \label{tab_NTE_exam_hs}
+                \end{table}
+            
+            \item \label{part_NTE_exam_factor} The sequence $v$ begins $1, 6, 15, 28, 45, \ldots $. Hint: Factor. 
+                \begin{soln}
+                    Let's make a table comparing $n$ and the terms of the sequence starting at $n=1$ in factored form, in \Cref{tab_NTE_exam_factor}. Notice that $v_n$ is the product of $n$ and the odds.  A possible formula is $v_n = n(2n+1)$ for $n \ge 1$.
+                \end{soln}            
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c|c|c|c}
+                        $n$ & 1 & 2 & 3 & 4 & 5\\ \hline
+                        $v_n$ & 1 & 6 & 15 & 28 & 45\\
+                        & $=1(1)$ & $=2(3)$ & $=3(5)$ & $=4(7)$ & $=5(9)$
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_factor}).}
+                    \label{tab_NTE_exam_factor}
+                \end{table}
+
+            \item \label{part_NTE_exam_ceil} The sequence $w$ begins $1,1,2,2,3,3,4,4, \ldots$.  
+                \begin{soln}
+                    Notice that the terms repeat, so floor or ceiling is likely involved. Since each term repeats twice, let's try $\frac{n}{2}$. Let's make a table comparing $n$, $\frac{n}{2}$, and the terms of the sequence starting at $n=1$, in \Cref{tab_NTE_exam_ceil}. Notice that the ceiling function works.  A possible formula is $w_n = \lceil \frac{n}{2} \rceil$ for $n \ge 1$.
+                \end{soln} 
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c| c|c|c|c| c|c|c|c}
+                        $n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\ \hline
+                        $\frac{n}{2}$ & 0.5 & 1 & 1.5 & 2 & 2.5 & 3 & 3.5 & 4 \\ \hline
+                        $w_n$ & 1 & 1 & 2 & 2 & 3 & 3 & 4 & 4\\
+                        & $=\lceil 0.5 \rceil$ & $=\lceil 1 \rceil$ & $=\lceil 1.5 \rceil$ & $=\lceil 2 \rceil$ & $=\lceil 2.5 \rceil$ & $=\lceil 3 \rceil$ & $=\lceil 3.5 \rceil$ & $=\lceil 4 \rceil$ \\ 
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_ceil}).}
+                    \label{tab_NTE_exam_ceil}
+                \end{table}
+
+            \item \label{part_NTE_exam_sq} The sequence $x$ begins $0, 3, 8, 15, 24, 35, \ldots$.
+                \begin{soln}
+                    Let's make a table comparing $n$ and the terms of the sequence starting at $n=1$ in factored form, in \Cref{tab_NTE_exam_sq}. Notice the first term in the product is one less than $n$ and the second term in the product is one more than $n$. (We could have factored 0 in many ways, but writing $0 = 0(2)$ continues the pattern.) A possible formula is $x_n = (n-1)(n+1)$ for $n \ge 0$.
+
+                    Note that $(n+1)(n-1) = n^2-1$ and so there is a quicker way to have found this pattern, provided we thought to compare the terms to $n^2$ instead, as in \Cref{tab_NTE_exam_sq_easier}.
+                \end{soln}
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c|c|c|c|c}
+                        $n$ & 1 & 2 & 3 & 4 & 5 & 6   \\ \hline
+                        $x_n$ & 0 & 3 & 8 & 15 & 24 & 35\\
+                        & $=0(2)$ & $=1(3)$ & $=2(4)$ & $=3(5)$ & $=4(6)$ & $=5(7)$ \\
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_sq}).}
+                    \label{tab_NTE_exam_sq}
+                \end{table}
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|c|c|c|c|c|c}
+                        $n$ & 1 & 2 & 3 & 4 & 5 & 6   \\ \hline
+                        $n^2$ & 1 & 4 & 9 & 16 & 25 & 36 \\ \hline
+                        $x_n$ & 0 & 3 & 8 & 15 & 24 & 35\\
+                        & $1-1$ & $4-1$ & $9-1$ & $16-1$ & $25-1$ & $36-1$ \\
+                    \end{tabular}
+                    \caption{The sequence from \Cref{exam_next_term_explicit} (\ref{part_NTE_exam_sq}) revisited.}
+                    \label{tab_NTE_exam_sq_easier}
+                \end{table} 
+        \end{apart}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subseqprimes}{Detour: Sequences Involving Primes}
+\subsection{\subseqprimes}
+\label{sub_seq_primes}
+
+The rule for a sequence can depend on prime factorization or the sequence of primes.  Let's look at a few examples involving prime factorization.
+
+\begin{exam}[Sequences involving prime factorization]
+\label{exam_seq_prime_fact}    
+~
+    \begin{apart}
+        \item \label{part_seq_number_odd_prime_div} Evaluate the first fifteen terms of the sequence defined by $a_k = $ the number of distinct odd primes dividing $k$ for $k \ge 1$. 
+            \begin{soln}
+                \Cref{table_seq_odd_prime_divisors} shows the odd prime divisors and the value of $a_k$ of each integer $k = 1,2, 3, \ldots 15$.  The first fifteen terms are 
+                $$0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 2 $$
+            \end{soln}
+
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{c| c|c|c| c|c|c| c|c|c| c|c|c| c|c|c}
+                     $k$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15  \\ \hline
+                     odd prime divisors & none & none & 3 & none & 5 & 3 & 7 & none & 3 & 5 & 11 & 3 & 13 &7 & 3, 5\\ \hline
+                     $a_k=$ & 0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 2
+                \end{tabular}
+                \caption{The sequence from \Cref{exam_seq_prime_fact} (\ref{part_seq_number_odd_prime_div})}
+                \label{table_seq_odd_prime_divisors}
+            \end{table}
+
+        \item What is the first term of the sequence defined in (\ref{part_seq_number_odd_prime_div}) that equals three? 
+            \begin{soln}
+                We are looking for the smallest integer that is divisible by three distinct odd primes.  Those primes must be 3, 5, and 7. The smallest integer divisible by 3, 5, and 7 is $3 \cdot 5 \cdot 7 = 105$.
+            \end{soln}
+            
+        \item Evaluate the first ten terms of the sequence defined by 
+            $$s_m= \left\{ \begin{array} {cc}
+            1 & \text{if } m=1 \\
+            m & \text{if } m \text{ is prime}\\
+            0 & \text{if } m \text{ is composite}
+            \end{array} \right.$$
+
+            \begin{soln}
+                Notice that $s_1=1$.  When $m$ is prime we have $s_m=m$ and so $s_2=2$, $s_3=3$, $s_5 = 5$, and $s_7=7$.  When $m$ is composite we have $s_m=0$ and so $s_4=0$, $s_6=0$, $s_8=0$, $s_9=0$, and $s_{10}=0$.  The first ten terms are
+                    $$1, 2, 3, 0, 5, 0, 7, 0, 0, 0.$$
+            \end{soln}
+            
+        \item \label{part_seq_prime_smallest_odd_prime_div} Write a simple explicit rule in words that generates the sequence
+            $$1, 1, 3, 1, 5, 3, 7, 1, 3, 5, 11, 3, 13, 7, 3, 1, 17, 3, 19, 5, 3 \ldots$$
+        Start the index at 1. Hint: the rule involves the prime factorization of the index. 
+            \begin{soln}
+                It can be helpful to look at the terms listed with their index as in \Cref{table_seq_prime_smallest_odd_prime_div}.  Notice that the terms of the sequence $a_n$ are either 1 or an odd prime. The terms equal to 1 are $a_1$, $a_2$, $a_4$, $a_8$, and $a_{16}$, namely where the index is a power of 2, which no odd prime divides. The terms equal to 3 are $a_3$, $a_6$, $a_9$, $a_{12}$, and $a_{15}$, namely where the index is multiple of 3.  The terms equal to 5 are $a_5$, $a_{10}$, and $a_{20}$ where the index is a multiple of 5, although $a_{15} \neq 5$. The terms equal to 7 are $a_7$ and $a_{14}$ where the index is a multiple of 7, although $a_{21} \neq 7$. In each case, the term is an odd prime dividing the index.  The last clues are the exceptions $a_{15}=3$ even though 15 is divisible by both 3 and 5 and $a_{21}=3$ even though 21 is divisible by both 3 and 7.  My guess is that 
+                    $$a_n=
+                    \left\{ \begin{array} {cc}
+                    1 & \text{if } n \text{ is a power of 2} \\
+                    \text{the smallest odd prime divisor of }n & \text{otherwise}\\
+            \end{array} \right.$$
+            We use the phrase \vocab{otherwise} to indicate any cases not covered earlier.  In this example, those cases are when $n$ is not a power of 2.
+            \end{soln}
+
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{c| c|c|c|c|c| c|c|c|c|c| c|c|c|c|c| c|c|c|c|c| c}
+                     $n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21\\ \hline
+                     $a_n$ & 1 &  1 &  3 &  1 &  5 &  3 &  7 &  1 &  3 &  5 &  11 &  3 &  13 &  7 &  3 &  1 &  17 &  3 &  19 &  5 & 3
+                \end{tabular}
+                \caption{The sequence from \Cref{exam_seq_prime_fact} (\ref{part_seq_prime_smallest_odd_prime_div}) }
+                \label{table_seq_prime_smallest_odd_prime_div}
+            \end{table}
+    \end{apart}
+\end{exam}
+
+The rule for a sequence can involve the primes themselves. We give a name to the sequence of primes.
+
+\begin{defn}[Sequence of primes]
+\label{defn_seq_primes}
+    The \vocab{sequence of primes}, denoted $\pi_n$, for $n \ge 1$ is defined by $$\pi_n= \text{ the } n^{\text{th}} \text{ prime}= 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 \ldots.$$
+    \Cref{table_prime_seq} lists the first ten terms of this sequence. For example, the first prime is $\pi_1=2$ and the seventh prime is $\pi_7=17$.  
+\end{defn}
+
+\begin{table}[hbtp]
+    \centering
+    \begin{tabular}{c| c|c|c|c|c | c|c|c|c|c}
+        $n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10  \\ \hline
+        $\pi_n$ & 2 &  3 &  5 &  7 &  11 &  13 &  17 &  19 &  23 & 29
+    \end{tabular}
+    \caption{The first ten terms of the sequence of primes from \Cref{defn_seq_primes}.}
+    \label{table_prime_seq}
+\end{table}
+
+Here is an example of a sequences that involve the sequence of primes
+
+\begin{exam}[Sequences involving $\pi_n$]
+\label{seq_involving_pisubn}
+~ 
+    \begin{apart}
+        \item Evaluate the first five terms of the sequence defined by $w_i=\pi_i^2 + \pi_i$ for $i \ge 1$.
+            \begin{soln}
+            We calculate $$w_1 = \pi_1^2 + \pi_1 = 2^2 + 2 = 6,$$
+            $$w_2 = \pi_2^2 + \pi_2 = 3^2 + 3 = 12,$$
+            $$w_3 = \pi_3^2 + \pi_3 = 5^2 + 5 = 30,$$
+            $$w_4 = \pi_4^2 + \pi_4 = 7^2 + 7 = 56,$$
+            and
+            $$w_5 = \pi_5^2 + \pi_5 = 11^2 + 11 = 132.$$
+            \end{soln}
+    
+        \item Write a simple explicit rule in words that generates the sequence 
+        $$5, 8, 12, 18, 24, 30,\ldots$$
+        
+        Start the index at 1. Hint: the rule involves the  sequence of primes $\pi_n$.  % p_n + p_{n+1}
+            \begin{soln}
+              It is helpful to look at the prime sequence in \Cref{table_prime_seq}.  Notice that our sequence $b_n$ has 
+              $$b_1 =\pi_1+\pi_2=2+3=5,$$ $$b_2=\pi_2+\pi_3=3+5=8,$$ $$b_3=\pi_3+\pi_4=5+7=12,$$ $$b_4=\pi_4+\pi_5=7+11=18,$$ $$b_5=\pi_5+\pi_6=11+13=24,$$and
+              $$b_6=\pi_6+\pi_7=13+17=30.$$In general, $$b_n=\pi_n + \pi_{n+1}.$$
+
+              This pattern is not easy to notice and a hint might have helped.  Since all but the first term is even, we might have tried dividing the terms by 2 to get
+              $$2.5, 4, 6, 9, 12, 15, \ldots$$
+              One might (or might not) then have noticed that these numbers are in between consecutive primes and, in fact, the average of consecutive primes. 
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+It is your turn to work with sequences involving prime factorization or primes.
+
+\begin{act}[Sequences involving prime factorization or primes]
+\label{act_seq_primes}
+~ 
+    \begin{actpart}
+        \item Evaluate the first twenty terms of the sequence defined by $a_n=$ the largest prime divisor of $n$ for $n \ge 2$.  Also evaluate $a_{100}$.              
+            
+        \item \label{part_seq_3part} Evaluate the first ten terms of the sequence defined by $b_k=$ the highest power of 3 dividing $k$ for $k \ge 1$. 
+            
+        \item What is the first term of the sequence defined in (\ref{part_seq_3part}) that is greater than 10?          
+            
+        \item Evaluate the first ten terms of the sequence defined by 
+            $$s_m= \left\{ \begin{array} {cc}
+            m & \text{if } m=1 \text{ or if } m \text{ is composite}\\
+            0 & \text{if } m \text{ is prime}
+            \end{array} \right.$$ 
+        Also evaluate $s_{100}$.
+            
+        \item Evaluate the first ten terms of the sequence defined by $b_n= \pi_n+1$ for $n \ge 1$.
+            
+        \item Write a simple explicit rule in words that generates the sequence
+                $$0,1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1, 1, 2, 1, 2,\ldots$$  % number of distinct prime divisors
+        Start the index at 1. Hints: make a table as in \Cref{exam_seq_prime_fact} showing the index for each term. The rule involves the prime factorization of the index. The first term greater than 2 is $a_{30}=3$.
+            
+        \item Write a simple explicit rule of the form  
+            $$a_n = \left\{ \begin{array} {ll}
+            \underline{\hspace{.5in}} & \text{ if } n=1 \\ 
+            \underline{\hspace{.5in}} & \text{ if } n \text{ is prime} \\  
+            \underline{\hspace{.5in}} & \text{ if } n \text{ is composite} \\ 
+            \end{array} \right.$$
+        that generates the sequence
+            $$ 0, 1, 1, -1, 1, -1, 1, -1, -1, -1, 1, -1, 1,,\ldots.$$ % 1 if prime, -1 if composite
+        Start the index at 1. Hint: make a table as in \Cref{exam_seq_prime_fact} showing the index for each term.
+            
+        \item Write a simple explicit rule in words that generates the sequence
+                $$4,6,10,14,22,26,34,38,46,\ldots$$
+        Start the index at 1. Hints: the rule involves the sequence of primes $\pi_n$. Make a table showing the index $n$ and the value of $\pi_n$ for each term. %2\pi_n
+    \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exercises}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_defn_seq} \subdefnseq}
+
+\begin{exer}[\exerP] % evaluate first six terms]
+\label{exer_eval_seq_first_six}
+    Evaluate the first six terms of each sequence. 
+        \begin{exerpart}
+            \item $a_n = 2^n +1$ for $n \ge 0$.
+            \item $b_k = 2k+5$ for $k \ge 0$.
+            \item $c_m= 5\left(\frac{1}{2} \right)^m$ for $m \ge 1$.
+            \item $d_i= 5$ for $i \ge 1$.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] % evaluate 100th term]
+\label{exer_eval_seq_100th_term}
+    For each sequence, evaluate the term with index 100.
+        \begin{exerpart}
+            \item $a_n= 5n$
+            \item $b_n=0$
+            \item $c_n = \sqrt{n}$
+            \item $d_n= (-1)^{n+1}$
+            \item $e_n= \left\lceil \frac{n}{15}\right\rceil$
+        \end{exerpart}    
+\end{exer}
+
+\begin{exer}[\exerU] % evaluate piecewise-defined sequences]
+\label{exer_eval_seq_piecewise} 
+    Evaluate the first six terms of each sequence.
+        \begin{exerpart}
+             \item $r_n = \left\{ \begin{array} {cl} 0 & \text{if } n\text{ is even} \\ 1 & \text{if } n \text{ is odd} \\ \end{array} \right.$ for $n \ge 0$.
+             \item $s_n = \left\{ \begin{array} {cl} 0 & \text{if } n \text{ is even} \\ n & \text{if } n \text{ is odd} \\ \end{array} \right.$ for $n \ge 0$.
+             \item $t_n = \left\{ \begin{array} {cl} 0 & \text{if } 3 \mid n \\ -1 & \text{if } 3 \mid n-1  \\ 1 & \text{if } 3 \mid n+1 \\  \end{array} \right.$ for $n \ge 0$.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % evaluate sequences defined in words]
+\label{exer_eval_seq_words}
+    Evaluate the first four terms and the 12th term of each sequence.
+        \begin{exerpart}
+            \item $a_m=$ the last digit of $3m$ for $m \ge 1$.
+            \item $b_i=$ the number of digits in $i^2$ for $i \ge 1$.
+            \item $c_n =$ the number $4n$ written with its digits in reverse order for $n \ge 1$.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % evaluate sequences involving number-theoretic functions]
+\label{exer_eval_seq_numberthy_functions}
+    Evaluate the first four terms of each sequence and the 10th term.
+        \begin{exerpart}
+            \item $a_n = \fn{gcd}(n,15)$ for $n \ge 1$
+            \item $b_i = i^2 ~\fn{mod}~ 4$ for $i \ge 1$
+            \item $s_k = (2k) ~\fn{mod}~ 3$  for $k \ge 1$
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % evaluate sequences that count]
+\label{exer_eval_seq_counting} 
+    Evaluate the first five terms of each sequence.  Hint: If something is impossible then the number of ways to do it equals zero.
+    \begin{exerpart}
+        \item $a_n = $ the number of ways to select two people to work on a project out of a group of $n$ people for $n \ge 1$. 
+        \item $b_n=$ the number of ways to select a leader and reporter out of group of $n$ people for $n \ge 1$.
+        \item $c_n=$ the number of bit strings of length $n$ for $n \ge 0$.
+        \item $d_n=$ the number of bit strings of length $n$ that contain exactly three $0s$ for $n \ge 1$.  
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % evaluate sequences of discrete objects]
+\label{exer_eval_seq_discrete}
+    Evaluate the first four terms of each sequence.
+        \begin{exerpart}
+            \item $a_k =$ the bit string consisting of $k$ 1s followed by two 0s for $k \ge 0$.
+            \item $S_m = \{ 0, 1, 2, \ldots, 2m\}$  for $m\ge 0$.
+            \item $G_n =$ the complete bipartite graph $K_{n,n}$ for $n \ge 1$.
+        \end{exerpart}  
+\end{exer}
+
+\begin{exer}[\exerR] % explicitly-defined sequences
+\label{exer_dyk_explicit_seq}
+    Do you know \ldots
+        \begin{exerpart}
+            \item Which of $n$ or $a_n$ is the term and which is the index?
+            \item How to evaluate explicitly-defined sequences given a formula or a rule described in words?
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_model_seq} \submodelseq}
+
+\begin{exer}[\exerP] %model constant and alternating sequences]
+\label{exer_NTE_constants_alt}
+    Write a simple explicit rule that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Make a table showing the index $n$ and the terms of the sequence.  
+        \begin{exerpart}
+            \item The sequence $a$ begins $1, 1, 1, 1, 1, 1, \ldots$
+            \item The sequence $b$ begins $-2, 2, -2, 2, -2, 2, \ldots$
+            \item The sequence $c$ begins $0,-1,2,-3,4,-5,6, \ldots$
+            \item The sequence $d$ begins $0,1,-2,3,-4,5,-6, \ldots$
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] %model linear and exponential sequences]
+\label{exer_NTE_lin_exp} 
+    Write a simple explicit rule that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Hint: Make a table showing the index $n$ and the terms of the sequence.  
+        \begin{exerpart}
+            \item The sequence $a$ begins $1, 6, 11, 16, 21,  \ldots$. % Arithmetic  
+            \item The sequence $b$ begins $0.1, 0.01, 0.001, 0.0001,   \ldots$. % Geometric
+            \item The sequence $c$ begins $-4, 7, -10, 13, -16, 19, -22,  \ldots$. % Alternating linear (just n)
+            \item The sequence $d$ begins $2, -10, 50, -250, 1250,   \ldots$. % Alternating Geometric
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %model sequences involving factorials, handshakes, floor, and ceiling]
+\label{exer_NTE_complicated} 
+    Write a simple explicit rule that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts.  Make a table showing the index $n$ and the terms of the sequence. Each rule involves a factorial, handshake, floor, or ceiling function. 
+        \begin{exerpart}
+            \item The sequence $a$ begins $2,6,12,20,30,  \ldots$. % Constant times handshake
+            \item The sequence $b$ begins $3, 6, 18, 72, 360, ,  \ldots$. % Constant times factorial
+            \item The sequence $c$ begins $3, 4, 6, 9, 13, 18, \ldots$  % Handshakes plus 2
+            \item The sequence $d$ begins $1,1,1,1,2,2,2,2,3,3,3,3, \ldots$. % floor/4 start 1
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %model shifts of sequences]
+\label{exer_NTE_shifts}
+    Write a simple explicit rule that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Hints: Make a table showing the index $n$ and the terms of the sequence. Each rule involves adding or subtracting a constant.
+        \begin{exerpart}
+            \item The sequence $a$ begins $7,8, 9, 10, 11, 12, 13, \ldots$ % n+7
+            \item The sequence $b$ begins $0, 1, 3, 7, 15, 31, 63, 127, 255, \ldots$ % Powers of 2 minus 1
+            \item The sequence $c$ begins $2, 5, 10, 17, 26, 37, \ldots$ % Squares plus 1
+            \item The sequence $d$ begins $2, 3, 7, 25, $. % Factorials plus 1
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %model sequences involving fractions]
+\label{exer_NTE_fractions}   
+    Write a simple explicit rule that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Hint: Make a table showing the index $n$ and the terms of the sequence.
+        \begin{exerpart}
+            \item The sequence $a$ begins $\frac{1}{3}, \frac{1}{4}, \frac{1}{5}, \frac{1}{6}, \frac{1}{7},  \ldots$ 
+            \item The sequence $b$ begins $1, \frac{4}{3}, \frac{3}{2}, \frac{8}{5}, \frac{5}{3},  \ldots$ Another hint: Unreduce fractions
+            \item The sequence $c$ begins $1, \frac{3}{4}, \frac{5}{9}, \frac{7}{16}, \frac{9}{25},  \underline{\hspace{.3in}~}, \ldots$ % Odds, squares
+            \item The sequence $d$ begins $0, \frac{7}{6}, \frac{26}{9}, \frac{21}{4}, \frac{124}{15}, \frac{215}{18}, \underline{\hspace{.3in}~}$.  % Hint: powers are involved  
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU]  % Model sequences involving factoring
+\label{exer_NTE_factor}  
+    Write a simple explicit rule that generates each sequence.  
+        \begin{exerpart}
+            \item The sequence $a$ begins $0, 5, 12, 21, 32, 45, \ldots$.  Hint: Start the index at 0. Factor. % Answer n(n+4)
+            \item The sequence $b$ begins $4, 12, 24, 40, 60, 84, \ldots$ Hint: Start the index at 1. Factor. %Answer 2n(n+1)
+            \item The sequence $c$ begins $2, 18, 60, 140, 270, \ldots $ %Answer n(n+1)(2n-1)
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %model sequences with piecewise-defined rules]
+\label{exer_NTE_piecewise}
+    Write a simple explicit rule that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Use a piecewise-defined rule. Hint: Make a table showing the index $n$ and the terms of the sequence.
+        \begin{exerpart}
+            \item The sequence $a$ begins $0, 2, 0, 2, 0, 2, \ldots$ 
+            \item The sequence $b$ begins $1,4,3,8,5,12,7,16,9,20,\ldots$
+           \item The sequence $c$ begins $0, 0, 8, 0, 0, 64, 0, 0, 512, \ldots$
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % guess next term ]
+\label{exer_next_term} 
+    Write a simple explicit rule that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts.   
+        \begin{exerpart}
+            \item The sequence $a$ begins $0.1, 0.01, 0.001, 0.0001, \ldots$.    
+            \item The sequence $b$ begins $3, 4, 6, 9, 13, 18, \ldots$. % Handshakes
+            \item The sequence $c$ begins $1, 2, 5, 10, 17, 26, 37, \ldots$. % Squares
+            \item The sequence $d$ begins $1, \frac{3}{4}, \frac{5}{9}, \frac{7}{16}, \frac{9}{25}, \ldots $.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % model sequence of sets or bit strings
+\label{exer_model_seq_sets_bs}
+    Write a simple explicit rule in words that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. 
+        \begin{exerpart}
+            \item The sequence $a$ begins $\{0,1\}, \{1,2\}, \{2,3\}, \{3,4\},\ldots$.
+            \item The sequence $b$ begins $\{0,1\}, \{1,2\}, \{3,4\}, \{7,8\}, \{15,16\},\ldots$.
+            \item The sequence $c$ begins \bs{10}, \bs{1100}, \bs{111000}, \bs{11110000}, 
+            \item The sequence $d$ begins \bs{01}, \bs{1010}, \bs{010101}, \bs{10101010}, 
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % modeling with explicitly-defined sequences
+\label{exer_dyk_next_term_explicit}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What type of rule follows the pattern that each term of the sequence is the previous term plus a constant?  Times a constant?
+            \item What type of pattern in a sequence suggests a rule that involves factorials? The handshake numbers? 
+            \item How to build a rule for a sequence that alternates between two values, or between positive and negative?
+            \item What strategies you can use when modeling a sequence of fractions? 
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %Smodel sequences that alternate]
+\label{exer_NTE_alternate}
+    Write a simple explicit rule that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Do not a piecewise-defined rule. Hint: Make a table showing the index $n$ and the terms of the sequence.
+        \begin{exerpart}
+            \item The sequence $a$ begins $0, 2, 0, 2, 0, 2, \ldots$
+            \item The sequence $b$ begins $\frac{1}{2}, 2, \frac{1}{2}, 2,\frac{1}{2}, 2,\frac{1}{2}, 2, \ldots$ \quad Another hint:  $2^{-1}= \frac{1}{2}$.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE]
+\label{exer_NTE_number_theoretic}
+    Write a simple explicit rule that generates each sequence.  Start the index at 0 or 1 (your choice), being sure to state where your sequence starts.  Hint: Make a table showing the index $n$ and the terms of the sequence.
+        \begin{exerpart}
+            \item The sequence $s$ begins $0,1,2,3,0,1,2,3$.  Note: Do not a piecewise-defined rule. Can you write a rule involving \text{mod} instead?
+            \item The sequence $t$ begins $0,1,4,9,6,5,6,9,4,1,0,1,4,9, \ldots$.  Note: Do not a piecewise-defined rule. Can you write a rule in words instead? Hint: $1,4,9$ are squares.
+            \item The sequence $u$ begins $1,0,1,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,\ldots$. Write a piecewise function. Hint: Where are the 1s?
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_seq_primes} \subseqprimes}
+
+\begin{exer}[\exerP] %Evaluate sequences involving prime factorization]
+\label{exer_eval_seq_prime_fact}
+    Evaluate the first six terms of each sequence and also the 100th term. 
+        \begin{exerpart}
+            \item $t_m=$ the highest power of 5 that divides $m$ for $m \ge 1$.
+            \item $d_j=$ the largest odd divisor of $j$ for $j \ge 1$
+            \item $u_n=$ the number of distinct primes dividing $n$ for $n \ge 1$.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] %evaluate sequences involving the sequence of primes]
+\label{exer_eval_seq_involving_pisubn}
+    Evaluate first six terms of the each sequence where $\pi_n$ is the sequence of primes for $n \ge 1$.
+        \begin{exerpart}
+            \item $a_n=10\pi_n$ for $n \ge 1$
+            \item $b_k=\frac{\pi_n}{\pi_{n+1}}$ for $n \ge 1$
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %Evaluate piecewise-defined sequences involving prime factorization]
+\label{exer_eval_seq_piecewise_prime}
+    Evaluate the first six terms of each sequence starting at $n=1$.
+        \begin{exerpart}     
+            \item $$b_n= \left\{ \begin{array} {ll}
+            0 & \text{ if } n \text{ is prime} \\  
+            n & \text{ otherwise}  \\ 
+            \end{array} \right.$$ 
+            
+            \item $$v_i= \left\{ \begin{array} {ll}
+            1 & \text{ if } i=1 \\ 
+            i^2 & \text{ if } i \text{ is prime} \\  
+            i & \text{ if } i \text{ is composite} \\ 
+            \end{array} \right.$$        
+        \end{exerpart} 
+\end{exer}
+
+\begin{exer}[\exerU] %SU MAKE HINT: model sequences involving prime factorization]
+\label{exer_NTE_prime_fact}  
+    Write a simple explicit rule in words that generates each sequence. Start the index at 1. Hint: Make a table showing the index $n$ and the terms of the sequence. The rule involves the prime factorization of the index.
+        \begin{exerpart}
+            \item The sequence $x$ begins $1, 2, 1, 4, 1, 2, 1, 8, 1, 2, 1, 4, 1, 2, 1, \underline{\quad~},\ldots$ % 2-part
+            \item The sequence $y$ begins $1, 2, 3, 2, 5, 3, 7, 2, 3, 5, 11, 3, 13, 7, 5,  \underline{\quad~},\ldots$ % smallest prime divisor
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %SU MAKE HINT: model sequences with piecewise-defined function based on if index is prime]
+\label{exer_NTE_piecewise_prime}
+   For each sequence, write a simple explicit rule of the form  
+       $$a_n = \left\{ \begin{array} {ll}
+
+        \underline{\hspace{.5in}} & \text{ if } n=1 \\ 
+        \underline{\hspace{.5in}} & \text{ if } n \text{ is prime} \\  
+        \underline{\hspace{.5in}} & \text{ if } n \text{ is composite} \\ 
+        \end{array} \right.$$
+    that generates the sequence. Start the index at 1. Hint: Make a table showing the index $n$ and the terms of the sequence. 
+        \begin{exerpart}
+            \item The sequence $a$ begins $0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0,\ldots$
+            \item The sequence $b$ begins $0, 2, 3, 0, 5, 0, 7, 0, 0, 0, 11, 0, 13,\ldots$
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %SU MAKE HINT: modeling sequences involving the sequence of primes]
+\label{exer_NTE_pisubn}
+    Write a simple explicit rule in words that generates the each sequence. Start the index at 1. Hints: The rule involves the prime sequence $\pi_n$.  Make a table showing the index $n$, the value of $\pi_n$, and the terms of the sequence. 
+        \begin{exerpart}
+            \item The sequence $c$ begins $4, 9, 25, 49, 121, 169, 289,\ldots$ % pi_n^2
+            \item The sequence $d$ begins $1, 2, 4, 6, 10, 12, 16,\ldots$ % pi_n-1
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % sequences involving primes
+\label{exer_dyk_seq_primes}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to evaluate or model a sequence where the terms depend on the prime factorization of the index?
+            \item How to evaluate or model a sequence where the rule depends (piecewise) on the primality of the index?
+            \item What the sequence $\pi_n$ is and the first ten terms?
+            \item How to evaluate or model a sequence where the terms depend on the sequence $\pi_n$?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %SU MAKE HINT: model sequences involving the sequence of primes, continued]
+\label{exer_NTE_pisubn_continued}  
+    Write a simple explicit rule in words that generates the each sequence. Start the index at 1. Hints: The rule involves the prime sequence $\pi_n$.  Make a table showing the index $n$, the value of $\pi_n$, and the terms of the sequence. 
+        \begin{exerpart}
+            \item The sequence $s$ begins $2, 5, 11, 17, 23, 31, 41,\ldots$ % pi_2n
+            \item The sequence $t$ begins $6, 15, 35, 77, 143, 221, ,\ldots$ Hint: factor %p_np_n+1
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\answers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\answers for \Cref{sub_defn_seq} \subdefnseq}
+
+\subsubsection*{\Cref{exer_eval_seq_first_six} \answers}
+\begin{apart}
+    \item Hint: It begins $2, 3, 5$.
+    \item Hint: It begins $5, 7, 9$.
+    \item Hint: $c_6=\frac{5}{64}$.
+    \item Hint: $d_6=5$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_eval_seq_piecewise} \answers}
+\begin{apart}
+    \item Hint: It begins $0,1,0$.
+    \item Hint: It is not the same as (a).
+    \item Hint: It begins $0,1,-1$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_eval_seq_words} \answers}
+\begin{apart}
+    \item Hint: $a_{12} = 6$.
+    \item Hint: $b_{12} = 3$.
+    \item Hint: $c_{12} = 84$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_eval_seq_numberthy_functions} \answers}
+\begin{apart}
+    \item Hint: $a_{10}=5$.
+    \item Hint: $b_{10} = 0$.
+    \item Hint: $s_{10}=2$.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_model_seq} \submodelseq}
+
+\subsubsection*{\Cref{exer_NTE_constants_alt} \answers}
+\begin{apart}
+    \item $a_n=1$ for $n \ge 0$
+    \item Hint: The answer involves $(-1)^n$ starting at $n=0$.
+    \item Hint: Start at $n=0$.
+    \item Hint: The answer involves $(-1)^{n-1}$ starting at $n=0$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_lin_exp} \answers}
+\begin{apart}
+    \item Hint: The answer involves $5n$.
+    \item Hint: The answer involves $(.1)^n$.
+    \item Hint: Find a formula for the absolute value of the terms first.
+    \item Hint: Find a formula for the absolute value of the terms first.
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_complicated} \answers}
+\begin{apart}
+    \item Hint: Involve the handshake numbers such as $\frac{n(n-1)}{2}$ or $\frac{n(n+1)}{2}$.
+    \item Hint: Involves factorials.
+    \item Hint: What are we adding to get from each term to the next?
+    \item Hint: Floor or ceiling is involved, and a fraction.
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_shifts} \answers}
+\begin{apart}
+    \item $a_n=n+7$ for $n \ge 0$.
+    \item Hint: Look at the terms + 1.
+    \item Hint: Look at the terms -1
+    \item Hint: Look at the terms + 1 or -1.
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_fractions} \answers}
+\begin{apart}
+    \item $a_n =\frac{1}{n+3}$ for $n \ge 0$.
+    \item Hint: Rewrite with denominators $2, 3, 4, 5, 6$.
+    \item Hint: The answer involves odds and squares.
+    \item Hint: Powers are involved.
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_factor} \answers}
+\begin{apart}
+    \item Hint: $n$ is a factor.
+    \item $b_n=2n(n+1)$
+    \item Hint: Factor out $n$. Then factor again.
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_piecewise} \answers}
+\begin{apart}
+    \item Hint: The answer can be written in the form $$a_n= \left\{ \begin{array} {cl} 
+    0 & \text{if } n \text{ is \underline{\hspace{.5in}}} \\
+    1 & \text{if } n \text{ is \underline{\hspace{.5in}}} \end{array} \right.$$ for $n \ge 0$.
+    \item Hint: Use different formulas for odd index and even index terms.
+    \item Hint: The nonzero terms are powers of two.
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_number_theoretic} \answers}
+\begin{apart}
+    \item $s_n=a \fn{ mod } 3$ for $n \ge 0$
+    \item Hint: Last digit
+    \item Hint: Handshakes.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_seq_primes} \subseqprimes}
+
+\subsubsection*{\Cref{exer_eval_seq_prime_fact} \answers}
+\begin{apart}
+    \item Hint: $t_{100}=25$
+    \item Hint: $d_{100}=25$
+    \item Hint: $u_{100}=2$
+\end{apart}
+
+\subsubsection*{\Cref{exer_eval_seq_involving_pisubn} \answers}
+\begin{apart}
+    \item Hint: It begins $20, 30, 50, \ldots$.
+    \item Hint: It begins $\frac{2}{3}, \frac{3}{5}, \ldots$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_eval_seq_piecewise_prime} \answers}
+\begin{apart}
+    \item Hint: It begins $1,0,0,4\ldots$.
+    \item Hint: It begins $1, 4, 9, 4, \ldots$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_prime_fact} \answers}
+\begin{apart}
+    \item Hint: Every term in the sequence is a power of two and a divisor of the index.
+    \item Hint: Each term is a prime and a divisor of the index.
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_piecewise_prime} \answers}
+\begin{apart}
+    \item Hint: Where are the 1s?
+    \item Hint: When $n$ is prime, the formula is $n$. 
+\end{apart}
+
+\subsubsection*{\Cref{exer_NTE_pisubn} \answers}
+\begin{apart}
+    \item Hint: Square
+    \item Hint: Either +1 or -1 is involved.
+\end{apart} 
+
+\subsubsection*{\Cref{exer_NTE_pisubn_continued} \answers}
+\begin{apart}
+    \item Hint: Write each term as $\pi_n$.  For example, $2 = \pi_1$ and $5 = \pi_3$.
+    \item Hint: Factor into primes.
+\end{apart}
+
+
+
+
+
+
+
+
+
+
+

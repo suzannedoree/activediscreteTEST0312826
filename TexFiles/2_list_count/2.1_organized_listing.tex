@@ -1,0 +1,812 @@
+\section{\seclisting}
+\label{sec_listing}
+
+It is often helpful to have a list.  We might be trying to solve a problem by looking for a pattern among a list of examples.  Or, we might want to check for every possibility using a list of all possible examples.  In this section, we practice listing. 
+
+We begin this section by giving you the opportunity to list on your own, so that you can appreciate the challenges. Try not to get frustrated, just try your best. Later in the section, we describe a few strategies to help create organized lists, including considering cases and constructing possibility trees, that can make the process a little less frustrating. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subsqdom}{Strings of Squares and Dominoes}
+\subsection{\subsqdom}
+\label{sub_squares_dominoes}
+
+We begin with a puzzle.  
+
+\begin{act} [Squares and Dominoes Puzzle]
+    \label{act_squares_dominoes}
+
+    You have a large supply of $1 \times 1$ (striped) squares and $1 \times 2$ (gray) dominoes with which to \vocab{tile} a $1 \times n$ board.  That is, you want to cover every square on the board with either a square or a domino so that there is no overlap.  For example, there are three different ways to tile a $1 \times 3$ board shown in \Cref{fig_sq_dom3}. Notice that the order of the tiles matters. 
+
+        \begin{figure}[hbtp]
+            \centering
+            \includegraphics[width=0.5\linewidth]{{Puzzles/Puzzle_Images/SqDom.pdf}}
+            \caption{Three ways to tile the $1 \times 3$ board with squares and dominoes.}
+            \label{fig_sq_dom3}
+        \end{figure}
+
+    We write a dot ($\bullet$) for each square and a dash ($\boldsymbol{-}$) for each domino to obtain the shorthand listed below each tiling.  
+
+    \begin{actpart}
+        \item There is one way to tile the $1\times 1$ board.  What is it?  Use our shorthand.
+        \item There are two ways to tile the $1\times 2$ board.  List them using our shorthand.
+        \item We have already seen that there are three ways to tile the $1\times 3$.  You might expect there to be four ways to tile the $1\times 4$ board, but there are actually five ways.  List them.
+        \item List the ways to tile the $1 \times 5$ board.  How many ways are there?
+        \item List all the ways to tile the $1\times 6$ board.  Hint: first list all the ways that start with a square ($\bullet$) and then list all the ways that start with a domino ($\boldsymbol{-}$).
+        \item Make a table to record the number of ways to tile the $1 \times n$ board for $n=1,2,3,4,5,6$.
+        \item Conjecture the number of ways to tile a $1\times 10$ board.  Explain your reasoning and show your work. Your answer should be a specific number.
+        \item Conjecture the number of ways to tile a $1\times n$ board.
+    \end{actpart}
+\end{act}
+
+Make sure that you have tried \Cref{act_squares_dominoes} before reading on.  
+
+\begin{exam}[Squares and dominoes tiling of a $1 \times 6$ board.]
+\label{exam_sq_dom6}  
+~
+    \begin{actpart}
+        \item As in \Cref{act_squares_dominoes}, list all the ways to tile a $1 \times 6$ board with squares and dominoes by first listing the ways that start with a square ($\bullet$) and then listing all the ways that start with a domino ($\boldsymbol{-}$).
+            \begin{soln}
+                First, we list the ways that start with a square.  After the square, there is effectively a $1 \times 5$ board to tile.  Therefore, we copy all the ways to tile the $1 \times 5$ board (shown with a square bracket) and put a square in front of each, as shown in \Cref{fig_sq_dom6_start1}.
+
+                \begin{figure}[hbtp]
+                    \centering
+                    $$\bullet \underbracket{\bullet \bullet \bullet \bullet \bullet~}~,
+                    \bullet \underbracket{\bullet \bullet \bullet \boldsymbol{-}~}~,
+                    \bullet \underbracket{\bullet \bullet \boldsymbol{-} \bullet~}~,
+                    \bullet \underbracket{\bullet \boldsymbol{-} \bullet \bullet~}~,
+                    \bullet \underbracket{\bullet \boldsymbol{-} \boldsymbol{-}~}~,
+                    \bullet \underbracket{\boldsymbol{-} \bullet \bullet \bullet~}~,
+                    \bullet \underbracket{\boldsymbol{-}  \bullet \boldsymbol{-}~}~,
+                    \bullet \underbracket{\boldsymbol{-}  \boldsymbol{-}\bullet~}
+                    $$
+                    \caption{Tiling the $1 \times 6$ board starting with a square.}
+                    \label{fig_sq_dom6_start1}
+                \end{figure}
+                
+                Next, we list the ways that start with a domino.  After the domino, there is effectively a $1 \times 4$ board to tile.  Therefore, we copy all the ways to tile the $1 \times 4$ board (shown with a square bracket) and put a domino in front of each, as shown in \Cref{fig_sq_dom6_start2}.
+                
+                \begin{figure}[hbtp]
+                    \centering
+                    $$\boldsymbol{-} \underbracket{\bullet \bullet \bullet \bullet~}~,
+                    \boldsymbol{-} \underbracket{\bullet \bullet \boldsymbol{-}~}~,
+                    \boldsymbol{-} \underbracket{\bullet \boldsymbol{-} \bullet~}~,
+                    \boldsymbol{-} \underbracket{\boldsymbol{-} \bullet \bullet~}~,
+                    \boldsymbol{-} \underbracket{\boldsymbol{-} \boldsymbol{-}~}
+                    $$
+                    \caption{Tiling the $1 \times 6$ board starting with a domino.}
+                    \label{fig_sq_dom6_start2}
+                \end{figure}
+                Since every tiling of a $1 \times 6$ board either starts with a square or with a domino, we have listed all ways to tile a $1 \times 6$ board.
+            \end{soln}
+        \item How many ways are there to tile a $1 \times 6$ board?  Explain how your answer related to the number of ways to tile a $1 \times 5$ board and the number of ways to tile a $1 \times 4$ board.
+            \begin{soln}
+                We listed a total of 13 ways to tile a $1 \times 6$ board. Because we get one tiling of a $1 \times 6$ board for each of the eight ways to tile a $1 \times 5$ board and we get one tiling of a $1 \times 6$ board for each of the five ways to tile a $1 \times 4$ board, , the number of ways to tile a $1 \times 6$ board equals the sum of the number of ways to tile a $1 \times 5$ board plus the number of ways to tile a $1 \times 4$ board. That is, there are $8+5=13$ ways to tile a $1 \times 6$ board.
+            \end{soln}
+        \end{actpart}
+\end{exam}
+
+In \Cref{act_squares_dominoes} and \Cref{exam_sq_dom6}, we saw our first example of a \vocab{recusive} solution where we use tilings of smaller boards to tile a larger board.  Specifically, we can tile a $1 \times n$ board using the tilings for the next two smaller boards: a $1 \times (n-1)$ board and a $1 \times (n-2)$ board. We study recursions in \Cref{ch_recursion_induction} \chrecind.  We can use this recursion to count the number of tilings on a $1 \times n$ board. 
+
+\begin{exam}[Counting squares and dominoes tilings of a $1 \times 8$ board.]
+\label{exam_sq_dom8} 
+~
+    \begin{actpart}
+        \item Based on the recursive solution to tile a $1 \times n$ board using squares and dominoes in \Cref{exam_sq_dom6}, how many ways can we tile a $1 \times 8$ board?
+            \begin{soln}
+                We saw in \Cref{exam_sq_dom6} that there are $8+5=13$ ways to tile a $1 \times 6$ board: eight are obtained by putting a square in front of each tiling of a $1 \times 5$ board and five are obtained by putting a domino in front of each tiling of a $1 \times 4$ board.  
+
+                Similarly, there are $13+8=21$ ways to tile a $1 \times 7$ board: 13 are obtained by placing a square in front of each tiling of a $1 \times 6$ board and eight are obtained by placing a domino in front of each tiling of a $1 \times 5$ board.
+
+                Continuing this reasoning, there are $21+13 = 34$ tilings of a $1 \times 8$ board.
+            \end{soln}
+        \item Conjecture the number of ways to tile a $1 \times n$ board.
+            \begin{soln}
+                The one-shorter board is $1 \times (n-1)$ and the two-shorter board is $1 \times (n-2)$. Since we got one tiling of the $1 \times n$ board for each tiling of a $1 \times (n-1)$ board and for each tiling of a $1 \times (n-2)$ board, the number of tilings of a $1 \times n$ equals the sum of the number of tilings of a $1 \times (n-1)$ board and the number of tilings of a $1 \times (n-2)$ board. That last sentence is a mouthful.  Using sequence notation, which we introduce formally in \Cref{sec_explicitly_defined_sequences}, we might write
+                  $$b_n=b_{n-1}+b_{n-2}$$
+                where the subscript on $b_k$ represents the number of ways to tile a $1 \times k$ board.
+            \end{soln}
+    \end{actpart}
+\end{exam}
+
+The number of ways to tile a $1 \times n$ board with squares and dominoes is a \vocab{Fibonacci} number-- it is the sum of the previous two Fibonacci numbers, usually starting with $0,1$.  We revisit the Fibonacci numbers again in \Cref{sec_fibonacci_higher}.  The first few Fibonacci numbers are
+$$0,1,1,2,3,5,8,13,21,34,55,89,\ldots.$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subsetsdigits}{Digits, Sets, and Cases}
+\subsection{\subsetsdigits}
+\label{sub_sets_digits}
+
+Throughout this course, we use mathematical structures.  One structure is a \vocab{set}, which is understood to be an unordered collection of \vocab{elements}. For example, the set $\{1,4,5\}$ has three elements: 1, 4, and 5.  The set $\{4,1,5\}$ is the same as the set $\{1,4,5\}$ because $\{4,1,5\}$ has the same three elements: 1, 4, and 5. That is, the order in which we list the elements in a set does not matter. 
+There is no need to repeat elements within a set because it does not change the set.  For example, the set $\{2,7,2\}$ is the same as the set $\{2,7\}$ because each set has two elements: 2 and 7. 
+Sets are very important in mathematics. In fact, we might say that 
+\begin{quote}
+Sets are the most fundamental structure of mathematics because all of mathematics can be defined using sets.  
+\end{quote}
+
+Since discrete mathematics comes from all areas of mathematics, it should not be surprising that this textbook uses a large mathematical vocabulary.  Some words in that vocabulary are not defined.  For example, the words ``set'' or ``element'' are not defined in the previous paragraph, although we hope that their meaning is clear from the narrative.  It turns out that any vocabulary must be built on a set of undefined words because you have to start somewhere.  We try to keep the list of undefined terms as short as possible.
+
+When we can, we give a formal mathematical \vocab{definition} of a new word that states what the word means in mathematics. We sometimes add a quick example or note, but those additions are not officially part of the definition.  Definitions in mathematics also serve another purpose.  There might be several different, but equivalent, ways to explain the meaning of a word. In such situations, a definition establishes an agreement on which of those different explanations is the official mathematical definition of the word. 
+
+Here are a few examples of definitions. First, there are a few ways to refer to types of numbers.
+
+\begin{defn} [Integers]
+\label{defn_integers}
+    ~
+    \begin{apart}
+        \item The numbers $\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots$ are \vocab{integers}.
+        \item The numbers $0, 1, 2, 3, \ldots$ are \vocab{natural numbers} (or \vocab{non-negative integers})\footnote{You may find that other mathematics classes have the natural numbers starting with $1$}.  For example, the phrase ``for any natural number $n$'' means ``for any integer $n \ge 0$''.
+        \item The numbers $1, 2, 3, \ldots$ are \vocab{positive integers}.  For example, the phrase ``for any positive integer $n$'' means ``for any integer $n \ge 1$''.
+    \end{apart}
+\end{defn}
+
+The integers $0,1,2,3,4,5,6,7,8,9$ have a special name.
+
+\begin{defn} [Digit]
+\label{defn_digit}
+    ~
+    \begin{apart}
+        \item Each of the integers $0,1,2,3,4,5,6,7,8,9$ is a \vocab{digit}.
+         \item Two digits (or two integers) are \vocab{distinct} if they are not equal.
+        \item A digit (or an integer) is \vocab{nonzero} if it does not equal zero. 
+    \end{apart} 
+\end{defn}
+
+We also have a name for the result of adding, subtracting, or multiplying two integers.
+
+\begin{defn} [Sum, difference, and product]
+\label{defn_sum_product}
+    ~
+    \begin{apart}
+        \item The \vocab{sum} (or \vocab{total}) of two integers $n$ and $k$ is $n+k$. For example, the sum of 2 and 3 is 5 and the sum of 3 and $t$ is $3+t$. 
+        
+        \item In any sum, \vocab{terms} are the integers that are added. For example, in the sum $3+t$, the terms are 3 and $t$.
+        
+        \item The \vocab{negative} of the integer $s$ is the integer $$-s=(-1)s.$$ Note that $-s$ could be positive, negative, or 0. For example, the negative of 5 is $-5$, the negative of $-17$ is $17$, and the negative of 0 is 0.  
+        
+        \item The \vocab{difference} of the integers $n$ and $s$, in that order, is the integer $$n-s=n+(-s).$$  Note that if we subtract in the opposite order, we get the negative.  For example, $7-4=3$ and $4-7=-3$.  That is, $n-s$ and $s-n$ are negatives of each other.
+        
+        \item The \vocab{product} of the integers $n$ and $s$ is $n \times s$, which is normally written as $ns$.  For example, the product of 2 and 3 is 6 and the product of 5 and $k$ is $5k$. Multiplication is shorthand for addition, so officially 
+        $$ns = \underbracket{s+s+\ldots+s.}_{n \text{ times}}$$
+
+        \item In any product, the \vocab{factors} are the integers being multiplied. For example, in the product $5k$, the factors are 5 and $k$.
+    \end{apart}
+\end{defn}
+
+Here is an example that uses these definitions.
+
+\begin{exam}[2-digit sets]
+\label{exam_two_digit_sets}
+~
+    \begin{apart}
+        \item List all sets of two distinct nonzero digits where the sum of the digits is 14.      
+        \begin{soln}
+             Since $5+9=14$ and $6+8=14$, two such sets are $\{5,9\}$ and $\{6,8\}$.  Notice that $7+7=14$, but the digits that are added are not distinct. There are no other sets because the largest digit is 9, and so the smallest digit we might use is $14-9=5$.  The final list is $\{5,9\}$ and $\{6,8\}$.
+        \end{soln}  
+        \item List all sets of two distinct digits where the product of the digits is 12.
+        \begin{soln}
+            Start with the smallest digit 1.  We know $1 \times 12 = 12$, but 12 is not a digit.  The next digit is 2 and $2 \times 6 = 12$.  Thus, one set is $\{2,6\}$.  Next, we have the digit 3 and $3 \times 4 = 12$. Thus, another set is $\{3,4\}$.  The final list is $\{2,6\}$, $\{3,4\}$. 
+        \end{soln}
+    \end{apart}
+\end{exam}
+
+Try working with sets.
+
+\begin{act}[Digit sums] 
+\label{act_digit_sum}
+    Be sure to write sets in set notation using curly brackets.
+    
+    \begin{actpart}
+        \item List all sets of two distinct nonzero digits where the sum of the digits is seven.    
+        \item \label{part_3sum_is9} List all sets of three distinct nonzero digits where the sum of the digits is nine.   
+        \item List all sets of four distinct nonzero digits where the sum of the digits is 21.  
+        \item How might you organize your lists to avoid accidentally listing the same set twice, to make it easy to compare answers with a classmate, and to determine if you included all the possibilities?
+    \end{actpart}    
+\end{act}
+
+As we saw in \Cref{act_squares_dominoes} and \Cref{act_digit_sum}, there are two key challenges to making a list.
+
+\begin{bull}
+    \item How do we know if our list includes all the possibilities? 
+    \item How can we avoid accidentally listing the same object twice? 
+\end{bull}
+
+The short version of the answer is that we try to be organized, and if possible, we try to write the list in a standard order. For example, in \Cref{act_squares_dominoes} you might have organized your list based on whether the tiling started with a square or a domino, or you might have organized your list based on the number of dominoes. In \Cref{act_digit_sum} you might have organized your work by considering the smallest or largest element in your set. In general, we can create an organized list by breaking the problem into special cases.
+
+\begin{exam}[Using cases to list digit sums]
+\label{exam_kakuro_12in4}
+    Use cases based on the largest digit to list all sets of four distinct nonzero digits where the sum of the digits is 17.
+        \begin{soln}
+            We consider cases based on the largest digit in the set.  
+
+            Case 1: The largest digit is 9.
+            The other three distinct nonzero digits must be less than 9 and have a sum of $17-9=8$, either $5+2+1 = 8$ or $4+3+1=8$.  The two sets in this case are $\{1,2,5,9\}$ and $\{1,3,4,9\}$.
+
+            Case 2: The largest digit is 8.  
+            The other three distinct nonzero digits must be less than 8 and have a sum of $17-8=9$, either $5+3+1 = 9$ or $4+3+2=9$.  The two sets in this case are $\{1,3,5,8\}$ and $\{2,3,4,8\}$.
+
+            Case 3: The largest digit is 7.
+            The other three distinct nonzero digits must be less than 7 and have a sum of $17-7=10$, either $5+4+1 = 10$ or $5+3+2=10$. The two sets in this case are $\{1,4,5,7\}$ and $\{2,3,5,7\}$.
+
+            Case 4: The largest digit is 6.
+            The other three distinct nonzero digits must be less than 6 have a sum of $17-6=11$ which must be $5+4+2 = 11$.  The only set in this case is $\{2,4,5,6\}$.
+
+            Note that the largest digit cannot be 5 because we cannot find three distinct nonzero digits that are less than 5 and add to $17-5=12$.  The largest sum of three distinct nonzero less than 5 is $4+3+2=9<12$.
+
+            We have found all seven sets of four distinct nonzero digits where the sum of the digits is 17.  They are 
+                $\{1,2,5,9\}$, 
+                $\{1,3,4,9\}$, 
+                $\{1,3,5,8\}$, 
+                $\{2,3,4,8\}$, 
+                $\{1,4,5,7\}$, 
+                $\{2,3,5,7\}$, and 
+                $\{2,4,5,6\}$.
+        \end{soln}   
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\substrings}{Strings and Possibility Trees}
+\subsection{\substrings}
+\label{sub_strings}
+
+Another example of a mathematical structure is a string.  Your passwords are probably all strings.  We represented a tiling of a $1 \times n$ board with squares and dominoes as a string of dots ($\bullet$) and dashes ($\boldsymbol{-}$) 
+in \Cref{act_squares_dominoes}. Here is the definition of string and more vocabulary about strings.
+
+\begin{defn} [Characters and strings]  \label{defn_characters_and_strings}
+    ~
+    \begin{apart}
+        \item An \vocab{alpha-numeric character} is either a digit, a lowercase English letter, or an uppercase (capital) English letter.  There are 26 letters in the English alphabet and each letter has a lower and upper case.
+        \item In this textbook (and most of mathematics and computer science), all alphanumeric characters are \vocab{case-sensitive}. For example, \str{A} and \str{a} are different characters. There are, $10+26+26 = 62$ alphanumeric characters
+        \item Any other single symbol, such as \str{\&} or \str{>}, that is typically found on a keyboard key is a \vocab{special character}.  
+        \item A \vocab{character} is either an alphanumeric character or a special character.
+        \item A \vocab{string} is a finite sequence of characters. For example, \str{A0y2\%0} is a string. Note that characters may be repeated within a string and the order matters.  For example, \str{00\%2Ay} is a different string. 
+        \item The \vocab{length of a string} is the total number of characters in the string. For example, \str{A0y2\%0} is a string of length six.     
+    \end{apart}
+\end{defn}
+
+In our next example, we highlight two organizational strategies for creating lists: considering cases or drawing a \vocab{possibility tree}\footnote{Possibility trees get their name from natural trees because they have branches.}.
+
+\begin{exam} [2-strings] 
+\label{exam_2strings}
+    List all strings of length two where the first character is \str{a}, \str{b}, or \str{c} and the second character is \str{2} or \str{6}.
+    \begin{apart} 
+    \item Construct your list by considering cases based on the first character.
+        \begin{soln}
+            Let's consider cases based on the first character.  
+        
+            Case 1:  If the first character is \str{a}, then we have \str{a2} or \str{a6}.
+        
+            Case 2:  If the first character is \str{b}, then we have \str{b2} and \str{b6}.
+        
+            Case 3:  If the first character is \str{c}, then we have \str{c2} and \str{c6}.
+        
+            The strings are \str{a2}, \str{a6}, \str{b2}, \str{b6}, \str{c2}, \str{c6}.  
+        \end{soln} 
+    \item Construct your list by drawing a possibility tree.
+        \begin{soln}
+            In \Cref{fig_tree_2strings}, we begin by drawing a starting point $\bullet$ on the left.  We draw three branches to nodes \str{a}, \str{b}, \str{c} which are the possibilities for the first character in the string. 
+
+            If the first character is \str{a}, then the second character is either \str{2} or \str{6}, and so we draw two branches from \str{a} to \str{a2} and from \str{a} to \str{a6}. Similarly we draw branches from \str{b} to \str{b2}, from \str{b} to \str{b6}, from \str{c} to \str{c2}, and from \str{c} to \str{c6}. As before, the strings are: \str{a2}, \str{a6}, \str{b2}, \str{b6}, \str{c2}, and \str{c6}.    
+    
+        There is a shorthand way to draw the tree where we only list the new character in each spot instead as shown in \Cref{fig_tree_2strings_shorthand}.  In this case, it takes a little less work to draw the tree but a little more work to write out the final list.
+         \end{soln}
+
+         \begin{figure}[ht]
+            \centering           \input{Tikz/poss_tree_string_length2}
+            \caption{A possibility tree for 2-strings.}
+            \label{fig_tree_2strings}
+        \end{figure}
+         
+         \begin{figure}[ht]
+            \centering            \input{Tikz/poss_tree_string_length2_shorter}
+            \caption{A possibility tree for 2-strings, shorthand version.}
+            \label{fig_tree_2strings_shorthand}
+            \end{figure}
+    \end{apart}
+\end{exam}
+
+Notice in \Cref{exam_2strings} that we considered the letters in \vocab{alphabetical order}, the order of the English alphabet:
+\begin{center}
+    \str{a}, \str{b}, \str{c}, \str{d}, \str{e}, \str{f}, \str{g}, \str{h}, \str{i}, \str{j}, \str{k}, \str{l}, \str{m}, \str{n}, \str{o}, \str{p}, \str{q}, \str{r}, \str{s}, \str{t}, \str{u}, \str{v}, \str{w}, \str{x}, \str{y}, \str{z}
+
+    \str{A}, \str{B}, \str{C}, \str{D}, \str{E}, \str{F}, \str{G}, \str{H}, \str{I}, \str{J}, \str{K}, \str{L}, \str{M}, \str{N}, \str{O}, \str{P}, \str{Q}, \str{R}, \str{S}, \str{T}, \str{U}, \str{V}, \str{W}, \str{X}, \str{Y}, \str{Z}
+\end{center}
+For strings beginning with \str{a}, we first list the string ending in \str{2} and then the string ending in \str{6}.  That is, we considered the digits in \vocab{numerical order}, from smallest to largest.  
+
+Practice using possibility trees to create lists.
+
+\begin{act} [Listing strings]
+\label{act_listing_strings}
+    ~
+    \begin{actpart}
+        \item \label{part_strings_abc}Use a possibility tree to list all strings of length two where each character is \str{a}, \str{b}, or \str{c}.
+        \item \label{part_perms_abc} Let's change the rules. Use a possibility tree to list all strings of length three where each character is \str{a}, \str{b}, \str{c} if repetitions are not allowed, meaning that each letter is used exactly once.
+        \item  Look back at the tree you drew in (\ref{part_strings_abc}).  How many strings of length $10$ are there where each character is \str{a}, \str{b}, or \str{c}?  Repetition is allowed.  Conjecture without writing a list or drawing a tree.          
+        \item  Look back at the tree you drew in (\ref{part_perms_abc}).  How many strings of length ten are there where each character is \str{a}, \str{b}, \str{c},\ldots, \str{j} and repetition is not allowed?  Conjecture without writing a list or drawing a tree.  
+    \end{actpart}
+\end{act}
+
+In the possibility trees that we have drawn so far, each branch is of the same length.  Let's look at an example where the branches are different lengths.
+
+\begin{exam}[Tiling a $1 \times 5$ board with squares and dominoes]
+\label{exam_sq_dom5_tree}
+    Draw the possibility tree to list the ways to tile a $1 \times 5$ board using squares ($\bullet$) and dominoes ($\boldsymbol{-}$) as in \Cref{act_squares_dominoes}.
+        \begin{soln}
+            The tree in \Cref{fig_sq_dom5} shows all eight possibilities.  Notice that we changed the root symbol to $\circ$ to avoid confusion with the square symbol ($\bullet$).  Reading across the top row, for example, gives the all-square tiling $\bullet\bullet\bullet\bullet\bullet$ and reading the next path from branch to leaf gives the tiling $\bullet\bullet\bullet\boldsymbol{-}$.
+
+                \begin{figure}[htbp]
+                \centering
+                \input{Tikz/poss_tree_sq_dom}
+                \caption{Tiling the $1 \times 5$ board with squares and dominos.}
+                \label{fig_sq_dom5}
+                \end{figure}
+
+        As we build a tiling of length five, we have to be careful.  If we have a tiling of length four, then the only option to finish the tiling is a square because a domino would make length six. For example, the branch that begins $\bullet\boldsymbol{-}\bullet$ can only be followed by $\bullet$.  Once we have a tiling of length five, the branch ends.  For example, the branch $\boldsymbol{-}\bullet\boldsymbol{-}$ ends after three tiles.
+        \end{soln}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subintalgebra}{Algebra: Integer Algebra and the Order of Operations}
+\subsection{\subintalgebra}
+\label{sub_integer_algebra}
+
+Often, the numbers we consider in this textbook are integers. For example, we might make a conjecture that involves an unknown integer. Historically, integers were commonly named using the letters $i,j,k,l,m$, or $n$ because some computer programming languages, such as Fortran, used to reserve these letters for integer quantities (perhaps because the word ``integer'' begins with $i$ and then $n$).  In this textbook, we use a variety of letters for integers, although we tend to save the letters $x$, $y$, and $z$ for real-valued (decimal) quantities.
+
+When you studied algebra, you probably worked a lot with quantities named $x$, occasionally with quantities named $y$, $z$, or $t$, and rarely with quantities named $n$, $m$, $k$, or other common letters for integers. The rules of algebra remain the same for whatever letters we use, but it can take some practice to be comfortable working with a variety of letters. In this section, we discuss integer arithmetic. To start with, it is useful to name various arithmetic properties of the integers. 
+
+\begin{defn} [Integer algebra and the order of operations]
+\label{defn_integer_algebra_order_operations}
+    ~
+    \begin{apart}
+       \item \label{part_order_operations} When several operations are involved in a single calculation, we need to know the \vocab{order of operations (PEMDAS)}, the priority ranking for arithmetic operations.  The order is
+
+\begin{center}
+\begin{tabular} {l}
+First, calculate anything inside \textbf{P}arentheses. \\ %HSPACE
+Next, calculate \textbf{E}xponents $\wedge$, in order from left to right. \\
+%& Note: roots, factorials, and many functions are also at Exponent's level.\\
+Then, \textbf{M}ultiply $\times$ and \textbf{D}ivide $\div$, in order from left to right.\\
+Last, \textbf{A}dd $+$ and \textbf{S}ubtract $-$, in order from left to right. \\ 
+\end{tabular}
+\end{center}
+
+       \item The \vocab{commutative properties} of the integers tell us that 
+           $$n+s=s+n \text{\quad and \quad} sn=ns.$$
+        We often use the commutative property to rewrite sums or products in standard order.  For example, products are usually written alphabetically ($ns$ is standard, not $sn$) and in products numbers come before letters ($2k$ is standard, not $k2$). In sums, numbers often come after letters ($n+1$ is common, although $1+n$ is also acceptable).
+       
+       \item The \vocab{associative properties} of the integers tells us that 
+           $$(n+s)+t = n+(s+t) \text{\quad and \quad} (ns)t = n(st).$$ 
+        We often use the associative property to write an expression such as $n+3k+2$ without parentheses, since the location of parentheses would not change the sum. 
+       
+       \item We \vocab{factor} an integer by writing it as a product of two integers.  For example, we can factor $6$ as $2 \times 3$ which we could write as $6=2 \times 3$ or $6=(2)(3)$.  Although it is correct to factor $6$ as $1 \times 6$, if an activity or exercise asks you to ``factor,'' the answer should not use the factor $1$. Notice that ``factor'' can be a noun, which means the quantity we are multiplying, or a verb, which means write as a product.
+       
+       \item The \vocab{distributive property} of the integers tells us that 
+           $$n(s+t)=ns+nt.$$ 
+       Reading this equation from left to right tells us how to \vocab{expand} (or \vocab{distribute} or \vocab{multiply out}). For example, 
+           $$2(n+4) = (2)(n) + (2)(4) = 2n + 8.$$ 
+       Equations tell us that two things are equal, so we can equally well read this equation from right to left $$ns+nt=n(s+t)$$ which tells us how to factor.  For example, 
+           $$5n-10 = (5)(n) + (5)(-2) = 5(n+(-2)) = 5(n-2).$$
+    \end{apart}
+\end{defn}
+
+Let's practice working with the vocabulary factor and term.
+
+\begin{exam}[Factors and terms]
+\label{exam_factors_terms}
+~
+    \begin{apart}
+        \item Describe the quantity $2(n+1)$ using factors and terms.
+            \begin{soln}
+                There are two factors: 2 and $n+1$.  The second factor has two terms: $n$ and 1.
+            \end{soln}
+        \item Describe the quantity $2n+1$ using factors and terms.
+            \begin{soln}
+                There are two terms: $2n$ and 1.  The first term has two factors: 2 and $n$.
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+We can use the distributive propensity to combine \vocab{like terms}, which means terms having a common factor.
+
+\begin{exam} [Combining like terms]
+\label{exam_combining_like_terms}
+    Simplify the expression $2n+3n$.
+        \begin{soln}
+            You have seen $2x+3x=5x$. You might have learned that this equation is analogous to saying that if I have 2 apples plus another 3 apples, then I have a total of 5 apples.  In the same way, $2n+3n=5n$.  
+            
+            Alternatively, we can use the definition of the product.  Since $2n = n+n$ and $3n = n+n+n$, together we have 
+                $$2n + 3n = \underbracket{(n+n)}_{2 \text{ times}} +\underbracket{(n+n+n)}_{3 \text{ times}} = \underbracket{n+n+n+n+n}_{5 \text{ times}} = 5n$$
+            
+            Yet another way of thinking about this simplification is to use the distributive property to factor   
+                $$2n+3n=(2+3)n=5n.$$  
+            
+            Each of these approaches is useful.  So, even if you favor one approach, learn the other methods as well.
+        \end{soln}
+\end{exam}
+
+Now it is your turn to practice some integer algebra.
+        
+\begin{act} [Integer algebra]
+\label{act_integer_algebra}
+~
+    \begin{actpart}
+        \item Simplify $n+n$.
+        \item Simplify $m+7m$.  
+        \item Expand and simplify $2(n-1)+1$
+        \item Factor $3k+6$.        
+    \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exercises}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Exercises for \Cref{sub_squares_dominoes} \subsqdom.}
+
+\begin{exer}[\exerP] % square and dominoes
+\label{exer_sq_dom7}
+~
+    \begin{apart}
+        \item Using the strategy in \Cref{exam_sq_dom8}, conjecture the number of ways to tile a $1 \times 12$ board.         
+        \item Using the strategy and results in \Cref{exam_sq_dom6}, list all 21 ways to tile a $1 \times 7$ board using squares and dominoes. 
+    \end{apart}
+\end{exer}
+
+\begin{exer} [\exerU]% squares, dominoes, and trominoes Examples]
+\label{exer_trominoes_examples}
+Suppose we have $1 \times 1$ squares ($\bullet$), $1 \times 2$ dominoes ($\boldsymbol{-}$), and new $1 \times 3$ trominoes ($\thicksim$).
+    \begin{exerpart}
+        \item List the ways to tile $1 \times 1$, $1 \times 2$, $1 \times 3$, and $1 \times 4$ boards using squares, dominoes, and trominoes.
+        \item List the ways to tile $1 \times 1$, $1 \times 2$, $1 \times 3$, and $1 \times 4$ boards using only squares and trominoes.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR]
+\label{exer_dyk_sq_dom}  
+    Do you know \ldots 
+        \begin{exerpart}
+            \item What does it mean to tile a $1 \times n$ board with squares and tiles?
+            \item How to create a list of ways to tile a $1 \times n$ board with squares and dominoes using the lists from the next two smaller boards?
+            \item What the phrase "recursive solution" means?
+            \item How to generate a list of Fibonacci numbers?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerE]% squares, dominoes, and trominoes conjectures]
+\label{exer_trominoes_conjectures}
+Suppose we have squares, dominoes, and trominoes, as in \Cref{exer_trominoes_examples}.
+    \begin{exerpart}
+        \item Conjecture the number of ways to tile a $1 \times n$ board with squares, dominoes, and trominoes.  Explain your reasoning and make sure you get the correct number when $n=1,2,3,4$.
+        \item Conjecture the number of ways to tile a $1 \times n$ board with only squares and trominoes.  Explain your reasoning and make sure you get the correct number when $n=1,2,3,4$.
+    \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_sets_digits} \subsetsdigits}
+
+\begin{exer} [\exerP]% more digit sums]
+\label{exer_3digit_sums}
+    ~
+    \begin{exerpart}
+    \item  List all sets of three distinct nonzero digits where the sum of the digits is 10.
+    \item List all sets of three distinct nonzero digits where the sum of the digits is 18. % Answer:  981, 972, 963, 954, 873, 864, 765
+    \end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerU]% prime products]
+\label{exer_prime_products}
+    We define the term \vocab{prime} later in the course.  For this problem, you only need to know that the first few primes are 
+        $$2, 3, 5, 7, 11, 13, 17, 19, 23, 29.$$
+    List all positive integers less than 50 that are the product of two distinct primes.
+\end{exer}
+
+\begin{exer}[\exerU] %16-in-2 is kakuro
+\label{exer_kakuro23}
+~
+    \begin{exerpart}
+        \item The only set of two distinct nonzero digits whose sum is 16 is $\{7,9\}$.  Find all other integers $n$ where there is exactly one set of two distinct nonzero digits whose sum is $n$ and list the corresponding set. Hint: the smallest possible value is $n=1+2 = 3$ and the largest possible value is $n =8+9=17$. 
+        \item Give an example of a number $m$ where there is exactly one set of three distinct nonzero digits where the sum of the digits is $m$. Are there other examples? Can you list all possible examples?
+    \end{exerpart}
+\end{exer} 
+
+\begin{exer}[\exerR] %Digits and Sets
+\label{exer_dyk_digits_sets}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to decide if two sets are equal?
+            \item What an integer is?
+            \item What is the name of the result of adding integers?  
+            \item What is the name of the result of multiplying integers?
+            \item Which integers are digits? 
+            \item Why we want to be organized when listing? 
+            \item How to organize lists by considering cases?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE]% try Kakuro puzzle]
+\label{exer_play_Kakuro} 
+    A Kakuro puzzle is like a crossword puzzle but with digits instead of letters. The clues are written within the puzzle.  The number in an upper triangle tells you the sum of the digits in the row to the right of the clue, and the number in a lower triangle tells you the sum of the digits in the column below the clue.  Each box can be filled in with any digit from 1 to 9, except that no digit is repeated within an answer.     
+        \begin{exerpart}
+            \item Play Kakuro online at 
+            \url{https://www.kakuroconquest.com/} 
+            and take a screenshot of your solution to the largest puzzle that you can solve. Try to figure out what each cell must be without any guessing and don't overuse the ``CHECK'' feature.
+            \item Play Kakuro online at 
+            \url{https://www.kakuro.com/index.php} 
+            and take a screenshot of your solution to the puzzle of the highest difficulty that you can solve. Try to figure out what each cell must be without any guessing. The ``Use Pencil'' option allows you to list the possibilities for each cell.  Click on ``Use Pencil'' again to enter your guesses.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE]% explore Kakuro puzzle]
+\label{exer_explore_kakuro}
+   This exercise is based on the Kakuro puzzle introduced in \Cref{exer_play_Kakuro}.  We use the shorthand clue ``n-in-k'' to mean a set of $k$ digits 1-9 without repeats whose sum is $n$. For example, ``20-in-3'' could be 
+   $$\{3, 8, 9\}, \{4, 7, 9\},  \{5, 6, 9\}, \text{ or } \{5,7,8\}.$$ We cannot use that $8 + 8 + 4 = 20$ because $8$ would repeat. In the actual puzzle, the digits would be filled in the cells in some order, such as 479 or 947. 
+   
+   A \textbf{kakuro} is a clue having only one possible set. For example, ``17-in-2'' is a kakuro because the only set is $\{8,9\}$ while ``20-in-3'' is not a kakuro because there were four possible sets.  Kakuros are very helpful for solving Kakuro puzzles.  We found kakuros of the form $n$-in-2 and $n$-in-3 in \Cref{exer_kakuro23}.
+       \begin{exerpart}
+           \item What is the only digit that the kakuros ``3-in-2'' and ``4-in-2'' have in common?
+           \item What is the only digit that the kakuros ``15-in-5'' and ``29-in-4'' have in common?
+           \item List all kakuros of the form ``$n$-in-4.''
+           \item List all kakuros of the form ``$n$-in-8.''  Hint: what is $1+2+3+4+5+6+7+8+9$?
+       \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_strings} \substrings} 
+
+\begin{exer} [\exerP]% string vocabulary]
+\label{exer_string_vocab}
+~
+    \begin{exerpart}
+        \item Calculate the length of the string \str{8fG\#tt8}.
+        \item Are there special characters in the string \str{8fG\#tt8}?  Explain.
+        \item How many times does the digit \str{8} appear in the string \str{8fG\#tt8}?
+        \item How many times does the letter \str{g} appear in the string \str{8fG\#tt8}?  Be careful.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerP]% strings of four distinct letters]
+\label{exer_4strings_norepeat}
+~
+    \begin{exerpart} 
+        \item Look back at the tree you drew in \Cref{act_listing_strings} (\ref{part_perms_abc}). Conjecture the number of strings of length four where each character is \str{a}, \str{b}, \str{c}, or \str{d} and repetition is not allowed.
+        \item \label{part_tree_perms_abcd}  Use a possibility tree to list all strings of length four where each character is \str{a}, \str{b}, \str{c}, or \str{d} and repetition is not allowed. Do not forget to state the final list.
+        \item How many strings are in your list in part (\ref{part_tree_perms_abcd})?  Compare your answer to your conjecture.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerU]% possibility tree of 3-strings]
+\label{exer_tree_3-strings}
+    ~
+    Use a possibility tree to list all strings of length three where each character is \str{a}, \str{b}, or \str{c} if repetition is allowed, but not consecutively.  For example, \str{aba} is allowed but \str{baa} is not. Do not forget to state the final list. 
+\end{exer}
+
+\begin{exer} [\exerU]% my to-do list]
+\label{exer_tree_mytodolist}
+    There are four tasks on my to-do list: laundry (L), cleaning (C), grocery shopping (G), and exercise (E). I plan to complete two of the four tasks today.  Use a possibility tree to list all possible ordered list of tasks in each situation. 
+    \begin{exerpart}
+        \item I do one task this morning and then a different task this afternoon.
+        \item I do laundry or clean in the morning and then have a different task in the afternoon.
+        \item I do one task this morning and then a different task this afternoon, but I refuse to do laundry and cleaning on the same day. 
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %Square and dominoes $1 \times 4$
+\label{exer_sq_dom4_tree}
+    Draw a possibility tree showing the ways to tile a $1 \times 4$ board using squares and dominoes, as described in \Cref{act_squares_dominoes}.  Hint: Look at \Cref{exam_sq_dom5_tree}.
+\end{exer}
+
+\begin{exer}[\exerR] % Strings and Possibility Trees
+\label{exer_dyk_strings_trees}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What is the distinction between a set and a string?        
+            \item Whether \str{y} and \str{Y} are considered the same character?
+            \item How to calculate the length of a string or construct a string of a given length?
+            \item How to create an organized list using alphabetical or numerical order?
+            \item How to create an organized list by considering cases?
+            \item How to draw a possibility tree and how to use a possibility tree to create an organized list?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerE]% all permutations of the set $\{\str{1},\str{2},\str{3},\str{4}\}$]
+\label{exer_perm_trees}
+    A \vocab{permutation of the set} $\{\str{1},\str{2},\str{3},\str{4}\}$ is a string of length four using each of the digits \str{1}, \str{2}, \str{3}, and \str{4} exactly once. 
+    \begin{exerpart}
+        \item Use a possibility tree to list all permutations of the set 
+            $\{\str{1},\str{2},\str{3},\str{4}\}$
+        starting with \str{1}.
+        \item Use a possibility tree to list all permutations of the set 
+            $\{\str{1},\str{2},\str{3},\str{4}\}$
+        starting with \str{2}.
+        \item Based on your answer to the previous parts, make a conjecture about the total number of permutations of the set 
+            $\{\str{1},\str{2},\str{3},\str{4}\}.$
+            Explain your reasoning using cases.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerE]% restricted permutations of the set$\{\str{1},\str{2},\str{3},\str{4}\}$]
+\label{exer_restricted_perms}
+    In each part, use a possibility tree to list the permutations of 
+    $\{\str{1},\str{2},\str{3},\str{4}\}$
+    meeting the given condition.  
+    \begin{exerpart}
+        \item The first first two characters are odd (\str{1} or \str{3}) and the second two characters are even (\str{2} or \str{4}). For example, we might have the string \str{1342}.
+        \item The \str{1} appears before \str{2} and \str{3} appears before \str{4}. For example, we might have the string \str{3142}.
+        \item There is only one \vocab{decrease}, meaning that there is only one place in the permutation of the set where a digit is followed by a smaller digit.  For example, \str{1324} is allowed because \str{32} is the only decrease, but \str{3142} is not allowed because both \str{31} and \str{42} are decreases. 
+    \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_integer_algebra} \subintalgebra} 
+
+\begin{exer} [\exerP]% integer algebra]
+\label{exer_integer_algebra}
+~
+\begin{exerpart}
+    \item Expand and simplify $2(3m+1)-3$
+    \item Factor $2n-4$
+\end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerU]% three ways to combine like terms]
+\label{exer_3ways_combine_like_terms}
+    Explain how to simplify $5n+n$ using each of the three methods from \Cref{exam_combining_like_terms}.
+\end{exer}
+
+\begin{exer}[\exerR] % algebra order operations
+\label{exer_dyk_alg_orderops}
+    Do you know \ldots
+        \begin{exerpart}
+            \item Which algebraic property of the integers allows us to write sums and products in either order?
+            \item Which algebraic property helps us expand and factor integers?
+            \item How to combine like terms using the definition of multiplication?
+            \item How to combine like terms by factoring?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerE]% square algebra]
+\label{exer_square_algebra}
+    The \vocab{square} of the integer $n$ is 
+    $$n^2 = n \times n.$$
+    \begin{exerpart}
+        \item Use this definition to calculate $3^2$.
+        \item Simplify $k \times k$.
+        \item Simplify $2k \times 3k$.  Hint: first, use the associative property to write the product as $(2 \times 3) \times (k \times k)$.
+        \item Expand $n(2n-1)$.
+        \item Factor $3n^2+9$.
+        \item Factor $3n^2+2n$.
+        \item Factor $k^2 - k$.
+    \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{\answers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\answers for \Cref{sub_squares_dominoes} \subsqdom.}
+
+\subsubsection*{\Cref{exer_sq_dom7} \answers}
+\begin{apart}
+    \item 233
+    \item Hint: The eight ways that start with a domino are $\boldsymbol{-}\bullet\bullet\bullet\bullet\bullet$, 
+    $\boldsymbol{-}\bullet\bullet\bullet\boldsymbol{-}$,
+    $\boldsymbol{-}\bullet\bullet\boldsymbol{-}\bullet$,
+    $\boldsymbol{-}\bullet\boldsymbol{-}\bullet\bullet$,  
+    $\boldsymbol{-}\bullet\boldsymbol{-}\boldsymbol{-}$,
+    $\boldsymbol{-}\boldsymbol{-}\bullet\bullet\bullet$,
+    $\boldsymbol{-}\boldsymbol{-}\bullet\boldsymbol{-}$, and
+    $\boldsymbol{-}\boldsymbol{-}\boldsymbol{-}\bullet$.  Each is a domino followed by a way to tile a $1 \times 6$ board.
+    There are also 13 ways to start with a square.
+\end{apart}
+
+\subsubsection*{\Cref{exer_trominoes_examples} \answers} \begin{apart}
+    \item Hint: The $1 \times 1$, $1 \times 2$, and $1 \times 3$ only involve squares and dominoes, so you should have the same list as before.  For $1 \times 4$, the list is:
+        $\bullet\bullet\bullet\bullet$,
+        $\bullet\bullet\boldsymbol{-}$,
+        $\bullet\boldsymbol{-}\bullet$,
+        $\bullet\thicksim$, 
+        $\boldsymbol{-}\bullet\bullet$,
+        $\boldsymbol{-}\boldsymbol{-}$, and
+        $\thicksim\bullet$.
+    \item Now there is one way for $1 \times 1$, one way for $1 \times 2$, two ways for $1 \times 3$, and three ways for $1 \times 4$.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\answers for \Cref{sub_sets_digits} \subsetsdigits}
+
+\subsubsection*{\Cref{exer_3digit_sums} \answers}
+\begin{apart}
+    \item Hint: $\{1,2,7\}$, $\{1,3,6\}$, $\{1,4,5\}$, and there is one more that does not use 1.
+    \item Hint: $\{1,8,9\}$, $\{2,7,9\}$, $\{3,6,9\}$, $\{3,7,8\}$, and three more.
+\end{apart}
+
+\subsubsection*{\Cref{exer_prime_products} \answers}
+Hint: The list includes $2 \times 3$, $2 \times 5$, \ldots, $2 \times 23$, $3 \times 5$, \ldots, $3 \times 13$, and $5 \times 7$.
+
+\subsubsection*{\Cref{exer_kakuro23} \answers}
+\begin{apart}
+    \item 3, 4, 16, and 17
+    \item One example is $m=6$ where the only set is $\{1,2,3\}$.  Yes, there are others.  Hint: There are four such numbers $m$.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\answers for \Cref{sub_strings} \substrings} 
+
+\subsubsection*{\Cref{exer_string_vocab} \answers}
+\begin{apart}
+    \item Seven
+    \item Yes, \#
+    \item Two
+    \item Zero.  Note that \str{G} is different from \str{g}.
+\end{apart}
+
+\subsubsection*{\Cref{exer_4strings_norepeat} \answers}
+\begin{apart}
+    \item 24
+    \item Hint: The first branches go to $\str{a}$, $\str{b}$, $\str{c}$, and $\str{d}$, but after that the list narrows. For example, from $\str{a}$, there are branches only to $\str{b}$, $\str{c}$, and $\str{d}$.
+    \item Hint: You should get 24 again.
+\end{apart}
+
+\subsubsection*{\Cref{exer_tree_3-strings} \answers}
+Hint: the list begins \str{aba}, \str{abc}, \str{aca}, \str{acb}, \ldots, \str{cbc}.  There are 12 possible strings.
+
+\subsubsection*{\Cref{exer_tree_mytodolist} \answers}
+\begin{apart}
+    \item Hint: The possible to-do lists are: LC, LG, LE, CL, CG, CE, GL, GC, GE, EL, EC, EG, where the first letter represents the morning chore and the second letter represents the afternoon chore.
+    \item Hint: only keep the to-do lists that start with L or C.
+    \item Hint: Keep all possible to-do lists except for LC and CL.
+\end{apart}
+
+\subsubsection*{\Cref{exer_sq_dom4_tree} \answers}
+Hint: Your tree should look like the tree in \Cref{fig_sq_dom5}, but only for length four (not length five).
+
+\subsubsection*{\Cref{exer_perm_trees} \answers}
+\begin{apart}
+    \item Hint: Your tree should produce the list $\str{1234}$, $\str{1243}$, $\str{1324}$, $\str{1342}$, $\str{1423}$, $\str{1432}$.
+    \item Hint: You should again get six permutations.
+    \item Hint: Use case 1: starts with \str{1}, case 2: starts with \str{2}, case 3: starts with \str{3}, and case 4: starts with \str{4}. There are six permutations in each case. 
+\end{apart}
+
+\subsubsection*{\Cref{exer_restricted_perms} \answers}
+\begin{apart}
+    \item Hint: The first branches go to \str{1} and \str{3}.  From \str{1} there is a single branch to \str{3} and vice versa.  Next, there is a branch from each endpoint to \str{2} and \str{4}. Lastly, from each \str{2} there is a single branch to \str{4} and vice versa. In all, there are four such permutations.
+    \item Hint: The permutation must begin with \str{1} or \str{3}.  There are three such permutations in each case. 
+    \item Hint: Consider cases. Case 1: The decrease happens from first to second digits. There are three such strings: \str{2134}, \str{3124}, and \str{4123}.  Case 2: The decrease happens from second to third digit. There are five such strings (list them). Case 3: The decrease happens from third to fourth digit.  There are three such strings (list them).
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\answers for \Cref{sub_integer_algebra} \subintalgebra} 
+
+\subsubsection*{\Cref{exer_integer_algebra} \answers}
+\begin{apart}
+    \item $6m-1$
+    \item Hint: Factor out the two.
+\end{apart}
+
+\subsubsection*{\Cref{exer_3ways_combine_like_terms} \answers}
+Hint: Follow the methods in \Cref{exam_combining_like_terms}.  In each case, your answer should simplify to $6n$.
+
+\subsubsection*{\Cref{exer_square_algebra} \answers}
+\begin{apart}
+    \item Nine
+    \item $k^2$
+    \item Hint: See the hint.
+    \item Hint: The answer begins with $2n^2$.
+    \item Hint: Factor out the three.
+    \item Hint: Factor out $n$.
+    \item $k(k-1)$
+\end{apart}
+

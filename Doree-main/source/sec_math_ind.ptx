@@ -10,7 +10,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_pff_math_induction">
-    <title>\subpffmathind</title>
+    <title>Proof Format: Mathematical Induction</title>
     <p>
       Mathematical induction is used to prove a statement <m>P(n)</m> for all values of the integer <m>n \ge s</m> for some nonnegative integer <m>s</m>.
       That is, to prove the infinite list of statements <m>P(s)</m>,
@@ -52,7 +52,7 @@
     <p>
       Here is the official proof format.
     </p>
-    <proof>
+    <proof xml:id="pff_math_ind">
     <p>
       Prove <m>P(n)</m> for <m>n \ge s</m>.
     </p>
@@ -166,7 +166,7 @@
           <ol>
             <li>
               <p>
-                <xref ref="thm_number_bit_strings">In</xref>,
+                In <xref ref="thm_number_bit_strings"></xref>,
                 we proved that for <m>n \ge 0</m> there are <m>2^n</m> bit strings of length <m>n</m>.
                 Use mathematical induction to prove that there are <m>2^n</m> bit strings of length <m>n</m>.
                 <solution>
@@ -283,7 +283,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_alg_ind">
-    <title>\subalgind</title>
+    <title>Algebra: Evaluating $f(n-1)$</title>
     <p>
       Proofs by mathematical induction can involve a lot of algebra.
       It would be a good moment to review:
@@ -397,7 +397,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_pff_verify_explicit_seq">
-    <title>\subpffindseq</title>
+    <title>Proof Format: Special Case of Mathematical Induction for Proving an Explicit Rule for a Recursively-defined Sequence</title>
     <p>
       One special case where proof by mathematical induction is used is to prove an explicit rule for a recursively-defined sequence.
       We state this special case as its own proof format.
@@ -481,10 +481,10 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_math_induction">for</xref>
-      \subpffmathind</title>
+      <title>Exercises for <xref ref="sub_pff_math_induction"></xref>
+      Proof Format: Mathematical Induction</title>
       <exercise xml:id="exer_divisibility_proof_induction">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use mathematical induction to prove that
@@ -493,7 +493,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_every_int_even_or_odd">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove every integer is either even or odd.
@@ -503,7 +503,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_count_edges_Kn_proof_ind">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n) = \frac{n(n-1)}{2}</m>.
@@ -548,11 +548,11 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_number_subsets">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use mathematical induction to prove that there are <m>2^n</m> subsets of the set <m>\{1,2,3,\ldots,n\}</m>.
-            Hint: Look <xref ref="exam_math_ind_number_bs">at</xref>.
+            Hint: Look at <xref ref="exam_math_ind_number_bs"></xref>.
             In the inductive step,
             break the count into two cases based on whether the subset contains <m>n</m>.
             If the subset <m>S</m> does not contain <m>n</m>,
@@ -564,7 +564,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_pff_math_induction">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -604,7 +604,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_number_perms">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Use mathematical induction to prove that there are <m>n!</m> permutations of the set <m>\{1,2,3,\ldots,n\}</m>.
@@ -621,9 +621,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_alg_ind">for</xref> \subalgind</title>
+      <title>Exercises for <xref ref="sub_alg_ind"></xref> Algebra: Evaluating $f(n-1)$</title>
       <exercise xml:id="exer_eval_fofnminus1_linears">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             In each part, evaluate <m>f(n-1)</m> and simplify your answer.
@@ -649,7 +649,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_eval_fofnminus1_exponentials">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             In each part, evaluate <m>f(n-1)</m> and simplify your answer.
@@ -674,7 +674,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_eval_fofnminus1_polynomials">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             In each part, evaluate <m>f(n-1)</m> and simplify your answer.
@@ -700,7 +700,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_simplify_ind_alg">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Simplify each expression.
@@ -725,7 +725,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_simplify_ind_alg_frac">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Simplify each expression.
@@ -746,7 +746,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_fofnminus1_induction">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -772,10 +772,10 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_verify_explicit_seq">for</xref>
-      \subpffindseq</title>
+      <title>Exercises for <xref ref="sub_pff_verify_explicit_seq"></xref>
+      Proof Format: Special Case of Mathematical Induction for Proving an Explicit Rule for a Recursively-defined Sequence</title>
       <exercise xml:id="exer_math_ind_geom">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             The sequence <m>a</m> is defined by <m>a_0= 3</m> and <m>a_n = 10a_{n-1}</m> for <m>n \ge 1</m>.
@@ -784,7 +784,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_arith">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             The sequence <m>b</m> is defined by <m>b_0= 1</m> and <m>b_n = b_{n-1} + 3</m> for <m>n \ge 1</m>.
@@ -793,7 +793,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_alt">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             The sequence <m>t</m> is defined by <m>t_0= 5</m> and <m>t_k = -t_{k-1}</m> for <m>k \ge 1</m>.
@@ -802,7 +802,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_exp">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             The sequence <m>c</m> is defined by <m>c_0=1</m> and <m>c_k = 2c_{k-1}+3</m> for <m>n \ge 1</m>.
@@ -812,7 +812,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_frac">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             The sequence <m>s</m> is defined by <m>s_0=0</m> and <m>s_m = 5s_{m-1}+1</m> for <m>m \ge 1</m>.
@@ -821,7 +821,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_hs">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             The sequence <m>u_n</m> is defined by <m>u_1= 1</m> and <m>u_n = u_{n-1}+n</m> for <m>n \ge 2</m>.
@@ -830,7 +830,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_factorial">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             The sequence <m>v_n</m> is defined by <m>v_1= 1</m> and <m>v_n = nv_{n-1}</m> for <m>n \ge 2</m>.
@@ -839,7 +839,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_math_ind_quadratic">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             The sequence <m>x_n</m> is defined by <m>x_0=1</m> and <m>x_n = x_{n-1}+2n</m> for <m>n\ge 1</m>.
@@ -848,7 +848,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_verify_explicit_induction">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -878,7 +878,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_savings_balance">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             We deposit $\text{ 10,000 } into a bank account that earns 3% interest annually.
@@ -895,7 +895,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_annuity_balance">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             We deposit $\text{ 10,000 } into a bank account that earns 3% interest annually but then we deposit another $\text{ 10,000 } at the end of each year

@@ -5,7 +5,7 @@
 <!-- This file, the project manifest, provides the overall configuration for your PreTeXt project. To edit the content of your document, open `source/main.ptx`. See https://pretextbook.org/doc/guide/html/processing-CLI.html#cli-project-manifest. -->
 <project xmlns:xi="http://www.w3.org/2001/XInclude" ptx-version="2" source="." publication="." output-dir="build">
   <targets>
-    <target name="web" format="html" source="main.ptx" publication="publication.xml" />
+    <target name="web" format="html" source="main.ptx" publication="publication.xml" xsl="custom-html.xsl" />
     <target name="print" format="pdf" source="main.ptx" publication="publication.xml" />
   </targets>
 </project>

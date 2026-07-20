@@ -10,7 +10,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_properties_relations">
-    <title>\subrelppty</title>
+    <title>Properties of Relations</title>
     <p>
       There are three properties that an relation needs to satisfy in order to be an equivalence relation.
     </p>
@@ -98,7 +98,7 @@
           <caption>The relation <m>R</m> is transitive but not reflexive and not symmetric.</caption>
           <image width="60%">
             <latex-image>
-              <xi:include href="Tikz/smiley.tikz" parse="text"/>
+              <xi:include href="Tikz/relation_finite_properties.tikz" parse="text"/>
             </latex-image>
           </image>
         </figure>
@@ -208,7 +208,7 @@
         <caption>The relations <m>T</m> and <m>V</m> from <xref ref="act_ppty_rel"></xref>.</caption>
         <image width="60%">
           <latex-image>
-            <xi:include href="Tikz/smiley.tikz" parse="text"/>
+            <xi:include href="Tikz/relation_finite_TandV.tikz" parse="text"/>
           </latex-image>
         </image>
       </figure>
@@ -286,7 +286,7 @@
           <caption>Shortcuts and barbells: checking transitivity on finite relation.</caption>
           <image width="60%">
             <latex-image>
-              <xi:include href="Tikz/smiley.tikz" parse="text"/>
+              <xi:include href="Tikz/shortcuts_and_barbells.tikz" parse="text"/>
             </latex-image>
           </image>
         </figure>
@@ -359,7 +359,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_equiv_classes">
-    <title>\subequivclass</title>
+    <title>Equivalence Relations and Equivalence Classes</title>
     <p>
       An important construction in advanced theoretical mathematics is to take a set <m>X</m> and an equivalence relation <m>\sim</m> on <m>X</m> and define a new set consisting of the equivalence classes of <m>X</m> under <m>R</m>.
       We begin with the definitions.
@@ -417,7 +417,7 @@
           <caption>An equivalence relation on <m>\{1,2,3,4,5\}</m>.</caption>
           <image width="60%">
             <latex-image>
-              <xi:include href="Tikz/smiley.tikz" parse="text"/>
+              <xi:include href="Tikz/relation_equiv_on_12345.tikz" parse="text"/>
             </latex-image>
           </image>
         </figure>
@@ -545,7 +545,7 @@
       </p>
     </activity>
     <p>
-      <xref ref="exam_equiv_classes_12345">In</xref>,
+      In <xref ref="exam_equiv_classes_12345"></xref>,
       we had an equivalence relation on the set
       <m>\{1,2,3,4,5\}</m> and the equivalence classes were <m>\{1,3,4\}</m> and <m>\{2,5\}</m>.
       Note that <m>\{1,3,4\} \cup \{2,5\}</m> is a partition of the set <m>\{1,2,3,4,5\}</m>,
@@ -581,7 +581,7 @@
     </remark>
   </subsection>
   <subsection xml:id="sub_cong_modn">
-    <title>\subcongmod</title>
+    <title>Congruence mod $n$</title>
     <p>
       An important equivalence relation on
       <m>\mathbb{Z}</m> is defined using <m>\fn{mod}</m>.
@@ -663,7 +663,7 @@
           <ol>
             <li>
               <p>
-                <xref ref="thm_cong_modn">Use</xref>
+                Use <xref ref="thm_cong_modn"></xref>
                 to show that <m>73 \equiv 13 ~(\fn{mod } 10)</m>.
                 <solution>
                   <p>
@@ -682,24 +682,24 @@
                 <solution>
                   <p>
                     Since we are proving a conditional statement,
-                    we <xref ref="pff_if_then_direct">use</xref>.
+                    we use <xref ref="pff_if_then_direct"></xref>.
                   </p>
                   <p>
                     <em>Proof</em> Let <m>a</m>,
                     <m>b</m>, and <m>n</m> be integers with <m>n > 1</m>.
                     Assume <m>a \equiv b ~(\fn{mod } n)</m>.
-                    <xref ref="thm_cong_modn">By</xref>,
+                    By <xref ref="thm_cong_modn"></xref>,
                     it follows that <m>n \mid (a-b)</m>.
-                    <xref ref="defn_divides">By</xref>,
+                    By <xref ref="defn_divides"></xref>,
                     we can write <m>a-b = nk</m> for some integer <m>k</m>.
                     Then
                     <me>
                       2a - 2b = 2(a-b) = 2(nk) = n(2k) = nk'
                     </me>
                     where <m>k' = 2k</m> is an integer.
-                    <xref ref="defn_divides">By</xref>,
+                    By <xref ref="defn_divides"></xref>,
                     it follows that <m>n \mid (2a-2b)</m>.
-                    <xref ref="thm_cong_modn">By</xref>,
+                    By <xref ref="thm_cong_modn"></xref>,
                     it follows that <m>2a \equiv 2b ~(\fn{mod } n)</m>.
                   </p>
                 </solution>
@@ -795,10 +795,10 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_properties_relations">for</xref>
-      \subrelppty</title>
+      <title>Exercises for <xref ref="sub_properties_relations"></xref>
+      Properties of Relations</title>
       <exercise xml:id="exer_Cex_rel_on_integers">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -824,7 +824,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_Cex_rel_on_reals">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -849,7 +849,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_finite_rel_transitive">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -875,7 +875,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ppty_finite_rel">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For each relation, draw the directed graph on
@@ -905,7 +905,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ppty_rel01">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             On this problem, no justification is required.
@@ -938,7 +938,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_name_empty_complete_rel">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Let <m>X</m> be a nonempty set.
@@ -962,7 +962,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ppty_rel_on_integers">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For each relation, decide whether it is reflexive,
@@ -992,7 +992,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ppty_rel_unit_circle">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the unit circle
@@ -1024,7 +1024,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ppty_distance_le5">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the relation defined on
@@ -1061,7 +1061,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ppty_rel_bs">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For each relation, decide whether it is transitive.
@@ -1090,7 +1090,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ppty_rel_power_set">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the following relations on <m>\mathscr{P}(\{1,2,3\})</m>.
@@ -1115,7 +1115,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_same_size_set_equiv_rel">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For the set <m>\mathscr{P}(\{1,2,3, \ldots,
@@ -1127,7 +1127,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_ppty_rel">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1148,7 +1148,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_defn_antisym">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             A relation <m>R</m> on a set <m>X</m> is
@@ -1184,10 +1184,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_ppty_rel_sym_vs_antisym">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
-            <xref ref="exer_defn_antisym">In</xref> we defined antisymmetric.
+            In <xref ref="exer_defn_antisym"></xref> we defined antisymmetric.
             In each part, give an example of a relation on
             <m>\{0,1,2,3\}</m> meeting the conditions.
             No justification required.
@@ -1217,7 +1217,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_defn_partial_order">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             A relation <m>R</m> on a set <m>X</m> is a
@@ -1235,10 +1235,10 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_equiv_classes">for</xref>
-      \subequivclass</title>
+      <title>Exercises for <xref ref="sub_equiv_classes"></xref>
+      Equivalence Relations and Equivalence Classes</title>
       <exercise xml:id="exer_equiv_classes_1234567">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the equivalence relation on <m>\{1,2,3,4,5,6,7\}</m> defined by
@@ -1277,7 +1277,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_classes_floor">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             For each equivalence relation on <m>\mathbb{R}^+</m>
@@ -1308,7 +1308,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_classes_slope3">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the equivalence relation defined on
@@ -1337,7 +1337,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_classes_first_coord">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the equivalence relation defined on
@@ -1364,7 +1364,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_all_equiv_classes_small_finite">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1392,7 +1392,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_rel_equality">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1419,7 +1419,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_bs_equiv_same_weight">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the set <m>\mathbb{B}_5</m>,
@@ -1451,7 +1451,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_bs_equiv_same_2bits">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Consider the set <m>\mathbb{B}_5</m>,
@@ -1481,7 +1481,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_classes_same_size_sets">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For <m>\mathscr{P}(\{1,2,3,4,5\})</m>,
@@ -1516,7 +1516,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_classes_fns">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For any set <m>X</m> and any function <m>f:X \to X</m>,
@@ -1550,7 +1550,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_classes_2part">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Define an equivalence relation on <m>\mathbb{Z}</m> by
@@ -1582,7 +1582,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_classes_rationals">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Define the equivalence relation on <m>\mathbb{Z} \times\mathbb{Z}^\ast</m> by
@@ -1605,7 +1605,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_equiv_rel">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1637,7 +1637,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_2x2_GW-grids">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Consider the set <m>X</m> consisting of all
@@ -1645,7 +1645,7 @@
             An example is drawn in <xref ref="fig_2x2_GW_grid"></xref>.
           </p>
           <figure xml:id="fig_2x2_GW_grid">
-            <caption>An example of a <m>2 \times 2</m> gray-and-white grid <xref ref="exer_2x2_GW-grids">for</xref>.</caption>
+            <caption>An example of a <m>2 \times 2</m> gray-and-white grid for <xref ref="exer_2x2_GW-grids"></xref>.</caption>
             <image width="10%" source="images/2x2_gray_and_white.png"/>
           </figure>
           <ol>
@@ -1675,7 +1675,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_class_derivative">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             For readers who have studied calculus,
@@ -1702,10 +1702,10 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_cong_modn">for</xref>
-      \subcongmod</title>
+      <title>Exercises for <xref ref="sub_cong_modn"></xref>
+      Congruence mod $n$</title>
       <exercise xml:id="exer_check_congruent_modn">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Briefly justify your answers.
@@ -1730,7 +1730,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_converse_cex_cong_modn">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             State the converse <xref ref="defn_converse"/> of each statement and then prove that the converse is false by constructing a counterexample.
@@ -1760,12 +1760,12 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_cong_modn">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Let <m>a</m>,
             <m>b</m>, and <m>n</m> be integers with <m>n>1</m>.
-            Prove each of the following statements <xref ref="thm_cong_modn">using</xref>.
+            Prove each of the following statements using <xref ref="thm_cong_modn"></xref>.
             Hint: Copy and edit the proof in <xref ref="exam_alt_defn_cong"></xref>
             <xref ref="part_proof_cong"/> .
             <ol>
@@ -1793,7 +1793,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_cong_modn">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>

@@ -1,0 +1,769 @@
+\section{\secmatrix}
+\label{sec_matrix}
+
+Matrices (arrays) are a common discrete structure. They are used to store information of all kinds, including graphs, as we saw in \Cref{sec_std_graphs}.  In this section, we learn how to multiply $2 \times 2$ matrices and look for patterns in the powers of $2 \times 2$ matrices.  We verify our conjectures using mathematical induction. Finally, we look at the abstract concept of a group.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\submatpowers}{Matrix Products and Powers}
+\subsection{\submatpowers}
+\label{sub_matrix_powers}
+
+We begin with some definitions.
+
+\begin{defn}[Matrix multiplication and powers]
+\label{defn_matrix}
+~
+    \begin{apart}
+        \item A $m \times n$ \vocab{matrix} is an array with \vocab{entries} in each of $m$ rows and $n$ columns.  For example, 
+            $$C = \left[ \begin{array}{ccc}
+            -2 & 3 & 0 \\ -1 & 1 & 2
+            \end{array} \right]$$
+        is a $2 \times 3$ matrix. 
+        %\item The entry in the $i$th row and $j$th column of the matrix $M$ is denoted $M_{i,j}$.  For example, $C_{2,3}=2$.
+        \item In this textbook, we only work with \vocab{square} matrices where the number of rows equals the number of columns. For example,
+            $$B = \left[ \begin{array}{rr}
+            2 & -3 \\ 1 & 2
+            \end{array} \right]$$
+        is a square $2 \times 2$ matrix.
+        \item Two special $2 \times 2$ matrices are the \vocab{zero matrix}    $\mathbf{0} = \left[ \begin{array}{cc} 0 & 0\\ 0 & 0 \\ \end{array} \right]$ and the \vocab{identity matrix} $I = \left[ \begin{array}{cc} 1 & 0\\ 0 & 1 \\ \end{array} \right]$.
+        
+        \item For $2 \times 2$ matrices, the complicated formula for \vocab{matrix multiplication} is
+           $$\left[ \begin{array}{cc} a_1 & b_1 \\ c_1 & d_1 \\ \end{array} \right]\left[ \begin{array}{cc} a_2 & b_2 \\ c_2 & d_2 \\ \end{array} \right]=\left[ \begin{array}{cc} a_1a_2 + b_1c_2 & a_1b_2+b_1d_2\\ c_1a_2 + d_1c_2 & c_1b_2+d_1d_2 \\ \end{array} \right].$$  
+           To obtain the entry in the $i$th row and the $j$th column of the matrix product, we use the $i$th row of the first matrix and the $j$th column of the second matrix. For example, the entry in the first row and second column of the matrix product is $a_1b_2+b_1d_2$ which uses the first row ($a_1$ and $b_1$) of the first matrix and the second column ($b_2$ and $d_2$) of the second matrix.
+           
+           For example, consider the matrices $A=\left[ \begin{array}{rr} -1 & 2 \\ 0 & 3 \\ \end{array} \right]$ and $B=\left[ \begin{array}{rr} 2 & -3 \\ 1 & 2 \\ \end{array} \right]$.  Then
+           $$AB=\left[ \begin{array}{rr} -1 & 2 \\ 0 & 3 \\ \end{array} \right]\left[ \begin{array}{rr} 2 & -3 \\ 1 & 2 \\ \end{array} \right]
+           =\left[ \begin{array}{cc} (-1)(2)+(2)(1) & (-1)(-3)+(2)(2)\\ (0)(2)+(3)(1) & (0)(-3)+(3)(2) \\ \end{array} \right]
+           = \left[ \begin{array}{rr} 0 & 7 \\ 3 & 6 \\ \end{array} \right]
+           .$$
+
+        \item Matrix multiplication is \vocab{associative} $$A(BC)=(AB)C$$
+        but it is not commutative.  For example, for those same matrices $A$ and $B$ we have
+            $$BA = \left[ \begin{array}{rr} 2 & -3 \\ 1 & 2 \\ \end{array} \right]\left[ \begin{array}{rr} -1 & 2 \\ 0 & 3 \\ \end{array} \right]
+            =\left[ \begin{array}{cc} (2)(-1)+(-3)(0) & (2)(2)+(-3)(3))\\ (1)(-1)+(2)(0) & (1)(2)+(2)(3) \\ \end{array} \right]
+            = \left[ \begin{array}{rr} -2 & -5 \\ -1 & 8 \\ \end{array} \right]$$
+
+        \item For a square matrix $A$ and a positive integer $s$, the \vocab{matrix power} is $$A^s= \underbrace{AA\cdots A}_{s \text{ times}}$$
+        For example,
+           $$\left[ \begin{array}{rr} -1 & 2 \\ 0 & 3 \\ \end{array} \right]^2
+           = \left[ \begin{array}{rr} -1 & 2 \\ 0 & 3 \\ \end{array} \right]\left[ \begin{array}{rr} -1 & 2 \\ 0 & 3 \\ \end{array} \right]
+           =\left[ \begin{array}{cc} (-1)(-1)+2(0) & (-1)(2)+(2)(3)\\ (0)(-1)+(3)(0) & (0)(2)+(3)(3) \\ \end{array} \right]
+           = \left[ \begin{array}{rr} 1 & 4 \\ 0 & 9 \\ \end{array} \right]
+           .$$
+    \end{apart}
+\end{defn}
+
+In our next example, we look at higher powers of a matrix.
+
+\begin{exam}[Pattern in matrix powers]
+\label{exam_matrix_power}
+    Consider the matrix $A = \left[ \begin{array}{cc} 1 & 1\\ 0 & 1 \\ \end{array} \right].$
+        \begin{apart}
+            \item Calculate $A^2$ and $A^3$.
+                \begin{soln}
+                    We have
+                        $$A^2 =  \left[ \begin{array}{cc} 1 & 1\\ 0 & 1 \\ \end{array} \right] \left[ \begin{array}{cc} 1 & 1\\ 0 & 1 \\ \end{array} \right] 
+                        = \left[ \begin{array}{cc} 1+0 & 1+1\\ 0+0 & 0+1 \\ \end{array} \right] 
+                        =  \left[ \begin{array}{cc} 1 & 2\\ 0 & 1 \\ \end{array} \right].$$
+                    Next, $$A^3 =  AA^2= \left[ \begin{array}{cc} 1 & 1\\ 0 & 1 \\ \end{array} \right] \left[ \begin{array}{cc} 1 & 2\\ 0 & 1 \\ \end{array} \right] 
+                    =  \left[ \begin{array}{cc} 1+0 & 2+1\\ 0+0 & 0+1 \\ \end{array} \right]
+                    =  \left[ \begin{array}{cc} 1 & 3\\ 0 & 1 \\ \end{array} \right].$$
+                \end{soln}
+            \item Make a conjecture about an explicit formula for $A^n$ for $n \ge 1$.
+                \begin{soln}
+                    Based on our examples, we might conjecture that 
+                        $A^n=\left[ \begin{array}{cc} 1 & n\\ 0 & 1 \\ \end{array} \right].$
+                \end{soln} 
+        \end{apart}
+\end{exam}
+
+Let's practice calculating matrix products and powers.
+
+\begin{act}[Matrix multiplication and powers]
+\label{act_matrix_mult_powers}
+~
+    Consider the matrix $A=\left[ \begin{array}{cc} 1 & 0 \\ 3 & 1 \\ \end{array} \right]$.
+      \begin{actpart}
+          \item Calculate $A^2$.
+          \item Calculate $A^3$ using that $A^3=AA^2.$
+          \item Conjecture an explicit formula for $A^n$.
+      \end{actpart}
+\end{act}
+
+We can define functions that involve matrices.
+
+\begin{exam}[Functions that involve matrices]
+\label{exam_matrix_functions}
+    Let $\mathscr{M}(\mathbb{Z})$ be the set of $2 \times 2$ matrices with integer entries.
+    \begin{apart}
+        \item Consider the function $f: \mathbb{Z} \to \mathscr{M}(\mathbb{Z})$ defined by $f(n) = \left[ \begin{array}{cc} 1 & 0 \\ 3n & 1 \\ \end{array} \right]$. Identify the domain and codomain of $f$ and evaluate $f(2)$.
+            \begin{soln}
+                The domain is $\mathbb{Z}$, the codomain is $\mathscr{M}(\mathbb{Z})$, and $f(2) = \left[ \begin{array}{cc} 1 & 0 \\ 6 & 1 \\ \end{array} \right]$.
+            \end{soln}
+        \item Consider the function $\fn{det}: \mathscr{M}(\mathbb{Z}) \to \mathbb{Z}$ defined by $\fn{det} \left( \left[ \begin{array}{cc} a & b \\ c & d \\ \end{array} \right] \right) = ad-bc$. Identify the domain and codomain of $\fn{det}$ and evaluate $\fn{det}\left( \left[ \begin{array}{cc} 1 & 2 \\ 3 & 5 \\ \end{array} \right] \right)$.
+            \begin{soln}
+                The domain is $\mathscr{M}(\mathbb{Z})$, the codomain is $\mathbb{Z}$, and $\fn{det}\left( \left[ \begin{array}{cc} 1 & 2 \\ 3 & 5 \\ \end{array} \right] \right)=(1)(5)-(2)(3) = -1$.                
+            \end{soln}
+        \item \label{part_mult_matrix_fn} Consider the function $T: \mathscr{M}(\mathbb{Z}) \to \mathscr{M}(\mathbb{Z})$ defined by $T(A) = MA$ where $M = \left[ \begin{array}{cr} 1 & 2 \\ 0 & -1 \\ \end{array} \right] $. Identify the domain and codomain of $T$ and evaluate $T\left( \left[ \begin{array}{cc} 1 & 2 \\ 3 & 5 \\ \end{array} \right] \right)$.
+            \begin{soln}
+                The domain is $\mathscr{M}(\mathbb{Z})$, the codomain is also $\mathscr{M}(\mathbb{Z})$, and $$T\left( \left[ \begin{array}{cc} 1 & 2 \\ 3 & 5 \\ \end{array} \right] \right)
+                = \left[ \begin{array}{cr} 1 & 2 \\ 0 & -1 \\ \end{array} \right]
+                \left[ \begin{array}{cc} 1 & 2 \\ 3 & 5 \\ \end{array} \right] 
+                = \left[ \begin{array}{cc} 1+6 & 2+10 \\ 0-3 & 0-5 \\ \end{array} \right]
+                 = \left[ \begin{array}{rr} 7 & 12 \\ -3 & -5 \\ \end{array} \right].$$  
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+We can also define sets that involve matrices.
+
+\begin{exam}[Sets that involve matrices]
+\label{exam_matrix_sets}
+~
+    \begin{apart}
+        \item Give two examples of elements in the set 
+            $$\left\{\left[ \begin{array}{cc} a & b \\ 0 & a \\ \end{array} \right] \mid a, b \in \mathbb{Z} \right\} $$ 
+            \begin{soln}
+                We can choose any integer values of $a$ and $b$.  For example, when $a = 2$ and $b=3$, we get the element $\left[ \begin{array}{cc} 2 & 3 \\ 0 & 2 \\ \end{array} \right]$.  As another example, when $a = 1$ and $b=0$, we get the element $I$.
+            \end{soln}
+        \item Confirm that $I$ and $C = \left[ \begin{array}{cc} 0 & -1 \\ -1 & 0\\ \end{array} \right]$ are elements of the set $\mathscr{B} = \left\{ B \in \mathscr{M}(\mathbb{Z}) \mid B^2=I \right\}$
+            \begin{soln}
+                We check that $$I^2 = 
+                \left[ \begin{array}{cc} 1 & 0 \\ 0 & 1\\ \end{array} \right]
+                \left[ \begin{array}{cc} 1 & 0 \\ 0 & 1\\ \end{array} \right] = 
+                \left[ \begin{array}{cc} 1+0 & 0+0 \\ 0+0 & 0+1\\ \end{array} \right] = 
+                \left[ \begin{array}{cc} 1 & 0 \\ 0 & 1\\ \end{array} \right] = I.$$
+                Thus $I \in \mathscr{B}$.
+                Next, we check that $$C^2=
+                \left[ \begin{array}{cc} 0 & -1 \\ -1 & 0\\ \end{array} \right]
+                \left[ \begin{array}{cc} 0 & -1 \\ -1 & 0\\ \end{array} \right] = 
+                \left[ \begin{array}{cc} 0+1 & 0+0 \\ 0+0 & 1+0\\ \end{array} \right] = 
+                \left[ \begin{array}{cc} 1 & 0 \\ 0 & 1\\ \end{array} \right] = I.$$
+                Thus $C \in \mathscr{B}$.
+            \end{soln}
+        \item Give an explicit definition of the set $$\mathscr{A}= \{ A \in \mathscr{M}(\mathbb{Z}) \mid NA = \mathbf{0}\}$$
+        where $N = \left[ \begin{array}{cc} 1 & 2 \\ 1 & 2\\ \end{array} \right]$.
+            \begin{soln}
+                Suppose $A = \left[ \begin{array}{cc} a & b \\ c & d\\ \end{array} \right] \in \mathscr{A}$.  Then $$NA = 
+                \left[ \begin{array}{cc} 1 & 2 \\ 1 & 2\\ \end{array} \right]
+                \left[ \begin{array}{cc} a & b \\ c & d\\ \end{array} \right] = 
+                \left[ \begin{array}{cc} a+2c & b+2d \\ a+2c & b+2d\\ \end{array} \right] = 
+                \left[ \begin{array}{cc} 0 & 0 \\ 0 & 0\\ \end{array} \right].$$
+                We must have $a+2c = 0$ which means $a = -2c$.  We must also have $b+2d = 0$ which means $b = -2d$.  That is, $$A = \left[ \begin{array}{rr} -2c & -2d \\ c & d\\ \end{array} \right].$$
+                We can write $$\mathscr{A} = \left\{ \left[ \begin{array}{rr} -2c & -2d \\ c & d\\ \end{array} \right] \mid c, d \in \mathbb{Z} \right\}.$$
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subpffindmatrix}{Proof Format: Special Case of Mathematical Induction for Proving an Explicit Formula for the Power of a Matrix}
+\subsection{\subpffindmatrix}
+\label{sub_pff_verify_power_matrix}
+
+We can use mathematical induction to verify our conjectures about powers of matrices.
+
+\begin{pff}[Mathematical induction: special case proving an explicit formula for the power of a matrix]
+\label{pff_math_ind_matrix}
+    For a matrix $A$, prove $A^n=$ (matrix with explicit rule for each entry as a function of $n$) for $n \ge 1$.
+    \begin{proof}
+        Write $M_n=$ (matrix with explicit rule for each entry as a function of $n$). Induct on $n$.
+
+        First, when $n=1$ we know that $A^1=A=$ (matrix $A$) and also $M_1=$ (evaluate and simplify to get the same answer).
+
+        Next, assume $A^{n-1}=M_{n-1}= $ (evaluate and simplify), for some integer $n > 1$.  Then $$A^n= AA^{n-1} = AM_{n-1} = \text{(multiply matrices)} = \cdots \text{(use algebra)} \cdots = M_n.$$
+    \end{proof}
+\end{pff}
+
+Try using this new proof format.
+
+\begin{act}[Matrix power proof by mathematical induction]
+\label{act_math_ind_matrix}
+~
+    \begin{actpart}
+        \item \label{part_shear_power} For the matrix $A = \left[ \begin{array}{cc} 1 & 1\\ 0 & 1 \\ \end{array} \right]$, in \Cref{exam_matrix_power} we conjectured that $A^n=\left[ \begin{array}{cc} 1 & n\\ 0 & 1 \\ \end{array} \right]$ for $n \ge 1$.  Copy the following proof by mathematical induction justifying our conjecture.
+            \begin{proof}
+                Write $M_n=\left[ \begin{array}{cc} 1 & n\\ 0 & 1 \\ \end{array} \right]$.  Induct on $n$.  
+                
+                First, when $n=1$ we have $A^1 = A = \left[ \begin{array}{cc} 1 & 1\\ 0 & 1 \\ \end{array} \right]$ and also $M_1=\left[ \begin{array}{cc} 1 & 1\\ 0 & 1 \\ \end{array} \right]$.  
+                    
+                Next, assume $A^{n-1} = M_{n-1} = \left[ \begin{array}{cc} 1 & n-1 \\ 0 & 1 \\ \end{array} \right]$ for some integer $n \ge 2$.  Then
+                    $$A^n = AA^{n-1} =AM_{n-1}
+                    = \left[ \begin{array}{cc} 1 & 1\\ 0 & 1 \\ \end{array} \right]\left[ \begin{array}{cc} 1 & n-1\\ 0 & 1 \\ \end{array} \right]
+                    = \left[ \begin{array}{cc} 1+0 & (n-1)+1\\ 0+0 & 0+1 \\ \end{array} \right]
+                    = \left[ \begin{array}{cc} 1 & n\\ 0 & 1 \\ \end{array} \right]=M_n$$
+            \end{proof} 
+        \item What was the inductive hypothesis (part we assumed)?
+        \\item Explain the algebra step-by-step in the last line of the proof.
+        \item For the matrix $A=\left[ \begin{array}{cc} 1 & 0 \\ 3 & 1 \\ \end{array} \right]$, in \Cref{act_matrix_mult_powers} we conjectured that $$A^n=\left[ \begin{array}{cc} 1 & 0 \\ 3n & 1 \\ \end{array} \right]$$ for $n \ge 1$.  Prove this conjecture using mathematical induction by changing what needs to be changed in the proof form (\ref{part_shear_power}). Caution:  When you are evaluating $M_{n-1}$ be sure to put $(n-1)$ in parentheses.
+    \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subgroups}{Finite Groups}
+\subsection{\subgroups}
+\label{sub_finite_groups}
+
+We have seen several examples of finite sets with an operation.  For example, in \Cref{sec_mod_arith}, we saw $\mathbb{Z}_n$, the integers mod $n$ with the operations of addition and multiplication.  In \Cref{sec_perms}, we saw permutations with the operation of function composition.  And now we have seen $2 \times 2$ matrices with matrix multiplication.  These structures have several common properties.  Let's look at one abstraction, a finite group.  Here is the definition.
+
+\begin{defn}[Group]
+\label{defn_group}
+    Let $G$ be a set with an operation $\star$ such that
+        \begin{apart}
+            \item $G$ is \vocab{closed} under $\star$:  $a \star b \in G$ for all elements $a, b \in G$.
+            \item $\star$ is \vocab{associative}:  $a \star (b \star c) = (a \star b) \star c$ for all elements $a, b,c \in G$. 
+            \item There is an \vocab{identity} element $e \in G$ such that $a \star e = a$ and $e \star a = a$ for all elements $a \in G$. 
+            \item For each element $a \in G$, there exists an \vocab{inverse} element $b \in G$ such that $a \star b = e$ and $b \star a = e$.  
+        \end{apart}
+\end{defn}
+
+Let's look at a few examples.
+
+\begin{exam}[$\mathbb{Z}_4$ is a group under addition]
+\label{exam_intmod4_add_group}
+    In \Cref{sec_mod_arith} we saw that the integers mod 4 is the set $\mathbb{Z}_4 =\{0,1,2,3\}$ with addition defined by $a \oplus b = (a+b) \fn{ mod } 4$.
+        \begin{apart}
+            \item Write the addition table for $\mathbb{Z}_4$.
+                \begin{soln}
+                    We show the addition table in \Cref{tab_add_mod4}.  For example, $2 \oplus 3 = 5 \fn{ mod } 4 = 1$.
+                        \begin{table}[hbtp]
+                            \centering
+                            \begin{tabular}{c|cccc} 
+                                 $\oplus$ & 0 & 1 & 2 & 3 \\ \hline
+                                 0 & 0 & 1 & 2 & 3 \\
+                                 1 & 1 & 2 & 3 & 0 \\
+                                 2 & 2 & 3 & 0 & 1 \\
+                                 3 & 3 & 0 & 1 & 2 
+                            \end{tabular}
+                            \caption{The addition table  $\mathbb{Z}_4$.}
+                            \label{tab_add_mod4}
+                        \end{table}
+                \end{soln}
+            \item Check that $\mathbb{Z}_4$ is a group under addition.
+                \begin{soln}
+                    First, every entry in table is 0, 1, 2, or 3 so $\mathbb{Z}_4$ is closed under $\oplus$.  Next, $\oplus$ is associative because $$a \oplus (b \oplus c) = (a+(b+c)) \fn{ mod } 4 =  ((a+b)+c) \fn{ mod } 4 = (a \oplus b) \oplus c$$ where we used that addition in $\mathbb{Z}$ is associative.  The identity element is 0, as you can check in the table.  Note that $0\oplus0 = 0$, $1 \oplus 3 = 0$, $2 \oplus 2 = 0$, and $3 \oplus 1 = 0$.  Therefore, the inverse of 0 is 0, the inverse of 1 is 3, the inverse of 2 is 2, and the inverse of 3 is 1.  Sometimes we say the \vocab{additive identity} or the \vocab{additive inverse} to emphasis the operation is addition.
+                \end{soln}
+        \end{apart}
+\end{exam}
+
+Here is an example that involves multiplication.
+
+\begin{exam}[Finite multiplicative group mod $12$]
+\label{exam_mult_gp_mod12}
+    Recall that the integers mod 12 are $\mathbb{Z}_{12} =\{0,1,2,\ldots, 11\}$.  Multiplication is defined by $a \otimes b = (ab) \fn{ mod } 12$.  Consider the subset $\mathbb{U}_{12} = \{1, 5, 7, 11\}$ of $\mathbb{Z}_{12}$.
+        \begin{apart}
+            \item Write the multiplication table for $\mathbb{U}_{12}$.
+                \begin{soln}
+                    We show the multiplication table in \Cref{tab_mult_units_mod12}.  For example, $5 \oplus 7 = 35 \fn{ mod } 12 = 11$ because $35-12-12=11$.
+                        \begin{table}[hbtp]
+                            \centering
+                            \begin{tabular}{c|cccc} 
+                                 $\otimes$ & 1 & 5 & 7 & 11 \\ \hline
+                                 1 & 1 & 5 & 7 & 11 \\
+                                 5 & 5 & 1 & 11 & 7 \\
+                                 7 & 7 & 11 & 1 & 5 \\
+                                 11 & 11 & 7 & 5 & 1 
+                            \end{tabular}
+                            \caption{The multiplication table for $\mathbb{U}_{12}$.}
+                            \label{tab_mult_units_mod12}
+                        \end{table}
+                \end{soln}
+            \item Check that $\mathbb{U}_{12}$ is a group under multiplication.
+                \begin{soln}
+                    First, every entry in table is 1, 5, 7, or 1 so $\mathbb{U}_{12}$ is closed under $\otimes$.  Next, $\otimes$ is associative because $$a \otimes (b \otimes c) = (a(bc)) \fn{ mod } 12 =  ((ab)c) \fn{ mod } 12 = (a \otimes b) \otimes c$$ where we used that multiplication in $\mathbb{Z}$ is associative.  The identity element is 1, as you can check in the table.  Note that $1\otimes 1 = 1$, $5 \otimes 5 = 1$, $7 \otimes 7 = 1$, and $11 \otimes 11 = 1$.  Therefore, the inverse of 1 is 1, the inverse of 5 is 5, the inverse of 7 is 7, and the inverse of 11 is 11.  Sometimes we say the \vocab{multiplicative identity} or the \vocab{multiplicative inverse} to emphasis the operation is multiplication.
+                \end{soln}
+        \end{apart}
+\end{exam}
+
+The groups in \Cref{exam_intmod4_add_group} and \Cref{exam_mult_gp_mod12} have an additional property.
+
+\begin{defn}[Commutative group]
+\label{defn_abelian}
+    A group $G$ with operation $\star$ is \vocab{abelian} (or \vocab{commutative}) if 
+    $a \star b = b \star a$ for all elements 
+    $a, b \in G$.  For example, $\mathbb{Z}_4$ and $\mathbb{U}_{12}$ are abelian.
+\end{defn}
+
+Let's look at a group that is not abelia.
+
+\begin{exam}[Nonabelian group]
+\label{exam_nonabel_permgp}
+    Let $\mathbb{S}_3$ be the set of all permutations on the set $\{1,2,3\}$ with the operation $\circ$ which is function composition, introduced in \Cref{sec_perms}.  Write
+
+    $$\iota = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 1 & 2 & 3\end{array} \right) \quad \sigma_1 = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 2 & 3 & 1\end{array} \right) \quad \sigma_2 = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 3 & 1 & 2\end{array} \right)$$
+
+    $$\tau_1 = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 1 & 3 & 2\end{array} \right) \quad \tau_2 = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 3 & 2 & 1\end{array} \right) \quad \tau_3 = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 2 & 1 & 3\end{array} \right)$$
+
+        \begin{apart}
+            \item Write the operation table for $\mathbb{S}_3 = \{ \iota, \sigma_1, \sigma_2, \tau_1, \tau_2, \tau_3\}$.
+                \begin{soln}
+                    We show the operation table in \Cref{tab_sym3}.  For example, $$\tau_1 \circ \sigma_1 = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 1 & 3 & 2\end{array} \right) \circ \left( \begin{array}{ccc} 1 & 2 & 3 \\ 2 & 3 & 1\end{array} \right) = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 3 & 2 & 1\end{array} \right)= \tau_2.$$
+                    Recall that we can compose permutations using dot diagrams as in \Cref{fig_tau1_sigma1_perms}.
+                    
+                        \begin{figure}[hbtp]
+                            \centering
+                            \input{Tikz/perm_finite_group_S3}
+                            \caption{Calculating the composite of permutations $\tau_1 \circ \sigma_1$ in $\mathbb{S}_3$ using dot diagrams.}
+                            \label{fig_tau1_sigma1_perms}
+                        \end{figure}
+
+                    Be careful as $$\sigma_1 \circ \tau_1 = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 2 & 3 & 1\end{array} \right) \circ \left( \begin{array}{ccc} 1 & 2 & 3 \\ 1 & 3 & 2\end{array} \right) = \left( \begin{array}{ccc} 1 & 2 & 3 \\ 2 & 1 & 3\end{array} \right)= \tau_3.$$
+                        
+                        \begin{table}[hbtp]
+                            \centering
+                            \begin{tabular}{c|cccccc} 
+                                 $\circ$ & $\iota$ & $\sigma_1$ & $\sigma_2$ & $\tau_1$ & $\tau_2$ & $\tau_3$ \\ \hline
+                                 $\iota$ & $\iota$ & $\sigma_1$ & $\sigma_2$ & $\tau_1$ & $\tau_2$ & $\tau_3$ \\
+                                 $\sigma_1$ & $\sigma_1$ & $\sigma_2$ & $\iota$ & $\tau_3$ & $\tau_1$ & $\tau_2$\\
+                                 $\sigma_2$ & $\sigma_2$ & $\iota$ & $\sigma_1$ & $\tau_2$ & $\tau_3$ & $\tau_1$ \\
+                                 $\tau_1$ & $\tau_1$ & $\tau_2$ & $\tau_3$ & $\iota$ & $\sigma_1$ & $\sigma_2$\\
+                                 $\tau_2$ & $\tau_2$ & $\tau_3$ & $\tau_1$ & $\sigma_2$ & $\iota$ & $\sigma_1$ \\
+                                 $\tau_3$ & $\tau_3$ & $\tau_1$ & $\tau_2$ & $\sigma_1$ & $\sigma_2$ & $\iota$\\
+                            \end{tabular}
+                            \caption{The operation table for $\mathbb{S}_3$.}
+                            \label{tab_sym3}
+                        \end{table}
+
+                \end{soln}
+            \item Check that $\mathbb{S}_3$ is a group under function composition.
+                \begin{soln}
+                    First, every entry in table is $\iota$, $\sigma_1$, $\sigma_2$, $\tau_1$, $\tau_2$, or $\tau_3$ so $\mathbb{S}_3$ is closed under $\circ$.  Next, $\circ$ is associative because 
+                        $$(\alpha \circ (\beta \circ \gamma)) (n)
+                        = \alpha((\beta \circ \gamma)(n))
+                        = \alpha(\beta(\gamma(n)))
+                        =  (\alpha \circ \beta) (\gamma(n)) 
+                        = ((\alpha \circ \beta ) \circ \gamma) (n)$$ 
+                    for $n=1,2,3$. Thus $\alpha \circ (\beta \circ \gamma)= (\alpha \circ \beta ) \circ \gamma$.  The identity element is $\iota$, as you can check in the table.  Note that the inverse of $\iota$ is $\iota$, the inverse of $\sigma_1$ is $\sigma_2$, the inverse of $\sigma_2$ is $\sigma_1$, the inverse of $\tau_1$ is $\tau_1$, the inverse of $\tau_2$ is $\tau_2$, and the inverse of $\tau_3$ is $\tau_3$.  Sometimes we say the \vocab{identity function} or the \vocab{inverse function} to emphasis the operation is composition.
+                \end{soln}
+        \end{apart}
+\end{exam}
+
+Now it is your turn to work with a finite group.
+
+\begin{act}[Finite group of matrices]
+\label{act_finite_gp_matrices}
+    Consider the following matrices\footnote{If you have studied linear algebra, the transformations corresponding to these matrices are as follows. $I$ is the matrix of the identity transformation, $R$ is the matrix of the rotation by 90$^\circ$ counterclockwise, $S$ is the matrix of the rotation by 180$^\circ$, $T$ is the matrix of rotation by 90$^\circ$ clockwise, $H$ is the matrix of the reflection across the horizontal $x$-axis, $V$ is the matrix of the reflection across the vertical $y$-axis, $P$ is the matrix of the reflection across the positive slope line $y=x$, and $N$ is the matrix of the reflection across the negative slope line $y=-x$.}:
+
+    $$I = \left[ \begin{array} {cc} 1 & 0 \\ 0 & 1 \end{array} \right] \quad 
+    R = \left[ \begin{array} {rr} 0 & -1 \\ 1 & 0 \end{array} \right] \quad  
+    S = \left[ \begin{array} {rr} -1 & 0 \\ 0 & -1 \end{array} \right] \quad
+    T = \left[ \begin{array} {rr} 0 & 1 \\ -1 & 0 \end{array} \right]$$
+
+    $$H = \left[ \begin{array} {rr} 1 & 0 \\ 0 & -1 \end{array} \right] \quad 
+    V = \left[ \begin{array} {rr} -1 & 0 \\ 0 & 1  \end{array} \right] \quad  
+    P = \left[ \begin{array} {rr} 0 & 1 \\ 1 & 0  \end{array} \right] \quad
+    N = \left[ \begin{array} {rr} 0 & -1 \\ -1 & 0  \end{array} \right]$$
+
+    Let $\mathbb{D} = \{I, R, S, T, H, V, P, N\}$.
+        \begin{apart}
+            \item \label{part_matrix_missing_table} Calculate each of the following products: $RS$, $TV$, $IN$, and $P^2$.
+            
+            If you are working with a partner, feel free to each take two of the products.       
+            \item The rest of the (matrix) multiplication table for $\mathbb{D}$ shown in \Cref{tab_mult_D8_matrices}.  There are a few extra dividing lines to help you read the table.
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|cccc |cccc}
+                           $\times$  & $I$ & $R$ & $S$ & $T$ & $H$ & $V$ & $P$ & $N$  \\ \hline
+                         $I$ & $I$ & $R$ & $S$ & $T$ & $H$ & $V$ & $P$ &   \\
+                         $R$ & $R$ & $S$ &  & $I$ & $P$ & $N$ & $V$ & $H$  \\
+                         $S$ & $S$ & $T$ & $I$  & $R$ & $V$ & $H$ & $N$ & $P$  \\
+                         $T$ & $T$ & $S$ & $R$ & $I$ & $N$ & $P$ &  & $V$  \\ \hline
+                         $H$ & $H$ & $N$ & $V$ & $P$ & $I$ & $S$ & $T$ & $R$  \\
+                         $V$ & $V$ & $P$ & $H$ & $N$ & $S$ & $I$ & $R$ & $T$  \\
+                         $P$ & $P$ & $H$ & $N$ & $V$ & $R$ & $T$ &  & $S$  \\
+                         $N$ & $N$ & $V$ & $P$ & $H$ & $T$ & $R$ & $S$ & $I$  \\
+                    \end{tabular}
+                    \caption{(Most of) the multiplication table for the matrix group $\mathbb{D}$.}
+                    \label{tab_mult_D8_matrices}
+                \end{table}
+                Check that each matrix occurs within the table once per row and once per column. If not, check your answers to (\ref{part_matrix_missing_table}).
+            \item What can you check in the operation table to confirm that $\mathbb{D}$ is closed under matrix multiplication?
+            \item Which element of $\mathbb{D}$ is the identity.   We say that matrix is the \vocab{identity matrix}.
+            \item Find the (matrix) inverse of each matrix. 
+            \item Since that matrix multiplication is  associative, it follows that $\mathbb{D}$ is a group.  Matrix multiplication is typically not commutative, but is $\mathbb{D}$?  Explain.
+        \end{apart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Exercises}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_matrix_powers}
+ \submatpowers}
+
+Calculate all matrix products and powers by hand, being sure to show the steps of your work.  You are welcome to use technology to check your answers.
+
+\begin{exer}[\exerP] % multiply matrices]
+\label{exer_mult_matrices}
+    Consider the matrices $$A= \left[ \begin{array}{cc} 1 & 2\\ 3 & 4 \\ \end{array} \right] \quad B = \left[ \begin{array}{cc} 2 & -1\\ 1 & 0 \\ \end{array} \right] \quad C= \left[ \begin{array}{cc} 1 & 0\\ 0 & 0 \\ \end{array} \right] \quad D=\left[ \begin{array}{cc} 0 & 0\\ 1 & 1 \\ \end{array} \right] \quad I=\left[ \begin{array}{cc} 1 & 0\\ 0 & 1 \\ \end{array} \right].$$  Calculate each matrix product: $AB$, $BA$, $IB$, $AI$, $CD$, and $C^2$. Make sure to show work.
+\end{exer}
+
+\begin{exer}[\exerP] % power of shear matrix]
+\label{exer_power_linears}
+~
+    \begin{exerpart}
+       \item For the matrix $A=\left[ \begin{array}{cc} 1 & 0 \\ 1 & 1 \\ \end{array} \right]$, calculate $A^2$, $A^3$, and $A^4$, and conjecture a formula for $A^n$ for $n \ge 1$. Make sure to show work. % Answer: 1,0,n,1
+       \item For the matrix $B=\left[ \begin{array}{cc} 1 & 2 \\ 0 & 1 \\ \end{array} \right]$, calculate $B^2$, $B^3$, and $B^4$, and conjecture a formula for $B^n$ for $n \ge 1$. Make sure to show work.
+   \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] % functions involving matrices eval.
+\label{exer_matrix_functions_easy}    
+    Let $\mathscr{M}(\mathbb{Z})$ be the set of $2 \times 2$ matrices with integer entries.
+    \begin{exerpart}
+        \item Consider the function $f: \mathbb{Z} \to \mathscr{M}(\mathbb{Z})$ defined by $f(n) = \left[ \begin{array}{cc} n & 0 \\ 0 & 2n \\ \end{array} \right]$. Identify the domain and codomain of $f$ and evaluate $f(3)$.
+        \item \label{part_det_fn} Consider the function $\fn{det}: \mathscr{M}(\mathbb{Z}) \to \mathbb{Z}$ defined by $\fn{det} \left( \left[ \begin{array}{cc} a & b \\ c & d \\ \end{array} \right] \right) = ad-bc$. Identify the domain and codomain of $\fn{det}$ and evaluate $\fn{det}\left( \left[ \begin{array}{rr} 2 & 0 \\ -4 & 3 \\ \end{array} \right] \right)$.
+        \item Consider the function $T: \mathscr{M}(\mathbb{Z}) \to \mathscr{M}(\mathbb{Z})$ defined by $T(A) = AM$ where $M = \left[ \begin{array}{cr} 1 & 2 \\ 0 & -1 \\ \end{array} \right] $. Identify the domain and codomain of $T$ and evaluate $T\left( \left[ \begin{array}{cc} 1 & 2 \\ 3 & 5 \\ \end{array} \right] \right)$.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % power of another matrix]
+\label{exer_power_matrix_exponentials}
+~
+    \begin{exerpart}
+        \item For the unit matrix $J=\left[ \begin{array}{cc} 1 & 1 \\ 1 & 1 \\ \end{array} \right]$, calculate $J^2$, $J^3$, and $J^4$, and conjecture a formula for $J^n$ for $n \ge 1$.  Make sure to show work. %Answer: each entry is $2^{n-1}$.
+       \item For the matrix $Q=\left[ \begin{array}{cc} 1 & 0 \\ 1 & 2 \\ \end{array} \right]$, calculate $Q^2$, $Q^3$, and $Q^4$, and conjecture a formula for $Q^n$ for $n \ge 1$.  Make sure to show work. % Answer: 1,0,2^n-1,2^n
+   \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % power of rotation matrix]
+\label{exer_power_rotation_matrix}
+~   
+    \begin{exerpart}
+        \item For the matrix $S=\left[ \begin{array}{cc} 0 & 1 \\ 0 & 0 \\ \end{array} \right]$, calculate $S^2$ and $S^3$ and explain what you think $S^{30}$ equals. Make sure to show work. 
+        \item For the matrix $W=\left[ \begin{array}{cc} 0 & 0 \\ 1 & 1 \\ \end{array} \right]$, calculate $W^2$ and $W^3$ and explain what you think $W^{30}$ equals. Make sure to show work. 
+        \item For the matrix $R=\left[ \begin{array}{cc} 0 & -1 \\ 1 & 0 \\ \end{array} \right]$, calculate $R^2$, $R^3$, and $R^4$, and $R^5$ and explain what you think $R^{30}$ equals. Make sure to show work.
+    \end{exerpart} 
+\end{exer}
+
+\begin{exer}[\exerU] % matrix counterexamples
+\label{exer_cex_matrix}
+~
+    \begin{exerpart}
+        \item Give an example of $2 \times 2$ matrices $M$ and $N$ with $MN \neq NM$.
+        \item Give an example of a $2 \times 2$ matrix $M$ such that $M \neq \mathbf{0}$, but $M^2 = \mathbf{0}$.
+        \item Give an example of a $2 \times 2$ matrix $M$ such that $M \neq I$, but $M^2 = I$.
+    \end{exerpart}
+ \end{exer}
+
+\begin{exer}[\exerU] % more complicated unctions involving matrices eval.
+\label{exer_matrix_functions_harder}    
+    Let $\mathscr{M}(\mathbb{Z})$ be the set of $2 \times 2$ matrices with integer entries.
+        \begin{exerpart}
+            \item Consider the function $f: \mathbb{Z}^+ \to \mathscr{M}(\mathbb{Z})$ defined by $c(n) = \left[ \begin{array}{cc} 0 & 1 \\ -1 & 0 \\ \end{array} \right]^n$. Evaluate $c(3)$.
+            \item \label{part_trace_fn} Consider the function $\fn{trace}: \mathscr{M}(\mathbb{Z}) \to \mathbb{Z}$ defined by $\fn{trace} \left( \left[ \begin{array}{cc} a & b \\ c & d \\ \end{array} \right] \right) = a+d$. Evaluate $\fn{trace}\left( \left[ \begin{array}{rr} 2 & 0 \\ -4 & 3 \\ \end{array} \right] \right)$. 
+            \item \label{part_transpose_fn} Consider the function $\fn{transpose}: \mathscr{M}(\mathbb{Z}) \to \mathscr{M}(\mathbb{Z})$ defined by $\fn{transpose}\left( \left[ \begin{array}{cc} a & b \\ c & d \\ \end{array} \right] \right) = \left[ \begin{array}{cc} a & c \\ b & d \\ \end{array} \right]$.  Evaluate $\fn{transpose}\left( \left[ \begin{array}{cc} 1 & 2 \\ 3 & 5 \\ \end{array} \right] \right)$.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % Det functions 1-1 and onto.
+\label{exer_det_onto_1to1}
+    Consider the the function $\fn{det}$ from \Cref{exer_matrix_functions_easy} (\ref{part_det_fn}).  
+        \begin{exerpart}
+            \item Prove that the function $\fn{det}$ is onto. 
+            \item Give a counterexample to prove that the function $\fn{det}$ is not one-to-one. 
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %Sets that involve matrices
+\label{exer_matrix_sets}
+~
+    \begin{exerpart}
+        \item Give two examples of elements in the set 
+            $$\left\{\left[ \begin{array}{cc} 0 & a \\ b & a+b \\ \end{array} \right] \mid a, b \in \mathbb{Z} \right\} $$ 
+        \item Confirm that $I$ and $U = \left[ \begin{array}{cc} 0 & 0 \\ 0 & 1\\ \end{array} \right]$ are elements of the set $\mathscr{E} = \left\{ E \in \mathscr{M}(\mathbb{Z}) \mid E^2=E \right\}$
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % matrices
+\label{exer_dyk_matrix}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to multiply $2 \times 2$ matrices?
+            \item How to raise a $2 \times 2$ matrix to a positive integer power?
+            \item How to recognize a pattern in the powers of a matrix?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %Sets that involve matrices and functions
+\label{exer_matrix_sets_fn}
+    Give an example of an element in each set and then give an explicit definition of each set.
+        \begin{exerpart}
+            \item $\mathscr{C}= \{ A \in \mathscr{M}(\mathbb{Z}) \mid \fn{trace}(A)=0\}$ where $\fn{trace}$ is the function defined in \Cref{exer_matrix_functions_harder} (\ref{part_trace_fn}).
+            \item $\mathscr{D}= \{ A \in \mathscr{M}(\mathbb{Z}) \mid \fn{transpose}(A)=A\}$ where $\fn{transpose}$ is the function defined in \Cref{exer_matrix_functions_harder}  (\ref{part_transpose_fn}).
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_pff_verify_power_matrix}
+\subpffindmatrix}
+
+\begin{exer}[\exerP] % prove power of shear matrix]
+\label{exer_prove_power_shear_matrix}
+    For the matrix $A=\left[ \begin{array}{cc} 1 & 0 \\ 1 & 1 \\ \end{array} \right]$, use mathematical induction to prove that $A^n = \left[ \begin{array}{cc} 1 & 0 \\ n & 1 \\ \end{array} \right]$ for $n\ge 1$. 
+\end{exer}
+
+\begin{exer}[\exerU] % prove power of unit matrix]
+\label{exer_prove_power_unit_matrix}
+    For the matrix $J=\left[ \begin{array}{cc} 1 & 1 \\ 1 & 1 \\ \end{array} \right]$, use mathematical induction to prove that $J^n=\left[ \begin{array}{cc} 2^{n-1} & 2^{n-1} \\ 2^{n-1} & 2^{n-1} \\ \end{array} \right]$ for $n\ge 1$.
+\end{exer}
+
+\begin{exer}[\exerU] % prove power of another matrix]
+\label{exer_prove_power_another_matrix}
+    For the matrix $Q=\left[ \begin{array}{cc} 1 & 0 \\ 1 & 2 \\ \end{array} \right]$, use mathematical induction to prove that $Q^n=\left[ \begin{array}{cc} 1 & 0 \\ 2^{n-1} & 2^n \\ \end{array} \right]$ for $n\ge 1$.
+\end{exer}
+
+\begin{exer}[\exerU] % prove power of dilation shear matrix]
+\label{exer_prove_power_dilationshear_matrix}
+    For the matrix $M=\left[ \begin{array}{cc} 2 & 1 \\ 0 & 2 \\ \end{array} \right]$, use mathematical induction to prove that $M^n=\left[ \begin{array}{cc} 2^n & n2^{n-1}\\ 0 & 2^n \\ \end{array} \right]$ for $n\ge 1$. 
+\end{exer}
+
+\begin{exer}[\exerU] % prove power of complicated matrix]
+\label{exer_prove_power_complicated_matrix}
+    For the matrix $K=\left[ \begin{array}{cc} 3 & 0 \\ 1 & 2 \\ \end{array} \right]$, use mathematical induction to prove that $K^n=\left[ \begin{array}{cc} 3^n & 0 \\ 3^n-2^n& 2^n \\ \end{array} \right]$ for $n\ge 1$. 
+\end{exer}
+
+\begin{exer}[\exerR] % math ind matrices
+\label{exer_dyk_matrix_proof}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How use mathematical induction to prove an explicit formula for the power of a matrix? 
+            \item How to write $A^n$ in terms of $A^{n-1}$ for a square matrix $A$?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % prove power of diagonal matrix]
+\label{exer_prove_power_diagonal_matrix}
+   Let $a$ and $b$ be integers, and consider the \vocab{diagonal matrix} $D=\left[ \begin{array}{cc} a & 0 \\ 0 & b \\ \end{array} \right]$.      
+        \begin{exerpart}
+            \item Calculate $D^2$, $D^3$, and $D^4$, and conjecture a formula for $D^n$ for $n \ge 1$. Your answers will involve $a$ and $b$. Make sure to show work. %Answer: $a^n$,0,0,$b^n$.
+            \item Prove your conjecture using mathematical induction.
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_finite_groups}
+\subgroups}
+
+\begin{exer}[\exerP] % $\mathbb{Z}_5$ is a group under addition.
+\label{exer_Z5_add_group} 
+    In \Cref{sec_mod_arith} we saw that the integers mod 5 is the set $\mathbb{Z}_5 =\{0,1,2,3,4\}$ with addition defined by $a \oplus b = (a+b) \fn{ mod } 5$.  
+        \begin{exerpart}
+            \item Copy the addition table for $\mathbb{Z}_5$ in \Cref{tab_add_mod5} and fill in the missing entries.
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|ccccc} 
+                        $\oplus$ & 0 & 1 & 2 & 3 & 4 \\ \hline
+                        0 & 0 & 1 & 2 &  & 4 \\
+                        1 & 1 & 2 & 3 & 4 & 0 \\
+                        2 & 2 & 3 &  & 0 & 1 \\
+                        3 & 3 & 4 & 0 & 1 & 2 \\
+                        4 & 4 & 0 & 1 &  & 3 
+                    \end{tabular}
+                    \caption{The addition table  $\mathbb{Z}_5$.}
+                    \label{tab_add_mod5}
+                \end{table}
+            \item What do you see in the addition table that shows $\mathbb{Z}_5$ is closed under addition?
+            \item What is the additive identity in $\mathbb{Z}_5$?
+            \item List each element of $\mathbb{Z}_5$ and its additive inverse.
+            \item Is $\mathbb{Z}_5$ abelian?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] % Finite group units mod 5.
+\label{exer_U10_mult_group}
+    Recall that the set of integers mod 10 is $\mathbb{Z}_{10}=\{0,1,2,3,4,5,6,7,8,9\}$ with multiplication defined by $a \otimes b = (ab) \fn{ mod } 10$. Consider the subset $\mathbb{U}_{10} = \{1, 3, 7, 9\}$ of $\mathbb{Z}_{10}$.
+        \begin{exerpart}
+            \item Copy the multiplication table for $\mathbb{U}_{10}$ in \Cref{tab_mult_units_mod10} and fill in the missing entries.
+                \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{c|cccc} 
+                        $\otimes$ & 1 & 3 & 7 & 9 \\ \hline
+                        1 & 1 & 3 & 7 & 9 \\
+                        3 & 3 & 9 &  & 7 \\
+                        7 & 7 &  &  & 3 \\
+                        9 & 9 & 7 & 3 &  
+                    \end{tabular}
+                    \caption{The multiplication table  $\mathbb{U}_{10}$.}
+                    \label{tab_mult_units_mod10}
+                \end{table}
+            \item What do you see in the multiplication table that shows $\mathbb{U}_{10}$ is closed under multiplication?
+            \item What is the multiplicative identity in $\mathbb{U}_{10}$?
+            \item List each element of $\mathbb{U}_5$ and its multiplicative inverse.
+            \item Is $\mathbb{U}_{10}$ abelian?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % S_4
+\label{exer_S4_group}
+    Let $\mathbb{S}_4$ be the set of all permutations on the set $\{1,2,3,4\}$ with the operation $\circ$ which is function composition, introduced in \Cref{sec_perms}. It turns out that $\mathbb{S}_4$ is a group.
+         \begin{exerpart}
+             \item How many elements are in $\mathbb{S}_4$?
+             \item What is the identity element in $\mathbb{S}_4$?
+             \item Find the inverse of the permutation $\left( \begin{array} {cccc} 1 & 2 & 3 & 4 \\ 3 & 4 & 2 & 1 \end{array} \right)$.
+             \item Give a counterexample to show that $\mathbb{S}_4$ is not abelian.
+         \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % another matrix group
+\label{exer_another_matrix_group}
+    Consider the following matrices:      
+        $$I = \left[ \begin{array} {cc} 1 & 0 \\ 0 & 1 \end{array} \right] \quad 
+        R = \left[ \begin{array} {rr} 0 & -1 \\ 1 & 0 \end{array} \right] \quad  
+        S = \left[ \begin{array} {rr} -1 & 0 \\ 0 & -1 \end{array} \right] \quad
+        T = \left[ \begin{array} {rr} 0 & 1 \\ -1 & 0 \end{array} \right]$$
+    Let $\mathbb{Y} = \{I, R, S, T\}$. 
+        \begin{exerpart}
+            \item Write the operation table for $\mathbb{Y}$.       
+            \item Check that $\mathbb{Y}$ is a group under function composition.
+        \end{exerpart}
+\end{exer}
+
+%%  FUTURE EXERCISES Could introduce Z2n as additive group on bit strings.  Is this xor? Explore: define order.  Find order of permutations.  Elements of D, order of other matrices? explore problem -- Theorem:  nonempty finite set closed under associative operation is a group (get identity and inverses for free) NO  Hunt for units mod n is always interesting. Explore problem: latin squares
+
+\begin{exer}[\exerR] % finite groups
+\label{exer_dyk_groups}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What are some examples of groups?
+            \item What is the definition of a group?
+            \item How can we use the operation table of a group to check the group is closed under the operation?
+            \item What the identity of a group is?
+            \item How to find the inverse of an element in a group from the operation table?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % Latin squares
+\label{exer_latin_squares}
+    The operation table for a finite group is an example of a \vocab{Latin square} which is an $n \times n$ matrix whose entries are $n$ different symbols such that each symbol occurs exactly once in each row and each column.  Latin squares have application in the design of agricultural experiments in statistics and any Suduko board is a Latin Square.
+        \begin{exerpart}
+            \item Construct a $3 \times 3$ Latin square using the symbols $1, 2, 3$ where the first row is $1, 2, 3$.
+            \item Construct a $4 \times 4$ Latin square using the symbols $0, 1, 2, 3$ where the first row is $0, 1, 2, 3$. Hint: \Cref{exam_intmod4_add_group}.
+            \item Construct a different $4 \times 4$ Latin square using the symbols $0, 1, 2, 3$ where the first row is $0, 1, 2, 3$. Hint: \Cref{exer_U10_mult_group}.
+            \item Read the Wikipedia entry on Latin Squares \url{https://en.wikipedia.org/wiki/Latin_square}.  How many different $5\times 5$ Latin squares are there (on $1,2,3,4,5$)? Note: Look at the second column in the table. % ANS 161280 over 150,000
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\answers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ %%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_matrix_powers}
+ \submatpowers}
+
+\subsubsection*{\Cref{exer_mult_matrices} \answers}
+The answers, in some order, are
+$$ 
+\left[ \begin{array}{rr} 2 & -1\\ 1 & 0 \\ \end{array} \right] \quad  % IB
+\left[ \begin{array}{rr} -1 & 0\\ 1 & 2 \\ \end{array} \right] \quad %BA
+\left[ \begin{array}{cc} 1 & 0\\ 0 & 0 \\ \end{array} \right] \quad %C^2
+\left[ \begin{array}{rr} 4 & -1\\ 10 & -3 \\ \end{array} \right] \quad %AB
+\left[ \begin{array}{cc} 0 & 0\\ 0 & 0 \\ \end{array} \right] \quad %CD
+\left[ \begin{array}{cc} 1 & 2\\ 3 & 4 \\ \end{array} \right] % AI
+$$
+
+\subsubsection*{\Cref{exer_power_linears} \answers}
+\begin{apart}
+    \item Hint: $A^3=\left[ \begin{array}{cc} 1 & 0 \\ 3 & 1 \\ \end{array} \right]$
+    \item Hint: $B^3=\left[ \begin{array}{cc} 1 & 6 \\ 0 & 1 \\ \end{array} \right]$
+\end{apart}
+
+\subsubsection*{\Cref{exer_matrix_functions_easy} \answers}
+Hint: Not sure where to start? Look at \Cref{exam_matrix_functions}.
+\begin{apart}
+    \item Hint: The domain is $\mathbb{Z}$ and the codomain is $\mathscr{M}(\mathbb{Z})$.  Also, $f(3)$ is a matrix.
+    \item Hint: 6
+    \item Hint: The answer is not the same as for \Cref{exam_matrix_functions} (\ref{part_mult_matrix_fn}) because they calculated $MA$ and we want $AM$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_power_matrix_exponentials} \answers}
+\begin{apart}
+    \item Hint: All four entries are equal.  Careful, they are not $2^n$, but that is close.
+    \item Hint: The answer involves 0, 1, $2^{n-1}$, and $2^n$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_matrix_sets} \answers}
+Hint: Not sure where to start?  Look at \Cref{exam_matrix_sets}.
+\begin{apart}
+    \item Hint: Your answers should be two different matrices.  You can pick any integers you want for $a$ and $b$.
+    \item Hint: You need to check that $I$ and $U$ satisfy the implicit condition that defines $\mathscr{E}$.
+\end{apart}
+
+ %%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_pff_verify_power_matrix}
+\subpffindmatrix}
+
+\subsubsection*{\Cref{exer_prove_power_shear_matrix} \answers}
+Hint: Copy and edit the proof from \Cref{act_math_ind_matrix}.
+
+\subsubsection*{\Cref{exer_prove_power_unit_matrix} \answers}
+            \begin{proof}
+                Write $M_n=\left[ \begin{array}{cc} 2^{n-1} & 2^{n-1} \\ 2^{n-1} & 2^{n-1} \\ \end{array} \right]$.  Induct on $n$.  
+                
+                First, when $n=1$ we have $J^1 = J = \left[ \begin{array}{cc} 1 & 1 \\ 1 & 1\\ \end{array} \right]$ and also $M_1=\left[ \begin{array}{cc} 2^0 & 2^0\\ 2^0 & 2^0 \\ \end{array} \right]= \left[ \begin{array}{cc} 1 & 1 \\ 1 & 1\\ \end{array} \right]$.  
+                    
+                Next, assume $J^{n-1} = M_{n-1} = \left[ \begin{array}{cc} 2^{n-2} & 2^{n-2} \\ 2^{n-2} & 2^{n-2}  \\ \end{array} \right]$ for some integer $n \ge 2$.  Then
+                    $$J^n = JJ^{n-1} =AM_{n-1}
+                    = \left[ \begin{array}{cc} 1 & 1 \\ 1 & 1 \\ \end{array} \right]\left[ \begin{array}{cc} 2^{n-2} & 2^{n-2}\\ 2^{n-2} & 2^{n-2} \\ \end{array} \right]
+                    = \ldots
+                    =M_n$$
+            \end{proof} 
+            Fill in the missing algebra using $2^{n-2}+2^{n-2} = 2 \cdot 2^{n-2} =  2^{n-1}$.
+
+\subsubsection*{\Cref{exer_prove_power_another_matrix} \answers}
+Hint: Copy and edit the proof from the Answers to \Cref{exer_prove_power_unit_matrix}.
+
+\subsubsection*{\Cref{exer_prove_power_dilationshear_matrix} \answers} 
+Hint: Copy and edit the proof from the Answers to \Cref{exer_prove_power_unit_matrix}. Note that $$2(n-1)2^{n-2}+1(2^{n-1})=(n-1)2\cdot 2^{n-2} + 2^{n-1}=(n-1)2^{n-1} + 2^{n-1}.$$  To finish the algebra, factor out $2^{n-1}$ to get $$((n-1)+1)2^{n-1} =n2^{n-1}.$$
+
+\subsubsection*{\Cref{exer_prove_power_complicated_matrix} \answers} 
+Hint: Copy and edit the proof from the Answers to \Cref{exer_prove_power_unit_matrix}. Note that $$1(3^{n-1})+2(3^{n-1}-2^{n-1})=3^{n-1}+2(3^{n-1}) -2(2^{n-1}).$$  To finish the algebra, factor out $3^{n-1}$ to get $$(1+2)3^{n-1}-2\cdot 2^{n-1} =3\cdot 3^{n-1}-2\cdot 2^{n-1}=3^n-2^n.$$
+
+\subsubsection*{\Cref{exer_prove_power_diagonal_matrix} \answers}
+\begin{apart}
+    \item Hint: $D^n =\left[ \begin{array}{cc} a^n & 0 \\ 0 & b^n \\ \end{array} \right]$
+    \item Hint: $M_{n-1}=\left[ \begin{array}{cc} a^{n-1} & 0 \\ 0 & b^{n-1} \\ \end{array} \right]$ 
+\end{apart}
+
+ %%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_finite_groups}
+\subgroups}
+
+\subsubsection*{\Cref{exer_Z5_add_group} \answers}
+\begin{apart}
+    \item Hint: The missing entries, in some order, are 2, 3, and 4.
+    \item All of the entries are 0, 1, 2, 3, or 4.
+    \item 0
+    \item Hint: For example, the additive inverse of 2 is 3.
+    \item Hint: Check if $a \oplus b = b \oplus a$ for all $a, b \in \mathbb{Z}_5$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_U10_mult_group} \answers}
+\begin{apart}
+    \item Hint: The missing entries are 1 or 9.
+    \item Hint: What are the entries?
+    \item 1
+    \item Hint: For example, 9 is its own inverse.
+    \item Hint: Check if $a \otimes b = b \otimes a$ for all $a, b \in \mathbb{U}_{10}$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_S4_group} \answers}
+\begin{apart}
+    \item Hint: We counted this number in \Cref{exam_perm_fns1234}.
+    \item Hint: It is the identity permutation as in \Cref{exam_perm_fns1234}.
+    \item Hint: Look at \Cref{exam_inverse_perm}.
+    \item Hint: Look at \Cref{exam_composing_perms}.
+\end{apart}
+
+\subsubsection*{\Cref{exer_another_matrix_group} \answers}
+\begin{apart}
+    \item Hint: These are the same matrices as in \Cref{act_finite_gp_matrices}. The operation table should be $4 \times 4$.
+    \item Hint: Check each part of the definition of group, as we did in \Cref{exam_nonabel_permgp}.
+\end{apart}
+
+

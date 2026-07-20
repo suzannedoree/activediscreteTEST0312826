@@ -18,7 +18,7 @@
     </p>
   </introduction>
   <subsection xml:id="sub_if_then">
-    <title>\subifthen</title>
+    <title>Promises: Conditional Statements</title>
     <p>
       We begin with a definition.
     </p>
@@ -244,7 +244,7 @@
       </p>
     </activity>
     <p>
-      Make sure that you have <xref ref="act_promises">completed</xref>
+      Make sure that you have completed <xref ref="act_promises"></xref>
       because we are about to reveal some of the answers.
     </p>
     <example xml:id="exam_truthtable_compound_conditionals">
@@ -413,7 +413,8 @@
       </statement>
     </example>
     <p>
-      Note the new equivalence we found in <xref ref="act_promises"></xref>
+      Note the new equivalence we found in
+      <xref ref="act_promises"></xref>
       <xref ref="part_truthtable_implication"/>.
     </p>
     <theorem xml:id="thm_implication">
@@ -500,7 +501,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_pff_if_then">
-    <title>\subpffifthen</title>
+    <title>Proof Format: Direct Proof of <m>\to</m></title>
     <p>
       Since <m>P \to Q</m> promises that if <m>P</m> is true,
       then <m>Q</m> is true,
@@ -508,7 +509,7 @@
       The proof does not mention the case where <m>P</m> is false since <m>P \to Q</m> is automatically true if that happens,
       as stated in <xref ref="rem_false_implies_is_true"></xref>.
     </p>
-    <proof>
+    <proof xml:id="pff_if_then_direct">
     <p>
       Prove: <m>P \to Q</m>
     </p>
@@ -536,8 +537,8 @@
           <li xml:id="part_if_then_direct">
             <p>
               Copy the following proof of a direct proof of a conditional statement.
-              Note that we are <xref ref="pff_forall">using</xref>
-              because the statement is universally quantified as well <xref ref="pff_if_then_direct">as</xref>.
+              Note that we are using <xref ref="pff_forall"></xref>
+              because the statement is universally quantified as well as <xref ref="pff_if_then_direct"></xref>.
               Prove for any integer <m>m</m>,
               if <m>m</m> is odd then <m>3m</m> is odd.
               <proof>
@@ -578,7 +579,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_neg_conditional">
-    <title>\subnegcond</title>
+    <title>Broken Promises: Negating Conditional Statements</title>
     <p>
       We have just seen how to prove that a conditional statement is true.
       How do we construct a counterexample involving a conditional statement to prove that it is false?
@@ -627,7 +628,7 @@
       </p>
     </activity>
     <p>
-      Make sure that you have <xref ref="act_cex_conditionals">completed</xref>
+      Make sure that you have completed <xref ref="act_cex_conditionals"></xref>
       because we are about to reveal the answers.
     </p>
     <example xml:id="exam_cex_conditionals">
@@ -724,9 +725,9 @@
                 <solution>
                   <p>
                     Note that this statement does not state a specific quantifier,
-                    so <xref ref="rem_default_universal">following</xref>,
+                    so following <xref ref="rem_default_universal"></xref>,
                     we interpret this statement as universally quantified.
-                    <xref ref="thm_neg_quants">Using</xref>
+                    Using <xref ref="thm_neg_quants"></xref>
                     and <xref ref="thm_broken_promise"></xref>
                     we get the following negation: There exists a graph that has chromatic number four but is not the complete graph <m>K_4</m>.
                     Our counterexample from <xref ref="exam_cex_conditionals"></xref>
@@ -742,7 +743,7 @@
                 if <m>x + y = 2</m>, then <m>x \le 1</m> and <m>y \le 1</m>.
                 <solution>
                   <p>
-                    We <xref ref="thm_neg_quants">use</xref>
+                    We use <xref ref="thm_neg_quants"></xref>
                     and <xref ref="thm_broken_promise"></xref>
                     to find the following awkwardly-stated draft of the negation: There are real numbers <m>x</m> and <m>y</m> such that <m>x+y=2</m> but it is not the case that <m>x \le 1</m> and <m>y \le 1</m>.
                     We can eliminate the awkward
@@ -761,7 +762,7 @@
                 if <m>6 \mid ab</m>, then <m>6 \mid a</m> or <m>6 \mid b</m>.
                 <solution>
                   <p>
-                    We <xref ref="thm_neg_quants">use</xref>
+                    We use <xref ref="thm_neg_quants"></xref>
                     and <xref ref="thm_broken_promise"></xref>
                     to find the following awkwardly-stated draft of the negation: There are integers <m>a</m> and <m>b</m> such that
                     <m>6 \mid ab</m> but it is not the case that <m>6 \mid a</m> or <m>6 \mid b</m>.
@@ -783,14 +784,14 @@
     </example>
   </subsection>
   <subsection xml:id="sub_pff_or_implication">
-    <title>\subpfforimplication</title>
+    <title>Proof Formats: Proof of <m>\lor</m> Using Implication</title>
     <p>
       The implication equivalence <xref ref="thm_implication"/> gives us a new way to prove an
       <q>or</q>
       statement, which we saw earlier using cases in <xref ref="pff_or_by_cases"></xref>.
       That is, to prove <m>R \lor Q</m> we can prove <m>\neg R \to Q</m>.
     </p>
-    <proof>
+    <proof xml:id="pff_or_implication">
     <p>
       Prove: <m>R \lor Q</m>
     </p>
@@ -822,8 +823,8 @@
               Copy the following proof of proof of an
               <q>or</q>
               statement using the implication equivalence.
-              Note that we are <xref ref="pff_forall">using</xref>
-              because the statement is universally quantified as well <xref ref="pff_or_implication">as</xref>.
+              Note that we are using <xref ref="pff_forall"></xref>
+              because the statement is universally quantified as well as <xref ref="pff_or_implication"></xref>.
               Prove that for any positive real numbers <m>a</m> and <m>b</m> such that <m>ab=100</m>,
               either <m>a \le 10</m> or <m>b \lt 10</m>.
               <proof>
@@ -854,7 +855,7 @@
       but it feels like we are missing a proof that if <m>Q</m> is false,
       then <m>P</m> is true.
       It is not missing.
-      Let's look at how to better <xref ref="pff_or_implication">understand</xref>
+      Let's look at how to better understand <xref ref="pff_or_implication"></xref>
       by comparing it to proof by cases.
     </p>
     <example xml:id="exam_implication_vs_cases_proof_or">
@@ -863,7 +864,7 @@
       statement using implication versus proof by cases</title>
       <statement>
         <p>
-          <nbsp/> <xref ref="pff_or_implication">Explain</xref>
+          <nbsp/> Explain <xref ref="pff_or_implication"></xref>
           by considering how to prove
           <m>P \lor Q</m> using cases <xref ref="pff_or_by_cases"/> with the cases are <m>P</m> or <m>\neg P</m>.
         </p>
@@ -914,7 +915,7 @@
           </proof>
         </blockquote>
         <p>
-          This proof is <xref ref="pff_or_implication">the</xref>.
+          This proof is the <xref ref="pff_or_implication"></xref>.
         </p>
       </solution>
     </example>
@@ -922,9 +923,9 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_if_then">for</xref> \subifthen</title>
+      <title>Exercises for <xref ref="sub_if_then"></xref> Promises: Conditional Statements</title>
       <exercise xml:id="exer_explain_cond_true">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Explain why each conditional statement is true.
@@ -946,7 +947,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_verify_addition">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use a truth table to verify that <m>P \to (P \lor Q)</m> is a tautology.
@@ -955,7 +956,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_truthtable_PimpliesnegQ">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -982,7 +983,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_truthtable_mp">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Construct a truth table to show that <m>(P \land (P \to Q)) \to Q</m> is a tautology.
@@ -992,7 +993,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_truthtable_compound_conditionals">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Construct a truth table for each statement.
@@ -1013,7 +1014,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_truthtable_proof_cases">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Construct a truth table to show that
@@ -1021,13 +1022,13 @@
               (P \to R) \land (Q \to R) \equiv (P \lor Q) \to R
             </me>.
             Include appropriate intermediate columns.
-            This logical equivalence <xref ref="sub_pff_cases">justifies</xref>
+            This logical equivalence justifies <xref ref="sub_pff_cases"></xref>
             (for 2 cases).
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_rewrite_implication">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1048,7 +1049,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_iften">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1088,7 +1089,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_equiv_PtoQtoR">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Is <m>P \lor (Q \to R)</m> logically equivalent to <m>(P \lor Q) \to R</m>?
@@ -1099,12 +1100,12 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_if_then">for</xref> \subpffifthen</title>
+      <title>Exercises for <xref ref="sub_pff_if_then"></xref> Proof Format: Direct Proof of <m>\to</m></title>
       <exercise xml:id="exer_prove_cond_true">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="pff_forall">Use</xref>
+            Use <xref ref="pff_forall"></xref>
             and <xref ref="pff_if_then_direct"></xref>
             to prove each statement from <xref ref="exer_explain_cond_true"></xref>.
             <ol>
@@ -1127,10 +1128,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_odd_sq_is_odd">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="pff_forall">Use</xref>,
+            Use <xref ref="pff_forall"></xref>,
             <xref ref="pff_if_then_direct"></xref>,
             and <xref ref="defn_even_odd"></xref>
             to prove that for any integer <m>n</m>,
@@ -1141,10 +1142,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_mult6_is_mult3">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="pff_forall">Use</xref>,
+            Use <xref ref="pff_forall"></xref>,
             <xref ref="pff_if_then_direct"></xref>,
             and <xref ref="defn_divides"></xref>
             to prove that for any integer <m>n</m>,
@@ -1155,10 +1156,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_divides_square_proof">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <nbsp/> <xref ref="pff_forall">Use</xref>,
+            <nbsp/> Use <xref ref="pff_forall"></xref>,
             <xref ref="pff_if_then_direct"></xref>,
             and <xref ref="defn_divides"></xref> to prove if <m>a \mid b</m>,
             then <m>a \mid b^2</m> for any integers <m>a</m> and <m>b</m>.
@@ -1168,10 +1169,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_sums_prod_even_odd">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <nbsp/> <xref ref="pff_forall">Use</xref>,
+            <nbsp/> Use <xref ref="pff_forall"></xref>,
             <xref ref="pff_and"></xref>,
             and <xref ref="pff_if_then_direct"></xref>
             to prove for any integers <m>a</m> and <m>b</m> if <m>a</m> is even and <m>b</m> is odd,
@@ -1183,10 +1184,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_divides_transitive">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <nbsp/> <xref ref="pff_forall">Use</xref>,
+            <nbsp/> Use <xref ref="pff_forall"></xref>,
             <xref ref="pff_if_then_direct"></xref>,
             and <xref ref="defn_divides"></xref>
             to prove that if <m>a \mid b</m> and <m>b \mid c</m>,
@@ -1198,7 +1199,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_pffifthen">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1223,12 +1224,12 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_last_digit_even_odd">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Prove that for any integer <m>n</m> and digit <m>s</m> that if <m>s</m> is even,
             then <m>10n+s</m> is even and if <m>s</m> is odd, then <m>10n+s</m> is odd.
-            <xref ref="pff_forall">Use</xref>,
+            Use <xref ref="pff_forall"></xref>,
             <xref ref="pff_and"></xref>,
             <xref ref="pff_if_then_direct"></xref>,
             and <xref ref="defn_even_odd"></xref>.
@@ -1241,11 +1242,11 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_EAthm_recursion">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             In this exercise,
-            we <xref ref="thm_Euclidean_algorithm">prove</xref>
+            we prove <xref ref="thm_Euclidean_algorithm"></xref>
             <xref ref="part_EAthm_recursion"/>.
             Let <m>a</m>, <m>n</m>, <m>q</m>,
             and <m>r</m> be integers such that <m>a = nq + r</m>.
@@ -1254,7 +1255,7 @@
             <ol>
               <li xml:id="part_EAthm_implies">
                 <p>
-                  <xref ref="pff_forall">Use</xref>,
+                  Use <xref ref="pff_forall"></xref>,
                   <xref ref="pff_if_then_direct"></xref>,
                   and <xref ref="defn_divides"></xref>
                   to prove that for any integer <m>d</m>,
@@ -1268,7 +1269,7 @@
               </li>
               <li xml:id="part_EAthm_converse">
                 <p>
-                  <xref ref="pff_forall">Use</xref>,
+                  Use <xref ref="pff_forall"></xref>,
                   <xref ref="pff_if_then_direct"></xref>,
                   and <xref ref="defn_divides"></xref>
                   to prove that for any integer <m>d</m>,
@@ -1297,9 +1298,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_neg_conditional">for</xref> \subnegcond</title>
+      <title>Exercises for <xref ref="sub_neg_conditional"></xref> Broken Promises: Negating Conditional Statements</title>
       <exercise xml:id="exer_cex_graphs_cond">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Each of the following statements is false.
@@ -1329,7 +1330,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_truthtable_neg_conditional">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Use a truth table to verify the equivalence in <xref ref="thm_broken_promise"></xref>.
@@ -1337,7 +1338,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_product_divides12">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Each of the following statements is false.
@@ -1360,24 +1361,24 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_negation_ifthen_graphs">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <xref ref="thm_broken_promise">Use</xref>
+            Use <xref ref="thm_broken_promise"></xref>
             to write the negation of each statement in a sentence.
             <ol>
               <li>
                 <p>
                   If a graph contains a 5-cycle, then contains a 4-cycle.
                   Note that by <xref ref="rem_default_universal"></xref>,
-                  this statement is universally quantified so <xref ref="thm_neg_quants">use</xref>.
+                  this statement is universally quantified so use <xref ref="thm_neg_quants"></xref>.
                 </p>
               </li>
               <li>
                 <p>
                   If two graphs <m>G</m> and <m>H</m> have the same degree sequence,
                   then they are isomorphic.
-                  Again, <xref ref="thm_neg_quants">use</xref>.
+                  Again, use <xref ref="thm_neg_quants"></xref>.
                 </p>
               </li>
               <li>
@@ -1392,11 +1393,11 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_negation_ifthen_even">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Each of the following statements is false.
-            First, find a counterexample and then <xref ref="thm_broken_promise">use</xref>
+            First, find a counterexample and then use <xref ref="thm_broken_promise"></xref>
             to write the negation of each statement in a sentence.
             Hint: Use DeMorgan's laws <xref ref="thm_demorgans"/>.
             <ol>
@@ -1417,7 +1418,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_neg_conditional">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1438,9 +1439,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_or_implication">for</xref> \subpfforimplication</title>
+      <title>Exercises for <xref ref="sub_pff_or_implication"></xref> Proof Formats: Proof of <m>\lor</m> Using Implication</title>
       <exercise xml:id="exer_integer_or_next_is_even">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Consider the following statement <m>S</m>: For any integer <m>n</m>,
@@ -1448,14 +1449,14 @@
             <ol>
               <li>
                 <p>
-                  <xref ref="thm_implication">Use</xref>
+                  Use <xref ref="thm_implication"></xref>
                   to rewrite <m>S</m> as a conditional statement without the word
                   <q>or</q>.
                 </p>
               </li>
               <li>
                 <p>
-                  <xref ref="pff_forall">Use</xref>
+                  Use <xref ref="pff_forall"></xref>
                   and <xref ref="pff_or_implication"></xref> to prove <m>S</m>.
                   Recall that if <m>n</m> is not even, then <m>n</m> is odd.
                 </p>
@@ -1465,7 +1466,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_no_zd_integers">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1489,12 +1490,12 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_no_zd_integers">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/> Consider the following conditional statement <m>S</m> from <xref ref="exer_no_zd_integers"></xref>: For any integers <m>a</m> and <m>b</m>,
             if <m>ab=0</m>, then <m>a=0</m> or <m>b=0</m>.
-            <xref ref="pff_forall">Use</xref>,
+            Use <xref ref="pff_forall"></xref>,
             <xref ref="pff_if_then_direct"></xref>,
             and <xref ref="pff_or_implication"></xref> to prove <m>S</m>.
             Hint: if <m>a \neq 0</m>,
@@ -1503,7 +1504,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_pfforimplication">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>

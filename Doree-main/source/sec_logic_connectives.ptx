@@ -67,9 +67,9 @@
     </activity>
   </introduction>
   <subsection xml:id="sub_and_or">
-    <title>\subandor</title>
+    <title>And and Or</title>
     <p>
-      <xref ref="act_TorF">In</xref>,
+      In <xref ref="act_TorF"></xref>,
       there are many words that indicate the logical structure of a statement.
       Two important such words are
       <q>and</q>
@@ -456,7 +456,7 @@
         </li>
         <li>
           <p>
-            <xref ref="table_truthtable_and_or">In</xref>
+            In <xref ref="table_truthtable_and_or"></xref>
             we included an intermediate column for <m>P \lor Q</m>.
             Convince yourself that we correctly started that column and complete it.
             Notice that we ignore the <m>R</m> column.
@@ -490,7 +490,7 @@
       </ol>
     </activity>
     <p>
-      Make sure that you have <xref ref="act_truthtable_and_or">completed</xref>
+      Make sure that you have completed <xref ref="act_truthtable_and_or"></xref>
       because we are going to reveal some of the answers.
     </p>
     <example xml:id="exam_distributive_equiv">
@@ -618,14 +618,14 @@
     </example>
   </subsection>
   <subsection xml:id="sub_pff_and_or">
-    <title>\subpffandor</title>
+    <title>Proof Formats: $\land$ and $\lor$ by Cases</title>
     <p>
       How can we prove statements involving and and or?
       To prove <m>P \land Q</m>, we need to prove two things:
       <m>P</m> and then <m>Q</m>.
       We can summarize this idea in a proof format.
     </p>
-    <proof>
+    <proof xml:id="pff_and">
     <p>
       Prove: <m>P \land Q</m>
     </p>
@@ -646,13 +646,13 @@
       and proof using the equivalent conditional in <xref ref="sub_pff_if_then"></xref>.
     </p>
     <p>
-      <xref ref="sub_pff_cases">In</xref> we introduced proof by cases.
+      In <xref ref="sub_pff_cases"></xref> we introduced proof by cases.
       In each case of the format in <xref ref="sub_pff_cases"></xref>,
       we proved the same statement.
       We can modify that proof format to prove
       <m>P \lor Q</m> by proving <m>P</m> in one case and <m>Q</m> in the other case.
     </p>
-    <proof>
+    <proof xml:id="pff_or_by_cases">
     <p>
       Prove: <m>P \lor Q</m>
     </p>
@@ -681,11 +681,11 @@
       This format can be modified to have more than two cases where in some cases <m>P</m> is true and in other cases <m>Q</m> is true.
       Officially, this is a new proof format.
     </p>
-    <proof>
+    <proof xml:id="pff_or_by_cases_generalized">
     <p>
       Prove: <m>P_1 \lor P_2 \lor \cdots \lor P_k</m>
     </p>
-    <proof>
+    <proof xml:id="pff_contradiction">
       <p>
         (Explain why there are <m>n</m> cases.) We consider <m>n</m> cases.
       </p>
@@ -745,7 +745,7 @@
               statement using cases.
               Prove that <m>n^2 \fn{ mod } 4 = 0</m> or
               <m>n^2 \fn{ mod } 4 = 1</m> for any integer <m>n</m>.
-              Yes, this proof <xref ref="exer_proof_cases_square_mod4">was</xref>
+              Yes, this proof was <xref ref="exer_proof_cases_square_mod4"></xref>
               in <xref ref="sec_div_alg"></xref>.
               <proof>
                 <p>
@@ -794,9 +794,9 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_logical_equivalence_negations">
-    <title>\subequivneg</title>
+    <title>Logical Equivalence and Negations</title>
     <p>
-      <xref ref="act_truthtable_and_or">In</xref>,
+      In <xref ref="act_truthtable_and_or"></xref>,
       we saw that the statements <m>(P \lor Q) \land R</m> and
       <m>(P \land R) \lor (Q \land R)</m> have the same final column in their truth table.
       That is, in each case
@@ -1053,7 +1053,7 @@
         <ol>
           <li>
             <p>
-              <xref ref="defn_and_or_xor">In</xref>,
+              In <xref ref="defn_and_or_xor"></xref>,
               we noted that the statement The integer seven is positive and odd. is true.
               Consider the general statement The integer <m>n</m> is positive and odd.
               Give examples of integers <m>n</m> where the statement is false,
@@ -1100,7 +1100,7 @@
       </p>
     </activity>
     <p>
-      <xref ref="act_not_and">In</xref>,
+      In <xref ref="act_not_and"></xref>,
       we saw that the negation of
       <m>P \land Q</m> is not <m>\neg P \land \neg Q</m>.
       For <m>P \land Q</m> to be false,
@@ -1128,7 +1128,7 @@
     </theorem>
   </subsection>
   <subsection xml:id="sub_pff_contra">
-    <title>\subpffcontra</title>
+    <title>Proof Format: Contradiction</title>
     <p>
       One method of proving that the statement <m>P</m> is true is to show that the assumption that <m>P</m> is false leads to a contradiction,
       such as a statement of the form <m>Q \land \neg Q</m>.
@@ -1298,9 +1298,9 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises <xref ref="sub_and_or">for</xref> \subandor</title>
+      <title>Exercises for <xref ref="sub_and_or"></xref> And and Or</title>
       <exercise xml:id="exer_standard_truthtables">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Copy the standard truth tables for each expression.
@@ -1325,7 +1325,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_translate_into_and_or">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             For this exercise, <m>n</m> is a specific
@@ -1350,7 +1350,7 @@
         </statement>
       </exercise>
       <exercise>
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Recall that a graph is a <term>tree</term>
@@ -1378,7 +1378,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_not_assoc">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1402,7 +1402,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_truthtable_distributive">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1430,7 +1430,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_and_or">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1472,36 +1472,36 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_and_or">for</xref> \subpffandor</title>
+      <title>Exercises for <xref ref="sub_pff_and_or"></xref> Proof Formats: $\land$ and $\lor$ by Cases</title>
       <exercise xml:id="exer_prove_odd_and_mult3">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="pff_and">Use</xref> to prove that 12 is even and <m>3 \mid 12</m>.
+            Use <xref ref="pff_and"></xref> to prove that 12 is even and <m>3 \mid 12</m>.
             Hint: Copy the proof in <xref ref="act_prove_and_orusingcases"></xref>
             <xref ref="part_pff_and_example"/> and edit as needed.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_nsqplusn_mod4">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
-            <xref ref="pff_or_by_cases">Use</xref>
+            Use <xref ref="pff_or_by_cases"></xref>
             to to prove that <m>n^2+2n \fn{ mod } 4 = 0</m> or
             <m>n^2+2n \fn{ mod } 4 = 3</m> for any integer <m>n</m>.
             Hint: Copy the proof in <xref ref="act_prove_and_orusingcases"></xref>
             <xref ref="part_pff_or_using_cases_example"/> and edit as needed.
-            Yes, this exercise <xref ref="act_prove_and_orusingcases">repeats</xref>
+            Yes, this exercise repeats <xref ref="act_prove_and_orusingcases"></xref>
             <xref ref="part_nsqplusn_mod4"/>.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_odd_and_mult3_general">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <xref ref="pff_and">Use</xref> to prove that <m>3n+6</m> is even and
+            Use <xref ref="pff_and"></xref> to prove that <m>3n+6</m> is even and
             <m>3 \mid (3n+6)</m> for any integer <m>n</m>.
             Hint: Copy the proof in <xref ref="act_prove_and_orusingcases"></xref>
             <xref ref="part_pff_and_example"/> and edit as needed.
@@ -1509,10 +1509,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_sq_mod5">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            Use Proof <xref ref="pff_or_by_cases_generalized">Format</xref>
+            Use Proof Format <xref ref="pff_or_by_cases_generalized"></xref>
             to prove that for any integer <m>n</m> we have <m>n^2 \fn{ mod } 5 = 0</m>,
             <m>n^2 \fn{ mod } 5 = 1</m>, or <m>n^2 \fn{ mod } 5 = 4</m>.
             Hint: By the Division Algorithm
@@ -1523,7 +1523,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_pff_and_or_by_cases">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1544,10 +1544,10 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_logical_equivalence_negations">for</xref>
-      \subequivneg</title>
+      <title>Exercises for <xref ref="sub_logical_equivalence_negations"></xref>
+      Logical Equivalence and Negations</title>
       <exercise xml:id="exer_my_first_negate">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Negate each statement about an integer <m>k</m>.
@@ -1577,7 +1577,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_my_first_demorgans">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Negate each statement about the integers <m>a</m> and <m>b</m>.
@@ -1603,7 +1603,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_translate_into_and_or_with_not">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             For this exercise, <m>n</m> is a specific
@@ -1638,7 +1638,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_truthtable_andornot">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -1665,10 +1665,10 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_truthtable_demorgan">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
-            <xref ref="act_not_and">In</xref>
+            In <xref ref="act_not_and"></xref>
             we verified the first of De Morgan's Laws <xref ref="thm_demorgans"/>.
             Construct truth tables to verify the second equivalence
             <me>
@@ -1679,7 +1679,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_equiv_negation">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1720,7 +1720,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_writing_xor_without_xor">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1751,9 +1751,9 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises <xref ref="sub_pff_contra">for</xref> \subpffcontra</title>
+      <title>Exercises for <xref ref="sub_pff_contra"></xref> Proof Format: Contradiction</title>
       <exercise xml:id="exer_prove_not_sum_3digits_equals25">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that there do not exist three distinct digits whose sum is equal to 25.
@@ -1765,30 +1765,30 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_contradiction_coins_in_cups">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             We have nine coins and four cups.
             We place each coin in a cup.
-            <xref ref="pff_contradiction">Use</xref>
+            Use <xref ref="pff_contradiction"></xref>
             to prove that some cup has three or more coins.
             Hint: The negation would be that each cup has two or fewer coins.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_contradiction_3reg_graph_order7">
-        <title>\exerP</title>
+        <title>Practice</title>
         <statement>
           <p>
             Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that there cannot exist a 3-regular graph of order 7.
-            Hint: <xref ref="thm_first_thm_graph_thy">By</xref>,
+            Hint: By <xref ref="thm_first_thm_graph_thy"></xref>,
             the number of edges in a graph is equal to half of the sum of the degrees of the vertices.
             On the other hand, the number of edges must be an integer.
           </p>
         </statement>
       </exercise>
       <exercise xml:id="exer_prove_bs_length5_three0s_or_three1s">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1811,7 +1811,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_contradiction_coprime">
-        <title>\exerU</title>
+        <title>Understand</title>
         <statement>
           <p>
             Suppose <m>a</m> and <m>b</m> are coprime integers and <m>p</m> is a positive prime.
@@ -1823,7 +1823,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_dyk_pff_contradiction">
-        <title>\exerR</title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1855,7 +1855,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_not_both_even_odd">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that an integer <m>n</m> cannot be even and odd.
@@ -1871,7 +1871,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_lg3_irrat">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             Copy the following proof and fill in the blanks.<fn>
@@ -1903,7 +1903,7 @@
           <p>
             On the other hand,
             any power of two is even and so <fillin/> is even and any power of three is odd and so <fillin/> is odd.
-            <xref ref="exer_not_both_even_odd">By</xref>,
+            By <xref ref="exer_not_both_even_odd"></xref>,
             an integer cannot be even and odd.
             Thus,
             <me>
@@ -1917,7 +1917,7 @@
         </proof>
       </exercise>
       <exercise xml:id="exer_proof_inf_many_primes">
-        <title>\exerE</title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/> Copy the following proof and fill in the blanks.
@@ -1941,7 +1941,7 @@
             First, <m>n = p_1(p_2p_3\cdots p_k)</m> so by the definition of
             <m>\underline{\hspace{1in}}</m> it follows that <m>p_1 \mid n</m>.
             Since <m>p_1</m> is prime, we know that <m>p_1 > 1</m>.
-            <xref ref="exer_consec_coprime">By</xref>,
+            By <xref ref="exer_consec_coprime"></xref>,
             we know that <m>\fn{gcd}(n,n+1) = \underline{\hspace{1in}}</m>.
             Since <m>p_1 > 1</m> and <m>p_1 \mid n</m>,
             it follows that <m>p_1 \nmid (n+1)</m>.
@@ -1987,7 +1987,7 @@
       <ol>
         <li xml:id="part_truthtable_dist1">
           <p>
-            <xref ref="table_truthtable_dist1">See</xref>.
+            See <xref ref="table_truthtable_dist1"></xref>.
             <table xml:id="table_truthtable_dist1">
               <title>Truth table for the compound statement <m>P \land (Q \lor R)</m></title>
               <tabular>
@@ -2176,7 +2176,7 @@
         </li>
         <li>
           <p>
-            Hint: <xref ref="rem_but_not">See</xref> and use <m>\nmid</m>.
+            Hint: See <xref ref="rem_but_not"></xref> and use <m>\nmid</m>.
             Include an example.
           </p>
         </li>
