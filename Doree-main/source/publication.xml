@@ -9,9 +9,12 @@
     <latex-image-preamble>
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \newcommand{\bs}[1]{\texttt{#1}}
 \newcommand{\str}[1]{\texttt{#1}}
 \newcommand{\thecbs}{1.1}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
     </latex-image-preamble>
   </source>
 </publication>
