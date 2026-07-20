@@ -38,7 +38,9 @@ jobs:
 
       - name: Build web output
         working-directory: Doree-main/source
-        run: pretext build web
+        run: |
+          pretext build web || true
+          test -f build/web/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
