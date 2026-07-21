@@ -1,0 +1,72 @@
+WARNING : Using CLI version 2.43.2 but project's `requirements.txt`
+WARNING : is configured to use 2.43.1. Consider either installing
+WARNING : CLI version 2.43.1 or running `pretext update-project`
+WARNING : to update `requirements.txt` and other managed files to match 2.43.2.
+INFO    : Building target web
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.2/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.43.2/core/xsl/utilities/pretext-enhanced-source.xsl
+WARNING : Schema validation could not be completed: no validator was available (jing is not installed and lxml could not compile the schema). Continuing with build.
+INFO    : Generating any needed assets.
+WARNING : Now generating latex images
+INFO    : converting latex-image pictures from /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx to svg graphics for placement in /workspaces/activediscreteTEST0312826/Doree-main/generated-assets/latex-image
+INFO    : extracting latex-image pictures from /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx
+INFO    : string parameters passed to extraction stylesheet: {'cli.version': '2.43', 'publisher': '/workspaces/activediscreteTEST0312826/Doree-main/source/publication.xml'}
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/assets
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.2/core/xsl/extract-latex-image.xsl
+INFO    : successful application of /home/codespace/.ptx/2.43.2/core/xsl/extract-latex-image.xsl
+INFO    : converting figure_factoring120-2.tex to figure_factoring120-2.pdf
+ERROR   : LaTeX compilation of figure_factoring120-2.tex failed.
+Re-run, requesting "source" as the format, to analyze the image.
+Likely creating the entire document as PDF will fail similarly.
+The transcript of the LaTeX run follows.
+WARNING : LaTeX compilation of figure_factoring120-2.tex failed
+INFO    : converting fig_shortcuts_barbells-2.tex to fig_shortcuts_barbells-2.pdf
+INFO    : cropping fig_shortcuts_barbells-2.pdf to cropped-fig_shortcuts_barbells-2.pdf
+INFO    : renaming cropped-fig_shortcuts_barbells-2.pdf to fig_shortcuts_barbells-2.pdf
+INFO    : converting fig_shortcuts_barbells-2.pdf to fig_shortcuts_barbells-2.svg
+INFO    : converting fig_four_real_fns-2.tex to fig_four_real_fns-2.pdf
+ERROR   : LaTeX compilation of fig_four_real_fns-2.tex failed.
+Re-run, requesting "source" as the format, to analyze the image.
+Likely creating the entire document as PDF will fail similarly.
+The transcript of the LaTeX run follows.
+WARNING : LaTeX compilation of fig_four_real_fns-2.tex failed
+ERROR   : Unable to generate some latex-image assets:
+ LaTeX compilation failed for 2 "latex-image"(s).
+Review the log for error messages, and LaTeX transcripts.
+Images are:
+  figure_factoring120-2.tex
+  fig_four_real_fns-2.tex
+INFO    : Removing temporary directory /tmp/ptx-emukrz72
+INFO    : Finished generating assets.
+
+INFO    : Building with custom xsl /workspaces/activediscreteTEST0312826/Doree-main/source/xsl/custom-html.xsl
+INFO    : Preparing to build into /workspaces/activediscreteTEST0312826/Doree-main/source/build/web.
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/assets
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.2/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /home/codespace/.ptx/2.43.2/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 8.1.14
+INFO    : Downloading Runestone Services, version 8.1.14
+INFO    : Extracting Runestone Services from archive file
+INFO    : Building custom css theme: theme-default-modern
+INFO    : converting /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx to HTML in /tmp/ptx-lo1fnir1
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /tmp/ptxcli_fv6bhgnv/cli_xsl/custom-html.xsl
+CRITICAL: Cannot resolve URI /tmp/ptxcli_fv6bhgnv/cli_xsl/pretext-html.xsl
+INFO    : ------------------------
+CRITICAL: Failed to build without errors.  Exiting...
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

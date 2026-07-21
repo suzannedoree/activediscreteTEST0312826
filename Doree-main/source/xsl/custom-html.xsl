@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:import href="pretext-html.xsl"/>
+  <xsl:import href="/home/codespace/.ptx/2.43.2/core/xsl/pretext-html.xsl"/>
+
+  <!-- Use lettered subsection numbers: 2.1.A, 2.1.B, ... -->
+  <xsl:template match="subsection" mode="serial-number">
+    <xsl:variable name="relative-level">
+      <xsl:apply-templates select="." mode="new-level" />
+    </xsl:variable>
+    <xsl:if test="not($relative-level &gt; $numbering-maxlevel)">
+      <xsl:number format="A" count="subsection"/>
+    </xsl:if>
+  </xsl:template>
+
+  <!-- Use lettered activity numbers within a section/chapter/article. -->
+  <xsl:template match="activity" mode="serial-number">
+    <xsl:number level="any" count="activity" from="section|chapter|appendix|article" format="A"/>
+  </xsl:template>
+
+  <!--
+    Exercise review subsubsections are titled "Exercises for ..." and should
+    not display a subsubsection codenumber.
+  -->
+  <xsl:template match="subsubsection[starts-with(normalize-space(title), 'Exercises for')]" mode="serial-number"/>
+
+  <!-- Render exercises expanded by default (no click-to-reveal knowls). -->
+  <xsl:template match="exercise" mode="is-hidden">
+    <xsl:text>false</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="exercises//exercise" mode="is-hidden">
+    <xsl:text>false</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="worksheet//exercise" mode="is-hidden">
+    <xsl:text>false</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="reading-questions//exercise" mode="is-hidden">
+    <xsl:text>false</xsl:text>
+  </xsl:template>
 
   <!--
     Inline exercises are rendered as local numbered items within a section,
@@ -40,4 +78,16 @@
       <xsl:with-param name="heading-level" select="$heading-level"/>
     </xsl:apply-templates>
   </xsl:template>
+
+  <!--
+    In activity/example/theorem/remark/definition/exercise blocks,
+    render first-level ordered-list parts as (a), (b), (c), ...
+  -->
+  <xsl:template
+    match="ol[not(ancestor::ol)][ancestor::*[self::activity or self::example or self::theorem or self::proposition or self::lemma or self::corollary or self::remark or self::definition or self::exercise]]"
+    mode="html-list-class">lower-alpha</xsl:template>
+
+  <xsl:template
+    match="ol[not(ancestor::ol)][ancestor::*[self::activity or self::example or self::theorem or self::proposition or self::lemma or self::corollary or self::remark or self::definition or self::exercise]]"
+    mode="ol-marker-class">lower-alpha-level-1</xsl:template>
 </xsl:stylesheet>
