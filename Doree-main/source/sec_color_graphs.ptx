@@ -558,6 +558,11 @@
             If not, where did you get stuck?
           </p>
         </statement>
+        <hint>
+        <p>
+          Note: You do not need to submit the screenshots.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_color_northestUS">
         <title>Practice</title>
@@ -597,6 +602,23 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Start with ND: red, SD: blue, MN: red.
+              Then, continue with states whose color must follow.
+              For example, Iowa (IA) must be green.
+              Continue.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Explain why the region formed by ND, SD, and MN needs three colors.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_color_maps">
         <title>Recap</title>
@@ -716,6 +738,43 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Draw the usual star with black and white vertices.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Two colors work.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Two colors work.
+            </p>
+          </li>
+          <li>
+            <p>
+              See <xref ref="fig_wheel6_3colored"></xref>.
+              <figure xml:id="fig_wheel6_3colored">
+                <caption>A 3-coloring of the wheel <m>W_6</m>.</caption>
+                <image width="60%">
+                  <latex-image>
+                    <xi:include href="Tikz/wheel6_3colored.tikz" parse="text"/>
+                  </latex-image>
+                </image>
+              </figure>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Two colors work.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_chromatic_number_classmates_graph">
         <title>Understand</title>
@@ -806,6 +865,25 @@
             </li>
           </ol>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Verify that you have colored all the vertices and that any pair of adjacent vertices is different colors.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Look for complete subgraphs.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: (a) tells us the chromatic number is at most four and (b) tells us the chromatic number is at least four.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_schedule_meetings">
         <title>Understand</title>
@@ -993,6 +1071,27 @@
             </li>
           </ol>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: An edge should indicate that the two committees have at least one member in common,
+              which means that that pair of committees cannot be scheduled at the same time.
+              The graph has seven vertices and 12 edges.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: yes
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Can we 4-color the graph?
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_chr_ineq">
         <title>Understand</title>
@@ -1014,6 +1113,21 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: <m>K_5</m> needs 5 colors,
+              so <m>G</m> needs 5 colors or maybe more colors.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Maybe <m>G</m> can be colored using fewer than 5 colors if we try again.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_color_graphs">
         <title>Recap</title>
@@ -1096,6 +1210,29 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Color <m>v_1</m> red, <m>v_2</m> blue,
+              <m>v_3</m> red, <ellipsis/>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: When we get to a new vertex to color,
+              how many colors are already used by its neighbors?
+              Explain why there is always at least one of the four colors available to color the new vertex?
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: We have found a 4-coloring of the graph.
+              What does that tell us about the chromatic number?
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_examples_chromatic_number">
         <title>Explore</title>
@@ -1122,6 +1259,33 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <p>
+          There are many correct answers to each part.
+          The hints describe how to build one such example.
+          <ol>
+            <li>
+              <p>
+                Hint: There are many correct answers.
+                Try starting with the star <m>K_{1,3}</m> which is a complete bipartite graph,
+                but then add more vertices and connect them with an edge to the leaves in <m>K_{1,3}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Hint: Start with <m>K_5</m> and add more to it,
+                making sure you can still 5-color the graph.
+              </p>
+            </li>
+            <li>
+              <p>
+                Hint: The graph does not have to be connected.
+                (And it cannot be connected.)
+              </p>
+            </li>
+          </ol>
+        </p>
+        </hint>
       </exercise>
     </subsubsection>
     <subsubsection>
@@ -1136,6 +1300,19 @@
             Some of your answers should involve <m>s</m> or <m>t</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: There are <m>s+t</m> vertices,
+          <em><nbsp/></em> edges, the degree sequence is
+          <me>
+            \underbrace{t,t,\ldots, t}_{s \text{ times } }\underbrace{s,s,\ldots, s}_{t \text{ times } }
+          </me>
+        </p>
+        <p>
+          (perhaps in the other order),
+          and the chromatic number is two.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_graph_conj_wheels">
         <title>Understand</title>
@@ -1147,6 +1324,14 @@
             Some of your answers should involve <m>s</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: There are <m>s+1</m> vertices,
+          there is exactly one vertex with degree <m>s</m>,
+          and the chromatic number is three or four depending on whether <m>s</m> is even or odd
+          (be sure to say which is which).
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_graph_conj_ladders">
         <title>Understand</title>
@@ -1158,6 +1343,23 @@
             Some of your answers should involve <m>t</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: There are four vertices of degree two,
+          and the rest have degree three.
+          One way to count edges is to add the number of horizontal edges in the first row,
+          the number of horizontal edges in the second row,
+          and the number of vertical rungs.
+        </p>
+        <figure xml:id="fig_grid_3x4">
+          <caption>The grid graph <m>L_{3 \times 4}</m>.</caption>
+          <image width="60%">
+            <latex-image>
+              <xi:include href="Tikz/L3x4.tikz" parse="text"/>
+            </latex-image>
+          </image>
+        </figure>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_graph_conj">
         <title>Recap</title>
@@ -1221,6 +1423,32 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: There are 12 vertices.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The graph is drawn in <xref ref="fig_grid_3x4"></xref>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Multiply
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Count the number of vertical edges.
+              Then count the number of horizontal edges.
+              Then add your answers.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_perfect_binary_trees">
         <title>Explore</title>
@@ -1347,247 +1575,5 @@
       </exercise>
     </subsubsection>
   </subsection>
-  <subsection>
-    <title>Select Answers and Hints</title>
-    <subsubsection>
-      <title><xref ref="exer_map_coloring_website"></xref> Select Answers and Hints</title>
-      <p>
-        Note: You do not need to submit the screenshots.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_midwest_color"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Start with ND: red, SD: blue, MN: red.
-            Then, continue with states whose color must follow.
-            For example, Iowa (IA) must be green.
-            Continue.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Explain why the region formed by ND, SD, and MN needs three colors.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_coloring_standard_graphs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Draw the usual star with black and white vertices.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Two colors work.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Two colors work.
-          </p>
-        </li>
-        <li>
-          <p>
-            See <xref ref="fig_wheel6_3colored"></xref>.
-            <figure xml:id="fig_wheel6_3colored">
-              <caption>A 3-coloring of the wheel <m>W_6</m>.</caption>
-              <image width="60%">
-                <latex-image>
-                  <xi:include href="Tikz/wheel6_3colored.tikz" parse="text"/>
-                </latex-image>
-              </image>
-            </figure>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Two colors work.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_color_complicated_graph"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Verify that you have colored all the vertices and that any pair of adjacent vertices is different colors.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Look for complete subgraphs.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: (a) tells us the chromatic number is at most four and (b) tells us the chromatic number is at least four.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_schedule_meetings"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: An edge should indicate that the two committees have at least one member in common,
-            which means that that pair of committees cannot be scheduled at the same time.
-            The graph has seven vertices and 12 edges.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: yes
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Can we 4-color the graph?
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_chr_ineq"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: <m>K_5</m> needs 5 colors,
-            so <m>G</m> needs 5 colors or maybe more colors.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Maybe <m>G</m> can be colored using fewer than 5 colors if we try again.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_graph_color_algorithm"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Color <m>v_1</m> red, <m>v_2</m> blue,
-            <m>v_3</m> red, <ellipsis/>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: When we get to a new vertex to color,
-            how many colors are already used by its neighbors?
-            Explain why there is always at least one of the four colors available to color the new vertex?
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: We have found a 4-coloring of the graph.
-            What does that tell us about the chromatic number?
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_examples_chromatic_number"></xref> Select Answers and Hints</title>
-      <p>
-        There are many correct answers to each part.
-        The hints describe how to build one such example.
-        <ol>
-          <li>
-            <p>
-              Hint: There are many correct answers.
-              Try starting with the star <m>K_{1,3}</m> which is a complete bipartite graph,
-              but then add more vertices and connect them with an edge to the leaves in <m>K_{1,3}</m>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Hint: Start with <m>K_5</m> and add more to it,
-              making sure you can still 5-color the graph.
-            </p>
-          </li>
-          <li>
-            <p>
-              Hint: The graph does not have to be connected.
-              (And it cannot be connected.)
-            </p>
-          </li>
-        </ol>
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_graph_conjecture_Kbst"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: There are <m>s+t</m> vertices,
-        <em><nbsp/></em> edges, the degree sequence is
-        <me>
-          \underbrace{t,t,\ldots, t}_{s \text{ times } }\underbrace{s,s,\ldots, s}_{t \text{ times } }
-        </me>
-      </p>
-      <p>
-        (perhaps in the other order),
-        and the chromatic number is two.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_graph_conj_wheels"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: There are <m>s+1</m> vertices,
-        there is exactly one vertex with degree <m>s</m>,
-        and the chromatic number is three or four depending on whether <m>s</m> is even or odd
-        (be sure to say which is which).
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_graph_conj_ladders"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: There are four vertices of degree two,
-        and the rest have degree three.
-        One way to count edges is to add the number of horizontal edges in the first row,
-        the number of horizontal edges in the second row,
-        and the number of vertical rungs.
-      </p>
-      <figure xml:id="fig_grid_3x4">
-        <caption>The grid graph <m>L_{3 \times 4}</m>.</caption>
-        <image width="60%">
-          <latex-image>
-            <xi:include href="Tikz/L3x4.tikz" parse="text"/>
-          </latex-image>
-        </image>
-      </figure>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_grid_graphs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: There are 12 vertices.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The graph is drawn in <xref ref="fig_grid_3x4"></xref>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Multiply
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Count the number of vertical edges.
-            Then count the number of horizontal edges.
-            Then add your answers.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-  </subsection>
+  
 </section>

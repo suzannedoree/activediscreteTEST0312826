@@ -1348,6 +1348,21 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>X \land R</m> which is true when <m>n=12</m>.
+              There are other correct examples.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: <m>\oplus</m>
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise>
         <title>Understand</title>
@@ -1428,6 +1443,100 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li xml:id="part_truthtable_dist1">
+            <p>
+              See <xref ref="table_truthtable_dist1"></xref>.
+              <table xml:id="table_truthtable_dist1">
+                <title>Truth table for the compound statement <m>P \land (Q \lor R)</m></title>
+                <tabular>
+                  <row>
+                    <cell><m>P</m></cell>
+                    <cell><m>Q</m></cell>
+                    <cell><m>R</m></cell>
+                    <cell><m>Q \lor R</m></cell>
+                    <cell><m>P \land (Q \lor R)</m></cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                    <cell></cell>
+                  </row>
+                  <row>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{T}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                  </row>
+                  <row>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                    <cell><m>\str{F}</m></cell>
+                  </row>
+                </tabular>
+              </table>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: You should get the same final column as in <xref ref="part_truthtable_dist1"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              They are logically equivalent.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_and_or">
         <title>Recap</title>
@@ -1482,6 +1591,11 @@
             <xref ref="part_pff_and_example"/> and edit as needed.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: <m>12 = 2(6)</m> and <m>12 = 3(4)</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_prove_nsqplusn_mod4">
         <title>Practice</title>
@@ -1496,6 +1610,18 @@
             <xref ref="part_nsqplusn_mod4"/>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint:
+          <me>
+            (2k)^2+2(2k) = 4k^2+4k = 4(\underline{\hspace{.5in}}) + 0
+          </me>
+          and
+          <me>
+            (2k+1)^2 + 2(2k+1) = 4k^2 + 8k + 3= 4(\underline{\hspace{.5in}}) + 3
+          </me>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_prove_odd_and_mult3_general">
         <title>Understand</title>
@@ -1507,6 +1633,13 @@
             <xref ref="part_pff_and_example"/> and edit as needed.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Make sure to copy all the words in the proof.
+          During the proof, you will need to write
+          <m>3n+6 = 2(\underline{\hspace{.5in}})</m> and <m>3n+6 = 3(\underline{\hspace{.5in}})</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sq_mod5">
         <title>Understand</title>
@@ -1521,6 +1654,19 @@
             or <m>4</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: The five cases are Case 1: Assume <m>n = 5q</m>; Case 2: Assume <m>n=5q+1</m>; Case 3: Assume <m>n=5q+2</m>; Case 4: Assume <m>n=5q+3</m>;
+          and Case 5: Assume <m>n=5q+4</m>.
+          In Case 4, for example, we have
+          <me>
+            n^2=(5q+3)^2=25q^2+30q+9=25q^2+30q+5+4=5(5q^2+6q+1)+4
+          </me>
+          and so <m>n^2 \fn{ mod } 5 = 4</m>.
+          Notice how we cleverly rewrite <m>9 = 5+4</m>.
+          That made it possible to factor 5 out of the 5 to show the remainder of 4.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_pff_and_or_by_cases">
         <title>Recap</title>
@@ -1575,6 +1721,30 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>k \neq 10</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Make sure your answer includes the possibility that <m>k=10</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k</m> is even.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Use <m>\nmid</m>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_my_first_demorgans">
         <title>Practice</title>
@@ -1601,6 +1771,27 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>a</m> is odd or <m>b</m> is odd
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Your answer should include
+              <q>and</q>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Your answer should include
+              <q>or</q>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_translate_into_and_or_with_not">
         <title>Understand</title>
@@ -1636,6 +1827,35 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>\neg X</m> An example is <m>n=10</m>.
+              There are other correct examples.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: See <xref ref="rem_but_not"></xref> and use <m>\nmid</m>.
+              Include an example.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: <m>R \land \neg X</m>.
+              Include an example.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: You may use parentheses in your answer,
+              but there is also a way to write it without parentheses.
+              Include an example.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_truthtable_andornot">
         <title>Practice</title>
@@ -1663,6 +1883,26 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: The truth table only needs two rows and is similar to the table in <xref ref="table_truthtable_contradiction"></xref>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The truth table needs four rows and is similar to the table in <xref ref="table_truthtable_andnot"></xref>.
+              The last column should have three <c>T</c> and one <c>F</c>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The last column should have one <c>T</c> and three <c>F</c>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_truthtable_demorgan">
         <title>Understand</title>
@@ -1677,6 +1917,99 @@
             Include some intermediate columns.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: One way to set up the truth table is shown in <xref ref="table_truthtable_demorgan"></xref>.
+          Feel free to copy the table,
+          check the third row, and then fill in the remaining entries.
+        </p>
+        <table xml:id="table_truthtable_demorgan">
+          <title>Truth table for the compound statement <m>P \land  (Q \lor R)</m></title>
+          <tabular>
+            <row>
+              <cell><m>P</m></cell>
+              <cell><m>Q</m></cell>
+              <cell><m>P \lor Q</m></cell>
+              <cell><m>\neg(P \lor Q)</m></cell>
+              <cell><m>\neg P</m></cell>
+              <cell><m>\neg Q</m></cell>
+              <cell><m>\neg P \land \neg Q</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\str{T}</m></cell>
+              <cell><m>\str{T}</m></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\str{T}</m></cell>
+              <cell><m>\str{F}</m></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\str{F}</m></cell>
+              <cell><m>\str{T}</m></cell>
+              <cell><m>\str{T}</m></cell>
+              <cell><m>\str{F}</m></cell>
+              <cell><m>\str{T}</m></cell>
+              <cell><m>\str{F}</m></cell>
+              <cell><m>\str{F}</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>\str{F}</m></cell>
+              <cell><m>\str{F}</m></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_equiv_negation">
         <title>Recap</title>
@@ -1763,6 +2096,26 @@
             What is the largest possible set of three distinct digits and what is their sum?
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Copy this proof filling in the missing parts.
+        </p>
+        <proof>
+          <p>
+            Suppose not.
+            Then there exist three distinct digits whose sum is equal to 25.
+          </p>
+          <p>
+            On the other hand,
+            the largest possible set of three distinct digits is
+            <m>\{ \underline{\hspace{.1in}}, \underline{\hspace{.1in}}, \underline{\hspace{.1in}}\}</m> and their sum is <m>\underline{\hspace{.1in}} + \underline{\hspace{.1in}}+\underline{\hspace{.1in}}=\underline{\hspace{.1in}} \neq 25</m>.
+          </p>
+          <p>
+            This is a contradiction.
+            Therefore, there do not exist three distinct digits whose sum is equal to 25.
+          </p>
+        </proof>
+        </hint>
       </exercise>
       <exercise xml:id="exer_contradiction_coins_in_cups">
         <title>Practice</title>
@@ -1786,6 +2139,18 @@
             On the other hand, the number of edges must be an integer.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: If there were such a graph,
+          the sum of the degrees of the vertices would be
+          <me>
+            3+3+3+3+3+3+3=7(3)=21
+          </me>.
+        </p>
+        <p>
+          Then, use the hint.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_prove_bs_length5_three0s_or_three1s">
         <title>Understand</title>
@@ -1809,6 +2174,22 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: In the hint
+              <q>fewer than three <c>0</c> s</q>
+              means the number of <c>0</c> s is less than or equal to two.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: DeMorgan's Law.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_contradiction_coprime">
         <title>Understand</title>
@@ -1821,6 +2202,13 @@
             statement.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: If <m>p \mid a</m> and <m>p \mid b</m>,
+          then <m>p</m> is a positive common divisor of <m>a</m> and <m>b</m> that is greater than one.
+          What does that tell you about <m>\fn{gcd}(a,b)</m>?
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_pff_contradiction">
         <title>Recap</title>
@@ -1964,410 +2352,5 @@
       </exercise>
     </subsubsection>
   </subsection>
-  <subsection>
-    <title>Select Answers and Hints</title>
-    <subsubsection>
-      <title><xref ref="exer_translate_into_and_or"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>X \land R</m> which is true when <m>n=12</m>.
-            There are other correct examples.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: <m>\oplus</m>
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_truthtable_distributive"></xref> Select Answers and Hints</title>
-      <ol>
-        <li xml:id="part_truthtable_dist1">
-          <p>
-            See <xref ref="table_truthtable_dist1"></xref>.
-            <table xml:id="table_truthtable_dist1">
-              <title>Truth table for the compound statement <m>P \land (Q \lor R)</m></title>
-              <tabular>
-                <row>
-                  <cell><m>P</m></cell>
-                  <cell><m>Q</m></cell>
-                  <cell><m>R</m></cell>
-                  <cell><m>Q \lor R</m></cell>
-                  <cell><m>P \land (Q \lor R)</m></cell>
-                </row>
-                <row bottom="minor">
-                  <cell></cell>
-                  <cell></cell>
-                  <cell></cell>
-                  <cell></cell>
-                  <cell></cell>
-                </row>
-                <row>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                </row>
-                <row>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                </row>
-                <row>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                </row>
-                <row>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                </row>
-                <row>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                </row>
-                <row>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                </row>
-                <row>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{T}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                </row>
-                <row>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                  <cell><m>\str{F}</m></cell>
-                </row>
-              </tabular>
-            </table>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: You should get the same final column as in <xref ref="part_truthtable_dist1"/>.
-          </p>
-        </li>
-        <li>
-          <p>
-            They are logically equivalent.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_prove_odd_and_mult3"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: <m>12 = 2(6)</m> and <m>12 = 3(4)</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_prove_nsqplusn_mod4"></xref> Select Answers and Hints</title>
-      <p>
-        Hint:
-        <me>
-          (2k)^2+2(2k) = 4k^2+4k = 4(\underline{\hspace{.5in}}) + 0
-        </me>
-        and
-        <me>
-          (2k+1)^2 + 2(2k+1) = 4k^2 + 8k + 3= 4(\underline{\hspace{.5in}}) + 3
-        </me>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_prove_odd_and_mult3_general"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Make sure to copy all the words in the proof.
-        During the proof, you will need to write
-        <m>3n+6 = 2(\underline{\hspace{.5in}})</m> and <m>3n+6 = 3(\underline{\hspace{.5in}})</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_sq_mod5"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: The five cases are Case 1: Assume <m>n = 5q</m>; Case 2: Assume <m>n=5q+1</m>; Case 3: Assume <m>n=5q+2</m>; Case 4: Assume <m>n=5q+3</m>;
-        and Case 5: Assume <m>n=5q+4</m>.
-        In Case 4, for example, we have
-        <me>
-          n^2=(5q+3)^2=25q^2+30q+9=25q^2+30q+5+4=5(5q^2+6q+1)+4
-        </me>
-        and so <m>n^2 \fn{ mod } 5 = 4</m>.
-        Notice how we cleverly rewrite <m>9 = 5+4</m>.
-        That made it possible to factor 5 out of the 5 to show the remainder of 4.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_my_first_negate"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>k \neq 10</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Make sure your answer includes the possibility that <m>k=10</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>k</m> is even.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Use <m>\nmid</m>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_my_first_demorgans"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>a</m> is odd or <m>b</m> is odd
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Your answer should include
-            <q>and</q>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Your answer should include
-            <q>or</q>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_translate_into_and_or_with_not"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>\neg X</m> An example is <m>n=10</m>.
-            There are other correct examples.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: See <xref ref="rem_but_not"></xref> and use <m>\nmid</m>.
-            Include an example.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: <m>R \land \neg X</m>.
-            Include an example.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: You may use parentheses in your answer,
-            but there is also a way to write it without parentheses.
-            Include an example.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_truthtable_andornot"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: The truth table only needs two rows and is similar to the table in <xref ref="table_truthtable_contradiction"></xref>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The truth table needs four rows and is similar to the table in <xref ref="table_truthtable_andnot"></xref>.
-            The last column should have three <c>T</c> and one <c>F</c>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The last column should have one <c>T</c> and three <c>F</c>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_truthtable_demorgan"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: One way to set up the truth table is shown in <xref ref="table_truthtable_demorgan"></xref>.
-        Feel free to copy the table,
-        check the third row, and then fill in the remaining entries.
-      </p>
-      <table xml:id="table_truthtable_demorgan">
-        <title>Truth table for the compound statement <m>P \land  (Q \lor R)</m></title>
-        <tabular>
-          <row>
-            <cell><m>P</m></cell>
-            <cell><m>Q</m></cell>
-            <cell><m>P \lor Q</m></cell>
-            <cell><m>\neg(P \lor Q)</m></cell>
-            <cell><m>\neg P</m></cell>
-            <cell><m>\neg Q</m></cell>
-            <cell><m>\neg P \land \neg Q</m></cell>
-          </row>
-          <row bottom="minor">
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-          </row>
-          <row>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-          </row>
-          <row bottom="minor">
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-          </row>
-          <row>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{F}</m></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-          </row>
-          <row bottom="minor">
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-          </row>
-          <row>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{F}</m></cell>
-          </row>
-          <row bottom="minor">
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-          </row>
-          <row>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{F}</m></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-          </row>
-        </tabular>
-      </table>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_prove_not_sum_3digits_equals25"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Copy this proof filling in the missing parts.
-      </p>
-      <proof>
-        <p>
-          Suppose not.
-          Then there exist three distinct digits whose sum is equal to 25.
-        </p>
-        <p>
-          On the other hand,
-          the largest possible set of three distinct digits is
-          <m>\{ \underline{\hspace{.1in}}, \underline{\hspace{.1in}}, \underline{\hspace{.1in}}\}</m> and their sum is <m>\underline{\hspace{.1in}} + \underline{\hspace{.1in}}+\underline{\hspace{.1in}}=\underline{\hspace{.1in}} \neq 25</m>.
-        </p>
-        <p>
-          This is a contradiction.
-          Therefore, there do not exist three distinct digits whose sum is equal to 25.
-        </p>
-      </proof>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_contradiction_3reg_graph_order7"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: If there were such a graph,
-        the sum of the degrees of the vertices would be
-        <me>
-          3+3+3+3+3+3+3=7(3)=21
-        </me>.
-      </p>
-      <p>
-        Then, use the hint.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_prove_bs_length5_three0s_or_three1s"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: In the hint
-            <q>fewer than three <c>0</c> s</q>
-            means the number of <c>0</c> s is less than or equal to two.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: DeMorgan's Law.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_contradiction_coprime"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: If <m>p \mid a</m> and <m>p \mid b</m>,
-        then <m>p</m> is a positive common divisor of <m>a</m> and <m>b</m> that is greater than one.
-        What does that tell you about <m>\fn{gcd}(a,b)</m>?
-      </p>
-    </subsubsection>
-  </subsection>
+  
 </section>

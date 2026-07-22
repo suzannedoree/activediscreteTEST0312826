@@ -40,6 +40,11 @@
     <xsl:text>false</xsl:text>
   </xsl:template>
 
+  <!-- Render authored hints as collapsed knowls by default. -->
+  <xsl:template match="hint" mode="is-hidden">
+    <xsl:text>true</xsl:text>
+  </xsl:template>
+
   <!--
     Inline exercises are rendered as local numbered items within a section,
     e.g. "1. Practice", "2. Understand", instead of "Checkpoint 2.1.20 ...".

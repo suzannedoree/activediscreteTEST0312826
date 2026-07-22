@@ -491,6 +491,11 @@
             <m>3 \mid (4^n-1)</m> for all integers <m>n \ge 1</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Copy and edit the proof from <xref ref="act_div_proof_math_ind"></xref>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_every_int_even_or_odd">
         <title>Understand</title>
@@ -546,6 +551,32 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li xml:id="part_edges_K1_math_ind_ans">
+            <p>
+              Hint: <m>1-1=0</m>
+            </p>
+          </li>
+          <li xml:id="part_edges_Kn_math_ind_ans">
+            <p>
+              <m>\frac{(n-1)(n-2)}{2}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint for the first blank: Fill in the answer to <xref ref="part_edges_K1_math_ind_ans"/>.
+              Hint for the second blank: <m>P(n)</m> is
+              <q>The graph <m>K_n</m> has <m>f(n)</m> edges.</q>
+              Fill in the blank with <m>P(n-1)</m>.
+              Hint for the third blank: First,
+              use your answer to <xref ref="part_edges_Kn_math_ind_ans"/>,
+              then write <m>n-1 = \frac{2(n-1)}{2}</m> so the fractions have a common denominator,
+              and then add the fractions.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_number_subsets">
         <title>Understand</title>
@@ -647,6 +678,12 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <p>
+          The answers, in some order, are <m>\frac{n-1}{2n-1}</m>,
+          <m>\frac{n(n-1)}{2}</m>, and <m>\frac{2n-2}{n}</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_eval_fofnminus1_exponentials">
         <title>Practice</title>
@@ -672,6 +709,29 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: If you evaluate your answer at <m>n=3</m>, you should get 7.
+              If you did not get that,
+              check that you calculated <m>(n-1)^2=(n-1)(n-1)</m> correctly.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: One factor is <m>2n-1</m>.
+              If you did not get that,
+              check that you entered <m>(n-1)</m> in parentheses.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: It does not simplify much.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_eval_fofnminus1_polynomials">
         <title>Practice</title>
@@ -744,6 +804,21 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Your answer should be one fraction with denominator 2.
+              It should involve <m>3^{n+1}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: <m>n = \frac{2n}{2}</m>
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_fofnminus1_induction">
         <title>Recap</title>
@@ -782,6 +857,11 @@
             Use mathematical induction to prove <m>a_n = 3\cdot 10^n</m> for <m>n \ge 0</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Copy and edit the proof from <xref ref="act_pff_math_ind_seq"></xref>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_arith">
         <title>Practice</title>
@@ -791,6 +871,13 @@
             Use mathematical induction to prove <m>b_n = 3n+1</m> for <m>n \ge 0</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Copy and edit the proof from <xref ref="act_pff_math_ind_seq"></xref>.
+          When you evaluate <m>f(n-1)</m>,
+          make sure <m>(n-1)</m> is in parentheses.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_alt">
         <title>Practice</title>
@@ -810,6 +897,12 @@
             We saw this sequence in <xref ref="exam_double_and_add3"></xref>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Notice that we are using <m>k</m> instead of <m>n</m>.
+          Some useful algebra facts are <m>2\cdot 2^{k+1}=2^{k+2}</m> and <m>2(-3)=-6</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_frac">
         <title>Understand</title>
@@ -819,6 +912,13 @@
             Use mathematical induction to prove <m>s_m = \frac{5^m-1}{4}</m> for <m>m \ge 0</m>
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Notice that we are using <m>m</m> instead of <m>n</m>.
+          Some useful algebra facts are
+          <m>5(5^m-1) = 5^{m+1}-5</m> and <m>1 = \frac{4}{4}</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_hs">
         <title>Understand</title>
@@ -828,6 +928,12 @@
             Use mathematical induction to prove <m>u_n = \frac{n(n+1)}{2}</m> for <m>n \ge 1</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Some useful algebraic facts are <m>(n-1)n = n^2-n</m>,
+          <m>n = \frac{2n}{2}</m>, and <m>n^2+n=n(n+1)</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_factorial">
         <title>Understand</title>
@@ -837,6 +943,11 @@
             Use mathematical induction to prove <m>v_n = n!</m> for <m>n \ge 1</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: <m>7\cdot 6! = (7)(6)(5)(4)(3)(2)(1)=7!</m> Use this idea to simplify <m>n(n-1)!</m>
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_quadratic">
         <title>Understand</title>
@@ -846,6 +957,11 @@
             Use mathematical induction to prove <m>x_n =n^2 + n + 1</m> for <m>n \ge 0</m>
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Make sure you have correctly simplified <m>(n-1)^2=(n-1)(n-1)</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_verify_explicit_induction">
         <title>Recap</title>
@@ -916,135 +1032,5 @@
       </exercise>
     </subsubsection>
   </subsection>
-  <subsection>
-    <title>Select Answers and Hints</title>
-    <subsubsection>
-      <title><xref ref="exer_divisibility_proof_induction"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Copy and edit the proof from <xref ref="act_div_proof_math_ind"></xref>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_count_edges_Kn_proof_ind"></xref> Select Answers and Hints</title>
-      <ol>
-        <li xml:id="part_edges_K1_math_ind_ans">
-          <p>
-            Hint: <m>1-1=0</m>
-          </p>
-        </li>
-        <li xml:id="part_edges_Kn_math_ind_ans">
-          <p>
-            <m>\frac{(n-1)(n-2)}{2}</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint for the first blank: Fill in the answer to <xref ref="part_edges_K1_math_ind_ans"/>.
-            Hint for the second blank: <m>P(n)</m> is
-            <q>The graph <m>K_n</m> has <m>f(n)</m> edges.</q>
-            Fill in the blank with <m>P(n-1)</m>.
-            Hint for the third blank: First,
-            use your answer to <xref ref="part_edges_Kn_math_ind_ans"/>,
-            then write <m>n-1 = \frac{2(n-1)}{2}</m> so the fractions have a common denominator,
-            and then add the fractions.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_eval_fofnminus1_linears"></xref> Select Answers and Hints</title>
-      <p>
-        The answers, in some order, are <m>\frac{n-1}{2n-1}</m>,
-        <m>\frac{n(n-1)}{2}</m>, and <m>\frac{2n-2}{n}</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_eval_fofnminus1_exponentials"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: If you evaluate your answer at <m>n=3</m>, you should get 7.
-            If you did not get that,
-            check that you calculated <m>(n-1)^2=(n-1)(n-1)</m> correctly.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: One factor is <m>2n-1</m>.
-            If you did not get that,
-            check that you entered <m>(n-1)</m> in parentheses.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: It does not simplify much.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_simplify_ind_alg_frac"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Your answer should be one fraction with denominator 2.
-            It should involve <m>3^{n+1}</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: <m>n = \frac{2n}{2}</m>
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_geom"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Copy and edit the proof from <xref ref="act_pff_math_ind_seq"></xref>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_arith"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Copy and edit the proof from <xref ref="act_pff_math_ind_seq"></xref>.
-        When you evaluate <m>f(n-1)</m>,
-        make sure <m>(n-1)</m> is in parentheses.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_exp"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Notice that we are using <m>k</m> instead of <m>n</m>.
-        Some useful algebra facts are <m>2\cdot 2^{k+1}=2^{k+2}</m> and <m>2(-3)=-6</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_frac"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Notice that we are using <m>m</m> instead of <m>n</m>.
-        Some useful algebra facts are
-        <m>5(5^m-1) = 5^{m+1}-5</m> and <m>1 = \frac{4}{4}</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_hs"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Some useful algebraic facts are <m>(n-1)n = n^2-n</m>,
-        <m>n = \frac{2n}{2}</m>, and <m>n^2+n=n(n+1)</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_factorial"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: <m>7\cdot 6! = (7)(6)(5)(4)(3)(2)(1)=7!</m> Use this idea to simplify <m>n(n-1)!</m>
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_quadratic"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Make sure you have correctly simplified <m>(n-1)^2=(n-1)(n-1)</m>.
-      </p>
-    </subsubsection>
-  </subsection>
+  
 </section>

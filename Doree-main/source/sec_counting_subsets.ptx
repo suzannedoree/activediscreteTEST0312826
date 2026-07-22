@@ -713,6 +713,40 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              When <m>k=0</m>, the only 0-element subset is <m>\varnothing</m>,
+              and so <m>\binom{3}{0}=1</m>.
+              When <m>k=1</m>, the 1-element subsets are <m>\{1\}</m>,
+              <m>\{2\}</m>, and <m>\{3\}</m>,
+              and so <m>\binom{3}{1}=3</m>.
+              When <m>k-2</m>, the 2-element subsets are <m>\{1,2\}</m>,
+              <m>\{1,3\}</m>, and <m>\{2,3\}</m>,
+              and so <m>\binom{3}{2}=3</m>.
+              When <m>k=3</m>, the only 3-element subset is <m>\{1,2,3\}</m>,
+              and so <m>\binom{3}{3}=1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: You should get <m>\binom{2}{0}=1</m>,
+              <m>\binom{2}{1}=2</m>, and <m>\binom{2}{2}=1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The only subsets of <m>\{1\}</m> are <m>\varnothing</m> and <m>\{1\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The only subset of <m>\varnothing</m> is <m>\varnothing</m>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_course_selection">
         <title>Practice</title>
@@ -771,6 +805,25 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>\binom{50}{2}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\binom{24}{3}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: choose four out of <m>17 + 46 = 63</m> books.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_eval_edge_binomial_coeffs">
         <title>Understand</title>
@@ -796,6 +849,25 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: The only 0-element subset is <m>\varnothing</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: <m>\binom{n}{1}=n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The only <m>n</m>-element subset is <m>S</m>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_binomial_coeffs">
         <title>Recap</title>
@@ -846,6 +918,20 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Choose five out of 52.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>4\binom{13}{5}</m>
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_volleyball">
         <title>Practice</title>
@@ -881,6 +967,32 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>\binom{21}{16}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Choose six out of 16.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Step 1 choose the players as in (a) and then step 2 choose the starter as in (b).
+              Recall that by <xref ref="thm_steps_multiply"></xref>,
+              we multiply the answers of each step.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Now there is a third step.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_library_books_complicated">
         <title>Understand</title>
@@ -910,6 +1022,26 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>\binom{24}{2}\binom{46}{1}</m>,
+              or just <m>46\binom{24}{2}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are two steps.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are three steps.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_pizza_options">
         <title>Understand</title>
@@ -949,6 +1081,40 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: there are a total of
+              <m>5+3+12=20</m> toppings and we want to choose three.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(5)(3)(12)</m> Note: It would also be correct to have <m>\binom{5}{1}\binom{3}{1}\binom{12}{1}</m>,
+              but since <m>\binom{n}{1}=n</m>,
+              it is simpler to write the numbers.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\binom{5}{2}\binom{3}{1}\binom{12}{3}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are three cases.
+              Case 1 is one meat, two cheeses, and no vegetables.
+              Case 2 is two meats, one cheese, and no vegetables.
+              Case 3 is one meat, one cheese,
+              and one vegetable as in (b).
+              In each case, the steps multiply and then,
+              by <xref ref="thm_cases_add"></xref>,
+              add the answers from the three cases.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_unbounded">
         <title>Understand</title>
@@ -985,6 +1151,34 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>\binom{27}{5}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The word
+              <q>or</q>
+              indicates cases.
+              Find the answer in each case and then add them together.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(27)(26)(25)(24)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Choose one officer and then choose two students who are not officers.
+              Your answer should involve the number 23.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_combining_counting">
         <title>Recap</title>
@@ -1132,6 +1326,12 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: in (b) start with ``Consider a group of <m>n</m> employees.
+          How many ways are there to choose <m>k</m> employees to be on a project team where one member of the team is the project manager?
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_outside_chair">
         <title>Understand</title>
@@ -1193,6 +1393,16 @@
             of whom <m>k</m> will be starters.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Follow the hint.
+          The first way to count is the usual order:
+          choose the players, and then choose the starters.
+          The second way to count is the reverse order:
+          choose the starters,
+          and then choose the rest of the players from the rest of the students who tried out.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_pff_comb_pf">
         <title>Recap</title>
@@ -1247,246 +1457,23 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>3n^2+3\binom{n}{2}</m> Hint: Consider six cases and then simplify the answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Suppose that there are <m>n</m> cats and <m>m</m> dogs and we want to choose three pets.
+              Consider cases and simplify your final answer.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
     </subsubsection>
   </subsection>
-  <subsection>
-    <title>Select Answers and Hints</title>
-    <subsubsection>
-      <title><xref ref="exer_eval_binomial_coeffs_list_subsets"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            When <m>k=0</m>, the only 0-element subset is <m>\varnothing</m>,
-            and so <m>\binom{3}{0}=1</m>.
-            When <m>k=1</m>, the 1-element subsets are <m>\{1\}</m>,
-            <m>\{2\}</m>, and <m>\{3\}</m>,
-            and so <m>\binom{3}{1}=3</m>.
-            When <m>k-2</m>, the 2-element subsets are <m>\{1,2\}</m>,
-            <m>\{1,3\}</m>, and <m>\{2,3\}</m>,
-            and so <m>\binom{3}{2}=3</m>.
-            When <m>k=3</m>, the only 3-element subset is <m>\{1,2,3\}</m>,
-            and so <m>\binom{3}{3}=1</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: You should get <m>\binom{2}{0}=1</m>,
-            <m>\binom{2}{1}=2</m>, and <m>\binom{2}{2}=1</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The only subsets of <m>\{1\}</m> are <m>\varnothing</m> and <m>\{1\}</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The only subset of <m>\varnothing</m> is <m>\varnothing</m>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_library_books"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>\binom{50}{2}</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\binom{24}{3}</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: choose four out of <m>17 + 46 = 63</m> books.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_eval_edge_binomial_coeffs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: The only 0-element subset is <m>\varnothing</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: <m>\binom{n}{1}=n</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The only <m>n</m>-element subset is <m>S</m>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_5card_hands"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Choose five out of 52.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>4\binom{13}{5}</m>
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_volleyball"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>\binom{21}{16}</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Choose six out of 16.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Step 1 choose the players as in (a) and then step 2 choose the starter as in (b).
-            Recall that by <xref ref="thm_steps_multiply"></xref>,
-            we multiply the answers of each step.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Now there is a third step.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_library_books_complicated"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>\binom{24}{2}\binom{46}{1}</m>,
-            or just <m>46\binom{24}{2}</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: There are two steps.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: There are three steps.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_pizza_options"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: there are a total of
-            <m>5+3+12=20</m> toppings and we want to choose three.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>(5)(3)(12)</m> Note: It would also be correct to have <m>\binom{5}{1}\binom{3}{1}\binom{12}{1}</m>,
-            but since <m>\binom{n}{1}=n</m>,
-            it is simpler to write the numbers.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\binom{5}{2}\binom{3}{1}\binom{12}{3}</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: There are three cases.
-            Case 1 is one meat, two cheeses, and no vegetables.
-            Case 2 is two meats, one cheese, and no vegetables.
-            Case 3 is one meat, one cheese,
-            and one vegetable as in (b).
-            In each case, the steps multiply and then,
-            by <xref ref="thm_cases_add"></xref>,
-            add the answers from the three cases.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_unbounded"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>\binom{27}{5}</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The word
-            <q>or</q>
-            indicates cases.
-            Find the answer in each case and then add them together.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>(27)(26)(25)(24)</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Choose one officer and then choose two students who are not officers.
-            Your answer should involve the number 23.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_comb_proof_teamandleader_generalized"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: in (b) start with ``Consider a group of <m>n</m> employees.
-        How many ways are there to choose <m>k</m> employees to be on a project team where one member of the team is the project manager?
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_team_starter"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Follow the hint.
-        The first way to count is the usual order:
-        choose the players, and then choose the starters.
-        The second way to count is the reverse order:
-        choose the starters,
-        and then choose the rest of the players from the rest of the students who tried out.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_expand_binomial_coeffs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>3n^2+3\binom{n}{2}</m> Hint: Consider six cases and then simplify the answer.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Suppose that there are <m>n</m> cats and <m>m</m> dogs and we want to choose three pets.
-            Consider cases and simplify your final answer.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-  </subsection>
+  
 </section>

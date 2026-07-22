@@ -918,6 +918,11 @@
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n(2k -1)=n^2</m> for <m>n\ge 1</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hints: Make sure you use parentheses in <m>f(n-1)=(n-1)^2</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_evens">
         <title>Practice</title>
@@ -935,6 +940,18 @@
             We saw this sum in <xref ref="act_fact_rep"></xref>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: To simplify <m>n!-1+nn!</m>,
+          first put the factorials together and factor to get
+          <me>
+            n!+nn!-1 = (1+n)n!-1
+          </me>.
+        </p>
+        <p>
+          Now, simplify <m>(1+n)n!</m> using <m>(1+n)=(n+1)</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_geom_sum5">
         <title>Practice</title>
@@ -943,6 +960,15 @@
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n4 \cdot 5^k = 5^{n+1}-1</m> for <m>n\ge 1</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: To simplify <m>5^n-1+4\cdot5^n</m>,
+          first put the powers of five together and factor to get
+          <me>
+            5^n+4\cdot5^n-1 = 5^n(1+4)-1 = 5^n\cdot5 - 1
+          </me>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_prod_1plus_recip">
         <title>Practice</title>
@@ -951,6 +977,11 @@
             Use mathematical induction to prove that <m>\displaystyle \prod_{k=1}^n \left(1 + \frac{1}{k}\right) = n+1</m> for <m>n\ge 1</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Note that <m>\displaystyle 1 + \frac{1}{n} = \frac{n}{n} + \frac{1}{n} =\frac{n+1}{n}</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_prod_evens">
         <title>Practice</title>
@@ -959,6 +990,12 @@
             Use mathematical induction to prove that <m>\displaystyle \prod_{j=1}^n(2j) = 2^nn!</m> for <m>n \ge 1</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Note that <m>f(n-1) = 2^{n-1}(n-1)!</m>.
+          Simplify <m>\left(2^{n-1}(n-1)!\right)(2n)</m> by collecting the powers of two and separately collecting the factorial.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_firstn_Fib_proof">
         <title>Practice</title>
@@ -968,6 +1005,14 @@
             <m>\displaystyle\sum_{k=1}^nF_k = F_{n+2}-1</m> for <m>n \ge 1</m> where <m>F_n</m> are the Fibonacci numbers.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Note that <m>f(n-1) = F_{n+1}-1</m> and that the Fibonacci sequence includes
+          <me>
+            \ldots, F_n, F_{n+1}, F_{n+2}, \ldots
+          </me>
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_4kplus1">
         <title>Understand</title>
@@ -976,6 +1021,11 @@
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n(4k-1) = n(2n+1)</m> for <m>n\ge 0</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Use two sets of parentheses to evaluate <m>f(n-1)</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_recip_powers2">
         <title>Understand</title>
@@ -993,6 +1043,14 @@
             <m>\displaystyle\sum_{k=1}^nF_k^2= F_nF_{n+1}</m> for <m>n \ge 1</m> where <m>F_n</m> are the Fibonacci numbers.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hints: Note that
+          <me>
+            F_{n-1}F_n + F_n^2 = F_n(F_{n-1} + F_n)
+          </me>
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_alt_fib_proof">
         <title>Understand</title>
@@ -1010,6 +1068,19 @@
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk \cdot 2^k = (n-1)2^{n+1}+2</m> for <m>n \ge 1</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Make sure to use parentheses when evaluating <m>f(n-1)</m>.
+          Also, note that
+          <me>
+            n2^n + n2^n = 2n2^n=n(2\cdot2^n)
+          </me>
+          and
+          <me>
+            n2^{n+1}-2^{n+1}=(n-1)2^{n+1}
+          </me>
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_alt_sq">
         <title>Understand</title>
@@ -1133,6 +1204,28 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              <m>n-k</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Step 1 is to pick <m>k</m> out of <m>n</m> cats.
+              Step 2 is to pick <m>n-k</m> out of <m>n</m> dogs.
+              Steps multiply.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are <m>n+n=2n</m> animals to start,
+              so after we pick a favorite animal there are <m>2n-1</m> animals remaining.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_comb_pf_sum_binom_sq">
         <title>Understand</title>
@@ -1147,6 +1240,13 @@
             Condition on <m>k=</m> the number of cats chosen.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hints: Make sure to choose <m>n</m> animals in total.
+          If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
+          Look at <xref ref="thm_sym_arith_triangle"></xref>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_comb_pf_sum_weighted_binom_sq">
         <title>Understand</title>
@@ -1161,6 +1261,14 @@
             Condition on <m>k=</m> the number of cats chosen.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hints: Make sure to choose <m>n</m> animals in total.
+          If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
+          Also, look at <xref ref="exer_count_cats_dogs"></xref>
+          <xref ref="part_picked_fav_cat"/>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_comb_pf_sums">
         <title>Recap</title>
@@ -1324,6 +1432,20 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: The answer is just less than 20,000.
+            </p>
+          </li>
+          <li>
+            <p>
+              10
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_eval_sum_formulas_polys">
         <title>Practice</title>
@@ -1349,6 +1471,25 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: The answer is less than 50.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer is just over 200.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer is just under 1,300.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_using_sum_formulas_polys_lin">
         <title>Understand</title>
@@ -1380,6 +1521,20 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Use <xref ref="thm_geom_sum_finite"></xref>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Write the product as a single power of <m>x</m> where the exponent is a sum written in sigma notation.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_special_sums">
         <title>Recap</title>
@@ -1577,177 +1732,5 @@
       </exercise>
     </subsubsection>
   </subsection>
-  <subsection>
-    <title>Select Answers and Hints</title>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_sum_odds"></xref> Select Answers and Hints</title>
-      <p>
-        Hints: Make sure you use parentheses in <m>f(n-1)=(n-1)^2</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_sum_factorials"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: To simplify <m>n!-1+nn!</m>,
-        first put the factorials together and factor to get
-        <me>
-          n!+nn!-1 = (1+n)n!-1
-        </me>.
-      </p>
-      <p>
-        Now, simplify <m>(1+n)n!</m> using <m>(1+n)=(n+1)</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_geom_sum5"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: To simplify <m>5^n-1+4\cdot5^n</m>,
-        first put the powers of five together and factor to get
-        <me>
-          5^n+4\cdot5^n-1 = 5^n(1+4)-1 = 5^n\cdot5 - 1
-        </me>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_prod_1plus_recip"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Note that <m>\displaystyle 1 + \frac{1}{n} = \frac{n}{n} + \frac{1}{n} =\frac{n+1}{n}</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_prod_evens"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Note that <m>f(n-1) = 2^{n-1}(n-1)!</m>.
-        Simplify <m>\left(2^{n-1}(n-1)!\right)(2n)</m> by collecting the powers of two and separately collecting the factorial.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_sum_firstn_Fib_proof"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Note that <m>f(n-1) = F_{n+1}-1</m> and that the Fibonacci sequence includes
-        <me>
-          \ldots, F_n, F_{n+1}, F_{n+2}, \ldots
-        </me>
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_sum_4kplus1"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Use two sets of parentheses to evaluate <m>f(n-1)</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_sum_firstn_Fib_sq_proof"></xref> Select Answers and Hints</title>
-      <p>
-        Hints: Note that
-        <me>
-          F_{n-1}F_n + F_n^2 = F_n(F_{n-1} + F_n)
-        </me>
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_math_ind_sum_multpowers2"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Make sure to use parentheses when evaluating <m>f(n-1)</m>.
-        Also, note that
-        <me>
-          n2^n + n2^n = 2n2^n=n(2\cdot2^n)
-        </me>
-        and
-        <me>
-          n2^{n+1}-2^{n+1}=(n-1)2^{n+1}
-        </me>
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_count_cats_dogs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            <m>n-k</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Step 1 is to pick <m>k</m> out of <m>n</m> cats.
-            Step 2 is to pick <m>n-k</m> out of <m>n</m> dogs.
-            Steps multiply.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: There are <m>n+n=2n</m> animals to start,
-            so after we pick a favorite animal there are <m>2n-1</m> animals remaining.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_comb_pf_sum_binom_sq"></xref> Select Answers and Hints</title>
-      <p>
-        Hints: Make sure to choose <m>n</m> animals in total.
-        If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
-        Look at <xref ref="thm_sym_arith_triangle"></xref>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_comb_pf_sum_weighted_binom_sq"></xref> Select Answers and Hints</title>
-      <p>
-        Hints: Make sure to choose <m>n</m> animals in total.
-        If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
-        Also, look at <xref ref="exer_count_cats_dogs"></xref>
-        <xref ref="part_picked_fav_cat"/>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_eval_sum_formulas_geom"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: The answer is just less than 20,000.
-          </p>
-        </li>
-        <li>
-          <p>
-            10
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_eval_sum_formulas_polys"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: The answer is less than 50.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The answer is just over 200.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The answer is just under 1,300.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_sum_prod_powersofx"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Use <xref ref="thm_geom_sum_finite"></xref>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Write the product as a single power of <m>x</m> where the exponent is a sum written in sigma notation.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-  </subsection>
+  
 </section>

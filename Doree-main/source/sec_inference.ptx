@@ -1023,6 +1023,30 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              If <m>P \land P</m> is true, then <m>P</m> is true and <m>P</m> is true.
+              That is, <m>P</m> is true.
+              On the other hand, if <m>P \land P</m> is false,
+              then <m>P</m> is false or <m>P</m> is false.
+              That is, <m>P</m> is false.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Follow the format from (a).
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Follow the hint.
+              It should never be false.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_truthtable_assoc">
         <title>Practice</title>
@@ -1036,6 +1060,16 @@
             <m>Q \land R</m> and <m>P \land Q</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Your truth table should have seven columns:
+          <m>P</m>, <m>Q</m>, <m>R</m>, <m>Q \land R</m>,
+          <m>P \land (Q \land R)</m>, <m>P \land Q</m>,
+          and <m>(P \land Q) \land R</m>.
+          Your truth table should have eight rows.
+          The fifth column and the seventh column should match.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_xor_equiv">
         <title>Understand</title>
@@ -1056,6 +1090,31 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: If <m>P \oplus Q</m> is true,
+              then <m>P</m> is true or <m>Q</m> is true, but not both.
+              Since at least one of <m>P</m> or <m>Q</m> is true,
+              it follows that <m>P \lor Q</m> is true.
+              Since not both are true, it follows that <m>P \land Q</m> is false.
+              That is, <m>\neg(P \land Q)</m> is true.
+              Thus, <m>(P \lor Q) \land \neg(P \land Q)</m> is true.
+              Now explain what happens if <m>P \oplus Q</m> is false.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Your truth table should have seven columns <m>P</m>,
+              <m>Q</m>, <m>P \oplus Q</m>, <m>P \lor Q</m>, <m>P \land Q</m>,
+              <m>\neg(P \land Q)</m>, and <m>(P \lor Q) \land \neg (P \land Q)</m>.
+              Your truth table should have four rows.
+              The third and seventh columns should match.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_proof_equiv_broken_promise">
         <title>Understand</title>
@@ -1094,6 +1153,12 @@
             </tabular>
           </table>
         </statement>
+        <hint>
+        <p>
+          Hint: The three reasons, in some order,
+          are DeMorgan's laws, double negation, and implication.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_proof_equiv_PtoQtoR">
         <title>Understand</title>
@@ -1148,6 +1213,12 @@
             </tabular>
           </table>
         </statement>
+        <hint>
+        <p>
+          Hint: The proof uses the associative property, DeMorgan's laws,
+          and implication.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_proof_mp_using_equiv">
         <title>Understand</title>
@@ -1159,6 +1230,13 @@
             to prove <m>((P \land (P \to Q)) \to Q) \equiv \str{T}</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: The first three reasons are, in some order,
+          the distributive property, implication, and negation.
+          Other reasons used include DeMorgan's laws and identity.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_simplify_equiv">
         <title>Understand</title>
@@ -1167,6 +1245,15 @@
             Use equivalences to simplify <m>(P \land Q) \lor (P \land \neg Q)</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Start with the distributive property to get
+          <me>
+            (P \land Q) \lor (P \land \neg Q) \equiv P \land (Q \lor \neg Q)
+          </me>.
+          Next, use negation.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_another_equiv_ifthen">
         <title>Understand</title>
@@ -1298,6 +1385,25 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              The answer is <m>\neg P \lor Q</m> Show the steps of your work and state which equivalences you use.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer has no negations.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Use broken promise.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_neg_complicated_and_or">
         <title>Understand</title>
@@ -1340,6 +1446,21 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              The answer is <m>P \land (\neg Q \land R)</m>.
+              Show the steps of your work and state which equivalences you use.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The answer includes <m>\lor</m>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_simplify_neg">
         <title>Recap</title>
@@ -1415,6 +1536,11 @@
             it follows that <fillin/>.<nbsp/> <nbsp/><m>\Box</m>
           </p>
         </statement>
+        <hint>
+        <p>
+          <m>Q \land P</m>, <m>Q</m>
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_prove_complicated_infer">
         <title>Practice</title>
@@ -1439,6 +1565,11 @@
             it follows that <m>Q \land R</m>.<nbsp/> <nbsp/><m>\Box</m>
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: The proof uses conjunction and <em>modus ponens</em>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_proof_doublemp_equiv_infer">
         <title>Practice</title>
@@ -1465,6 +1596,23 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: The proof uses <em>modus ponens</em> twice.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Use simplification, but be careful.
+              It says <m>P \land Q \implies P</m>.
+              If you later want to conclude <m>Q</m> instead,
+              you need to use the commutative property first.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_or_form_mp">
         <title>Understand</title>
@@ -1538,6 +1686,11 @@
             <nbsp/> <nbsp/><m>\Box</m>
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: The first blank should say <m>(P \to R) \land (Q \to R)</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_proof_infer_random">
         <title>Understand</title>
@@ -1602,6 +1755,11 @@
             <m>\Box</m>
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: The second blank is <m>\neg(P \land Q)</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_proof_infer_contradiction">
         <title>Understand</title>
@@ -1615,6 +1773,13 @@
             Hint: Start with conjunction.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Use conjunction to get <m>(\neg P \to Q) \land (\neg P \to \neg Q)</m>.
+          Next, use implication (twice), double negation (twice),
+          the distributive property, negation, and then identity.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_logical_inference">
         <title>Recap</title>
@@ -1655,187 +1820,5 @@
       </exercise>
     </subsubsection>
   </subsection>
-  <subsection>
-    <title>Select Answers and Hints</title>
-    <subsubsection>
-      <title><xref ref="exer_understanding_equiv_negTF"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            If <m>P \land P</m> is true, then <m>P</m> is true and <m>P</m> is true.
-            That is, <m>P</m> is true.
-            On the other hand, if <m>P \land P</m> is false,
-            then <m>P</m> is false or <m>P</m> is false.
-            That is, <m>P</m> is false.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Follow the format from (a).
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Follow the hint.
-            It should never be false.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_truthtable_assoc"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Your truth table should have seven columns:
-        <m>P</m>, <m>Q</m>, <m>R</m>, <m>Q \land R</m>,
-        <m>P \land (Q \land R)</m>, <m>P \land Q</m>,
-        and <m>(P \land Q) \land R</m>.
-        Your truth table should have eight rows.
-        The fifth column and the seventh column should match.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_xor_equiv"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: If <m>P \oplus Q</m> is true,
-            then <m>P</m> is true or <m>Q</m> is true, but not both.
-            Since at least one of <m>P</m> or <m>Q</m> is true,
-            it follows that <m>P \lor Q</m> is true.
-            Since not both are true, it follows that <m>P \land Q</m> is false.
-            That is, <m>\neg(P \land Q)</m> is true.
-            Thus, <m>(P \lor Q) \land \neg(P \land Q)</m> is true.
-            Now explain what happens if <m>P \oplus Q</m> is false.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Your truth table should have seven columns <m>P</m>,
-            <m>Q</m>, <m>P \oplus Q</m>, <m>P \lor Q</m>, <m>P \land Q</m>,
-            <m>\neg(P \land Q)</m>, and <m>(P \lor Q) \land \neg (P \land Q)</m>.
-            Your truth table should have four rows.
-            The third and seventh columns should match.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_proof_equiv_broken_promise"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: The three reasons, in some order,
-        are DeMorgan's laws, double negation, and implication.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_proof_equiv_PtoQtoR"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: The proof uses the associative property, DeMorgan's laws,
-        and implication.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_proof_mp_using_equiv"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: The first three reasons are, in some order,
-        the distributive property, implication, and negation.
-        Other reasons used include DeMorgan's laws and identity.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_simplify_equiv"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Start with the distributive property to get
-        <me>
-          (P \land Q) \lor (P \land \neg Q) \equiv P \land (Q \lor \neg Q)
-        </me>.
-        Next, use negation.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_neg_simple_2vars"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            The answer is <m>\neg P \lor Q</m> Show the steps of your work and state which equivalences you use.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The answer has no negations.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Use broken promise.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_neg_ifthen"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            The answer is <m>P \land (\neg Q \land R)</m>.
-            Show the steps of your work and state which equivalences you use.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The answer includes <m>\lor</m>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_proof_PandQimpliesQ"></xref> Select Answers and Hints</title>
-      <p>
-        <m>Q \land P</m>, <m>Q</m>
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_prove_complicated_infer"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: The proof uses conjunction and <em>modus ponens</em>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_proof_doublemp_equiv_infer"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: The proof uses <em>modus ponens</em> twice.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Use simplification, but be careful.
-            It says <m>P \land Q \implies P</m>.
-            If you later want to conclude <m>Q</m> instead,
-            you need to use the commutative property first.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_proof_equiv_infer_proof_by_cases"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: The first blank should say <m>(P \to R) \land (Q \to R)</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_proof_infer_random2"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: The second blank is <m>\neg(P \land Q)</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_proof_infer_contradiction"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Use conjunction to get <m>(\neg P \to Q) \land (\neg P \to \neg Q)</m>.
-        Next, use implication (twice), double negation (twice),
-        the distributive property, negation, and then identity.
-      </p>
-    </subsubsection>
-  </subsection>
+  
 </section>

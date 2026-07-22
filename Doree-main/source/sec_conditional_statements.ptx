@@ -945,6 +945,20 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              When <m>k=3</m> we have <m>2k+5 = 2(3) + 5 = 11</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Now explain how to solve the equation.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_verify_addition">
         <title>Practice</title>
@@ -954,6 +968,16 @@
             Include an intermediate column for <m>P \lor Q</m>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: The truth table should have four columns:
+          <m>P</m>, <m>Q</m>, <m>P \lor Q</m>, <m>P \to (P \lor Q)</m>.
+          The truth table should also have four rows,
+          as in <xref ref="exam_truthtable_conditionals"></xref>.
+          To show that the statement is a tautology,
+          the last column of your truth table should be all <c>T</c> s.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_truthtable_PimpliesnegQ">
         <title>Practice</title>
@@ -1026,6 +1050,18 @@
             (for 2 cases).
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Your truth table should have eight columns:
+          <m>P</m>, <m>Q</m>, <m>R</m>,
+          <m>P \to R</m>, <m>Q \to R</m>,
+          <m>(P \to R) \land (Q \to R)</m>, <m>P \lor Q</m>,
+          and <m>(P \lor Q) \to R</m>.
+          Your truth table should also have eight rows,
+          as in <xref ref="exam_distributive_equiv"></xref>.
+          The sixth and eighth columns should be the same.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_rewrite_implication">
         <title>Understand</title>
@@ -1047,6 +1083,23 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              If you do not take a break from playing that video game,
+              then I will take away your controller for a week.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Your answer should not have any negative words
+              (like
+              <q>not</q>).
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_iften">
         <title>Recap</title>
@@ -1154,6 +1207,17 @@
             How can you write <m>n = 3(~)</m>?
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: The proof begins
+        </p>
+        <blockquote>
+          <em>Proof.</em>  Let <m>n</m> be an integer.  Assume <m>6 \mid n</m>.  By definition of divides, \ldots
+        </blockquote>
+        <p>
+          Then use the hint.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_divides_square_proof">
         <title>Practice</title>
@@ -1182,6 +1246,17 @@
             (You cannot use the same integer <m>k</m> for both.)
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Here is an outline of the proof.
+        </p>
+        <blockquote>
+          <em>Proof.</em>  Let <m>a</m> and <m>b</m> be integers.  Assume \ldots.
+          By the definitions of even and odd, we can write \ldots (use hint)
+          Then, first, <m>a+b=</m> \ldots. Thus, \ldots.
+          Next, <m>ab =</m> \ldots. Thus, \ldots.
+        </blockquote>
+        </hint>
       </exercise>
       <exercise xml:id="exer_divides_transitive">
         <title>Understand</title>
@@ -1197,6 +1272,15 @@
             You cannot use the same integer <m>k</m> for both.
           </p>
         </statement>
+        <hint>
+        <blockquote>
+          <em>Proof.</em>  Let <m>a</m>, <m>b</m>, and <m>c</m> be integers.  Assume <m>a \mid b</m> and <m>b \mid c</m>. By the definitions of divides, we can write <m>b=ak_1</m> and <m>c=bk_2</m> for some integers <m>k_1</m> and <m>k_2</m>. Then,
+          <me>
+            c = bk_2 = (ak_1)k_2 = a(k_1k_2) = ak
+          </me>
+          where <m>k = k_1k_2</m> is an integer.  Thus, by definition of divides, <m>a \mid c</m>.  <m>\Box</m>
+        </blockquote>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_pffifthen">
         <title>Recap</title>
@@ -1240,6 +1324,24 @@
             then that integer is odd.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Here is an outline of the proof.
+        </p>
+        <blockquote>
+          <em>Proof.</em>  Let <m>n</m> be an integer and let <m>s</m> be a digit.
+          First, assume <m>s</m> is even.  By definition of even we can write <m>s=</m> \ldots.  Then
+          <me>
+            10n+s = \ldots = 2k'
+          </me>
+          where <m>k' = \ldots</m> is an integer.  Thus <m>10n+s</m> is even.
+          Next, assume <m>s</m> is odd.  By definition of odd we can write <m>s=</m> \ldots.  Then
+          <me>
+            10n+s = \ldots = 2k'+1
+          </me>
+          where <m>k' = \ldots</m> is an integer.  Thus <m>10n+s</m> is odd.
+        </blockquote>
+        </hint>
       </exercise>
       <exercise xml:id="exer_proof_EAthm_recursion">
         <title>Explore</title>
@@ -1328,6 +1430,26 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Your graph should contain a 5-cycle.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Your graphs should not be isomorphic.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: To show the counterexample,
+              draw <m>P_6</m> and label two of the vertices <m>v</m> and <m>w</m>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_truthtable_neg_conditional">
         <title>Understand</title>
@@ -1359,6 +1481,23 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: One possible counterexample is <m>a = 6</m> and <m>b = 4</m>.
+              Try to find a different counterexample.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Check that your counterexample has <m>12 \mid ab</m>,
+              <m>12 \nmid a</m>, and <m>12 \nmid b</m>.
+              (We used DeMorgan's laws.)
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_negation_ifthen_graphs">
         <title>Understand</title>
@@ -1391,6 +1530,27 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              There is a graph that contains a 5-cycle but does not contain a 4-cycle.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Your negation should not include the word
+              <q>if</q>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Your negation should not include the word
+              <q>if</q>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_negation_ifthen_even">
         <title>Understand</title>
@@ -1416,6 +1576,25 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              For some integers <m>a</m> and <m>b</m>,
+              <m>a+b</m> is even, but <m>a</m> is odd and <m>b</m> is odd.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Make sure you understand how we got the answer to part (a).
+              Your negation should not include the words
+              <q>if</q>
+              or
+              <q>and</q>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_neg_conditional">
         <title>Recap</title>
@@ -1525,198 +1704,5 @@
       </exercise>
     </subsubsection>
   </subsection>
-  <subsection>
-    <title>Select Answers and Hints</title>
-    <subsubsection>
-      <title><xref ref="exer_explain_cond_true"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            When <m>k=3</m> we have <m>2k+5 = 2(3) + 5 = 11</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Now explain how to solve the equation.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_verify_addition"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: The truth table should have four columns:
-        <m>P</m>, <m>Q</m>, <m>P \lor Q</m>, <m>P \to (P \lor Q)</m>.
-        The truth table should also have four rows,
-        as in <xref ref="exam_truthtable_conditionals"></xref>.
-        To show that the statement is a tautology,
-        the last column of your truth table should be all <c>T</c> s.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_truthtable_proof_cases"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Your truth table should have eight columns:
-        <m>P</m>, <m>Q</m>, <m>R</m>,
-        <m>P \to R</m>, <m>Q \to R</m>,
-        <m>(P \to R) \land (Q \to R)</m>, <m>P \lor Q</m>,
-        and <m>(P \lor Q) \to R</m>.
-        Your truth table should also have eight rows,
-        as in <xref ref="exam_distributive_equiv"></xref>.
-        The sixth and eighth columns should be the same.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_rewrite_implication"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            If you do not take a break from playing that video game,
-            then I will take away your controller for a week.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Your answer should not have any negative words
-            (like
-            <q>not</q>).
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_mult6_is_mult3"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: The proof begins
-      </p>
-      <blockquote>
-        <em>Proof.</em>  Let <m>n</m> be an integer.  Assume <m>6 \mid n</m>.  By definition of divides, \ldots
-      </blockquote>
-      <p>
-        Then use the hint.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_proof_sums_prod_even_odd"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Here is an outline of the proof.
-      </p>
-      <blockquote>
-        <em>Proof.</em>  Let <m>a</m> and <m>b</m> be integers.  Assume \ldots.
-        By the definitions of even and odd, we can write \ldots (use hint)
-        Then, first, <m>a+b=</m> \ldots. Thus, \ldots.
-        Next, <m>ab =</m> \ldots. Thus, \ldots.
-      </blockquote>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_divides_transitive"></xref> Select Answers and Hints</title>
-      <blockquote>
-        <em>Proof.</em>  Let <m>a</m>, <m>b</m>, and <m>c</m> be integers.  Assume <m>a \mid b</m> and <m>b \mid c</m>. By the definitions of divides, we can write <m>b=ak_1</m> and <m>c=bk_2</m> for some integers <m>k_1</m> and <m>k_2</m>. Then,
-        <me>
-          c = bk_2 = (ak_1)k_2 = a(k_1k_2) = ak
-        </me>
-        where <m>k = k_1k_2</m> is an integer.  Thus, by definition of divides, <m>a \mid c</m>.  <m>\Box</m>
-      </blockquote>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_last_digit_even_odd"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Here is an outline of the proof.
-      </p>
-      <blockquote>
-        <em>Proof.</em>  Let <m>n</m> be an integer and let <m>s</m> be a digit.
-        First, assume <m>s</m> is even.  By definition of even we can write <m>s=</m> \ldots.  Then
-        <me>
-          10n+s = \ldots = 2k'
-        </me>
-        where <m>k' = \ldots</m> is an integer.  Thus <m>10n+s</m> is even.
-        Next, assume <m>s</m> is odd.  By definition of odd we can write <m>s=</m> \ldots.  Then
-        <me>
-          10n+s = \ldots = 2k'+1
-        </me>
-        where <m>k' = \ldots</m> is an integer.  Thus <m>10n+s</m> is odd.
-      </blockquote>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_cex_graphs_cond"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Your graph should contain a 5-cycle.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Your graphs should not be isomorphic.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: To show the counterexample,
-            draw <m>P_6</m> and label two of the vertices <m>v</m> and <m>w</m>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_product_divides12"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: One possible counterexample is <m>a = 6</m> and <m>b = 4</m>.
-            Try to find a different counterexample.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Check that your counterexample has <m>12 \mid ab</m>,
-            <m>12 \nmid a</m>, and <m>12 \nmid b</m>.
-            (We used DeMorgan's laws.)
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_negation_ifthen_graphs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            There is a graph that contains a 5-cycle but does not contain a 4-cycle.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Your negation should not include the word
-            <q>if</q>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Your negation should not include the word
-            <q>if</q>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_negation_ifthen_even"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            For some integers <m>a</m> and <m>b</m>,
-            <m>a+b</m> is even, but <m>a</m> is odd and <m>b</m> is odd.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Make sure you understand how we got the answer to part (a).
-            Your negation should not include the words
-            <q>if</q>
-            or
-            <q>and</q>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-  </subsection>
+  
 </section>

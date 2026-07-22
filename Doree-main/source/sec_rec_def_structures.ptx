@@ -972,6 +972,22 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Look at the number of <c>1</c> s.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: If you start with <em>R1</em>
+              you can show <c>101</c> is proper,
+              but there is no way to add <c>1</c> s on only the right.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_properbs_length6">
         <title>Understand</title>
@@ -999,6 +1015,26 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Use <em>R1</em> to turn proper bit strings of length five into proper bit strings of length six.
+              Then use <em>R2</em> to generate the remaining proper bit strings of length six.
+            </p>
+          </li>
+          <li>
+            <p>
+              13
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: How does 13 relate to 8 and 5?
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_properbs_count">
         <title>Understand</title>
@@ -1008,6 +1044,14 @@
             including initial conditions.
           </p>
         </statement>
+        <hint>
+        <p>
+          Hint: Your recursion should use <m>p_{n-1}</m> and <m>p_{n-2}</m>.
+          Also, since the recursion involves the two previous terms,
+          you need two initial terms to start:
+          <m>p_0</m> and <m>p_1</m>.
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_proper_bs">
         <title>Recap</title>
@@ -1068,6 +1112,29 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: One possible answer is any bit string that consists only of <c>0</c> s:
+              <c>0</c>,
+              <c>00</c>,
+              <c>000</c>, etc.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Find another type of bit string that is always proper.
+              Make sure there are infinitely many bit strings of this type
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Count the number of <c>0</c> s.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_properbs_start">
         <title>Explore</title>
@@ -1137,6 +1204,21 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: <m>8 = 3+5</m> so we can use <em>B1</em>,
+              then <em>B2</em>, then <em>R</em>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Only 3, 5, and 6.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_coins_3and5_add1">
         <title>Understand</title>
@@ -1170,6 +1252,29 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Solve for <m>n</m> and use that <m>5+1=6=3+3</m>.
+              Explain which parts of the definition you use.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Now use <m>3+3+3+1=10=5+5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: If we did not use any 5s,
+              then <m>n-1</m> is built out of 3s.
+              Two threes is only <m>3+3=6</m>,
+              but <m>n \ge 8</m> so <m>n-1 \ge 7</m>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_rec_def_sets">
         <title>Recap</title>
@@ -1201,6 +1306,19 @@
             <xref ref="part_math_ind_coins_2and3"/>.
           </p>
         </statement>
+        <hint>
+        <p>
+          Another hint: Break the inductive step into two cases based on whether somewhere in the process of constructing <m>n-1</m> we used <em>B2</em>.
+          In the case where we used <em>B2</em>,
+          use <xref ref="exer_coins_3and5_add1"></xref>
+          <xref ref="part_3and5_trade5_for6"/>.
+          In the case where we did not use <em>B2</em>,
+          cite <xref ref="exer_coins_3and5_add1"></xref>
+          <xref ref="part_3and5_cases"/> to show that we must have used
+          <em>B1</em> at least three times.
+          Then apply <xref ref="exer_coins_3and5_add1"></xref><xref ref="part_3and5_trade9_for10"/>
+        </p>
+        </hint>
       </exercise>
       <exercise xml:id="exer_aandb_set">
         <title>Explore</title>
@@ -1298,6 +1416,32 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: <m>T_3</m> has three vertices.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: <m>v_6=15</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Make sure you count the root vertex.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Make a table showing <m>n</m>, <m>w_n</m>,
+              and <m>v_n</m> for <m>n=3,4,5,6</m>.
+              The values of <m>v_n</m> are almost twice <m>w_n</m>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_rec_def_star_graphs">
         <title>Understand</title>
@@ -1340,6 +1484,35 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: <m>G_5</m> has five vertices <mdash/> one original vertex and four other vertices each connected by an edge to the original vertex.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>v_1=1</m> and <m>v_n=v_{n-1}+1</m> for <m>n\ge 2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: <m>v_5=5</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: We add one edge each time.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: <m>e_5=5</m>
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_rec_def_windmill_graphs">
         <title>Understand</title>
@@ -1378,6 +1551,40 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: <m>M_2=C_3</m> and <m>M_3</m> looks like a bowtie
+              (<m>\bowtie</m>).
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: How many new vertices do we add?
+              Check that your definition gives <m>v_4 = 7</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Make a table showing <m>n</m> and <m>v_n</m> for <m>n=1,2,3,4</m>.
+              Check that your definition gives <m>v_4 = 7</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: How many new edges do we add?
+              Check that your definition gives <m>e_4=9</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: make a table showing <m>n</m> and <m>e_n</m> for <m>n=1,2,3,4</m>.
+              Check that your definition gives <m>e_4=9</m>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_rec_ladder_graphs">
         <title>Understand</title>
@@ -1411,6 +1618,32 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: Assume the original <m>P_2</m> is drawn vertically.
+              At each step,
+              add vertices to the right and explain what edges are added.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The recursive rule is of the form
+              <m>v_s = v_{s-1} +</m> the number of new vertices.
+              The explicit rule involves <m>s</m> (and no previous terms.)
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The recursive rule is of the form
+              <m>e_s = e_{s-1} +</m> the number of new edges.
+              For the explicit rule,
+              count the number of edges in each path and the number of additional edges between each pair of corresponding vertices.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_rec_defn_complete_graphs">
         <title>Understand</title>
@@ -1443,6 +1676,34 @@
             </ol>
           </p>
         </statement>
+        <hint>
+        <ol>
+          <li>
+            <p>
+              Hint: See <xref ref="defn_complete_completebipartite"></xref>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Start with a single vertex.
+              At each step,
+              explain how many new vertices to add and which new edges to add.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Make sure you used <m>v_{s-1}</m>.
+              Check that <m>v_5=5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Make sure you used <m>e_{s-1}</m>.
+              Check that <m>e_5=10</m>.
+            </p>
+          </li>
+        </ol>
+        </hint>
       </exercise>
       <exercise xml:id="exer_rec_defn_adj_mat_complete_graphs">
         <title>Understand</title>
@@ -1524,280 +1785,5 @@
       </exercise>
     </subsubsection>
   </subsection>
-  <subsection>
-    <title>Select Answers and Hints</title>
-    <subsubsection>
-      <title><xref ref="exer_improperbs_example"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Look at the number of <c>1</c> s.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: If you start with <em>R1</em>
-            you can show <c>101</c> is proper,
-            but there is no way to add <c>1</c> s on only the right.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_properbs_length6"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Use <em>R1</em> to turn proper bit strings of length five into proper bit strings of length six.
-            Then use <em>R2</em> to generate the remaining proper bit strings of length six.
-          </p>
-        </li>
-        <li>
-          <p>
-            13
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: How does 13 relate to 8 and 5?
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_properbs_count"></xref> Select Answers and Hints</title>
-      <p>
-        Hint: Your recursion should use <m>p_{n-1}</m> and <m>p_{n-2}</m>.
-        Also, since the recursion involves the two previous terms,
-        you need two initial terms to start:
-        <m>p_0</m> and <m>p_1</m>.
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_properbs_examples"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: One possible answer is any bit string that consists only of <c>0</c> s:
-            <c>0</c>,
-            <c>00</c>,
-            <c>000</c>, etc.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Find another type of bit string that is always proper.
-            Make sure there are infinitely many bit strings of this type
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Count the number of <c>0</c> s.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_coins_3and5_set"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: <m>8 = 3+5</m> so we can use <em>B1</em>,
-            then <em>B2</em>, then <em>R</em>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Only 3, 5, and 6.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_coins_3and5_add1"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Solve for <m>n</m> and use that <m>5+1=6=3+3</m>.
-            Explain which parts of the definition you use.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Now use <m>3+3+3+1=10=5+5</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: If we did not use any 5s,
-            then <m>n-1</m> is built out of 3s.
-            Two threes is only <m>3+3=6</m>,
-            but <m>n \ge 8</m> so <m>n-1 \ge 7</m>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_coins_3and5_math_ind"></xref> Select Answers and Hints</title>
-      <p>
-        Another hint: Break the inductive step into two cases based on whether somewhere in the process of constructing <m>n-1</m> we used <em>B2</em>.
-        In the case where we used <em>B2</em>,
-        use <xref ref="exer_coins_3and5_add1"></xref>
-        <xref ref="part_3and5_trade5_for6"/>.
-        In the case where we did not use <em>B2</em>,
-        cite <xref ref="exer_coins_3and5_add1"></xref>
-        <xref ref="part_3and5_cases"/> to show that we must have used
-        <em>B1</em> at least three times.
-        Then apply <xref ref="exer_coins_3and5_add1"></xref><xref ref="part_3and5_trade9_for10"/>
-      </p>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_lopsided_trees_vertices"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: <m>T_3</m> has three vertices.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: <m>v_6=15</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Make sure you count the root vertex.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Make a table showing <m>n</m>, <m>w_n</m>,
-            and <m>v_n</m> for <m>n=3,4,5,6</m>.
-            The values of <m>v_n</m> are almost twice <m>w_n</m>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_rec_def_star_graphs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: <m>G_5</m> has five vertices <mdash/> one original vertex and four other vertices each connected by an edge to the original vertex.
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>v_1=1</m> and <m>v_n=v_{n-1}+1</m> for <m>n\ge 2</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: <m>v_5=5</m>
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: We add one edge each time.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: <m>e_5=5</m>
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_rec_def_windmill_graphs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: <m>M_2=C_3</m> and <m>M_3</m> looks like a bowtie
-            (<m>\bowtie</m>).
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: How many new vertices do we add?
-            Check that your definition gives <m>v_4 = 7</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Make a table showing <m>n</m> and <m>v_n</m> for <m>n=1,2,3,4</m>.
-            Check that your definition gives <m>v_4 = 7</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: How many new edges do we add?
-            Check that your definition gives <m>e_4=9</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: make a table showing <m>n</m> and <m>e_n</m> for <m>n=1,2,3,4</m>.
-            Check that your definition gives <m>e_4=9</m>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_rec_ladder_graphs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: Assume the original <m>P_2</m> is drawn vertically.
-            At each step,
-            add vertices to the right and explain what edges are added.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The recursive rule is of the form
-            <m>v_s = v_{s-1} +</m> the number of new vertices.
-            The explicit rule involves <m>s</m> (and no previous terms.)
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: The recursive rule is of the form
-            <m>e_s = e_{s-1} +</m> the number of new edges.
-            For the explicit rule,
-            count the number of edges in each path and the number of additional edges between each pair of corresponding vertices.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-    <subsubsection>
-      <title><xref ref="exer_rec_defn_complete_graphs"></xref> Select Answers and Hints</title>
-      <ol>
-        <li>
-          <p>
-            Hint: See <xref ref="defn_complete_completebipartite"></xref>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Start with a single vertex.
-            At each step,
-            explain how many new vertices to add and which new edges to add.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Make sure you used <m>v_{s-1}</m>.
-            Check that <m>v_5=5</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Hint: Make sure you used <m>e_{s-1}</m>.
-            Check that <m>e_5=10</m>.
-          </p>
-        </li>
-      </ol>
-    </subsubsection>
-  </subsection>
+  
 </section>
