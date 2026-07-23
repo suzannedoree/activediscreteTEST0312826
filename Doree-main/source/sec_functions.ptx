@@ -1026,7 +1026,7 @@
               <p>
                 We can write a piecewise-defined function using the notation
                 <me>
-                  f(x) = \left\{ \begin{array}{cl} \text{ formula 1 }  \amp  \text{ if }  x \text{ is in case 1 }  \\ \text{ formula 2 }  \amp  \text{ if }  x \text{ is in case 2 }  \\ \vdots \amp  \vdots \\ \text{ formula }  n \amp  \text{ if }  x \text{ is in case }  n \end{array}  \right
+                  f(x) = \left\{ \begin{array}{cl} \text{ formula 1 }  \amp  \text{ if }  x \text{ is in case 1 }  \\ \text{ formula 2 }  \amp  \text{ if }  x \text{ is in case 2 }  \\ \vdots \amp  \vdots \\ \text{ formula }  n \amp  \text{ if }  x \text{ is in case }  n \end{array}  \right.
                 </me>.
               </p>
             </li>
@@ -1050,7 +1050,7 @@
           <m>p(n)= 2n</m>.</q>
           We can write this rule as
           <me>
-            p(n) = \left\{ \begin{array}{cc} n+1 \amp  \text{ if \(n\) is even }  \\ 2n \amp  \text{ if \(n\) is odd } \end{array} \right
+            p(n) = \left\{ \begin{array}{cc} n+1 \amp  \text{ if \(n\) is even }  \\ 2n \amp  \text{ if \(n\) is odd } \end{array} \right.
           </me>
           <ol>
             <li>
@@ -1135,11 +1135,11 @@
                   <p>
                     We can write
                     <me>
-                      f(n) = \left\{ \begin{array}{cl} a \amp  \text{ if }  n =1 \\ d \amp  \text{ if }  n =2 \\ a \amp  \text{ if }  n =3 \\ d \amp  \text{ if }  n =4 \\ c \amp  \text{ if }  n =5 \end{array}  \right
+                      f(n) = \left\{ \begin{array}{cl} a \amp  \text{ if }  n =1 \\ d \amp  \text{ if }  n =2 \\ a \amp  \text{ if }  n =3 \\ d \amp  \text{ if }  n =4 \\ c \amp  \text{ if }  n =5 \end{array}  \right.
                     </me>.
                     Alternatively, we could write
                     <me>
-                      f(n) = \left\{ \begin{array}{cl} a \amp  \text{ if }  n =1 \text{ or }  n=3\\ d \amp  \text{ if }  n =2 \text{ or }  n=4\\ c \amp  \text{ if }  n =5 \end{array}  \right
+                      f(n) = \left\{ \begin{array}{cl} a \amp  \text{ if }  n =1 \text{ or }  n=3\\ d \amp  \text{ if }  n =2 \text{ or }  n=4\\ c \amp  \text{ if }  n =5 \end{array}  \right.
                     </me>
                   </p>
                 </solution>
@@ -1209,7 +1209,7 @@
             <p>
               The function <m>f:\mathbb{Z} \to \mathbb{Z}</m> is defined by
               <me>
-                f(n) = \left\{ \begin{array}{rl} 2 \amp  \text{ if }  n \text{ is positive }  \\ 1 \amp  \text{ if }  n=0 \\ 0 \amp  \text{ if }  n \text{ is negative } \end{array} \right
+                f(n) = \left\{ \begin{array}{rl} 2 \amp  \text{ if }  n \text{ is positive }  \\ 1 \amp  \text{ if }  n=0 \\ 0 \amp  \text{ if }  n \text{ is negative } \end{array} \right.
               </me>.
               Evaluate <m>f(5)</m>, <m>f(2)</m>,
               <m>f(-4)</m>, and <m>f(0)</m>.
@@ -2285,7 +2285,7 @@
           <p>
             The Collatz function <m>c: \mathbb{Z} \to \mathbb{Z}</m> defined by
             <me>
-              c(n) =  \left\{ \begin{array}{cl} \frac{n}{2} \amp  \text{ if }  n \text{ is even }  \\ 3n+1 \amp  \text{ if }  n \text{ is odd } \end{array} \right
+              c(n) =  \left\{ \begin{array}{cl} \frac{n}{2} \amp  \text{ if }  n \text{ is even }  \\ 3n+1 \amp  \text{ if }  n \text{ is odd } \end{array} \right.
             </me>
             <ol>
               <li>
@@ -2315,7 +2315,7 @@
           <p>
             The function <m>\fn{abs}: \mathbb{Z} \to \mathbb{Z}</m> is defined by
             <me>
-              \fn{abs}(n)= \left\{ \begin{array}{rl} n \amp  \text{ if }  n \text{ is non-negative }  \\ -n \amp  \text{ if }  n \text{ is negative } \end{array} \right
+              \fn{abs}(n)= \left\{ \begin{array}{rl} n \amp  \text{ if }  n \text{ is non-negative }  \\ -n \amp  \text{ if }  n \text{ is negative } \end{array} \right.
             </me>
             <ol>
               <li>
@@ -2388,14 +2388,11 @@
           <p>
             In <xref ref="exer_evaluate_collatz"></xref>
             we saw the Collatz function
-            <m>c: \mathbb{Z} \to \mathbb{Z}</m> defined by c(n) = \left\{
-          </p>
-          \begin{array}{cl}
-          \frac{n}{2} \amp  \text{ if }  n \text{ is even }  \\
-          3n+1 \amp  \text{ if }  n \text{ is odd }
-          \end{array}
-          <p>
-            \right<m></m>.. In this exercise,
+            <m>c: \mathbb{Z} \to \mathbb{Z}</m> defined by
+            <me>
+              c(n) = \left\{ \begin{array}{cl} \frac{n}{2} \amp  \text{ if }  n \text{ is even }  \\ 3n+1 \amp  \text{ if }  n \text{ is odd } \end{array} \right.
+            </me>
+            In this exercise,
             we are going <term>iterate</term> the function <m>c</m>,
             meaning we complete <m>c(n)</m>,
             then evaluate <m>c</m> at the answer to get <m>c(c(n))</m>,
@@ -2457,7 +2454,7 @@
           <p>
             Consider the piecewise defined function
             <me>
-              p(n) = \left\{ \begin{array}{cc} n+1 \amp  \text{ if \(n\) is even }  \\ 2n \amp  \text{ if \(n\) is odd } \end{array} \right
+              p(n) = \left\{ \begin{array}{cc} n+1 \amp  \text{ if \(n\) is even }  \\ 2n \amp  \text{ if \(n\) is odd } \end{array} \right.
             </me>.
             Write a formal proof that <m>p(n) \neq 8</m> for all integers <m>n</m>.
             Hints: Use a proof by contradiction <xref ref="pff_contradiction"/>.
