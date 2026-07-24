@@ -95,4 +95,27 @@
   <xsl:template
     match="ol[not(ancestor::ol)][ancestor::*[self::activity or self::example or self::theorem or self::proposition or self::lemma or self::corollary or self::remark or self::definition or self::exercise]]"
     mode="ol-marker-class">lower-alpha-level-1</xsl:template>
+
+  <!--
+    For first-level ordered-list parts in activity-like blocks,
+    make serial numbers align with visible labels: (a), (b), (c), ...
+  -->
+  <xsl:template
+    match="ol[not(ancestor::ol)][ancestor::*[self::activity or self::example or self::theorem or self::proposition or self::lemma or self::corollary or self::remark or self::definition or self::exercise]]/li"
+    mode="serial-number">
+    <xsl:text>(</xsl:text>
+    <xsl:number format="a"/>
+    <xsl:text>)</xsl:text>
+  </xsl:template>
+
+  <!--
+    If an xref targets one of these list-item parts and does not specify
+    @text explicitly, use local style so references render as (a), (b), ...
+    rather than "Item 1", "Item 2", ...
+  -->
+  <xsl:template
+    match="xref[not(@text) and id(@ref)/self::li and id(@ref)/parent::ol[not(ancestor::ol)][ancestor::*[self::activity or self::example or self::theorem or self::proposition or self::lemma or self::corollary or self::remark or self::definition or self::exercise]]]"
+    mode="get-text-style">
+    <xsl:text>local</xsl:text>
+  </xsl:template>
 </xsl:stylesheet>
