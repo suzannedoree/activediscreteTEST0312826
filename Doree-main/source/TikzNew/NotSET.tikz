@@ -1,14 +1,27 @@
 % Used in \Cref{figure_show_not_set}.
 
-\begin{tikzpicture}[x=1cm,y=1cm]
-  \definecolor{setgreen}{RGB}{40,150,70}
-  \definecolor{setpurple}{RGB}{120,70,170}
-  \definecolor{setred}{RGB}{190,60,60}
-  \foreach \x/\label in {0.0/1FGD,2.6/1NPD,5.2/1NRD} {
-    \draw[rounded corners=0.2cm] (\x,0) rectangle (\x+2.2,3.2);
-    \node[font=\scriptsize] at (\x+1.1,2.95) {\texttt{\label}};
+\begin{tikzpicture}[x=0.85cm,y=1.1cm]
+  \definecolor{setgreen}{RGB}{0,192,64}
+  \definecolor{setpurple}{RGB}{128,0,192}
+  \definecolor{setred}{RGB}{192,0,0}
+  
+  % Three card backgrounds
+  \foreach \i in {0,1,2} {
+    \draw[rounded corners=0.12cm,line width=0.04cm] ({3.2*\i},0) rectangle ({3.2*\i+3},4);
   }
-  \fill[setgreen] (1.1,2.05) -- (1.55,1.6) -- (1.1,1.15) -- (0.65,1.6) -- cycle;
-  \draw[setpurple] (3.7,2.05) -- (4.15,1.6) -- (3.7,1.15) -- (3.25,1.6) -- cycle;
-  \draw[setred] (6.3,2.05) -- (6.75,1.6) -- (6.3,1.15) -- (5.85,1.6) -- cycle;
+  
+  % Labels
+  \node[font=\tiny\ttfamily] at (0.2,3.75) {\tiny 1FGD};
+  \node[font=\tiny\ttfamily] at (3.4,3.75) {\tiny 1NPD};
+  \node[font=\tiny\ttfamily] at (6.6,3.75) {\tiny 1NRD};
+  
+  % Card 1: 1 Full green diamond
+  \fill[setgreen] (0.75,1.5) -- (1.15,2.0) -- (0.75,2.5) -- (0.35,2.0) -- cycle;
+  \draw[setgreen,line width=0.07cm] (0.75,1.5) -- (1.15,2.0) -- (0.75,2.5) -- (0.35,2.0) -- cycle;
+  
+  % Card 2: 1 None purple diamond (open)
+  \draw[setpurple,line width=0.07cm] (3.95,1.5) -- (4.35,2.0) -- (3.95,2.5) -- (3.55,2.0) -- cycle;
+  
+  % Card 3: 1 None red diamond (open)
+  \draw[setred,line width=0.07cm] (7.15,1.5) -- (7.55,2.0) -- (7.15,2.5) -- (6.75,2.0) -- cycle;
 \end{tikzpicture}

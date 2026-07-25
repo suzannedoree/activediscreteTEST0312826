@@ -1,8 +1,15 @@
 % Used in \Cref{figure_set_game_2cards}.
 
-\begin{tikzpicture}[x=1cm,y=1cm]
-  \definecolor{setgreen}{RGB}{40,150,70}
-  \draw[rounded corners=0.2cm] (0,0) rectangle (2.2,3.2);
-  \node[font=\scriptsize] at (1.1,2.95) {\texttt{1FGD}};
-  \fill[setgreen] (1.1,2.05) -- (1.55,1.6) -- (1.1,1.15) -- (0.65,1.6) -- cycle;
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]
+  \definecolor{setgreen}{RGB}{0,192,64}
+  
+  % Card background
+  \draw[rounded corners=0.15cm,line width=0.05cm] (0,0) rectangle (3,4);
+  
+  % Label
+  \node[font=\tiny\ttfamily] at (0.25,3.75) {1FGD};
+  
+  % Draw 1 full diamond (center of card)
+  \fill[setgreen] (0.75,1.5) -- (1.35,2.1) -- (0.75,2.7) -- (0.15,2.1) -- cycle;
+  \draw[setgreen,line width=0.08cm] (0.75,1.5) -- (1.35,2.1) -- (0.75,2.7) -- (0.15,2.1) -- cycle;
 \end{tikzpicture}
