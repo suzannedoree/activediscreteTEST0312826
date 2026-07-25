@@ -1,40 +1,12 @@
 % Used in \Cref{figure_all_diff_set}.
 
-\begin{tikzpicture}[x=0.85cm,y=1.1cm]
-  \definecolor{setpurple}{RGB}{128,0,192}
-  \definecolor{setgreen}{RGB}{0,192,64}
-  \definecolor{setred}{RGB}{192,0,0}
-  
-  % Three card backgrounds
-  \foreach \i in {0,1,2} {
-    \draw[rounded corners=0.12cm,line width=0.04cm] ({3.2*\i},0) rectangle ({3.2*\i+3},4);
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \newcommand{\setcardwithlabel}[7]{
+    \node[inner sep=0,anchor=south west] at (#1,#2) {\setcard{#4}{#5}{#6}{#7}{0.55}};
+    \node[anchor=north west,font=\scriptsize\ttfamily] at (#1+0.10,#2+3.28) {#3};
   }
-  
-  % Labels
-  \node[font=\tiny\ttfamily] at (0.2,3.75) {\tiny 1SPO};
-  \node[font=\tiny\ttfamily] at (3.4,3.75) {\tiny 2FGD};
-  \node[font=\tiny\ttfamily] at (6.6,3.75) {\tiny 3NRQ};
-  
-  % Card 1: 1 Striped purple oval
-  \begin{scope}
-    \clip (0.75,2.1) ellipse (0.35 and 0.45);
-    \foreach \x in {0.1,0.25,...,1.4} {
-      \draw[setpurple,line width=0.03cm] (\x,-0.5) -- (\x,3.0);
-    }
-  \end{scope}
-  \draw[setpurple,line width=0.07cm] (0.75,2.1) ellipse (0.35 and 0.45);
-  
-  % Card 2: 2 Full green diamonds
-  \foreach \y in {2.7,1.5} {
-    \fill[setgreen] ({3.95},\y) -- ({4.35},{\y+0.35}) -- ({3.95},{\y+0.7}) -- ({3.55},{\y+0.35}) -- cycle;
-    \draw[setgreen,line width=0.07cm] ({3.95},\y) -- ({4.35},{\y+0.35}) -- ({3.95},{\y+0.7}) -- ({3.55},{\y+0.35}) -- cycle;
-  }
-  
-  % Card 3: 3 None red squiggles (open outline)
-  \foreach \i in {0,1,2} {
-    \draw[setred,line width=0.07cm] 
-      ({6.4+0.15},{3.1-\i*0.9}) .. controls ({6.4+0.3},{3.35-\i*0.9}) and ({6.4+0.45},{3.05-\i*0.9}) ..
-      ({6.4+0.6},{3.2-\i*0.9}) .. controls ({6.4+0.75},{2.95-\i*0.9}) and ({6.4+0.9},{3.15-\i*0.9}) ..
-      ({6.4+1.05},{3.0-\i*0.9});
-  }
+
+  \setcardwithlabel{0.0}{0.0}{1SPO}{1}{2}{3}{2}
+  \setcardwithlabel{2.7}{0.0}{2FGD}{2}{3}{2}{1}
+  \setcardwithlabel{5.4}{0.0}{3NRQ}{3}{1}{1}{3}
 \end{tikzpicture}

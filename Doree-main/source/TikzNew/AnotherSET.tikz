@@ -1,48 +1,12 @@
 % Used in \Cref{figure_decide_if_set}.
 
-\begin{tikzpicture}[x=0.85cm,y=1.1cm]
-  \definecolor{setgreen}{RGB}{0,192,64}
-  \definecolor{setpurple}{RGB}{128,0,192}
-  \definecolor{setred}{RGB}{192,0,0}
-  
-  % Three card backgrounds
-  \foreach \i in {0,1,2} {
-    \draw[rounded corners=0.12cm,line width=0.04cm] ({3.2*\i},0) rectangle ({3.2*\i+3},4);
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \newcommand{\setcardwithlabel}[7]{
+    \node[inner sep=0,anchor=south west] at (#1,#2) {\setcard{#4}{#5}{#6}{#7}{0.55}};
+    \node[anchor=north west,font=\scriptsize\ttfamily] at (#1+0.10,#2+3.28) {#3};
   }
-  
-  % Labels
-  \node[font=\tiny\ttfamily] at (0.2,3.75) {\tiny 1SGQ};
-  \node[font=\tiny\ttfamily] at (3.4,3.75) {\tiny 2SPO};
-  \node[font=\tiny\ttfamily] at (6.6,3.75) {\tiny 3SRD};
-  
-  % Card 1: 1 Striped green squiggle
-  \begin{scope}
-    \clip (0.75,2.1) -- (1.25,2.6) -- (0.75,3.1) -- (0.25,2.6) -- cycle;
-    \foreach \x in {0.0,0.15,...,1.5} {
-      \draw[setgreen,line width=0.03cm] (\x,-0.5) -- (\x,4);
-    }
-  \end{scope}
-  \draw[setgreen,line width=0.07cm] (0.75,2.1) -- (1.25,2.6) -- (0.75,3.1) -- (0.25,2.6) -- cycle;
-  
-  % Card 2: 2 Striped purple ovals
-  \foreach \y in {2.7,1.5} {
-    \begin{scope}[yshift=\y,xshift={3.2}]
-      \clip (0.55,0) ellipse (0.35 and 0.45);
-      \foreach \x in {-0.1,0.05,...,1.0} {
-        \draw[setpurple,line width=0.03cm] (\x,-0.7) -- (\x,0.7);
-      }
-    \end{scope}
-    \draw[setpurple,line width=0.07cm] ({3.95},\y) ellipse (0.35 and 0.45);
-  }
-  
-  % Card 3: 3 Striped red diamonds
-  \foreach \y in {3.0,2.1,1.2} {
-    \begin{scope}[yshift=\y,xshift={6.4}]
-      \clip (0.35,0) -- (0.75,0.35) -- (0.35,0.7) -- (-0.05,0.35) -- cycle;
-      \foreach \x in {-0.3,0.0,...,1.0} {
-        \draw[setred,line width=0.03cm] (\x,-0.5) -- (\x,1.0);
-      }
-    \end{scope}
-    \draw[setred,line width=0.07cm] ({7.15},\y) -- ({7.55},{\y+0.35}) -- ({7.15},{\y+0.7}) -- ({6.75},{\y+0.35}) -- cycle;
-  }
+
+  \setcardwithlabel{0.0}{0.0}{1SGQ}{1}{2}{2}{3}
+  \setcardwithlabel{2.7}{0.0}{2SPO}{2}{2}{3}{2}
+  \setcardwithlabel{5.4}{0.0}{3SRD}{3}{2}{1}{1}
 \end{tikzpicture}
