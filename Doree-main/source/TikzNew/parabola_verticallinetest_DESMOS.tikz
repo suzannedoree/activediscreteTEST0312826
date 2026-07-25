@@ -1,0 +1,13 @@
+% Used in \Cref{fig_parabola_verticallinetest_graph}.
+
+\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+  \draw[->] (-3.6,0) -- (3.6,0) node[right] {$x$};
+  \draw[->] (0,-0.4) -- (0,10.4) node[above] {$y$};
+  \draw[domain=-3:3,samples=120,smooth] plot (\x,{\x*\x+1});
+  \draw[dashed] (-3,-0.2) -- (-3,10);
+  \draw[dashed] (1,-0.2) -- (1,10);
+  \fill (-3,10) circle (0.08);
+  \fill (1,2) circle (0.08);
+  \node[font=\scriptsize,anchor=south] at (-3,10) {$x=-3$};
+  \node[font=\scriptsize,anchor=south] at (1,2) {$x=1$};
+\end{tikzpicture}

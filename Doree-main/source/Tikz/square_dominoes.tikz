@@ -1,0 +1,56 @@
+\begin{tikzpicture}[scale=0.8]
+
+  % --- First Tiling: Three Squares (dots) ---
+  \begin{scope}[xshift=0cm]
+    % Squares with diagonal pattern
+    \draw[pattern=north east lines] (0,0) rectangle (1,1);
+    \draw[pattern=north east lines] (1,0) rectangle (2,1);
+    \draw[pattern=north east lines] (2,0) rectangle (3,1);
+    
+    % Outer border & grid lines
+    \draw[line width=0.8pt] (0,0) rectangle (3,1);
+    \draw (1,0) -- (1,1);
+    \draw (2,0) -- (2,1);
+    
+    % Label below
+    \node at (1.5, -0.4) {\textbf{$\bullet\bullet\bullet$}};
+  \end{scope}
+
+  % --- Second Tiling: Square + Domino ---
+  \begin{scope}[xshift=4.5cm]
+    % Square
+    \draw[pattern=north east lines] (0,0) rectangle (1,1);
+    % Domino (gray fill)
+    \fill[gray!40] (1,0) rectangle (3,1);
+    
+    % Faint vertical line down the middle (inset from top/bottom)
+    \draw[gray!70, line width=0.5pt] (2,0.12) -- (2,0.88);
+    
+    % Outer border & grid lines
+    \draw[line width=0.8pt] (0,0) rectangle (3,1);
+    \draw (1,0) -- (1,1);
+    
+    % Label below
+    \node at (1.5, -0.4) {\textbf{$\bullet\textbf{---}$}};
+  \end{scope}
+
+  % --- Third Tiling: Domino + Square ---
+  \begin{scope}[xshift=9cm]
+    % Domino (gray fill)
+    \fill[gray!40] (0,0) rectangle (2,1);
+    
+    % Faint vertical line down the middle (inset from top/bottom)
+    \draw[gray!70, line width=0.5pt] (1,0.12) -- (1,0.88);
+    
+    % Square
+    \draw[pattern=north east lines] (2,0) rectangle (3,1);
+    
+    % Outer border & grid lines
+    \draw[line width=0.8pt] (0,0) rectangle (3,1);
+    \draw (2,0) -- (2,1);
+    
+    % Label below
+    \node at (1.5, -0.4) {\textbf{$\textbf{---}\bullet$}};
+  \end{scope}
+
+\end{tikzpicture}

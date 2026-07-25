@@ -1,0 +1,23 @@
+% Used in \Cref{figure_all_diff_set}.
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \definecolor{setpurple}{RGB}{120,70,170}
+  \definecolor{setgreen}{RGB}{40,150,70}
+  \definecolor{setred}{RGB}{190,60,60}
+  \foreach \x/\label in {0.0/1SPO,2.6/2FGD,5.2/3NRQ} {
+    \draw[rounded corners=0.2cm] (\x,0) rectangle (\x+2.2,3.2);
+    \node[font=\scriptsize] at (\x+1.1,2.95) {\texttt{\label}};
+  }
+  \draw[setpurple,pattern=north east lines,pattern color=setpurple] (1.1,1.6) ellipse (0.55 and 0.22);
+  \fill[setgreen] (3.7,2.05) -- (4.15,1.6) -- (3.7,1.15) -- (3.25,1.6) -- cycle;
+  \fill[setgreen] (3.7,1.75) -- (4.15,1.3) -- (3.7,0.85) -- (3.25,1.3) -- cycle;
+  \draw[setred,line width=0.8pt] (5.8,2.15) .. controls (6.1,2.35) and (6.5,1.95) .. (6.8,2.15)
+    .. controls (6.5,1.75) and (6.1,1.95) .. (5.8,1.75)
+    .. controls (6.1,1.45) and (6.5,1.85) .. (6.8,1.75);
+  \draw[setred,line width=0.8pt] (5.8,1.75) .. controls (6.1,1.95) and (6.5,1.55) .. (6.8,1.75)
+    .. controls (6.5,1.35) and (6.1,1.55) .. (5.8,1.35)
+    .. controls (6.1,1.05) and (6.5,1.45) .. (6.8,1.35);
+  \draw[setred,line width=0.8pt] (5.8,1.35) .. controls (6.1,1.55) and (6.5,1.15) .. (6.8,1.35)
+    .. controls (6.5,0.95) and (6.1,1.15) .. (5.8,0.95)
+    .. controls (6.1,0.65) and (6.5,1.05) .. (6.8,0.95);
+\end{tikzpicture}

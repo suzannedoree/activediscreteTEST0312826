@@ -1,0 +1,113 @@
+% Used in \Cref{fig_52card_deck}.
+
+\begin{tikzpicture}[x=0.52cm,y=0.72cm]
+  \newcommand{\CardW}{1.9}
+  \newcommand{\CardH}{2.7}
+
+  \newcommand{\DrawPips}[4]{%
+    % #1 x0, #2 y0, #3 rank, #4 suit symbol
+    \ifcase#3\relax\or
+      \node[font=\scriptsize] at (#1+0.95,#2+1.35) {$#4$};
+    \or
+      \node[font=\scriptsize] at (#1+0.95,#2+1.95) {$#4$};
+      \node[font=\scriptsize] at (#1+0.95,#2+0.75) {$#4$};
+    \or
+      \node[font=\scriptsize] at (#1+0.95,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+0.95,#2+1.35) {$#4$};
+      \node[font=\scriptsize] at (#1+0.95,#2+0.65) {$#4$};
+    \or
+      \node[font=\scriptsize] at (#1+0.60,#2+2.00) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+2.00) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.70) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.70) {$#4$};
+    \or
+      \node[font=\scriptsize] at (#1+0.60,#2+2.00) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+2.00) {$#4$};
+      \node[font=\scriptsize] at (#1+0.95,#2+1.35) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.70) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.70) {$#4$};
+    \or
+      \node[font=\scriptsize] at (#1+0.60,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+1.35) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+1.35) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.65) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.65) {$#4$};
+    \or
+      \node[font=\scriptsize] at (#1+0.60,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+0.95,#2+1.65) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+1.25) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+1.25) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.65) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.65) {$#4$};
+    \or
+      \node[font=\scriptsize] at (#1+0.60,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+1.45) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+1.45) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.85) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.85) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.45) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.45) {$#4$};
+    \or
+      \node[font=\scriptsize] at (#1+0.60,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+1.45) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+1.45) {$#4$};
+      \node[font=\scriptsize] at (#1+0.95,#2+1.05) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.65) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.65) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.25) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.25) {$#4$};
+    \or
+      \node[font=\scriptsize] at (#1+0.60,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+2.05) {$#4$};
+      \node[font=\scriptsize] at (#1+0.95,#2+1.75) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+1.35) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+1.35) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.75) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.75) {$#4$};
+      \node[font=\scriptsize] at (#1+0.95,#2+0.45) {$#4$};
+      \node[font=\scriptsize] at (#1+0.60,#2+0.15) {$#4$};
+      \node[font=\scriptsize] at (#1+1.30,#2+0.15) {$#4$};
+    \fi
+  }
+
+  \newcommand{\DrawCard}[6]{%
+    % #1 x0 #2 y0 #3 rank-text #4 rank-number(1-10,0 for face) #5 suit symbol #6 color
+    \draw[rounded corners=0.08cm,line width=0.5pt] (#1,#2) rectangle (#1+\CardW,#2+\CardH);
+    \node[anchor=north west,text=#6,font=\scriptsize] at (#1+0.10,#2+\CardH-0.06) {#3};
+    \node[anchor=south east,text=#6,font=\scriptsize] at (#1+\CardW-0.10,#2+0.06) {#3};
+    \ifnum#4=0
+      \node[text=#6,font=\small] at (#1+0.95,#2+1.35) {#3};
+    \else
+      \colorlet{tmpc}{#6}
+      \begingroup\color{tmpc}\DrawPips{#1}{#2}{#4}{#5}\endgroup
+    \fi
+  }
+
+  % Row 1: clubs (black)
+  \foreach \i/\r/\n in {0/A/1,1/2/2,2/3/3,3/4/4,4/5/5,5/6/6,6/7/7,7/8/8,8/9/9,9/10/10,10/J/0,11/Q/0,12/K/0} {
+    \pgfmathsetmacro{\x}{\i*2.0}
+    \DrawCard{\x}{8.4}{\r\,$\clubsuit$}{\n}{\clubsuit}{black}
+  }
+
+  % Row 2: diamonds (red)
+  \foreach \i/\r/\n in {0/A/1,1/2/2,2/3/3,3/4/4,4/5/5,5/6/6,6/7/7,7/8/8,8/9/9,9/10/10,10/J/0,11/Q/0,12/K/0} {
+    \pgfmathsetmacro{\x}{\i*2.0}
+    \DrawCard{\x}{5.6}{\r\,$\diamondsuit$}{\n}{\diamondsuit}{red}
+  }
+
+  % Row 3: hearts (red)
+  \foreach \i/\r/\n in {0/A/1,1/2/2,2/3/3,3/4/4,4/5/5,5/6/6,6/7/7,7/8/8,8/9/9,9/10/10,10/J/0,11/Q/0,12/K/0} {
+    \pgfmathsetmacro{\x}{\i*2.0}
+    \DrawCard{\x}{2.8}{\r\,$\heartsuit$}{\n}{\heartsuit}{red}
+  }
+
+  % Row 4: spades (black)
+  \foreach \i/\r/\n in {0/A/1,1/2/2,2/3/3,3/4/4,4/5/5,5/6/6,6/7/7,7/8/8,8/9/9,9/10/10,10/J/0,11/Q/0,12/K/0} {
+    \pgfmathsetmacro{\x}{\i*2.0}
+    \DrawCard{\x}{0.0}{\r\,$\spadesuit$}{\n}{\spadesuit}{black}
+  }
+\end{tikzpicture}

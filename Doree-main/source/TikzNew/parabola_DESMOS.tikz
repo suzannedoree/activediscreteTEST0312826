@@ -1,0 +1,7 @@
+% Used in \Cref{fig_parabola_graph}.
+
+\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+  \draw[->] (-3.4,0) -- (3.4,0) node[right] {$x$};
+  \draw[->] (0,-0.4) -- (0,10.4) node[above] {$y$};
+  \draw[domain=-3:3,samples=120,smooth] plot (\x,{\x*\x+1});
+\end{tikzpicture}

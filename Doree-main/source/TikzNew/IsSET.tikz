@@ -1,0 +1,15 @@
+% Used in \Cref{figure_show_set}.
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \definecolor{setred}{RGB}{190,60,60}
+  \foreach \x/\label/\style in {0.0/2NRO/draw,2.6/2SRO/pattern,5.2/2FRO/fill} {
+    \draw[rounded corners=0.2cm] (\x,0) rectangle (\x+2.2,3.2);
+    \node[font=\scriptsize] at (\x+1.1,2.95) {\texttt{\label}};
+  }
+  \draw[setred] (1.1,2.05) ellipse (0.55 and 0.22);
+  \draw[setred] (1.1,1.15) ellipse (0.55 and 0.22);
+  \draw[setred,pattern=north east lines,pattern color=setred] (3.7,2.05) ellipse (0.55 and 0.22);
+  \draw[setred,pattern=north east lines,pattern color=setred] (3.7,1.15) ellipse (0.55 and 0.22);
+  \fill[setred] (6.3,2.05) ellipse (0.55 and 0.22);
+  \fill[setred] (6.3,1.15) ellipse (0.55 and 0.22);
+\end{tikzpicture}

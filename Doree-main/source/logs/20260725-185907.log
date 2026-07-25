@@ -1,0 +1,304 @@
+WARNING : Using CLI version 2.43.2 but project's `requirements.txt`
+WARNING : is configured to use 2.43.1. Consider either installing
+WARNING : CLI version 2.43.1 or running `pretext update-project`
+WARNING : to update `requirements.txt` and other managed files to match 2.43.2.
+INFO    : Building target web
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.2/core/xsl/utilities/pretext-enhanced-source.xsl
+INFO    : successful application of /home/codespace/.ptx/2.43.2/core/xsl/utilities/pretext-enhanced-source.xsl
+WARNING : Schema validation could not be completed: no validator was available (jing is not installed and lxml could not compile the schema). Continuing with build.
+INFO    : Generating any needed assets.
+WARNING : Now generating latex images
+INFO    : converting latex-image pictures from /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx to svg graphics for placement in /workspaces/activediscreteTEST0312826/Doree-main/generated-assets/latex-image
+INFO    : extracting latex-image pictures from /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx
+INFO    : string parameters passed to extraction stylesheet: {'cli.version': '2.43', 'publisher': '/workspaces/activediscreteTEST0312826/Doree-main/source/publication.xml'}
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/assets
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.2/core/xsl/extract-latex-image.xsl
+INFO    : successful application of /home/codespace/.ptx/2.43.2/core/xsl/extract-latex-image.xsl
+INFO    : converting fig_four_real_fns-2.tex to fig_four_real_fns-2.pdf
+ERROR   : LaTeX compilation of fig_four_real_fns-2.tex failed.
+Re-run, requesting "source" as the format, to analyze the image.
+Likely creating the entire document as PDF will fail similarly.
+The transcript of the LaTeX run follows.
+WARNING : LaTeX compilation of fig_four_real_fns-2.tex failed
+ERROR   : Unable to generate some latex-image assets:
+ LaTeX compilation failed for 1 "latex-image"(s).
+Review the log for error messages, and LaTeX transcripts.
+Images are:
+  fig_four_real_fns-2.tex
+INFO    : Removing temporary directory /tmp/ptx-boi2pfat
+INFO    : Finished generating assets.
+
+INFO    : Building with custom xsl /workspaces/activediscreteTEST0312826/Doree-main/source/xsl/custom-html.xsl
+INFO    : Preparing to build into /workspaces/activediscreteTEST0312826/Doree-main/source/build/web.
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../generated-assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/generated-assets
+INFO    : verifying and expanding input directory: /workspaces/activediscreteTEST0312826/Doree-main/source/../assets
+INFO    : input directory expanded to absolute path: /workspaces/activediscreteTEST0312826/Doree-main/assets
+INFO    : discovering source file's directory name: /workspaces/activediscreteTEST0312826/Doree-main/source
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /home/codespace/.ptx/2.43.2/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : successful application of /home/codespace/.ptx/2.43.2/core/xsl/utilities/report-publisher-variables.xsl
+INFO    : Downloading rs services file from https://runestone.academy/cdn/runestone/latest/webpack_static_imports.xml.
+INFO    : Runestone Services via online CDN query: version 8.1.16
+INFO    : Downloading Runestone Services, version 8.1.16
+INFO    : Extracting Runestone Services from archive file
+INFO    : Building custom css theme: theme-default-modern
+INFO    : converting /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx to HTML in /tmp/ptx-nz050dan
+INFO    : XSL conversion of /workspaces/activediscreteTEST0312826/Doree-main/source/main.ptx by /tmp/ptxcli_tdnx1rke/cli_xsl/custom-html.xsl
+INFO    : messages from the log for XSL processing:
+INFO    : * PTX:INFO:   checking all deprecated elements.
+WARNING : * PTX:DEPRECATE: (2024-10-08) elements previously included in a "titlepage" element inside the "frontmatter" (author, editor, credit, date, and event) should now be placed in "frontmatter/bibinfo".  To ensure a title page is created, put only the empty element "titlepage-items" inside "titlepage".  Until you move these elements, we will try to honor your intent. (1 time)
+INFO    : *              located at: pretext/book/frontmatter/titlepage
+INFO    : *              located within: "Active Discrete Mathematics: Patterns, Structures, and Proof" (title)
+INFO    : * --------------
+WARNING : * PTX:DEPRECATE: (2026-05-11) the "me" and "men" elements have been deprecated.  The replacement is an "md" with no "mrow" children, and numbering is controlled by the "@number" attribute, or a global setting in "docinfo". (124 times)
+INFO    : *              located at: pretext/book/chapter/section/subsection/definition/statement/p/ol/li/p/me
+INFO    : *              located within: "defn_sets_of_integers" (xml:id), "Sets of integers" (title)
+INFO    : *              located at: pretext/book/chapter/section/subsection/definition/statement/p/ol/li/p/me
+INFO    : *              located within: "defn_sets_of_integers" (xml:id), "Sets of integers" (title)
+INFO    : *              located at: pretext/book/chapter/section/subsection/definition/statement/p/ol/li/p/me
+INFO    : *              located within: "defn_sets_of_integers" (xml:id), "Sets of integers" (title)
+INFO    : *              located at: pretext/book/chapter/section/subsection/definition/statement/p/ol/li/p/me
+INFO    : *              located within: "defn_reals" (xml:id), "Real numbers" (title)
+INFO    : *              located at: pretext/book/chapter/section/subsection/definition/statement/p/ol/li/p/me
+INFO    : *              located within: "defn_sets_of_real_numbers" (xml:id), "Sets of real numbers" (title)
+INFO    : *              located at: pretext/book/chapter/section/subsection/definition/statement/p/ol/li/p/me
+INFO    : *              located within: "defn_sets_of_real_numbers" (xml:id), "Sets of real numbers" (title)
+INFO    : *              located at: pretext/book/chapter/section/subsection/definition/statement/p/ol/li/p/me
+INFO    : *              located within: "defn_function" (xml:id), "Function" (title)
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/solution/p/me
+INFO    : *              located within: "exam_square_function" (xml:id), "Function vocabulary with infinite sets" (title)
+INFO    : * --------------
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_integers] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/p/xref
+INFO    : *              located within: "sub_infinite_sets_numbers" (xml:id), "Infinite sets of numbers" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_fraction_rational] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/p/xref
+INFO    : *              located within: "sub_infinite_sets_numbers" (xml:id), "Infinite sets of numbers" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [thm_equal_fractions] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/solution/p/xref
+INFO    : *              located within: "exam_fn_multiletter_name" (xml:id), "Functions with multi-letter names" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [thm_hs] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_hs_nplus1" (xml:id), "Practice" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_factorial] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_alt_factorial" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_quo_rem_div_mod] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_fn_modn" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_binomial_coeff] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_fn_nchoose3" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_gcd] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_fn_gcd15" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [exam_sieve] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/ol/li/p/xref
+INFO    : *              located within: "exer_prime_quadratic" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_quo_rem_div_mod] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_functions_on_Zn_vocab" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sec_mod_arith] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_functions_on_Zn_vocab" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_if_then_direct] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/ol/li/p/xref
+INFO    : *              located within: "exer_defn_increasing" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_integer_algebra_order_operations] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_absolute_value" (xml:id), "Practice" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_contradiction] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_8isnotinimage" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sub_pff_cases] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_8isnotinimage" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [thm_steps_multiply] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_count_functions_finite" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_integer_algebra_order_operations] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/p/xref
+INFO    : *              located within: "sub_floor_ceiling" (xml:id), "Floor and Ceiling" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_number_theory] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/p/xref
+INFO    : *              located within: "sub_number_theoretic_functions" (xml:id), "Number-theoretic Functions" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sub_prime_fact] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/solution/p/xref
+INFO    : *              located within: "exam_coundiv" (xml:id), "Number of divisors" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [ch_graph_theory] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/p/xref
+INFO    : *              located within: "sub_graph_functions" (xml:id), "Graph-theoretic Functions" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_complete_completebipartite] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/xref
+INFO    : *              located within: "exam_count_vert_deg3" (xml:id), "Count vertices of degree three" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_complete_completebipartite] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/xref
+INFO    : *              located within: "exam_count_vert_deg3" (xml:id), "Count vertices of degree three" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [exam_wheel_ladder] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/xref
+INFO    : *              located within: "exam_count_vert_deg3" (xml:id), "Count vertices of degree three" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [exam_wheel_ladder] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/xref
+INFO    : *              located within: "exam_count_vert_deg3" (xml:id), "Count vertices of degree three" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_bit_string] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/p/xref
+INFO    : *              located within: "sub_bit_string_functions" (xml:id), "Functions Involving Bit Strings" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_lockers] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/ol/li/p/xref
+INFO    : *              located within: "exer_countdiv" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_euler_phi_fn] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_fn_euler_phi_revisited" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_robots] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/hint/ol/li/p/xref
+INFO    : *              located within: "exer_count_leaf_function" (xml:id), "Practice" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_chromatic_number] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_chromatic_number_function" (xml:id), "Practice" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_degree] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_max_degree_function" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sec_std_graphs] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/ol/li/p/xref
+INFO    : *              located within: "exer_dyk_graph_functions" (xml:id), "Recap" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_tree] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_pruning_tree_function" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [exer_caterpillars] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/ol/li/p/xref
+INFO    : *              located within: "exer_pruning_tree_function" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sec_subgraph_isomorphic] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/ol/li/p/xref
+INFO    : *              located within: "exer_pruning_tree_function" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [thm_steps_multiply] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/p/xref
+INFO    : *              located within: "exam_count_pairings_self" (xml:id), "Counting the number of pairings between a set and itself" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_forall] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_exists] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_exists] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_forall] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_proof_quants_nested] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sec_quant_cex] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_squares_dominoes] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/ol/li/p/xref
+INFO    : *              located within: "exer_pairing_discrete_objects" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_eulers_phi_function] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/hint/ol/li/p/xref
+INFO    : *              located within: "exer_not_1to1_discrete" (xml:id), "Practice" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_integers_modn] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_functions_on_Zn" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sub_count_divisors] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_countdiv_onto" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_contradiction] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/p/xref
+INFO    : *              located within: "sub_pff_unique" (xml:id), "Proof Format: Uniqueness" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_exists] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/p/xref
+INFO    : *              located within: "sub_pff_unique" (xml:id), "Proof Format: Uniqueness" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [thm_div_alg] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_div_alg_prove_uniqueness" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_handshakes] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/activity/p/ol/li/p/xref
+INFO    : *              located within: "act_next_term_explicit" (xml:id), "Modeling with explicitly-defined sequences" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_handshakes] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/solution/p/xref
+INFO    : *              located within: "part_NTE_exam_hs" (xml:id)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_quo_rem_div_mod] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_fn_modn" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [thm_hs] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_hs_nplus1" (xml:id), "Practice" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_binomial_coeff] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_fn_nchoose3" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_gcd] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_fn_gcd15" (xml:id), "Understand" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_complete_completebipartite] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/xref
+INFO    : *              located within: "exam_count_vert_deg3" (xml:id), "Count vertices of degree three" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_complete_completebipartite] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/xref
+INFO    : *              located within: "exam_count_vert_deg3" (xml:id), "Count vertices of degree three" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [exam_wheel_ladder] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/xref
+INFO    : *              located within: "exam_count_vert_deg3" (xml:id), "Count vertices of degree three" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [exam_wheel_ladder] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/xref
+INFO    : *              located within: "exam_count_vert_deg3" (xml:id), "Count vertices of degree three" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sub_prime_fact] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/solution/p/xref
+INFO    : *              located within: "exam_coundiv" (xml:id), "Number of divisors" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [defn_tree] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/xref
+INFO    : *              located within: "exer_pruning_tree_function" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [exer_caterpillars] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/ol/li/p/xref
+INFO    : *              located within: "exer_pruning_tree_function" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sec_subgraph_isomorphic] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/subsubsection/exercise/statement/p/ol/li/p/xref
+INFO    : *              located within: "exer_pruning_tree_function" (xml:id), "Explore" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_forall] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_exists] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_exists] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [pff_forall] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_proof_quants_nested] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [sec_quant_cex] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/solution/p/xref
+INFO    : *              located within: "exam_proof_onto" (xml:id), "Proof that a function is onto" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_handshakes] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/activity/p/ol/li/p/xref
+INFO    : *              located within: "act_next_term_explicit" (xml:id), "Modeling with explicitly-defined sequences" (title)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_handshakes] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/solution/p/xref
+INFO    : *              located within: "part_NTE_exam_hs" (xml:id)
+ERROR   : * PTX:ERROR:   a cross-reference ("xref") uses references [act_handshakes] that do not point to any target, or perhaps point to multiple targets.  Maybe you typed an @xml:id value wrong, maybe the target of the @xml:id is nonexistent, or maybe you temporarily removed the target from your source, or maybe an auxiliary file contains a duplicate.  Your output will contain some placeholder text that you will not want to distribute to your readers.
+INFO    : *              located at: pretext/book/chapter/section/subsection/example/statement/p/ol/li/p/solution/p/xref
+INFO    : *              located within: "part_NTE_exam_hs" (xml:id)
+INFO    : successful application of /tmp/ptxcli_tdnx1rke/cli_xsl/custom-html.xsl
+INFO    : Removing temporary directory /tmp/ptx-nz050dan
+INFO    : Removing temporary directory /tmp/ptx-7mgcltgy
+INFO    : 
+Finished build for target web. Run `pretext view web` to see the results.
+
+CRITICAL: There were errors during the build.  See above.
+INFO    : ------------------------
+CRITICAL: Failed to build without errors.  Exiting...
+INFO    : 
+----------------------------------------------------
+INFO    : While running pretext, the following errors occurred:
+
+INFO    : (see log messages above or in the 'logs' folder for more information)
+INFO    : ----------------------------------------------------

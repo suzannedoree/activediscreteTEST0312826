@@ -1,0 +1,10 @@
+% Used in \Cref{fig_parabola_not_function}.
+
+\begin{tikzpicture}[x=0.7cm,y=0.7cm]
+  \draw[->] (-0.6,0) -- (10.4,0) node[right] {$x$};
+  \draw[->] (0,-3.4) -- (0,3.4) node[above] {$y$};
+  \draw[domain=-3:3,samples=120,smooth] plot ({\x*\x},\x);
+  \draw[dashed] (4,-3.2) -- (4,3.2);
+  \fill (4,2) circle (0.08);
+  \fill (4,-2) circle (0.08);
+\end{tikzpicture}
