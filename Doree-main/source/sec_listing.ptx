@@ -129,7 +129,10 @@
                   <figure xml:id="fig_sq_dom6_start1">
                     <caption>Tiling the <m>1 \times 6</m> board starting with a square.</caption>
                     <me>
-                      \bullet \underbrace{\bullet \bullet \bullet \bullet \bullet~}~, \bullet \underbrace{\bullet \bullet \bullet \boldsymbol{-}~}~, \bullet \underbrace{\bullet \bullet \boldsymbol{-} \bullet~}~, \bullet \underbrace{\bullet \boldsymbol{-} \bullet \bullet~}~, \bullet \underbrace{\bullet \boldsymbol{-} \boldsymbol{-}~}~, \bullet \underbrace{\boldsymbol{-} \bullet \bullet \bullet~}~, \bullet \underbrace{\boldsymbol{-}  \bullet \boldsymbol{-}~}~, \bullet \underbrace{\boldsymbol{-}  \boldsymbol{-}\bullet~}
+                      \bullet \underline{\bullet \bullet \bullet \bullet \bullet~}~, \bullet \underline{\bullet \bullet \bullet \boldsymbol{-}~}~, \bullet \underline{\bullet \bullet \boldsymbol{-} \bullet~}~,\bullet \underline{\bullet \boldsymbol{-} \bullet \bullet~}~,
+                       </me>
+                       <me> 
+                       \bullet \underline{\bullet \boldsymbol{-} \boldsymbol{-}~}~, \bullet \underline{\boldsymbol{-} \bullet \bullet \bullet~}~, \bullet \underline{\boldsymbol{-}  \bullet \boldsymbol{-}~}~, \bullet \underline{\boldsymbol{-}  \boldsymbol{-}\bullet~}
                     </me>
                   </figure>
                   <p>
@@ -144,7 +147,7 @@
                   <figure xml:id="fig_sq_dom6_start2">
                     <caption>Tiling the <m>1 \times 6</m> board starting with a domino.</caption>
                     <me>
-                      \boldsymbol{-} \underbrace{\bullet \bullet \bullet \bullet~}~, \boldsymbol{-} \underbrace{\bullet \bullet \boldsymbol{-}~}~, \boldsymbol{-} \underbrace{\bullet \boldsymbol{-} \bullet~}~, \boldsymbol{-} \underbrace{\boldsymbol{-} \bullet \bullet~}~, \boldsymbol{-} \underbrace{\boldsymbol{-} \boldsymbol{-}~}
+                      \boldsymbol{-} \underline{\bullet \bullet \bullet \bullet~}~, \boldsymbol{-} \underline{\bullet \bullet \boldsymbol{-}~}~, \boldsymbol{-} \underline{\bullet \boldsymbol{-} \bullet~}~, \boldsymbol{-} \underline{\boldsymbol{-} \bullet \bullet~}~, \boldsymbol{-} \underline{\boldsymbol{-} \boldsymbol{-}~}
                     </me>
                   </figure>
                   <p>
@@ -178,7 +181,7 @@
     <p>
       In <xref ref="act_squares_dominoes"></xref>
       and <xref ref="exam_sq_dom6"></xref>,
-      we saw our first example of a <term>recusive</term>
+      we saw our first example of a <term>recursive</term>
       solution where we use tilings of smaller boards to tile a larger board.
       Specifically, we can tile a
       <m>1 \times n</m> board using the tilings for the next two smaller boards:
@@ -274,7 +277,9 @@
       In fact, we might say that
     </p>
     <blockquote>
-      Sets are the most fundamental structure of mathematics because all of mathematics can be defined using sets.
+      <p>
+        Sets are the most fundamental structure of mathematics because all of mathematics can be defined using sets.
+      </p>
     </blockquote>
     <p>
       Since discrete mathematics comes from all areas of mathematics,
@@ -707,6 +712,14 @@
                     <c>c2</c>,
                     <c>c6</c>.
                   </p>
+                  <figure xml:id="fig_tree_2strings">
+                  <caption>A possibility tree for 2-strings.</caption>
+                    <image width="60%">
+                    <latex-image>
+                    <xi:include href="Tikz/poss_tree_string_length2.tikz" parse="text"/> 
+                    </latex-image>
+                    </image>
+                </figure>
                 </solution>
               </p>
             </li>
@@ -742,15 +755,8 @@
                     In this case,
                     it takes a little less work to draw the tree but a little more work to write out the final list.
                   </p>
-                </solution>
-                <figure xml:id="fig_tree_2strings">
-                  <caption>A possibility tree for 2-strings.</caption>
-                    <image width="60%">
-                    <latex-image>
-                    <xi:include href="Tikz/poss_tree_string_length2.tikz" parse="text"/> 
-                    </latex-image>
-                    </image>
-                </figure>
+                
+                
                 <figure xml:id="fig_tree_2strings_shorthand">
                   <caption>A possibility tree for 2-strings, shorthand version.</caption>
                     <image width="60%">
@@ -759,6 +765,7 @@
                     </latex-image>
                     </image>
                 </figure>
+                </solution>
               </p>
             </li>
           </ol>
