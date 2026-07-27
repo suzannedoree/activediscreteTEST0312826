@@ -10,7 +10,9 @@
       In fact, we might say that
     </p>
     <blockquote>
+    <p>
       Bit strings are a fundamental structure of computer science because all of computer science can be defined using bit strings.
+      </p>
     </blockquote>
     <p>
       In this section, we count bit strings,
@@ -369,7 +371,7 @@
               How many bit strings of length eight and weight two are there?
               Hint: We can build such a bit string by putting a <c>0</c> or <c>1</c> in each of eight spaces:
               <me>
-                \underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~
+                \underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~
               </me>
               but we need exactly two spaces to have <c>1</c> so filling in the spaces from left to right will not work and there are too many to draw a possibility tree.
               Instead, consider choosing which two spaces to fill in with <c>1</c>.
@@ -406,7 +408,7 @@
           Let's figure out a way to rephrase this problem in terms of subsets.
           We can build such a bit string by putting a <c>0</c> or <c>1</c> in each of 100 spaces:
           <me>
-            \underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\underline{}~\ldots~\underline{}~\underline{}
+            \underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}\dots\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}
           </me>
         </p>
         <p>
@@ -452,7 +454,7 @@
       Let's see this theorem in action.
     </p>
     <example xml:id="exam_count_bs_exactlyk">
-      <title>Counting bit strings with given number of \bs{0}s or \bs{1}s</title>
+      <title>Counting bit strings with given number of <m>\bs{0}</m>s or <m>\bs{1}</m>s</title>
       <statement>
         <p>
           <nbsp/>
@@ -687,12 +689,12 @@
                     <row>
                       <cell></cell>
                       <cell>=</cell>
-                      <cell>1,000 <m>\times 10</m></cell>
+                      <cell><m>1{,}000 \times 10</m></cell>
                     </row>
                     <row>
                       <cell></cell>
                       <cell>=</cell>
-                      <cell>10,000.</cell>
+                      <cell><m>10{,}000</m>.</cell>
                     </row>
                   </tabular>
                   <p>
@@ -732,7 +734,7 @@
                     </row>
                   </tabular>
                   <p>
-                    Check that <m>(-10) \land 4 = 10,000</m>.
+                    Check that <m>(-10) \land 4 = 10{,}000</m>.
                     On the other hand,
                     according to <xref ref="defn_integer_algebra_order_operations"></xref>
                     <xref ref="part_order_operations"/>,
@@ -742,7 +744,7 @@
                     <me>
                       -10^4=-(10^4)=-10,000
                     </me>.
-                    Check that <m>-10 \land 4 = -10,000</m>.
+                    Check that <m>-10 \land 4 = -10{,}000</m>.
                   </p>
                 </solution>
               </p>
@@ -784,7 +786,8 @@
       There is a name for the exponent.
     </p>
     <definition xml:id="defn_log">
-      <title>Logarithm<fn>In this textbook, we only calculate logarithms of exact powers.  We do not calculate quantities such as <m>\fn{log}(25)</m> or <m>\fn{lg}(3)</m>.  We have defined <m>b^n</m> when <m>n</m> is a nonnegative integer, but it is beyond the scope of this textbook to define what <m>b^x</m> for any real number <m>x</m>.  With that definition, we can take evaluate logarithms of any positive real number.  For example, <m>\fn{log}(25) \approx 1.398</m> and <m>\fn{lg}(3) \approx 1.585</m>.</fn></title>
+      <title>Logarithm
+         </title>
       <statement>
         <p>
           <nbsp/>
@@ -810,7 +813,11 @@
             <li>
               <p>
                 In this textbook, we only use base 2 and base 10,
-                but logarithms can be defined in general.
+                but logarithms can be defined in general.<fn>In this textbook, we only calculate logarithms of exact powers.  We do not calculate quantities such as
+       <m>\fn{log}(25)</m> or <m>\fn{lg}(3)</m>.  We have defined <m>b^n</m> when <m>n</m> is a nonnegative integer, but it is beyond the scope of this textbook to define what <m>b^x</m> for any real number <m>x</m>. 
+       With that definition, we can take evaluate logarithms
+        of any positive real number. 
+         For example, <m>\fn{log}(25) \approx 1.398</m> and <m>\fn{lg}(3) \approx 1.585</m>.</fn>
                 The <term>logarithm base <m>b</m></term> of an integer <m>k</m>,
                 denoted <m>\fn{log}_b(k)</m> is the exponent of the power of <m>b</m> that equals <m>k</m>.
                 That is, <m>\fn{log}_b(k)=n</m> if <m>b^n=k</m>.
@@ -1686,12 +1693,12 @@
         <title>Explore</title>
         <statement>
           <p>
-            In this problem we build on the ideas of <xref ref="exer_stars_and_bars"></xref>.
+            In this problem we build on the ideas of Exercise <xref ref="exer_stars_and_bars" text="global"></xref>.
             <ol>
               <li>
                 <p>
                   How many nonnegative integer solutions are there to the equation <m>x_1+x_2+x_3=15?</m> Hint:
-                  how can we rephrase this question to be the same as the question in <xref ref="exer_stars_and_bars"></xref>?
+                  how can we rephrase this question to be the same as the question in Exercise <xref ref="exer_stars_and_bars" text="global"></xref>?
                 </p>
               </li>
               <li>
@@ -1788,7 +1795,7 @@
             <ol>
               <li>
                 <p>
-                  Evaluate <m>\fn{log}(10,000 )</m>,
+                  Evaluate <m>\fn{log}(10{,}000 )</m>,
                   <m>\fn{log}(10)</m>, and <m>\fn{log}(1)</m>.
                 </p>
               </li>
@@ -1919,7 +1926,7 @@
               <li>
                 <p>
                   Factor and simplify <m>10^n-9(10^{n-1})</m>.
-                  Hint: See <xref ref="exer_single_power"></xref>
+                  Hint: See Exercise <xref ref="exer_single_power" text="global"></xref>
                   <xref ref="part_10power"/> and <xref ref="part_another_10power"/>.
                 </p>
               </li>
@@ -1995,8 +2002,8 @@
             <ol>
               <li>
                 <p>
-                  Play the online game <term>2048</term>
-                  at \url{https://play2048.co/}. Report here how long you played and how high a level you achieved.
+                  Play the online game
+               <url href="https://play2048.co"><term>2048</term></url>. Report here how long you played and how high a level you achieved.
                   Try to get to at least 128.
                 </p>
               </li>

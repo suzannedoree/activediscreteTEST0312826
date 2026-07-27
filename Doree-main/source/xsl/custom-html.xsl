@@ -128,4 +128,37 @@
     mode="get-text-style">
     <xsl:text>local</xsl:text>
   </xsl:template>
+
+  <!--
+    Put theorem-like headings on their own line (instead of run-in)
+    so title and statement are visually separated.
+  -->
+  <xsl:template name="css-common">
+    <xsl:if test="$b-needs-custom-marker-css">
+      <link href="{$html.css.dir}/ol-markers.css" rel="stylesheet" type="text/css"/>
+    </xsl:if>
+    <xsl:if test="not($html.css.extra = '')">
+      <xsl:variable name="csses" select="str:tokenize($html.css.extra, ', ')"/>
+      <xsl:for-each select="$csses">
+        <link rel="stylesheet" type="text/css">
+          <xsl:attribute name="href">
+            <xsl:value-of select="."/>
+          </xsl:attribute>
+        </link>
+      </xsl:for-each>
+    </xsl:if>
+    <xsl:if test="$debug.developer.css = 'yes'">
+      <xsl:comment> This HTML version has been built with elective CSS strictly </xsl:comment>
+      <xsl:comment> for testing purposes, and the developer who chose to use it </xsl:comment>
+      <xsl:comment> must supply it.                                             </xsl:comment>
+      <link href="developer.css" rel="stylesheet" type="text/css" />
+    </xsl:if>
+
+    <style>
+      .theorem-like &gt; .heading {
+        display: block;
+        margin-bottom: 0.35em;
+      }
+    </style>
+  </xsl:template>
 </xsl:stylesheet>

@@ -473,7 +473,11 @@
         <p>
           Since steps multiply <xref ref="thm_steps_multiply"/>, there are
           <me>
-            \binom{13}{1}\binom{4}{3}\binom{13}{2}\binom{4}{1}\binom{4}{1} = (13)(4)\binom{13}{2}(4)(4) =4^3(13)\binom{12}{2}=64,896
+          \begin{aligned}
+            \binom{13}{1}\binom{4}{3}\binom{13}{2}\binom{4}{1}\binom{4}{1} &amp;= (13)(4)\binom{13}{2}(4)(4)\\
+            &amp; =4^3(13)\binom{12}{2}\\
+            &amp;=64,896
+            \end{aligned}
           </me>
           ways.
           (Any of those formats of the answer is acceptable.)
@@ -500,12 +504,17 @@
       a <term>proof that counts</term>,
       in which we prove that two quantities are equal by counting the same situation using two different methods.
     </p>
-    <proof xml:id="pff_comb_proof">
-    <p>
-      Prove: <m>N=M</m> using a combinatorial proof.
+
+
+<theorem xml:id="pff_comb">
+  <title>Proof Format: Combinatorial Proof</title>
+  <statement>
+  <p>
+      We can prove: <m>N=M</m> using a combinatorial proof by 
+      adapting the following proof format.
     </p>
-    <proof>
-      <p>
+    <p>
+    <em>Proof.</em>
         We use a combinatorial proof.
         Consider the following situation <ellipsis/>.
       </p>
@@ -522,8 +531,10 @@
         Since we counted the same quantity in two different ways,
         it follows that <m>N=M</m>.
       </p>
-    </proof>
-    </proof>
+
+    </statement>
+</theorem>
+ 
     <p>
       Whenever we introduce a new proof format,
       we present an example of such a proof and then ask you to write a very similar proof by copying the example proof
@@ -1002,7 +1013,7 @@
         <title>Understand</title>
         <statement>
           <p>
-            As in <xref ref="exer_library_books"></xref>,
+            As in Exercise <xref ref="exer_library_books" text="global"></xref>,
             the library's new arrivals section offers 24 mystery novels, 50 young adult novels, 17 biographies,
             and 46 fantasy novels.
             <ol>
@@ -1361,7 +1372,7 @@
             for any positive integers <m>n</m> and <m>k</m>.
           </p>
           <p>
-            Hint: This equation generalizes <xref ref="exer_outside_chair"></xref>,
+            Hint: This equation generalizes Exercise <xref ref="exer_outside_chair" text="global"></xref>,
             so use the same hint.
           </p>
         </statement>

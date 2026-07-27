@@ -19,6 +19,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+      .theorem-like > .heading {
+        display: block;
+        margin-bottom: 0.35em;
+      }
+    </style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -303,14 +309,14 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="sec_counting_steps_cases.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Counting with Steps and Cases</span></a></div>
 <ul id="ptx-toc-group-sec_counting_steps_cases" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_steps_cases" class="internal"><span class="codenumber">2.2.A</span> <span class="title">Counting with Steps and Cases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_counting_awry" class="internal"><span class="codenumber">2.2.B</span> <span class="title"><span class="process-math">\(When Counting Goes Awry\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_factorials" class="internal"><span class="codenumber">2.2.C</span> <span class="title"><span class="process-math">\(Algebra: Factorials\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_counting_awry" class="internal"><span class="codenumber">2.2.B</span> <span class="title">When Counting Goes Awry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_factorials" class="internal"><span class="codenumber">2.2.C</span> <span class="title">Algebra: Factorials</span></a></div></li>
 <li class="toc-item toc-subsection">
 <div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6" class="internal"><span class="codenumber">2.2.D</span> <span class="title">Exercises</span></a></div>
 <ul id="ptx-toc-group-sec_counting_steps_cases-6" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-2" class="internal"><span class="title">Exercises for 2.2.A <span class="process-math">\(Counting with Steps and Cases\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-3" class="internal"><span class="title">Exercises for 2.2.B <span class="process-math">\(When Counting Goes Awry\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-4" class="internal"><span class="title">Exercises for 2.2.C <span class="process-math">\(Algebra: Factorials\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-2" class="internal"><span class="title">Exercises for 2.2.ACounting with Steps and Cases</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-3" class="internal"><span class="title">Exercises for 2.2.B When Counting Goes Awry</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-4" class="internal"><span class="title">Exercises for 2.2.C Algebra: Factorials</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1906,7 +1912,7 @@ ns+nt=n(s+t)
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
 </h5>
 <div class="para logical" id="exer_trominoes_conjectures-2-1">
-<div class="para">Suppose we have squares, dominoes, and trominoes, as in <a href="sec_listing.html#exer_trominoes_examples" class="xref" data-knowl="./knowl/xref/exer_trominoes_examples.html" data-reveal-label="Reveal" data-close-label="Close" title=" 2: Understand"> 2</a>.</div>
+<div class="para">Suppose we have squares, dominoes, and trominoes, as in Exercise <a href="sec_listing.html#exer_trominoes_examples" class="xref" data-knowl="./knowl/xref/exer_trominoes_examples.html" data-reveal-label="Reveal" data-close-label="Close" title=" 2: Understand">2</a>.</div>
 <ol class="lower-alpha" id="exer_trominoes_conjectures-2-1-2">
 <li id="exer_trominoes_conjectures-2-1-2-1">
 <div class="para" id="exer_trominoes_conjectures-2-1-2-1-1">Conjecture the number of ways to tile a <span class="process-math">\(1 \times n\)</span> board with squares, dominoes, and trominoes. Explain your reasoning and make sure you get the correct number when <span class="process-math">\(n=1,2,3,4\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_trominoes_conjectures-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2101,7 +2107,7 @@ ns+nt=n(s+t)
 <span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
 </h5>
 <div class="para logical" id="exer_explore_kakuro-2-1">
-<div class="para">This exercise is based on the Kakuro puzzle introduced in <a href="sec_listing.html#exer_play_Kakuro" class="xref" data-knowl="./knowl/xref/exer_play_Kakuro.html" data-reveal-label="Reveal" data-close-label="Close" title=" 9: Explore"> 9</a>. We use the shorthand clue “n-in-k” to mean a set of <span class="process-math">\(k\)</span> digits 1-9 without repeats whose sum is <span class="process-math">\(n\text{.}\)</span> For example, “20-in-3” could be</div>
+<div class="para">This exercise is based on the Kakuro puzzle introduced in Exercise <a href="sec_listing.html#exer_play_Kakuro" class="xref" data-knowl="./knowl/xref/exer_play_Kakuro.html" data-reveal-label="Reveal" data-close-label="Close" title=" 9: Explore">9</a>. We use the shorthand clue “n-in-k” to mean a set of <span class="process-math">\(k\)</span> digits 1-9 without repeats whose sum is <span class="process-math">\(n\text{.}\)</span> For example, “20-in-3” could be</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exer_play_Kakuro.html" id="exer_explore_kakuro-2-1-6">
 \begin{equation*}
 \{3, 8, 9\}, \{4, 7, 9\},  \{5, 6, 9\}, \text{ or }  \{5,7,8\}\text{.}
@@ -2111,7 +2117,7 @@ ns+nt=n(s+t)
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_explore_kakuro-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
 <div class="para logical" id="exer_explore_kakuro-2-2">
-<div class="para">A <em class="emphasis">kakuro</em> is a clue having only one possible set. For example, “17-in-2” is a kakuro because the only set is <span class="process-math">\(\{8,9\}\)</span> while “20-in-3” is not a kakuro because there were four possible sets. Kakuros are very helpful for solving Kakuro puzzles. We found kakuros of the form <span class="process-math">\(n\)</span>-in-2 and <span class="process-math">\(n\)</span>-in-3 in <a href="sec_listing.html#exer_kakuro23" class="xref" data-knowl="./knowl/xref/exer_kakuro23.html" data-reveal-label="Reveal" data-close-label="Close" title=" 7: Understand"> 7</a>.</div>
+<div class="para">A <em class="emphasis">kakuro</em> is a clue having only one possible set. For example, “17-in-2” is a kakuro because the only set is <span class="process-math">\(\{8,9\}\)</span> while “20-in-3” is not a kakuro because there were four possible sets. Kakuros are very helpful for solving Kakuro puzzles. We found kakuros of the form <span class="process-math">\(n\)</span>-in-2 and <span class="process-math">\(n\)</span>-in-3 in Exercise <a href="sec_listing.html#exer_kakuro23" class="xref" data-knowl="./knowl/xref/exer_kakuro23.html" data-reveal-label="Reveal" data-close-label="Close" title=" 7: Understand">7</a>.</div>
 <ol class="lower-alpha" id="exer_explore_kakuro-2-2-8">
 <li id="exer_explore_kakuro-2-2-8-1">
 <div class="para" id="exer_explore_kakuro-2-2-8-1-1">What is the only digit that the kakuros “3-in-2” and “4-in-2” have in common?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_explore_kakuro-2-2-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>

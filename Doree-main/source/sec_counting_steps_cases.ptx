@@ -224,8 +224,8 @@
         <p>
           Imagine building each permutation by filling in four spaces:
           <me>
-            \underline{}~\underline{}~\underline{}~\underline{}
-          </me>
+  \underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}
+</me>
         </p>
         <p>
           Step 1: Fill in the first space.
@@ -283,7 +283,7 @@
           permutations of the set <m>\{\str{1},\str{2},\str{3},\str{4}\}</m>.
           You can check by drawing the possibility tree,
           as in <xref ref="sec_listing"></xref>
-          <xref ref="exer_perm_trees"></xref>.
+          Exercise <xref ref="exer_perm_trees" text="global"></xref>.
         </p>
       </solution>
     </example>
@@ -575,7 +575,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_counting_awry">
-    <title><m>When Counting Goes Awry</m></title>
+    <title>When Counting Goes Awry</title>
     <p>
       In each of the examples so far in this section,
       we have been able to count using steps, cases,
@@ -621,7 +621,7 @@
           but if we started with two dominoes , then the next tile must be a square because the total length is five
           (and three dominoes would have length six).
           In the tree,
-          we see only one branch following the option <m>\boldsymbol{-}\boldsymbol{-}</m>.
+          we see only one branch following the option <m>\boldsymbol{-}\boldsymbol{-}\bullet</m>.
         </p>
         <p>
           In the fourth step, when we choose the fourth tile,
@@ -669,7 +669,7 @@
           or <m>\boldsymbol{-}\bullet</m>.
           Therefore, we have three strings in this case:
           <me>
-            \bullet\bullet\bullet\bullet \bullet\bullet\boldsymbol{-} \bullet\boldsymbol{-}\bullet
+            \bullet\bullet\bullet\bullet, \bullet\bullet\boldsymbol{-}, \bullet\boldsymbol{-}\bullet
           </me>
         </p>
         <p>
@@ -680,7 +680,7 @@
           or <m>\boldsymbol{-}\bullet</m>.
           Therefore, we also have three strings in this case:
           <me>
-            \bullet\bullet\bullet\bullet \bullet\boldsymbol{-}\bullet \boldsymbol{-}\bullet\bullet
+            \bullet\bullet\bullet\bullet, \bullet\boldsymbol{-}\bullet, \boldsymbol{-}\bullet\bullet
           </me>
         </p>
         <p>
@@ -688,7 +688,7 @@
           <m>\bullet\boldsymbol{-}\bullet</m> appear on both lists,
           so there are only four distinct tilings:
           <me>
-            \bullet\bullet\bullet\bullet \bullet\bullet\boldsymbol{-} \bullet\boldsymbol{-}\bullet \boldsymbol{-}\bullet\bullet
+            \bullet\bullet\bullet\bullet, \bullet\bullet\boldsymbol{-}, \bullet\boldsymbol{-}\bullet, \boldsymbol{-}\bullet\bullet
           </me>.
           The answer is 4, but if we had added the numbers from our cases,
           we would have <m>3+3=6</m>, which is not correct.
@@ -697,7 +697,7 @@
     </example>
     <p>
       There is a workaround when we have cases that are not separate.
-      See <xref ref="exer_inclusion_exclusion_2sets"></xref> for an example.
+      See Exercise <xref ref="exer_inclusion_exclusion_2sets" text="global"></xref> for an example.
       For now, try to keep your cases separate.
     </p>
     <activity xml:id="act_counting_incorrectly">
@@ -705,7 +705,7 @@
       <p>
         Consider all strings of length four
         <me>
-          \underline{}~\underline{} ~\underline{} ~\underline{}~
+          \underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}
         </me>
         that use only the characters <c>X</c>,
         <c>f</c>,
@@ -754,7 +754,7 @@
     </activity>
   </subsection>
   <subsection xml:id="sub_factorials">
-    <title><m>Algebra: Factorials</m></title>
+    <title>Algebra: Factorials</title>
     <p>
       In <xref ref="exam_perms_1to4"></xref>,
       we saw that the number of permutations of the set
@@ -1023,7 +1023,11 @@
                   <p>
                     Similarly, we have
                     <me>
-                      n((n-1)!) = (n)\underbrace{(n-1)(n-2)\cdots (3)(2)(1)}_{(n-1)!} = \underbrace{(n)(n-1)(n-2)\cdots(3)(2)(1)}_{n!}=n!
+                    \begin{aligned}
+                    n((n-1)!) &amp;= (n)\underbrace{(n-1)(n-2)\cdots(3)(2)(1)}_{(n-1)!} \\
+                    &amp;= \underbrace{(n)(n-1)(n-2)\cdots(3)(2)(1)}_{n!}\\
+                    &amp; = n!
+                    \end{aligned}
                     </me>
                   </p>
                 </solution>
@@ -1063,7 +1067,7 @@
   <subsection>
     <title>Exercises</title>
     <subsubsection>
-      <title>Exercises for <xref ref="sub_steps_cases" text="global"></xref> <m>Counting with Steps and Cases</m></title>
+      <title>Exercises for <xref ref="sub_steps_cases" text="global"></xref>Counting with Steps and Cases</title>
       <p>
         When counting, follow <xref ref="rem_not_eval_counts_2"></xref>.
         In particular, if the answer is greater than 20,
@@ -1545,7 +1549,7 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises for <xref ref="sub_counting_awry" text="global"></xref> <m>When Counting Goes Awry</m></title>
+      <title>Exercises for <xref ref="sub_counting_awry" text="global"></xref> When Counting Goes Awry</title>
       <exercise xml:id="exer_password_not_steps">
         <title><m>Practice</m></title>
         <statement>
@@ -1738,7 +1742,7 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises for <xref ref="sub_factorials" text="global"></xref> <m>Algebra: Factorials</m></title>
+      <title>Exercises for <xref ref="sub_factorials" text="global"></xref> Algebra: Factorials</title>
       <exercise xml:id="exer_evaluate_factorials">
         <title><m>Practice</m></title>
         <statement>

@@ -19,6 +19,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+      .theorem-like > .heading {
+        display: block;
+        margin-bottom: 0.35em;
+      }
+    </style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -303,14 +309,14 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="sec_counting_steps_cases.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Counting with Steps and Cases</span></a></div>
 <ul id="ptx-toc-group-sec_counting_steps_cases" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_steps_cases" class="internal"><span class="codenumber">2.2.A</span> <span class="title">Counting with Steps and Cases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_counting_awry" class="internal"><span class="codenumber">2.2.B</span> <span class="title"><span class="process-math">\(When Counting Goes Awry\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_factorials" class="internal"><span class="codenumber">2.2.C</span> <span class="title"><span class="process-math">\(Algebra: Factorials\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_counting_awry" class="internal"><span class="codenumber">2.2.B</span> <span class="title">When Counting Goes Awry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_factorials" class="internal"><span class="codenumber">2.2.C</span> <span class="title">Algebra: Factorials</span></a></div></li>
 <li class="toc-item toc-subsection">
 <div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6" class="internal"><span class="codenumber">2.2.D</span> <span class="title">Exercises</span></a></div>
 <ul id="ptx-toc-group-sec_counting_steps_cases-6" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-2" class="internal"><span class="title">Exercises for 2.2.A <span class="process-math">\(Counting with Steps and Cases\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-3" class="internal"><span class="title">Exercises for 2.2.B <span class="process-math">\(When Counting Goes Awry\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-4" class="internal"><span class="title">Exercises for 2.2.C <span class="process-math">\(Algebra: Factorials\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-2" class="internal"><span class="title">Exercises for 2.2.ACounting with Steps and Cases</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-3" class="internal"><span class="title">Exercises for 2.2.B When Counting Goes Awry</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-4" class="internal"><span class="title">Exercises for 2.2.C Algebra: Factorials</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1160,7 +1166,7 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sec_handshakes-5-7">Each side of the equation in <a href="sec_handshakes.html#thm_hs" class="xref" data-knowl="./knowl/xref/thm_hs.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.1.3">Theorem 1.1.3</a> <a href="sec_handshakes.html#part_thm_hsn" class="xref" data-knowl="./knowl/xref/part_thm_hsn.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a> counts the number of handshakes in a group of <span class="process-math">\(n\)</span> students, while each side of the equation in <a href="sec_handshakes.html#thm_hs" class="xref" data-knowl="./knowl/xref/thm_hs.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.1.3">Theorem 1.1.3</a> <a href="sec_handshakes.html#part_thm_hsnplus1" class="xref" data-knowl="./knowl/xref/part_thm_hsnplus1.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (b)">(b)</a> counts the number of handshakes in a group of <span class="process-math">\(n+1\)</span> students.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_handshakes-5-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec_handshakes-5-8">A <dfn class="terminology">theorem</dfn> is a fact that has been proved. In this textbook, we prove a theorem if the proof helps to understand the result or if it illustrates a useful proof format. Sometimes, the proof occurs much later in the textbook. For example, we prove <a href="sec_handshakes.html#thm_hs" class="xref" data-knowl="./knowl/xref/thm_hs.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.1.3">Theorem 1.1.3</a> in <a href="sec_sum_proofs.html#exer_math_ind_sum_evens" class="xref" data-knowl="./knowl/xref/exer_math_ind_sum_evens.html" data-reveal-label="Reveal" data-close-label="Close" title=" 2: Practice"> 2</a> and <a href="sec_sum_proofs.html#exer_comb_pf_sum_hs" class="xref" data-knowl="./knowl/xref/exer_comb_pf_sum_hs.html" data-reveal-label="Reveal" data-close-label="Close" title=" 25: Explore"> 25</a> in <a href="sec_sum_proofs.html" class="internal" title="Section 9.5: Proofs of Explicit Formulas for Sums and Products">Section 9.5</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_handshakes-5-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec_handshakes-5-8">A <dfn class="terminology">theorem</dfn> is a fact that has been proved. In this textbook, we prove a theorem if the proof helps to understand the result or if it illustrates a useful proof format. Sometimes, the proof occurs much later in the textbook. For example, we prove <a href="sec_handshakes.html#thm_hs" class="xref" data-knowl="./knowl/xref/thm_hs.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.1.3">Theorem 1.1.3</a> in Exercise <a href="sec_sum_proofs.html#exer_math_ind_sum_evens" class="xref" data-knowl="./knowl/xref/exer_math_ind_sum_evens.html" data-reveal-label="Reveal" data-close-label="Close" title=" 2: Practice">2</a> and Exercise <a href="sec_sum_proofs.html#exer_comb_pf_sum_hs" class="xref" data-knowl="./knowl/xref/exer_comb_pf_sum_hs.html" data-reveal-label="Reveal" data-close-label="Close" title=" 25: Explore">25</a> in <a href="sec_sum_proofs.html" class="internal" title="Section 9.5: Proofs of Explicit Formulas for Sums and Products">Section 9.5</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_handshakes-5-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 1.1.A: Counting Handshakes"><a tabindex="-1" href="#sec_handshakes-5" title="Copy heading and permalink for Subsection 1.1.A: Counting Handshakes" aria-label="Copy heading and permalink for Subsection 1.1.A: Counting Handshakes">🔗</a></div>
 </section>

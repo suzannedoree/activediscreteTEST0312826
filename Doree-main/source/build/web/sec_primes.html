@@ -19,6 +19,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+      .theorem-like > .heading {
+        display: block;
+        margin-bottom: 0.35em;
+      }
+    </style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -303,14 +309,14 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="sec_counting_steps_cases.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Counting with Steps and Cases</span></a></div>
 <ul id="ptx-toc-group-sec_counting_steps_cases" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_steps_cases" class="internal"><span class="codenumber">2.2.A</span> <span class="title">Counting with Steps and Cases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_counting_awry" class="internal"><span class="codenumber">2.2.B</span> <span class="title"><span class="process-math">\(When Counting Goes Awry\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_factorials" class="internal"><span class="codenumber">2.2.C</span> <span class="title"><span class="process-math">\(Algebra: Factorials\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_counting_awry" class="internal"><span class="codenumber">2.2.B</span> <span class="title">When Counting Goes Awry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_factorials" class="internal"><span class="codenumber">2.2.C</span> <span class="title">Algebra: Factorials</span></a></div></li>
 <li class="toc-item toc-subsection">
 <div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6" class="internal"><span class="codenumber">2.2.D</span> <span class="title">Exercises</span></a></div>
 <ul id="ptx-toc-group-sec_counting_steps_cases-6" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-2" class="internal"><span class="title">Exercises for 2.2.A <span class="process-math">\(Counting with Steps and Cases\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-3" class="internal"><span class="title">Exercises for 2.2.B <span class="process-math">\(When Counting Goes Awry\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-4" class="internal"><span class="title">Exercises for 2.2.C <span class="process-math">\(Algebra: Factorials\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-2" class="internal"><span class="title">Exercises for 2.2.ACounting with Steps and Cases</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-3" class="internal"><span class="title">Exercises for 2.2.B When Counting Goes Awry</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-4" class="internal"><span class="title">Exercises for 2.2.C Algebra: Factorials</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -2590,7 +2596,7 @@ n! = n(n-1)(n-2) \cdots (k+1)(k)(k-1) \cdots (3)(2)(1)\text{.}
 <article class="exercise exercise-like" id="exer_zero_div_mod_composite"><h5 class="heading">
 <span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
 </h5>
-<div class="para" id="exer_zero_div_mod_composite-2-1">  Explain why for any composite <span class="process-math">\(n\text{,}\)</span> we can find integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> such that <span class="process-math">\(a \fn{ mod } n \neq 0\)</span> and <span class="process-math">\(b \fn{ mod } n \neq 0\text{,}\)</span> but <span class="process-math">\(ab \fn{ mod } n = 0\text{.}\)</span> Note that such integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are <dfn class="terminology">zero divisors</dfn> in <span class="process-math">\(\mathbb{Z}_n\text{,}\)</span> as defined in <a href="sec_mod_arith.html#exer_zero_div_modn_conj" class="xref" data-knowl="./knowl/xref/exer_zero_div_modn_conj.html" data-reveal-label="Reveal" data-close-label="Close" title=" 17: Explore"> 17</a> in <a href="sec_mod_arith.html" class="internal" title="Section 4.3: Excursion: Modular Arithmetic">Section 4.3</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_zero_div_mod_composite-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_zero_div_mod_composite-2-1">  Explain why for any composite <span class="process-math">\(n\text{,}\)</span> we can find integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> such that <span class="process-math">\(a \fn{ mod } n \neq 0\)</span> and <span class="process-math">\(b \fn{ mod } n \neq 0\text{,}\)</span> but <span class="process-math">\(ab \fn{ mod } n = 0\text{.}\)</span> Note that such integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are <dfn class="terminology">zero divisors</dfn> in <span class="process-math">\(\mathbb{Z}_n\text{,}\)</span> as defined in Exercise <a href="sec_mod_arith.html#exer_zero_div_modn_conj" class="xref" data-knowl="./knowl/xref/exer_zero_div_modn_conj.html" data-reveal-label="Reveal" data-close-label="Close" title=" 17: Explore">17</a> in <a href="sec_mod_arith.html" class="internal" title="Section 4.3: Excursion: Modular Arithmetic">Section 4.3</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_zero_div_mod_composite-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 11: Explore"><a tabindex="-1" href="#exer_zero_div_mod_composite" title="  11: Explore" aria-label="  11: Explore">🔗</a></div>
 </article>

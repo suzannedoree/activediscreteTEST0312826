@@ -19,6 +19,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+      .theorem-like > .heading {
+        display: block;
+        margin-bottom: 0.35em;
+      }
+    </style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -303,14 +309,14 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="sec_counting_steps_cases.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Counting with Steps and Cases</span></a></div>
 <ul id="ptx-toc-group-sec_counting_steps_cases" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_steps_cases" class="internal"><span class="codenumber">2.2.A</span> <span class="title">Counting with Steps and Cases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_counting_awry" class="internal"><span class="codenumber">2.2.B</span> <span class="title"><span class="process-math">\(When Counting Goes Awry\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_factorials" class="internal"><span class="codenumber">2.2.C</span> <span class="title"><span class="process-math">\(Algebra: Factorials\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_counting_awry" class="internal"><span class="codenumber">2.2.B</span> <span class="title">When Counting Goes Awry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sub_factorials" class="internal"><span class="codenumber">2.2.C</span> <span class="title">Algebra: Factorials</span></a></div></li>
 <li class="toc-item toc-subsection">
 <div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6" class="internal"><span class="codenumber">2.2.D</span> <span class="title">Exercises</span></a></div>
 <ul id="ptx-toc-group-sec_counting_steps_cases-6" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-2" class="internal"><span class="title">Exercises for 2.2.A <span class="process-math">\(Counting with Steps and Cases\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-3" class="internal"><span class="title">Exercises for 2.2.B <span class="process-math">\(When Counting Goes Awry\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-4" class="internal"><span class="title">Exercises for 2.2.C <span class="process-math">\(Algebra: Factorials\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-2" class="internal"><span class="title">Exercises for 2.2.ACounting with Steps and Cases</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-3" class="internal"><span class="title">Exercises for 2.2.B When Counting Goes Awry</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_counting_steps_cases.html#sec_counting_steps_cases-6-4" class="internal"><span class="title">Exercises for 2.2.C Algebra: Factorials</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1815,7 +1821,7 @@ b_n=b_{n-1}+4n+1
 <div class="para">Let <span class="process-math">\(h_n\)</span> be the minimum number of moves needed to solve the Tower of Hanoi puzzle with <span class="process-math">\(n\)</span> disks.</div>
 <ol class="lower-alpha" id="exer_hanoi_explicit-2-1-3">
 <li id="exer_hanoi_explicit-2-1-3-1">
-<div class="para" id="exer_hanoi_explicit-2-1-3-1-1">List the first eight terms of <span class="process-math">\(h_n\)</span> from our work on <a href="sec_recursively_defined_sequences.html#act_hanoi" class="xref" data-knowl="./knowl/xref/act_hanoi.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.1.A: Towers of Hanoi Puzzle">Activity 8.1.A</a> or <a href="sec_recursively_defined_sequences.html#exer_hanoi89" class="xref" data-knowl="./knowl/xref/exer_hanoi89.html" data-reveal-label="Reveal" data-close-label="Close" title=" 1: Practice"> 1</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_hanoi_explicit-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_hanoi_explicit-2-1-3-1-1">List the first eight terms of <span class="process-math">\(h_n\)</span> from our work on <a href="sec_recursively_defined_sequences.html#act_hanoi" class="xref" data-knowl="./knowl/xref/act_hanoi.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.1.A: Towers of Hanoi Puzzle">Activity 8.1.A</a> or Exercise <a href="sec_recursively_defined_sequences.html#exer_hanoi89" class="xref" data-knowl="./knowl/xref/exer_hanoi89.html" data-reveal-label="Reveal" data-close-label="Close" title=" 1: Practice">1</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_hanoi_explicit-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 2.a"><a tabindex="-1" href="#exer_hanoi_explicit-2-1-3-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
 </li>
@@ -1837,7 +1843,7 @@ b_n=b_{n-1}+4n+1
 <div class="hint solution-like knowl__content">
 <ol class="lower-alpha" id="exer_hanoi_explicit-3-1">
 <li id="exer_hanoi_explicit-3-1-1">
-<div class="para" id="exer_hanoi_explicit-3-1-1-1">Hint: Same list as in <a href="sec_recursively_defined_sequences.html#exer_hanoi89" class="xref" data-knowl="./knowl/xref/exer_hanoi89.html" data-reveal-label="Reveal" data-close-label="Close" title=" 1: Practice"> 1</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_hanoi_explicit-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_hanoi_explicit-3-1-1-1">Hint: Same list as in Exercise <a href="sec_recursively_defined_sequences.html#exer_hanoi89" class="xref" data-knowl="./knowl/xref/exer_hanoi89.html" data-reveal-label="Reveal" data-close-label="Close" title=" 1: Practice">1</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_hanoi_explicit-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 2.a"><a tabindex="-1" href="#exer_hanoi_explicit-3-1-1" title="Copy heading and permalink for Item 2.a" aria-label="Copy heading and permalink for Item 2.a">🔗</a></div>
 </li>
@@ -1938,7 +1944,7 @@ b_n=b_{n-1}+4n+1
 <article class="exercise exercise-like" id="exer_hanoi_graphs"><h5 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
 </h5>
-<div class="para" id="exer_hanoi_graphs-2-1">In this problem we introduce the <dfn class="terminology">graph of Hanoi</dfn>. <span class="process-math">\(H_3\)</span> which has a vertex for each possible state. As we saw in <a href="sec_recursively_defined_sequences.html#exer_hanoi_label_states" class="xref" data-knowl="./knowl/xref/exer_hanoi_label_states.html" data-reveal-label="Reveal" data-close-label="Close" title=" 4: Understand"> 4</a>, each state corresponds to a unique <span class="process-math">\(3\)</span>-tuple in <span class="process-math">\(\{1,2,3\}^3\text{.}\)</span> There is an edge between two vertices in <span class="process-math">\(H_33\)</span> if we can move between those two states with a single move in the puzzle. For example, there is an edge between <span class="process-math">\((1,1,1)\)</span> and <span class="process-math">\((1,1,2)\)</span> corresponding to moving the smallest disk from tower 1 to tower 2 and there is an edge between <span class="process-math">\((1,2,2)\)</span> and <span class="process-math">\((3,2,2)\)</span> corresponding to moving the largest disk from tower 1 to tower 3 (which is possible because the other two disks are on tower 2). Draw <span class="process-math">\(H_3\text{.}\)</span> Be sure to label the vertices.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_hanoi_graphs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_hanoi_graphs-2-1">In this problem we introduce the <dfn class="terminology">graph of Hanoi</dfn>. <span class="process-math">\(H_3\)</span> which has a vertex for each possible state. As we saw in Exercise <a href="sec_recursively_defined_sequences.html#exer_hanoi_label_states" class="xref" data-knowl="./knowl/xref/exer_hanoi_label_states.html" data-reveal-label="Reveal" data-close-label="Close" title=" 4: Understand">4</a>, each state corresponds to a unique <span class="process-math">\(3\)</span>-tuple in <span class="process-math">\(\{1,2,3\}^3\text{.}\)</span> There is an edge between two vertices in <span class="process-math">\(H_33\)</span> if we can move between those two states with a single move in the puzzle. For example, there is an edge between <span class="process-math">\((1,1,1)\)</span> and <span class="process-math">\((1,1,2)\)</span> corresponding to moving the smallest disk from tower 1 to tower 2 and there is an edge between <span class="process-math">\((1,2,2)\)</span> and <span class="process-math">\((3,2,2)\)</span> corresponding to moving the largest disk from tower 1 to tower 3 (which is possible because the other two disks are on tower 2). Draw <span class="process-math">\(H_3\text{.}\)</span> Be sure to label the vertices.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_hanoi_graphs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 5: Explore"><a tabindex="-1" href="#exer_hanoi_graphs" title="  5: Explore" aria-label="  5: Explore">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 8.1.A The Towers of Hanoi"><a tabindex="-1" href="#sec_recursively_defined_sequences-6-2" title="Copy heading and permalink for Subsubsection: Exercises for 8.1.A The Towers of Hanoi" aria-label="Copy heading and permalink for Subsubsection: Exercises for 8.1.A The Towers of Hanoi">🔗</a></div>
@@ -2152,7 +2158,7 @@ b_n=b_{n-1}+4n+1
 <article class="exercise exercise-like" id="exer_rec_def_seq_conj_explicit"><h5 class="heading">
 <span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
 </h5>
-<div class="para" id="exer_rec_def_seq_conj_explicit-2-1">Make a reasonable conjecture about an explicit rule for each sequence from <a href="sec_recursively_defined_sequences.html#exer_rec_def_seq_6terms" class="xref" data-knowl="./knowl/xref/exer_rec_def_seq_6terms.html" data-reveal-label="Reveal" data-close-label="Close" title=" 6: Practice"> 6</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_rec_def_seq_conj_explicit-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_rec_def_seq_conj_explicit-2-1">Make a reasonable conjecture about an explicit rule for each sequence from Exercise <a href="sec_recursively_defined_sequences.html#exer_rec_def_seq_6terms" class="xref" data-knowl="./knowl/xref/exer_rec_def_seq_6terms.html" data-reveal-label="Reveal" data-close-label="Close" title=" 6: Practice">6</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_rec_def_seq_conj_explicit-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_rec_def_seq_conj_explicit-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -2182,7 +2188,7 @@ b_n=b_{n-1}+4n+1
 <article class="exercise exercise-like" id="exer_rec_def_seq_conj_explicit_again"><h5 class="heading">
 <span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
 </h5>
-<div class="para" id="exer_rec_def_seq_conj_explicit_again-2-1">Make a reasonable conjecture about an explicit rule for each sequence from <a href="sec_recursively_defined_sequences.html#exer_rec_def_seq_find_term" class="xref" data-knowl="./knowl/xref/exer_rec_def_seq_find_term.html" data-reveal-label="Reveal" data-close-label="Close" title=" 7: Practice"> 7</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_rec_def_seq_conj_explicit_again-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_rec_def_seq_conj_explicit_again-2-1">Make a reasonable conjecture about an explicit rule for each sequence from Exercise <a href="sec_recursively_defined_sequences.html#exer_rec_def_seq_find_term" class="xref" data-knowl="./knowl/xref/exer_rec_def_seq_find_term.html" data-reveal-label="Reveal" data-close-label="Close" title=" 7: Practice">7</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_rec_def_seq_conj_explicit_again-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 11: Understand"><a tabindex="-1" href="#exer_rec_def_seq_conj_explicit_again" title="  11: Understand" aria-label="  11: Understand">🔗</a></div>
 </article>
