@@ -96,10 +96,6 @@
     match="ol[not(ancestor::ol)][ancestor::*[self::activity or self::example or self::theorem or self::proposition or self::lemma or self::corollary or self::remark or self::definition or self::exercise]]"
     mode="ol-marker-class">lower-alpha-level-1</xsl:template>
 
-  <xsl:template
-    match="ol[not(ancestor::ol)][ancestor::exercise]"
-    mode="ol-marker-class"/>
-
   <!--
     For first-level ordered-list parts in activity-like blocks,
     make serial numbers align with visible labels: (a), (b), (c), ...
@@ -107,7 +103,9 @@
   <xsl:template
     match="ol[not(ancestor::ol)][ancestor::exercise]/li"
     mode="serial-number">
+    <xsl:text>(</xsl:text>
     <xsl:number format="a"/>
+    <xsl:text>)</xsl:text>
   </xsl:template>
 
   <xsl:template

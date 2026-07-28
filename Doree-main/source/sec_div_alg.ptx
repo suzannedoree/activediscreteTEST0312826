@@ -107,7 +107,7 @@
       The integers <m>q</m> and <m>r</m> in the Division Algorithm <xref ref="thm_div_alg"/> have special names.
     </p>
     <definition xml:id="defn_quo_rem_div_mod">
-      <title>Quotient, Remainder, <m>\fn{div}</m>, and <m>\fn{mod}</m></title>
+      <title>Quotient, Remainder, <m>\fn,{div},</m>, and <m>\fn{mod}</m></title>
       <statement>
         <p>
           Let <m>a</m> and <m>n</m> be integers with <m>n \ge 1</m> and let <m>q</m> and <m>r</m> be integers such that
@@ -115,16 +115,17 @@
           <ol>
             <li>
               <p>
-                The integer <m>q</m> is the <term>quotient</term> of <m>a \div n</m>.
+                The integer <m>q</m> is the <term>quotient</term> 
+                of <m>a \div n</m>.
                 When <m>a \ge 0</m>,
                 it is the number of cookies per child in the story.
                 For example, the quotient when <m>23 \div 4</m> is five.
               </p>
             </li>
             <li>
-              <p>
-                We write <m>a</m> <c>div</c> <m>n =q</m>.
-                For example, <m>23</m> <c>div</c> <m>4=5</m>.
+              <p><!-- HERE -->
+                We write <m>a\,\fn{div}\,n =q</m>.
+                For example, <m>23</m> <m>\fn{mod} </m> <m>4=5</m>.
               </p>
             </li>
             <li>
@@ -136,10 +137,10 @@
             </li>
             <li>
               <p>
-                We write <m>a</m> <c>mod</c> <m>n=r</m>.
-                For example, <m>23</m> <c>mod</c> <m>4=3</m>.
+                We write <m>a\, \fn{mod}\, n=r</m>.
+                For example, <m>23\,\fn{mod}\,4=3</m>.
                 In many computer programming languages,
-                <c>mod</c> is denoted using the percent symbol (%).
+                <m>\fn{mod}</m> is denoted using the percent symbol (%).
                 For example, we would write <m>23 \% 4 = 3</m>.
               </p>
             </li>
@@ -177,7 +178,7 @@
             <li>
               <p>
                 Find the quotient and the remainder when <m>100 \div 9</m>.
-                Use your answer to calculate <m>100</m> <c>div</c> <m>9</m> and <m>100</m> <c>mod</c> <m>9</m>.
+                Use your answer to calculate <m>100</m> <m>\fn{div}</m> <m>9</m> and <m>100</m> <m>\fn{mod}</m> <m>9</m>.
                 <solution>
                   <p>
                     Starting with 100 cookies,
@@ -212,7 +213,7 @@
                       100 = 11(9) +1
                     </me>,
                     so the quotient is 11 and the remainder is 1.
-                    Thus, <m>100</m> <c>div</c> <m>9=11</m> and <m>100</m> <c>mod</c> <m>9=1</m>.
+                    Thus, <m>100</m> <m>\fn{div}</m> <m>9=11</m> and <m>100</m> <m>\fn{mod}</m> <m>9=1</m>.
                   </p>
                 </solution>
               </p>
@@ -220,33 +221,33 @@
             <li>
               <p>
                 Find the quotient and the remainder when <m>35 \div 5</m>.
-                Use your answer to calculate <m>35</m> <c>div</c> <m>5</m> and <m>35</m> <c>mod</c> <m>5</m>.
+                Use your answer to calculate <m>35</m> <m>\fn{mod}</m> <m>5</m> and <m>35</m> <m>\fn{mod}</m> <m>5</m>.
                 <solution>
                   <p>
                     Write <m>35 = 7(5)</m> so the quotient is seven.
                     To find the remainder, think of the equation as
                     <m>35 = 7(5)+0</m>, so the remainder is zero.
-                    Thus, <m>35</m> <c>div</c> <m>5=7</m> and <m>35</m> <c>mod</c> <m>5=0</m>
+                    Thus, <m>35</m> <m>\fn{mod}</m> <m>5=7</m> and <m>35</m> <m>\fn{mod}</m> <m>5=0</m>
                   </p>
                 </solution>
               </p>
             </li>
             <li>
               <p>
-                Use the <c>mod</c> notation (or %) to describe whether an integer is even or odd.
+                Use the <m>\fn{mod}</m> notation (or %) to describe whether an integer is even or odd.
                 <solution>
                   <p>
                     An integer <m>n</m> is even if <m>n=2k</m> for some integer <m>k</m>.
                     When we divide,
                     we get <m>n \div 2 = k</m> and the remainder is zero.
-                    Thus, <m>n</m> is even exactly when <m>n</m> <c>mod</c> <m>2=0</m> or,
+                    Thus, <m>n</m> is even exactly when <m>n</m> <m>\fn{mod}</m> <m>2=0</m> or,
                     equivalently, when <m>n\%2=0</m>.
                   </p>
                   <p>
                     An integer <m>n</m> is odd if <m>n=2k+1</m> for some integer <m>k</m>.
                     When we divide,
                     we get <m>n \div 2 = k</m>, and the remainder is one.
-                    Thus, <m>n</m> is even exactly when <m>n</m> <c>mod</c> <m>2=1</m> or,
+                    Thus, <m>n</m> is even exactly when <m>n</m> <m>\fn{mod}</m> <m>2=1</m> or,
                     equivalently, when <m>n\%2=1</m>.
                   </p>
                 </solution>
@@ -267,25 +268,25 @@
           <li>
             <p>
               Find the quotient and the remainder when <m>73 \div 7</m>.
-              State your answer using <c>div</c> and <c>mod</c>.
+              State your answer using <m>\fn{mod}</m> and <m>\fn{mod}</m>.
             </p>
           </li>
           <li>
             <p>
               Find the quotient and the remainder when <m>66 \div 6</m>.
-              State your answer using <c>div</c> and <c>mod</c>.
+              State your answer using <m>\fn{mod}</m> and <m>\fn{mod}</m>.
             </p>
           </li>
           <li>
             <p>
               Find the quotient and the remainder when <m>3 \div 10</m>.
-              State your answer using <c>div</c> and <c>mod</c>.
+              State your answer using <m>\fn{mod}</m> and <m>\fn{mod}</m>.
             </p>
           </li>
           <li xml:id="part_mod10">
             <p>
-              Calculate <m>27</m> <c>mod</c> 10, 115 <c>mod</c> 10,
-              and 123,456,789 <c>mod</c> 10.
+              Calculate <m>27</m> <m>\fn{mod}</m> 10, 115 <m>\fn{mod}</m> 10,
+              and 123,456,789 <m>\fn{mod}</m> 10.
               Hint: Subtract multiples of 10.
             </p>
           </li>
@@ -298,14 +299,14 @@
           <li>
             <p>
               For a nonnegative integer <m>a</m>,
-              what are the possible values of <m>a</m> <c>mod</c> <m>10</m>?
+              what are the possible values of <m>a</m> <m>\fn{mod}</m> <m>10</m>?
               State your answer as a conjecture.
             </p>
           </li>
           <li>
             <p>
               For a nonnegative integer <m>a</m> and an integer <m>n \ge 1</m>,
-              what are the possible values of <m>a</m> <c>mod</c> <m>n</m>?
+              what are the possible values of <m>a</m> <m>\fn{mod}</m> <m>n</m>?
               State your answer as a conjecture.
             </p>
           </li>
@@ -362,7 +363,10 @@
                 We add polynomials by <em>collecting like terms</em>.
                 For example
                 <me>
-                  (k^3 + 2k -7) + (4k^3 + k^2 + 2) = (k^3+4k^3) + (k^2) + (2k) + (-7 +2) = 5k^3+k^2+2k-5
+                \begin{aligned}
+                  (k^3 + 2k -7) + (4k^3 + k^2 + 2) &amp;= (k^3+4k^3) + (k^2) + (2k) + (-7 +2)\\
+                  &amp; = 5k^3+k^2+2k-5
+                  \end{aligned}
                 </me>
               </p>
             </li>
@@ -441,9 +445,14 @@
       </statement>
     </example>
     <p>
-      There is a nice set of visualizations<fn>
-      This lesson is from the College Algebra Foundations course by Lumen Learning retrieved from \url{https://tinyurl.com/vizpolymult}.
-      </fn> of multiplying polynomials in <m>x</m> as areas at \url{https://tinyurl.com/vizpolymult}. Try your hand at multiplying polynomials with discrete variables.
+      There is a nice set of
+       <url href="https://tinyurl.com/vizpolymult">visualizations</url>  
+       of multiplying polynomials in <m>x</m> as areas. 
+      <fn>This lesson is from the
+       <url href="https://tinyurl.ccom/vizpolymult">College Algebra Foundations</url> 
+       course by <url href="https://lumenlearning.com/">Lumen Learning</url>.
+      </fn> 
+       Try your hand at multiplying polynomials with discrete variables.
     </p>
     <activity xml:id="act_mult_polys">
       <title>Multiplying polynomials</title>
@@ -516,12 +525,14 @@
     <p>
       As in <xref ref="exam_every_integer_even_or_odd"></xref>,
       the Division Algorithm <xref ref="thm_div_alg"/> can be used to break a proof into cases,
-      similar to how we break counting arguments into cases in <xref ref="sec_counting_steps_cases"></xref>.
+      similar to how we break counting 
+      arguments into cases in <xref ref="sec_counting_steps_cases"></xref>.
       Here is the proof format.
     </p>
-    <proof>
+    <theorem>
+    <statement>
     <p>
-      Prove: <m>P</m>
+      We can prove P using Proof by Cases by adapting the following proof format.
     </p>
     <proof>
       <p>
@@ -543,7 +554,8 @@
         In (either case/all cases) we have <m>P</m>.
       </p>
     </proof>
-    </proof>
+    </statement>
+    </theorem>
     <p>
       In a proof by cases,
       it is important that the cases cover all of the possibilities.
@@ -679,12 +691,12 @@
               <li>
                 <p>
                   Find the quotient and the remainder when <m>100 \div 3</m>.
-                  State your answer using <c>div</c> and <c>mod</c>.
+                  State your answer using <m>\fn{mod}</m> and <m>\fn{mod}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Calculate 20 <c>div</c> 7 and 20 <c>mod</c> 7.
+                  Calculate 20 <m>\fn{mod}</m> 7 and 20 <m>\fn{mod}</m> 7.
                 </p>
               </li>
               <li>
@@ -723,17 +735,17 @@
             <ol>
               <li>
                 <p>
-                  Evaluate each of the following integers: 3 <c>mod</c> 2, 4 <c>mod</c> 2, 5 <c>mod</c> 2, 6 <c>mod</c> 2, 28 <c>mod</c> 2, 125 <c>mod</c> 2.
+                  Evaluate each of the following integers: 3 <m>\fn{mod}</m> 2, 4 <m>\fn{mod}</m> 2, 5 <m>\fn{mod}</m> 2, 6 <m>\fn{mod}</m> 2, 28 <m>\fn{mod}</m> 2, 125 <m>\fn{mod}</m> 2.
                 </p>
               </li>
               <li>
                 <p>
-                  Which integers have <m>n</m> <c>mod</c> <m>2 = 0</m>?
+                  Which integers have <m>n</m> <m>\fn{mod}</m> <m>2 = 0</m>?
                 </p>
               </li>
               <li>
                 <p>
-                  Which integers have <m>n</m> <c>mod</c> <m>2 = 1</m>?
+                  Which integers have <m>n</m> <m>\fn{mod}</m> <m>2 = 1</m>?
                 </p>
               </li>
             </ol>
@@ -749,25 +761,25 @@
               <li>
                 <p>
                   Give an example of an integer <m>n</m> with
-                  <m>100 \le n \le 200</m> and <m>n</m> <c>mod</c> 2 = 1.
+                  <m>100 \le n \le 200</m> and <m>n</m> <m>\fn{mod}</m> 2 = 1.
                 </p>
               </li>
               <li>
                 <p>
                   Give an example of an integer <m>n</m> with
-                  <m>100 \le n \le 200</m> and <m>n</m> <c>mod</c> 3 = 1.
+                  <m>100 \le n \le 200</m> and <m>n</m> <m>\fn{mod}</m> 3 = 1.
                 </p>
               </li>
               <li>
                 <p>
                   Give an example of an integer <m>n</m> with
-                  <m>100 \le n \le 200</m> and <m>n</m> <c>mod</c> 7 = 1.
+                  <m>100 \le n \le 200</m> and <m>n</m> <m>\fn{mod}</m> 7 = 1.
                 </p>
               </li>
               <li>
                 <p>
                   Give an example of an integer <m>n</m> with
-                  <m>100 \le n \le 200</m> and <m>n</m> <c>mod</c> 10 = 1.
+                  <m>100 \le n \le 200</m> and <m>n</m> <m>\fn{mod}</m> 10 = 1.
                 </p>
               </li>
             </ol>
@@ -807,8 +819,8 @@
             <ol>
               <li>
                 <p>
-                  Evaluate each of the following: 21 <c>mod</c> 10, 37 <c>mod</c> 10, 43 <c>mod</c> 10, 59 <c>mod</c> 10,
-                  and 60 <c>mod</c> 10.
+                  Evaluate each of the following: 21 <m>\fn{mod}</m> 10, 37 <m>\fn{mod}</m> 10, 43 <m>\fn{mod}</m> 10, 59 <m>\fn{mod}</m> 10,
+                  and 60 <m>\fn{mod}</m> 10.
                 </p>
               </li>
               <li>
@@ -856,20 +868,20 @@
             <ol>
               <li>
                 <p>
-                  What are the values of <m>0</m> <c>div</c> <m>n</m> and <m>0</m> <c>mod</c> <m>n</m>?
+                  What are the values of <m>0</m> <m>\fn{mod}</m> <m>n</m> and <m>0</m> <m>\fn{mod}</m> <m>n</m>?
                   Explain.
                 </p>
               </li>
               <li>
                 <p>
-                  What are the values of <m>n</m> <c>div</c> <m>n</m> and <m>n</m> <c>mod</c> <m>n</m>?
+                  What are the values of <m>n</m> <m>\fn{mod}</m> <m>n</m> and <m>n</m> <m>\fn{mod}</m> <m>n</m>?
                   Explain.
                 </p>
               </li>
               <li>
                 <p>
                   If <m>a</m> is an integer with <m>0 \le a \lt n</m>,
-                  what can you say about <m>a</m> <c>div</c> <m>n</m> and <m>a</m> <c>mod</c> <m>n</m>?
+                  what can you say about <m>a</m> <m>\fn{mod}</m> <m>n</m> and <m>a</m> <m>\fn{mod}</m> <m>n</m>?
                   Explain.
                 </p>
               </li>
@@ -953,7 +965,7 @@
               </li>
               <li>
                 <p>
-                  How to calculate <c>div</c> and <c>mod</c> using long division?
+                  How to calculate <m>\fn{mod}</m> and <m>\fn{mod}</m> using long division?
                 </p>
               </li>
             </ol>
@@ -1060,33 +1072,33 @@
             <ol>
               <li>
                 <p>
-                  Calculate 247 <c>div</c> 18 and 247 <c>mod</c> 18.
+                  Calculate 247 <m>\fn{mod}</m> 18 and 247 <m>\fn{mod}</m> 18.
                 </p>
               </li>
               <li>
                 <p>
                   Note that <m>247 \div 18= 13.7222\ldots</m>.
-                  Explain how we could calculate 247 <c>div</c> 18 using this equation.
+                  Explain how we could calculate 247 <m>\fn{mod}</m> 18 using this equation.
                 </p>
               </li>
               <li>
                 <p>
                   In general, if we know the decimal number <m>n \div a</m>,
-                  how can we find <m>a</m> <c>div</c> <m>n</m>?
+                  how can we find <m>a</m> <m>\fn{mod}</m> <m>n</m>?
                   You may describe your answer in words.
                 </p>
               </li>
               <li>
                 <p>
                   Again, note that <m>247 \div 18= 13.7222\ldots</m>.
-                  Explain how we could calculate 247 <c>mod</c> 18 using this equation.
+                  Explain how we could calculate 247 <m>\fn{mod}</m> 18 using this equation.
                 </p>
               </li>
               <li>
                 <p>
                   In general, if we know the decimal number
-                  <m>n \div a</m> and we know <m>a</m> <c>div</c> <m>n</m>,
-                  how can we find <m>a</m> <c>mod</c> <m>n</m>.
+                  <m>n \div a</m> and we know <m>a</m> <m>\fn{mod}</m> <m>n</m>,
+                  how can we find <m>a</m> <m>\fn{mod}</m> <m>n</m>.
                   You may describe your answer in words.
                 </p>
               </li>
@@ -1303,7 +1315,7 @@
               <li xml:id="part_last_digit_sq">
                 <p>
                   Show that <m>a^2-s^2</m> is a multiple of 10.
-                  It follows that <m>a^2</m> <c>mod</c> 10 <m>=s^2</m> <c>mod</c> 10 and therefore the last digit of <m>a^2</m> is equal to the last digit of <m>s^2</m>.
+                  It follows that <m>a^2</m> <m>\fn{mod}</m> 10 <m>=s^2</m> <m>\fn{mod}</m> 10 and therefore the last digit of <m>a^2</m> is equal to the last digit of <m>s^2</m>.
                 </p>
               </li>
               <li xml:id="part_digit_sq">
@@ -1410,9 +1422,9 @@
         <title>Explore</title>
         <statement>
           <p>
-            Use cases <xref ref="sub_pff_cases"/> to prove that <m>n^2</m> <c>mod</c> <m>4 = 0</m> or <m>n^2</m> <c>mod</c> <m>4 = 1</m> for any integer <m>n</m>.
+            Use cases <xref ref="sub_pff_cases"/> to prove that <m>n^2</m> <m>\fn{mod}</m> <m>4 = 0</m> or <m>n^2</m> <m>\fn{mod}</m> <m>4 = 1</m> for any integer <m>n</m>.
             Hint: Use cases based on whether <m>n</m> is even or <m>n</m> is odd.
-            Note that in one case we get <m>n^2</m> <c>mod</c> <m>4 = 0</m> and in the other case we get <m>n^2</m> <c>mod</c> <m>4 = 1</m>.
+            Note that in one case we get <m>n^2</m> <m>\fn{mod}</m> <m>4 = 0</m> and in the other case we get <m>n^2</m> <m>\fn{mod}</m> <m>4 = 1</m>.
             Officially, we are using a modified version of proof by cases that we revisit in <xref ref="sec_logic_connectives"></xref>.
           </p>
         </statement>
@@ -1427,10 +1439,10 @@
         <title>Explore</title>
         <statement>
           <p>
-            Use cases <xref ref="sub_pff_cases"/> to prove that <m>n^2</m> <c>mod</c> <m>3 = 0</m> or <m>n^2</m> <c>mod</c> <m>3 = 1</m> for any integer <m>n</m>.
+            Use cases <xref ref="sub_pff_cases"/> to prove that <m>n^2</m> <m>\fn{mod}</m> <m>3 = 0</m> or <m>n^2</m> <m>\fn{mod}</m> <m>3 = 1</m> for any integer <m>n</m>.
             Hint: Use Exercise <xref ref="exer_cases_mod3_mod10" text="global"></xref>
             <xref ref="part_div_alg_mod3"/> and consider three cases.
-            Note that in one case we get <m>n^2</m> <c>mod</c> <m>3 = 0</m> and in the other two cases we get <m>n^2</m> <c>mod</c> <m>3 = 1</m>.
+            Note that in one case we get <m>n^2</m> <m>\fn{mod}</m> <m>3 = 0</m> and in the other two cases we get <m>n^2</m> <m>\fn{mod}</m> <m>3 = 1</m>.
             Officially, we are using a modified version of proof by cases that we revisit in <xref ref="sec_logic_connectives"></xref>.
           </p>
         </statement>
