@@ -1,0 +1,935 @@
+\section{\seclogicconn}
+\label{sec_logic_connectives}
+
+In this section, we introduce the logical connectives for ``and'' and ``or'' along with their proof formats.  We discuss logical equivalence and negation and use truth tables to define connectives and verify equivalences.
+
+Let's warm up our logical thinking by considering some true/false questions.
+
+\begin{act}[True or false?]
+\label{act_TorF}
+    Decide if each statement is true or false and discuss how to justify your answer.
+
+        \begin{actpart}
+            \item \label{part_digit_sum23} There are three distinct digits whose sum is 23. %True THERE EXIST
+            \item \label{part_digit_sum25} There are three distinct digits whose sum is 25. %False THERE EXIST
+            \item \label{part_pos_or_neg} Every integer is positive or negative. %False % FOR ALL OR
+            \item \label{part_div3_and_div5} Some integers are divisible by three and five. %True EX AND
+            \item \label{part_div6_but_ndiv3} Some integers are divisible by six but not by three. %False  EX But
+            \item \label{part_graph_order5} A graph with five vertices is the cycle $C_5$ or the complete graph $K_5$. % False OR
+            \item Every graph is a tree, which means that it is connected and acyclic. % False AND
+            \item Every bit string of length five begins or ends with \bs{0}. % False % FOR ALL OR
+            \item \label{part_bs5_three0_or_three1} Every bit string of length five has at least three \bs{0}s or at least three \bs{1}s. %True % FOR ALL OR EXISTS
+        \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subandor}{And and Or}
+\subsection{\subandor}
+\label{sub_and_or}
+
+In \Cref{act_TorF}, there are many words that indicate the logical structure of a statement.  Two important such words are ``and'' and ``or'', each of which has a specific technical meaning in mathematics and computer science.
+
+\begin{defn}[And, or, and xor]
+\label{defn_and_or_xor}
+~
+    \begin{apart}
+        \item A \vocab{statement} is a sentence that is either true or false.  For example,
+            \begin{center}
+                $P=$ the integer six has exactly four positive divisors.
+            \end{center}
+        is a statement that happens to be true because the positive divisors of six are 1, 2, 3, and 6.  The statement
+            \begin{center}
+                $Q=$ the cycle $C_5$ has a vertex of degree three.   
+            \end{center} 
+        is false because all the vertices of $C_5$ have degree two.
+        
+        \item For statements $P$ and $Q$, the statement ``$P$ \vocab{and} $Q$'', denoted $P \land Q$, is true if both $P$ and $Q$ are true and false otherwise.  For example, the statement  
+            \begin{center}
+                The integer seven is positive and odd.    
+            \end{center}
+        is true because seven is positive and seven is odd. The statement 
+            \begin{center}
+                The integer six is positive and odd.   
+            \end{center} 
+        is false, even though six is positive because six is not odd.
+        
+        \item For statements $P$ and $Q$, the statement ``$P$ \vocab{or} $Q$'', denoted $P \lor Q$, is true if at least one of $P$ and $Q$ are true and false otherwise.  For example, the statement
+            \begin{center}
+                The integer six is positive or odd.
+            \end{center}
+        is true, because six is positive.  The statement 
+            \begin{center}
+                A graph with five vertices is either the cycle $C_5$ or the complete graph $K_5$.
+            \end{center}
+        from \Cref{act_TorF} (\ref{part_graph_order5}) is false because, for example, the graph $P_5$ has five vertices but it is not a cycle and it is not complete.  
+        
+        \item Note that $P \lor Q$ is true if both $P$ and $Q$ are true.  For example, the statement 
+            \begin{center}
+                The integer seven is positive or odd.
+            \end{center} 
+        is true.  This use of ``or'' is the \vocab{inclusive or} because it includes the possibility of both statements being true.
+        
+        \item When we want to exclude the possibility of both statements being true, we use the \vocab{exclusive or} instead. For statements $P$ and $Q$, the statement ``$P$ \vocab{xor} $Q$'', denoted $P \oplus Q$, is true if one of $P$ and $Q$ is true and the other is false and false otherwise.  For example, when I told my kids ``you can have ice cream or brownies for dessert'' they suggested brownies with ice cream (the inclusive or), but I probably meant one or the other but not both (the exclusive or).  As another example, in \Cref{exam_every_integer_even_or_odd} 
+        we showed that 
+            \begin{center}
+                Every integer is either even or odd, but never both.
+            \end{center}
+        which we could write more concisely as
+            \begin{center}
+                Every integer is even xor odd.
+            \end{center} 
+
+        \item One way to summarize when a compound statement is true or false is to use a \vocab{truth table} which includes a column for each component of the compound statement (such as $P$, $Q$) and for the full compound statement (such as $P \land Q$) and  a row for each possible combination of true or false for the component statements.  For example, if our components are $P$ and $Q$, then the truth table will have four rows corresponding to the four possibilities:
+            \begin{itemize}
+                \item $P$ is true and $Q$ is true;
+                \item $P$ is true and $Q$ is false;
+                \item $P$ is false and $Q$ is true; and
+                \item $P$ is false and $Q$ is false.
+            \end{itemize}
+        In this textbook we abbreviate true as \str{T} and false as \str{F}.  Some computer science textbooks use \str{1} for true and \str{0} for false instead. 
+    \end{apart}   
+\end{defn}
+
+We show the truth tables for the compound statements $P \land Q$, $P \lor Q$, and $P \oplus Q$ in our next example.
+
+\begin{exam}[Truth tables for and, or, and xor]
+\label{exam_truthtable_and_or_xor}
+~  
+        \begin{apart}
+            \item Use a truth table to illustrate the meaning of the logical connective $\land$ (and).
+            \begin{soln}               
+                \Cref{table_truthtable_and} shows the truth table for $P \land Q$.  Since the only time $P \land Q$ is true is when both $P$ and $Q$ are true, the only \str{T} in the $P \land Q$ column is in the first row.  The other entries in the $P \land Q$ column are all \str{F}.
+                
+                \begin{table} [hbtp]
+                    \centering
+                    \begin{tabular}{cc|c}
+                        $P$ & $Q$ & $P \land Q$ \\ \hline
+                        \str{T} & \str{T} & \str{T}\\
+                        \str{T} & \str{F} & \str{F}\\
+                        \str{F} & \str{T} & \str{F}\\
+                        \str{F} & \str{F} & \str{F}\\
+                    \end{tabular}
+                    \caption{Truth table for the logical connective \vocab{and}.}
+                    \label{table_truthtable_and}
+                \end{table}
+                
+            \end{soln}
+        \item Use a truth table to illustrate the meaning of the logical connective $\lor$ (or). 
+            \begin{soln}
+                \Cref{table_truthtable_or} shows the truth table for $P \lor Q$. Since $P \lor Q$ is true is whenever $P$ is true, the first two entries in the $P \land Q$ column are \str{T}.  Since $P \lor Q$ is true whenever $Q$ is true, the third entry in the $P \land Q$ column is also \str{T}. The final entry in the $P \land Q$ column is \str{F} because neither $P$ nor $Q$ are true.
+                
+                    \begin{table} [hbtp]
+                    \centering
+                    \begin{tabular}{cc|c}
+                        $P$ & $Q$ & $P \lor Q$ \\ \hline
+                        \str{T} & \str{T} & \str{T}\\
+                        \str{T} & \str{F} & \str{T}\\
+                        \str{F} & \str{T} & \str{T}\\
+                        \str{F} & \str{F} & \str{F}\\
+                    \end{tabular}
+                    \caption{Truth table for the logical connective \vocab{or}.}
+                    \label{table_truthtable_or}
+                \end{table}
+                
+            \end{soln}
+        \item Use a truth table to illustrate the meaning of the logical connective $\oplus$ (xor).
+            \begin{soln}
+                \Cref{table_truthtable_xor} shows the truth table for $P \oplus Q$. Since $P \oplus Q$ is true exactly when one of $P$ or $Q$ is true, the $P \oplus Q$ column has \str{T} in the second and third rows only.
+                    \begin{table}[hbtp]
+                    \centering
+                    \begin{tabular}{cc|c}
+                        $P$ & $Q$ & $P \oplus Q$ \\ \hline
+                        \str{T} & \str{T} & \str{F}\\
+                        \str{T} & \str{F} & \str{T}\\
+                        \str{F} & \str{T} & \str{T}\\
+                        \str{F} & \str{F} & \str{F}\\
+                    \end{tabular}
+                    \caption{Truth table for the logical connective \vocab{xor}.}
+                    \label{table_truthtable_xor}
+                \end{table}
+                
+            \end{soln}
+        \end{apart} 
+\end{exam}
+
+It is your turn to create a truth table.
+
+\begin{act}[Truth tables with and and or]
+\label{act_truthtable_and_or} 
+    \Cref{table_truthtable_and_or} shows the beginning of the truth table for the compound statement $(P \lor Q) \land R$.
+            \begin{table} [hbtp]
+                \centering
+                \begin{tabular}{ccc|cc}
+                    $P$ & $Q$ & $R$ & $P \lor Q$ & $(P \lor Q) \land R$\\ \hline
+                    \str{T} & \str{T} & \str{T} & \str{T} & \str{T} \\
+                    \str{T} & \str{T} & \str{F} & \str{T} & \str{F} \\
+                    \str{T} & \str{F} & \str{T} & \str{T} & \str{T} \\
+                    \str{T} & \str{F} & \str{F} & \str{T} & \str{F} \\
+                    \str{F} & \str{T} & \str{T} & & \\
+                    \str{F} & \str{T} & \str{F} & & \\
+                    &&&& \\
+                    &&&& \\
+                \end{tabular}
+                \caption{Part of the truth table for $(P \lor Q) \land R$}
+                \label{table_truthtable_and_or}
+            \end{table}
+    \begin{actpart}
+        \item According to the truth table in \Cref{table_truthtable_and_or}, when $P$ is true, $Q$ is false, and $R$ is true, which row are we in (do not count the ``header row'' with $P$, $Q$, etc.) and is the statement $(P \lor Q) \land R$ true or false?
+        \item We are missing the last couple of rows of \Cref{table_truthtable_and_or}.  What are the remaining true/false options?  Fill in the $P$, $Q$, and $R$ columns for the missing rows. 
+        \item In \Cref{table_truthtable_and_or} we included an intermediate column for $P \lor Q$.  Convince yourself that we correctly started that column and complete it.  Notice that we ignore the $R$ column.
+        \item \label{part_finish_truthtable} Convince yourself that we correctly started the final column for $(P \lor Q) \land R$ in \Cref{table_truthtable_and_or} and complete it.  Notice that we need to look at only the column for $R$ and the intermediate column for $P \lor Q$.
+        \item Construct a new truth table for the compound statement $(P \land R) \lor (Q \land R)$. Include intermediate columns for $P \land R$ and for $Q \land R$.  What do you notice?  Hint: Compare to \Cref{table_truthtable_and_or}.  
+
+        \item If we wanted to construct a truth table for a compound statement involving four components ($P$, $Q$, $R$, and $S$), how many rows would it need.  Explain how you counted.  Hint: Steps.
+    \end{actpart}
+\end{act}
+
+Make sure that you have completed \Cref{act_truthtable_and_or} because we are going to reveal some of the answers.
+
+\begin{exam}[Distributive rule]
+\label{exam_distributive_equiv}
+    Use a truth table to verify the logical equivalence $$ (P \lor Q) \land R \equiv (P \land R) \lor (Q \land R).$$
+        \begin{soln}
+            The truth table is in \Cref{table_truthtable_distrib}.  Notice that the columns for $(P \lor Q) \land R$ and for $(P \land R) \lor (Q \land R)$ have the same sequence of \str{T}s and \str{F}s.
+            
+            \begin{table} [hbtp]
+                \centering
+                \begin{tabular}{ccc|cc|ccc}
+                    $P$ & $Q$ & $R$ & $P \lor Q$ & $(P \lor Q) \land R$ & $P \land R$ & $Q \land R$ & $(P \land R) \lor (Q \land R)$
+                    \\ \hline
+                    \str{T} & \str{T} & \str{T} & \str{T} & \str{T} & \str{T} & \str{T} & \str{T} 
+                    \\
+                    \str{T} & \str{T} & \str{F} & \str{T} & \str{F} & \str{F} & \str{F} & \str{F} 
+                    \\
+                    \str{T} & \str{F} & \str{T} & \str{T} & \str{T} & \str{T} & \str{F} & \str{T} 
+                    \\
+                    \str{T} & \str{F} & \str{F} & \str{T} & \str{F} & \str{F} & \str{F} & \str{F} 
+                    \\
+                    \str{F} & \str{T} & \str{T} & \str{T} & \str{T} & \str{F} & \str{T} & \str{T} 
+                    \\
+                    \str{F} & \str{T} & \str{F} & \str{T} & \str{F} & \str{F} & \str{F} & \str{F} 
+                    \\
+                    \str{F} & \str{F} & \str{T} & \str{F} & \str{F} & \str{F} & \str{F} & \str{F} 
+                    \\
+                    \str{F} & \str{F} & \str{F} & \str{F} & \str{F} & \str{F} & \str{F} & \str{F} 
+                \end{tabular}
+                \caption{A truth table verifying the distributive equivalence $ (P \lor Q) \land R \equiv (P \land R) \lor (Q \land R)$.}
+                \label{table_truthtable_distrib}
+            \end{table}
+        \end{soln}
+\end{exam}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subpffandor}{Proof Formats: $\land$ and $\lor$ by Cases}
+\subsection{\subpffandor}
+\label{sub_pff_and_or}
+
+How can we prove statements involving and and or? To prove $P \land Q$, we need to prove two things: $P$ and then $Q$.  We can summarize this idea in a proof format.
+
+\begin{pff}[Direct proof of $\land$]
+\label{pff_and}
+    Prove: $P \land Q$
+        \begin{proof}            
+            First, (explain why $P$ is true.)  Therefore, $P$.
+
+            Next, (explain why $Q$ is true.) Therefore, $Q$.
+        \end{proof}
+\end{pff}
+
+The format for a proof of $P \lor Q$ is less direct. An option is to use a modified version of a proof by cases. Later in this textbook, we introduce two other options: proof by contradiction in \Cref{sub_pff_contra} and proof using the equivalent conditional in \Cref{sub_pff_if_then}.
+
+In \Cref{sub_pff_cases} we introduced proof by cases.  In each case of the format in \Cref{pff_cases}, we proved the same statement.  We can modify that proof format to prove $P \lor Q$ by proving $P$ in one case and $Q$ in the other case.
+
+\begin{pff}[Proof of $\lor$ by cases]
+\label{pff_or_by_cases}
+    Prove: $P \lor Q$
+        \begin{proof}   
+            (Explain why there are two cases.)  We consider two cases.
+
+            Case 1: Assume \ldots. (Explain why $P$ is true in this case.)  Therefore, $P$.
+
+            Case 2: Assume \ldots.  (Explain why $Q$ is true in this case.) Therefore, $Q$.
+
+            In either case, we have $P \lor Q$.
+        \end{proof}
+\end{pff}
+
+We present this format with two cases, since that is often all we need.  This format can be modified to have more than two cases where in some cases $P$ is true and in other cases $Q$ is true. Officially, this is a new proof format.
+
+\begin{pff} [Proof of $\lor$ using cases, generalized]
+\label{pff_or_by_cases_generalized} 
+Prove: $P_1 \lor P_2 \lor \cdots \lor P_k$
+    \begin{proof}
+        (Explain why there are $n$ cases.) We consider $n$ cases.
+  
+        Case 1:  Assume \ldots (Explain why one of $P_1, P_2, \ldots P_k$ is true in this case.) 
+        
+        Case 2:  Assume \ldots (Explain why one of $P_1, P_2, \ldots P_k$ is true in this case.) 
+        
+        \ldots
+
+        Case $n$: Assume \ldots (Explain why one of $P_1, P_2, \ldots P_k$ is true in this case.) 
+        
+        In (either case/all cases) we have $P_1 \lor P_2 \lor \cdots \lor P_k$. 
+\end{proof}
+\end{pff}
+
+Try working with these formats.
+
+\begin{act}[Proving $\land$ and $\lor$ by using cases]
+\label{act_prove_and_orusingcases}
+~
+    \begin{actpart}
+        \item \label{part_pff_and_example} Copy the following example of a proof of an ``and'' statement.
+
+        Prove that 30 is even and $5 \mid 30$.
+
+        \begin{proof} First, $30 = 2(15)=2k$ when $k=15$ and so 30 is even. 
+
+        Next, $30 = 5(6) = 5k$ when $k=6$ and so $5 \mid 30$.\end{proof}
+        
+        \item Edit the proof in (\ref{part_pff_and_example}) to prove that 33 is odd and $3 \mid 33$.
+
+        \item \label{part_pff_or_using_cases_example} Copy the following example of a proof of an ``or'' statement using cases.
+
+        Prove that $n^2 \fn{ mod } 4 = 0$ or $n^2 \fn{ mod } 4 = 1$ for any integer $n$. 
+        
+        Yes, this proof was \Cref{exer_proof_cases_square_mod4} in \Cref{sec_div_alg}.
+
+        \begin{proof}
+            Let $n$ be an integer.  Then $n$ is either even or odd, by \Cref{exam_every_integer_even_or_odd}.  We consider two cases.
+
+            Case 1: Assume that $n$ is even.  By the definition of even, we can write $n = 2k$ for some integer $k$.  Then 
+                $$n^2=(2k)^2=4k^2=4(k^2) = 4q=4q+0$$
+            where $q=k^2$ is an integer.  Therefore, $n^2 \fn{ mod } 4 = 0.$
+
+            Case 2: Assume that $n$ is odd.  By the definition of odd, we can write $n = 2k+1$ for some integer $k$.  Then 
+                $$n^2=(2k+1)^2 = (2k+1)(2k+1)=4k^2+4k+1 = 4(k^2+k) + 1 = 4q+1$$
+            where $q =k^2+k$ is an integer.  Therefore, $n^2 \fn{ mod } 4 = 1.$
+
+            In either case, we have $n^2 \fn{ mod } 4 = 0$ or $n^2 \fn{ mod } 4 = 1$.
+        \end{proof}
+
+        \item \label{part_nsqplusn_mod4} Edit the proof in (\ref{part_pff_or_using_cases_example}) to prove that $n^2+2n \fn{ mod } 4 = 0$ or $n^2+2n \fn{ mod } 4 = 3$ for any integer $n$.  
+    \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subequivneg}{Logical Equivalence and Negations}
+\subsection{\subequivneg}
+\label{sub_logical_equivalence_negations}
+
+In \Cref{act_truthtable_and_or}, we saw that the statements $(P \lor Q) \land R$ and $(P \land R) \lor (Q \land R)$ have the same final column in their truth table.  That is, in each case (row of the truth table), they are both true or both false.  We have a name for the situation where two logical statements have the same truth values.
+
+\begin{defn}[Logical equivalence]
+\label{defn_logical_equiv}  
+~
+    \begin{apart}
+        \item \label{part_equiv_distributive} Statements $S$ and $T$ are \vocab{logically equivalent}, denoted $S \equiv T$, if $S$ and $T$ always have the same truth value, either both statements are true or both statements are false.  For example, we saw in \Cref{act_truthtable_and_or} that 
+            $$(P \lor Q) \land R \equiv (P \land R) \lor (Q \land R).$$
+        \item Statements $S$ and $T$ are \vocab{not logically equivalent}, denoted $S \not \equiv T$ if sometimes one of the statements is true but the other is false.  For example,  
+            $$(P \lor Q) \land R \not \equiv P \lor (Q \land R)$$
+        as we check in \Cref{exer_not_assoc} because, for example, when $P$ is true and both $Q$ and $R$ are false, the left-hand side $(P \lor Q) \land R$ is false but the right-hand side $P \lor (Q \land R)$ is true.
+    \end{apart}   
+\end{defn}
+
+Logically equivalent statements always have the same truth values.  There is also a name for when two statements always have the opposite truth value as well as names for logical statements that are always true or always false.
+
+\begin{defn}[Negation, tautology, and contradiction]
+\label{defn_negation_tautology_contradiction}
+~
+    \begin{apart}
+        \item The statements $S$ and $T$ are \vocab{negations} if $S$ and $T$ always have the opposite truth value. That is, $S$ is true and $T$ is false or $S$ is false and $T$ is true.  The statement $T$ is the \vocab{negation} of $S$, denoted $\neg S$.  For example, if $n$ is an integer and if $S$ is the statement $n >2$, then $\neg S$ is the statement $n \le 2$.
+
+        \item A statement $S$ is a \vocab{tautology} if it is always true.  For example, the statement 
+            \begin{center}
+                Either I will work on my homework Tuesday night or I will not work on my homework Tuesday night.   
+            \end{center} 
+        is a tautology.  
+
+        \item A statement $S$ is a \vocab{contradiction} if it is always false.  For example, the statement 
+            \begin{center}
+                There is an integer $n$ with $n>2$ and $n^2<4$.    
+            \end{center} 
+        is a contradiction because for an integer $n$ with $n>2$ we know that $n^2 > 4$. 
+    \end{apart}   
+\end{defn}
+
+Here are examples of truth tables involving negations.
+
+\begin{exam}[Truth tables involving negations]
+\label{exam_truthtable_negations}
+~
+    \begin{apart}
+        \item Use a truth table to illustrate the meaning of the logical operation $\neg$ (not). 
+            \begin{soln}
+                \Cref{table_truthtable_not} shows the truth table for $\neg P$. 
+            \end{soln}  
+            
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{c|c}
+                        $P$ & $\neg P$  \\ \hline
+                        \str{T} & \str{F} \\
+                        \str{F} & \str{T} 
+                \end{tabular}
+                \caption{Truth table for the logical operation \vocab{not}.}
+                \label{table_truthtable_not}
+            \end{table}
+            
+        \item Construct a truth table for the compound statement $P \land \neg Q$.
+            \begin{soln}
+                \Cref{table_truthtable_andnot} shows the truth table for $P \land \neg Q$, using an intermediate column for $\neg Q$.  Notice that the only time $P \land \neg Q$ is true is when $P$ is true and $Q$ is false, which happens in the second row.
+            \end{soln}
+            
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{cc|c|c}
+                    $P$ & $Q$ & $\neg Q$ & $P \land \neg Q$ \\ \hline
+                    \str{T} & \str{T} & \str{F} & \str{F}\\
+                    \str{T} & \str{F} & \str{T} & \str{F}\\
+                    \str{F} & \str{T} & \str{F} & \str{F}\\
+                    \str{F} & \str{F} & \str{T}& \str{F}
+                \end{tabular}
+                \caption{Truth table for the compound statement $P \land \neg Q$.}
+                \label{table_truthtable_andnot}
+            \end{table}
+        
+        \item Use a truth table to show that $P \land \neg P$ is a contradiction.
+            \begin{soln}
+            \Cref{table_truthtable_contradiction} shows the truth table for $P \land \neg P$. Since the final column is all \str{F}, it follows that $P \land \neg P$ is a contradiction.
+            \end{soln} 
+                
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{c|c|c}
+                    $P$ & $\neg P$ & $P \land \neg P$ \\ \hline
+                    \str{T} & \str{F} & \str{F}\\
+                    \str{F} & \str{T} & \str{F}
+                \end{tabular}
+                \caption{Truth table for the contradiction $P \land \neg P$.}
+                \label{table_truthtable_contradiction}
+                \end{table}                   
+    \end{apart} 
+\end{exam}
+
+By the way, when the statement following the logical connective ``and'' is negative, we use the connective ``but'' instead.
+
+\begin{rem}[But not]
+\label{rem_but_not}
+   It is common in English to pronounce $P \land \neg Q$ as ``$P$ but not $Q$''.  The word ``but'' has the same meaning logically as ``and'' but in English it indicates that what follows is negative in some way.  For example, while we can say 
+       \begin{center}
+           I like chocolate ice cream and I don't want any now.    
+       \end{center} 
+    it is more common to say 
+        \begin{center}
+            I like chocolate ice cream but I don't want any now.
+        \end{center}   
+\end{rem}
+
+Try your hand at working with negations.
+
+\begin{act}[Negating and]
+\label{act_not_and}
+~
+    \begin{actpart}
+        \item In \Cref{defn_and_or_xor}, we noted that the statement  
+            \begin{center}
+                The integer seven is positive and odd.
+            \end{center} 
+        is true.  Consider the general statement 
+            \begin{center}
+                The integer $n$ is positive and odd.
+            \end{center}  
+            Give examples of integers $n$ where the statement is false, including some negative values of $n$.
+        \item \label{part_positive_and_odd} For the statement 
+            \begin{center}
+                The integer $n$ is positive and odd.   
+            \end{center} 
+        to be false, what needs to be true for $n$?
+        \item \label{part_truth_not_and} Construct a truth table for $\neg(P \land Q)$ and $\neg P \land \neg Q$.  
+        \item Look at your truth table from (\ref{part_truth_not_and}).  Is $\neg(P \land Q) \equiv \neg P \land \neg Q$?  Explain.
+        \item Is $\neg P \land \neg Q$ the negation of $P \land Q$? Explain.
+        \item \label{part_conj_not_and} Make a conjecture about the negation of $P \land Q$. Your answer should agree with your answer to (\ref{part_positive_and_odd}).
+        \item Verify your conjecture from (\ref{part_conj_not_and}) using a truth table.
+    \end{actpart}
+\end{act}
+
+In \Cref{act_not_and}, we saw that the negation of $P \land Q$ is not $\neg P \land \neg Q$.  For $P \land Q$ to be false, we need either $P$ is false or $Q$ is false or both are false. That is, we need $\neg P \lor \neg Q$ to be true. Similarly, for $P \lor Q$ to be false, we need both $P$ is false and $Q$ is false.  That is, we need $\neg P \land \neg Q$ to be true.  We summarize these negations in a theorem.
+
+\begin{thm}[De Morgan's Law]
+\label{thm_demorgans}
+For statements $P$ and $Q$, the negation of $P \land Q$ is $\neg P \lor \neg Q$ and the negation of $P \lor Q$ is $\neg P \land \neg Q$.  That is, we have the following logical equivalences known as \vocab{De Morgan's Laws}:
+$$\neg(P \land Q) \equiv \neg P \lor \neg Q\text{ and }\neg(P \lor Q) \equiv \neg P \land \neg Q.$$  
+\end{thm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subpffcontra}{Proof Format: Contradiction}
+\subsection{\subpffcontra}
+\label{sub_pff_contra}
+
+One method of proving that the statement $P$ is true is to show that the assumption that $P$ is false leads to a contradiction, such as a statement of the form $Q \land \neg Q$.  That is, in a proof by contradiction of a statement $P$, we assume that $P$ is false and deduce that both $Q$ and $\neg Q$ are true for some statement $Q$, which is impossible. That impossibility tells us that $P$ cannot be false, and so $P$ must be true.  
+
+As we start writing a proof by contradiction, we usually do not know what the statement $Q$ will be.  Sometimes it helps to do a little scratch work listing the consequences of $P$ being false to see if we find contradictory statements $Q$ and $\neg Q$.
+
+A \vocab{proof by contradiction} follows the following proof format.
+
+\begin{pff}[Proof by contradiction]
+\label{pff_contradiction}
+    Prove: P
+        \begin{proof}
+            Suppose not. Then (state $\neg P$).
+
+            First, (explain why $Q$ is true.)  Therefore, $Q$.
+
+            On the other hand, (explain why $\neg Q$ is true.) Therefore, $\neg Q$.
+
+            This is a contradiction. Therefore, $P$.
+        \end{proof}
+\end{pff}
+
+Notice that we are proving two things ($Q$ and $\neg Q$), but instead of saying ``First, \ldots. Next, ldots.'' as we did in \Cref{pff_and}, we use the expression ``First, \ldots. On the other hand, ldots.'' The phrase ``on the other hand`` alerts the reader that we are changing direction towards the negation of what we just proved.  It is also acceptable to write ``On the one hand, \ldots. On the other hand, \ldots."
+
+Try writing a proof using contradiction.
+
+\begin{act}[Proof by contradiction: consecutive integers are coprime]
+\label{act_proof_contradiction}
+~
+    \begin{actpart}
+        \item \label{part_contradiction_consec_coprime} Copy the following example of a proof by contradiction.
+
+        Prove $\fn{gcd}(n,n+1)=1$ for any integer $n$.\footnote{We proved this result in \Cref{exer_consec_coprime} using the Euclidean Algorithm.}   
+
+        \begin{proof} Suppose not. Then there exists an integer $n$ such that $d=\fn{gcd}(n,n+1)\neq 1$. 
+        
+        First, by the definition of the greatest common divisor (\Cref{defn_gcd}), $d \mid n$ and $d \mid n+1$.  By the definition of divides (\Cref{defn_divides}) we can write $n = dk_1$ and $n+1 = dk_2$ for some integers $k_1$ and $k_2$.  Observe that $$(n+1) - n = dk_2 - dk_1 = d(k_2-k_1)=dq$$ where $q = k_2-k_1$ and so $d \mid (n+1)-n$.  But, of course, $(n+1)-n=1$ so really $d \mid 1$. Since the only positive divisor of 1 is 1, it follows that $d =1$.  
+
+        On the other hand, we assumed that $d \neq 1$.  This is a contradiction. Thus, $\fn{gcd}(n,n+1)=1$.
+        \end{proof}
+     
+         \item Edit the proof in (\ref{part_contradiction_consec_coprime}) to prove that $\fn{gcd}(n,n-1) = 1$ for any integer $n$. (Yes, we are again proving that consecutive integers are coprime.)
+    \end{actpart}
+\end{act}
+
+There is a bit of controversy over the use of proof by contradiction.  Some mathematicians dislike contradiction proofs because they do not actually show why a statement is true, only why it cannot be false.  Other mathematicians like contradiction proofs because they settle an argument: if your reader thinks the statement is false, your proof shows them that something terrible goes wrong (a contradiction). We will let you decide which type of mathematician you are.
+
+Because of this controversy, we often rewrite a proof by contradiction using some other format, if possible.  
+
+\begin{exam}[Rewriting without contradiction]
+\label{exam_avoid_contradiction_consec_coprime}
+    Copy the proof by contradiction from \Cref{act_proof_contradiction} (\ref{part_contradiction_consec_coprime}) and edit to to give a proof without contradiction.  
+    
+    Prove that $\fn{gcd}(n,n+1)=1$ for any integer $n$.
+    
+        \begin{soln}
+            We have crossed out the statements that should be deleted, and boldfaced the statements that should be added.
+
+            \emph{Proof.} \st{Suppose not. Then there exists an integer $n$ such that $d=\fn{gcd}(n,n+1)\neq 1$} 
+        
+            \textbf{Let $n$ be an integer. Write $d=\fn{gcd}(n,n+1)$. Since 1 is a common divisor of any integer, $d$ is certainly positive.}
+        
+            First, by the definition of greatest common divisor (\Cref{defn_gcd}), $d \mid n$ and $d \mid n+1$.  By the definition of divides (\Cref{defn_divides}) we can write $n = dk_1$ and $n+1 = dk_2$ for some integers $k_1$ and $k_2$.  Observe that $$(n+1) - n = dk_2 - dk_1 = d(k_2-k_1)$$ and so $d \mid (n+1)-n$.  But, of course, $(n+1)-n=1$ so really $d \mid 1$. Since the only positive divisor of 1 is 1, it follows that $d =1$.  
+
+            \st{On the other hand, we assumed that $d \neq 1$.  This is a contradiction. Thus $\fn{gcd}(n,n+1)=1$.} 
+        \end{soln}    
+\end{exam} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Exercises}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_and_or} \subandor}
+
+\begin{exer}[\exerP] % standard truth tables]
+\label{exer_standard_truthtables}
+    Copy the standard truth tables for each expression. 
+        \begin{exerpart}
+            \item $P \land Q$
+            \item $P \lor Q$
+            \item $P \oplus Q$ 
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] % translating into statements using $\land$, $\lor$, and $\oplus$]
+\label{exer_translate_into_and_or}
+    For this exercise, $n$ is a specific (but unknown) integer,       
+        \begin{center}
+            $X=$ $n$ is a multiple of 6, and $R=$ $n$ is a multiple of 4.
+        \end{center}  
+    In each part of this exercise write the statement using $X$, $R$, and logic symbols and find an example of an integer $n$ for which the statement is true. 
+        \begin{exerpart}
+            \item The integer $n$ is a multiple 6 and a multiple of 4.
+            \item The integer $n$ is a multiple of exactly one of 6 or 4.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % defns and or
+    Recall that a graph is a \vocab{tree} if it is connected and acyclic. 
+        \begin{exerpart}
+            \item Give an example of a tree and explain what you have checked.
+            \item Could a graph be connected but not a tree?  Give an example and explain in words.
+            \item Could a graph be acyclic but not a tree?  Give an example and explain in words.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU]
+\label{exer_not_assoc}  
+~
+    \begin{exerpart}
+        \item \label{part_not_assoc} Construct a truth table for the compound statement $P \lor (Q \land R)$.  Include an intermediate column for $Q \land R$.
+        \item Compare your answer from (\ref{part_not_assoc}) with the completed truth table from \Cref{act_truthtable_and_or} (\ref{part_finish_truthtable}). Is $P \lor (Q \land R) \equiv (P \lor Q) \land R$?  Explain.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % truth table for $P \land (Q \lor R)$] 
+\label{exer_truthtable_distributive}
+~
+    \begin{exerpart}
+        \item Construct a truth table for $P \land (Q \lor R)$.  Include an intermediate column for $Q \lor R$.
+        \item Construct a truth table for $(P \land Q) \lor (P \land R)$. Include intermediate columns for $P \land Q$ and for $P \land R$.
+        \item What do you notice? % Distributive property
+    \end{exerpart} 
+\end{exer}
+
+\begin{exer}[\exerR] % And and Or
+\label{exer_dyk_and_or}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What the symbols $\land$, $\lor$, and $\oplus$ stand for?
+            \item What the logical connectives ``and'', ``or'', and ``xor'' mean? 
+            \item When statements of the form $P \land Q$ and $P \lor Q$ are true and when they're false?
+            \item Why we might create a truth table?
+            \item How to create a truth table for a compound logical statement? 
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_pff_and_or} \subpffandor}
+
+\begin{exer}[\exerP] % And divides mult
+\label{exer_prove_odd_and_mult3}
+    Use \Cref{pff_and} to prove that 12 is even and $3 \mid 12$. Hint: Copy the proof in \Cref{act_prove_and_orusingcases}  (\ref{part_pff_and_example}) and edit as needed.   
+\end{exer}
+
+\begin{exer}[\exerP] % square+n mod 4
+\label{exer_prove_nsqplusn_mod4}
+    Use \Cref{pff_or_by_cases} to to prove that $n^2+2n \fn{ mod } 4 = 0$ or $n^2+2n \fn{ mod } 4 = 3$ for any integer $n$.  Hint: Copy the proof in \Cref{act_prove_and_orusingcases} (\ref{part_pff_or_using_cases_example}) and edit as needed.  Yes, this exercise repeats \Cref{act_prove_and_orusingcases} (\ref{part_nsqplusn_mod4}).
+\end{exer} 
+
+\begin{exer}[\exerU] % And divides mult general
+\label{exer_prove_odd_and_mult3_general}
+    Use \Cref{pff_and} to prove that $3n+6$ is even and $3 \mid (3n+6)$ for any integer $n$. Hint: Copy the proof in \Cref{act_prove_and_orusingcases}  (\ref{part_pff_and_example}) and edit as needed.    
+\end{exer}
+
+\begin{exer}[\exerU] % Prove squares mod 5
+\label{exer_sq_mod5}
+    Use Proof Format \Cref{pff_or_by_cases_generalized} to prove that for any integer $n$ we have $n^2 \fn{ mod } 5 = 0$, $n^2 \fn{ mod } 5 = 1$, or $n^2 \fn{ mod } 5 = 4$.  Hint: By the Division Algorithm $n = 5q+r$ with $0 \le r < 5$.  Break into five cases corresponding to $r=0, 1, 2, 3$, or $4$.
+\end{exer}
+
+\begin{exer}[\exerR] % Pff and and or by cases
+\label{exer_dyk_pff_and_or_by_cases}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How we prove a statement of the form $P \land Q$?
+            \item How we prove a statement of the form $P \lor Q$ using cases? 
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_logical_equivalence_negations} 
+\subequivneg}
+
+\begin{exer}[\exerP] % negate statements
+\label{exer_my_first_negate}
+    Negate each statement about an integer $k$.
+        \begin{exerpart}
+            \item $k=10$
+            \item $k>10$
+            \item $k$ is odd
+            \item $10 \mid k$          
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] % negate and/or statements
+\label{exer_my_first_demorgans}
+    Negate each statement about the integers $a$ and $b$.  Hint: Use DeMorgan's Laws (\Cref{thm_demorgans}) and \Cref{rem_but_not}.
+        \begin{exerpart}
+            \item $a$ is even and $b$ is even
+            \item $a$ is even or $b$ is even  
+            \item $a$ is even but $b$ is odd
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % translating into statements using $\land$, $\lor$, $\oplus$ and $\neg$]
+\label{exer_translate_into_and_or_with_not}
+    For this exercise, $n$ is a specific (but unknown) integer,       
+        \begin{center}
+            $X=$ $n$ is a multiple of 6, and $R=$ $n$ is a multiple of 4.
+        \end{center}  
+    In each part of this exercise write the statement using $X$, $R$, and logic symbols and find an example of an integer $n$ for which the statement is true.
+        \begin{exerpart}
+            \item The integer $n$ is not a multiple of 6.
+            \item The integer $n$ is a multiple of 6, but not a multiple of 4.
+            \item The integer $n$ is a multiple of 4, but not a multiple of 6.   
+            \item The integer $n$ is not a multiple of 4 or 6.               
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] % truth tables for ``and/or not'']
+\label{exer_truthtable_andornot}
+~
+    \begin{exerpart}
+        \item Use a truth table to show that $P \lor \neg P$ is a tautology. 
+        \item Draw a truth table for $P \lor \neg Q$.  Include an intermediate column for $\neg Q$. 
+        \item Draw a truth table for $\neg P \land Q$.  Include an intermediate column for $\neg P$.  
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % verify DeMorgan's Laws]
+\label{exer_truthtable_demorgan}
+   In \Cref{act_not_and} we verified the first of De Morgan's Laws (\Cref{thm_demorgans}). Construct truth tables to verify the second equivalence $$\neg(P \lor Q) \equiv \neg P \land \neg Q.$$  Include some intermediate columns. 
+\end{exer} 
+
+\begin{exer}[\exerR] % Logical Equivalence and Negation
+\label{exer_dyk_equiv_negation}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What it means for statements to be logically equivalent and how we might use a truth table to verify an equivalence?
+            \item What a tautology or contradiction is and how to verify that a statement is a tautology or contradiction using a truth table. 
+            \item What the negation of a statement is?
+            \item What the symbols $\neg$ and $\equiv$ mean?
+            \item How the construction $\land \neg$ is translated into words. 
+            \item How to find the negation of $P \land Q$ and $P \lor Q$ and what those equivalences are called?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % writing $P \oplus Q$ without $\oplus$]
+\label{exer_writing_xor_without_xor}
+~   
+    \begin{exerpart}
+        \item Find a statement that is logically equivalent to $P \oplus Q$ but does not use $\oplus$. You may use $\land$, $\lor$, $\neg$, and parentheses. 
+        \item Use a truth table to verify that the statements are equivalent.
+        \item What is the negation of the statement $P \oplus Q$?  Describe the negation using $\land$, $\lor$, and $\neg$.
+    \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_pff_contra} \subpffcontra}
+
+\begin{exer}[\exerP] % there do not exist three distinct digits whose sum is 25]
+\label{exer_prove_not_sum_3digits_equals25}
+    Use a proof by contradiction (\Cref{pff_contradiction}) to prove that there do not exist three distinct digits whose sum is equal to 25.  This statement was one of the true/false questions in \Cref{act_TorF} (\ref{part_digit_sum25}). Hint: The negation would be that there exist three distinct digits whose sum is 25.  What is the largest possible set of three distinct digits and what is their sum?
+\end{exer}
+
+\begin{exer}[\exerP] % Pidgeonhole principle
+\label{exer_contradiction_coins_in_cups}
+    We have nine coins and four cups. We place each coin in a cup. Use \Cref{pff_contradiction} to prove that some cup has three or more coins.  Hint: The negation would be that each cup has two or fewer coins.
+\end{exer}
+
+\begin{exer}[\exerP] % odd 3-regular graph
+\label{exer_contradiction_3reg_graph_order7}
+    Use a proof by contradiction (\Cref{pff_contradiction}) to prove that there cannot exist a 3-regular graph of order 7. Hint: By \Cref{thm_first_thm_graph_thy}, the number of edges in a graph is equal to half of the sum of the degrees of the vertices. On the other hand, the number of edges must be an integer.
+\end{exer}
+
+\begin{exer}[\exerU] % Every bit string of length five has at least three \bs{0}s or at least three \bs{1}s.]
+\label{exer_prove_bs_length5_three0s_or_three1s}
+~
+    \begin{exerpart}
+        \item Use a proof by contradiction (\Cref{pff_contradiction}) to prove that every bit string of length five has at least three \bs{0}s or at least three \bs{1}s.  Hint: The negation would be that there exists a bit string of length five with fewer than three $\bs{0}$s and fewer than three $\bs{1}$s. What is the longest such possible bit string?
+        \item Why does the negation use ``and''?
+    \end{exerpart}
+\end{exer} 
+
+\begin{exer}[\exerU] % coprime integers have no common prime divisor
+\label{exer_contradiction_coprime}
+     Suppose $a$ and $b$ are coprime integers and $p$ is a positive prime. Use a proof by contradiction (\Cref{pff_contradiction}) to prove that $p \nmid a$ or $p \nmid b$. Hint: Be careful negating the ``or'' statement.
+\end{exer}
+
+\begin{exer}[\exerR] % Pff Proof by Contradiction
+\label{exer_dyk_pff_contradiction}
+    Do you know \ldots
+        \begin{exerpart}
+            \item Why $Q \land \neg Q$ is a contradiction?
+            \item How to write a proof by contradiction?
+            \item How we can begin a proof by contradiction so the reader knows that we are doing a proof by contradiction?
+            \item Why the phrase ``On the other hand'' is used in a proof by contradiction?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % cannot be both even and odd
+\label{exer_not_both_even_odd}
+    Use a proof by contradiction (\Cref{pff_contradiction}) to prove that an integer $n$ cannot be even and odd. Hint: If $n$ is even, use the definition of even to write $n = 2k$ for some integer $k$.  If $n$ is odd, use the definition of odd to write $n=2q+1$ for some integer $q$. Do not use $k$ again.  Put these equations together to get $2k=2q+1$.  Next, solve for 1 to show that $2 \mid 1$.  On the other hand, the only divisors of 1 are $\pm1$.
+\end{exer}
+
+\begin{exer}[\exerE] % lg(3) is irrational
+\label{exer_lg3_irrat}
+    Copy the following proof and fill in the blanks.\footnote{Thanks to Oscar Levin for the idea for this exercise.}
+    
+    Prove that $\fn{lg}(3)$ is irrational. 
+
+    \begin{proof}
+        Suppose not.  Then $\fn{lg}(3)$ is \underline{\hspace{.5 in}}.  By the definition of rational numbers (\Cref{defn_fraction_rational}), we can write 
+            $$\fn{lg}(3) = \frac{s}{t}$$ 
+        for some integers $s$ and $t$ with $t \neq 0$.  Using the definition of \fn{lg} (\Cref{defn_log}), we can write
+            $$2^{^{\frac{s}{t}}} = \underline{\hspace{.5 in}} .$$
+        Raising both sides of this equation to the power $t$ we get 
+            $$2^s = \underline{\hspace{.5 in}} .$$
+
+        On the other hand, any power of two is even and so \underline{\hspace{.5 in}} is even and any power of three is odd and so \underline{\hspace{.5 in}} is odd.  By \Cref{{exer_not_both_even_odd}}, an integer cannot be even and odd.  Thus, 
+            $$2^s \neq \underline{\hspace{.5 in}}.$$  
+
+        This is a contradiction.  Thus, $\fn{lg}(3)$ is irrational.
+    \end{proof}
+\end{exer}
+\begin{exer}[\exerE] % prove there are infinitely many primes]
+\label{exer_proof_inf_many_primes}
+~
+    Copy the following proof and fill in the blanks.
+    
+    Prove that there are infinitely many primes.
+
+        \begin{proof}
+            Suppose not.  Then there would be a \underline{\hspace{1in}} number of primes, so we could list all of them. Suppose that the list of all primes were $p_1,p_2,p_3, \ldots,p_k.$ Consider the positive integer $$n = p_1p_2p_3\cdots p_k.$$  
+
+            First, $n = p_1(p_2p_3\cdots p_k)$ so by the definition of $\underline{\hspace{1in}}$ it follows that $p_1 \mid n$.  Since $p_1$ is prime, we know that $p_1 > 1$.  By \Cref{exer_consec_coprime}, we know that $\fn{gcd}(n,n+1) = \underline{\hspace{1in}}$. Since $p_1 > 1$ and $p_1 \mid n$, it follows that $p_1 \nmid (n+1)$.  For each value of $i = 1, 2, \ldots k$, the same argument shows that $p_i >1$ and $p_i \mid n$ and so $p_i \nmid (n+1)$. Therefore, none of the primes $p_1,p_2,p_3, \ldots, p_k$ divides $\underline{\hspace{1in}}$.  
+            
+            On the other hand, $p_1,p_2,p_3, \ldots,p_k$ are the only primes.  It follows that $n+1$ has no prime divisors. Since $n$ is positive, we know $n+1>1$. This is a contraction of \Cref{thm_FTOArith} which says $\underline{\hspace{1in}}$.
+        \end{proof}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\answers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_and_or} \subandor}
+
+\subsubsection*{\Cref{exer_translate_into_and_or} \answers}
+\begin{apart}
+    \item $X \land R$ which is true when $n=12$. There are other correct examples.
+    \item Hint: $\oplus$
+\end{apart}
+
+\subsubsection*{\Cref{exer_truthtable_distributive} \answers}
+\begin{apart}
+    \item \label{part_truthtable_dist1} See \Cref{table_truthtable_dist1}.
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{ccc |c|c}
+                    $P$ & $Q$ & $R$ & $Q \lor R$ & $P \land (Q \lor R)$ \\ \hline
+                    \str{T} & \str{T} & \str{T} & \str{T} & \str{T}\\
+                    \str{T} & \str{T} & \str{F} & \str{T} & \str{T}\\
+                    \str{T} & \str{F} & \str{T} & \str{T} & \str{T}\\
+                    \str{T} & \str{F} & \str{F}& \str{F} & \str{F}\\
+                    \str{F} & \str{T} & \str{T} & \str{T} & \str{F}\\
+                    \str{F} & \str{T} & \str{F} & \str{T} & \str{F}\\
+                    \str{F} & \str{F} & \str{T} & \str{T} & \str{F}\\
+                    \str{F} & \str{F} & \str{F}& \str{F} & \str{F}
+                \end{tabular}
+                \caption{Truth table for the compound statement $P \land  (Q \lor R)$.}
+                \label{table_truthtable_dist1}
+            \end{table}
+    \item Hint: You should get the same final column as in (\ref{part_truthtable_dist1}).
+    \item They are logically equivalent.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_pff_and_or} \subpffandor}
+
+\subsubsection*{\Cref{exer_prove_odd_and_mult3} \answers}
+    Hint: $12 = 2(6)$ and $12 = 3(4)$.
+
+\subsubsection*{\Cref{exer_prove_nsqplusn_mod4} \answers}
+    Hint: $$(2k)^2+2(2k) = 4k^2+4k = 4(\underline{\hspace{.5in}}) + 0$$ and $$(2k+1)^2 + 2(2k+1) = 4k^2 + 8k + 3= 4(\underline{\hspace{.5in}}) + 3.$$
+
+\subsubsection*{\Cref{exer_prove_odd_and_mult3_general} \answers}
+    Hint: Make sure to copy all the words in the proof.  During the proof, you will need to write $3n+6 = 2(\underline{\hspace{.5in}})$ and $3n+6 = 3(\underline{\hspace{.5in}}).$
+
+\subsubsection*{\Cref{exer_sq_mod5} \answers}
+    Hint: The five cases are Case 1: Assume $n = 5q$; Case 2: Assume $n=5q+1$; Case 3: Assume $n=5q+2$; Case 4: Assume $n=5q+3$; and Case 5: Assume $n=5q+4$. In Case 4, for example, we have 
+        $$n^2=(5q+3)^2=25q^2+30q+9=25q^2+30q+5+4=5(5q^2+6q+1)+4$$ 
+    and so $n^2 \fn{ mod } 5 = 4$.  Notice how we cleverly rewrite $9 = 5+4$.  That made it possible to factor 5 out of the 5 to show the remainder of 4.
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_logical_equivalence_negations} 
+\subequivneg}
+
+\subsubsection*{\Cref{exer_my_first_negate} \answers}
+\begin{apart}
+    \item $k \neq 10$
+    \item Hint: Make sure your answer includes the possibility that $k=10$.
+    \item $k$ is even.
+    \item Hint: Use $\nmid$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_my_first_demorgans} \answers}
+\begin{apart}
+    \item $a$ is odd or $b$ is odd
+    \item Hint: Your answer should include ``and''.
+    \item Hint: Your answer should include ``or''.
+\end{apart}
+
+\subsubsection*{\Cref{exer_translate_into_and_or_with_not} \answers}
+\begin{apart}
+    \item $\neg X$  An example is $n=10$.  There are other correct examples.
+    \item Hint: See \Cref{rem_but_not} and use $\nmid$. Include an example.
+    \item Hint: $R \land \neg X$.  Include an example.
+    \item Hint: You may use parentheses in your answer, but there is also a way to write it without parentheses. Include an example.
+\end{apart}
+
+\subsubsection*{\Cref{exer_truthtable_andornot} \answers}
+\begin{apart}
+    \item Hint: The truth table only needs two rows and is similar to the table in \Cref{table_truthtable_contradiction}.
+    \item Hint: The truth table needs four rows and is similar to the table in \Cref{table_truthtable_andnot}. The last column should have three \str{T} and one \str{F}.
+    \item Hint: The last column should have one \str{T} and three \str{F}.
+\end{apart}
+
+\subsubsection*{\Cref{exer_truthtable_demorgan} \answers}
+  Hint: One way to set up the truth table is shown in \Cref{table_truthtable_demorgan}. Feel free to copy the table, check the third row, and then fill in the remaining entries.
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{cc ||c|c||c|c|c}
+                    $P$ & $Q$ & $P \lor Q$ & $\neg(P \lor Q)$ & $\neg P$ & $\neg Q$ & $\neg P \land \neg Q$\\ \hline
+                    \str{T} & \str{T} &&&&& \\ \hline
+                    \str{T} & \str{F} &&&&& \\ \hline
+                    \str{F} & \str{T} & \str{T} & \str{F} &\str{T} & \str{F} & \str{F} \\ \hline
+                    \str{F} & \str{F} &&&&& \\
+                \end{tabular}
+                \caption{Truth table for the compound statement $P \land  (Q \lor R)$.}
+                \label{table_truthtable_demorgan}
+            \end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_pff_contra} \subpffcontra}
+
+\subsubsection*{\Cref{exer_prove_not_sum_3digits_equals25} \answers}
+    Hint: Copy this proof filling in the missing parts.
+    \begin{proof}
+        Suppose not.  Then there exist three distinct digits whose sum is equal to 25.
+
+        On the other hand, the largest possible set of three distinct digits is $\{ \underline{\hspace{.1in}}, \underline{\hspace{.1in}}, \underline{\hspace{.1in}}\}$  and their sum is $\underline{\hspace{.1in}} + \underline{\hspace{.1in}}+\underline{\hspace{.1in}}=\underline{\hspace{.1in}} \neq 25$.
+
+        This is a contradiction.  Therefore, there do not exist three distinct digits whose sum is equal to 25.
+    \end{proof}
+
+\subsubsection*{\Cref{exer_contradiction_3reg_graph_order7} \answers}
+    Hint: If there were such a graph, the sum of the degrees of the vertices would be     
+        $$3+3+3+3+3+3+3=7(3)=21.$$
+    Then, use the hint.
+
+\subsubsection*{\Cref{exer_prove_bs_length5_three0s_or_three1s} \answers}
+\begin{apart}
+    \item Hint: In the hint ``fewer than three \bs{0}s'' means the number of \bs{0}s is less than or equal to two.
+    \item Hint: DeMorgan's Law.
+\end{apart}
+
+\subsubsection*{\Cref{exer_contradiction_coprime} \answers}
+  Hint: If $p \mid a$ and $p \mid b$, then $p$ is a positive common divisor of $a$ and $b$ that is greater than one.  What does that tell you about $\fn{gcd}(a,b)$?
+
+
+
+
+

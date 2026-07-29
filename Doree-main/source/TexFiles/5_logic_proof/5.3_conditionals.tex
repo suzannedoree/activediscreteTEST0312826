@@ -1,0 +1,805 @@
+\section{\secifthen}
+\label{sec_conditional_statements}
+
+Most statements in mathematics and computer science involve conditionals:  if one thing happens, then another thing happens.  Consider, for example, a database that tracks patients who have scheduled follow-up visits (or not).  We might want to send a reminder to patients who have not yet scheduled their follow-up visits.  That is, if the patient has not scheduled their follow-up visit, then we want to send them a reminder.
+
+In this section, we study conditional statements and how to prove that they are true. We also look at their negations and construct counterexamples.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subifthen}{Promises: Conditional Statements}
+\subsection{\subifthen}
+\label{sub_if_then}
+
+We begin with a definition.
+
+\begin{defn}[Conditional statements]
+\label{defn_conditional}
+~
+    \begin{apart}
+        \item For statements $P$ and $Q$, the statement ``\vocab{if} $P$, \vocab{then} $Q$'', denoted $P \to Q$, is a \vocab{conditional} statement. We also say $P$ \vocab{implies} $Q$.
+        The statement $P \to Q$ promises that if $P$ is true, then $Q$ must also be true.  For example, consider the following statement:       
+            \begin{center}
+                For any integer $k$, if $k=3$, then $k^2=9$.
+            \end{center}
+        This statement is true because when $k=3$ we have $k^2 = 3^2 = 9$.  
+        \item In the statement $P \to Q$, the statement $P$ is the \vocab{hypothesis} and $Q$ is the \vocab{conclusion}.  For example, consider the following statement:
+            \begin{center}
+                If a graph is a tree, then it has a leaf.
+            \end{center}
+        The hypothesis is that a graph is a tree.  The conclusion is that it has a leaf.
+    \end{apart} 
+\end{defn}
+
+For $P \to Q$ to be true, it must be the case that if $P$ is true, then $Q$ is 100\% guaranteed to also be true.  It might be the case that $P$ causes $Q$, for example, if   
+    \begin{center}
+        $P:$ Tova dropped her glove in a puddle and
+        $Q:$ Tova's glove got wet. 
+    \end{center}
+then 
+    \begin{center}
+        $P \to Q:$ If Tova dropped her glove in a puddle, then Tova's glove got wet.
+    \end{center}
+is true.  In this example, $P$ caused $Q$.  
+
+Alternatively, it might be the case that $Q$ had to happen in order for $P$ to happen.  For example, if
+    \begin{center}
+        $P:$ Derek got an A in Algorithms class and  
+        $Q:$ Derek took the Algorithms class.   
+    \end{center}
+then
+    \begin{center}
+        $P \to Q:$ if Derek got an A in Algorithms class, then Derek took the Algorithms class.
+    \end{center}
+is true.  In this example, $Q$ would have to happen before $P$.
+
+Let's look more closely at when a conditional is true or false. 
+
+\begin{exam}[Understanding when a conditional is true]
+\label{exam_understand_ifthen_true}  
+    Consider the following conditional statement $S$:
+        \begin{center}
+            If you show up to class every day and do all of the homework on time,\\ then you will get an A in this class.
+        \end{center}
+        \begin{apart}
+            \item Is $S$ true or false if you show up to class every day and do all of the homework on time and you get an A in this class?
+                \begin{soln}
+                    It is true. When both the hypothesis and the conclusion are true, we have kept the promise.
+                \end{soln}
+            \item Is $S$ true or false if you show up to class every day and do all of the homework on time but you do not get an A in this class?
+                \begin{soln}
+                    It is false.  When the hypothesis is true but the conclusion is false, we have broken the promise. 
+                \end{soln}
+            \item Is $S$ true or false if I do not always show up to class and do not always get my homework in on time, but I still get an A in this class? 
+                \begin{soln}
+                    It is true. When the hypothesis is false but the conclusion is false, we have not broken the promise.
+                \end{soln}
+            \item Is $S$ true or false if I do not always show up to class and do not always get my homework in on time and I get a C in this class? 
+                \begin{soln}
+                    It is true. When the hypothesis and the conclusion are false, we have not broken the promise.
+                \end{soln}
+        \end{apart}
+\end{exam}
+
+We summarize our analysis from \Cref{exam_understand_ifthen_true} using a truth table.
+
+\begin{exam}[Truth table for if/then]
+\label{exam_truthtable_conditionals} 
+    Construct a truth table for $P \to Q$.
+        \begin{soln}
+            The truth table is shown in \Cref{table_truthtable_conditional}.
+        \end{soln}
+
+        \begin{table}[hbtp]
+            \centering
+            \begin{tabular}{cc|c}
+                $P$ & $Q$ & $P \to Q$ \\ \hline
+                \str{T} & \str{T} & \str{T} \\
+                \str{T} & \str{F} & \str{F} \\
+                \str{F} & \str{T} & \str{T} \\
+                \str{F} & \str{F} & \str{T} \\
+            \end{tabular}
+        \caption{Truth table for the logical connective \vocab{implies}.}
+        \label{table_truthtable_conditional}
+        \end{table}
+\end{exam}
+
+It is important to note the case where the hypothesis of a conditional is false.
+
+\begin{rem}[False implies anything is true.]
+\label{rem_false_implies_is_true}
+    The statement $P \to Q$ is true when $P$ is false, no matter what $Q$ is.
+\end{rem}
+
+Practice working with more complicated conditional statements.
+
+\begin{act} [Promises]
+\label{act_promises}
+    In many parts of this activity, you are asked to construct a truth table.  You may start a new truth table for each part, but consider adding columns to your existing truth table instead.
+    \begin{actpart}
+        \item Copy the truth table for $P \to Q$.
+        \item Add a column for $\neg P$ and another column for $\neg P \to Q$. 
+        \item \label{part_truthtable_converse} Add a column for $Q \to P$. 
+        \item \label{part_truthtable_simplification} Use your truth table to show that $(P \land Q) \to P$ is a tautology by adding a column for $P \land Q$ and another column for $(P \land Q) \to P$.
+        \item \label{part_truthtable_implication} Add a column for $\neg P \lor Q$. What do you notice? Discuss why that makes sense.
+    \end{actpart}
+\end{act}
+
+Make sure that you have completed \Cref{act_promises} because we are about to reveal some of the answers.
+
+\begin{exam}[Truth tables for statements involving conditionals]
+\label{exam_truthtable_compound_conditionals}
+~
+    \begin{apart}
+        \item Construct a truth table for $Q \to P$.
+            \begin{soln}
+                \Cref{table_truthtable_converse} shows the truth table.  Note that the hypothesis is now $Q$ and the conclusion is now $P$.  The only time $Q \to P$ is false is when the hypothesis $Q$ is true but the conclusion $P$ is false.
+                    \begin{table}[hbtp]
+                    \centering
+                        \begin{tabular}{cc|c}
+                            $P$ & $Q$ & $Q \to P$ \\ \hline
+                            \str{T} & \str{T} & \str{T} \\
+                            \str{T} & \str{F} & \str{T} \\
+                            \str{F} & \str{T} & \str{F} \\
+                            \str{F} & \str{F} & \str{T} \\
+                        \end{tabular}
+                    \caption{Truth table for the converse $Q \to P$.}
+                    \label{table_truthtable_converse}
+                    \end{table}
+            \end{soln}
+    \item \label{part_truthtable_simplification2} Use a truth table to show that $(P \land Q) \to P$ is a tautology.
+            \begin{soln}
+                \Cref{table_truthtable_simplification} shows the truth table.  Because the last column is all true, we can conclude that $(P \land Q) \to P$ is a tautology.
+                    \begin{table}[hbtp]
+                    \centering
+                        \begin{tabular}{cc|cc}
+                            $P$ & $Q$ & $(P \land Q)$ & $(P \land Q) \to P$ \\ \hline
+                            \str{T} & \str{T} & \str{T} & \str{T} \\
+                            \str{T} & \str{F} & \str{F} & \str{T} \\
+                            \str{F} & \str{T} & \str{F} & \str{T} \\
+                            \str{F} & \str{F} & \str{F} & \str{T}\\
+                        \end{tabular}
+                    \caption{Truth table showing the tautology for the simplification inference $(P \land Q) \to P$.}
+                    \label{table_truthtable_simplification}
+                    \end{table}
+            \end{soln}
+        \item Construct a truth table for $\neg P \lor Q$.  What do you notice? 
+            \begin{soln}
+                \Cref{table_truthtable_implication} shows the truth table.  Because the last column is the same as the truth table for $P \to Q$ in \Cref{table_truthtable_conditional}, we can conclude that they are logically equivalent. That is, $\neg P \lor Q \equiv P \to Q$.
+                    \begin{table}[hbtp]
+                    \centering
+                        \begin{tabular}{cc|cc}
+                        $P$ & $Q$ & $\neg P$ & $\neg P \lor Q$ \\ \hline
+                            \str{T} & \str{T} & \str{F} & \str{T} \\
+                            \str{T} & \str{F} & \str{F} & \str{F} \\
+                            \str{F} & \str{T} & \str{T} & \str{T} \\
+                            \str{F} & \str{F} & \str{T} & \str{T}\\
+                        \end{tabular}
+                    \caption{Truth table showing the implication equivalence $P \to Q \equiv \neg P \lor Q$.}
+                    \label{table_truthtable_implication}
+                    \end{table}
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+Note the new equivalence we found in \Cref{act_promises} (\ref{part_truthtable_implication}).
+
+\begin{thm}[Implication equivalence]
+\label{thm_implication}
+~
+    \begin{apart}
+        \item For statements $P$ and $Q$, 
+            $$ P \to Q \equiv \neg P \lor Q.$$
+        \item Equivalently, for statements $R$ and $Q$,
+            $$ R \lor Q \equiv \neg R \to Q.$$
+    \end{apart}    
+\end{thm}
+
+Note that the second statement of \Cref{thm_implication} follows from the first by substituting $R = \neg P$ and therefore $P = \neg R$.
+%We discuss the converse in \Cref{sec_converse_cp} and return to equivalences and inferences in \Cref{sec_inference}. 
+
+A common use of if/then in computer programming is the if/then/else construction.
+
+\begin{exam}[``If, then, else'' construction]
+\label{exam_if_then_else} 
+    A common command in computer programming is a statement of the form
+         \begin{center}
+             ``If $P$, then $Q$, else $R$.''
+         \end{center}
+    This statement tells the computer that if $P$ is true, then do what $Q$ says and if $P$ is false, then do what $R$ says.
+        \begin{apart}
+            \item Write the statement if $P$, then $Q$, else $R$ in logical notation.
+                \begin{soln}
+                    The statement says if $P$, then $Q$ and also if $\neg P$, then $R$ so we have 
+                        $$(P \to Q) \land (\neg P \to R)$$
+                \end{soln}
+            \item Consider the following statement: for any integer $n$, if $n$ is even, then the answer is $\frac{n}{2}$, else the answer is $3n+1$.  What is the answer when $n=30$?  What is the answer when $n = 7$?
+                \begin{soln}
+                    When $n=30$ the statement $n$ is even is true and so the answer is $\frac{n}{2}=\frac{30}{2} = 15$.  On the other hand, when $n=7$ the statement $n$ is even is false and so the answer is $3n+1 = 3(7)+1 = 22$.
+                \end{soln}
+        \end{apart}  
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subpffifthen}{Proof Format: Direct Proof of $\to$}
+\subsection{\subpffifthen}
+\label{sub_pff_if_then}
+
+Since $P \to Q$ promises that if $P$ is true, then $Q$ is true, our proof format begins by assuming that $P$ is true and concludes once we have shown that $Q$ is true.  The proof does not mention the case where $P$ is false since $P \to Q$ is automatically true if that happens, as stated in \Cref{rem_false_implies_is_true}.
+
+\begin{pff}[Direct proof of $\to$]
+\label{pff_if_then_direct} 
+    Prove: $P \to Q$ 
+    \begin{proof}
+        Assume $P$ is true. \\
+        (Explain why it follows that $Q$ is true.) \\
+        Thus $Q$ is true.
+    \end{proof}    
+\end{pff}
+
+As usual, when we introduce a new proof format, we present an example and ask you to edit it to prove a similar statement.
+
+\begin{act}[Direct proof of a conditional statement]
+\label{act_pffifthen}
+~
+    \begin{actpart}
+        \item \label{part_if_then_direct} Copy the following proof of a direct proof of a conditional statement.  Note that we are using \Cref{pff_forall} because the statement is universally quantified as well as \Cref{pff_if_then_direct}.
+
+        Prove for any integer $m$, if $m$ is odd then $3m$ is odd.
+            \begin{proof}
+                Let $m$ be an integer.  Assume that $m$ is odd.  By the definition of odd (\Cref{defn_even_odd}) we can write $m=2k+1$ for some integer $k$.  Then     $$3m=3(2k+1)=6k+3.$$
+                (Side note: to show that $3m$ is odd, we need to write $6k+3$ in the form $2(\quad)+1$.)
+            
+                Note that $$6k+3 = 6k+2+1 = 2(3k+1) + 1.$$
+                Since $3k+1$ is an integer, it follows from the definition of odd that $3m$ is odd.
+            \end{proof}
+
+        \item Edit the proof in (\ref{part_if_then_direct}) to prove that for any integer $m$ if $m$ is odd, then $5m$ is odd.  
+    \end{actpart}
+\end{act}
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subnegcond}{Broken Promises: Negating Conditional Statements}
+\subsection{\subnegcond}
+\label{sub_neg_conditional}
+
+We have just seen how to prove that a conditional statement is true.  How do we construct a counterexample involving a conditional statement to prove that it is false?
+
+\begin{act}[Counterexamples involving conditional statements]
+\label{act_cex_conditionals}
+    Show that each the statements (a)-(c) is false by finding a counterexample for each statement.
+        \begin{actpart}                   
+            \item \label{part_chromatic4_notK4} If a graph has chromatic number four, then it must be the complete graph $K_4$.
+            \item \label{part_cex_cond_xplusy} Given real numbers $x$ and $y$, if $x + y = 2$, then $x \le 1$ and $y \le 1$.  
+            \item \label{part_cex_cond_abmult6} For any integers $a$ and $b$, if $6 \mid ab$, then $6 \mid a$ or $6 \mid b$.
+            \item What do we need to be true in order to show that $P \to Q$ is false?
+            \item Construct a truth table for $\neg (P \to Q)$.  Include an intermediate column for $P \to Q$.
+            \item $\neg (P \to Q)$ is logically equivalent to a statement involving $\land$.  What is it?
+        \end{actpart}  
+\end{act}
+
+Make sure that you have completed \Cref{act_cex_conditionals} because we are about to reveal the answers.
+
+\begin{exam}[Counterexamples involving conditional statements]
+\label{exam_cex_conditionals}
+    For each statement from \Cref{act_cex_conditionals} (a)-(c), find a counterexample to show the statement is false.
+        \begin{apart} 
+            \item If a graph has chromatic number four, then it must be the complete graph $K_4$.
+                \begin{soln}
+                    One possible counterexample is the wheel $W_5$, drawn in \Cref{fig_W4W5}.  (By the way, we could not use $W_3$ as a counterexample because $W_3 \cong K_4$.)  Notice that our counterexample has the hypothesis true and the conclusion false.
+                \end{soln}
+            \item Given real numbers $x$ and $y$, if $x + y = 2$, then $x \le 1$ and $y \le 1$.
+                \begin{soln}
+                    One possible counterexample is $x = 0.8$ and $y=1.2$.  While it is true that $x=0.8 \le 1$, because $y = 1.2 > 1$ it follows that the conclusion that $x \le 1$ and $y \le 1$ is false.  Notice that our counterexample has the hypothesis true and the conclusion false.  To insure that the conclusion was false, we used DeMorgan's Laws (\Cref{thm_demorgans}) $\neg(P \land Q) \equiv \neg P \lor \neg Q$.
+                \end{soln}
+            \item For any integers $a$ and $b$, if $6 \mid ab$, then $6 \mid a$ or $6 \mid b$.  
+                \begin{soln}
+                    One possible counterexample would be $a = 3$ and $b = 4$ because then $6 \mid 12 = ab$ but $6 \nmid 3$ and $6 \nmid 4$. Notice that our counterexample has the hypothesis true and the conclusion false.  To insure that the conclusion was false, we used DeMorgan's Laws (\Cref{thm_demorgans}) $\neg(P \lor Q) \equiv \neg P \land \neg Q$.
+                \end{soln}
+        \end{apart}   
+\end{exam}
+
+As we saw in \Cref{act_cex_conditionals} and \Cref{exam_cex_conditionals}, a counterexample to $P \to Q$ must have $P$ true and $Q$ false.  After all, that is the only way to break the promise.
+
+\begin{thm}[Broken promise]
+\label{thm_broken_promise}
+    The negation of ``If $P$, then $Q$'' is the \vocab{broken promise} ``$P$ but not $Q$''.  That is, 
+    $$\neg(P \to Q) \equiv P \land \neg Q$$
+\end{thm}
+
+Let's look at an example of writing the negation of conditional statements.
+
+\begin{exam}[Negating conditional statements]
+\label{exam_neg_ifthen}
+Write the negation of each statement in a sentence.  Hint: The negation should be true for your counterexample.
+    \begin{apart}
+        \item If a graph has chromatic number four, then it must be the complete graph $K_4$.
+            \begin{soln}
+                Note that this statement does not state a specific quantifier, so following \Cref{rem_default_universal}, we interpret this statement as universally quantified.  Using \Cref{thm_neg_quants} and \Cref{thm_broken_promise} we get the following negation:
+                    \begin{center}
+                        There exists a graph that has chromatic number four but is not the complete graph $K_4$.
+                    \end{center}
+                Our counterexample from \Cref{exam_cex_conditionals} found a graph, namely $W_5$, that has chromatic number four but is not the complete graph $K_4$. 
+            \end{soln}
+        \item Given real numbers $x$ and $y$, if $x + y = 2$, then $x \le 1$ and $y \le 1$.
+            \begin{soln}
+                We use \Cref{thm_neg_quants} and \Cref{thm_broken_promise} to find the following awkwardly-stated draft of the negation:
+                    \begin{center}
+                        There are real numbers $x$ and $y$ such that $x+y=2$ but it is not the case that $x \le 1$ and $y \le 1$.
+                    \end{center}
+                We can eliminate the awkward ``it is not the case'' by using DeMorgan's law (\Cref{thm_demorgans}).  Our negation is the following statement:
+                    \begin{center}
+                        There are real numbers $x$ and $y$ such that $x+y=2$ but either $x > 1$ or $y > 1$.                                        
+                    \end{center}
+                Our counterexample from \Cref{exam_cex_conditionals} found real numbers $x = 0.8$ and $y = 1.2$ where $x+y=2$ but $y > 1$.
+            \end{soln}
+        \item For any integers $a$ and $b$, if $6 \mid ab$, then $6 \mid a$ or $6 \mid b$.
+            \begin{soln}
+                We use \Cref{thm_neg_quants} and \Cref{thm_broken_promise} to find the following awkwardly-stated draft of the negation:
+                    \begin{center}
+                        There are integers $a$ and $b$ such that $6 \mid ab$ but it is not the case that $6 \mid a$ or $6 \mid b$.
+                    \end{center}
+                We can eliminate the awkward ``it is not the case'' by using DeMorgan's law (\Cref{thm_demorgans}).  Our negation is the following statement:
+                    \begin{center}
+                        There are integers $a$ and $b$ such that $6 \mid ab$ but $6 \nmid a$ and $6 \nmid b$.                                        
+                    \end{center}
+                Our counterexample from \Cref{exam_cex_conditionals} found integers $a = 3$ and $b = 4$ where $6 \mid 12$ but $6 \nmid 3$ and $6 \nmid 4$.
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subpfforimplication}{Proof Formats: Proof of $\lor$ Using Implication}
+\subsection{\subpfforimplication}
+\label{sub_pff_or_implication}
+
+The implication equivalence (\Cref{thm_implication}) gives us a new way to prove an ``or'' statement, which we saw earlier using cases in \Cref{pff_or_by_cases}.  That is, to prove $R \lor Q$ we can prove $\neg R \to Q$.
+
+\begin{pff}[Proof of $\lor$ using implication]
+\label{pff_or_implication} 
+    Prove: $R \lor Q$ 
+    \begin{proof}
+        Assume $R$ is false.  \\
+        (Explain why it follows that $Q$ is true.) \\
+        Thus $Q$ is true.
+    \end{proof}    
+\end{pff}
+
+As usual, when we introduce a new proof format, we present an example and ask you to edit it to prove a similar statement.
+
+\begin{act}[Direct proof of an ``or'' statement using an equivalent conditional]
+\label{act_pff_implication}
+~
+    \begin{actpart}
+        \item \label{part_or_implication} Copy the following proof of proof of an ``or'' statement using the implication equivalence.  Note that we are using \Cref{pff_forall} because the statement is universally quantified as well as  \Cref{pff_or_implication}.
+
+        Prove that for any positive real numbers $a$ and $b$ such that $ab=100$, either $a \le 10$ or $b < 10$.
+            \begin{proof}
+                Let $a$ and $b$ be positive real numbers such that $ab = 100$. Assume $a > 10$.  Multiplying each side of this equation by the positive number $b$ we get $100=ab > 10b$.  Dividing each side of this equation by 10 we get $b < 10$. Thus either $a \le 10$ or $b < 10$.
+            \end{proof}
+
+        \item Edit the proof in (\ref{part_or_implication}) to prove that for any positive real numbers $a$ and $b$ such that $ab=5$, either $a \le \sqrt{5}$ or $b < \sqrt{5}$. 
+    \end{actpart}
+\end{act}
+
+A common concern about proving an ``or'' statement using the implication equivalence is that we have proved that if $P$ is false, then $Q$ is true, but it feels like we are missing a proof that if $Q$ is false, then $P$ is true.  It is not missing.  Let's look at how to better understand \Cref{pff_or_implication} by comparing it to proof by cases.
+
+\begin{exam}[Compare proving an ``or'' statement using implication versus proof by cases]
+\label{exam_implication_vs_cases_proof_or}  
+~    
+    Explain \Cref{pff_or_implication} by considering how to prove $P \lor Q$ using cases (\Cref{pff_or_by_cases}) with the cases are $P$ or $\neg P$.
+        \begin{soln}
+            Prove: $P \lor Q$ using cases (\Cref{pff_or_by_cases}) with the cases $P$ or $\neg P$.
+
+            \begin{quote}
+            \begin{proof}
+                We consider two cases. \\
+                Case 1: Assume $P$.  Thus, $P$.\\
+                Case 2: Assume $\neg P$.  (Explain why $Q$ follows.) Thus, $Q$.\\
+                In either case, $P \lor Q$.
+            \end{proof}
+            \end{quote}
+
+            When we cross out the obvious lines of the proof we get the following proof:
+
+            \begin{quote}
+            \begin{proof}
+                \st{We consider two cases.} \\  % Calls package soul
+                \st{Case 1: Assume $P$.  Thus, $P$.}\\
+                \st{Case 2:} Assume $\neg P$.  (Explain why $Q$ follows.) Thus, $Q$.\\
+                \st{In either case, $P \lor Q$.}
+            \end{proof}
+            \end{quote}
+            
+            This proof is the \Cref{pff_or_implication}.
+        \end{soln}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exercises}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_if_then} \subifthen}
+
+\begin{exer}[\exerP] % explain why conditional true]
+\label{exer_explain_cond_true}
+    Explain why each conditional statement is true.
+    \begin{exerpart}
+        \item For any integer $k$, if $k=3$, then $2k+5 = 11$.  Hint: Plug in.
+        \item For any integer $k$, if $2k+5 = 11$, then $k=3$.  Hint: Solve.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerP] %  verify addition tautology]
+\label{exer_verify_addition}
+    Use a truth table to verify that $ P \to (P \lor Q)$ is a tautology.  Include an intermediate column for $P \lor Q$.
+\end{exer}
+
+\begin{exer}[\exerP] %  truth table $P \to \neg Q$]
+\label{exer_truthtable_PimpliesnegQ}
+~
+    \begin{exerpart}
+        \item Construct a truth table for $P \to \neg Q$.  Include an intermediate column for $\neg Q$.
+        \item Construct a truth table for $Q \to \neg P$. Include an intermediate column for $\neg P$.
+        \item What do you notice?
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % justifying modus ponens
+\label{exer_truthtable_mp}
+    Construct a truth table to show that $(P \land (P \to Q)) \to Q$ is a tautology.
+    This logical equivalence justifies \emph{modus ponens}, a key logical inference we discuss in \Cref{sec_inference}.
+\end{exer}  
+
+\begin{exer}[\exerU] % truth table compound conditionals
+\label{exer_truthtable_compound conditionals}
+    Construct a truth table for each statement. Include intermediate columns.
+        \begin{exerpart}
+            \item $P \to (Q \lor R)$
+            \item $(P \to Q) \land (\neg P \to R)$            
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % justifying proof by cases]
+\label{exer_truthtable_proof_cases}
+    Construct a truth table to show that $$(P \to R) \land (Q \to R) \equiv (P \lor Q) \to R.$$  Include appropriate intermediate columns.
+    This logical equivalence justifies \Cref{pff_cases} (for 2 cases).
+\end{exer}
+
+\begin{exer}[\exerU] % rewrite using implication
+\label{exer_rewrite_implication}
+~
+    \begin{exerpart}
+        \item Use the implication equivalence (\Cref{thm_implication}) to rewrite the following statement as a conditional:  Either you take a break from playing that video game or I will take away your controller for a week.
+        \item Use the implication equivalence (\Cref{thm_implication}) to rewrite the following statement using ``or'': If you do not text me by 6 PM, then I will text you.
+        % Answer: Either you text me by 6 PM or I will text you.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % Promises: Conditional Statements
+\label{exer_dyk_iften}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What the symbol $\to$ means in this logic context?
+            \item What the statement if $P$, then $Q$ promises?
+            \item When a conditional statement is true and when it is false?
+            \item How to draw truth tables that involve conditional statements?
+            \item Why $P \to Q \equiv \neg P \lor Q$?
+            \item How to use a truth table to verify that a logical equivalence is valid? 
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  Is $P \lor (Q \to R) \equiv (P \lor Q) \to R$?]
+\label{exer_equiv_PtoQtoR}
+    Is $P \lor (Q \to R)$ logically equivalent to $(P \lor Q) \to R$?  Use a truth table to justify your answer. Include appropriate intermediate columns.       
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_pff_if_then} \subpffifthen}
+
+\begin{exer}[\exerP] % prove conditional true]
+\label{exer_prove_cond_true}
+    Use \Cref{pff_forall} and \Cref{pff_if_then_direct} to prove each statement from \Cref{exer_explain_cond_true}. % in \Cref{sec_ifthen} 
+    \begin{exerpart}
+        \item Prove for any integer $k$, if $k=3$, then $2k+5 = 11$.  Hint: Plug in.
+        \item Prove for any integer $k$, if $2k+5 = 11$, then $k=3$.  Hint: Solve.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] %  square of odd is odd
+\label{exer_odd_sq_is_odd}
+    Use \Cref{pff_forall},  \Cref{pff_if_then_direct}, and \Cref{defn_even_odd} to prove that for any integer $n$, if $n$ is odd, then $n^2$ is odd. Hint: Write $n=2k+1$.  Next, simplify $n^2$ and write it as $2(\quad~)+1$.
+\end{exer}
+
+\begin{exer}[\exerP] %  divides proofs]
+\label{exer_mult6_is_mult3}
+    Use \Cref{pff_forall}, \Cref{pff_if_then_direct}, and \Cref{defn_divides} to prove that for any integer $n$, if $6 \mid n$, then $3 \mid n$. Hint: Write $n = 6k$ for some integer $k$.  How can you write $n = 3(\quad~)$?
+\end{exer}
+
+\begin{exer}[\exerP] % divides square
+\label{exer_divides_square_proof}
+~
+    Use \Cref{pff_forall}, \Cref{pff_if_then_direct}, and \Cref{defn_divides} to prove if $a \mid b$, then $a \mid b^2$ for any integers $a$ and $b$.  Hint: Write $b = ak$ for some integer $k$.  Next, simplify $b^2$ and write it as $a(\quad~)$.
+\end{exer}
+
+\begin{exer}[\exerU] % sums and products of evens and odds
+\label{exer_proof_sums_prod_even_odd}
+~
+    Use \Cref{pff_forall}, \Cref{pff_and}, and \Cref{pff_if_then_direct} to prove for any integers $a$ and $b$ if $a$ is even and $b$ is odd, then $a+b$ is odd and $ab$ is even.  Hint:  Write $a = 2k_1$ and $b = 2k_2+1$ for some integers $k_1$ and $k_2$. (You cannot use the same integer $k$ for both.)
+\end{exer}
+
+\begin{exer}[\exerU] % transitivity of divides]
+\label{exer_divides_transitive}
+~
+    Use \Cref{pff_forall}, \Cref{pff_if_then_direct}, and \Cref{defn_divides} to prove that if $a \mid b$ and $b \mid c$, then $a \mid c$ for any integers $a$, $b$, and $c$. Hint: Write $b=ak_1$ and $c=bk_2$ for some integers $k_1$ and $k_2$.  You cannot use the same integer $k$ for both.
+\end{exer}
+
+\begin{exer}[\exerR] % Proof Format: Direct Proof of $\to$
+\label{exer_dyk_pffifthen}
+    Do you know \ldots
+        \begin{exerpart}            
+             \item Why we only need to consider when $P$ is true when proving $P \to Q$?
+             \item What we assume at the beginning of the direct proof that $P \to Q$?
+             \item How to prove $P \to Q$ directly?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  last digit even or odd]
+\label{exer_last_digit_even_odd}
+    Prove that for any integer $n$ and digit $s$ that if $s$ is even, then $10n+s$ is even and if $s$ is odd, then $10n+s$ is odd.  Use \Cref{pff_forall}, \Cref{pff_and}, \Cref{pff_if_then_direct}, and \Cref{defn_even_odd}.
+
+    It follows from this exercise that if the last digit of an integer is even, then that integer is even and if the last digit of an integer is odd, then that integer is odd.  
+\end{exer}
+
+\begin{exer}[\exerE] % proof Euclidean Algorithm]
+\label{exer_proof_EAthm_recursion}
+    In this exercise, we prove \Cref{thm_Euclidean_algorithm} (\ref{part_EAthm_recursion}).
+    Let $a$, $n$, $q$, and $r$ be integers such that $a = nq + r$. (We are most interested in the case where $r = a$ \fn{mod} $n$, but the result holds in general.)
+        \begin{exerpart}
+            \item \label{part_EAthm_implies} Use \Cref{pff_forall}, \Cref{pff_if_then_direct}, and \Cref{defn_divides} to prove that for any integer $d$, if $d \mid n$ and $d \mid r$, then $d \mid a$. 
+            \item What does (\ref{part_EAthm_implies}) tell you is true about any common divisor of $n$ and $r$?
+            \item \label{part_EAthm_converse} Use \Cref{pff_forall}, \Cref{pff_if_then_direct}, and \Cref{defn_divides} to prove that for any integer $d$, if $d \mid a$ and $d \mid n$, then $d \mid r$. Hint: Solve for $r$.
+            \item What does (\ref{part_EAthm_converse}) tell you is true about any common divisor of $a$ and $n$?
+            \item \label{part_EAthm_commondivs} Explain why it follows from 
+            (\ref{part_EAthm_implies}) and (\ref{part_EAthm_converse})
+            that the list of common divisors of $a$ and $n$ is the same as the list of common divisors of $n$ and $r$.
+            \item Explain why it follows from (\ref{part_EAthm_commondivs}) that \fn{gcd}$(a,n) =$ \fn{gcd} $(n,r)$.  
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_neg_conditional} \subnegcond}
+
+% \begin{exer}[\exerU] %  divides counterexamples ]
+% \label{exer_divides_cex}
+%     Each of the following statements is false. Find a counterexample to each statement.
+%         \begin{exerpart}
+%             \item For all integers $n$, if $4 \mid n$, then $9 \mid n$.
+%             \item For all integers $n$, if $4 \mid n$, then $9 \nmid n$.        
+%         \end{exerpart}
+% \end{exer}
+
+\begin{exer}[\exerP] %  cex graphs
+\label{exer_cex_graphs_cond}
+    Each of the following statements is false. Find a counterexample to each statement.
+    \begin{exerpart}
+        \item If a graph contains a 5-cycle, then contains a 4-cycle. 
+        \item If two graphs $G$ and $H$ have the same degree sequence, then they are isomorphic.  Hint: Try 3-regular graph with six vertices.
+        \item For any vertices $v$ and $w$ in the path $P_6$, if $v$ and $w$ are adjacent, then $v$ and $w$ have the same degree.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % truth table verify negation of conditional
+\label{exer_truthtable_neg_conditional}  
+    Use a truth table to verify the equivalence in \Cref{thm_broken_promise}.
+\end{exer}
+
+\begin{exer}[\exerU] %  product divides 12]
+\label{exer_product_divides12}
+    Each of the following statements is false. Find a counterexample to each statement.
+    \begin{exerpart}
+        \item For any integers $a$ and $b$, if $a \mid 12$ and $b \mid 12$, then $ab \mid 12$.
+        \item For any integers $a$ and $b$, if $12 \mid ab$, then $12 \mid a$ or $12 \mid b$.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % write the negation
+\label{exer_negation_ifthen_graphs}
+    Use \Cref{thm_broken_promise} to write the negation of each statement in a sentence.
+        \begin{exerpart}
+            \item If a graph contains a 5-cycle, then contains a 4-cycle. Note that by \Cref{rem_default_universal}, this statement is universally quantified so use \Cref{thm_neg_quants}.
+            \item If two graphs $G$ and $H$ have the same degree sequence, then they are isomorphic.  Again, use \Cref{thm_neg_quants}.
+            \item For any vertices $v$ and $w$ in the path $P_6$, if $v$ and $w$ are adjacent, then $v$ and $w$ have the same degree.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % write the negation
+\label{exer_negation_ifthen_even}
+    Each of the following statements is false.  First, find a counterexample and then use \Cref{thm_broken_promise}  to write the negation of each statement in a sentence.  Hint: Use DeMorgan's laws (\Cref{thm_demorgans}).
+        \begin{exerpart}
+            \item For any integers $a$ and $b$, if $a+b$ is even, then $a$ is even or $b$ is even.
+            \item For any integers $a$ and $b$, if $ab$ is even, then $a$ is even and $b$ is even.
+        \end{exerpart}
+\end{exer}
+
+% \begin{exer}[\exerU bit string length 6 consecutive \bs{0}s or \bs{1]s}]
+% \label{exer_bit_string_consec0or1}
+%     Consider the following false statement:
+%     \begin{center}
+%         If a bit string has length 6, then it has either two consecutive \bs{0}s or two consecutive \bs{1}s.
+%     \end{center}
+%     \begin{exerpart}
+%         \item Find a counterexample.
+%         \item State the negation of the statement.  
+%     \end{exerpart}
+% \end{exer}
+
+% \begin{exer}[\exerU] %  bit string length 6 at least two \bs{0}s and two \bs{1}s]
+% \label{exer_bit_string_two0ortwo1}
+%     Consider the following false statement:
+%     \begin{center}
+%         For any bit string $b$, if $b$ has length 6, then $b$ has at least two \bs{0}s and $b$ has at least two one \bs{1}s.
+%     \end{center}
+%     \begin{exerpart}
+%         \item Find a counterexample.
+%         \item State the negation of the statement.
+%     \end{exerpart}
+% \end{exer}
+
+\begin{exer}[\exerR] % Broken Promises: Negating Conditional Statements
+\label{exer_dyk_neg_conditional}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to use the idea of a broken promise to find a counterexample to $P \to Q$?
+            \item What the negation of $P \to Q$ is?
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_pff_or_implication} \subpfforimplication}
+
+\begin{exer}[\exerP] % n or n+1 is even
+\label{exer_integer_or_next_is_even}
+    Consider the following statement $S$:
+        \begin{center}
+            For any integer $n$, either $n$ is even or $n+1$ is even.
+        \end{center}
+        \begin{exerpart}
+            \item Use \Cref{thm_implication} to rewrite $S$ as a conditional statement without the word ``or''.
+            \item Use \Cref{pff_forall} and \Cref{pff_or_implication} to prove $S$. Recall that if $n$ is not even, then $n$ is odd.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % no zero divisors in the integers
+\label{exer_no_zd_integers}
+~
+    \begin{exerpart}
+        \item \label{part_equiv_or_conclusion} Use a truth table to verify that $P \to (Q \lor R)$ is equivalent to $(P \land \neg Q) \to R$.
+        \item \label{part_zd_without_or} Consider the following conditional statement $S$:
+            \begin{center}
+                For any integers $a$ and $b$, if $ab=0$, then $a=0$ or $b=0$.
+            \end{center}
+        Use (\ref{part_equiv_or_conclusion}) to rewrite $S$ without ``or''. 
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % proof no zero divisors in the integers
+\label{exer_proof_no_zd_integers}
+~
+    Consider the following conditional statement $S$ from \Cref{exer_no_zd_integers}:
+            \begin{center}
+                For any integers $a$ and $b$, if $ab=0$, then $a=0$ or $b=0$.
+            \end{center}
+    Use \Cref{pff_forall}, \Cref{pff_if_then_direct}, and \Cref{pff_or_implication} to prove $S$. Hint: if $a \neq 0$, then you may divide each side of the equation $ab=0$ by $a$. 
+\end{exer}
+
+\begin{exer}[\exerR] % Proof Format: Proof of $\lor$ Using Implication
+\label{exer_dyk_pfforimplication}
+    Do you know \ldots
+        \begin{exerpart}
+             \item How to prove $P \lor Q$ using the implication equivalence?
+             \item Why we only need to consider when $P$ is false when proving $P \lor Q$?
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\answers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_if_then} \subifthen}
+
+\subsubsection*{\Cref{exer_explain_cond_true} \answers}
+\begin{apart}
+    \item When $k=3$ we have $2k+5 = 2(3) + 5 = 11$.
+    \item Hint: Now explain how to solve the equation.
+\end{apart}
+
+\subsubsection*{\Cref{exer_verify_addition} \answers}
+Hint: The truth table should have four columns: $P$, $Q$, $P \lor Q$, $P \to (P \lor Q)$.  The truth table should also have four rows, as in \Cref{exam_truthtable_conditionals}.  To show that the statement is a tautology, the last column of your truth table should be all \str{T}s.
+
+\subsubsection*{\Cref{exer_truthtable_proof_cases} \answers}
+Hint: Your truth table should have eight columns: $P$, $Q$, $R$, $P \to R$, $Q \to R$, $(P \to R) \land (Q \to R)$, $P \lor Q$, and $(P \lor Q) \to R$.  Your truth table should also have eight rows, as in \Cref{exam_distributive_equiv}.  The sixth and eighth columns should be the same.
+
+\subsubsection*{\Cref{exer_rewrite_implication} \answers}
+\begin{apart}
+    \item If you do not take a break from playing that video game, then I will take away your controller for a week.
+    \item Hint: Your answer should not have any negative words (like ``not'').
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_pff_if_then} \subpffifthen}
+
+\subsubsection*{\Cref{exer_mult6_is_mult3} \answers}
+Hint: The proof begins
+    \begin{quote}
+        \emph{Proof.}  Let $n$ be an integer.  Assume $6 \mid n$.  By definition of divides, \ldots
+    \end{quote}
+Then use the hint.
+
+\subsubsection*{\Cref{exer_proof_sums_prod_even_odd} \answers}
+ Hint: Here is an outline of the proof.
+     \begin{quote}
+        \emph{Proof.}  Let $a$ and $b$ be integers.  Assume \ldots. 
+        By the definitions of even and odd, we can write \ldots (use hint)
+
+        Then, first, $a+b=$ \ldots. Thus, \ldots.
+
+        Next, $ab = $ \ldots. Thus, \ldots.
+     \end{quote}
+
+\subsubsection*{\Cref{exer_divides_transitive} \answers}
+     \begin{quote}
+        \emph{Proof.}  Let $a$, $b$, and $c$ be integers.  Assume $a \mid b$ and $b \mid c$. By the definitions of divides, we can write $b=ak_1$ and $c=bk_2$ for some integers $k_1$ and $k_2$. Then, $$c = bk_2 = (ak_1)k_2 = a(k_1k_2) = ak$$
+        where $k = k_1k_2$ is an integer.  Thus, by definition of divides, $a \mid c$. \hfill $\Box$
+     \end{quote}
+
+\subsubsection*{\Cref{exer_last_digit_even_odd} \answers}
+ Hint: Here is an outline of the proof.
+     \begin{quote}
+        \emph{Proof.}  Let $n$ be an integer and let $s$ be a digit.  
+        
+        First, assume $s$ is even.  By definition of even we can write $s=$ \ldots.  Then $$10n+s = \ldots = 2k'$$
+        where $k' = \ldots$ is an integer.  Thus $10n+s$ is even.
+
+        Next, assume $s$ is odd.  By definition of odd we can write $s=$ \ldots.  Then $$10n+s = \ldots = 2k'+1$$
+        where $k' = \ldots$ is an integer.  Thus $10n+s$ is odd.    
+     \end{quote}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_neg_conditional} \subnegcond}
+
+\subsubsection*{\Cref{exer_cex_graphs_cond} \answers}
+\begin{apart}
+    \item Hint: Your graph should contain a 5-cycle.
+    \item Hint: Your graphs should not be isomorphic.
+    \item Hint: To show the counterexample, draw $P_6$ and label two of the vertices $v$ and $w$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_product_divides12} \answers}
+\begin{apart}
+    \item Hint: One possible counterexample is $a = 6$ and $b = 4$.  Try to find a different counterexample.
+    \item Hint: Check that your counterexample has $12 \mid ab$, $12 \nmid a$, and $12 \nmid b$.  (We used DeMorgan's laws.)
+\end{apart}
+
+\subsubsection*{\Cref{exer_negation_ifthen_graphs} \answers}
+\begin{apart}
+    \item There is a graph that contains a 5-cycle but does not contain a 4-cycle.
+    \item Hint: Your negation should not include the word ``if''.
+    \item Hint: Your negation should not include the word ``if''.
+\end{apart}
+
+\subsubsection*{\Cref{exer_negation_ifthen_even} \answers}
+\begin{apart}
+    \item For some integers $a$ and $b$, $a+b$ is even, but $a$ is odd and $b$ is odd.
+    \item Hint: Make sure you understand how we got the answer to part (a).  Your negation should not include the words ``if'' or ``and''.
+\end{apart}
+
+
+

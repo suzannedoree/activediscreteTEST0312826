@@ -1,0 +1,802 @@
+\section{\secbinhex}
+\label{sec_binary_hex}
+
+In \Cref{act_fact_rep}, we represent a positive integer using the sum of factorials.  A more widely-used representation uses the sum of powers instead.  The decimal numbers that we use every day are represented using powers of 10.  Historically,\footnote{Using data from \url{https://en.wikipedia.org/wiki/List_of_numeral_systems} retrieved November 30, 2025} people have used a variety of bases.  We see remnants of base 60 that the Babylonians and others used (where Iraq is now) in 60 seconds per minute, 60 minutes per hour, or 360$^\circ$ in a circle.  Mayan and Aztec (in Mexico and Central America) used base 20, and there are references to groups of 20 in many modern indigenous languages ranging from Basque (in Spain and France) to Inuit (in Alaska).  In Nigeria and Nepal, many languages incorporate base 12, which we see today in the 12-hour clock, 12 inches to a foot, and 12 eggs in a carton. Other bases are possible, but the most commonly-used modern representations are binary, which uses powers of two, and hexadecimal, which uses powers of 16.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subbaseb}{Base $b$ Representation}
+\subsection{\subbaseb}
+\label{sub_base_b}
+
+We start with the definition of representing integers using powers of any integer $b>1$. 
+
+\begin{defn}[Base $b$ representation]
+\label{defn_base_b}
+~
+    \begin{apart}
+        \item For a fixed integer $b > 1$ and nonnegative integer $n$, the \vocab{base \emph{b} representation} of $n$ is 
+            $$n=\left(a_ka_{k-1}\cdots a_3a_2a_1a_0\right)_b$$
+        if 
+            $$n=\sum_{i=0}^ka_ib^i = a_kb^k + \dots + a_3b^ 3+a_2b^2+a_1b^1+a_0b^0$$ 
+        for some integer $k$ where each integer $a_i = 0,1, \ldots, b-1$. For example, in base three we have $3-1=2$ and so the coefficients can be $a_i=0,1,2$. The integer 15 is represented in base three as $$15=(120)_3$$ because 
+            \begin{align*}
+                (120)_3 & = \underline{1} \cdot 3^2 + \underline{2}\cdot 3^1 + \underline{0} \cdot 3^0 \\
+                & = \underline{1} \cdot 9 + \underline{2}\cdot 3 + \underline{0} \cdot 1 \\
+                & = 9 + 3 + 3\\
+                & = 15.
+            \end{align*}
+            Notice how we need to include zero.
+        \item Base 10 is the usual \vocab{decimal representation} where each digit $a_i = 0, 1, 2, 3, 4, 5, 6, 7, 8,$ or $9$.  We omit the subscript and write $n = a_ka_{k-1}\cdots a_3a_2a_1a_0$. For example, 528 in decimal representation stands for 
+            \begin{align*}
+                528 & = 500+20+8 \\
+                & = 100+100+100+100+100+10+10+1+1+1+1+1+1+1+1 \\
+                & = \underline{5} \cdot 100 + \underline{2} \cdot 10 + \underline{8} \cdot 1 \\
+                & = \underline{5} \cdot 10^2 + \underline{2} \cdot 10^1 + \underline{8} \cdot 10^0.
+            \end{align*}
+        \item The most common base systems after base 10 are base two (\vocab{binary}) and base 16 (\vocab{hexadecimal}).  
+        Other base systems such as base three (\vocab{ternary}) and base five (\vocab{quinary}) are used mainly to understand base representations.  Base eight (\vocab{octal}) was used historically as a shorthand for binary.
+        \item Often $k$ is chosen so that  $a_k > 0$, but there are occasions where we write zero in front of a number. For example, we might enter 03 for the month March instead of 3. If we require $a_k > 0$, then the base $b$ representation of a positive integer is unique.
+    \end{apart}
+\end{defn}
+
+We consider an example.
+
+\begin{exam}[Ternary Conversion]
+\label{exam_ternary} 
+~
+    \begin{apart}
+        \item Convert $(21021)_3$ to decimal.
+            \begin{soln}
+                To determine the highest power of three involved, we count in from the right: $3^0, 3^1, 3^2, 3^3$, and finally $3^4$.  We have
+                    \begin{align*}
+                    (21021)_3 & =\underline{2}\cdot 3^4 +\underline{1}\cdot 3^3 +\underline{0}\cdot 3^2 +\underline{2}\cdot 3^1 +\underline{1}\cdot 3^0 \\
+                    &=\underline{2}\cdot 81 +\underline{1}\cdot 27 +\underline{0}\cdot 9 +\underline{2}\cdot 3 +\underline{1}\cdot 1 \\
+                    & = 196.
+                    \end{align*}
+            \end{soln}
+        \item Convert 50 to base three.
+            \begin{soln}
+                Since $50 < 81 = 3^4$, we only need to use 27, nine, three, and one.  Note that $50-27 = 23$, $23-9-9 = 5$,  $5-3=2$, and $2=1+1$ and so we get
+                    \begin{align*}
+                    50 & = 27 + 9 + 9 + 3 + 1 + 1 \\
+                    & =\underline{1}\cdot 27 +\underline{2}\cdot 9 + \underline{1}\cdot 3 + \underline{2}\cdot 1 \\
+                    & = \underline{1}\cdot 3^3 + \underline{2}\cdot 3^2 +  \underline{1} \cdot 3^1 +  \underline{2} \cdot 3^0 \\
+                    & = (1212)_3
+                    \end{align*}
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+Here are examples using base five and base eight.
+
+\begin{exam}[Quinary and octal conversions]
+\label{exam_quinary_octal}
+~
+    \begin{apart}
+        \item Convert $(413)_5$ and $(1723)_8$ to decimal.
+            \begin{soln}
+                First, 
+                    \begin{align*}
+                    (413)_5 & =\underline{4}\cdot 5^2 +\underline{1}\cdot 5^1 +\underline{3}\cdot 5^0\\
+                    &=\underline{4}\cdot 25 +\underline{1}\cdot 5 +\underline{3}\cdot 1 \\
+                    & = 108.
+                    \end{align*}
+                Next, 
+                    \begin{align*}
+                    (1723)_8 & =\underline{1}\cdot 8^3 +\underline{7}\cdot 8^2 +\underline{2}\cdot 8^1 +\underline{3}\cdot 8^0 \\
+                    &=\underline{1}\cdot 512 +\underline{7}\cdot 64 +\underline{2}\cdot 8 +\underline{3}\cdot 1 \\
+                    & = 979.
+                    \end{align*}
+            \end{soln}
+        \item Convert 50 to base five and to base eight.
+            \begin{soln}
+                First, since $50 < 125 = 5^3$, we only need to use 25, five, and one.  Notice that $50-25-25=0$ and so we have
+                   \begin{align*}
+                    50 & = 25+25 \\
+                    & =\underline{2}\cdot 25 +\underline{0}\cdot 5 + \underline{0}\cdot 1  \\
+                    & = \underline{2}\cdot 5^2 +  \underline{0} \cdot 5^1 +  \underline{0} \cdot 5^0 \\
+                    & = (200)_5
+                    \end{align*}
+                Next, since $50 < 64 = 8^2$, we only need to use eight and one.  Notice that $50-6(8) = 50-48 = 2$ and so we have
+                    \begin{align*}
+                    50 & = 8+8+8+8+8+8+1+1 \\
+                    & =\underline{6}\cdot 8 + \underline{2}\cdot 1  \\
+                    & = \underline{6} \cdot 8^1 +  \underline{2} \cdot 8^0 \\
+                    & = (62)_8
+                    \end{align*}
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+When we compare the different representations of the integer 50 from \Cref{exam_ternary} and \Cref{exam_quinary_octal} listed in \Cref{table_baseb_50}, we see that the larger the base, the shorter the representation of the integer 50 in that base.
+
+    \begin{table}[hbtp]
+        \centering
+        \begin{tabular}{c|c|c|c|c}
+            base $b$ & 3 & 5 & 8 & 10 \\ \hline
+            representation of 50 base $b$ & $(1212)_3$ & $(200)_5$ & $(62)_8$ & 50 \\
+        \end{tabular}
+        \caption{Base $b$ representations of the integer 50.}
+        \label{table_baseb_50}
+    \end{table}
+
+Try converting between bases.
+
+\begin{act}[Base $b$ conversions]
+\label{act_baseb_conv}
+~
+    \begin{actpart}
+        \item Convert $(1220)_3$ to decimal.
+        \item Convert 21 to base three. 
+        \item Convert $(432)_5$ to decimal.
+        \item Convert 21 to base five.
+        \item Convert $(71)_8$ to decimal.
+        \item Convert 21 to base eight.
+        \item \label{part_count_digits_base3} How many digits are needed to represent 100,000 in base three?  
+        
+        Hint: $3^{10}=59049$ and $3^{11} = 177147$.
+    \end{actpart}
+\end{act}
+
+Let's look at \Cref{act_baseb_conv} (\ref{part_count_digits_base3}).
+
+\begin{exam}[Counting digits in base three]
+\label{exam_count_digits_base3}
+    How many digits are needed to represent 100,000 in base three?
+        \begin{soln}
+            Since $3^{10}=59049<100000$ and $3^{11} = 177147>100000$, we need through $3^{10}$ but not $3^{11}$. Thus, the base three representation of 100,000 needs 11 digits for the coefficients of $$3^0, 3^1, 3^2, \ldots, 3^{10}.$$
+        \end{soln}
+\end{exam}
+
+
+
+There is a variant of ternary representation in which we use 0, 1, and $-1$ instead of 0, 1, and 2.
+
+\begin{defn}[Balanced ternary representation]
+\label{defn_bal_tern_rep}
+    For an integer $n$, the \vocab{balanced ternary representation} of $n$ is
+            $$n = \left(a_ka_{k-1}\cdots a_3a_2a_1a_0\right)_{bal3}$$
+        if $$n=a_k3^k + \dots + a_33^ 3+a_23^2+a_13^1+a_03^0$$ 
+        for some integer $k$ where each integer $a_i = -1,0,1$.  We write $+$ in place of 1 and $-$ in place of -1.  For example, 
+            \begin{align*}
+                (+0-+-)_{bal3} & =\underline{+1}\cdot 3^4 +\underline{0}\cdot 3^3 +\underline{-1}\cdot 3^2 +\underline{+1}\cdot 3^1 +\underline{-1}\cdot 3^0 \\
+                & = 81+0-9+3-1 \\
+                & = 74
+            \end{align*}
+\end{defn}
+
+Let's look at an example of representing an integer using balanced ternary.
+
+\begin{exam}[Balanced ternary representation]
+\label{exam_bal_tern_rep}
+    Convert 23 to balanced ternary representation.
+        \begin{soln}
+            The largest integer we can obtain using 1, 3, 9 is 
+                $$(+++)_{bal3} 
+                = \underline{1}\cdot 9 + \underline{1}\cdot 3 + \underline{1} \cdot 1
+                =9+3+1=13.$$
+            Therefore, to obtain 23, we need to use $3^3 = 27$ as follows: 
+                \begin{align*}
+                    23 & = 27 - 3 - 1 \\
+                    & = \underline{1}\cdot 27 + \underline{0} \cdot 9 + \underline{-1} \cdot 3 +  \underline{-1} \cdot 1 \\
+                    & = \underline{1}\cdot 3^3 + \underline{0} \cdot 3^2 + \underline{-1} \cdot 3^1 +  \underline{-1} \cdot 3^0 \\
+                    & = (+0--)_{bal3}
+                \end{align*}
+        \end{soln}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subbinary}{Binary  Representation}
+\subsection{\subbinary}
+\label{sub_binary}
+
+The most common base used in computer science is two, because integers in base two are represented by bit strings.
+
+\begin{defn}[Binary representation]
+\label{defn_binary}
+     For a nonnegative integer $n$, the \vocab{binary representation} of $n$ is 
+            $$n=\left(a_ka_{k-1}\cdots a_3a_2a_1a_0\right)_2$$
+        if 
+            $$n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0$$ 
+        for some integer $k$ where each integer $a_i =0, 1$. For example, the integer $6=(\bs{110})_2$.  We check that
+            \begin{align*}
+                (\bs{110})_2 & = \underline{1} \cdot 2^2 +\underline{1} \cdot 2^1 +\underline{0} \cdot 2^0 \\
+                & = \underline{1} \cdot 4 +\underline{1} \cdot 2 +\underline{0} \cdot 1 \\
+                & = 4 + 2 \\
+                & = 6.
+            \end{align*} 
+        The programming language Python uses the prefix \bs{0b} to indicate a binary integer. For example, we write $6=\bs{0b110}$.
+\end{defn}
+
+\begin{rem}[The connection between bit strings and binary integers]
+\label{rem_bit_strings_binary}
+    In binary representation, the coefficients can be thought of as bits \bs{0} or \bs{1}. Therefore, any bit string represents a binary integer. Note that different bit strings can represent the same integer.  For example, \bs{110}, \bs{0110}, \bs{0000110} each represent six because $$6=(\bs{110})_2=(\bs{0110})_2=(\bs{0000110})_2,$$ but they are different bit strings because \bs{110} has length three, \bs{0110} has length four, and \bs{0000110} has length seven.
+\end{rem}
+
+For binary, it is useful to know the powers of two as listed in \Cref{table_powers_2and16}.  (We have also included the powers of 16 that we need later for hexadecimal representation.)
+
+    \begin{table}[hbtp]
+        \centering
+        \begin{tabular}{llrrllrrlrr}
+            $16^0=$ & $2^0=$ & $1$ & \hspace{0.5in} & $16^1=$ & $2^4=$ & $16 $ & \hspace{0.5in} & $16^2=$ & $2^8=$ & $256$  \\
+            & $2^1=$ & $2$ &&& $2^5=$ & $32$ &&& $2^9=$ & $512$ \\
+            & $2^2=$ & $4$ &&& $2^6=$ & $64$ &&& $2^{10}=$ & $1024$ \\
+            & $2^3=$ & $8$ &&& $2^7=$ & $128$ &&& $2^{11}=$ & $2048$ \\
+        \end{tabular}
+        \caption{Small powers of two and 16.}
+        \label{table_powers_2and16}
+    \end{table}
+
+Let's look at a few examples.
+
+\begin{exam}[Conversion between decimal and binary]
+\label{exam_binary_decimal}
+~
+    \begin{apart}
+        \item Convert $(\bs{10110})_2$ to decimal.
+            \begin{soln}
+               To determine the highest power of 2 involved, we count in from the right:  $2^0$, $2^1$, $2^2$, $2^3$, and finally $2^4$.  We have
+                \begin{align*}
+                    (\bs{10110})_2 & =  \underline{1} \cdot 2^4 +  \underline{0} \cdot 2^3 +  \underline{1} \cdot 2^2 +  \underline{1} \cdot 2^1 +  \underline{0} \cdot 2^0 \\
+                    & = \underline{1} \cdot 16 +  \underline{0} \cdot 8 +  \underline{1} \cdot 4 +  \underline{1} \cdot 2 +  \underline{0} \cdot 1 \\
+                    & =16 + 4 + 2 \\
+                    & = 22
+                \end{align*}
+            \end{soln}
+        \item Convert 46 to binary.
+            \begin{soln}
+                First, since $46<64$, we only need to use 32, 16, 8, 4, 2, and 1. Notice $46-32 = 14$, $14-8 = 6$, and $6-4=2$ and so we have
+                    \begin{align*}
+                    45 & = 32+8+4+2 \\
+                    & =\underline{1}\cdot 32 + \underline{0}\cdot 16 +
+                    \underline{1}\cdot 8 + \underline{1}\cdot 4 +\underline{1}\cdot 2
+                    + \underline{0}\cdot 1  \\
+                    & =\underline{1}\cdot 2^5 + \underline{0}\cdot 2^4 +
+                    \underline{1}\cdot 2^3 + \underline{1}\cdot 2^2 +\underline{1}\cdot 2^1
+                    + \underline{0}\cdot 2^0 \\
+                    & = (\bs{101110})_2
+                    \end{align*}
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+It is your turn to practice.  
+
+\begin{act}[Conversion between decimal and binary]
+\label{act_bin_decimal}
+    Use the definition of binary to convert the representation of integers by hand. That means do not use other algorithms you might have learned or computational technology, except to check.
+        \begin{actpart}
+            \item Convert $(\bs{11100})_2$ to decimal.          
+            \item Convert each of 10, 11, 12, 13, 14, and 15 to binary.
+            \item \label{part_165binary} Convert 165 to binary.
+        \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subhex}{Hexadecimal Representation}
+\subsection{\subhex}
+\label{sub_hex}
+
+Another common base used in computer science is 16.
+
+\begin{defn}[Hexadecimal representation]
+\label{defn_hex}
+~
+    \begin{apart}
+        \item In \vocab{hexadecimal} (base 16) representation, the coefficients are  0, 1, 2, \ldots, 15. Since the coefficients 10, 11, 12, 13, 14, and 15 are 2-digit numbers we use the letters \bs{A}, \bs{B}, \bs{C}, \bs{D}, \bs{E}, and \bs{F} in their place, as shown in \Cref{table_hex_letters}.     
+            \begin{table}[hbtp]
+                \centering
+                \begin{tabular}{c|c|c|c|c|c|c}
+                     integer & 10 & 11 & 12 & 13 & 14 & 15 \\ \hline
+                     hex letter & \bs{A} & \bs{B} & \bs{C} & \bs{D} & \bs{E} & \bs{F} \\
+                \end{tabular}
+                \caption{Hexadecimal representation of 10, 11, 12, 13, 14, and 15.}
+                \label{table_hex_letters}
+            \end{table}
+        Thus, \vocab{hex digits}  are $$0,1,2,3,4,5,6,7,8,9,\bs{A},\bs{B},\bs{C},\bs{D},\bs{E},\bs{F}.$$
+        
+        For example, the integer $27=(\bs{1B})_{16}$ because $27-16=11=\bs{B}$ and so
+            \begin{align*}
+                27 & = 16+11 \\
+                & = 16 + 1+1+1+1+1+ 1+1+1+1+1 + 1 \\
+                & = \underline{1} \cdot 16 +\underline{11} \cdot 1 \\
+                & = \underline{1} \cdot 16^1 +\underline{11} \cdot 16^0 \\
+                & = (\bs{1B})_{16}
+            \end{align*} 
+        The programming language Python uses the prefix \bs{0x} to indicate a hexadecimal integer. For example, we write $27=\bs{0x1B}$.
+    \end{apart}
+\end{defn}
+
+
+Let's look at a few examples.
+
+\begin{exam}[Conversion between decimal and hexadecimal]
+\label{exam_hex_decimal}
+~
+    \begin{apart}
+        \item Convert $(\bs{A5F})_{16}$ to decimal.
+            \begin{soln}
+                To determine the highest power of 16 involved, we count in from the right: $16^0$, $16^1$, and then $16^2$.  Recalling that $(\bs{A})_{16}=10$ and $(\bs{F})_{16}=15$, we have
+                    \begin{align*}
+                        (\bs{A5F})_{16} &= \underline{10}\cdot 16^2 + \underline{5}\cdot 16^1 + \underline{15} \cdot 16^0 \\
+                        & = \underline{10} \cdot 256 + \underline{5} \cdot 16 + \underline{} \cdot 1 \\
+                        & =  2655.
+                    \end{align*}
+            \end{soln}
+        \item Convert 695 to hexadecimal.
+            \begin{soln}
+                Note that $16^2 = 256$ is the highest power of 16 less than 695.  Since $2 \times 256 = 512$, we subtract to get $695 - 512 = 183$.  Next we calculate $11 \times 16 = 176$ as the largest multiple of 16 less than 183 and subtract again to get $183-176=7$.  Recalling that $11=(\bs{B})_{16}$, we have
+                    \begin{align*}
+                        695 & = 512 + 176 + 7 \\
+                        & = \underline{2} \cdot 256 + \underline{11} \cdot 16 + \underline{7} \cdot 1 \\
+                        & = \underline{2}\cdot 16^2 + \underline{11}\cdot 16^1 + \underline{7} \cdot 16^0 \\
+                        & =(\bs{2B7})_{16}
+                    \end{align*}
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+It is your turn to practice.
+
+\begin{act}[Conversion between decimal and hexadecimal]
+\label{act_hex_decimal}
+    Use the definition of hexadecimal to convert the representation of integers by hand. That means do not use other algorithms you might have learned or computational technology, except to check.
+        \begin{actpart}
+            \item Convert $(\bs{C8}_{16})$ to decimal.
+            \item \label{part_165hex} Convert 165 to hexadecimal.
+            \item \label{part_A5} Convert each of $(\bs{A})_{16}$ and $(\bs{5})_{16}$ to binary.
+            \item In \Cref{act_bin_decimal} (\ref{part_165binary}), we found $165 = {(\bs{10100101})_2}$. How are the binary and hexadecimal representations of 165 from (\ref{part_165hex}) related? Hint: Look at (\ref{part_A5}).
+        \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\subhexforbinary}{Hex as a Shorthand for Binary}
+\subsection{\subhexforbinary}
+\label{sub_hex_shorthand_binary}
+
+We observed from \Cref{table_baseb_50} that the larger the base, the shorter the representation of an integer in that base. While binary is longer than base three, five, eight, or 10, hexadecimal is shorter than base three, five, eight, or 10.
+That is one reason why hexadecimal representation is used, because it helps compress data.  But there is another reason. Hexadecimal is an easy-to-read shorthand for the often difficult-to-read binary.  Let's see an example of this shorthand. 
+
+\begin{exam}[Direct conversion between binary and hexadecimal]
+\label{exam_hex_binary_conv}
+~
+    \begin{apart}
+        \item In \Cref{exam_hex_decimal} we saw that $695 = (\bs{2B7})_{16}$. It turns out that $695 = (\bs{1010110111})_2$. Explain how the hexadecimal and binary representations are related.
+            \begin{soln}
+                Every four-bit binary number represents a decimal number $0-15$ and each of those decimal numbers can be written as a single hex digit. There are four bits per hex digit because $16=2^4$. Let's take the binary representation of 695 and, working from right to left, replace every group of four bits with its single hex digit to get
+                    $$\underbrace{\bs{10}}_{\bs{2}} \underbrace{\bs{1011}}_{\bs{B}} \underbrace{\bs{0111}}_{\bs{7}}.$$
+                We used that 
+                $(\bs{10})_2= 2 =(\bs{2})_{16}$, 
+                $(\bs{1011})_2 = 8+2+1=11=(\bs{B})_{16}$, and 
+                $(\bs{0111})_2 = (\bs{111})_2 = 4+2+1 = 7 = (\bs{7})_{16}$.
+            \end{soln}
+        \item Convert $(\bs{DE})_{16}$ directly to binary.
+            \begin{soln}
+                Noting that $(\bs{D})_{16}=13 = 8 + 4 + 1 = (\bs{1101})_2$ and $(\bs{E})_{16}=14 = 8 + 4 + 2 = (\bs{1110})_2$, we replace each hex digit with its 4-bit binary representation to get 
+                $$\underbrace{\bs{D}}_{\bs{1101}} \underbrace{\bs{E}}_{\bs{1110}}.$$
+                Therefore, $(\bs{DE})_{16}=(\bs{11011110})_2.$
+            \end{soln}
+        \item Convert $(41)_{16}$ directly to binary.
+            \begin{soln}
+                Noting that $(4)_{16}= 4 = (0100)_2$ and $(1)_{16} = 1 = (0001)_2$, we replace each hex digit with its 4-bit binary representation, adding \bs{0}s in front as needed, to get
+                $$\underbrace{\bs{4}}_{\bs{0100}} \underbrace{\bs{1}}_{\bs{0001}}.$$
+                Thus $(41)_{16}=(01000001)_2=(1000001)_2$.
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+It is your turn to practice.
+
+\begin{act}[Conversion between binary and hexadecimal]
+\label{act_bin_hex}
+    In this problem use the definition of binary and hexadecimal to convert the representation of integers by hand. That means do not use other algorithms you might have learned or computational technology, except to check.
+        \begin{actpart}
+            \item Convert $(\bs{E7})_{16}$ directly to binary.  That means without converting to decimal first.
+            \item Convert $(\bs{10001011110})_2$ directly to hexadecimal. That means without converting to decimal first. 
+        \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exercises} 
+
+Many exercises in this section could be answered using a calculator or online resources.  Since the purpose of the exercises is to help you understand the representation, please work out the solutions by hand and be sure to show work.  Also, even if you know a simpler conversion algorithm, be sure to use the formal process outlined in this section. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Exercises for \Cref{sub_base_b}
+\subbaseb}
+
+\begin{exer}[\exerP] % conversion from base $b$]
+\label{exer_conv_from_baseb}
+   Convert each integer to decimal.
+       \begin{exerpart}
+           \item $(21)_3$
+           \item $(21)_5$ 
+           \item $(21)_8$
+       \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] %  conversion into base $b$]
+\label{exer_conv_to_baseb}
+    Convert 45 into base $b$ where
+        \begin{exerpart}
+            \item $b=3$ 
+            \item $b=5$ 
+            \item $b=8$ 
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % Number digits 100000
+\label{exer_count_digits_100000_baseb}
+~
+    \begin{exerpart}
+        \item How many digits are needed to represent 100,000 in base five?  Hint: $5^7 = 78125$ and $5^8=390625$.
+        \item How many digits are needed to represent 100,000 in base eight? Hint: $8^5=32768$ and $8^6=262144$.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %  conversion from balanced ternary]
+\label{exer_conv_from_bal3}  
+        Convert each integer to decimal.  
+        \begin{exerpart}
+            \item $(+0+0)_{bal3}$
+            \item $(+--0)_{bal3}$
+            \item $(+0+-)_{bal3}$
+       \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %  conversion into balanced ternary 1-10]
+\label{exer_conv_to_bal3_1to10}  
+    Convert each integer to balanced ternary representation: $1, 2, 3, 4, 5, 6, 7, 8, 9, 10$. 
+\end{exer}
+
+\begin{exer}[\exerU] %  conversion into balanced ternary larger]
+\label{exer_conv_to_bal3_larger}  
+    Convert each integer to balanced ternary representation. 
+        \begin{exerpart}
+            \item 20  
+            \item 100 
+       \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % base b
+\label{exer_dyk_base_rep}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to convert between base $b$ and decimal using the definition of base $b$ representation, especially for $b=$ 3, 5, and 8?
+            \item How to count the number of base $b$ digits of an integer without converting to base $b$?
+            \item Why the length of the representation decreases as the base increases?
+            \item How to convert between balanced ternary representation and decimal? 
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  mod and divides base $b$]
+\label{exer_divides_baseb} 
+    Suppose the integer $n$ is written in base $b$ as $$n = a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 + a_1b + a_0$$ where each integer $0 \le a_i < b$. 
+    \begin{exerpart}
+        \item What is $n \fn{ mod } b$? Explain your reasoning or show work.
+        \item What is $n \fn{ mod }b^2$? Explain your reasoning or show work.
+        \item How can you tell from the base $b$ representation of $n$ whether $b \mid n$?  Make a conjecture and explain your reasoning. 
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  largest base $b$]
+\label{exer_largest_baseb}
+    The results of this problem are used to prove the uniqueness of the base $b$ representation.
+    \begin{exerpart}
+        \item  The largest integer we can represent in 3 digits in base 3 is $(222)_3$ and in base 5 is $(444)_5$.  Convert each of these integers to decimal.
+        \item \label{part_largest_baseb} What is the largest integer we can represent in $m$ digits base $b$?  Your answer should be a sum.
+        \item Make a conjecture about the closed form of your answer to (\ref{part_largest_baseb}).
+    \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Exercises for \Cref{sub_binary} \subbinary}
+
+\begin{exer}[\exerP] %  conversion from binary]
+\label{exer_conv_from_binary}
+    Convert each integer to decimal. 
+        \begin{exerpart}
+            \item $(\bs{1100})_2$
+            \item $(\bs{110110})_2$ 
+            \item $(\bs{1111111})_2$
+        \end{exerpart}  
+\end{exer}
+
+\begin{exer}[\exerP] %  conversion into binary]
+\label{exer_conv_to_binary}
+    Convert each integer to binary.
+        \begin{exerpart}
+            \item 17
+            \item 53
+            \item 255
+            \item 300
+        \end{exerpart}  
+\end{exer}
+
+\begin{exer}[\exerU] % Count bits in binary number
+\label{exer_count_bits_binary}
+    For each integer, determine how many bits are needed for the binary representation without finding the binary representation. Hint: Consult \Cref{table_powers_2and16}.
+        \begin{exerpart}
+            \item 100
+            \item 2000
+            \item 100,000   Note: You are welcome to use technology to calculate higher powers of two.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % binary
+\label{exer_dyk_binary_rep}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What the values of $2^0, 2^1, \ldots, 2^{10}$ equal?
+            \item How to convert between binary and decimal using the definition of binary representation?
+            \item What the connection (and distinction) is between binary numbers and bit strings?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  algorithm to compute binary representation]
+\label{exer_binary_alg_example}  
+    Here's an alternative way to find the binary representation of the integer 100.
+
+        \begin{itemize}
+        \item 100 \fn{div} 2 = 50 and 100 \fn{mod} 2 = 0.
+        \item 50 \fn{div} 2 = 25 and 50 \fn{mod} 2 = 0.
+        \item 25 \fn{div} 2 = 12 and 25 \fn{mod} 2 = 1.
+        \item 12 \fn{div} 2 = 6 and 12 \fn{mod} 2 = 0.
+        \item 6 \fn{div} 2 = 3 and 6 \fn{mod} 2 = 0.
+        \item 3 \fn{div} 2 = 1 and 3 \fn{mod} 2 = 1.
+        \item 1 \fn{div} 2 = 0 [STOP] and 1 \fn{mod} 2 = 1.
+        \item The binary representation of 100 = $(1100100)_2$. Note that we are reading the remainder (\fn{mod}) from bottom to top.
+        \end{itemize}
+    Use this new process to find the binary representation of each integer. Be sure to show work.
+        \begin{exerpart}           
+            \item 17
+            \item 45
+            \item 300
+            \item 1,000         
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  explaining binary representation algorithm]
+\label{exer_binary_alg_explain}
+    Explain why the algorithm introduced in \Cref{exer_binary_alg_example} works in general.  
+\end{exer}
+
+\begin{exer}[\exerE] %  largest integer with $n$ binary bits]
+\label{exer_largest_binary}
+~
+    \begin{apart}
+        \item The largest integer we can represent in three bits in binary is $(\bs{111})_2$.  Convert this integer to decimal.
+        \item The largest integer we can represent in four bits in binary is $(\bs{1111})_2$.  Convert this integer to decimal.
+        \item  \label{part_largest_binary} What is the largest integer we can represent in $m$ bits in binary?  Your answer should be a sum.
+        \item Make a conjecture about an explicit form of your answer to (\ref{part_largest_binary}). 
+    \end{apart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Exercises for \Cref{sub_hex} \subhex}
+
+\begin{exer}[\exerP] %  conversion from hexadecimal]
+\label{exer_conv_from_hex}
+    Convert each integer to decimal.
+    \begin{exerpart}
+        \item $(\bs{33})_{16}$
+        \item $(\bs{4A})_{16}$
+        \item $(\bs{1F0})_{16}$
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] %  conversion into hexadecimal]
+\label{exer_conv_to_hex}
+    Convert each integer to hexadecimal.
+    \begin{exerpart}
+        \item 17
+        \item 53
+        \item 170
+        \item 300
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % Count hex digits in hexadecimal number
+\label{exer_count_bits_hex}
+    For each integer, determine how many hex digits are needed for the hexadecimal representation without finding the hexadecimal representation. Hint: Consult \Cref{table_powers_2and16}.
+        \begin{exerpart}
+            \item 100
+            \item 2000
+            \item 1,000,000   Note: You are welcome to use technology to calculate higher powers of 16.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % hexadecimal
+\label{exer_dyk_hex_rep}
+    Do you know \ldots
+        \begin{exerpart}
+        \item What the value of $16^2$ equals?
+        \item What integers are represented by the letters $\bs{A},\bs{B},\bs{C},\bs{D},\bs{E},\bs{F}$ in hexadecimal?
+        \item How to convert between hexadecimal and decimal using the definition of hexadecimal notation?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  largest integer with $n$ hex digits]
+\label{exer_largest_hex}
+~
+    \begin{apart}
+        \item The largest integer we can represent in two hex digits in hexadecimal is $(\bs{FF})_{16}$.  Convert this integer to decimal.
+        \item The largest integer we can represent in three hex digits in hexadecimal is $(\bs{FFF})_{16}$.  Convert this integer to decimal.
+        \item  \label{part_largest_hex} What is the largest integer we can represent in $m$ hex digits in hexadecimal?  Your answer should be a sum.  Your answer should not have any letters in it.
+        \item Make a conjecture about an explicit form of your answer to (\ref{part_largest_hex}). 
+    \end{apart}
+\end{exer}
+
+\begin{exer}[\exerE] % colors in hex
+\label{exer_RBG_colors_hex}
+  Digital colors are represented in hex.  The first two digits control the amount of red, from $(\bs{00})_{16}=0$ (none) to $(\bs{FF})_{16}=255$ (fully saturated).  The next two digits control the amount of green, and the last two digits control the amount of blue.  
+    \begin{exerpart}
+        \item Describe the color $\bs{00FF00}$.
+        \item Give a possible hex code for bright red.
+        \item Describe the color $\bs{880088}$.
+        \item Give a possible code for aqua (bright green-blue mix).
+    \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{Exercises for \Cref{sub_hex_shorthand_binary} \subhexforbinary}
+
+\begin{exer}[\exerP] %  checking conversion between binary and hexadecimal]
+\label{exer_check_conv_bin_hex}
+In \Cref{exer_conv_to_binary} and \Cref{exer_conv_to_hex}, we wrote each of the following integers in both binary and hexadecimal representation.  Confirm that the correspondence from \Cref{exam_hex_binary_conv} holds.
+    \begin{exerpart}
+        \item 17
+        \item 300
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %  conversion between binary and hexadecimal]
+\label{exer_conv_binary_hex}
+    Complete these conversions directly, as in \Cref{exam_hex_binary_conv}, without using decimal representation.
+    \begin{exerpart}
+        \item Convert $ (\bs{E062A})_{16}$ to binary.  
+        \item Convert $(\bs{10011010011})_2$ to hexadecimal.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % binary to hex
+\label{exer_dyk_bin_hex}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to convert directly between binary and hexadecimal?
+            \item Why we group by four bits in converting directly between binary and hexadecimal?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % Why grouping by 4 works
+\label{exer_why_group4_binhex_works}
+    Consider the integer $$n = (a_7a_6a_5a_4a_3a_2a_1a_0)_2 = (b_1b_0)_{16}.$$  
+    Find a formula for $b_1$ and $b_0$ in terms of the $a_i$.  Hint: Write
+        $$n=a_72^7+a_62^6+a_52^5+a_42^4+a_32^3+a_22^2+a_12^1+a_02^0$$ 
+    and factor $16=2^4$ out of the first four terms.
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\answers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_base_b}
+\subbaseb}
+
+\subsubsection*{\Cref{exer_conv_from_baseb} \answers}
+The answers, in some order, are 7, 11, and 17.
+
+\subsubsection*{\Cref{exer_conv_to_baseb} \answers}
+\begin{apart}
+    \item $(1200)_3$
+    \item Hint: The answer is $(1\underline{\hspace{.1in}}~\underline{\hspace{.1in}})_5$.
+    \item Hint: The answer is $(\underline{\hspace{.1in}}5)_8$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_conv_from_bal3} \answers}
+The answers, in some order, are 15, 29, and 30.
+
+\subsubsection*{\Cref{exer_conv_to_bal3_larger} \answers}
+\begin{apart}
+    \item Hint: The answer involves two $+$ and two $-$.
+    \item Hint: The answer involves three $+$, one 0, and one $-$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_divides_baseb} \answers}
+\begin{apart}
+    \item \label{part_mod_base} $a_0$
+    \item Hint: $b^2$ and every higher power of $b$ is divisible by $b^2$ so $$a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0.$$
+    \item Hint:  We saw in (\ref{part_mod_base}) that $n \fn{ mod } b = a_0$.  We want $b \mid n$, which means $n \fn{ mod } b = 0$.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_binary} \subbinary}
+
+\subsubsection*{\Cref{exer_conv_from_binary} \answers}
+\begin{apart}
+    \item 12
+    \item Hint: The answer is larger than 32 but smaller than 64.
+    \item Hint: It is one less than a power of two.
+\end{apart}
+
+\subsubsection*{\Cref{exer_conv_to_binary} \answers}
+Note: Show how to write each integer as a sum of distinct powers of two.
+\begin{apart}
+    \item $(\bs{10001})_2$
+    \item Hint: The answer involves four \bs{1}s and two \bs{0}s.
+    \item Hint: The answer is all \bs{1}s.
+    \item Hint: The answer involves four \bs{1}s.  The rest are \bs{0}s.
+\end{apart}
+
+\subsubsection*{\Cref{exer_count_bits_binary} \answers}
+Make sure you explain how to count without converting.
+\begin{apart}
+    \item Hint: The highest power of two less than 100 is $64=2^6$.
+    \item 11
+    \item Hint: The highest power of two less than 100,000 is $65536=2^{16}$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_binary_alg_example} \answers}
+Make sure to show how you are using the algorithm.
+\begin{apart}
+    \item $(\bs{10001})_2$
+    \item Hint: $(\bs{1}\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}\bs{1})_2$
+    \item Hint: $(\bs{1}\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}~\underline{\hspace{.1in}}\bs{0})_2$
+\end{apart}
+
+\subsubsection*{\Cref{exer_largest_binary} \answers}
+\begin{apart}
+    \item Hint: $4+2+1$
+    \item Hint: $8+4+2+1$
+    \item Hint: You can write the answer in summation notation as $\displaystyle \sum_{k=\underline{\hspace{.1in}}}^m\underline{\hspace{.2in}}$.  Check that the summand involves $2^k$ (not $2^m$).
+    \item Hint: It involves powers of two.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_hex} \subhex}
+
+\subsubsection*{\Cref{exer_conv_from_hex} \answers}
+\begin{apart}
+    \item 51
+    \item Hint: The answer is between 60 and 80.
+    \item Hint: The answer is just under 500.
+\end{apart}
+
+\subsubsection*{\Cref{exer_conv_to_hex} \answers}
+\begin{apart}
+    \item $(11)_{16}$
+    \item Hint: The answer involves $\bs{3}$ and $\bs{5}$.
+    \item Hint: The answer involves $\str{A}$.
+    \item Hint: The answer involves $\str{C}$.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_hex_shorthand_binary} \subhexforbinary}
+
+\subsubsection*{\Cref{exer_conv_binary_hex} \answers}
+\begin{apart}
+    \item Hint: There are eight \bs{1}s in the answer.
+    \item Hint: The answer involves \str{3}, \str{4}, and \str{D}.
+\end{apart}
+
+\subsubsection*{\Cref{exer_why_group4_binhex_works} \answers}
+Hints: $2^7=2^4(2^3)$, $2^6=2^4(2^2)$, $2^5=2^4(2)$, and $2^4=2^4(1)$.  Each of $b_1$ and $b_0$ is of the form     $$\underline{\hspace{.1in}}2^3+ \underline{\hspace{.1in}}2^2+
+\underline{\hspace{.1in}}2+
+\underline{\hspace{.1in}}$$
+
+
+
+
+
+
+
+

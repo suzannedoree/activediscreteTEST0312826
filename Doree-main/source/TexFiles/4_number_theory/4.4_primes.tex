@@ -1,0 +1,828 @@
+\section{\secprimes}
+\label{sec_primes}
+
+\vocab{Primes} are integers whose only divisors are one and itself.  Many modern encryption systems that keep your data safe are based on the difficulty of factoring an integer that is the product of two very large primes.  %For that reason, it is helpful to have ways of generating large primes and testing if an integer is prime.  
+Any integer can be written as the product of primes, with repeats allowed.  This \vocab{prime factorization} allows us to list and count the divisors of an integer more easily.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subprimes}{Primes and Composites}
+\subsection{\subprimes}
+\label{sub_primes}
+
+\begin{act}[Visualizing divisors]
+\label{act_viz_divisors}  
+    We begin our discussion of primes with a visualization of divisors.    
+        \begin{actpart}
+            \item Watch the animation at \url{tinyurl.com/vizdivisors}. %\url{http://www.datapointed.net/visualizations/math/factorization/animated-diagrams/}
+            \item Draw the circle pictures from the animation for integers 1-12. You are welcome to draw dots instead of circles.
+            \item Draw the circle pictures from the animation for the integers 81 and 100. 
+            \item What can you say about an integer whose representation is a circle? 
+            \item In words, explain how the visualization is determined from the number.
+        \end{actpart}
+\end{act}
+
+As we saw in the opening activity, some integers can be drawn as equal-sized groups of circles corresponding to the divisors of the integers.  Some integers can only be drawn as one circle of circles because the only divisors of that integer are one and itself.  Such integers are primes.  Here is the formal definition.
+
+\begin{defn}[Prime]
+\label{defn_prime}
+~
+    \begin{apart}
+        \item A positive integer $n>1$ is \vocab{prime} if its only positive divisors are one and $n$.  For example, two, three, and five are prime.  Note that one is not considered prime.
+        \item A positive integer $n>1$ is \vocab{composite} if it is not prime.  For example, four is composite because its positive divisors are one, two, and four, not just one and four.  Note that one is also not composite.
+        \item The terms ``prime'' and ``composite'' are adjectives (used to describe an integer) and nouns (a type of integer).
+        \item The integer $d$ is a \vocab{nontrivial positive divisor} of $n$ if $d \mid n$ and $1 < d < n$.  For example, 2 is a nontrivial positive divisor of 4.  In general, an integer is composite if it has a nontrivial divisor, and an integer is prime if it does not have any nontrivial positive divisors.
+    \end{apart}
+\end{defn}
+
+Let's practice working with these definitions.
+
+\begin{exam}[Show an integer is prime or composite]
+\label{exam_show_prime}   
+~
+    \begin{apart}
+        \item \label{part_7_is_prime} Show that the integer seven is prime.
+            \begin{soln}
+                We can check that $2 \nmid 7$ (for example, by calculating $7 \div 2 = 3.5$ which is not an integer), $3 \nmid 7$, $4 \nmid 7$, $5 \nmid 7$, and $6 \nmid 7$.  Therefore, the only positive divisors of seven are one and seven. Thus, seven is prime.
+            \end{soln}
+        \item Show that the integer 99 is composite.
+            \begin{soln}
+                We could list all the divisors of 99, but that is not necessary. We just need one nontrivial positive divisor of 99.  For example, $99 = 9(11)$ and so $9 \mid 99$. That is, 9 is a nontrivial positive divisor of 99. Thus, 99 is composite.
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+The strategy we used in \Cref{exam_show_prime} (\ref{part_7_is_prime}) does not generalize well to larger numbers.  For example, if we wanted to show that 97 is prime, then that method would require us to check that 2, 3, 4, \ldots, 96 are not divisors of 97.  It is useful to note two facts that allow us to check a much shorter list of divisors.
+
+\begin{thm}[Show an integer is prime]
+\label{thm_show_is_prime}
+    Let $n$ be an integer.
+        \begin{apart}
+            \item \label{part_only_check_prime_divisors} Let $p$ be a prime.  If $p$ is not a divisor of $n$, then no multiple of $p$ is a divisor of $n$.
+            \item \label{part_only_check_to_sqrtn} If $n$ has no nontrivial positive divisors less than or equal to $\sqrt{n}$, then $n$ is prime.
+        \end{apart}
+\end{thm}
+
+We can use this theorem to show that 97 is prime.
+
+\begin{exam}[Sieve of Eratosthenes]
+\label{exam_sieve}
+    Use the Sieve of Eratosthenes to show that 97 is prime.  
+        \begin{soln}  
+            We start with a grid showing the integers 1-100 in rows of 10 in \Cref{table_sieve}.   We plan to cross out one and all composite integers and to circle all prime integers.  
+            
+            To begin we cross out one, circle two, and then cross out every other number thereafter, which are the even integers.  Because an even integer has positive divisor two, the only prime even integer is two itself.  Next, circle three and then cross out every third number thereafter, which are the multiples of three.  Repeat the process for the next two integers that have not yet been crossed out, five and then seven. Since each integer in the top row is crossed out or circled, circle all the remaining integers that have not been crossed out to get the grid shown in \Cref{table_sieve}.(You can watch this algorithm in action at \url{https://www.youtube.com/watch?v=V08g_lkKj6Q}.)  
+    \begin{table} [hbtp]
+        \centering
+        \begin{tabular} {cccccccccc}
+            \xcancel{~1} & \circled{2} & \circled{3} & \xcancel{~4} &\circled{5} & \xcancel{~6} & \circled{7} & \xcancel{~8} & \xcancel{~9} & \xcancel{10}\\ 
+            \circled{11} & \xcancel{12} & \circled{13} & \xcancel{14} & \xcancel{15} & \xcancel{16} & \circled{17} & \xcancel{18} & \circled{19} & \xcancel{20} \\
+            \xcancel{21} & \xcancel{22} & \circled{23} & \xcancel{24} & \xcancel{25} & \xcancel{26} &  \xcancel{27} & \xcancel{28} & \circled{29} & \xcancel{30} \\
+            \circled{31} & \xcancel{32} &  \xcancel{33} & \xcancel{34} & \xcancel{35} & \xcancel{36} & \circled{37} & \xcancel{38} &  \xcancel{39} & \xcancel{40} \\
+            \circled{41} & \xcancel{42} & \circled{43} & \xcancel{44} & \xcancel{45} & \xcancel{46} & \circled{47} & \xcancel{48} &  \xcancel{49} & \xcancel{50} \\
+            \xcancel{51} & \xcancel{52} & \circled{53} & \xcancel{54} & \xcancel{55} & \xcancel{56} &  \xcancel{57} & \xcancel{58} & \circled{59} & \xcancel{60} \\
+            \circled{61} & \xcancel{62} &  \xcancel{63} & \xcancel{64} & \xcancel{65} & \xcancel{66} & \circled{67} & \xcancel{68} &  \xcancel{69} & \xcancel{70} \\
+            \circled{71} & \xcancel{72} & \circled{73} & \xcancel{74} & \xcancel{75} & \xcancel{76} &  \xcancel{77} & \xcancel{78} & \circled{79} & \xcancel{80} \\
+            \xcancel{81} & \xcancel{82} & \circled{83} & \xcancel{84} & \xcancel{85} & \xcancel{86} &  \xcancel{87} & \xcancel{88} & \circled{89} & \xcancel{90} \\
+            \xcancel{91} & \xcancel{92} &  \xcancel{93} & \xcancel{94} & \xcancel{95} & \xcancel{96} & \circled{97} & \xcancel{98} &  \xcancel{99} & \xcancel{100} \\
+        \end{tabular}
+        \caption{Sieve of Eratosthenes}
+        \label{table_sieve}
+    \end{table}
+    
+            Notice that nowhere in this process do we divide, we only skip-count.\footnote{\vocab{Skip-counting} is the process of counting by a number greater than 1.} How do we know that the circled integers
+            $$11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 67, 73, 79, 83, 89, 97$$
+            are prime?
+            Each of these integers is not divisible by two, three, five, or seven since we crossed out all the multiples of two, three, five, or seven. By \Cref{thm_show_is_prime} (\ref{part_only_check_prime_divisors}), each of these integers is not divisible by four, six, eight, or 10 because two was not a divisor and is not divisible by nine because three was not a divisor.  That is, each of these integers are not divisible by $2, 3, 4, 5, 6, 7, 8, 9,$ or $10$. By \Cref{thm_show_is_prime} (\ref{part_only_check_to_sqrtn}) and since $\sqrt{100} = 10$, each of these remaining integers must be prime.
+
+            In particular, 97 is prime.  
+        \end{soln}
+\end{exam}
+
+Now, it is your turn to work with prime and composite integers.
+
+\begin{act}[Primes and composites]
+\label{act_prime_composite}
+~
+    \begin{actpart}
+        \item Without using any computational technology, show that each of the following integers is composite:
+        $$320, 321, 322, 324, 325, 326, 327, 328, 330.$$
+        \item Using computational technology, check that $17 \mid 323$ and $7 \mid 329$. What can you conclude about the integers 323 and 329?
+        \item Using computational technology, check that $331$ is not divisible by $2, 3, 5, 7, 11, 13, 17$, and that $\sqrt{331} < 19$. What can you conclude about the integer 331?
+        \item \label{part_mersenne_was_mistaken} In the mid-17th century Marin Mersenne conjectured that     \begin{center}
+                If $p$ is prime, then $2^p-1$ is prime.
+            \end{center}
+        Prove that he was mistaken by finding a prime $p$ where $2^p-1$ is a composite.
+    \end{actpart}
+\end{act}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subprimefact}{Prime Factorization}
+\subsection{\subprimefact}
+\label{sub_prime_fact}
+
+Another reason why primes are important is that they are the multiplicative building blocks of all integers in the sense that every natural number $n > 1$ can be written as the product of prime numbers. To see why, let's see what happens if we factor an integer as much as possible.
+
+\begin{exam}[Factoring 120]
+\label{exam_factor120}
+    Factor 120 as much as possible.
+        \begin{soln}
+            An easy factorization is $120 = 12 \cdot 10$.  Since both 12 and 10 are composite, they can be factored nontrivially.  For example, $12 = 2 \cdot 6$ and $10 = 2 \cdot 5$.  Now, two and five are prime so they cannot be further factored, but six is composite and $6 = 2 \cdot 3$.  Since two and three are prime, no further factorization is possible.  This factorization is shown in the \textbf{factor tree} in \Cref{figure_factoring120}, and we have circled the prime factors.  Putting our work together, we can write $$ 120 = 2 \cdot 2 \cdot 3 \cdot 2 \cdot 5 = 2^3 \cdot 3 \cdot 5.$$
+        \end{soln}
+    \begin{figure}[hbtp]
+        \centering           
+        \input{Tikz/prime_fact_120}
+        \caption{A factor tree for the integer $120=2^3 \cdot 3 \cdot 5$.}
+        \label{figure_factoring120}
+    \end{figure}
+\end{exam}
+
+In \Cref{exam_factor120}, we wrote $$ 120 = 2 \cdot 2 \cdot 3 \cdot 2 \cdot 5 = 2^3 \cdot 3 \cdot 5.$$  Note that this product is a product of primes.
+
+\begin{defn}[Prime factorization]
+\label{defn_prime_fact}
+~
+    \begin{apart}
+        \item A \vocab{prime factorization} of a positive integer $n>1$ is a product of primes equal to $n$. For example, a prime factorization of 120 is
+        $$120 = 2 \cdot 2 \cdot 3 \cdot 2 \cdot 5.$$  Note that a prime is its own prime factorization.  For example, a prime factorization of $5$ is $5$.
+        \item We often group repeat primes together and write primes in increasing order to write a prime factorization of $n$ in \vocab{standard order} as
+        $$n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}$$
+        where $p_1, p_2, \ldots, p_k$ are distinct primes with 
+        $p_1 < p_2 < \ldots < p_k$
+        and $e_1, e_2, \ldots, e_k$ are positive integer exponents.  For example, a prime factorization of 120 in standard order is $$120 = 2^3 \cdot 3 \cdot 5.$$  
+        \item The integer 1 does not have a prime factorization, but occasionally we refer to 1 as the prime factorization of 1 because it fits the format with all exponents ($e_1, e_2, \ldots e_k$) set equal to 0.
+    \end{apart}
+\end{defn}
+
+Any integer $n>1$ has a prime factorization.  To see why, repeat the process from \Cref{exam_factor120}. If $n$ is prime, then we are done.  Otherwise, $n$ is composite and we can nontrivially factor $n$.  Any time we have a composite factor, we nontrivially factor it.  When we run out of composites, all the remaining numbers must be prime.  Then we arrange the primes in standard order, from smallest prime to largest, using exponential notation to record any multiple occurrences of primes. 
+
+It might be surprising to learn that the prime factorization of an integer in standard form is unique.  For example, in \Cref{exam_factor120} if we had started with $120 = 2 \cdot 60$ or $120 = 3 \cdot 40$ or $120 = 4 \cdot 30$ or any other factorization, we would get different factor trees but the same final prime factorization of 120 in standard form which is $120 = 2^3 \cdot 3 \cdot 5.$ We state this existence and uniqueness as a theorem.
+
+\begin{thm}[Fundamental Theorem of Arithmetic]
+\label{thm_FTOArith} Each integer $n >1$ can be expressed as the product of primes, and when written in standard order, this prime factorization is unique.   
+\end{thm}
+
+For example, a consequence of \Cref{thm_FTOArith} is that if the prime factorization of an integer $n$ does not include the prime $p$, then $p \nmid n$.
+
+Try working with prime factorizations.
+
+\begin{act}[Prime factorization]
+\label{act_prime_fact}  
+~
+    Do not use computational technology or other resources on this problem.
+    \begin{actpart}
+        \item Use a factor tree to find the prime factorization of 120 starting with $2 \cdot 60$.
+        \item Use a factor tree to find the prime factorization of 72.
+        \item Find the prime factorization of $10^4$.  Hint: $10^4$ is already partially factored. Continue to factor it further.
+        \item Find the prime factorization of $12^5$.  
+        \item Find the prime factorization of 10!  Hint: 10! is already partially factored.  Continue to factor it further.
+        \item Find the power of 7 in the prime factorization of 15!
+        \item Find the highest power of 10 dividing 15! and explain how that information tells us how many zeros are at the end of 15! when 15! is multiplied exactly.  
+    \end{actpart}
+\end{act}
+
+Let's look at examples similar to \Cref{act_prime_fact}.
+
+\begin{exam}[Prime factorization]
+\label{exam_prime_fact}
+~
+    Do not use computational technology or other resources on this problem.
+        \begin{apart}
+            \item Find the prime factorization of $75^5$.  
+                \begin{soln}
+                    Note that $75^5$ is already partially factored.  We can continue to factor it further using $75 = 3\cdot5^2$.  We get
+                        $$75^5=(3\cdot5^2)^5
+                        =3^5 \cdot \left(5^2\right)^5
+                        = 3^5\cdot 5^{10}.$$
+                    Note that we used \Cref{thm_simplify_exp} to simplify $\left(5^2\right)^5=5^{10}$.
+                \end{soln}
+            \item Find the prime factorization of 12! 
+                \begin{soln}
+                    Note that $12!$ is already partially factored.  We can continue to factor it further using $$12! = (12)(11)(10)(9)(8)(7)(6)(5)(4)(3)(2)(1).$$  We get
+                        \begin{align*}
+                            12! &= (12)(11)(10)(9)(8)(7)(6)(5)(4)(3)(2)(1) \\
+                            &= (2^2 \cdot 3)(11)(2 \cdot 5)(3^2)(2^3)(7)(2\cdot 3)(5)(2^2)(3)(2)\\
+                            &= 2^{10}\cdot 3^5 \cdot 5^2 \cdot 7 \cdot 11.
+                        \end{align*}
+                \end{soln}  
+        \item Find the highest power of 10 dividing 12! and explain how that information tells us how many zeros are at the end of 12! when 12! is multiplied exactly. 
+            \begin{soln}
+                The highest power of 5 that divides 12! is $5^2$.  To get a divisor of 10, we must have a $2 \cdot 5$.  Therefore, the highest power of 10 that divides 12! is $10^2$.  Each power of 10 contributes one zero at the end of the number. Since there are two 10s, it follows that there are two zeros at the end of 12! when 12! is multiplied exactly. (By the way, we can use computational technology to check that 12! = \text{479,001,600}, which indeed ends with two zeros.) 
+            \end{soln}
+        \end{apart}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subcountdiv}{Detour: Listing and Counting Divisors}
+\subsection{\subcountdiv}
+\label{sub_count_divisors}
+
+In the Lockers Puzzle (\Cref{act_lockers}), as solved in \Cref{exam_open_lockers}, we saw that whether a locker was open or closed depended on the number of divisors of the locker number, but it is not easy to list or count the divisors of an integer.  In this section, we explore how prime factorization can help.  
+
+We start with an example, looking at how the prime factorization of an integer tells us information about the prime factorization of its divisors.
+
+\begin{exam}[Prime factorization of divisors]
+\label{exam_list_divisors_from_prime_fact}
+~   
+    \begin{apart}
+        \item \label{part_list_div16} List the positive divisors of the integer 16. Compare the prime factorization of 16 with the prime factorization of its positive divisors.
+            \begin{soln}
+                The positive divisors of $16=2^4$ are $1, 2, 4, 8$ and $16$.   The prime factorizations of these divisors are $1, 2^1, 2^2, 2^3,$ and $2^4$.  We can display this list in a table. \Cref{table_divisors16} lists the divisors in prime factored form and then the divisors themselves. 
+            \end{soln}
+
+            \begin{table}[hbtp]
+            \centering
+                \begin{tabular} {c| |c |c |c |c |c}
+                & 1& 2 & $2^2$ & $2^3$ & $2^4$  \\ \hline \hline
+                1 & 1& 2 & $2^2$ & $2^3$ & $2^4$ \\ 
+                \end{tabular}
+                    \hspace{1in}
+                \begin{tabular} {c| |c |c |c |c |c}
+                & 1& 2 & $2^2$ & $2^3$ & $2^4$   \\ \hline \hline
+                1 & 1& 2 & 4 & 8 & 16 \\ 
+                \end{tabular}
+            \caption{The positive divisors of 16.}
+            \label{table_divisors16}
+            \end{table}
+            
+        \item \label{part_list_div50} List the positive divisors of the integer 50. Compare the prime factorization of 50 with the prime factorization of its positive divisors.
+            \begin{soln}
+                The positive divisors of $50=2\cdot 5^2$ are $1, 2, 5, 10, 25$ and $50$.   The prime factorizations of these divisors are $1, 2^1, 5^1, 2 \cdot 5, 5^2$ and $2\cdot 5^2$.  \Cref{table_divisors50} lists the divisors in prime factored form and then the divisors themselves. Notice that going across a row of this table, we multiply by two and going down a column of this table, we multiply by five. 
+            \end{soln}
+
+            \begin{table}[hbtp]
+            \centering
+                \begin{tabular} {c| |c |c }
+                & 1& 2    \\ \hline \hline
+                1 & 1& 2  \\ \hline
+                5 & 5 & $2\cdot 5$ \\ \hline
+                $5^2$ & $5^2$ & $2\cdot 5^2$ \\
+                \end{tabular}
+                    \hspace{1in}
+                \begin{tabular} {c| |c |c }
+                & 1& 2    \\ \hline \hline
+                1 & 1& 2  \\ \hline
+                5 & 5 & 10 \\ \hline
+                25 & 25 & 50 \\
+                \end{tabular}
+            \caption{The positive divisors of 50.}
+            \label{table_divisors50}
+            \end{table}
+            
+        \item \label{part_list_div72}  List the positive divisors of the integer 72. Compare the prime factorization of 72 with the prime factorization of its positive divisors.
+            \begin{soln}
+                The positive divisors of $72=2^2 \cdot 3^2$ are $1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36$ and $72$.   The prime factorizations of these divisors are $1, 2^1, 3^1, 2^2, 2 \cdot 3, 2^3, 3^2, 2^2 \cdot 3, 2 \cdot 3^2, 2^3 \cdot 3, 2^2 \cdot 3^2$, and $2^2 \cdot 3^2$. \Cref{table_divisors72} lists the divisors in prime factored form and then the divisors themselves. Notice that going across a row of this table, we multiply by two and going down a column of this table, we multiply by three. 
+
+            \begin{table}[hbtp]
+            \centering
+                \begin{tabular} {c| |c |c |c |c}
+                & 1& 2 & $2^2$ & $2^3$  \\ \hline \hline
+                1 & 1 & 2 & $2^2$ & $2^3$ \\ \hline
+                3 & 3 & $2 \cdot 3$ & $2^2\cdot 3$ & $2^3\cdot 3$\\ \hline
+                $3^2$ & $3^2$ & $2 \cdot 3^2$ & $2^2 \cdot 3^2$& $2^3 \cdot 3^2$ \\ 
+                \end{tabular}
+                    \hspace{1in}
+                \begin{tabular} {c| |c |c |c |c}
+                & 1& 2 & $4$ & $8$  \\ \hline \hline
+                1 & $1$ & $2$ & $4$ & $8$ \\ \hline
+                3 & $3$ & $6$ & $12$ & $24$\\ \hline
+                $9$ & $9$ & $18$ & $36$& $72$ \\ 
+                \end{tabular}
+            \caption{The positive divisors of 72.}
+            \label{table_divisors72}
+            \end{table}
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+Try listing and counting divisors using prime factorization.
+
+\begin{act}[Listing and counting divisors using prime factorization]
+\label{act_list_count_divisors_using_prime_fact}
+~
+    \begin{actpart}
+    
+        \item \label{part_countdiv64}  What are the possible prime factorizations of a divisor of $64 = 2^6$?  List the positive divisors of the integer 64 in a table as in \Cref{exam_list_divisors_from_prime_fact} (\ref{part_list_div16}).  How many positive divisors does the integer 64 have?
+        
+        \item \label{part_countdiv2000} What are the possible prime factorizations of a divisor of $\text{2,000} = 2^4 5^3$?  List the positive divisors of the integer \text{2,000} in a table as in \Cref{exam_list_divisors_from_prime_fact} (\ref{part_list_div72}).  You may leave the divisors in prime-factored form.  How many positive divisors does the integer \text{2,000} have?
+        
+        \item \label{part_divisors_primesq} List the positive divisors of $p^2$ where $p$ is a prime. How many positive divisors does the integer $p^2$ have? 
+        
+        \item \label{part_divisors_primecubed} List the positive divisors of $p^3$ where $p$ is a prime. How many positive divisors does the integer $p^3$ have?
+
+        \item For a prime $p$ and positive integer $a$, how many positive divisors does $p^a$ have? Check that your conjecture gives the same number of positive divisors of the integer 64 as found in (\ref{part_countdiv64}).
+
+        \item Give an example of an integer with exactly 21 positive divisors.  Hint: Use a power of a prime.
+        
+        \item For distinct primes $p$ and $q$, list the positive divisors of an integer $p^4\cdot q^3$ in a table as in (\ref{part_countdiv2000}).   How many positive divisors does $p^4\cdot q^3$ have?
+
+        \item For distinct primes $p$ and $q$, conjecture the number of positive divisors of $p^a\cdot q^b$. 
+
+        \item Give an example of an integer with exactly 21 positive divisors, where that integer is not a power of a prime.  Hint: What could the prime factorization be?
+    \end{actpart}
+\end{act}
+
+Our examples have involved integers whose prime factorization has one or two distinct primes. Here is an example of an integer whose prime factorization has three distinct primes.
+
+\begin{exam}[Prime factorization of divisors of the integer 600]
+\label{exam_list_divisors_from_prime_fact_600}
+~
+    List the positive divisors of the integer 600 using its prime factorization. 
+        \begin{soln}
+            The prime factorization of the integer 600 is 
+                $$600=2^3 \cdot 3 \cdot 5^2.$$  
+            Since there are three prime divisors, we would need a 3-dimensional table which we can represent using three 2-dimensional tables based on the power of 5 in the divisor, as shown in \Cref{table_divisors600_pfform}. The list of divisors of 600 is, therefore
+                $$1, 2, 4, 8, 3, 6, 12, 24,
+                5, 10, 20, 40, 15, 30, 60, 120,
+                25, 50, 100, 200, 75, 150, 300, 600.$$
+
+                \begin{table}[hbtp]
+                \centering
+                    \begin{tabular}{c|| c|c|c|c}
+                        1 & 1 & 2 & $2^2$ & $2^3$  \\ \hline \hline
+                        1 & 1 & 2 & $2^2$ & $2^3$  \\ \hline
+                        3 & 3 & $2 \cdot 3$ & $2^2\cdot 3$ & $2^3\cdot 3$  \\ 
+                    \end{tabular}
+                    
+                \vspace{.25in} %%%%%
+                
+                    \begin{tabular}{c|| c|c|c|c}
+                        5 & 1 & 2 & $2^2$ & $2^3$  \\ \hline \hline
+                        1 & 5 & $2\cdot 5$ & $2^2\cdot 5$ & $2^3\cdot 5$  \\ \hline
+                        3 & $3 \cdot 5$ & $2 \cdot 3 \cdot 5$ & $2^2\cdot 3 \cdot 5$ & $2^3\cdot 3 \cdot 5$  \\ 
+                    \end{tabular} 
+                    
+                \vspace{.25in} %%%%%     
+                    \begin{tabular}{c|| c|c|c|c}
+                        $5^2$ & 1 & 2 & $2^2$ & $2^3$  \\ \hline \hline
+                        1 & $5^2$ & $2 \cdot 5^2$ & $2^2\cdot 5^2$ & $2^3\cdot 5^2$  \\ \hline
+                        3 & $3\cdot 5^2$ & $2 \cdot 3\cdot 5^2$ & $2^2\cdot 3\cdot 5^2$ & $2^3\cdot 3\cdot 5^2$  \\ 
+                    \end{tabular}        
+                \caption{The prime factorization of the positive divisors of 600.}
+                \label{table_divisors600_pfform}
+                \end{table}
+            \end{soln}
+\end{exam}
+
+Notice that we can count the number of positive divisors of an integer from its prime factorization.
+
+\begin{exam}[Counting divisors from the prime factorization]
+\label{exam_count_div_from_prime_fact}
+    In each part of this exercise, show how to count the number of divisors from the prime factorization.
+        \begin{apart}
+            \item How many positive divisors does the integer 16 have?  Explain.
+                \begin{soln}
+                    In \Cref{exam_list_divisors_from_prime_fact} (\ref{part_list_div16}), we see that the positive divisors of $16 = 2^4$ have a prime factorization of the form $2^a$ where $a=0,1,2,3,4$. There are five choices for $a$.  Thus, the integer 16 has five positive divisors.
+                \end{soln}
+            \item How many positive divisors does the integer 50 have?  Explain.
+                \begin{soln}
+                    In \Cref{exam_list_divisors_from_prime_fact} (\ref{part_list_div50}), we see that the positive divisors $50 = 2 \cdot 5^2$ have a prime factorization of the form $2^a\cdot 5^b$ where $a=0,1$ and $b = 0,1,2$. There are two choices for $a$ and three choices for $b$. Since steps multiply (\Cref{thm_steps_multiply}), the integer 50 has $2 \times 3 = 6$ positive divisors.
+                \end{soln}
+            \item How many positive divisors does the integer 72 have?  Explain.
+                \begin{soln}
+                    In \Cref{exam_list_divisors_from_prime_fact} (\ref{part_list_div72}), we see that the positive divisors of $72 = 2^3 \cdot 3^2$ have a prime factorization of the form $2^a\cdot 3^b$ where $a=0,1,2,3$ and $b = 0,1,2$.  There are four choices for $a$ and three choices for $b$.  Since steps multiply (\Cref{thm_steps_multiply}), the integer 72 has $4 \times 3 = 12$ positive divisors. 
+                \end{soln}
+            \item How many positive divisors does the integer 600 have?  Explain.
+                \begin{soln}
+                    In \Cref{exam_list_divisors_from_prime_fact_600}, we see that the positive divisors of $600 = 2^3 \cdot 3 \cdot 5^2$ have a prime factorization of the form $2^a \cdot 3^b \cdot 5^c$ where $a=0,1,2,3$, $b=0,1$, and $c=0,1,2$. There are four choices for $a$, two choices for $b$, and three choices for $c$. Since steps multiply (\Cref{thm_steps_multiply}), the integer 600 has $4 \times 2 \times 3 = 24$ positive divisors. 
+                \end{soln}
+        \end{apart}
+\end{exam}
+
+We state our findings in a theorem.
+
+\begin{thm}[Listing and counting divisors using prime factorization]
+\label{thm_list_count_div_from_prime_fact}
+    Let $n$ be an integer with prime factorization
+        $$n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}$$
+    where $p_1, p_2, \ldots, p_k$ are distinct primes with $p_1 < p_2 < \ldots < p_k$ and $e_1, e_2, \ldots, e_k$ are positive integer exponents. 
+        \begin{apart}
+            \item The positive divisors of $n$ are integers of the form
+                $$p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}$$
+            where each exponent $a_i=0,1,2, \ldots, e_i$.
+            \item The integer $n$ has exactly 
+                $$(e_1+1)(e_2+1) \cdots (e_k+1)$$
+            positive divisors.
+        \end{apart}
+\end{thm}
+
+We can use \Cref{thm_list_count_div_from_prime_fact} to find examples of integers with a certain number of divisors.
+
+\begin{exam}[Integers with exactly 10 positive divisors]
+\label{exam_int_10div}
+~
+    \begin{apart}
+        \item Describe the possible prime factorizations of an integer $n$ that has exactly 10 positive divisors.
+            \begin{soln}
+                By \Cref{thm_list_count_div_from_prime_fact}, we are looking for an integer with prime factorization     $$n = p_1^{e_1} 
+                    p_2^{e_2} \cdots p_k^{e_k}$$ 
+                such that 
+                    $$(e_1+1)(e_2+1) \cdots (e_k+1)=10.$$
+                One possibility is that there is only one prime $p$ with $e+1=10$ and so $e=9$.  In that case, the prime factorization is $n = p^9$. The corresponding table would be $1 \times 10$. The other possibility is that there are two primes, $p$ and $q$ where $e_1+1=5$ and $e_2+1=2$ and so $e_1=4$ and $e_2=1$.  In that case, the prime factorization is $n=p^4q$. The corresponding table would be $2 \times 5$. 
+            \end{soln}
+        \item What is the smallest integer having exactly 10 positive divisors?
+            \begin{soln}
+                The smallest integer of the form $p^9$ is $2^9=512$.  The smallest integer of the form $p^4q$ is $2^4\cdot 3 = 48$.  Thus, the smallest integer having exactly 10 divisors is 48.
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exercises}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_primes} \subprimes}
+
+\begin{exer}[\exerP] % twin primes]
+\label{exer_twin_primes}
+~    
+    If $p$ is prime and $p+2$ is also prime, then $p$ and $p+2$ are \vocab{twin primes}. Watch the animation at \url{tinyurl.com/vizdivisors} again and record ten pairs of twin primes.  For example, 3 and 5 form one pair of twin primes.
+\end{exer}
+
+\begin{exer}[\exerP] %  101-110 prime or composite]
+\label{exer_101_110_prime}
+~  
+    Consider the integers $$101, 102, 103, 104, 105, 106, 107, 108, 109, 110.$$  Answer the following questions without using computational technology. Briefly justify your answers.
+        \begin{exerpart}
+            \item Which of these integers are a multiple of two (even)?
+            \item Which of these integers are a multiple of three?  Hint: Some multiples of three are $90, 93, 96,$ and $99$.
+            \item Which of these integers are a multiple of five?
+            \item Which of these integers are a multiple of seven?  Hint: Some multiples of seven are $70, 77, 84, 91,$ and $98$.
+            \item Which of these integers are prime? Note that $\sqrt{121} = 11$, so each of these integers has a square root less than 11.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] %  Sieve of Eratosthenes]
+\label{exer_sieve}
+~
+    \begin{apart}
+        \item \label{part_sieve49} Make a grid showing the integers 1-49 in rows of seven.  Use this process explained in \Cref{exam_sieve} to cross out one and all composite integers and to circle all prime integers.
+        \item Use your answer to (\ref{part_sieve49}) to list all primes less than 50.
+    \end{apart}
+\end{exer}
+
+\begin{exer}[\exerU] %  extending the Sieve of Eratosthenes]
+\label{exer_extending_sieve} 
+~
+    In \Cref{exam_sieve}, we found all primes less than 100.  The only prime divisors we used to cross out numbers were two, three, five, and seven.  
+        \begin{exerpart}
+            \item Why did we stop there (versus checking 11, 13, etc.)?  Hint: Cite a relevant theorem.
+            \item Notice that the primes we checked were in the top row (1-10).  We used 1-10 for a specific reason.  What is that reason?
+            \item If we wanted to use a Sieve of Eratosthenes to find all primes up to 225, how many integers should we have in the top row?
+            \item Which prime divisors would we use to cross out numbers if we were building a Sieve up to 225?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %  Mersenne primes]
+\label{exer_mersenne_primes}  
+~
+    As we saw in \Cref{act_prime_composite}(\ref{part_mersenne_was_mistaken}), Mersenne conjectured that integers of the form $2^p-1$ are prime whenever $p$ is prime.  Primes of this form are \vocab{Mersenne} primes.
+        \begin{exerpart}
+            \item Without using computational technology, check that $2^2-1, 2^3-1, 2^5-1,$ and $2^7-1$ are prime. Note that $2^7=128$. (If you do not know this power yet, work on learning the powers of two.)
+            \item Note that $2^6-1 = 63=7 \cdot 9$ is composite.   Explain why this example does not contradict Mersenne's conjecture.
+            \item Prove that Mersenne was mistaken by finding a prime $p$ where $2^p-1$ is a composite. Yes, this question repeats \Cref{act_prime_composite} (\ref{part_mersenne_was_mistaken}).
+            \item Use the Internet to find the largest known Mersenne prime today.  Cite your source (webpage).
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %  consecutive composites]
+\label{exer_consecutive_composites}
+~
+    \begin{exerpart}
+        \item Explain why if $1 \le k \le n$, then $k \mid n!$.  Hint: Write $n!$ in more detail than usual as 
+        $$n! = n(n-1)(n-2) \cdots (k+1)(k)(k-1) \cdots (3)(2)(1).$$
+        \item  Explain why it follows that the integer $n! + k$ is composite for $k=2,3 \ldots n$.
+        \item Explain how it follows that for any integer $n\ge2$, there are at least $n-1$ consecutive composite integers.
+    \end{exerpart}  
+\end{exer}
+
+\begin{exer}[\exerR] % primes
+\label{exer_dyk_primes}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What the definition of prime is?
+            \item How to show that an integer is composite?
+            \item Whether the integer one is prime, composite, both, or neither?
+            \item How to identify prime integers $<100$ using the Sieve of Eratosthenes?
+        \end{exerpart}
+\end{exer}
+
+% \begin{exer}[\exerE] %  if divides $n^2$, then divides $n$]
+% No label
+%     Consider the statement
+%         \begin{center}
+%             $P$: For any positive integers $d$ and $n$:  if $d \mid n^2$, then $d \mid n$.
+%         \end{center}
+%     \begin{exerpart}
+%         \item Find an example of positive integers $d$ and $n$ where $d \mid n^2$ but $d \nmid n$.
+%         \item If $2 \mid n^2$ for some integer $n$, then does it follow that $2 \mid n$?  No justification required.
+%         \item If $3 \mid n^2$ for some integer $n$, then does it follow that $2 \mid n$? No justification required.
+        
+%         Decide if $P$ is true or false in the special cases where $d = 2$, $d=3$, $d=4$, $d=5$, $d=6$, $d=7$, $d=8$, $d=9$, and $d=10$.  No justification required.
+%         \item Conjecture for which integers $d$ is that special case of $P$ is true.  
+%     \end{exerpart}
+% \end{exer}
+%  SU; answer involves square free integers. Too hard!
+
+\begin{exer}[\exerE] %  count on monsters] \label{exer_count_on_monsters}
+    Go to \url{https://tinyurl.com/monsters100}.  Explain how the monsters for 6, 8, and 9 are built from the prime monsters.  Be specific.\footnote{These illustrations are from the children's book \emph{You Can Count on Monsters: The First 100 Numbers and Their Characters} by Richard Schwartz who is a mathematics professor at Brown University.  Dr.\ Schwartz is also the author of the visualizing divisors animation from \Cref{act_viz_divisors}.}   
+    %%%% https://www.math.brown.edu/reschwar/PosterPrimes/post5.png
+\end{exer}
+
+\begin{exer}[\exerE] %  divisor plot]
+\label{exer_divisor_plot}  
+Go to \url{http://www.divisorplot.com/} and look at the divisor plot. To get it to restart, click on \texttt{Introductory}.  You can control the scroll speed at the bottom of the page, including stopping the scroll, by deselecting the scroll option. 
+    \begin{exerpart}
+        \item What is the animation showing?
+        \item How can you see if a number is prime?
+        \item How can you see if a number is a perfect square?
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % divides graph on 1-100]
+\label{exer_divides_graph_1to100}
+    Consider the graph $G$ whose vertices are $\{1,2,3,\ldots,100\}$ where there is an edge between distinct vertices $b$ and $c$ if $b \mid c$ or $c \mid b$. 
+        \begin{exerpart}
+            \item Evaluate the degree of vertices one, five, and 12.  Justify your answers.
+            \item Evaluate the degree of vertices 41 and 53.  Note that 41 and 53 are prime.Justify your answers.
+            \item Recall that a \vocab{leaf} is a vertex of degree one.  How many leaves does $G$ have?  You may want to look at \Cref{exam_sieve}. Again, justify your answer.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % zero divisors mod n
+\label{exer_zero_div_mod_composite}
+~
+    Explain why for any composite $n$, we can find integers $a$ and $b$ such that $a \fn{ mod } n \neq 0$ and $b \fn{ mod } n \neq 0$, but $ab \fn{ mod } n = 0$.  Note that such integers $a$ and $b$ are \vocab{zero divisors} in $\mathbb{Z}_n$, as defined in \Cref{exer_zero_div_modn_conj} in \Cref{sec_mod_arith}. 
+\end{exer}
+
+\begin{exer}[\exerE] % Fermat's Little Theorem
+\label{exer_fermat_little}
+    In this exercise, we explore $a^n \fn{ mod } n$.  You are welcome to use computational technology to evaluate powers and \fn{mod}, such as the website \url{https://planetcalc.com/8977/}.
+    \begin{exerpart}
+        \item Calculate $0^3 \fn{ mod } 3$, $1^3 \fn{ mod } 3$, and $2^3 \fn{ mod } 3$.
+        \item Calculate $0^4 \fn{ mod } 4$, $1^4 \fn{ mod } 4$, $2^4 \fn{ mod } 4$,and $3^4 \fn{ mod } 4$.
+        \item Calculate $0^5 \fn{ mod } 5$, $1^5 \fn{ mod } 5$, $2^5 \fn{ mod } 5$, $3^5 \fn{ mod } 5$, and $4^5 \fn{ mod } 5$.
+        \item Calculate $0^6 \fn{ mod } 6$, $1^6 \fn{ mod } 6$, $2^6 \fn{ mod } 6$, $3^6 \fn{ mod } 6$, $4^6 \fn{ mod } 6$, and $5^6 \fn{ mod } 6$.
+        \item What can you say about $a^n \fn{ mod } n$ when $n$ is prime?  Does the same hold when $n$ is not prime?
+    \end{exerpart}
+\end{exer}
+
+%Create a different way to represent the integers that uses the prime factorization.  Explain your idea and draw the numbers 1-12 to illustrate your representation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_prime_fact} \subprimefact}
+
+\begin{exer}[\exerP] %  Factor trees]
+\label{exer_factor_trees}
+    Use a factor tree to find the prime factorization of each integer.  You may use the list of primes from \Cref{exam_sieve} as needed. 
+        \begin{exerpart}
+            \item 32
+            \item 200
+            \item 105
+            \item 656
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % Prime factorization of powers
+\label{exer_prime_fact__powers} 
+~
+    \begin{exerpart}
+        \item Without using computational technology, find the prime factorization of $8^4$. Hint: Use $8=2^3$.
+        \item Without using computational technology, find the prime factorization of $100^3$.  Hint: Use $100=2^25^2$.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %  prime factorization of 25!]
+\label{exer_prime_fact_25!} 
+    On this exercise, do not use computational technology.
+    \begin{exerpart}
+        \item Find the prime factorization of $25!$  Show some work. You may use the list of primes from \Cref{exam_sieve}.
+        \item Conjecture the number of zeros at the end of $25!$ and explain your reasoning.
+    \end{exerpart}   
+\end{exer}
+
+\begin{exer}[\exerR] % prime fact
+\label{exer_dyk_prime_fact}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to use a factor tree to find the prime factorization of an integer?
+            \item What the standard form of the prime factorization is?
+            \item What the Fundamental Theorem of Arithmetic says?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  prime factorization of square or cube]
+\label{exer_prime_fact_sq_cube}
+~
+    \begin{exerpart}
+        \item The natural number $s$ is a \vocab{(perfect) square} if $s = n^2$ for some integer $n$.  Find the prime factorization of each square $121 = 11^2$, $64 = 8^2$, and $\text{62,500}=250^2$
+        \item What can you say about the prime factorization of a square? Hint: If you do not recognize a pattern, try simplifying $$s = n^2 = \left(p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}\right)^2.$$
+        \item The natural number $c$ is a \vocab{(perfect) cube} if $c = n^3$ for some integer $n$.  Find the prime factorization of each cube $125 = 5^3$, $64 = 4^3$, and $\text{456,533} = 77^3$.
+        \item What can you say about the prime factorization of a cube? Hint: If you do not recognize a pattern, try simplifying $$s = n^3 = \left(p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}\right)^3.$$
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  square-free integers]
+\label{exer_squarefree}
+~
+    An integer is \vocab{square-free} if every prime in its prime factorization is raised to the first power.  For example, $35 = 5 \cdot 7$ is square-free, but $40 = 2^3 \cdot 5$ is not square-free.
+        \begin{exerpart}
+            \item Use prime factorization to show that 105 and 106 are square-free.
+            \item Use prime factorization to show that 80 and 90 are not square-free.
+            \item Explain why if an integer $n$ is not square-free, then it is divisible by $p^2$ for some prime $p$.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  2-part of integer]
+\label{exer_2part}   
+~
+    By the uniqueness of the prime factorization (\Cref{thm_FTOArith}), any integer $n > 1$ can be expressed in the form $n = 2^ab$ where $a \ge 0$ is an integer and $b$ is an odd integer. The \textbf{2-part} of $n$ is $2^a$.  For example, the 2-part of 60 is 4 because $60 = 2^2 \cdot 3 \cdot 5=2^2 \cdot 15$ where 15 is odd and $2^2 = 4$.  Show how to use the prime factorization of each integer to calculate its 2-part.
+        \begin{exerpart}
+            \item \text{1,000}
+            \item \text{1,024}
+            \item \text{1,025}
+        \end{exerpart}
+\end{exer}          
+
+% SU DOES THIS BELONG HERE ANYWHERE????
+% Prove that if $n > 1$, then $n!$ is not a square.  \emph{Hint: let $p$ be the largest prime integer such that $p < n$.  What's the power of $p$ in the prime factorization of $n!$?}  CROSSED OUT because it relies on the fact that if a prime $p$ divides a product, then it divides one of the factors.  It really needs a warm up problem: if $p \mid n!$, then $p \mid k$ for some $k < n$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Exercises for \Cref{sub_count_divisors} \subcountdiv}
+
+\begin{exer}[\exerP] %  list divisors of prime powers]
+\label{exer_list_divisors_1or2_primes}
+~
+    Make a table as in \Cref{exam_list_divisors_from_prime_fact} to list the positive divisors of each integer. You may leave the divisors in prime-factored form
+        \begin{apart}
+            \item $125=5^3$
+            \item $99 = 3^2 \cdot 11$
+            \item $100 = 2^2 \cdot 5^2$
+        \end{apart}
+\end{exer}
+
+\begin{exer}[\exerP] %  counting divisors without listing]
+\label{exer_countdiv_no_list}
+    In this exercise, use the prime factorization to count the number of positive divisors.  You do not need to list the divisors or make a table of divisors, but you might want to think about the dimensions of the table.   
+        \begin{exerpart}
+            \item How many positive divisors does $81 = 3^4$ have?  
+            \item How many positive divisors does $88 = 2^3 \cdot 11$ have? 
+            \item How many positive divisors does $500 = 2^2 \cdot 5^3$ have? 
+            \item How many positive divisors does $500 = 2^2 \cdot 5^3$ have?    
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % Integers with three or four divisors
+\label{exer_int_3or4_div}
+    Primes have exactly two positive divisors.  We saw in \Cref{act_list_count_divisors_using_prime_fact}, that an integer $n=p^2$ where $p$ is a prime has exactly three positive divisors and an integer $n=p^3$ where $p$ is a prime has exactly four positive divisors.
+        \begin{apart}
+             \item If $n$ is an integer with exactly three positive divisors, what can we say about the prime factorization of $n$?
+            \item Give an example of an integer $n$ that has exactly four positive divisors, but $n \neq p^3$ for any prime $p$.
+        \end{apart}
+\end{exer}
+
+\begin{exer}[\exerU] %  examples of integers with seven or eight divisors]
+\label{exer_integers_7or8_divisors}
+~
+    \begin{exerpart}         
+        \item If an integer has exactly seven positive divisors, what is the form of its prime factorization? Hint: The table of divisors must be $7 \times 1$.
+        \item If an integer has exactly eight positive divisors, what are the two possible forms of its prime factorization?  Hint: The table of divisors could be $8 \times 1$ or $4 \times 2$.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] %  make table of divisors of integers with 3 prime factors]
+\label{exer_table_divisors_3primes}
+    On this exercise, do not use computational technology.
+       \begin{exerpart}
+           \item Make a table as in \Cref{exam_list_divisors_from_prime_fact_600} to list the positive divisors of $360 = 2^3 \cdot 3^2 \cdot 5$.  You may leave the divisors in prime-factored form. 
+           \item How many positive divisors does $\text{11,858} = 2\cdot 7^2 \cdot 11^2$ have?  Note that you do not need to list them or make a table. 
+       \end{exerpart} 
+\end{exer}
+
+\begin{exer}[\exerR] % list and count divisors
+\label{exer_dyk_list_count_div}
+    Do you know \ldots
+        \begin{exerpart}
+            \item How to organize the positive divisors of an integer into tables based on the prime factorization of the integer?
+            \item How to count the number of positive divisors of an integer from its prime factorization? 
+            \item How to construct examples of integers having a certain number of positive divisors?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] %  examples of integers with 12 divisors]
+\label{exer_integers_12divisors}      
+~
+    \begin{exerpart}
+        \item If an integer has exactly 12 positive divisors, what are the four possible forms of its prime factorization?  Hint: The table could be $12 \times 1$, $6 \times 2$, $4 \times 3$, or $3 \times 2 \times 2$.
+        \item There are five integers between one and 100 that have exactly 12 divisors.  Find them. That means without using any resources! Be sure to show some work.
+    \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\answers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_primes} \subprimes}
+
+\subsubsection*{\Cref{exer_twin_primes} \answers}
+    Hint: The list begins with $\{3,5\}, \{5,7\},\{11,13\},\{17,19\}, \ldots$.
+
+\subsubsection*{\Cref{exer_101_110_prime} \answers}
+\begin{apart}
+    \item Hint: Evens.
+    \item Hint: $99+3=1-2$ is a multiple of three.  Then count by three.
+
+    \item Hint: Ends in zero or five.
+    \item Hint: $98+7=105$ is a multiple of seven. The next multiple of seven is $105+7=112$.
+    \item Hint: There are four integers remaining.
+\end{apart}
+
+\subsubsection*{\Cref{exer_sieve} \answers}
+\begin{apart}
+    \item Hint: In the first row, one, four, and six should be crossed out.
+    \item Hint: Compare your answers to the list from \Cref{exam_sieve}.
+\end{apart}
+
+\subsubsection*{\Cref{exer_extending_sieve} \answers}
+\begin{apart}
+    \item Hint: $\sqrt{100}=10$.
+    \item Hint: $10^2=100$.
+    \item 15
+    \item Hint: Less than 15.
+\end{apart}
+
+\subsubsection*{\Cref{exer_mersenne_primes} \answers}
+\begin{apart}
+    \item Hint: three, seven, and 21 are prime (see \Cref{exam_sieve}).  For 127 check if it is a multiple of two, three, five, seven, and 11.
+    \item 6 is not prime.
+    \item Hint: Evaluate $2^{11}-1$, $2^{13}-1$, $2^{17}-1$, \ldots and stop when you find a composite.
+    \item Hint: As of September 2025, the most recently found example was from October 2024.
+\end{apart}
+
+\subsubsection*{\Cref{exer_divides_graph_1to100} \answers}
+    Note that edges connect two distinct integers. For example, even though $1 \mid 1$, there is no edge between one and itself.
+        \begin{apart}
+            \item Hint: $\fn{deg}(1)=99$.  For 5 and 12, count divisors and multiples.
+            \item Hint: 41 and 53 have different degrees.
+            \item Hint: If $b>50$, then $2b >100$.
+        \end{apart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_prime_fact} \subprimefact}
+
+\subsubsection*{\Cref{exer_factor_trees} \answers}
+    Do not forget to draw the tree.
+        \begin{apart}
+            \item $2^5$
+            \item Hint: The prime factorization includes only two primes: two and five.
+            \item Hint: The prime factorization includes exactly three primes.
+        \end{apart}
+
+\subsubsection*{\Cref{exer_prime_fact_25!} \answers}
+\begin{apart}
+    \item Hint: The answer is of the form $$2^{22} \cdot 3^b \cdot 5^c \cdot 7^d \cdot 11^e \cdot 13 \cdot 17 \cdot 19 \cdot 23.$$  Find the correct values of $b$, $c$, $d$, and $e$.
+    \item Hint: Count the fives.
+\end{apart}
+
+\subsubsection*{\Cref{exer_prime_fact_sq_cube} \answers}
+\begin{apart}
+    \item Hint: $\text{62,500}=2^2 \cdot 5^6$.
+    \item Hint: Look at the exponents of the prime factorization.
+    \item Hint: $\text{456,533} = 7^3 \cdot 11^3$.
+    \item Hint: Look at the exponents of the prime factorization.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_count_divisors} \subcountdiv}
+
+\subsubsection*{\Cref{exer_list_divisors_1or2_primes} \answers}
+\begin{apart}
+    \item Hint: The divisors are $1, 5, 5^2,$ and $5^3$.
+    \item Hint: Use columns labeled $1, 3, 3^2$ and rows labeled $1, 11$.
+    \item Hint: There are nine divisors.
+\end{apart}
+
+\subsubsection*{\Cref{exer_countdiv_no_list} \answers}
+\begin{apart}
+    \item Five
+    \item Hint: The table will have four columns and two rows.
+    \item Hint: The table will have three columns and four rows.
+    \item Hint: Count columns and rows.
+\end{apart}
+
+\subsubsection*{\Cref{exer_int_3or4_div} \answers}
+\begin{apart}
+    \item Hint: Four and nine are examples.
+    \item Hint: Try small values of $n$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_integers_7or8_divisors} \answers}
+\begin{apart}
+    \item Hint: There can only be one prime divisor.
+    \item Hint: Integers with an $8 \times 1$ table have one prime divisor and integers with a $4 \times 2$ table have two prime divisors.
+\end{apart}
+
+

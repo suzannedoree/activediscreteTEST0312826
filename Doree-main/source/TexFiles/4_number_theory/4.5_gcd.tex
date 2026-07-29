@@ -1,0 +1,577 @@
+\section{\secgcd}
+\label{sec_gcd}
+
+The greatest common divisor has many applications.  For example, in public key encryption the encoding and decoding keys need to be coprime and the algorithm requires finding solutions to $a \otimes x = 1$ in $\mathbb{Z}_n$ (introduced in \Cref{sec_mod_arith}), which also uses the greatest common divisor.  The greatest common divisor also has applications\footnote{Google. Response to "What are some applications of the greatest common divisor?" Gemini 1.0, September 14, 2025.} to scheduling, synchronization, and resource allocation. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subgcd}{Greatest Common Divisor}
+\subsection{\subgcd}
+\label{sub_gcd}
+
+We begin with the definition.
+
+\begin{defn}[Greatest common divisor]
+\label{defn_gcd}
+~
+    \begin{apart}
+        \item For integers $a$ and $b$, a \vocab{common divisor} of $a$ and $b$ is an integer $d$ such that $d \mid a$ and $d \mid b$.  For example, the integer three is a common divisor of 12 and 18.
+        \item For integers $a$ and $b$, not both 0, the \vocab{greatest common divisor} of $a$ and $b$, denoted \fn{gcd}$(a,b)$, is the largest integer dividing both $a$ and $b$.  For example, in \Cref{exam_gcd_list_div} we show that \fn{gcd}$(4,6)= 2$ and \fn{gcd}$(6,15)=3$.  
+
+        \item Note that the integer one is always a common divisor of any integers $a$ and $b$, and so $\gcd(a,b)\ge 1$.  It is possible for $\gcd(a,b)=1$ if $\pm 1$ are the only common divisors of $a$ and $b$. If $\gcd(a,b)=1$, then $a$ and $b$ are \vocab{coprime} (or \vocab{relatively prime}). For example, in \Cref{exam_gcd_list_div} we show that 4 and 15 are coprime.  Recall that a fraction is in lowest terms if its numerator and denominator are coprime, as in \Cref{defn_lowest_terms}.
+    \end{apart}
+\end{defn}
+
+Let's use the definition to find the greatest common divisor.
+
+\begin{exam}[Calculating \fn{gcd} by listing divisors]
+\label{exam_gcd_list_div}
+    Find each greatest common divisor by listing the divisors and common divisors.
+        \begin{apart}
+            \item \fn{gcd}$(4,6)$
+                \begin{soln}
+                    \Cref{table_divisors4615} lists the divisors of 4 and 6.  Their common divisors are $\pm 1$ and $\pm 2$. The greatest of their common divisors is \fn{gcd}$(4,6)= 2$.
+                \end{soln}
+
+        \begin{table}[htbp]
+            \centering
+            \begin{tabular}{ll}
+            divisors of 4: & $\pm$1, $\pm$2, $\pm$4 \\
+            divisors of 6: & $\pm$1, $\pm$2, $\pm$3, $\pm$6 \\
+            divisors of 15: &$\pm$1, $\pm$3, $\pm$5, $\pm$15
+            \end{tabular}
+            \caption{Divisors of 4, 6, and 15.}
+            \label{table_divisors4615}
+        \end{table}
+        
+            \item \fn{gcd}$(6,15)$
+                \begin{soln}
+                    Similarly, \Cref{table_divisors4615} lists the divisors of 6 and 15.  Their common divisors are $\pm 1$ and $\pm 3$. The greatest of their common divisors is \fn{gcd}$(6,15)=3$.
+                \end{soln}
+            \item \fn{gcd}$(4,15)$
+                \begin{soln}
+                    \Cref{table_divisors4615} lists the divisors of 4 and 15.  Their common divisors are $\pm 1$. The greatest of their common divisors is \fn{gcd}$(4,15)=1$.
+                \end{soln}
+        \end{apart}
+\end{exam}
+
+Try calculating greatest common divisors.
+
+\begin{act}[Greatest common divisor]
+\label{act_gcd}
+    Do not use computational technology except to check.
+        \begin{actpart}
+            \item Calculate \fn{gcd}$(75,10)$ by listing the divisors and common divisors.
+            \item Show that 15 and 22 are coprime by listing the divisors and common divisors. 
+            \item Find an example of two odd integers that are coprime.
+            \item Find an example of two odd integers that are not coprime.
+            \item Can two even integers be coprime?  Explain.
+        \end{actpart}  
+\end{act}
+
+Note that listing all divisors of an integer is computationally nontrivial for large integers, and so this method for finding the greatest common divisor is not efficient.
+As we saw in \Cref{sub_count_divisors}, we can list the divisors of an integer from its prime factorization. Therefore, it is possible to compute the greatest common divisor of two integers from their prime factorizations.  Note that finding the prime factorization of an integer is computationally nontrivial for large integers, and so this method for finding the greatest common divisor is also not efficient.  Let's look at an example anyway.
+
+\begin{exam}[Using prime factorization to calculate \fn{gcd}]
+    Use the prime factorization of $252 = 2^2 \cdot 3^2 \cdot 7$ and $\text{3,000} = 2^3 \cdot 3 \cdot 5^2$ to calculate $\fn{gcd}(252,3000)$.
+        \begin{soln}
+            The positive divisors of 252 are integers of the form $2^a \cdot 3^b \cdot 7^c$ where $a = 0,1,2$, $b=0,1,2$, and $c=0,1$.  The positive divisors of \text{3,000} are integers of the form $2^a \cdot 3^b \cdot 5^c$ where $a=0,1,2,3$, $b=0,1$, and $c=0,1,2$.  Observe that $5 \nmid 252$.  Therefore, no divisor of 252 is divisible by five.  Similarly, $7 \nmid \text{3,00}$. Therefore, no divisor of \text{3,000} is divisible by seven. The only other prime divisors are two and three, so the common divisors of 252 and \text{3,000} are integers of the form $2^a \cdot 3^b$.  The highest power of two that divides 252 is $2^2$ and the highest power of three that divides \text{3,000} is $3^1$.  Therefore, $a \le 2$ and $b \le 1$. The largest such integer is $2^2 \cdot 3 = 12$. Thus, $\fn{gcd}(252,3000)=12$.
+        \end{soln}
+\end{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subea}{The Euclidean Algorithm}
+\subsection{\subea}
+\label{sub_euclidean_alg}
+
+The greatest common divisor is useful but difficult to compute directly, either by listing the divisors or by finding and using the prime factorizations.  Fortunately, there is an efficient algorithm for computing the greatest common divisor, the Euclidean Algorithm.
+The Euclidean Algorithm is certainly on any top ten list of mathematical algorithms of all time\footnote{Others on my list include Newton's Method (for approximating roots of differentiable functions), Gauss-Jordan Elimination (for solving systems of linear equations), the Simplex Method (for linear optimization), Metropolis Algorithm (and Monte Carlo Markov Chain methods) for optimization in general, QR Algorithm (for finding eigenvalues), Fast Fourier Transforms (for writing functions as sums of periodic functions), Dijkstra's Algorithm (for finding minimum spanning trees in a graph), RSA Encription Algorithm (for public key cryptosystems), Data Compression Algorithms (for example using Singular Value Decomposition), not to mention a host of computer science algorithms such as quicksort and other sorting algorithms.} and is one of the oldest, dating back to Euclid (circa 300 BCE).  
+
+What drives the Euclidean Algorithm are the following key observations.
+
+\begin{thm}[Key observations for Euclidean Algorithm]
+\label{thm_Euclidean_algorithm}
+~
+    \begin{apart}
+        \item \label{part_EAthm_recursion} Given positive integers $a$ and $n$ with $a \ge n$, we have $$\fn{gcd}(a,n) = \fn{gcd}(n,a ~\fn{mod}~ n).$$ 
+        \item \label{part_EAthm_smaller} Since $n \le a$ and $a ~\fn{mod}~ n < n$, the second \fn{gcd} involves smaller positive integers.
+        \item \label{part_EAthm_stop} For any positive integer $k$, we have \fn{gcd}$(k,0)=k$.
+    \end{apart}
+\end{thm}
+
+We leave the proofs of these observations for \Cref{exer_gcd_extreme}(\ref{part_proof_EAthm_stop}) and \Cref{exer_proof_EAthm_recursion}.   The algorithm repeatedly applies \Cref{thm_Euclidean_algorithm} (\ref{part_EAthm_recursion}), which by (\ref{part_EAthm_smaller}) gives smaller positive remainders at each step.  After a finite number of steps, we are left with zero, which allows us to stop by (\ref{part_EAthm_stop}).
+
+Here is an example using the Euclidean Algorithm.
+
+\begin{exam}[Using the Euclidean Algorithm]
+\label{exam_Euclidean_alg}
+    Use the Euclidean Algorithm to calculate $\fn{gcd}(240,100)$.
+        \begin{soln}
+            First, divide 240 by 100 to get $$240 ~\fn{mod}~ 100 =40.$$
+            By \Cref{thm_Euclidean_algorithm} (\ref{part_EAthm_recursion}), it follows that $\fn{gcd}(240,100)=\fn{gcd}(100,40).$
+
+            Next, divide 100 by 40 to get $$100 ~\fn{mod}~ 40 =20.$$
+            By \Cref{thm_Euclidean_algorithm} (\ref{part_EAthm_recursion}), it follows that $\fn{gcd}(100,40)=\fn{gcd}(40,20).$
+
+            Last, divide 40 by 20 to get $$40 ~\fn{mod}~ 20 =0.$$
+            By \Cref{thm_Euclidean_algorithm} (\ref{part_EAthm_recursion}) and (\ref{part_EAthm_stop}), it follows that $\fn{gcd}(40,20)=\fn{gcd}(20,0)=20.$ 
+
+            Therefore, $\fn{gcd}(240,100)=20$.
+        \end{soln}
+\end{exam}
+
+Practice using the Euclidean Algorithm.
+
+\begin{act}[Euclidean Algorithm]
+\label{act_ea}
+    Do not use computational technology except to check.
+        \begin{actpart}
+            \item When we use the Euclidean Algorithm to calculate \fn{gcd}$(22,15)$ we get
+
+            \begin{center}
+                $22 ~\fn{mod}~ 15 = 7$\\
+                $15 ~\fn{mod}~ 7 = 1$ \\ 
+                $7 ~\fn{mod}~ 1 = 0$ 
+            \end{center}
+            Write the corresponding statement about \fn{gcd} for each step and state the final answer.    
+            
+            \item Use the Euclidean Algorithm to calculate \fn{gcd}$(600,36)$.  Hint: $16 \cdot 36 = 576$  % 600 mod 36 = 24, 36 mod 24 = 12, 24 mod 12 = 0, gcd is 12.
+            
+        \end{actpart}  
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\subcoprime}{Coprime Integers}
+\subsection{\subcoprime}
+\label{sub_coprime}
+
+Many of the applications of the greatest common divisor use coprimality. The Euclidean Algorithm provides an efficient way to check if two integers are coprime, but we start with an example exploring how the prime factors can be used to determine if two integers are coprime to illustrate some of the theory.
+
+\begin{exam}[Showing two integers are coprime using their prime factors]
+\label{exam_coprime}
+~
+    \begin{apart}
+        \item Explain why distinct primes $p$ and $q$ are coprime.
+            \begin{soln}
+                The positive divisors of $p$ are 1 and $p$, while the positive divisors of $q$ are 1 and $q$.  Since $p \neq q$, their only common positive divisor is 1 and so $\fn{gcd}(p,q)=1$.
+            \end{soln}
+        \item Explain why the integers $p^a$ and $q^b$ are coprime when $p$ and $q$ are distinct primes.
+            \begin{soln}
+                The positive divisors of $p^a$ are 1, $p$, $p^2$, \ldots $p^a$ while the positive divisors of $q^b$ are 1, $q$, $q^2$, \ldots, $q^b$.  Since $p \neq q$ are primes, it follows from the uniqueness of prime factorization (\Cref{thm_FTOArith}) that the only common positive divisor of $p$ and $q$ is 1 and so $\fn{gcd}(p^a,q^b)=1$.
+            \end{soln}
+        \item Explain why if $n$ is odd, then 16 and $n$ are coprime.
+            \begin{soln}
+                The divisors of 16 are $\pm1$, $\pm2$, $\pm4$, $\pm8$, and $\pm16$.  Since $n$ is odd, we know $2 \nmid n$. By \Cref{thm_show_is_prime} (\ref{part_only_check_prime_divisors}), it follows that no even integer divides $n$.  All divisors of 16 are even, except for $\pm1$. Therefore, the only common divisors of 16 and $n$ are $\pm1$ and so $\fn{gcd}(16,n)=1$.
+            \end{soln}
+        \item \label{part_coprime15} Explain why if $3 \nmid n$ and $5 \nmid n$, then 15 and $n$ are coprime.
+            \begin{soln}
+                The only positive divisors of 15 are 1, 3, 5, and 15.  Since $3 \nmid n$ and $5 \nmid n$, it follows that also $15 \nmid n$ and so the only common positive divisor of 15 and $n$ is 1.
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+It is interesting (and useful) to count the number of integers less than $n$ that are coprime to $n$.  We begin with a definition.
+
+\begin{defn}[Euler's totient]
+\label{defn_euler_phi_fn}  
+    The number of integers from 1 to $n$ that are coprime to $n$ is denoted $\varphi(n)$.  In this context, $\varphi$ is \vocab{Euler's toitent} (or \vocab{Euler's $\varphi$ function}).\footnote{$\varphi$ is the Greek letter phi, sometimes written as $\phi$.} 
+\end{defn}
+
+We compute $\varphi(15)$ as an example.
+
+\begin{exam}[Calculating $\varphi(15)$]
+\label{exam_eulers_phi15}  
+~
+    \begin{apart}
+        \item \label{part_1to15_for_finding_phi} Copy the list of integers $$1,2,3,4,5,6,7,8,9,10,11,12,13,14,15.$$
+        Cross off all multiples of three on that list. Cross off all multiples of five on that list. Circle the remaining integers.  
+            \begin{soln}
+                The multiples of three are 3, 6, 9, 12, and 15.  The multiples of five are 5, 10, and 15 again.  $$\circled{1},\circled{2},\cancel{3},\circled{4},\cancel{5},\cancel{6},\circled{7},\circled{8},\cancel{9},\cancel{10},\circled{11},\cancel{12},\circled{13},\circled{14},\cancel{15}.$$        
+            \end{soln}
+
+        \item Calculate $\varphi(15)$
+            \begin{soln}
+                By \Cref{exam_coprime} (\ref{part_coprime15}) these circled integers from (\ref{part_1to15_for_finding_phi}) are coprime to 15. Thus, the integers from one to 15 that are coprime to 15 are $$1, 2, 4, 7, 8, 11, 13, 14.$$
+                Since there are eight numbers on this list, it follows that $\varphi(15)=8$.
+            \end{soln}
+    \end{apart}
+\end{exam}
+
+Your turn to practice working with Euler's toitent.
+
+\begin{act}[Euler's phi function]
+\label{act_eulers_phi_function}
+~ 
+    \begin{actpart}
+        \item Explain why if $2 \nmid n$, then $\fn{gcd}(2,n)=1$.
+        \item \label{part_list_ rel_prime8} Copy the list of integers $$1,2,3,4,5,6,7,8.$$
+        Cross off all multiples of two on that list. Circle the remaining integers, which are not divisible by two and, therefore, are coprime to 8. Count to evaluate $\varphi(8)$.  
+        \item Explain why if $2 \nmid n$ and $5 \nmid n$, then $\fn{gcd}(10,n)=1$.
+        \item \label{part_list_ rel_prime10} Copy the list of integers $$1,2,3,4,5,6,7,8,9,10.$$
+        Cross off all multiples of two and all multiples of five on that list. Circle the remaining integers, which are not divisible by two or five and, therefore, are  coprime to 10. Count to evaluate $\varphi(10)$. 
+        \item Copy the list of integers $$1,2,3,4,5,6,7,8,9,10,11,12.$$
+        Use the method from (\ref{part_list_ rel_prime8}) and (\ref{part_list_ rel_prime10}) to find the list of integers coprime to 12 and evaluate $\varphi(12)$. 
+        \item Copy the list of integers $$1,2,3,4,5,6,7.$$
+        Use the method from (\ref{part_list_ rel_prime8}) and (\ref{part_list_ rel_prime10}) to find the list of integers coprime to seven and evaluate $\varphi(7)$. 
+        \item \Cref{table_euler_phi_1to16} shows the values of $\varphi(n)$ for $n=1,2,\ldots, 16$.  Check your answers for $\varphi(8)$, $\varphi(10)$, $\varphi(12)$, and $\varphi(7)$.
+
+            \begin{table}[hbtp]
+            \centering
+                \begin{tabular}{c| c|c|c|c | c|c|c|c | c|c|c|c | c|c|c|c }
+                    $n$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\ \hline
+                    $\varphi(n)$ & 1 & 1 & 2 & 2 & 4 & 2 & 6 & 4 & 6 & 4 & 10 & 4 & 12 & 6 & 8 & 8 \\ 
+                \end{tabular}
+            \caption{The values of $\varphi(n)$ for $n=1,2, \ldots, 16$}
+            \label{table_euler_phi_1to16}
+            \end{table}
+
+        \item \label{part_phi_power2} Conjecture a formula for $\varphi(2^k)$.  Check your conjecture for $n=32$ by listing the integers from 1 to 32, crossing off the integers that are not coprime to 32, circling the remaining integers that are coprime to 32, and counting to evaluate $\varphi(32)$.
+
+        \item \label{part_phi_power3} Conjecture a formula for $\varphi(3^k)$.  Test your conjecture for $n=27$ by listing the integers from 1 to 27, crossing off the integers that are not coprime to 27, circling the remaining integers that are coprime to 27, and counting to evaluate $\varphi(27)$.
+        \end{actpart}
+\end{act}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exercises}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Exercises for \Cref{sub_gcd} \subgcd}
+
+\begin{exer}[\exerP] % calculate \fn{gcd} by listing divisors]
+\label{exer_gcd_listing_divisors}
+    Calculate each greatest common divisor by listing the divisors and common divisors.  Do not use computational technology. 
+        \begin{exerpart}
+            \item Calculate \fn{gcd}$(12,18)$ by listing the divisors and common divisors.
+            \item Calculate \fn{gcd}$(7,21)$ by listing the divisors and common divisors.
+            \item Calculate \fn{gcd}$(5,7)$ by listing the divisors and common divisors.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] % show coprime by listing divisors]
+\label{exer_coprime_listing_divisors}
+    Show each pair of integers is coprime by listing the divisors and common divisors.  Do not use computational technology. 
+    \begin{exerpart}
+        \item 8 and 35
+        \item 13 and 17
+        \item 1 and 15
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % \fn{gcd} evens]
+\label{exer_gcd_evens}
+~
+    \begin{exerpart}
+        \item Give an example of two even integers whose greatest common divisor equals two.  Do not use the same example as \Cref{exam_gcd_list_div}.
+        \item \label{part_gcd_cex_evens} Give an example of two even integers whose greatest common divisor does not equal two.
+        \item What can you say about the greatest common divisor of two even integers? Be specific.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % \fn{gcd} extreme cases]
+\label{exer_gcd_extreme}
+    Evaluate each greatest common divisor in terms of the positive integer $n$ and explain your reasoning.    
+        \begin{exerpart}
+            \item $\gcd(n,n)$
+            \item $\gcd(n,1)$
+            \item \label{part_proof_EAthm_stop} $\gcd(n,0)$  Hint:  For any nonzero integer $b$ we have $0 = b(0)$ and so it follows that $b \mid 0$.  What does that tell you about the divisors of 0?  This part proves \Cref{thm_Euclidean_algorithm} (\ref{part_EAthm_stop}).
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % greatest common divisor of 72 and 600]
+\label{exer_gcd72600}
+~
+    \begin{exerpart}
+        \item \label{part_common_div72600} Use \Cref{table_divisors72} and \Cref{table_divisors600_pfform} to list the common divisors of 72 and 600.  You may leave the divisors in prime-factored form.
+        \item Use your list from (\ref{part_common_div72600}) to calculate $\fn{gcd}(72,600)$.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % gcd of primes, cicadas]
+\label{gcd_of_primes,_cicadas}
+~
+\begin{exerpart}
+    \item Explain why this statement is true: If $p$ and $q$ are distinct primes, then $p$ and $q$ are coprime.  
+    \item Cicadas are insects that emerge from the ground in cycles of various lengths.  Two common varieties in the central United States have cycles of 13 and 17 years.  If cicadas do not want to emerge in the same years and compete for resources, why is it an advantage to have cycles that have coprime length? 
+\end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % gcd with prime]
+\label{exer_gcd_with_prime}    
+~
+    \begin{exerpart}
+        \item Given a prime $p$ and an integer $n$, what are the possible values of $\fn{gcd}(p,n)$?  Hint: List the divisors of $p$.
+        \item Describe your findings by copying and completing the conjecture.
+            \begin{quote} 
+                Given a prime $p$ and integer $n$,
+            
+                either $\fn{gcd}(p,n) = \underline{\quad~}$ which happens when $ \underline{\hspace{1in} ~}$ 
+            
+                or $\fn{gcd}(p,n) = \underline{\quad~}$ which happens when $ \underline{\hspace{1in} ~}$.
+            \end{quote} 
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % examples using the prime factorization to find the greatest common divisor]
+\label{exer_gcd_from_prime_fact_examples}
+~
+    Calculate each greatest common divisor using the prime factorization. 
+        \begin{exerpart}
+            \item $\fn{gcd}(5^5,5^7)$
+            \item $\fn{gcd}(5^5 \cdot 17^2,5^7 \cdot 17)$
+            \item $\fn{gcd}(5^5 \cdot 17^2,5^7 \cdot 19)$
+            \item $\fn{gcd}(2^5 \cdot 3^3 \cdot 7,2^3 \cdot 3^4 \cdot 5^2)$
+            \item $\fn{gcd}(2 \cdot 5 \cdot 11,3 \cdot 7 \cdot 13)$   
+        \end{exerpart}   
+\end{exer}
+
+\begin{exer}[\exerR] % gcd
+\label{exer_dyk_gcd}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What $\fn{gcd}(a,b)$ means?
+            \item What the greatest common divisor is?
+            \item What coprime means?
+            \item How to evaluate \fn{gcd} by listing divisors? 
+            \item How to evaluate \fn{gcd} from the prime factorization?
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % using the prime factorization to find the greatest common divisor]
+\label{exer_gcd_from_prime_fact_conjecture}
+    Explain how to find the greatest common divisor of two integers from their prime factorization.  You may want to refer to \Cref{exer_gcd_from_prime_fact_examples} for examples. Hint: One option is to explain in words.  Another option is to write $$a = p_1^{e_1} \cdot p_2^{e_2} \cdot \cdots \cdot p_k^{e_k}$$ and $$b = p_1^{x_1} \cdot p_2^{x_2} \cdot \cdots \cdot p_k^{x_k}$$
+    where, as usual, $p_1, p_2, \ldots, p_k$ are distinct primes and the exponents $e_i, x_i \ge 0$ and then find a formula for the prime factorization of $\fn{gcd}(a,b)$. 
+\end{exer}
+
+\begin{exer}[\exerE] % points on the line segment]
+\label{exer_gcd_integer_points_on_line}
+~
+    \begin{exerpart}
+        \item \label{part_gcd_lattice_line_segment} In the $xy-$plane, graph the line segment from $(0,0)$ to $(15,20)$.  You are welcome to use DESMOS (\url{https://www.desmos.com/} to graph the line by writing the equation and setting an appropriate range such as $-2 \le x \le 17$ and $-2 \le y \le 22$.  
+        \item \label{part_gcd_lattice_count} How many points on that line segment other than $(0,0)$ have integers in both coordinates?  List them. % (0,0), (3,4), (6,8), (9,12), (12,16), (15,20)
+        \item \label{part_gcd_lattice_conj} What does your answer to (\ref{part_gcd_lattice_count}) have to do with the greatest common divisor? State your answer as a conjecture.
+        \item Test your conjecture from (\ref{part_gcd_lattice_conj}) by repeating parts (\ref{part_gcd_lattice_line_segment}) and (\ref{part_gcd_lattice_count}) for the line segment from $(0,0)$ to $(6,15)$.  
+    \end{exerpart}
+\end{exer}
+
+\begin{exer} [\exerE] %  product divides]
+\label{exer_product_divides}
+    Consider the statement
+        \begin{center}
+            $Q$: For any positive integers $a$,$b$, and $n$: if $a \mid n$ and $b \mid n$, then $ab \mid n$.
+        \end{center}
+        \begin{exerpart}
+            \item Give an example to show that $Q$ is false.  Hint: That is, find positive integers $a$, $b$, and $n$ such that $a \mid n$ and $b \mid n$, but $ab \nmid n$.
+            \item Is $Q$ true when $a = 4$ and $b = 6$?  Is $Q$ true when $a = 4$ and $b = 5$? No justification required.
+            \item Conjecture when $Q$ is true.  Hint: Some relationship between $a$ and $b$ guarantees that $Q$ is true.
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % units mod n conjecture
+\label{exer_modn_units_conj}
+~
+    An element $a$ of $\mathbb{Z}_n$ is a \vocab{unit} if there is a solution of $a \otimes x = 1$ in $\mathbb{Z}_n$.  Note that zero cannot be a unit because $0 \otimes x = 0 \neq 1$ and one is always a unit because $1 \otimes 1 = 1$.  In \Cref{sec_mod_arith} \Cref{exer_modn_units_examples}, we calculated the examples in \Cref{tab_units_modn}.
+
+        \begin{table}[hbtp]
+            \centering
+            \begin{tabular}{c|c}
+                $n$ & units in $\mathbb{Z}_n$ \\ \hline
+                5 & $1,2,3,4$ \\ \hline
+                6 & $1,5$ \\ \hline
+                8 & $1,3,5,7$ \\ \hline
+                10 & $1,3,7,9$ \\ 
+            \end{tabular}
+            \caption{The units in the integers mod $n$ for $n=5,6,8$ and 10.}
+            \label{tab_units_modn}
+        \end{table}
+
+    \begin{exerpart}
+        \item Find the units in $\mathbb{Z}_{7}$.  
+        \item Conjecture which elements are units in $\mathbb{Z}_p$ when $p$ is prime.
+        \item Check that $1, 5, 7, 11$ are units mod $\mathbb{Z}_{12}$.  Hint: Find a solution to $a \otimes x = 1$ for each of $a=1,5,7,11$.
+        \item Check that $9$ is not a unit by checking $9 \otimes b \neq 1$ for $b = 0, 1, 2, 3, \ldots, 11$.  Yes, that means writing the row for 9 in the multiplication table of $\mathbb{Z}_{12}$.  You may use computational technology to calculate \fn{mod} 12.
+        \item Conjecture which integers $a$ have the property that $a$ is a unit in $\mathbb{Z}_n$. Hint: your answer should involve $a$ and $n$.
+    \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_euclidean_alg} \subea}
+
+\begin{exer}[\exerP] % Euclidean Algorithm practice]
+\label{exer_ea_examples}
+    Use the Euclidean Algorithm to calculate each greatest common divisor. Start with $a$ equal to the largest of the two integers.
+        \begin{exerpart}
+            \item $\fn{gcd}(12,18)$
+            \item $\fn{gcd}(55,40)$
+            \item $\fn{gcd}(5,7)$
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % Euclidean Algorithm longer]
+\label{exer_ea_fib}
+    We saw the \vocab{Fibonacci} numbers $1, 2, 3, 5, 8, 13, 21, 34, 55, 89$ in the Squares and Dominoes puzzle (\Cref{act_squares_dominoes}).  Something strange happens when we use the Euclidean Algorithm to calculate the greatest common divisor of consecutive Fibonacci numbers.
+        \begin{apart}
+            \item Use the Euclidean Algorithm to calculate $\fn{gcd}(8,5)$.
+            \item Use the Euclidean algorithm to calculate $\fn{gcd}(89,55)$. 
+            \item What do you notice about the answer in each case?
+            \item What do you notice about the process in each case?
+        \end{apart}
+\end{exer}
+
+\begin{exer}[\exerU] % calculating \fn{gcd} of linears]
+\label{exer_gcd_linears}
+    Use the Euclidean Algorithm to calculate \fn{gcd}$(3n+2,2n+1)$, where $n$ is a fixed but unknown positive integer.   
+\end{exer}
+
+\begin{exer}[\exerU] % consecutive integers are coprime]
+\label{exer_consec_coprime}
+    Use the Euclidean Algorithm to show that any two consecutive positive integers are coprime.  Start by restating what we are trying to show in terms of a positive integer $n$.     
+\end{exer}
+
+\begin{exer}[\exerR] % Euclidean Algorithm
+\label{exer_dyk_euclidean_alg}
+    Do you know \ldots
+        \begin{exerpart}
+            \item What the Euclidean Algorithm calculates?
+            \item How to use the Euclidean Algorithm?
+        \end{exerpart}
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Exercises for \Cref{sub_coprime} \subcoprime}
+
+\begin{exer}[\exerP] % evaluate $\varphi(28)$]
+\label{exer_euler_phi28}
+~
+    \begin{exerpart}       
+        \item Explain why if $2 \nmid n$ and $7 \nmid n$, then $n$ and 28 are coprime.
+        \item Evaluate $\varphi(28)$ using the method from \Cref{exam_eulers_phi15}
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerP] % Euler's totient function 17-20]
+\label{exer_euler_phi17181920}
+~ 
+   Evaluate each quantity using the method from \Cref{exam_eulers_phi15}.
+    \begin{exerpart}
+        \item $\varphi(17)$
+        \item $\varphi(18)$
+        \item $\varphi(19)$
+        \item $\varphi(20)$
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerU] % largest and smallest value of $\varphi(n)$]
+\label{exer_extreme_phi}
+~
+    \begin{exerpart}
+        \item For any value of $n$, what is the smallest value of $\varphi(n)$, and which integers $n$ give that smallest value?  No justification required.
+
+        \item For any specific integer $n$, what is the largest value of $\varphi(n)$ in terms of $n$, and which integers $n$ give that largest value?  No justification required.    
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerR] % Coprime
+\label{exer_dyk_coprime}
+    Do you know \ldots
+        \begin{exerpart}
+            \item Why we only need to check for common prime divisors to determine if two integers are coprime?
+            \item How to calculate Euler's totient function of an integer? 
+        \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % evaluating $\varphi(p^k)$ when $p$ is prime]
+\label{exer_conj_phi_powerp}
+~
+    \begin{exerpart}
+        \item Look at \Cref{act_eulers_phi_function} (\ref{part_phi_power2}) and (\ref{part_phi_power3}).  Generalize your conjecture to evaluate $\varphi(p^k)$ when $p$ is prime.
+        \item Test your conjecture by evaluating $\varphi(25)$ using the method from \Cref{exam_eulers_phi15}.
+    \end{exerpart}
+\end{exer}
+
+\begin{exer}[\exerE] % prove conjecture for $\varphi(p^k)$ when $p$ is prime.]
+\label{exer_prove_conj_phi_powerp}
+~
+    Justify your conjecture from \Cref{exer_conj_phi_powerp} by counting.  Hint: Count the number of multiples of $p$ that are less than $p^k$.  What fraction of the integers from 1 to $p^k$ are not coprime to $p^k$?  What (remaining) fraction of the integers from 1 to $p^k$ are coprime to $p^k$?  Count the number of integers from 1 to $p^k$ that are coprime to $p^k$, that is, calculate $\varphi(p^k)$.  Simplify your final answer.
+\end{exer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\answers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\answers for \Cref{sub_gcd} \subgcd}
+
+\subsubsection*{\Cref{exer_gcd_listing_divisors} \answers}
+\begin{apart}
+    \item Hint: \fn{gcd}$(12,18)=6$.
+    \item Hint: The only divisors of 7 are $\pm1, \pm 7$.
+    \item Hint: They are coprime.
+\end{apart}
+
+\subsubsection*{\Cref{exer_gcd_evens} \answers}
+\begin{apart}
+    \item Hint: List divisors to check your answer.  One strategy for finding an example is to use integers of the form $2p$ and $2q$ where $p$ and $q$ are distinct primes.
+    \item Hint: Choose two integers that are multiples of four.
+\end{apart}
+
+\subsubsection*{\Cref{exer_gcd_extreme} \answers}
+    Hint: The answer to each part is one or $n$.
+
+\subsubsection*{\Cref{exer_gcd72600} \answers}
+\begin{apart}
+    \item Hint: Do not forget $\pm$.
+    \item 24
+\end{apart}
+
+\subsubsection*{\Cref{exer_gcd_with_prime} \answers}
+\begin{apart}
+    \item Hint: The divisors of $p$ are $\pm 1, \pm p$ and the greatest common divisor is always positive.
+    \item Hint:  One case is $p \mid n$.
+\end{apart}
+
+\subsubsection*{\Cref{exer_gcd_integer_points_on_line} \answers}
+\begin{apart}
+    \item Hint: The line is $y = \frac{20}{15}x$.  Use the fractions in DESMOS.  You can show the grid lines counting by $x=1$ and $y=1$ to help count the points.
+    \item Hint: Five points.
+    \item Hint: What is $\fn{gcd}(15,20)$?
+    \item Hint: It should work.
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_euclidean_alg} \subea}
+
+\subsubsection*{\Cref{exer_ea_examples} \answers}
+\begin{apart}
+    \item $8 \fn{ mod } 12 = 6$, $12 \fn{ mod } 6 = 0$, and so $\fn{gcd}(12,18)=6$.
+    \item Five
+    \item Hint: They are coprime.
+\end{apart}
+
+\subsubsection*{\Cref{exer_ea_fib} \answers}
+\begin{apart}
+    \item $8 \fn{ mod } 5 = 3$, $5 \fn{ mod } 3 = 2$, $3 \fn{ mod } 2 = 1$, and $2 \fn{ mod } 1 = 0$, and so $\fn{gcd}(8,5)=1$.
+    \item 1
+    \item Hint: We got the same answer.
+    \item Hint: It takes a long time.  (It might not surprise you to learn that Fibonacci numbers are a \vocab{worst case scenario} for the Euclidean Algorithm.)
+\end{apart}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{\answers for \Cref{sub_coprime} \subcoprime}
+
+\subsubsection*{\Cref{exer_euler_phi28} \answers}
+\begin{apart}
+    \item Hint: List the divisors of $28 = 2^2 \cdot 7$.
+    \item Hint: Write $1,2,3,\ldots,28$. Cross out the multiples of two and the multiples of seven.
+\end{apart}
+
+\subsubsection*{\Cref{exer_euler_phi17181920} \answers}
+    Hint: The answers in some order are six, eight, 16, and 18.
+
+\subsubsection*{\Cref{exer_extreme_phi} \answers}
+\begin{apart}
+    \item Hint: $\varphi(n)=1$ for exactly two values of $n$.
+    \item Hint: The largest possible value is $\varphi(n)=n-1$.  Look at your findings in \Cref{act_eulers_phi_function}.
+\end{apart}
+
+
