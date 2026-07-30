@@ -158,11 +158,32 @@
         imagine an <m>n</m> hour
         <q>clock</q>
         with hours marked <m>0, 1, 2, \ldots, n-1</m> hours.
-        To find the value of <m>a</m> <c>mod</c> <m>n</m> when <m>a</m> is positive,
-        we count <m>a</m> hours clockwise from <m>0</m>.
-        The end mark is <m>a</m> <c>mod</c> <m>n</m>.
+        To find the value of <m>a</m> <m>\bs{mod}</m> <m>n</m> when <m>a</m> is positive,
+        we count <m>a</m> hours clockwise from <m>0</m>. 
+        For example, the <m>\bs{mod}</m>
+         12 is shown in 
+         <xref ref="fig_mod12_clock"></xref>  
+         and the  <m><c>mod</c></m>
+          5 clock is shown in <xref ref="fig_mod12_clock"></xref>
+        The end mark is <m>a</m> <m><c>\bs{mod}</c></m> <m>n</m>.
         When <m>a</m> is negative, we instead count counterclockwise.
       </p>
+      <figure xml:id="fig_mod12_clock">
+                  <caption>The 12-hour clock</caption>
+                  <image width="60%">
+                    <latex-image>
+                      <xi:include href="Tikz/mod12_clock.tikz" parse="text"/>
+                    </latex-image>
+                  </image>
+                </figure>
+<figure xml:id="fig_mod5_clock">
+                  <caption>The 5-hour clock</caption>
+                  <image width="60%">
+                    <latex-image>
+                      <xi:include href="Tikz/mod5_clock.tikz" parse="text"/>
+                    </latex-image>
+                  </image>
+                </figure>                
     </remark>
     <example xml:id="exam_eval_mod_clock">
       <title>Evaluating <m>\fn{mod}</m> using the Mod Clock</title>
@@ -176,6 +197,8 @@
                 (marked <m>0,1, \ldots, 11</m> instead of the usual <m>1,2, \ldots 12</m>)
                 shown in <xref ref="fig_mod12_clock"></xref>
                 to calculate 20 <c>mod</c> 12.
+
+                
                 <solution>
                   <p>
                     We start at 0 and count clockwise 20 hours:
@@ -187,14 +210,7 @@
                     Thus 20 <c>mod</c> 12 = 8.
                   </p>
                 
-                <figure xml:id="fig_mod12_clock">
-                  <caption>The 12-hour clock</caption>
-                  <image width="60%">
-                    <latex-image>
-                      <xi:include href="Tikz/mod12_clock.tikz" parse="text"/>
-                    </latex-image>
-                  </image>
-                </figure>
+                
                 </solution>
               </p>
             </li>
@@ -215,14 +231,7 @@
                     Thus, 67 <c>mod</c> 5 = 2.
                   </p>
                 
-                <figure xml:id="fig_mod5_clock">
-                  <caption>The 5-hour clock</caption>
-                  <image width="60%">
-                    <latex-image>
-                      <xi:include href="Tikz/mod5_clock.tikz" parse="text"/>
-                    </latex-image>
-                  </image>
-                </figure>
+                
                 </solution>
               </p>
             </li>
@@ -324,7 +333,7 @@
             </li>
             <li>
               <p>
-                As in the usual order of operations (PEMDAS, <xref ref="defn_integer_algebra_order_operations"></xref>,
+                As in the usual order of operations (PEMDAS, <xref ref="defn_integer_algebra_order_operations"></xref>),
                 multiplication (<m>\otimes</m>) is higher priority than addition
                 (<m>\oplus</m>).
               </p>
@@ -422,7 +431,7 @@
                         <cell>2</cell>
                       </row>
                     </tabular></cell>
-                    <cell><nbsp/>\hspace{.5in}<nbsp/></cell>
+                    <cell><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/><nbsp/></cell>
                     <cell><tabular>
                       <row>
                         <cell><m>\otimes</m></cell>
