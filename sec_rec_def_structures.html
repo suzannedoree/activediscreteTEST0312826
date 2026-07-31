@@ -61,15 +61,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.16';
+eBookConfig.runestone_version = '8.2.0';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/prefix-runtime.82b0f3334d1d4a05.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.5555907f139e2014.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -116,6 +116,8 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\secbitstrings}{\bf{Counting\ Bit\ Strings}}
 
 \newcommand{\subhs}{Counting Handshakes}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\newcommand{\xcircle}[1]{\circled{#1}}
 \newcommand{\subdiscrete}{What is Discrete Mathematics?}
 \newcommand{\sublearning}{Learning Discrete Mathematics}
 \newcommand{\exerR}{Recap}
@@ -534,17 +536,18 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_and_or" class="internal"><span class="codenumber">5.1.A</span> <span class="title">And and Or</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_and_or" class="internal"><span class="codenumber">5.1.B</span> <span class="title">Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_logical_equivalence_negations" class="internal"><span class="codenumber">5.1.C</span> <span class="title">Logical Equivalence and Negations</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_contra" class="internal"><span class="codenumber">5.1.D</span> <span class="title">Proof Format: Contradiction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_TorF" class="internal"><span class="codenumber">5.1.A</span> <span class="title">True or False?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_and_or" class="internal"><span class="codenumber">5.1.B</span> <span class="title">And and Or</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_and_or" class="internal"><span class="codenumber">5.1.C</span> <span class="title">Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_logical_equivalence_negations" class="internal"><span class="codenumber">5.1.D</span> <span class="title">Logical Equivalence and Negations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_contra" class="internal"><span class="codenumber">5.1.E</span> <span class="title">Proof Format: Contradiction</span></a></div></li>
 <li class="toc-item toc-subsection">
-<div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7" class="internal"><span class="codenumber">5.1.E</span> <span class="title">Exercises</span></a></div>
-<ul id="ptx-toc-group-sec_logic_connectives-7" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-2" class="internal"><span class="title">Exercises for 5.1.A And and Or</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-3" class="internal"><span class="title">Exercises for 5.1.B Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-4" class="internal"><span class="title">Exercises for 5.1.C Logical Equivalence and Negations</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-5" class="internal"><span class="title">Exercises for 5.1.D Proof Format: Contradiction</span></a></div></li>
+<div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8" class="internal"><span class="codenumber">5.1.F</span> <span class="title">Exercises</span></a></div>
+<ul id="ptx-toc-group-sec_logic_connectives-8" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-2" class="internal"><span class="title">Exercises for 5.1.B And and Or</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-3" class="internal"><span class="title">Exercises for 5.1.C Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-4" class="internal"><span class="title">Exercises for 5.1.D Logical Equivalence and Negations</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-5" class="internal"><span class="title">Exercises for 5.1.E Proof Format: Contradiction</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -555,13 +558,16 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_set_game" class="internal"><span class="codenumber">5.2.A</span> <span class="title">The Game SET!</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_quantifiers" class="internal"><span class="codenumber">5.2.B</span> <span class="title">Quantifiers</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_pff_quants" class="internal"><span class="codenumber">5.2.C</span> <span class="title">Proof Formats: <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_cex" class="internal"><span class="codenumber">5.2.D</span> <span class="title">Negating Quantified Statements and Counterexamples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_pff_mixed_quants" class="internal"><span class="codenumber">5.2.D</span> <span class="title">Proof Format: Mixed Quantifiers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_cex" class="internal"><span class="codenumber">5.2.E</span> <span class="title">Negating Quantified Statements and Counterexamples</span></a></div></li>
 <li class="toc-item toc-subsection">
-<div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7" class="internal"><span class="codenumber">5.2.E</span> <span class="title">Exercises for 5.2.A The Game SET!</span></a></div>
-<ul id="ptx-toc-group-sec_quant_cex-7" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7-7" class="internal"><span class="title">Exercises for 5.2.B Quantifiers</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7-8" class="internal"><span class="title">Exercises for 5.2.C Proof Formats: <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7-9" class="internal"><span class="title">Exercises for 5.2.D Negating Quantified Statements and Counterexamples</span></a></div></li>
+<div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8" class="internal"><span class="codenumber">5.2.F</span> <span class="title">Exercises</span></a></div>
+<ul id="ptx-toc-group-sec_quant_cex-8" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-2" class="internal"><span class="title">Exercises for 5.2.A The Game SET!</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-3" class="internal"><span class="title">Exercises for 5.2.B Quantifiers</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-4" class="internal"><span class="title">Exercises for 5.2.C Proof Formats: <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-5" class="internal"><span class="title">Exercises for 5.2.D Proof Formats: Mixed Quantifiers</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-6" class="internal"><span class="title">Exercises for 5.2.E Negating Quantified Statements and Counterexamples</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1663,22 +1669,22 @@ L = \{ n \in \mathbb{N} \mid \text{ if }  p \text{ is prime and }  p \mid n \tex
 </div></details> 
 <figure class="table table-like" id="tab_leaves_lopsided"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The number of leaves in the lopsided trees<div class="autopermalink" aria-hidden="true" data-description="Table 8.4.14: The number of leaves in the lopsided trees"><a tabindex="-1" href="#tab_leaves_lopsided" title="Copy heading and permalink for Table 8.4.14: The number of leaves in the lopsided trees" aria-label="Copy heading and permalink for Table 8.4.14: The number of leaves in the lopsided trees">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">1</td>
-<td class="l m b0 r0 l0 t0 lines">2</td>
-<td class="l m b0 r0 l0 t0 lines">3</td>
-<td class="l m b0 r0 l0 t0 lines">4</td>
-<td class="l m b0 r0 l0 t0 lines">5</td>
-<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">2</td>
+<td class="c m b0 r0 l0 t0 lines">3</td>
+<td class="c m b0 r0 l0 t0 lines">4</td>
+<td class="c m b0 r0 l0 t0 lines">5</td>
+<td class="c m b0 r0 l0 t0 lines">6</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(w_n\)</span></td>
-<td class="l m b0 r0 l0 t0 lines">1</td>
-<td class="l m b0 r0 l0 t0 lines">1</td>
-<td class="l m b0 r0 l0 t0 lines">2</td>
-<td class="l m b0 r0 l0 t0 lines">3</td>
-<td class="l m b0 r0 l0 t0 lines">5</td>
-<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(w_n\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">2</td>
+<td class="c m b0 r0 l0 t0 lines">3</td>
+<td class="c m b0 r0 l0 t0 lines">5</td>
+<td class="c m b0 r0 l0 t0 lines">8</td>
 </tr>
 </table></div>
 </figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_lopsided_trees-2-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1759,52 +1765,52 @@ w_n=w_{n-1}+w_{n-2}
 </div></details> 
 <figure class="table table-like" id="tab_adj_mat_paths"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.4.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The adjacency matrices for the paths <span class="process-math">\(P_1\text{,}\)</span> <span class="process-math">\(P_2\text{,}\)</span> <span class="process-math">\(P_3\text{,}\)</span> <span class="process-math">\(P_4\text{,}\)</span> and <span class="process-math">\(P_5\)</span><div class="autopermalink" aria-hidden="true" data-description="Table 8.4.18: The adjacency matrices for the paths P_1 P_2 P_3 P_4 and P_5"><a tabindex="-1" href="#tab_adj_mat_paths" title="Copy heading and permalink for Table 8.4.18: The adjacency matrices for the paths P_1 P_2 P_3 P_4 and P_5" aria-label="Copy heading and permalink for Table 8.4.18: The adjacency matrices for the paths P_1 P_2 P_3 P_4 and P_5">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t0 lines"></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{c} v_1 \end{array}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{c} v_1 \end{array}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \end{array}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \end{array} \right]\)</span></td>
-</tr>
-</table></div>
-<div class="tabular-box natural-width"><table class="tabular">
-<tr>
-<td class="l m b0 r0 l0 t0 lines"></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{cc} v_1\amp v_2 \end{array}\)</span></td>
-</tr>
-<tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \\ v_2 \end{array}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \\ \bs{1} \amp \bs{0} \end{array} \right]\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \end{array}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \end{array} \right]\)</span></td>
 </tr>
 </table></div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t0 lines"></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{ccc} v_1\amp v_2\amp v_3 \end{array}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{cc} v_1\amp v_2 \end{array}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \\ v_2 \\ v_3 \end{array}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \amp ~\bs{0}~ \\ \bs{1} \amp \bs{0} \amp \bs{1} \\ \bs{0} \amp \bs{1} \amp \bs{0} \end{array} \right]\)</span></td>
-</tr>
-</table></div>
-<div class="tabular-box natural-width"><table class="tabular">
-<tr>
-<td class="l m b0 r0 l0 t0 lines"></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{cccc} v_1\amp v_2\amp v_3\amp v_4 \end{array}\)</span></td>
-</tr>
-<tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \\ v_2 \\ v_3 \\v_4 \end{array}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \amp ~\bs{0}~ \amp ~\bs{0}~\\ \bs{1} \amp \bs{0} \amp \bs{1} \amp \bs{0} \\ \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{1} \\ \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{0} \end{array} \right]\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \\ v_2 \end{array}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \\ \bs{1} \amp \bs{0} \end{array} \right]\)</span></td>
 </tr>
 </table></div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t0 lines"></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{ccccc} v_1\amp v_2\amp v_3\amp v_4\amp v_5 \end{array}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{ccc} v_1\amp v_2\amp v_3 \end{array}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \\ v_2 \\ v_3 \\v_4\\v_5 \end{array}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \amp ~\bs{0}~ \amp ~\bs{0}~\amp ~\bs{0}~\\ \bs{1} \amp \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{0}\\ \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{1} \amp \bs{0}\\ \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{1}\\ \bs{0} \amp \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{0} \end{array} \right]\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \\ v_2 \\ v_3 \end{array}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \amp ~\bs{0}~ \\ \bs{1} \amp \bs{0} \amp \bs{1} \\ \bs{0} \amp \bs{1} \amp \bs{0} \end{array} \right]\)</span></td>
+</tr>
+</table></div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{cccc} v_1\amp v_2\amp v_3\amp v_4 \end{array}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \\ v_2 \\ v_3 \\v_4 \end{array}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \amp ~\bs{0}~ \amp ~\bs{0}~\\ \bs{1} \amp \bs{0} \amp \bs{1} \amp \bs{0} \\ \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{1} \\ \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{0} \end{array} \right]\)</span></td>
+</tr>
+</table></div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{ccccc} v_1\amp v_2\amp v_3\amp v_4\amp v_5 \end{array}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{r} v_1 \\ v_2 \\ v_3 \\v_4\\v_5 \end{array}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{cccccc} ~\bs{0}~ \amp ~\bs{1}~ \amp ~\bs{0}~ \amp ~\bs{0}~\amp ~\bs{0}~\\ \bs{1} \amp \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{0}\\ \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{1} \amp \bs{0}\\ \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{0} \amp \bs{1}\\ \bs{0} \amp \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{0} \end{array} \right]\)</span></td>
 </tr>
 </table></div>
 </figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_rec_path_graphs-2-1-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
