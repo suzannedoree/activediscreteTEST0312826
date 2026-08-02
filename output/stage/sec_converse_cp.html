@@ -61,15 +61,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.16';
+eBookConfig.runestone_version = '8.2.0';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/prefix-runtime.82b0f3334d1d4a05.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.5555907f139e2014.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -116,6 +116,8 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\secbitstrings}{\bf{Counting\ Bit\ Strings}}
 
 \newcommand{\subhs}{Counting Handshakes}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\newcommand{\xcircle}[1]{\circled{#1}}
 \newcommand{\subdiscrete}{What is Discrete Mathematics?}
 \newcommand{\sublearning}{Learning Discrete Mathematics}
 \newcommand{\exerR}{Recap}
@@ -534,17 +536,18 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_and_or" class="internal"><span class="codenumber">5.1.A</span> <span class="title">And and Or</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_and_or" class="internal"><span class="codenumber">5.1.B</span> <span class="title">Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_logical_equivalence_negations" class="internal"><span class="codenumber">5.1.C</span> <span class="title">Logical Equivalence and Negations</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_contra" class="internal"><span class="codenumber">5.1.D</span> <span class="title">Proof Format: Contradiction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_TorF" class="internal"><span class="codenumber">5.1.A</span> <span class="title">True or False?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_and_or" class="internal"><span class="codenumber">5.1.B</span> <span class="title">And and Or</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_and_or" class="internal"><span class="codenumber">5.1.C</span> <span class="title">Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_logical_equivalence_negations" class="internal"><span class="codenumber">5.1.D</span> <span class="title">Logical Equivalence and Negations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_contra" class="internal"><span class="codenumber">5.1.E</span> <span class="title">Proof Format: Contradiction</span></a></div></li>
 <li class="toc-item toc-subsection">
-<div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7" class="internal"><span class="codenumber">5.1.E</span> <span class="title">Exercises</span></a></div>
-<ul id="ptx-toc-group-sec_logic_connectives-7" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-2" class="internal"><span class="title">Exercises for 5.1.A And and Or</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-3" class="internal"><span class="title">Exercises for 5.1.B Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-4" class="internal"><span class="title">Exercises for 5.1.C Logical Equivalence and Negations</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-5" class="internal"><span class="title">Exercises for 5.1.D Proof Format: Contradiction</span></a></div></li>
+<div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8" class="internal"><span class="codenumber">5.1.F</span> <span class="title">Exercises</span></a></div>
+<ul id="ptx-toc-group-sec_logic_connectives-8" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-2" class="internal"><span class="title">Exercises for 5.1.B And and Or</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-3" class="internal"><span class="title">Exercises for 5.1.C Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-4" class="internal"><span class="title">Exercises for 5.1.D Logical Equivalence and Negations</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-5" class="internal"><span class="title">Exercises for 5.1.E Proof Format: Contradiction</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -552,16 +555,19 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_quant_cex.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Quantifiers</span></a></div>
 <ul id="ptx-toc-group-sec_quant_cex" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_set_game" class="internal"><span class="codenumber">5.2.A</span> <span class="title">The Game SET</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_set_game" class="internal"><span class="codenumber">5.2.A</span> <span class="title">The Game SET!</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_quantifiers" class="internal"><span class="codenumber">5.2.B</span> <span class="title">Quantifiers</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_pff_quants" class="internal"><span class="codenumber">5.2.C</span> <span class="title">Proof Formats: <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_cex" class="internal"><span class="codenumber">5.2.D</span> <span class="title">Negating Quantified Statements and Counterexamples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_pff_mixed_quants" class="internal"><span class="codenumber">5.2.D</span> <span class="title">Proof Format: Mixed Quantifiers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_cex" class="internal"><span class="codenumber">5.2.E</span> <span class="title">Negating Quantified Statements and Counterexamples</span></a></div></li>
 <li class="toc-item toc-subsection">
-<div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7" class="internal"><span class="codenumber">5.2.E</span> <span class="title">Exercises for 5.2.A The Game SET</span></a></div>
-<ul id="ptx-toc-group-sec_quant_cex-7" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7-3" class="internal"><span class="title">Exercises for 5.2.B Quantifiers</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7-4" class="internal"><span class="title">Exercises for 5.2.C Proof Formats: <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7-5" class="internal"><span class="title">Exercises for 5.2.D Negating Quantified Statements and Counterexamples</span></a></div></li>
+<div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8" class="internal"><span class="codenumber">5.2.F</span> <span class="title">Exercises</span></a></div>
+<ul id="ptx-toc-group-sec_quant_cex-8" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-2" class="internal"><span class="title">Exercises for 5.2.A The Game SET!</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-3" class="internal"><span class="title">Exercises for 5.2.B Quantifiers</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-4" class="internal"><span class="title">Exercises for 5.2.C Proof Formats: <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-5" class="internal"><span class="title">Exercises for 5.2.D Proof Formats: Mixed Quantifiers</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-6" class="internal"><span class="title">Exercises for 5.2.E Negating Quantified Statements and Counterexamples</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1031,47 +1037,46 @@ eBookConfig.enable_chatcodes =  false;
 <div class="solution solution-like knowl__content">
 <div class="para" id="exam_converse-2-1-2-1-1-1-1">We constructed the truth table for the converse in <a href="sec_conditional_statements.html#exam_truthtable_compound_conditionals" class="xref" data-knowl="./knowl/xref/exam_truthtable_compound_conditionals.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.3.6: Truth tables for statements involving conditionals">Example 5.3.6</a>. We repeat that here alongside the conditional for comparison in <a href="sec_conditional_statements.html#table_truthtable_converse" class="xref" data-knowl="./knowl/xref/table_truthtable_converse.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.3.7: Truth table for the converse Q \to P">Table 5.3.7</a>. Notice that both a statement and its converse can be true or either can be true with the other false.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_converse-2-1-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_converse-2-1-2-1-1-1" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
-</div></details> 
 <figure class="table table-like" id="table_truthtable_converse_again"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Truth table for a conditional and its converse<div class="autopermalink" aria-hidden="true" data-description="Table 5.4.3: Truth table for a conditional and its converse"><a tabindex="-1" href="#table_truthtable_converse_again" title="Copy heading and permalink for Table 5.4.3: Truth table for a conditional and its converse" aria-label="Copy heading and permalink for Table 5.4.3: Truth table for a conditional and its converse">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P \to Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Q \to P\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(Q\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P \to Q\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(Q \to P\)</span></td>
 </tr>
 <tr>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
 </tr>
 </table></div>
-</figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_converse-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_converse-2-1-2-1-1-1" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
+</div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_converse-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (a)"><a tabindex="-1" href="#exam_converse-2-1-2-1" title="Copy heading and permalink for Item (a)" aria-label="Copy heading and permalink for Item (a)">🔗</a></div>
 </li>
@@ -1148,53 +1153,52 @@ eBookConfig.enable_chatcodes =  false;
 <div class="solution solution-like knowl__content">
 <div class="para" id="exam_truthtable_biconditional-2-1-3-1-1-1-1">We construct the truth table in <a href="sec_converse_cp.html#table_truthtable_biconditional" class="xref" data-knowl="./knowl/xref/table_truthtable_biconditional.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.4.6: Truth table for the biconditional P \leftrightarrow Q">Table 5.4.6</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_truthtable_biconditional-2-1-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_truthtable_biconditional-2-1-3-1-1-1" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
-</div></details> 
 <figure class="table table-like" id="table_truthtable_biconditional"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Truth table for the biconditional <span class="process-math">\(P \leftrightarrow Q\)</span><div class="autopermalink" aria-hidden="true" data-description="Table 5.4.6: Truth table for the biconditional P \leftrightarrow Q"><a tabindex="-1" href="#table_truthtable_biconditional" title="Copy heading and permalink for Table 5.4.6: Truth table for the biconditional P \leftrightarrow Q" aria-label="Copy heading and permalink for Table 5.4.6: Truth table for the biconditional P \leftrightarrow Q">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P \to Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Q \to P\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P \leftrightarrow Q\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(Q\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P \to Q\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(Q \to P\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P \leftrightarrow Q\)</span></td>
 </tr>
 <tr>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
 </tr>
 </table></div>
-</figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_truthtable_biconditional-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_truthtable_biconditional-2-1-3-1-1-1" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
+</div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_truthtable_biconditional-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (a)"><a tabindex="-1" href="#exam_truthtable_biconditional-2-1-3-1" title="Copy heading and permalink for Item (a)" aria-label="Copy heading and permalink for Item (a)">🔗</a></div>
 </li>
@@ -1264,7 +1268,7 @@ eBookConfig.enable_chatcodes =  false;
 P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 \end{equation*}
 </div>
-<div class="para">we can combine the proof formats for “and” <a href="sec_logic_connectives.html#pff_and" class="xref" data-knowl="./knowl/xref/pff_and.html" data-reveal-label="Reveal" data-close-label="Close" title="Proof 5.1.B.1">Proof 5.1.B.1</a> with the proof format for a conditional statement <a href="sec_conditional_statements.html#pff_if_then_direct" class="xref" data-knowl="./knowl/xref/pff_if_then_direct.html" data-reveal-label="Reveal" data-close-label="Close" title="Proof 5.3.B.1">Proof 5.3.B.1</a> to get a new proof format to prove a biconditional statement. Normally in “and” proofs we begin the two parts with the words “First” and “Second” (or “First” and “Next”). In the proof of a biconditional statement, the second part proves the converse, so we begin with the word “Conversely” instead.</div>
+<div class="para">we can combine the proof formats for “and” <a href="sec_logic_connectives.html#pff_and" class="xref" data-knowl="./knowl/xref/pff_and.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.9: Proof Format:  \land ">Theorem 5.1.9</a> with the proof format for a conditional statement <a href="sec_conditional_statements.html#pff_if_then_direct" class="xref" data-knowl="./knowl/xref/pff_if_then_direct.html" data-reveal-label="Reveal" data-close-label="Close" title="Proof 5.3.B.1">Proof 5.3.B.1</a> to get a new proof format to prove a biconditional statement. Normally in “and” proofs we begin the two parts with the words “First” and “Second” (or “First” and “Next”). In the proof of a biconditional statement, the second part proves the converse, so we begin with the word “Conversely” instead.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_iff-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="pff_iff" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
@@ -1378,52 +1382,52 @@ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 </div></details> 
 <figure class="table table-like" id="table_truthtable_contrapositive"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Truth table for the contrapositive<div class="autopermalink" aria-hidden="true" data-description="Table 5.4.10: Truth table for the contrapositive"><a tabindex="-1" href="#table_truthtable_contrapositive" title="Copy heading and permalink for Table 5.4.10: Truth table for the contrapositive" aria-label="Copy heading and permalink for Table 5.4.10: Truth table for the contrapositive">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(P \to Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\neg Q\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\neg P\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\neg Q \to \neg P\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(Q\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P \to Q\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\neg Q\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\neg P\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\neg Q \to \neg P\)</span></td>
 </tr>
 <tr>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{F}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
 </tr>
 </table></div>
 </figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_equiv_contrapositive-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1601,7 +1605,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1 = 2(2k_1k_2 + k_1 + k_2) + 1
 <div class="para" id="exam_product_even_implies_even_factor-2-1-2-2-1">State the contrapositive of the statement “For any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> if <span class="process-math">\(ab\)</span> is even, then <span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even.” 
 <details id="exam_product_even_implies_even_factor-2-1-2-2-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_product_even_implies_even_factor-2-1-2-2-1-2-1">By DeMorgan’s Laws <a href="sec_logic_connectives.html#thm_demorgans" class="xref" data-knowl="./knowl/xref/thm_demorgans.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.16: De Morgan’s Law">Theorem 5.1.16</a>, the negation of the conclusion <span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even. is the statement <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are odd. The contrapositive is For any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are odd, then <span class="process-math">\(ab\)</span> is odd. Notice that we keep the universal quantifier.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_product_even_implies_even_factor-2-1-2-2-1-2-1">By DeMorgan’s Laws <a href="sec_logic_connectives.html#thm_demorgans" class="xref" data-knowl="./knowl/xref/thm_demorgans.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.19: De Morgan’s Law">Theorem 5.1.19</a>, the negation of the conclusion <span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even. is the statement <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are odd. The contrapositive is For any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are odd, then <span class="process-math">\(ab\)</span> is odd. Notice that we keep the universal quantifier.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-2-1-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>

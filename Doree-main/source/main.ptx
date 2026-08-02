@@ -11,8 +11,8 @@
 \newcommand{\secbitstrings}{\bf{Counting\ Bit\ Strings}}
 
 \newcommand{\subhs}{Counting Handshakes}
-% \circled temporarily disabled for TikZ image compilation
-% \newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\newcommand{\xcircle}[1]{\circled{#1}}
 \newcommand{\subdiscrete}{What is Discrete Mathematics?}
 \newcommand{\sublearning}{Learning Discrete Mathematics}
 \newcommand{\exerR}{Recap}
@@ -181,13 +181,11 @@
       </titlepage>
     </frontmatter>
 
-    <xi:include href="./ch_logic_proof.ptx"/>
 
-    <!--
+ 
+
     <xi:include href="./ch_prologue.ptx"/>
-    
     <xi:include href="./ch_counting.ptx"/>
-    
     <xi:include href="./ch_graph_theory.ptx"/>
     <xi:include href="./ch_number_theory.ptx"/>
     <xi:include href="./ch_logic_proof.ptx"/>
@@ -199,6 +197,6 @@
     <backmatter>
     <xi:include href="./bibliography.ptx"/>
     </backmatter>
-    -->
+
   </book>
 </pretext>

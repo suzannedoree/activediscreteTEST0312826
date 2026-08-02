@@ -61,15 +61,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.16';
+eBookConfig.runestone_version = '8.2.0';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
+<script src="_static/prefix-runtime.82b0f3334d1d4a05.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.5555907f139e2014.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -116,6 +116,8 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\secbitstrings}{\bf{Counting\ Bit\ Strings}}
 
 \newcommand{\subhs}{Counting Handshakes}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\newcommand{\xcircle}[1]{\circled{#1}}
 \newcommand{\subdiscrete}{What is Discrete Mathematics?}
 \newcommand{\sublearning}{Learning Discrete Mathematics}
 \newcommand{\exerR}{Recap}
@@ -534,17 +536,18 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_and_or" class="internal"><span class="codenumber">5.1.A</span> <span class="title">And and Or</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_and_or" class="internal"><span class="codenumber">5.1.B</span> <span class="title">Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_logical_equivalence_negations" class="internal"><span class="codenumber">5.1.C</span> <span class="title">Logical Equivalence and Negations</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_contra" class="internal"><span class="codenumber">5.1.D</span> <span class="title">Proof Format: Contradiction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_TorF" class="internal"><span class="codenumber">5.1.A</span> <span class="title">True or False?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_and_or" class="internal"><span class="codenumber">5.1.B</span> <span class="title">And and Or</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_and_or" class="internal"><span class="codenumber">5.1.C</span> <span class="title">Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_logical_equivalence_negations" class="internal"><span class="codenumber">5.1.D</span> <span class="title">Logical Equivalence and Negations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sub_pff_contra" class="internal"><span class="codenumber">5.1.E</span> <span class="title">Proof Format: Contradiction</span></a></div></li>
 <li class="toc-item toc-subsection">
-<div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7" class="internal"><span class="codenumber">5.1.E</span> <span class="title">Exercises</span></a></div>
-<ul id="ptx-toc-group-sec_logic_connectives-7" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-2" class="internal"><span class="title">Exercises for 5.1.A And and Or</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-3" class="internal"><span class="title">Exercises for 5.1.B Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-4" class="internal"><span class="title">Exercises for 5.1.C Logical Equivalence and Negations</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-7-5" class="internal"><span class="title">Exercises for 5.1.D Proof Format: Contradiction</span></a></div></li>
+<div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8" class="internal"><span class="codenumber">5.1.F</span> <span class="title">Exercises</span></a></div>
+<ul id="ptx-toc-group-sec_logic_connectives-8" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-2" class="internal"><span class="title">Exercises for 5.1.B And and Or</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-3" class="internal"><span class="title">Exercises for 5.1.C Proof Formats: <span class="process-math">\(\land\)</span> and <span class="process-math">\(\lor\)</span> by Cases</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-4" class="internal"><span class="title">Exercises for 5.1.D Logical Equivalence and Negations</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_logic_connectives.html#sec_logic_connectives-8-5" class="internal"><span class="title">Exercises for 5.1.E Proof Format: Contradiction</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -552,16 +555,19 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_quant_cex.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Quantifiers</span></a></div>
 <ul id="ptx-toc-group-sec_quant_cex" class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_set_game" class="internal"><span class="codenumber">5.2.A</span> <span class="title">The Game SET</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_set_game" class="internal"><span class="codenumber">5.2.A</span> <span class="title">The Game SET!</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_quantifiers" class="internal"><span class="codenumber">5.2.B</span> <span class="title">Quantifiers</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_pff_quants" class="internal"><span class="codenumber">5.2.C</span> <span class="title">Proof Formats: <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span></span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_cex" class="internal"><span class="codenumber">5.2.D</span> <span class="title">Negating Quantified Statements and Counterexamples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_pff_mixed_quants" class="internal"><span class="codenumber">5.2.D</span> <span class="title">Proof Format: Mixed Quantifiers</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sub_cex" class="internal"><span class="codenumber">5.2.E</span> <span class="title">Negating Quantified Statements and Counterexamples</span></a></div></li>
 <li class="toc-item toc-subsection">
-<div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7" class="internal"><span class="codenumber">5.2.E</span> <span class="title">Exercises for 5.2.A The Game SET</span></a></div>
-<ul id="ptx-toc-group-sec_quant_cex-7" class="structural toc-item-list">
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7-3" class="internal"><span class="title">Exercises for 5.2.B Quantifiers</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7-4" class="internal"><span class="title">Exercises for 5.2.C Proof Formats: <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span></span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-7-5" class="internal"><span class="title">Exercises for 5.2.D Negating Quantified Statements and Counterexamples</span></a></div></li>
+<div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8" class="internal"><span class="codenumber">5.2.F</span> <span class="title">Exercises</span></a></div>
+<ul id="ptx-toc-group-sec_quant_cex-8" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-2" class="internal"><span class="title">Exercises for 5.2.A The Game SET!</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-3" class="internal"><span class="title">Exercises for 5.2.B Quantifiers</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-4" class="internal"><span class="title">Exercises for 5.2.C Proof Formats: <span class="process-math">\(\forall\)</span> and <span class="process-math">\(\exists\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-5" class="internal"><span class="title">Exercises for 5.2.D Proof Formats: Mixed Quantifiers</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_quant_cex.html#sec_quant_cex-8-6" class="internal"><span class="title">Exercises for 5.2.E Negating Quantified Statements and Counterexamples</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1037,31 +1043,31 @@ n\)</span> exactly once.</div>
 </div>
 <figure class="table table-like" id="table_lowercase_greek"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A few lowercase Greek letters commonly used for permutations<div class="autopermalink" aria-hidden="true" data-description="Table 6.4.3: A few lowercase Greek letters commonly used for permutations"><a tabindex="-1" href="#table_lowercase_greek" title="Copy heading and permalink for Table 6.4.3: A few lowercase Greek letters commonly used for permutations" aria-label="Copy heading and permalink for Table 6.4.3: A few lowercase Greek letters commonly used for permutations">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\alpha=\)</span> alpha</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\beta=\)</span> beta</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\gamma=\)</span> gamma</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\delta=\)</span> delta</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\epsilon=\)</span> epsilon</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\mu=\)</span> mu</td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\nu=\)</span> nu</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\rho=\)</span> rho</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\sigma=\)</span> sigma</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\tau=\)</span> tau</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\psi=\)</span> psi</td>
-<td class="l m b0 r0 l0 t0 lines">
+<td class="c m b0 r0 l0 t0 lines">
 <span class="process-math">\(\chi=\)</span> chi</td>
 </tr>
 </table></div>
@@ -1410,40 +1416,40 @@ i = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4 \\ 1 \amp  2 \amp  3 \a
 </div></details> 
 <figure class="table table-like" id="tab_inv_perm"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Calculating the inverse of a permutation<div class="autopermalink" aria-hidden="true" data-description="Table 6.4.16: Calculating the inverse of a permutation"><a tabindex="-1" href="#tab_inv_perm" title="Copy heading and permalink for Table 6.4.16: Calculating the inverse of a permutation" aria-label="Copy heading and permalink for Table 6.4.16: Calculating the inverse of a permutation">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t0 lines">We know that</td>
-<td class="l m b0 r0 l0 t0 lines">We conclude that</td>
+<td class="c m b0 r0 l0 t0 lines">We know that</td>
+<td class="c m b0 r0 l0 t0 lines">We conclude that</td>
 </tr>
 <tr>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma(1) = 2\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma^{-1}(2)=1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma(1) = 2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma^{-1}(2)=1\)</span></td>
 </tr>
 <tr>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma(2) = 3\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma^{-1}(3)=2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma(2) = 3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma^{-1}(3)=2\)</span></td>
 </tr>
 <tr>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma(3) = 4\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma^{-1}(4)=3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma(3) = 4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma^{-1}(4)=3\)</span></td>
 </tr>
 <tr>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
 </tr>
 <tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma(4) = 1\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma^{-1}(1)=4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma(4) = 1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\sigma^{-1}(1)=4\)</span></td>
 </tr>
 </table></div>
 </figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_inverse_perm-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1626,7 +1632,7 @@ v^3(n) = v(v^2(n)) = v(n-2) = (n-2)-1 = n-3\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 6.4.C.1"><a tabindex="-1" href="#pff_unique_direct" title="Copy heading and permalink for Proof 6.4.C.1" aria-label="Copy heading and permalink for Proof 6.4.C.1">🔗</a></div>
 </article></details>
-<div class="para" id="sub_pff_unique-5">There is an indirect method to prove uniqueness that does not require us to find <span class="process-math">\(k\text{.}\)</span> How can we do that? An intuitive approach would be a proof by contradiction <a href="sec_logic_connectives.html#pff_contradiction" class="xref" data-knowl="./knowl/xref/pff_contradiction.html" data-reveal-label="Reveal" data-close-label="Close" title="Proof 5.1.B.3.1">Proof 5.1.B.3.1</a>. That is, we would suppose that <span class="process-math">\(P(n_1)\)</span> and <span class="process-math">\(P(n_2)\)</span> with <span class="process-math">\(n_1 \neq n_2\)</span> and derive a contradiction. However, such proofs typically do not use the assumption that <span class="process-math">\(n_1 \neq n_2\text{,}\)</span> and therefore can be rewritten without using contradiction. That is, we can prove if <span class="process-math">\(P(n_1)\)</span> and <span class="process-math">\(P(n_2)\text{,}\)</span> then <span class="process-math">\(n_1=n_2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_unique-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sub_pff_unique-5">There is an indirect method to prove uniqueness that does not require us to find <span class="process-math">\(k\text{.}\)</span> How can we do that? An intuitive approach would be a proof by contradiction <a href="sec_logic_connectives.html#pff_contradiction" class="xref" data-knowl="./knowl/xref/pff_contradiction.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.20: Proof Format:Proof by Contradiction">Theorem 5.1.20</a>. That is, we would suppose that <span class="process-math">\(P(n_1)\)</span> and <span class="process-math">\(P(n_2)\)</span> with <span class="process-math">\(n_1 \neq n_2\)</span> and derive a contradiction. However, such proofs typically do not use the assumption that <span class="process-math">\(n_1 \neq n_2\text{,}\)</span> and therefore can be rewritten without using contradiction. That is, we can prove if <span class="process-math">\(P(n_1)\)</span> and <span class="process-math">\(P(n_2)\text{,}\)</span> then <span class="process-math">\(n_1=n_2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_unique-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="pff_unique_indirect" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">
@@ -1727,7 +1733,7 @@ n_1 = n_2\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Remark 6.4.22: Notation for uniqueness"><a tabindex="-1" href="#rem_notation_unique" title="Copy heading and permalink for Remark 6.4.22: Notation for uniqueness" aria-label="Copy heading and permalink for Remark 6.4.22: Notation for uniqueness">🔗</a></div>
 </article>
-<div class="para" id="sub_pff_unique-14">To prove that <span class="process-math">\(\exists ! n ~ P(n)\)</span> we need to prove two things — first, that there is at least one <span class="process-math">\(n\)</span> with <span class="process-math">\(P(n)\)</span> and second, that there is at most one <span class="process-math">\(n\)</span> with <span class="process-math">\(P(n)\text{.}\)</span> The first proves existence, which we can do using <a href="sec_quant_cex.html#pff_exists" class="xref" data-knowl="./knowl/xref/pff_exists.html" data-reveal-label="Reveal" data-close-label="Close" title="Proof 5.2.C.1">Proof 5.2.C.1</a>. The second proves uniqueness, which we can do directly using <a href="sec_perms.html#pff_unique_direct" class="xref" data-knowl="./knowl/xref/pff_unique_direct.html" data-reveal-label="Reveal" data-close-label="Close" title="Proof 6.4.C.1">Proof 6.4.C.1</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_unique-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sub_pff_unique-14">To prove that <span class="process-math">\(\exists ! n ~ P(n)\)</span> we need to prove two things — first, that there is at least one <span class="process-math">\(n\)</span> with <span class="process-math">\(P(n)\)</span> and second, that there is at most one <span class="process-math">\(n\)</span> with <span class="process-math">\(P(n)\text{.}\)</span> The first proves existence, which we can do using <a href="sec_quant_cex.html#pff_exists" class="xref" data-knowl="./knowl/xref/pff_exists.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.2.12: Proof Format: Existentially-quantified statements">Theorem 5.2.12</a>. The second proves uniqueness, which we can do directly using <a href="sec_perms.html#pff_unique_direct" class="xref" data-knowl="./knowl/xref/pff_unique_direct.html" data-reveal-label="Reveal" data-close-label="Close" title="Proof 6.4.C.1">Proof 6.4.C.1</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_unique-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="pff_exists_unique" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">

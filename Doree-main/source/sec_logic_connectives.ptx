@@ -9,6 +9,9 @@
       along with their proof formats.
       We discuss logical equivalence and negation and use truth tables to define connectives and verify equivalences.
     </p>
+  </introduction>
+  <subsection xml:id="sub_TorF">
+    <title>True or False?</title>  
     <p>
       Let's warm up our logical thinking by considering some true/false questions.
     </p>
@@ -65,7 +68,7 @@
         </ol>
       </p>
     </activity>
-  </introduction>
+  </subsection>
   <subsection xml:id="sub_and_or">
     <title>And and Or</title>
     <p>
@@ -175,9 +178,9 @@
                     </p>
                   </li>
                 </ul>
-              </p>
               In this textbook we abbreviate true as <c>T</c> and false as <c>F</c>.
               Some computer science textbooks use <c>1</c> for true and <c>0</c> for false instead.
+              </p>
             </li>
           </ol>
         </p>
@@ -207,40 +210,40 @@
                     The other entries in the <m>P \land Q</m> column are all <c>F</c>.
                   </p>
                   <table xml:id="table_truthtable_and">
-                    <title>Truth table for the logical connective <term>and</term></title>
-                    <tabular>
-                      <row>
-                        <cell><m>P</m></cell>
-                        <cell><m>Q</m></cell>
-                        <cell><m>P \land Q</m></cell>
-                      </row>
-                      <row bottom="minor">
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
-                      </row>
-                      <row>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{T}</m></cell>
-                      </row>
-                      <row>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{F}</m></cell>
-                      </row>
-                      <row>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{F}</m></cell>
-                      </row>
-                      <row>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{F}</m></cell>
-                      </row>
-                    </tabular>
-                  </table>
+  <title>Truth table for the logical connective <term>and</term></title>
+  <tabular>
+    <row>
+      <cell halign="center"><m>P</m></cell>
+      <cell halign="center"><m>Q</m></cell>
+      <cell halign="center"><m>P \land Q</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell halign="center"></cell>
+      <cell halign="center"></cell>
+      <cell halign="center"></cell>
+    </row>
+    <row>
+      <cell halign="center"><m>\str{T}</m></cell>
+      <cell halign="center"><m>\str{T}</m></cell>
+      <cell halign="center"><m>\str{T}</m></cell>
+    </row>
+    <row>
+      <cell halign="center"><m>\str{T}</m></cell>
+      <cell halign="center"><m>\str{F}</m></cell>
+      <cell halign="center"><m>\str{F}</m></cell>
+    </row>
+    <row>
+      <cell halign="center"><m>\str{F}</m></cell>
+      <cell halign="center"><m>\str{T}</m></cell>
+      <cell halign="center"><m>\str{F}</m></cell>
+    </row>
+    <row>
+      <cell halign="center"><m>\str{F}</m></cell>
+      <cell halign="center"><m>\str{F}</m></cell>
+      <cell halign="center"><m>\str{F}</m></cell>
+    </row>
+  </tabular>
+</table>
                 </solution>
               </p>
             </li>
@@ -263,34 +266,34 @@
                     <title>Truth table for the logical connective <term>or</term></title>
                     <tabular>
                       <row>
-                        <cell><m>P</m></cell>
-                        <cell><m>Q</m></cell>
-                        <cell><m>P \lor Q</m></cell>
+                        <cell halign="center"><m>P</m></cell>
+                        <cell halign="center"><m>Q</m></cell>
+                        <cell halign="center"><m>P \lor Q</m></cell>
                       </row>
                       <row bottom="minor">
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
                       </row>
                       <row>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell  halign="center"><m>\str{T}</m></cell>
                       </row>
                       <row>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
                       </row>
                       <row>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
                       </row>
                       <row>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
                       </row>
                     </tabular>
                   </table>
@@ -312,34 +315,34 @@
                     <title>Truth table for the logical connective <term>xor</term></title>
                     <tabular>
                       <row>
-                        <cell><m>P</m></cell>
-                        <cell><m>Q</m></cell>
-                        <cell><m>P \oplus Q</m></cell>
+                        <cell halign="center"><m>P</m></cell>
+                        <cell halign="center"><m>Q</m></cell>
+                        <cell halign="center"><m>P \oplus Q</m></cell>
                       </row>
                       <row bottom="minor">
-                        <cell></cell>
-                        <cell></cell>
-                        <cell></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
                       </row>
                       <row>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
                       </row>
                       <row>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
                       </row>
                       <row>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{T}</m></cell>
-                        <cell><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
                       </row>
                       <row>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{F}</m></cell>
-                        <cell><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
                       </row>
                     </tabular>
                   </table>
@@ -363,74 +366,74 @@
         <title>Part of the truth table for <m>(P \lor Q) \land R</m></title>
         <tabular>
           <row>
-            <cell><m>P</m></cell>
-            <cell><m>Q</m></cell>
-            <cell><m>R</m></cell>
-            <cell><m>P \lor Q</m></cell>
-            <cell><m>(P \lor Q) \land R</m></cell>
+            <cell halign="center"><m>P</m></cell>
+            <cell halign="center"><m>Q</m></cell>
+            <cell halign="center"><m>R</m></cell>
+            <cell halign="center"><m>P \lor Q</m></cell>
+            <cell halign="center"><m>(P \lor Q) \land R</m></cell>
           </row>
           <row bottom="minor">
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
           </row>
           <row>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
           </row>
           <row>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{F}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{F}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{F}</m></cell>
           </row>
           <row>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{F}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
           </row>
           <row>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{F}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{F}</m></cell>
+            <cell halign="center"><m>\str{F}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{F}</m></cell>
           </row>
           <row>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell halign="center"><m>\str{F}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
           </row>
           <row>
-            <cell><m>\str{F}</m></cell>
-            <cell><m>\str{T}</m></cell>
-            <cell><m>\str{F}</m></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell halign="center"><m>\str{F}</m></cell>
+            <cell halign="center"><m>\str{T}</m></cell>
+            <cell halign="center"><m>\str{F}</m></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
           </row>
           <row>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
-            <cell></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
+            <cell halign="center"></cell>
           </row>
         </tabular>
       </table>
@@ -513,104 +516,104 @@
           <title>A truth table verifying the distributive equivalence <m>(P \lor Q) \land R \equiv (P \land R) \lor (Q \land R)</m></title>
           <tabular>
             <row>
-              <cell><m>P</m></cell>
-              <cell><m>Q</m></cell>
-              <cell><m>R</m></cell>
-              <cell><m>P \lor Q</m></cell>
-              <cell><m>(P \lor Q) \land R</m></cell>
-              <cell><m>P \land R</m></cell>
-              <cell><m>Q \land R</m></cell>
-              <cell><m>(P \land R) \lor (Q \land R)</m></cell>
+              <cell halign="center"><m>P</m></cell>
+              <cell halign="center"><m>Q</m></cell>
+              <cell halign="center"><m>R</m></cell>
+              <cell halign="center"><m>P \lor Q</m></cell>
+              <cell halign="center"><m>(P \lor Q) \land R</m></cell>
+              <cell halign="center"><m>P \land R</m></cell>
+              <cell halign="center"><m>Q \land R</m></cell>
+              <cell halign="center"><m>(P \land R) \lor (Q \land R)</m></cell>
             </row>
             <row bottom="minor">
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
             </row>
             <row>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
             </row>
             <row>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
             </row>
             <row>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
             </row>
             <row>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
             </row>
             <row>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
             </row>
             <row>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
             </row>
             <row>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
             </row>
             <row>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
             </row>
           </tabular>
         </table>
@@ -625,19 +628,22 @@
       <m>P</m> and then <m>Q</m>.
       We can summarize this idea in a proof format.
     </p>
-    <proof xml:id="pff_and">
+    <theorem xml:id="pff_and">
+      <title>Proof Format: <m> \land </m></title>
+    <statement>
     <p>
-      Prove: <m>P \land Q</m>
+      We can prove <m>P \land Q</m> by adapting the following proof format.
     </p>
-    <proof>
+      <proof>
       <p>
         First, (explain why <m>P</m> is true.) Therefore, <m>P</m>.
       </p>
       <p>
         Next, (explain why <m>Q</m> is true.) Therefore, <m>Q</m>.
       </p>
-    </proof>
-    </proof>
+      </proof>
+    </statement>
+    </theorem>
     <p>
       The format for a proof of <m>P \lor Q</m> is less direct.
       An option is to use a modified version of a proof by cases.
@@ -652,9 +658,11 @@
       We can modify that proof format to prove
       <m>P \lor Q</m> by proving <m>P</m> in one case and <m>Q</m> in the other case.
     </p>
-    <proof xml:id="pff_or_by_cases">
+      <theorem xml:id="pff_or_by_cases">
+      <title>Proof Format: <m> \lor </m> Using Cases</title>
+    <statement>
     <p>
-      Prove: <m>P \lor Q</m>
+      We can prove <m> P \lor Q</m> using cases by adapting the following proof format.
     </p>
     <proof>
       <p>
@@ -674,18 +682,21 @@
         In either case, we have <m>P \lor Q</m>.
       </p>
     </proof>
-    </proof>
+    </statement>
+    </theorem>
     <p>
       We present this format with two cases,
       since that is often all we need.
       This format can be modified to have more than two cases where in some cases <m>P</m> is true and in other cases <m>Q</m> is true.
       Officially, this is a new proof format.
     </p>
-    <proof xml:id="pff_or_by_cases_generalized">
+     <theorem xml:id="pff_or_by_cases_generalized">
+      <title>Proof Format: <m> \lor </m> Using Cases, Generalized</title>
+    <statement>
     <p>
-      Prove: <m>P_1 \lor P_2 \lor \cdots \lor P_k</m>
+      We can prove <m>P_1 \lor P_2 \lor \cdots \lor P_k</m> using cases by adapting the following proof format.
     </p>
-    <proof xml:id="pff_contradiction">
+      <proof>
       <p>
         (Explain why there are <m>n</m> cases.) We consider <m>n</m> cases.
       </p>
@@ -707,8 +718,9 @@
       <p>
         In (either case/all cases) we have <m>P_1 \lor P_2 \lor \cdots \lor P_k</m>.
       </p>
-    </proof>
-    </proof>
+      </proof>
+    </statement>
+    </theorem>
     <p>
       Try working with these formats.
     </p>
@@ -869,7 +881,10 @@
               <p>
                 A statement <m>S</m> is a <term>tautology</term> if it is always true.
                 For example,
-                the statement Either I will work on my homework Tuesday night or I will not work on my homework Tuesday night. is a tautology.
+                the statement 
+                    <q>
+                    Either I will work on my homework Tuesday night or I will not work on my homework Tuesday night. is a tautology.
+                    </q>
               </p>
             </li>
             <li>
@@ -902,28 +917,28 @@
                     <xref ref="table_truthtable_not"></xref>
                     shows the truth table for <m>\neg P</m>.
                   </p>
-                </solution>
                 <table xml:id="table_truthtable_not">
                   <title>Truth table for the logical operation <term>not</term></title>
                   <tabular>
                     <row>
-                      <cell><m>P</m></cell>
-                      <cell><m>\neg P</m></cell>
+                      <cell halign="center"><m>P</m></cell>
+                      <cell halign="center"><m>\neg P</m></cell>
                     </row>
                     <row bottom="minor">
-                      <cell></cell>
-                      <cell></cell>
+                      <cell halign="center"></cell>
+                      <cell halign="center"></cell>
                     </row>
                     <row>
-                      <cell><m>\str{T}</m></cell>
-                      <cell><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
                     </row>
                     <row>
-                      <cell><m>\str{F}</m></cell>
-                      <cell><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
                     </row>
                   </tabular>
                 </table>
+                </solution>
               </p>
             </li>
             <li>
@@ -937,48 +952,48 @@
                     Notice that the only time <m>P \land \neg Q</m> is true is when <m>P</m> is true and <m>Q</m> is false,
                     which happens in the second row.
                   </p>
-                </solution>
                 <table xml:id="table_truthtable_andnot">
                   <title>Truth table for the compound statement <m>P \land \neg Q</m></title>
                   <tabular>
                     <row>
-                      <cell><m>P</m></cell>
-                      <cell><m>Q</m></cell>
-                      <cell><m>\neg Q</m></cell>
-                      <cell><m>P \land \neg Q</m></cell>
+                      <cell halign="center"><m>P</m></cell>
+                      <cell halign="center"><m>Q</m></cell>
+                      <cell halign="center"><m>\neg Q</m></cell>
+                      <cell halign="center"><m>P \land \neg Q</m></cell>
                     </row>
                     <row bottom="minor">
-                      <cell></cell>
-                      <cell></cell>
-                      <cell></cell>
-                      <cell></cell>
+                      <cell halign="center"></cell>
+                      <cell halign="center"></cell>
+                      <cell halign="center"></cell>
+                      <cell halign="center"></cell>
                     </row>
                     <row>
-                      <cell><m>\str{T}</m></cell>
-                      <cell><m>\str{T}</m></cell>
-                      <cell><m>\str{F}</m></cell>
-                      <cell><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
                     </row>
                     <row>
-                      <cell><m>\str{T}</m></cell>
-                      <cell><m>\str{F}</m></cell>
-                      <cell><m>\str{T}</m></cell>
-                      <cell><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
                     </row>
                     <row>
-                      <cell><m>\str{F}</m></cell>
-                      <cell><m>\str{T}</m></cell>
-                      <cell><m>\str{F}</m></cell>
-                      <cell><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
                     </row>
                     <row>
-                      <cell><m>\str{F}</m></cell>
-                      <cell><m>\str{F}</m></cell>
-                      <cell><m>\str{T}</m></cell>
-                      <cell><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
                     </row>
                   </tabular>
                 </table>
+                </solution>
               </p>
             </li>
             <li>
@@ -991,32 +1006,32 @@
                     Since the final column is all <c>F</c>,
                     it follows that <m>P \land \neg P</m> is a contradiction.
                   </p>
-                </solution>
                 <table xml:id="table_truthtable_contradiction">
                   <title>Truth table for the contradiction <m>P \land \neg P</m></title>
                   <tabular>
                     <row>
-                      <cell><m>P</m></cell>
-                      <cell><m>\neg P</m></cell>
-                      <cell><m>P \land \neg P</m></cell>
+                      <cell halign="center"><m>P</m></cell>
+                      <cell halign="center"><m>\neg P</m></cell>
+                      <cell halign="center"><m>P \land \neg P</m></cell>
                     </row>
                     <row bottom="minor">
-                      <cell></cell>
-                      <cell></cell>
-                      <cell></cell>
+                      <cell halign="center"></cell>
+                      <cell halign="center"></cell>
+                      <cell halign="center"></cell>
                     </row>
                     <row>
-                      <cell><m>\str{T}</m></cell>
-                      <cell><m>\str{F}</m></cell>
-                      <cell><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
                     </row>
                     <row>
-                      <cell><m>\str{F}</m></cell>
-                      <cell><m>\str{T}</m></cell>
-                      <cell><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
+                      <cell halign="center"><m>\str{T}</m></cell>
+                      <cell halign="center"><m>\str{F}</m></cell>
                     </row>
                   </tabular>
                 </table>
+                </solution>
               </p>
             </li>
           </ol>
@@ -1054,8 +1069,8 @@
           <li>
             <p>
               In <xref ref="defn_and_or_xor"></xref>,
-              we noted that the statement The integer seven is positive and odd. is true.
-              Consider the general statement The integer <m>n</m> is positive and odd.
+              we noted that the statement <q>The integer seven is positive and odd </q> is true.
+              Consider the general statement <q>The integer <m>n</m> is positive and odd.</q>
               Give examples of integers <m>n</m> where the statement is false,
               including some negative values of <m>n</m>.
             </p>
@@ -1147,30 +1162,33 @@
       A <term>proof by contradiction</term>
       follows the following proof format.
     </p>
-    <proof>
-    <p>
-      Prove: P
-    </p>
-    <proof>
-      <p>
-        Suppose not.
-        Then
-        (state <m>\neg P</m>).
-      </p>
-      <p>
-        First, (explain why <m>Q</m> is true.) Therefore, <m>Q</m>.
-      </p>
-      <p>
-        On the other hand,
-        (explain why <m>\neg Q</m> is true.)
-        Therefore, <m>\neg Q</m>.
-      </p>
-      <p>
-        This is a contradiction.
-        Therefore, <m>P</m>.
-      </p>
-    </proof>
-    </proof>
+    <theorem xml:id="pff_contradiction">
+    <title>Proof Format:Proof by Contradiction</title>
+      <statement>
+        <p>
+          We can prove <m> P </m> using proof by contradiction by adapting the following proof format.
+        </p>
+        <proof>
+          <p>
+            Suppose not.
+            Then
+            (state <m>\neg P</m>).
+          </p>
+          <p>
+            First, (explain why <m>Q</m> is true.) Therefore, <m>Q</m>.
+          </p>
+          <p>
+            On the other hand,
+            (explain why <m>\neg Q</m> is true.)
+            Therefore, <m>\neg Q</m>.
+          </p>
+          <p>
+            This is a contradiction.
+            Therefore, <m>P</m>.
+          </p>
+        </proof>
+      </statement>
+    </theorem>
     <p>
       Notice that we are proving two things (<m>Q</m> and <m>\neg Q</m>),
       but instead of saying
@@ -1265,8 +1283,8 @@
           and boldfaced the statements that should be added.
         </p>
         <p>
-          <em>Proof.</em> \st{Suppose not.
-          Then there exists an integer <m>n</m> such that <m>d=\fn{gcd}(n,n+1)\neq 1</m>}
+          <em>Proof.</em> <delete>Suppose not.
+          Then there exists an integer <m>n</m> such that <m>d=\fn{gcd}(n,n+1)\neq 1</m></delete>
         </p>
         <p>
           <em>Let <m>n</m> be an integer.
@@ -1288,9 +1306,9 @@
           Since the only positive divisor of 1 is 1, it follows that <m>d =1</m>.
         </p>
         <p>
-          \st{On the other hand, we assumed that <m>d \neq 1</m>.
+          <delete>On the other hand, we assumed that <m>d \neq 1</m>.
           This is a contradiction.
-          Thus <m>\fn{gcd}(n,n+1)=1</m>.}
+          Thus <m>\fn{gcd}(n,n+1)=1</m>.</delete>
         </p>
       </solution>
     </example>
@@ -1452,74 +1470,74 @@
                 <title>Truth table for the compound statement <m>P \land (Q \lor R)</m></title>
                 <tabular>
                   <row>
-                    <cell><m>P</m></cell>
-                    <cell><m>Q</m></cell>
-                    <cell><m>R</m></cell>
-                    <cell><m>Q \lor R</m></cell>
-                    <cell><m>P \land (Q \lor R)</m></cell>
+                    <cell halign="center"><m>P</m></cell>
+                    <cell halign="center"><m>Q</m></cell>
+                    <cell halign="center"><m>R</m></cell>
+                    <cell halign="center"><m>Q \lor R</m></cell>
+                    <cell halign="center"><m>P \land (Q \lor R)</m></cell>
                   </row>
                   <row bottom="minor">
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
-                    <cell></cell>
+                    <cell halign="center"></cell>
+                    <cell halign="center"></cell>
+                    <cell halign="center"></cell>
+                    <cell halign="center"></cell>
+                    <cell halign="center"></cell>
                   </row>
                   <row>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
                   </row>
                   <row>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
                   </row>
                   <row>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
                   </row>
                   <row>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
                   </row>
                   <row>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
                   </row>
                   <row>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
                   </row>
                   <row>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{T}</m></cell>
-                    <cell><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{T}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
                   </row>
                   <row>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{F}</m></cell>
-                    <cell><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
+                    <cell halign="center"><m>\str{F}</m></cell>
                   </row>
                 </tabular>
               </table>
@@ -1927,85 +1945,85 @@
           <title>Truth table for the compound statement <m>P \land  (Q \lor R)</m></title>
           <tabular>
             <row>
-              <cell><m>P</m></cell>
-              <cell><m>Q</m></cell>
-              <cell><m>P \lor Q</m></cell>
-              <cell><m>\neg(P \lor Q)</m></cell>
-              <cell><m>\neg P</m></cell>
-              <cell><m>\neg Q</m></cell>
-              <cell><m>\neg P \land \neg Q</m></cell>
+              <cell halign="center"><m>P</m></cell>
+              <cell halign="center"><m>Q</m></cell>
+              <cell halign="center"><m>P \lor Q</m></cell>
+              <cell halign="center"><m>\neg(P \lor Q)</m></cell>
+              <cell halign="center"><m>\neg P</m></cell>
+              <cell halign="center"><m>\neg Q</m></cell>
+              <cell halign="center"><m>\neg P \land \neg Q</m></cell>
             </row>
             <row bottom="minor">
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
             </row>
             <row>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
             </row>
             <row bottom="minor">
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
             </row>
             <row>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
             </row>
             <row bottom="minor">
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
             </row>
             <row>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{T}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{T}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
             </row>
             <row bottom="minor">
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
             </row>
             <row>
-              <cell><m>\str{F}</m></cell>
-              <cell><m>\str{F}</m></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"><m>\str{F}</m></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
+              <cell halign="center"></cell>
             </row>
           </tabular>
         </table>
@@ -2269,7 +2287,7 @@
           <p>
             Prove that <m>\fn{lg}(3)</m> is irrational.
           </p>
-        </statement>
+        
         <proof>
           <p>
             Suppose not.
@@ -2303,6 +2321,7 @@
             Thus, <m>\fn{lg}(3)</m> is irrational.
           </p>
         </proof>
+        </statement>
       </exercise>
       <exercise xml:id="exer_proof_inf_many_primes">
         <title>Explore</title>
@@ -2313,8 +2332,8 @@
           <p>
             Prove that there are infinitely many primes.
           </p>
-        </statement>
-        <proof>
+        
+       <proof> 
           <p>
             Suppose not.
             Then there would be a <fillin/> number of primes,
@@ -2349,6 +2368,7 @@
             which says <m>\underline{\hspace{1in}}</m>.
           </p>
         </proof>
+        </statement>
       </exercise>
     </subsubsection>
   </subsection>
