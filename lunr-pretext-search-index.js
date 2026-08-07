@@ -1,40 +1,13 @@
 var ptx_lunr_search_style = "textbook";
 var ptx_lunr_docs = [
 {
-  "id": "frontmatter_students",
-  "level": "1",
-  "url": "frontmatter_students.html",
-  "type": "Preface",
-  "number": "",
-  "title": "For Students",
-  "body": " For Students  Read the examples, work the practice problems, and use the exercises to check your understanding as you go.  "
-},
-{
-  "id": "frontmatter_instructors",
-  "level": "1",
-  "url": "frontmatter_instructors.html",
-  "type": "Preface",
-  "number": "",
-  "title": "For Instructors",
-  "body": " For Instructors  The material is designed to be flexible, so you can choose the sections and activities that fit your course goals.  "
-},
-{
-  "id": "frontmatter_edition",
-  "level": "1",
-  "url": "frontmatter_edition.html",
-  "type": "Preface",
-  "number": "",
-  "title": "Edition and License",
-  "body": " Edition and License  2026 Update. Project website: activediscretemath.com .  This work is licensed under a Creative Commons Attribution 4.0 International License.  "
-},
-{
   "id": "frontmatter_colophon",
   "level": "1",
   "url": "frontmatter_colophon.html",
   "type": "Preface",
   "number": "",
   "title": "Colophon",
-  "body": " Colophon  2026 Update  Project website: activediscretemath.com .  © 2023 Suzanne Dorée. This work is licensed under a Creative Commons Attribution 4.0 International License.  "
+  "body": " Colophon  Project website: activediscretemath.com .  © 2026 Suzanne Dorée. This work is licensed under a Creative Commons Attribution 4.0 International License.  "
 },
 {
   "id": "sec_handshakes",
@@ -15254,15 +15227,6 @@ var ptx_lunr_docs = [
   "number": "10.1.4",
   "title": "Discrete.",
   "body": " Discrete   A set is discrete if it is finite or countable.   "
-},
-{
-  "id": "root-1-2-13-1",
-  "level": "1",
-  "url": "root-1-2-13-1.html",
-  "type": "References",
-  "number": "",
-  "title": "Bibliography",
-  "body": " Bibliography  "
 }
 ]
 
