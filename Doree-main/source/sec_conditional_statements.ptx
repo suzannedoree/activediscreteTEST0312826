@@ -62,17 +62,20 @@
       it must be the case that if <m>P</m> is true,
       then <m>Q</m> is 100% guaranteed to also be true.
       It might be the case that <m>P</m> causes <m>Q</m>, for example,
-      if <m>P</m>: Tova dropped her glove in a puddle and <m>Q</m>: Tova's glove got wet. then <m>P \to Q</m>: If Tova dropped her glove in a puddle,
-      then Tova's glove got wet. is true.
+      if <m>P</m> is the statement <q> Tova dropped her glove in a puddle</q> a
+      nd <m>Q</m> is the statement <q> Tova's glove got wet</q>, 
+      then <m>P \to Q</m> is the statement <q> If Tova dropped her glove in a puddle,
+      then Tova's glove got wet</q>, which is true.
       In this example, <m>P</m> caused <m>Q</m>.
     </p>
     <p>
       Alternatively,
       it might be the case that <m>Q</m> had to happen in order for <m>P</m> to happen.
       For example,
-      if <m>P</m>: Derek got an A in Algorithms class and <m>Q</m>: Derek took the Algorithms class. then <m>P \to Q</m>:
-      if Derek got an A in Algorithms class,
-      then Derek took the Algorithms class. is true.
+      if <m>P</m> is the statement <q> Derek got an A in Algorithms class</q> 
+      and <m>Q</m> is the statement <q> Derek took the Algorithms class</q> then <m>P \to Q</m> is the statement
+      <q>if Derek got an A in Algorithms class,
+      then Derek took the Algorithms class</q> which is true.
       In this example, <m>Q</m> would have to happen before <m>P</m>.
     </p>
     <p>
@@ -82,10 +85,9 @@
       <title>Understanding when a conditional is true</title>
       <statement>
         <p>
-          Consider the following conditional statement <m>S</m>: If you show up to class every day and do all of the homework on time,
-        </p>
-        <p>
-          then you will get an A in this class.
+          Consider the following conditional statement <m>S</m> which is 
+          <q> If you show up to class every day and do all of the homework on time,
+          then you will get an A in this class.</q>
           <ol>
             <li>
               <p>
@@ -502,7 +504,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_pff_if_then">
-    <title>Proof Format: Direct Proof of <m>\to</m></title>
+    <title>Proof Format: Direct Proof of a Conditional</title>
     <p>
       Since <m>P \to Q</m> promises that if <m>P</m> is true,
       then <m>Q</m> is true,
@@ -510,9 +512,11 @@
       The proof does not mention the case where <m>P</m> is false since <m>P \to Q</m> is automatically true if that happens,
       as stated in <xref ref="rem_false_implies_is_true"></xref>.
     </p>
-    <proof xml:id="pff_if_then_direct">
+      <theorem xml:id="pff_if_then_direct">
+      <title>Proof Format: Conditional (Direct Proof)</title>
+    <statement>
     <p>
-      Prove: <m>P \to Q</m>
+      We can prove <m>P \to Q</m> by adapting the following proof format.
     </p>
     <proof>
       <p>
@@ -525,7 +529,9 @@
         Thus <m>Q</m> is true.
       </p>
     </proof>
-    </proof>
+    </statement>
+    </theorem>
+  
     <p>
       As usual, when we introduce a new proof format,
       we present an example and ask you to edit it to prove a similar statement.
@@ -554,7 +560,7 @@
                 </p>
                 <p>
                   (Side note: to show that <m>3m</m> is odd,
-                  we need to write <m>6k+3</m> in the form <m>2()+1</m>.)
+                  we need to write <m>6k+3</m> in the form <m>2(\underline{\hspace{.5in}})+1</m>.)
                 </p>
                 <p>
                   Note that
@@ -785,18 +791,20 @@
     </example>
   </subsection>
   <subsection xml:id="sub_pff_or_implication">
-    <title>Proof Formats: Proof of <m>\lor</m> Using Implication</title>
+    <title>Proof Format: Or Using Implication</title>
     <p>
       The implication equivalence <xref ref="thm_implication"/> gives us a new way to prove an
       <q>or</q>
       statement, which we saw earlier using cases in <xref ref="pff_or_by_cases"></xref>.
       That is, to prove <m>R \lor Q</m> we can prove <m>\neg R \to Q</m>.
     </p>
-    <proof xml:id="pff_or_implication">
+      <theorem xml:id="pff_or_implication">
+      <title>Proof Format: Or Using Implication </title>
+    <statement>
     <p>
-      Prove: <m>R \lor Q</m>
+      We can prove <m>R \lor Q</m> using the implication equivalence by adapting the following proof format.
     </p>
-    <proof>
+   <proof>
       <p>
         Assume <m>R</m> is false.
       </p>
@@ -807,7 +815,9 @@
         Thus <m>Q</m> is true.
       </p>
     </proof>
-    </proof>
+    </statement>
+    </theorem>
+
     <p>
       As usual, when we introduce a new proof format,
       we present an example and ask you to edit it to prove a similar statement.
@@ -1047,8 +1057,8 @@
               (P \to R) \land (Q \to R) \equiv (P \lor Q) \to R
             </me>.
             Include appropriate intermediate columns.
-            This logical equivalence justifies <xref ref="sub_pff_cases"></xref>
-            (for 2 cases).
+            This logical equivalence justifies <xref ref="thm_pff_cases"></xref>
+            (for two cases).
           </p>
         </statement>
         <hint>
@@ -1154,7 +1164,7 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises for <xref ref="sub_pff_if_then" text="global"></xref> Proof Format: Direct Proof of <m>\to</m></title>
+      <title>Exercises for <xref ref="sub_pff_if_then" text="global"></xref> Proof Format: Direct Proof of a Conditional </title>
       <exercise xml:id="exer_prove_cond_true">
         <title>Practice</title>
         <statement>
@@ -1627,7 +1637,7 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises for <xref ref="sub_pff_or_implication" text="global"></xref> Proof Formats: Proof of <m>\lor</m> Using Implication</title>
+      <title>Exercises for <xref ref="sub_pff_or_implication" text="global"></xref> Proof Format: Or Using Implication </title>
       <exercise xml:id="exer_integer_or_next_is_even">
         <title>Practice</title>
         <statement>

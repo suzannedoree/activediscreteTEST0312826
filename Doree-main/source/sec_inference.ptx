@@ -289,165 +289,138 @@
           <li xml:id="part_fillinblankproof_cpequiv">
             <p>
               Many lists of equivalences omit contraposition because it can be proved from the other equivalences.
-              Fill in the missing equivalences in <xref ref="tab_fillinblankproof_cpequiv"></xref> to prove contraposition.
-              <table xml:id="tab_fillinblankproof_cpequiv">
-                <title>Fill in the blanks to prove the contraposition equivalence for <xref ref="act_proof_logical_equiv"></xref> <xref ref="part_fillinblankproof_cpequiv"/></title>
-                <tabular>
+              Fill in the missing equivalences to prove contraposition.
+              <proof>
+               <tabular>
                   <row>
-                    <cell halign="center"><em>Proof:</em></cell>
-                    <cell halign="center"><m>P \to Q</m></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>\neg P \lor Q</m></cell>
-                    <cell halign="center"><nbsp/>\hspace{.25in}<nbsp/></cell>
-                    <cell halign="center">using <em>\hspace{1in}</em></cell>
+                    <cell><m> P \to Q</m> </cell>
+                    <cell><m>\equiv \neg P \lor Q</m></cell>
+                    <cell>using <fillin/> </cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>Q \lor \neg P</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{1in}</em></cell>
+                    <cell></cell>
+                    <cell><m>\equiv Q \lor \neg P</m></cell>
+                    <cell>using <fillin/> </cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>\neg (\neg Q) \lor \neg P</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{1in}</em></cell>
+                    <cell></cell>
+                    <cell><m>\equiv \neg (\neg Q) \lor \neg P</m></cell>
+                    <cell>using <fillin/> </cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>\neg Q \to \neg P</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{1in}</em> <nbsp/> <nbsp/><m>\Box</m></cell>
+                    <cell></cell>
+                    <cell><m>\equiv \neg Q \to \neg P</m></cell>
+                    <cell>using <fillin/> </cell>
                   </row>
                 </tabular>
-              </table>
+              </proof>
             </p>
           </li>
           <li xml:id="part_fillinblanksproof_ifthenand">
             <p>
-              Fill in the missing steps of the proof in <xref ref="tab_fillinblanksproof_ifthenand"></xref> using the equivalences given.
+              Fill in the missing steps of the proof using the given equivalences.
               What new equivalence did we just prove?
-              <table xml:id="tab_fillinblanksproof_ifthenand">
-                <title>Fill in the blanks to expand <m>P \to (Q \land R)</m> for <xref ref="act_proof_logical_equiv"></xref> <xref ref="part_fillinblanksproof_ifthenand"/></title>
+              <proof>
                 <tabular>
                   <row>
-                    <cell halign="center"><em>Proof:</em></cell>
-                    <cell halign="center"><m>P \to (Q \land R)</m></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><em>\hspace{1in}</em></cell>
-                    <cell halign="center"><nbsp/>\hspace{.25in}<nbsp/></cell>
-                    <cell halign="center">using implication</cell>
+                    <cell> <m> P \to (Q \land R) </m> </cell>
+                    <cell><m>\equiv</m> <fillin/> using implication</cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><em>\hspace{1in}</em></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using the distributive property</cell>
+                    <cell></cell>
+                    <cell><m>\equiv </m> <fillin/> using the distributive property</cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><em>\hspace{1in}</em></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using implication (twice) <nbsp/> <nbsp/><m>\Box</m></cell>
+                    <cell></cell>
+                    <cell><m>\equiv </m> <fillin/> using implication (twice)</cell>
                   </row>
                 </tabular>
-              </table>
+              </proof>
             </p>
           </li>
           <li xml:id="part_proof_mp_using_equiv">
             <p>
-              Fill in the missing equivalences in <xref ref="table_equiv_proof_mp"></xref>
-              to prove <m>((P \land (P \to Q)) \to Q) \equiv \str{T}</m>.
-              This tautology that shows that <em>modus ponens</em>
+              Fill in the missing equivalences 
+              to prove <me>((P \land (P \to Q)) \to Q) \equiv \str{T}</me>.
+              This tautology shows that <em>modus ponens</em>
               (which we will see in <xref ref="thm_logical_infer"></xref>
-              <xref ref="part_thm_infer_mp"/> is valid.
-              <table xml:id="table_equiv_proof_mp">
-                <title>Using equivalences to prove <em>modus ponens</em> is valid for <xref ref="act_proof_logical_equiv"></xref> <xref ref="part_proof_mp_using_equiv"/></title>
+              <xref ref="part_thm_infer_mp"/>) is valid.
+              <proof>
                 <tabular>
                   <row>
-                    <cell halign="center"><em>Proof:</em></cell>
-                    <cell halign="center"><m>(P \land (P \to Q)) \to Q</m></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>(P \land (\neg P \lor Q)) \to Q</m></cell>
-                    <cell halign="center"><nbsp/>\hspace{.25in}<nbsp/></cell>
-                    <cell halign="center">using <em>\hspace{.75in}</em></cell>
+                    <cell><m>(P \land (P \to Q)) \to Q</m></cell>
+                    <cell><m>\equiv(P \land (\neg P \lor Q)) \to Q</m> </cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>((P \land \neg P) \lor (P \land Q)) \to Q</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{.75in}</em></cell>
+                    <cell></cell>
+                    <cell><m><mspace width=".5in"/></m> using <fillin/></cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>(\str{F} \lor (P \land Q)) \to Q</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{.75in}</em></cell>
+                    <cell></cell>
+                    <cell><m>\equiv ((P \land \neg P) \lor (P \land Q)) \to Q</m></cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>(P \land Q) \to Q</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{.75in}</em></cell>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>\neg(P \land Q) \lor Q</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{.75in}</em></cell>
+                    <cell></cell>
+                    <cell> <m>\equiv(\str{F} \lor (P \land Q)) \to Q</m>  </cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>(\neg P \lor \neg Q) \lor Q</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{.75in}</em></cell>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>\neg P \lor (\neg Q \lor Q)</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{.75in}</em></cell>
+                    <cell></cell>
+                    <cell><m>\equiv (P \land Q) \to Q</m> </cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>\neg P \lor \str{T}</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{.75in}</em></cell>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
                   </row>
                   <row>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"><m>\equiv</m></cell>
-                    <cell halign="center"><m>\str{T}</m></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center">using <em>\hspace{.75in}</em> <nbsp/> <nbsp/><m>\Box</m></cell>
+                    <cell></cell>
+                    <cell><m>\equiv \neg(P \land Q) \lor Q</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv(\neg P \lor \neg Q) \lor Q</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv \neg P \lor (\neg Q \lor Q)</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv \neg P \lor \str{T}</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv \str{T}</m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
                   </row>
                 </tabular>
-              </table>
+              </proof>
             </p>
           </li>
         </ol>
@@ -466,93 +439,61 @@
             <li xml:id="part_fillinblankproof_cpequiv_answers">
               <p>
                 Many lists of equivalences omit contraposition because it can be proved from the other equivalences.
-                Fill in the missing equivalences in <xref ref="tab_fillinblankproof_cpequiv"></xref> to prove contraposition.
+                Prove contraposition using other equivalences
+                This was <xref ref="act_proof_logical_equiv"></xref> <xref ref="part_fillinblankproof_cpequiv"></xref>.
                 <solution>
-                  <p>
-                    See <xref ref="tab_fillinblankproof_cpequiv_answers"></xref>.
-                  </p>
-                </solution>
-                <table xml:id="tab_fillinblankproof_cpequiv_answers">
-                  <title>Using equivalences to prove the contraposition equivalence for <xref ref="exam_proof_logical_equiv"></xref> <xref ref="part_fillinblankproof_cpequiv_answers"/></title>
                   <tabular>
                     <row>
-                      <cell halign="center"><em>Proof:</em></cell>
-                      <cell halign="center"><m>P \to Q</m></cell>
-                      <cell halign="center"><m>\equiv</m></cell>
-                      <cell halign="center"><m>\neg P \lor Q</m></cell>
-                      <cell halign="center"><nbsp/>\hspace{.25in}<nbsp/></cell>
-                      <cell halign="center">using implication</cell>
+                      <cell><em>Proof: </em> </cell>
+                      <cell></cell>
                     </row>
                     <row>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"><m>\equiv</m></cell>
-                      <cell halign="center"><m>Q \lor \neg P</m></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center">using the commutative property</cell>
+                      <cell><m> P \to Q</m> </cell>
+                      <cell><m>\equiv \neg P \lor Q</m> using implication </cell>
                     </row>
                     <row>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"><m>\equiv</m></cell>
-                      <cell halign="center"><m>\neg (\neg Q) \lor \neg P</m></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center">using double negation</cell>
+                      <cell></cell>
+                      <cell><m>\equiv Q \lor \neg P</m> using the commutative property </cell>
                     </row>
                     <row>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"><m>\equiv</m></cell>
-                      <cell halign="center"><m>\neg Q \to \neg P</m></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center">using implication <nbsp/> <nbsp/><m>\Box</m></cell>
+                      <cell></cell>
+                      <cell><m>\equiv \neg (\neg Q) \lor \neg P</m> using double negation </cell>
+                    </row>
+                    <row>
+                      <cell></cell>
+                      <cell><m>\equiv \neg Q \to \neg P</m> using implication</cell>
                     </row>
                   </tabular>
-                </table>
+                </solution>
               </p>
             </li>
             <li xml:id="part_fillinblanksproof_ifthenand_equiv">
               <p>
-                Fill in the missing steps of the proof in <xref ref="tab_fillinblanksproof_ifthenand"></xref> using the equivalences given.
-                What new equivalence did we just prove?
-                <solution>
-                  <p>
-                    See <xref ref="tab_fillinblanksproof_ifthenand_answers"></xref>.
-                    We just proved a new equivalence:
-                    <me>
+                Fill in the missing steps of the proof using the given equivalences to prove
+                <me>
                       P \to (Q \land R) \equiv (P \to Q) \land (P \to R)
-                    </me>
-                  </p>
-                </solution>
-                <table xml:id="tab_fillinblanksproof_ifthenand_answers">
-                  <title>Using equivalences to expand mathinlined4ce7bb95e50f26575f4d123af009e967f8d654fENDfor <xref ref="exam_proof_logical_equiv"></xref> <xref ref="part_fillinblanksproof_ifthenand"/></title>
+                </me> 
+                This was <xref ref="act_proof_logical_equiv"></xref> <xref ref="part_fillinblanksproof_ifthenand"></xref>. 
+                <solution>
                   <tabular>
-                    <row>
-                      <cell halign="center"><em>Proof.</em></cell>
-                      <cell halign="center"><m>P \to (Q \land R)</m></cell>
-                      <cell halign="center"><m>\equiv</m></cell>
-                      <cell halign="center"><m>\neg P \lor (Q \land R)</m></cell>
-                      <cell halign="center"><nbsp/>\hspace{.25in}<nbsp/></cell>
-                      <cell halign="center">using implication</cell>
-                    </row>
-                    <row>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"><m>\equiv</m></cell>
-                      <cell halign="center"><m>(\neg P \lor Q) \land (\neg P \lor R)</m></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center">using the distributive property</cell>
-                    </row>
-                    <row>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"><m>\equiv</m></cell>
-                      <cell halign="center"><m>(P \to Q) \land (P \to R)</m></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center">using implication (twice) <nbsp/>  <nbsp/><m>\Box</m></cell>
-                    </row>
-                  </tabular>
-                </table>
+                        <row>
+                          <cell><em>Proof.</em></cell>
+                          <cell></cell>
+                        </row>
+                        <row>
+                          <cell><m>P \to (Q \land R)</m></cell>
+                          <cell><m>\equiv \neg P \lor (Q \land R)</m> using implication</cell>
+                        </row>
+                        <row>
+                          <cell></cell>
+                          <cell><m>\equiv (\neg P \lor Q) \land (\neg P \lor R)</m> using the distributive property</cell>
+                        </row>
+                        <row>
+                          <cell></cell>
+                          <cell><m>\equiv (P \to Q) \land (P \to R)</m> using implication (twice) </cell>
+                        </row>
+                      </tabular>
+                </solution>
               </p>
             </li>
           </ol>
@@ -577,36 +518,33 @@
           State which equivalences you use.
         </p>
         <solution>
-          <p>
-            We simplify the negation in <xref ref="tab_neg_complicated"></xref>.
-          </p>
-        </solution>
-        <table xml:id="tab_neg_complicated">
-          <title>Using equivalences to negate the complicated statement from <xref ref="exam_neg_complicated"></xref></title>
           <tabular>
-            <row>
-              <cell halign="center"><m>\neg ((P \lor R) \land (Q \lor \neg R))</m></cell>
-              <cell halign="center"><m>\equiv</m></cell>
-              <cell halign="center"><m>\neg (P \lor R) \lor \neg (Q \lor \neg R)</m></cell>
-              <cell halign="center"></cell>
-              <cell halign="center">using De Morgan's laws</cell>
-            </row>
-            <row>
-              <cell halign="center"></cell>
-              <cell halign="center"><m>\equiv</m></cell>
-              <cell halign="center"><m>(\neg P \land \neg R) \lor (\neg Q \land \neg (\neg R))</m></cell>
-              <cell halign="center"></cell>
-              <cell halign="center">using De Morgan's laws (twice)</cell>
-            </row>
-            <row>
-              <cell halign="center"></cell>
-              <cell halign="center"><m>\equiv</m></cell>
-              <cell halign="center"><m>(\neg P \lor \neg R) \land (\neg Q \lor R)</m></cell>
-              <cell halign="center"></cell>
-              <cell halign="center">using double negation.</cell>
-            </row>
-          </tabular>
-        </table>
+              <row>
+                <cell><m>\neg ((P \lor R) \land (Q \lor \neg R))</m></cell>
+                <cell><m>\equiv \neg (P \lor R) \lor \neg (Q \lor \neg R)</m> </cell>
+              </row>
+              <row>
+                  <cell></cell>
+                  <cell> using De Morgan's laws </cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell><m>\equiv (\neg P \land \neg R) \lor (\neg Q \land \neg (\neg R))</m> </cell>
+              </row>
+              <row>
+                  <cell></cell>
+                  <cell> using De Morgan's laws (twice)</cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell><m>\equiv (\neg P \lor \neg R) \land (\neg Q \lor R)</m> </cell>
+              </row>
+              <row>
+                  <cell></cell>
+                  <cell> using double negation.</cell>
+              </row>
+            </tabular>
+        </solution>
       </statement>
     </example>
     <activity xml:id="act_simplify_complicated_statements">
@@ -797,54 +735,54 @@
                     so <m>(P \land (P \to Q)) \to Q</m> is a tautology.
                     Therefore, <em>modus ponens</em> is valid.
                   </p>
+                  <table xml:id="table_truthtable_mp">
+                    <title>Truth table showing <em>modus ponens</em> is valid for <xref ref="exam_mp_valid"></xref> <xref ref="part_proof_mp_using_truthtable"/></title>
+                    <tabular>
+                      <row>
+                        <cell halign="center"><m>P</m></cell>
+                        <cell halign="center"><m>Q</m></cell>
+                        <cell halign="center"><m>P \to Q</m></cell>
+                        <cell halign="center"><m>P \land (P \to Q)</m></cell>
+                        <cell halign="center"><m>(P \land (P \to Q)) \to Q</m></cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                      </row>
+                      <row>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                      </row>
+                      <row>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                      </row>
+                      <row>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                        <cell halign="center"><m>\str{F}</m></cell>
+                        <cell halign="center"><m>\str{T}</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
                 </solution>
-                <table xml:id="table_truthtable_mp">
-                  <title>Truth table showing <em>modus ponens</em> is valid for <xref ref="exam_mp_valid"></xref> <xref ref="part_proof_mp_using_truthtable"/></title>
-                  <tabular>
-                    <row>
-                      <cell halign="center"><m>P</m></cell>
-                      <cell halign="center"><m>Q</m></cell>
-                      <cell halign="center"><m>P \to Q</m></cell>
-                      <cell halign="center"><m>P \land (P \to Q)</m></cell>
-                      <cell halign="center"><m>(P \land (P \to Q)) \to Q</m></cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                    </row>
-                    <row>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                      <cell halign="center"><m>\str{F}</m></cell>
-                      <cell halign="center"><m>\str{F}</m></cell>
-                      <cell halign="center"><m>\str{F}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                    </row>
-                    <row>
-                      <cell halign="center"><m>\str{F}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                      <cell halign="center"><m>\str{F}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                    </row>
-                    <row>
-                      <cell halign="center"><m>\str{F}</m></cell>
-                      <cell halign="center"><m>\str{F}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                      <cell halign="center"><m>\str{F}</m></cell>
-                      <cell halign="center"><m>\str{T}</m></cell>
-                    </row>
-                  </tabular>
-                </table>
               </p>
             </li>
           </ol>
@@ -869,14 +807,14 @@
           let's number each statement for future reference.
         </p>
         <p>
-          <em>Proof.</em> Assume \ding{192} <m>P \to Q</m> and \ding{193} <m>\neg Q</m>.
+          <em>Proof.</em> Assume &#x2460; <m> P \to Q</m> and &#x2461;  <m>\neg Q</m>.
         </p>
         <p>
-          By \ding{192} and contraposition <xref ref="thm_cp"/>,
-          it follows that \ding{194} <m>\neg Q \to \neg P</m>.
+          By &#x2460;  and contraposition <xref ref="thm_cp"/>,
+          it follows that &#x2462;   <m>\neg Q \to \neg P</m>.
         </p>
         <p>
-          By \ding{193}, \ding{194}, and <em>modus ponens</em>,
+          By &#x2461; , &#x2462;  , and <em>modus ponens</em>,
           it follows that <m>\neg P</m>.
           <nbsp/> <nbsp/><m>\Box</m>
         </p>
@@ -893,10 +831,20 @@
           <li>
             <p>
               Fill in the missing inferences to prove <m>P \land Q \implies P \lor Q</m>.
-              <em>Proof.</em> Assume \ding{192} <m>P \land Q</m>.
-              By \ding{192} and <fillin/> it follows that \ding{193} <m>P</m>.
-              By \ding{193} and <fillin/>,
-              it follows that <m>P \lor Q</m>.<nbsp/> <nbsp/><m>\Box</m>
+              <proof>
+                <p>
+                  Assume &#x2460;  <m>P \land Q</m>.
+                </p>
+                <p>
+                  By &#x2460;  and <fillin/> it follows that &#x2461;  <m>P</m>.
+                </p>
+                <p>
+                  By &#x2461;  and <fillin/>,
+                </p>
+                <p>
+                  it follows that <m>P \lor Q</m>.<nbsp/> <nbsp/><m>\Box</m>
+                </p>
+              </proof>
             </p>
           </li>
           <li>
@@ -906,37 +854,62 @@
               <me>
                 \left. \begin{array}{cc} P \to Q \\ Q \to R \end{array}  \right\} \implies P \to R
               </me>.
-              <em>Proof.</em> Assume \ding{192} <m>P \to Q</m> and \ding{193} <m>Q \to R</m>.
-              We will use a direct proof <xref ref="pff_if_then_direct"/> to prove <m>P \to R</m>.
-              Assume \ding{194} <m>P</m>.
-              By \ding{194}, \ding{192}, and <em>modus ponens</em>,
-              it follows that \ding{195} <fillin/>.
-              By \ding{195}, \ding{193}, and <em>modus ponens</em>,
-              it follows that <fillin/>.
-              Thus, <m>P \to R</m>.<nbsp/>  <nbsp/><m>\Box</m>
+              <proof>
+                <p>
+                  Assume &#x2460;  <m>P \to Q</m> and &#x2461;  <m>Q \to R</m>.
+                </p>
+                <p>
+                  We will use a direct proof <xref ref="pff_if_then_direct"/> to prove <m>P \to R</m>.
+                </p>
+                <p>
+                  Assume &#x2462;   <m>P</m>.
+                </p>
+                <p>
+                  By &#x2462;  , &#x2460; , and <em>modus ponens</em>,
+                  it follows that &#x2463;  <fillin/>.
+                </p>
+                <p>
+                  By &#x2463; , &#x2461; , and <em>modus ponens</em>,
+                  it follows that <fillin/>.
+                </p>
+                <p>
+                  Thus, <m>P \to R</m>.<nbsp/>  <nbsp/><m>\Box</m>
+                </p>
+              </proof>
             </p>
           </li>
           <li xml:id="part_proof_equiv_infer_another">
             <p>
-              Fill in the missing equivalences,
-              inferences, or conclusions to prove
+              Fill in the missing equivalences, inferences, or conclusions to prove
               <me>
                 \left. \begin{array}{cc} \neg(Q \lor R) \\ P \to Q \end{array}  \right\} \implies \neg (P \lor R)
               </me>.
-              <em>Proof.</em> Assume \ding{192}
-              <m>\neg(Q \lor R)</m> and \ding{193} <m>P \to Q</m>.
-              By \ding{192} and DeMorgan's Law it follows that \ding{194} <fillin/>.
-              By \ding{194} and <fillin/>, it follows that \ding{194} <m>\neg Q</m>.
-              By \ding{194}, \ding{193}, and <em>modus tollens</em>,
-              it follows that \ding{195} <fillin/>.
-              By \ding{194} and <fillin/>,
-              it follows that \ding{196} <m>\neg R \land \neg Q</m>.
-              By \ding{196} and simplification,
-              it follows that \ding{197} <fillin/>.
-              By \ding{195}, \ding{197}, and conjunction,
-              it follows that \ding{198} <fillin/>.
-              By \ding{198} and <fillin/>, it follows that <m>\neg(P \lor R)</m>.
-              <nbsp/>  <nbsp/><m>\Box</m>
+              <proof>
+                <p>
+                  Assume &#x2460; <m>\neg(Q \lor R)</m> and &#x2461;  <m>P \to Q</m>.
+                </p>
+                <p>
+                  By &#x2460;  and DeMorgan's Law it follows that &#x2462;   <fillin/>.
+                </p>
+                <p>
+                  By &#x2462;   and <fillin/>, it follows that &#x2462;   <m>\neg Q</m>.
+                </p>
+                <p>
+                  By &#x2462;  , &#x2461; , and <em>modus tollens</em>, it follows that &#x2463;  <fillin/>.
+                </p>
+                <p>
+                  By &#x2462;   and <fillin/>, it follows that &#x2464; <m>\neg R \land \neg Q</m>.
+                </p>
+                <p>
+                  By &#x2464; and simplification, it follows that &#x2465; <fillin/>.
+                </p>
+                <p>
+                  By &#x2463; , &#x2465; , and conjunction, it follows that &#x2466; <fillin/>.
+                </p>
+                <p>
+                  By &#x2466; and <fillin/>, it follows that <m>\neg(P \lor R)</m>
+                </p>
+              </proof>
             </p>
           </li>
         </ol>
@@ -956,39 +929,40 @@
             \left. \begin{array}{cc} \neg(Q \lor R) \\ P \to Q \end{array}  \right\} \implies \neg (P \lor R)
           </me>
         </p>
-        <p>
-          <em>Proof.</em> Assume \ding{192}
-          <m>\neg(Q \lor R)</m> and \ding{193} <m>P \to Q</m>.
-        </p>
-        <p>
-          By \ding{192} and DeMorgan's Law it follows that \ding{194} <m>\neg Q \land \neg R</m>.
-        </p>
-        <p>
-          By \ding{194} and simplification,
-          it follows that \ding{194} <m>\neg Q</m>.
-        </p>
-        <p>
-          By \ding{194}, \ding{193}, and <em>modus tollens</em>,
-          it follows that \ding{195} <m>\neg P</m>.
-        </p>
-        <p>
-          By \ding{194} and the commutative property,
-          it follows that \ding{196} <m>\neg R \land \neg Q</m>.
-        </p>
-        <p>
-          By \ding{196} and simplification,
-          it follows that \ding{197} <m>\neg R</m>.
-        </p>
-        <p>
-          By \ding{195}, \ding{197}, and conjunction,
-          it follows that \ding{198} <m>\neg P \land \neg R</m>.
-        </p>
-        <p>
-          By \ding{198} and Demorgan's laws,
-          it follows that <m>\neg(P \lor R)</m>.
-          <nbsp/> <nbsp/><m>\Box</m>
-        </p>
       </statement>
+      <solution>
+        <p>
+          <em>Proof.</em> Assume &#x2460; 
+          <m>\neg(Q \lor R)</m> and &#x2461;  <m>P \to Q</m>.
+        </p>
+        <p>
+          By &#x2460;  and DeMorgan's Law it follows that &#x2462;   <m>\neg Q \land \neg R</m>.
+        </p>
+        <p>
+          By &#x2462;   and simplification,
+          it follows that &#x2462;   <m>\neg Q</m>.
+        </p>
+        <p>
+          By &#x2462;  , &#x2461; , and <em>modus tollens</em>,
+          it follows that &#x2463;  <m>\neg P</m>.
+        </p>
+        <p>
+          By &#x2462;   and the commutative property,
+          it follows that &#x2464; <m>\neg R \land \neg Q</m>.
+        </p>
+        <p>
+          By &#x2464; and simplification,
+          it follows that &#x2465; <m>\neg R</m>.
+        </p>
+        <p>
+          By &#x2463; , &#x2465; , and conjunction,
+          it follows that &#x2466; <m>\neg P \land \neg R</m>.
+        </p>
+        <p>
+          By &#x2466; and Demorgan's laws,
+          it follows that <m>\neg(P \lor R)</m>.
+        </p>
+      </solution>
     </example>
   </subsection>
   <subsection>
@@ -1016,8 +990,7 @@
               </li>
               <li>
                 <p>
-                  <m>P \lor \str{T} \equiv \str{T}</m> Hint: Begin with for the statement <m>P \lor \str{T}</m> to be false,
-                  we would need both <ellipsis/>
+                  <m>P \lor \str{T} \equiv \str{T}</m> 
                 </p>
               </li>
             </ol>
@@ -1041,7 +1014,8 @@
           </li>
           <li>
             <p>
-              Hint: Follow the hint.
+              Hint: Begin with <q>for the statement <m>P \lor \str{T}</m> to be false,
+                  we would need both <ellipsis/></q>
               It should never be false.
             </p>
           </li>
@@ -1121,37 +1095,24 @@
         <statement>
           <p>
             Many lists of equivalences omit broken promise because it can be proved from the other equivalences.
-            Fill in the missing equivalences in <xref ref="tab_proof_equiv_broken_promise"></xref> to prove broken promise.
+            Fill in the missing equivalences to prove broken promise.
           </p>
-          <table xml:id="tab_proof_equiv_broken_promise">
-            <title>Fill in the blanks to prove broken promise for Exercise <xref ref="exer_proof_equiv_broken_promise" text="global"></xref></title>
+          <proof>
             <tabular>
               <row>
-                <cell halign="center"><em>Proof:</em></cell>
-                <cell halign="center"><m>\neg(P \to Q)</m></cell>
-                <cell halign="center"><m>\equiv</m></cell>
-                <cell halign="center"><m>\neg(\neg P \lor Q)</m></cell>
-                <cell halign="center"><nbsp/>\hspace{.25in}<nbsp/></cell>
-                <cell halign="center">using <em>\hspace{1in}</em></cell>
+                <cell><m>\neg(P \to Q)</m></cell>
+                <cell><m>\equiv \neg(\neg P \lor Q)</m> using <fillin/> </cell>
               </row>
               <row>
-                <cell halign="center"></cell>
-                <cell halign="center"></cell>
-                <cell halign="center"><m>\equiv</m></cell>
-                <cell halign="center"><m>\neg(\neg P) \land \neg Q</m></cell>
-                <cell halign="center"></cell>
-                <cell halign="center">busing <em>\hspace{1in}</em></cell>
+                <cell></cell>
+                <cell><m>\equiv \neg(\neg P) \land \neg Q</m> using <fillin/> </cell>
               </row>
               <row>
-                <cell halign="center"></cell>
-                <cell halign="center"></cell>
-                <cell halign="center"><m>\equiv</m></cell>
-                <cell halign="center"><m>P \land \neg Q</m></cell>
-                <cell halign="center"></cell>
-                <cell halign="center">using <em>\hspace{1in}</em> <nbsp/>  <nbsp/><m>\Box</m></cell>
+                <cell></cell>
+                <cell ><m>\equiv P \land \neg Q</m> using <fillin/> </cell>
               </row>
             </tabular>
-          </table>
+          </proof>
         </statement>
         <hint>
         <p>
@@ -1164,54 +1125,32 @@
         <title>Understand</title>
         <statement>
           <p>
-            Fill in the missing equivalences in <xref ref="tab_proof_equiv_PtoQtoR"></xref>
-            to prove <m>P \to (Q \to R)\equiv (P \land Q) \to R</m>.
+            Fill in the missing equivalences to prove <m>P \to (Q \to R)\equiv (P \land Q) \to R</m>.
           </p>
-          <table xml:id="tab_proof_equiv_PtoQtoR">
-            <title>Fill in the blanks to prove <m>P \to (Q \to R) \equiv (P \land Q) \to R</m> for Exercise <xref ref="exer_proof_equiv_PtoQtoR" text="global"></xref></title>
+          <proof>
             <tabular>
               <row>
-                <cell halign="center"><em>Proof:</em></cell>
-                <cell halign="center"><m>P \to (Q \to R)</m></cell>
-                <cell halign="center"><m>\equiv</m></cell>
-                <cell halign="center"><m>\neg P \lor (Q \to R)</m></cell>
-                <cell halign="center"><nbsp/>\hspace{.25in}<nbsp/></cell>
-                <cell halign="center">using <em>\hspace{1in}</em></cell>
+                <cell><m>P \to (Q \to R)</m></cell>
+                <cell><m>\equiv \neg P \lor (Q \to R)</m> using <fillin/> </cell>
               </row>
               <row>
-                <cell halign="center"></cell>
-                <cell halign="center"></cell>
-                <cell halign="center"><m>\equiv</m></cell>
-                <cell halign="center"><m>\neg P \lor (\neg Q \lor R)</m></cell>
-                <cell halign="center"></cell>
-                <cell halign="center">using <em>\hspace{1in}</em></cell>
+                <cell></cell>
+                <cell><m>\equiv \neg P \lor (\neg Q \lor R)</m> using <fillin/> </cell>
               </row>
               <row>
-                <cell halign="center"></cell>
-                <cell halign="center"></cell>
-                <cell halign="center"><m>\equiv</m></cell>
-                <cell halign="center"><m>(\neg P \lor \neg Q) \lor R</m></cell>
-                <cell halign="center"></cell>
-                <cell halign="center">using <em>\hspace{1in}</em></cell>
+                <cell></cell>
+                <cell><m>\equiv (\neg P \lor \neg Q) \lor R</m> using <fillin/> </cell>
               </row>
               <row>
-                <cell halign="center"></cell>
-                <cell halign="center"></cell>
-                <cell halign="center"><m>\equiv</m></cell>
-                <cell halign="center"><m>\neg(P \land Q) \lor R</m></cell>
-                <cell halign="center"></cell>
-                <cell halign="center">using <em>\hspace{1in}</em></cell>
+                <cell></cell>
+                <cell><m>\equiv \neg(P \land Q) \lor R</m> using <fillin/> </cell>
               </row>
               <row>
-                <cell halign="center"></cell>
-                <cell halign="center"></cell>
-                <cell halign="center"><m>\equiv</m></cell>
-                <cell halign="center"><m>(P \land Q) \to R</m></cell>
-                <cell halign="center"></cell>
-                <cell halign="center">using <em>\hspace{1in}</em> <nbsp/>  <nbsp/><m>\Box</m></cell>
+                <cell></cell>
+                <cell><m>\equiv (P \land Q) \to R</m> using <fillin/> </cell>
               </row>
             </tabular>
-          </table>
+          </proof>
         </statement>
         <hint>
         <p>
@@ -1226,10 +1165,86 @@
           <p>
             This exercise repeats <xref ref="act_proof_logical_equiv"></xref>
             <xref ref="part_proof_mp_using_equiv"/>.
-            Fill in the missing equivalences in <xref ref="table_equiv_proof_mp"></xref>
+            Fill in the missing equivalences 
             to prove <m>((P \land (P \to Q)) \to Q) \equiv \str{T}</m>.
           </p>
-        </statement>
+                <proof>
+                <tabular>
+                  <row>
+                    <cell><m>(P \land (P \to Q)) \to Q</m></cell>
+                    <cell><m>\equiv(P \land (\neg P \lor Q)) \to Q</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m><mspace width=".5in"/></m> using <fillin/></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv ((P \land \neg P) \lor (P \land Q)) \to Q</m></cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m>\equiv(\str{F} \lor (P \land Q)) \to Q</m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv (P \land Q) \to Q</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv \neg(P \land Q) \lor Q</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv(\neg P \lor \neg Q) \lor Q</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv \neg P \lor (\neg Q \lor Q)</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv \neg P \lor \str{T}</m> </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell><m>\equiv \str{T}</m>  </cell>
+                  </row>
+                  <row>
+                    <cell></cell>
+                    <cell> <m> <mspace width=".5in"/> </m> using <m> \underline{\hspace{1in}} </m>  </cell>
+                  </row>
+                </tabular>
+              </proof>
+            </statement>
         <hint>
         <p>
           Hint: The first three reasons are, in some order,
@@ -1525,16 +1540,18 @@
           <p>
             Fill in the missing conclusions to prove <m>P \land Q \implies Q</m>.
           </p>
-          <p>
-            <em>Proof.</em> Assume \ding{192} <m>P \land Q</m>.
-          </p>
-          <p>
-            By \ding{192} and the commutative property it follows that \ding{193} <fillin/>.
-          </p>
-          <p>
-            By \ding{193} and simplification,
-            it follows that <fillin/>.<nbsp/> <nbsp/><m>\Box</m>
-          </p>
+          <proof>
+            <p>
+              Assume &#x2460;  <m>P \land Q</m>.
+            </p>
+            <p>
+              By &#x2460;  and the commutative property it follows that &#x2461;  <fillin/>.
+            </p>
+            <p>
+              By &#x2461;  and simplification,
+              it follows that <fillin/>.<nbsp/> <nbsp/><m>\Box</m>
+            </p>
+          </proof>
         </statement>
         <hint>
         <p>
@@ -1551,19 +1568,21 @@
               \left. \begin{array}{cc} P \\ P \to Q \\ P \to R \end{array}  \right\} \implies Q \land R
             </me>
           </p>
-          <p>
-            <em>Proof.</em> Assume \ding{192} <m>P</m>, \ding{193} <m>P \to Q</m> and \ding{194} <m>P \to R</m>.
-          </p>
-          <p>
-            By \ding{192}, \ding{193}, and <fillin/>, it follows that \ding{195} <m>Q</m>.
-          </p>
-          <p>
-            By \ding{192}, \ding{194}, and <fillin/>, it follows that \ding{196} <m>R</m>.
-          </p>
-          <p>
-            By \ding{195}, \ding{196}, and <fillin/>,
-            it follows that <m>Q \land R</m>.<nbsp/> <nbsp/><m>\Box</m>
-          </p>
+          <proof>
+            <p>
+              Assume &#x2460;  <m>P</m>, &#x2461;  <m>P \to Q</m> and &#x2462;   <m>P \to R</m>.
+            </p>
+            <p>
+              By &#x2460; , &#x2461; , and <fillin/>, it follows that &#x2463;  <m>Q</m>.
+            </p>
+            <p>
+              By &#x2460; , &#x2462;  , and <fillin/>, it follows that &#x2464; <m>R</m>.
+            </p>
+            <p>
+              By &#x2463; , &#x2464; , and <fillin/>,
+              it follows that <m>Q \land R</m>.<nbsp/> <nbsp/><m>\Box</m>
+            </p>
+          </proof>
         </statement>
         <hint>
         <p>
@@ -1627,12 +1646,23 @@
               </li>
               <li>
                 <p>
-                  Fill in the missing equivalences and inferences to prove <m>\left. \begin{array}{cc} P \lor Q \\ \neg P \end{array} \right\} \implies Q</m>.
-                  <em>Proof.</em> Assume \ding{192} <m>P\lor Q</m> and \ding{193} <m>\neg P</m>.
-                  By <fillin/> it follows from \ding{192} that <m>\neg (\neg P) \lor Q</m>.
-                  By <fillin/>, it follows that <m>\neg P \to Q</m>.
-                  We know <m>\neg P</m> from \ding{193}, so by <fillin/> it follows that <m>Q</m> <m>\Box</m>
+                  Fill in the missing equivalences and inferences to prove 
+                  <me>\left. \begin{array}{cc} P \lor Q \\ \neg P \end{array} \right\} \implies Q</me>
                 </p>
+                <proof>
+                  <p>
+                    Assume &#x2460;  <m>P\lor Q</m> and &#x2461;  <m>\neg P</m>.
+                  </p>
+                  <p>
+                    By <fillin/> it follows from &#x2460;  that <m>\neg (\neg P) \lor Q</m>.
+                  </p>
+                  <p>
+                    By <fillin/>, it follows that <m>\neg P \to Q</m>.
+                  </p>
+                  <p>
+                    We know <m>\neg P</m> from &#x2461; , so by <fillin/> it follows that <m>Q</m>
+                  </p>
+                </proof>
               </li>
             </ol>
           </p>
@@ -1644,47 +1674,40 @@
           <p>
             Fill in the missing equivalences,
             inferences, or conclusions,
-            to prove the inference that justifies proof by cases ( <xref ref="sub_pff_cases"></xref>.
+            to prove the inference that justifies proof by cases <xref ref="thm_pff_cases"></xref>.
             <me>
               \left. \begin{array}{c} P \lor Q \\ P \to R \\ Q \to R \end{array}  \right \} \implies R
             </me>
           </p>
-          <p>
-            <em>Proof.</em> Assume \ding{192}
-            <m>P \lor Q</m>, \ding{193} <m>P \to R</m>,
-            and \ding{194} <m>Q \to R</m>.
-          </p>
-          <p>
-            By \ding{193}, \ding{194}, and conjunction it follows that \ding{195} <fillin/>.
-          </p>
-          <p>
-            By \ding{195} and implication (twice),
-            it follows that \ding{196} <fillin/>.
-          </p>
-          <p>
-            By \ding{196} and the commutative property (twice),
-            it follows that \ding{197} <fillin/>.
-          </p>
-          <p>
-            By \ding{197} and the distributive property,
-            it follows that \ding{198} <fillin/>.
-          </p>
-          <p>
-            By \ding{198} and the commutative property,
-            it follows that \ding{199} <fillin/>.
-          </p>
-          <p>
-            By \ding{199} and Demorgan's law,
-            it follows that \ding{200} <fillin/>.
-          </p>
-          <p>
-            By \ding{199} and implication,
-            it follows that \ding{201} <fillin/>.
-          </p>
-          <p>
-            By \ding{201}, \ding{192}, and <fillin/> it follows that <m>R</m>.
-            <nbsp/> <nbsp/><m>\Box</m>
-          </p>
+            <proof>
+              <p>
+                Assume &#x2460; <m>P \lor Q</m>, &#x2461;  <m>P \to R</m>, and &#x2462;   <m>Q \to R</m>.
+              </p>
+              <p>
+                By &#x2461; , &#x2462;  , and conjunction it follows that &#x2463;  <fillin/>.
+              </p>
+              <p>
+                By &#x2463;  and implication (twice), it follows that &#x2464; <fillin/>.
+              </p>
+              <p>
+                By &#x2464; and the commutative property (twice), it follows that &#x2465; <fillin/>.
+              </p>
+              <p>
+                By &#x2465; and the distributive property, it follows that &#x2466; <fillin/>.
+              </p>
+              <p>
+                By &#x2466; and the commutative property, it follows that &#x2467; <fillin/>.
+              </p>
+              <p>
+                By &#x2467; and Demorgan's law, it follows that &#x2468; <fillin/>.
+              </p>
+              <p>
+                By &#x2467; and implication, it follows that &#x2469; <fillin/>.
+              </p>
+              <p>
+                By &#x2469; , &#x2460; , and <fillin/> it follows that <m>R</m>.
+              </p>
+            </proof>
         </statement>
         <hint>
         <p>
@@ -1701,29 +1724,29 @@
               \left. \begin{array}{cc} P \land Q  \\ \neg(\neg R \land P) \end{array}  \right\} \implies P \land R
             </me>
           </p>
-          <p>
-            <em>Proof.</em> Assume \ding{192}
-            <m>P\land Q</m> and \ding{193} <m>\neg(\neg R \land P)</m>.
-          </p>
-          <p>
-            By <fillin/> it follows from \ding{193} that <m>\neg (\neg R) \lor \neg P</m>.
-          </p>
-          <p>
-            By <fillin/>, it follows that <m>R \lor \neg P</m>.
-          </p>
-          <p>
-            By <fillin/>, it follows that <m>\neg P \lor R</m>.
-          </p>
-          <p>
-            By <fillin/>, it follows that <m>P \to R</m>.
-          </p>
-          <p>
-            By <fillin/>, it follows from \ding{192} that <m>P</m>.
-          </p>
-          <p>
-            By <fillin/>, it follows that <m>R</m>.
-            <m>\Box</m>
-          </p>
+          <proof>
+            <p>
+              Assume &#x2460; <m>P\land Q</m> and &#x2461;  <m>\neg(\neg R \land P)</m>.
+            </p>
+            <p>
+              By <fillin/> it follows from &#x2461;  that <m>\neg (\neg R) \lor \neg P</m>.
+            </p>
+            <p>
+              By <fillin/>, it follows that <m>R \lor \neg P</m>.
+            </p>
+            <p>
+              By <fillin/>, it follows that <m>\neg P \lor R</m>.
+            </p>
+            <p>
+              By <fillin/>, it follows that <m>P \to R</m>.
+            </p>
+            <p>
+              By <fillin/>, it follows from &#x2460;  that <m>P</m>.
+            </p>
+            <p>
+              By <fillin/>, it follows that <m>R</m>.
+            </p>
+          </proof>
         </statement>
       </exercise>
       <exercise xml:id="exer_proof_infer_random2">
@@ -1737,23 +1760,20 @@
             Fill in the missing steps to prove it,
             using the equivalences and inferences given.
           </p>
-          <p>
-            <em>Proof.</em> Assume \ding{192}
-            <m>P \to \neg Q</m> and \ding{193} <m>R \to (P \land Q)</m>.
-          </p>
-          <p>
-            By \ding{192} and implication,
-            it follows that \ding{194} <fillin/>.
-          </p>
-          <p>
-            By \ding{193} and DeMorgan's laws,
-            it follows that \ding{195}<fillin/>.
-          </p>
-          <p>
-            By \ding{193}, \ding{195}, <em>modus tollens</em>,
-            it follows that <fillin/>.
-            <m>\Box</m>
-          </p>
+          <proof>
+            <p>
+              Assume &#x2460; <m>P \to \neg Q</m> and &#x2461;  <m>R \to (P \land Q)</m>.
+            </p>
+            <p>
+              By &#x2460;  and implication, it follows that &#x2462; <fillin/>.
+            </p>
+            <p>
+              By &#x2461;  and DeMorgan's laws, it follows that &#x2463; <fillin/>.
+            </p>
+            <p>
+              By &#x2461; , &#x2463; , <em>modus tollens</em>, it follows that <fillin/>.
+            </p>
+          </proof>
         </statement>
         <hint>
         <p>
@@ -1765,7 +1785,7 @@
         <title>Understand</title>
         <statement>
           <p>
-            <nbsp/> Use equivalences and inferences from our lists to prove
+            <nbsp/> Use equivalences and inferences to prove
             <me>
               \left. \begin{array}{cc} \neg P \to Q \\ \neg P \to \neg Q \end{array}  \right\} \implies P
             </me>

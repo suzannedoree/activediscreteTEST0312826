@@ -2,12 +2,18 @@
   <title>Logical Connectives</title>
   <introduction>
     <p>
-      In this section, we introduce the logical connectives for
+      Many mathematical statements use the logical connectives
       <q>and</q>
       and
-      <q>or</q>
-      along with their proof formats.
-      We discuss logical equivalence and negation and use truth tables to define connectives and verify equivalences.
+      <q>or</q>.
+      In this section we discuss when such statements are true or false,
+      along with the proof formats to prove such statements are true.
+      We introduce truth tables, a tool for understanding the logic of complicated statements and
+      use truth tables to determine whether two statements have the same truth values (logical equivalence).
+      Lastly, we introduce the logical negation, the statement having the opposite truth value, and explore how to negate statements involving 
+      <q>and</q>
+      and
+      <q>or</q>.
     </p>
   </introduction>
   <subsection xml:id="sub_TorF">
@@ -88,9 +94,11 @@
             <li>
               <p>
                 A <term>statement</term> is a sentence that is either true or false.
-                For example,
-                <m>P=</m> the integer six has exactly four positive divisors. is a statement that happens to be true because the positive divisors of six are 1, 2, 3, and 6.
-                The statement <m>Q=</m> the cycle <m>C_5</m> has a vertex of degree three. is false because all the vertices of <m>C_5</m> have degree two.
+                For example, if the statement <m>P</m> is <q> the integer six has exactly four positive divisors</q>,
+                then <m>P</m> happens to be true because the positive divisors of six are 1, 2, 3, and 6.
+                If the statement <m>Q</m> is <q>the cycle <m>C_5</m> has a vertex of degree three</q>, then <m>Q</m> 
+                is false 
+                because all the vertices of <m>C_5</m> have degree two.
               </p>
             </li>
             <li>
@@ -99,8 +107,8 @@
                 <q><m>P</m> <term>and</term> <m>Q</m></q>, denoted <m>P \land Q</m>,
                 is true if both <m>P</m> and <m>Q</m> are true and false otherwise.
                 For example,
-                the statement The integer seven is positive and odd. is true because seven is positive and seven is odd.
-                The statement The integer six is positive and odd. is false,
+                the statement <q>the integer seven is positive and odd</q> is true because seven is positive and seven is odd.
+                The statement <q>the integer six is positive and odd</q> is false,
                 even though six is positive because six is not odd.
               </p>
             </li>
@@ -110,9 +118,9 @@
                 <q><m>P</m> <term>or</term> <m>Q</m></q>, denoted <m>P \lor Q</m>,
                 is true if at least one of <m>P</m> and <m>Q</m> are true and false otherwise.
                 For example,
-                the statement The integer six is positive or odd. is true,
+                the statement <q>the integer six is positive or odd</q> is true,
                 because six is positive.
-                The statement A graph with five vertices is either the cycle <m>C_5</m> or the complete graph <m>K_5</m>. from <xref ref="act_TorF"></xref>
+                The statement <q>a graph with five vertices is either the cycle <m>C_5</m> or the complete graph <m>K_5</m></q> from <xref ref="act_TorF"></xref>
                 <xref ref="part_graph_order5"/> is false because, for example,
                 the graph <m>P_5</m> has five vertices but it is not a cycle and it is not complete.
               </p>
@@ -121,7 +129,7 @@
               <p>
                 Note that <m>P \lor Q</m> is true if both <m>P</m> and <m>Q</m> are true.
                 For example,
-                the statement The integer seven is positive or odd. is true.
+                the statement <q>the integer seven is positive or odd</q> is true.
                 This use of
                 <q>or</q>
                 is the <term>inclusive or</term> because it includes the possibility of both statements being true.
@@ -142,8 +150,8 @@
                 (the exclusive or).
                 As another example,
                 in <xref ref="exam_every_integer_even_or_odd"></xref>
-                we showed that Every integer is either even or odd,
-                but never both. which we could write more concisely as Every integer is even xor odd.
+                we showed that <q>every integer is either even or odd,
+                but never both</q> which we could write more concisely as <q>every integer is even xor odd</q>.
               </p>
             </li>
             <li>
@@ -621,7 +629,7 @@
     </example>
   </subsection>
   <subsection xml:id="sub_pff_and_or">
-    <title>Proof Formats: <m>\land</m> and <m>\lor</m> by Cases</title>
+    <title>Proof Formats: And and Or Using Cases</title>
     <p>
       How can we prove statements involving and and or?
       To prove <m>P \land Q</m>, we need to prove two things:
@@ -629,7 +637,7 @@
       We can summarize this idea in a proof format.
     </p>
     <theorem xml:id="pff_and">
-      <title>Proof Format: <m> \land </m></title>
+      <title>Proof Format: And </title>
     <statement>
     <p>
       We can prove <m>P \land Q</m> by adapting the following proof format.
@@ -659,7 +667,7 @@
       <m>P \lor Q</m> by proving <m>P</m> in one case and <m>Q</m> in the other case.
     </p>
       <theorem xml:id="pff_or_by_cases">
-      <title>Proof Format: <m> \lor </m> Using Cases</title>
+      <title>Proof Format: Or Using Cases</title>
     <statement>
     <p>
       We can prove <m> P \lor Q</m> using cases by adapting the following proof format.
@@ -691,7 +699,7 @@
       Officially, this is a new proof format.
     </p>
      <theorem xml:id="pff_or_by_cases_generalized">
-      <title>Proof Format: <m> \lor </m> Using Cases, Generalized</title>
+      <title>Proof Format: Or Using Cases, Generalized</title>
     <statement>
     <p>
       We can prove <m>P_1 \lor P_2 \lor \cdots \lor P_k</m> using cases by adapting the following proof format.
@@ -725,7 +733,7 @@
       Try working with these formats.
     </p>
     <activity xml:id="act_prove_and_orusingcases">
-      <title>Proving <m>\land</m> and <m>\lor</m> by using cases</title>
+      <title>Proving and and or using cases</title>
       <p>
         <nbsp/>
         <ol>
@@ -783,7 +791,10 @@
                   we can write <m>n = 2k+1</m> for some integer <m>k</m>.
                   Then
                   <me>
-                    n^2=(2k+1)^2 = (2k+1)(2k+1)=4k^2+4k+1 = 4(k^2+k) + 1 = 4q+1
+                    n^2=(2k+1)^2 = (2k+1)(2k+1)
+                  </me>
+                  <me>
+                    =4k^2+4k+1 = 4(k^2+k) + 1 = 4q+1
                   </me>
                   where <m>q =k^2+k</m> is an integer.
                   Therefore, <m>n^2 \fn{ mod } 4 = 1</m>.
@@ -873,8 +884,8 @@
                 The statement <m>T</m> is the <term>negation</term>
                 of <m>S</m>, denoted <m>\neg S</m>.
                 For example,
-                if <m>n</m> is an integer and if <m>S</m> is the statement <m>n >2</m>,
-                then <m>\neg S</m> is the statement <m>n \le 2</m>.
+                if <m>n</m> is an integer and if <m>S</m> is the statement <q><m>n >2</m></q>,
+                then <m>\neg S</m> is the statement <q><m>n \le 2</m></q>.
               </p>
             </li>
             <li>
@@ -882,17 +893,21 @@
                 A statement <m>S</m> is a <term>tautology</term> if it is always true.
                 For example,
                 the statement 
-                    <q>
-                    Either I will work on my homework Tuesday night or I will not work on my homework Tuesday night. is a tautology.
-                    </q>
+                  <q>
+                    either I will work on my homework Tuesday night or I will not work on my homework Tuesday night 
+                  </q>
+                is a tautology.
               </p>
             </li>
             <li>
               <p>
                 A statement <m>S</m> is a <term>contradiction</term> if it is always false.
                 For example,
-                the statement There is an integer <m>n</m> with <m>n>2</m> and
-                <m>n^2\lt 4</m>. is a contradiction because for an integer <m>n</m> with <m>n>2</m> we know that <m>n^2 > 4</m>.
+                the statement 
+                  <q>
+                    there is an integer <m>n</m> with <m>n>2</m> and <m>n^2\lt 4</m>
+                  </q>
+                is a contradiction because for an integer <m>n</m> with <m>n>2</m> we know that <m>n^2 > 4</m>.
               </p>
             </li>
           </ol>
@@ -1069,15 +1084,15 @@
           <li>
             <p>
               In <xref ref="defn_and_or_xor"></xref>,
-              we noted that the statement <q>The integer seven is positive and odd </q> is true.
-              Consider the general statement <q>The integer <m>n</m> is positive and odd.</q>
+              we noted that the statement <q>the integer seven is positive and odd </q> is true.
+              Consider the general statement <q>the integer <m>n</m> is positive and odd.</q>
               Give examples of integers <m>n</m> where the statement is false,
               including some negative values of <m>n</m>.
             </p>
           </li>
           <li xml:id="part_positive_and_odd">
             <p>
-              For the statement The integer <m>n</m> is positive and odd. to be false,
+              For the statement <q>the integer <m>n</m> is positive and odd</q> to be false,
               what needs to be true for <m>n</m>?
             </p>
           </li>
@@ -1193,10 +1208,10 @@
       Notice that we are proving two things (<m>Q</m> and <m>\neg Q</m>),
       but instead of saying
       <q>First, <ellipsis/>.
-      Next, ldots.</q>
+      Next, <ellipsis/>.</q>
       as we did in <xref ref="pff_and"></xref>, we use the expression
       <q>First, <ellipsis/>.
-      On the other hand, ldots.</q>
+      On the other hand, <ellipsis/>.</q>
       The phrase ``on the other hand`` alerts the reader that we are changing direction towards the negation of what we just proved.
       It is also acceptable to write ``On the one hand, <ellipsis/>.
       On the other hand, <ellipsis/>."
@@ -1287,10 +1302,10 @@
           Then there exists an integer <m>n</m> such that <m>d=\fn{gcd}(n,n+1)\neq 1</m></delete>
         </p>
         <p>
-          <em>Let <m>n</m> be an integer.
+          <b>Let <m>n</m> be an integer.
           Write <m>d=\fn{gcd}(n,n+1)</m>.
           Since 1 is a common divisor of any integer,
-          <m>d</m> is certainly positive.</em>
+          <m>d</m> is certainly positive.</b>
         </p>
         <p>
           First, by the definition of greatest common divisor <xref ref="defn_gcd"/>,
@@ -1307,8 +1322,8 @@
         </p>
         <p>
           <delete>On the other hand, we assumed that <m>d \neq 1</m>.
-          This is a contradiction.
-          Thus <m>\fn{gcd}(n,n+1)=1</m>.</delete>
+          This is a contradiction. </delete>
+          Thus <m>\fn{gcd}(n,n+1)=1</m>.
         </p>
       </solution>
     </example>
@@ -1348,7 +1363,8 @@
           <p>
             For this exercise, <m>n</m> is a specific
             (but unknown)
-            integer, <m>X=</m> <m>n</m> is a multiple of 6, and <m>R=</m> <m>n</m> is a multiple of 4.
+            integer, <m>X</m> is the statement <q><m>n</m> is a multiple of 6</q>, 
+            and <m>R</m> is the statement <q><m>n</m> is a multiple of 4</q>.
             In each part of this exercise write the statement using <m>X</m>,
             <m>R</m>,
             and logic symbols and find an example of an integer <m>n</m> for which the statement is true.
@@ -1599,7 +1615,7 @@
       </exercise>
     </subsubsection>
     <subsubsection>
-      <title>Exercises for <xref ref="sub_pff_and_or" text="global"></xref> Proof Formats: <m>\land</m> and <m>\lor</m> by Cases</title>
+      <title>Exercises for <xref ref="sub_pff_and_or" text="global"></xref> Proof Formats: And and Or Using Cases</title>
       <exercise xml:id="exer_prove_odd_and_mult3">
         <title>Practice</title>
         <statement>
@@ -1678,7 +1694,10 @@
           and Case 5: Assume <m>n=5q+4</m>.
           In Case 4, for example, we have
           <me>
-            n^2=(5q+3)^2=25q^2+30q+9=25q^2+30q+5+4=5(5q^2+6q+1)+4
+            n^2=(5q+3)^2=25q^2+30q+9
+          </me>
+          <me>
+            =25q^2+30q+5+4=5(5q^2+6q+1)+4
           </me>
           and so <m>n^2 \fn{ mod } 5 = 4</m>.
           Notice how we cleverly rewrite <m>9 = 5+4</m>.
@@ -1815,9 +1834,9 @@
         <title>Understand</title>
         <statement>
           <p>
-            For this exercise, <m>n</m> is a specific
-            (but unknown)
-            integer, <m>X=</m> <m>n</m> is a multiple of 6, and <m>R=</m> <m>n</m> is a multiple of 4.
+            For this exercise, <m>n</m> is a specific (but unknown)
+            integer, <m>X</m> is the statement <q><m>n</m> is a multiple of 6</q>, 
+            and <m>R</m> is the statement <q><m>n</m> is a multiple of 4</q>.
             In each part of this exercise write the statement using <m>X</m>,
             <m>R</m>,
             and logic symbols and find an example of an integer <m>n</m> for which the statement is true.
@@ -2126,7 +2145,8 @@
           <p>
             On the other hand,
             the largest possible set of three distinct digits is
-            <m>\{ \underline{\hspace{.1in}}, \underline{\hspace{.1in}}, \underline{\hspace{.1in}}\}</m> and their sum is <m>\underline{\hspace{.1in}} + \underline{\hspace{.1in}}+\underline{\hspace{.1in}}=\underline{\hspace{.1in}} \neq 25</m>.
+            <m>\{ \underline{\hspace{.1in}}, \underline{\hspace{.1in}}, \underline{\hspace{.1in}}\}</m> 
+            and their sum is <m>\underline{\hspace{.1in}} + \underline{\hspace{.1in}}+\underline{\hspace{.1in}}=\underline{\hspace{.1in}} \lt 25</m>.
           </p>
           <p>
             This is a contradiction.
