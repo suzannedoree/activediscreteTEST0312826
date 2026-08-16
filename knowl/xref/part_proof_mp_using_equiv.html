@@ -21,91 +21,111 @@
 <article class="li"><h2 class="heading">
 <span class="type">Item</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">(c)</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h2>
-<div class="para">Fill in the missing equivalences in <a href="sec_inference.html#table_equiv_proof_mp" class="xref" data-knowl="./knowl/xref/table_equiv_proof_mp.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.5.8: Using equivalences to prove modus ponens is valid for Activity 5.5.A (c)">Table 5.5.8</a> to prove <span class="process-math">\(((P \land (P \to Q)) \to Q) \equiv \str{T}\text{.}\)</span> This tautology that shows that <em class="emphasis">modus ponens</em> (which we will see in <a href="sec_inference.html#thm_logical_infer" class="xref" data-knowl="./knowl/xref/thm_logical_infer.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.5.15: Logical inferences">Theorem 5.5.15</a> <a href="sec_inference.html#part_thm_infer_mp" class="xref" data-knowl="./knowl/xref/part_thm_infer_mp.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (d)">(d)</a> is valid. 
-<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Using equivalences to prove <em class="emphasis">modus ponens</em> is valid for Activity 5.5.A (c)<div class="autopermalink" aria-hidden="true" data-description="Table 5.5.8: Using equivalences to prove modus ponens is valid for Activity 5.5.A (c)"><a tabindex="-1" href="#table_equiv_proof_mp" title="Copy heading and permalink for Table 5.5.8: Using equivalences to prove modus ponens is valid for Activity 5.5.A (c)" aria-label="Copy heading and permalink for Table 5.5.8: Using equivalences to prove modus ponens is valid for Activity 5.5.A (c)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para logical">
+<div class="para">Fill in the missing equivalences to prove</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_logical_infer.html ./knowl/xref/part_thm_infer_mp.html">
+\begin{equation*}
+((P \land (P \to Q)) \to Q) \equiv \str{T}\text{.}
+\end{equation*}
+</div>
+<div class="para">This tautology shows that <em class="emphasis">modus ponens</em> (which we will see in <a href="sec_inference.html#thm_logical_infer" class="xref" data-knowl="./knowl/xref/thm_logical_infer.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.5.9: Logical inferences">Theorem 5.5.9</a> <a href="sec_inference.html#part_thm_infer_mp" class="xref" data-knowl="./knowl/xref/part_thm_infer_mp.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (d)">(d)</a>) is valid. 
+<details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h2 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2></summary>
+<article class="hiddenproof knowl__content"><div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="c m b0 r0 l0 t0 lines"><em class="emphasis">Proof:</em></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\((P \land (P \to Q)) \to Q\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\((P \land (\neg P \lor Q)) \to Q\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"> \hspace{.25in} </td>
-<td class="c m b0 r0 l0 t0 lines">using <em class="emphasis">\hspace{.75in}</em>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\((P \land (P \to Q)) \to Q\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv(P \land (\neg P \lor Q)) \to Q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\)</span> using <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
 </td>
 </tr>
 <tr>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(((P \land \neg P) \lor (P \land Q)) \to Q\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines">using <em class="emphasis">\hspace{.75in}</em>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv ((P \land \neg P) \lor (P \land Q)) \to Q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\)</span> using <span class="process-math">\(\underline{\hspace{1in}} \)</span>
 </td>
 </tr>
 <tr>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\((\str{F} \lor (P \land Q)) \to Q\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines">using <em class="emphasis">\hspace{.75in}</em>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv(\str{F} \lor (P \land Q)) \to Q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\)</span> using <span class="process-math">\(\underline{\hspace{1in}} \)</span>
 </td>
 </tr>
 <tr>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\((P \land Q) \to Q\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines">using <em class="emphasis">\hspace{.75in}</em>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv (P \land Q) \to Q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\)</span> using <span class="process-math">\(\underline{\hspace{1in}} \)</span>
 </td>
 </tr>
 <tr>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\neg(P \land Q) \lor Q\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines">using <em class="emphasis">\hspace{.75in}</em>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv \neg(P \land Q) \lor Q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\)</span> using <span class="process-math">\(\underline{\hspace{1in}} \)</span>
 </td>
 </tr>
 <tr>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\((\neg P \lor \neg Q) \lor Q\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines">using <em class="emphasis">\hspace{.75in}</em>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv(\neg P \lor \neg Q) \lor Q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\)</span> using <span class="process-math">\(\underline{\hspace{1in}} \)</span>
 </td>
 </tr>
 <tr>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\neg P \lor (\neg Q \lor Q)\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines">using <em class="emphasis">\hspace{.75in}</em>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv \neg P \lor (\neg Q \lor Q)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\)</span> using <span class="process-math">\(\underline{\hspace{1in}} \)</span>
 </td>
 </tr>
 <tr>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\neg P \lor \str{T}\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines">using <em class="emphasis">\hspace{.75in}</em>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv \neg P \lor \str{T}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\)</span> using <span class="process-math">\(\underline{\hspace{1in}} \)</span>
 </td>
 </tr>
 <tr>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\str{T}\)</span></td>
-<td class="c m b0 r0 l0 t0 lines"></td>
-<td class="c m b0 r0 l0 t0 lines">using <em class="emphasis">\hspace{.75in}</em>    <span class="process-math">\(\Box\)</span>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\equiv \str{T}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\)</span> using <span class="process-math">\(\underline{\hspace{1in}} \)</span>
 </td>
 </tr>
 </table></div>
-</figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_proof_mp_using_equiv-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Proof 1"><a tabindex="-1" href="#part_proof_mp_using_equiv-1-5" title="Copy heading and permalink for Proof 1" aria-label="Copy heading and permalink for Proof 1">🔗</a></div>
+</article></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_proof_mp_using_equiv-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></article><span class="incontext"><a class="internal" href="sec_inference.html#part_proof_mp_using_equiv">In Context</a></span>
 </body>
 </html>
