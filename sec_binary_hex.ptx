@@ -407,7 +407,7 @@
           </md>.
         </p>
         <p>
-          The programming language Python uses the prefix <c>0b</c> to indicate a binary integer.
+          The programming language Python uses the prefix <m>\str{0b}</m> to indicate a binary integer.
           For example, we write <m>6=\bs{0b110}</m>.
         </p>
       </statement>
@@ -416,19 +416,19 @@
       <title>The connection between bit strings and binary integers</title>
       <p>
         In binary representation,
-        the coefficients can be thought of as bits <c>0</c> or <c>1</c>.
+        the coefficients can be thought of as bits <m>\bs{0}</m> or <m>\bs{1}</m>.
         Therefore, any bit string represents a binary integer.
         Note that different bit strings can represent the same integer.
         For example,
-        <c>110</c>,
-        <c>0110</c>,
-        <c>0000110</c> each represent six because
+        <m>\bs{110}</m>,
+        <m>\bs{0110}</m>,
+        <m>\bs{0000110}</m> each represent six because
         <me>
           6=(\bs{110})_2=(\bs{0110})_2=(\bs{0000110})_2
         </me>,
-        but they are different bit strings because <c>110</c> has length three,
-        <c>0110</c> has length four,
-        and <c>0000110</c> has length seven.
+        but they are different bit strings because <m>\bs{110}</m> has length three,
+        <m>\bs{0110}</m> has length four,
+        and <m>\bs{0000110}</m> has length seven.
       </p>
     </remark>
     <p>
@@ -589,12 +589,12 @@
                 In <term>hexadecimal</term> (base 16) representation,
                 the coefficients are  0, 1, 2, <ellipsis/>, 15.
                 Since the coefficients 10, 11, 12, 13, 14,
-                and 15 are 2-digit numbers we use the letters <c>A</c>,
-                <c>B</c>,
-                <c>C</c>,
-                <c>D</c>,
-                <c>E</c>,
-                and <c>F</c> in their place,
+                and 15 are 2-digit numbers we use the letters <m>\str{A}</m>,
+                <m>\str{B}</m>,
+                <m>\str{C}</m>,
+                <m>\str{D}</m>,
+                <m>\str{E}</m>,
+                and <m>\str{F}</m> in their place,
                 as shown in <xref ref="table_hex_letters"></xref>.
                 <table xml:id="table_hex_letters">
                   <title>Hexadecimal representation of 10, 11, 12, 13, 14, and 15</title>
@@ -641,7 +641,7 @@
                   <mrow>\amp  = \underline{1} \cdot 16^1 +\underline{11} \cdot 16^0</mrow>
                   <mrow>\amp  = (\bs{1B})_{16}</mrow>
                 </md>
-                The programming language Python uses the prefix <c>0x</c> to indicate a hexadecimal integer.
+                The programming language Python uses the prefix <m>\str{0x}</m> to indicate a hexadecimal integer.
                 For example, we write <m>27=\bs{0x1B}</m>.
               </p>
             </li>
@@ -801,7 +801,7 @@
                   <p>
                     Noting that <m>(4)_{16}= 4 = (0100)_2</m> and <m>(1)_{16} = 1 = (0001)_2</m>,
                     we replace each hex digit with its 4-bit binary representation,
-                    adding <c>0</c> s in front as needed, to get
+                    adding <m>\bs{0}</m> s in front as needed, to get
                     <me>
                       \underbrace{\bs{4}}_{\bs{0100}} \underbrace{\bs{1}}_{\bs{0001}}
                     </me>.
@@ -1222,18 +1222,18 @@
             </li>
             <li>
               <p>
-                Hint: The answer involves four <c>1</c> s and two <c>0</c> s.
+                Hint: The answer involves four <m>\bs{1}</m> s and two <m>\bs{0}</m> s.
               </p>
             </li>
             <li>
               <p>
-                Hint: The answer is all <c>1</c> s.
+                Hint: The answer is all <m>\bs{1}</m> s.
               </p>
             </li>
             <li>
               <p>
-                Hint: The answer involves four <c>1</c> s.
-                The rest are <c>0</c> s.
+                Hint: The answer involves four <m>\bs{1}</m> s.
+                The rest are <m>\bs{0}</m> s.
               </p>
             </li>
           </ol>
@@ -1324,43 +1324,43 @@
           <ul>
             <li>
               <p>
-                100 <c>div</c> 2 = 50 and 100 <c>mod</c> 2 = 0.
+                100 <m>\fn{div}</m> 2 = 50 and 100 <m>\fn{mod}</m> 2 = 0.
               </p>
             </li>
             <li>
               <p>
-                50 <c>div</c> 2 = 25 and 50 <c>mod</c> 2 = 0.
+                50 <m>\fn{div}</m> 2 = 25 and 50 <m>\fn{mod}</m> 2 = 0.
               </p>
             </li>
             <li>
               <p>
-                25 <c>div</c> 2 = 12 and 25 <c>mod</c> 2 = 1.
+                25 <m>\fn{div}</m> 2 = 12 and 25 <m>\fn{mod}</m> 2 = 1.
               </p>
             </li>
             <li>
               <p>
-                12 <c>div</c> 2 = 6 and 12 <c>mod</c> 2 = 0.
+                12 <m>\fn{div}</m> 2 = 6 and 12 <m>\fn{mod}</m> 2 = 0.
               </p>
             </li>
             <li>
               <p>
-                6 <c>div</c> 2 = 3 and 6 <c>mod</c> 2 = 0.
+                6 <m>\fn{div}</m> 2 = 3 and 6 <m>\fn{mod}</m> 2 = 0.
               </p>
             </li>
             <li>
               <p>
-                3 <c>div</c> 2 = 1 and 3 <c>mod</c> 2 = 1.
+                3 <m>\fn{div}</m> 2 = 1 and 3 <m>\fn{mod}</m> 2 = 1.
               </p>
             </li>
             <li>
               <p>
-                1 <c>div</c> 2 = 0 [STOP] and 1 <c>mod</c> 2 = 1.
+                1 <m>\fn{div}</m> 2 = 0 [STOP] and 1 <m>\fn{mod}</m> 2 = 1.
               </p>
             </li>
             <li>
               <p>
                 The binary representation of 100 = <m>(1100100)_2</m>.
-                Note that we are reading the remainder (<c>mod</c>) from bottom to top.
+                Note that we are reading the remainder (<m>\fn{mod}</m>) from bottom to top.
               </p>
             </li>
           </ul>
@@ -1756,14 +1756,14 @@
         <ol>
           <li>
             <p>
-              Hint: There are eight <c>1</c> s in the answer.
+              Hint: There are eight <m>\bs{1}</m> s in the answer.
             </p>
           </li>
           <li>
             <p>
-              Hint: The answer involves <c>3</c>,
-              <c>4</c>,
-              and <c>D</c>.
+              Hint: The answer involves <m>\str{3}</m>,
+              <m>\str{4}</m>,
+              and <m>\str{D}</m>.
             </p>
           </li>
         </ol>

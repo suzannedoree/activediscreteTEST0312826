@@ -796,7 +796,7 @@
       Another way is to list each vertex and its neighbors.
       An especially useful option represents a graph with a <em>matrix</em>
       (rectangular array)
-      of <c>0</c> s and <c>1</c> s.
+      of <m>\bs{0}</m> s and <m>\bs{1}</m> s.
     </p>
     <definition xml:id="defn_adj_matrix">
       <title>Adjacency matrix</title>
@@ -820,8 +820,8 @@
                 To create an <em>adjacency matrix</em>
                 <m>A</m> of a graph <m>G</m> with <m>s</m> vertices,
                 we first list the vertices of <m>G</m> in order as <m>v_1, v_2, \ldots, v_s</m>.
-                Then, the <m>ij</m>-entry of <m>A</m> equals <c>1</c> if
-                <m>\{v_i,v_j\}</m> is an edge and <c>0</c> if <m>\{v_i,v_j\}</m> is not an edge.
+                Then, the <m>ij</m>-entry of <m>A</m> equals <m>\bs{1}</m> if
+                <m>\{v_i,v_j\}</m> is an edge and <m>\bs{0}</m> if <m>\{v_i,v_j\}</m> is not an edge.
                 See <xref ref="exam_adj_mat"></xref> for an example.
               </p>
             </li>
@@ -831,8 +831,8 @@
                 so the adjacency matrix of a graph is <term>symmetric</term>.
                 We can use this symmetry to build an adjacency matrix.
                 For example, <xref ref="exam_adj_mat"></xref>
-                once we knew that the first row of the adjacency matrix was <c>010010</c>,
-                it follows that the first column of the adjacency matrix was also <c>010010</c>.
+                once we knew that the first row of the adjacency matrix was <m>\bs{010010}</m>,
+                it follows that the first column of the adjacency matrix was also <m>\bs{010010}</m>.
               </p>
             </li>
             <li>
@@ -889,13 +889,13 @@
           To obtain the first row of this matrix,
           we note that the vertex <m>v_1</m> is adjacent to the vertices <m>v_2</m> and <m>v_4</m>.
           Thus, <m>A_{1,2}=\bs{1}</m> and
-          <m>A_{1,4}=\bs{1}</m> and the other entries in the first row are <c>0</c>.
+          <m>A_{1,4}=\bs{1}</m> and the other entries in the first row are <m>\bs{0}</m>.
           Similarly, to get the second row,
           we note that <m>v_2</m> is adjacent to <m>v_1</m>,
           <m>v_3</m>, <m>v_4</m>, and <m>v_5</m>.
           Thus, <m>A_{2,1}=\bs{1}</m>,
           <m>A_{2,3}=\bs{1}</m>, <m>A_{2,4}=\bs{1}</m>,
-          and <m>A_{2,5}=\bs{1}</m> and the other entries are <c>0</c>.
+          and <m>A_{2,5}=\bs{1}</m> and the other entries are <m>\bs{0}</m>.
           The other rows follow in a similar way.
         </p>
       </solution>
@@ -1801,7 +1801,7 @@
               Hint: The matrix has five rows and five columns.
               The first row
               (and column)
-              are <c>01101</c>.
+              are <m>\bs{01101}</m>.
             </p>
           </li>
           <li>
@@ -1863,8 +1863,8 @@
           </li>
           <li>
             <p>
-              Hint: The adjacency matrix for <m>C_5</m> is the adjacency matrix for <m>P_5</m> with two more <c>1</c> s.
-              Say where those two additional <c>1</c> s are.
+              Hint: The adjacency matrix for <m>C_5</m> is the adjacency matrix for <m>P_5</m> with two more <m>\bs{1}</m> s.
+              Say where those two additional <m>\bs{1}</m> s are.
             </p>
           </li>
         </ol>
@@ -1906,7 +1906,7 @@
               Hint: The dividing lines create four blocks.
               Explain how each of the four blocks is constructed.
               For example,
-              the upper left-hand block is a <c>0</c>.
+              the upper left-hand block is a <m>\bs{0}</m>.
               The block to the right and block below it are each <ellipsis/>.
               The lower right-hand block is <ellipsis/>.
               Make sure to mention the adjacency matrix for <m>C_5</m>.

@@ -49,13 +49,13 @@
           <li xml:id="part_salad_and_pizza">
             <p>
               How many lunch options are there if I decide to have a salad and a pizza?
-              Hint: What would the possibility tree look like with salads (<c>s1</c>,
-              <c>s2</c>,
-              <c>s3</c>) and pizzas (<c>p1</c>,
-              <c>p2</c>,
-              <c>p3</c>,
-              <c>p4</c>,
-              <c>p5</c>)?
+              Hint: What would the possibility tree look like with salads (<m>\str{s1}</m>,
+              <m>\str{s2}</m>,
+              <m>\str{s3}</m>) and pizzas (<m>\str{p1}</m>,
+              <m>\str{p2}</m>,
+              <m>\str{p3}</m>,
+              <m>\str{p4}</m>,
+              <m>\str{p5}</m>)?
             </p>
           </li>
           <li>
@@ -111,50 +111,50 @@
       <solution>
         <p>
           The possibility tree would have three branches from <m>\bullet</m>,
-          one to each of <c>s1</c>,
-          <c>s2</c>,
-          and <c>s3</c>.
+          one to each of <m>\str{s1}</m>,
+          <m>\str{s2}</m>,
+          and <m>\str{s3}</m>.
           Then each of those nodes would have five branches,
-          one to each of <c>p1</c>,
-          <c>p2</c>,
-          <c>p3</c>,
-          <c>p4</c>,
-          <c>p5</c>.
+          one to each of <m>\str{p1}</m>,
+          <m>\str{p2}</m>,
+          <m>\str{p3}</m>,
+          <m>\str{p4}</m>,
+          <m>\str{p5}</m>.
           Our list would have each possible lunch option.
-          <c>s1</c> &amp;
-          <c>p1</c>,
-          <c>s1</c> &amp;
-          <c>p2</c>,
-          <c>s1</c> &amp;
-          <c>p3</c>,
-          <c>s1</c> &amp;
-          <c>p4</c>,
-          <c>s1</c> &amp;
-          <c>p5</c>,
+          <m>\str{s1}</m> &amp;
+          <m>\str{p1}</m>,
+          <m>\str{s1}</m> &amp;
+          <m>\str{p2}</m>,
+          <m>\str{s1}</m> &amp;
+          <m>\str{p3}</m>,
+          <m>\str{s1}</m> &amp;
+          <m>\str{p4}</m>,
+          <m>\str{s1}</m> &amp;
+          <m>\str{p5}</m>,
         </p>
         <p>
-           <c>s2</c> &amp;
-           <c>p1</c>,
-           <c>s2</c> &amp;
-           <c>p2</c>,
-           <c>s2</c> &amp;
-           <c>p3</c>,
-           <c>s2</c> &amp;
-           <c>p4</c>,
-           <c>s2</c> &amp;
-           <c>p5</c>,
+           <m>\str{s2}</m> &amp;
+           <m>\str{p1}</m>,
+           <m>\str{s2}</m> &amp;
+           <m>\str{p2}</m>,
+           <m>\str{s2}</m> &amp;
+           <m>\str{p3}</m>,
+           <m>\str{s2}</m> &amp;
+           <m>\str{p4}</m>,
+           <m>\str{s2}</m> &amp;
+           <m>\str{p5}</m>,
         </p>
         <p>
-           <c>s3</c> &amp;
-           <c>p1</c>,
-           <c>s3</c> &amp;
-           <c>p2</c>,
-           <c>s3</c> &amp;
-           <c>p3</c>,
-           <c>s3</c> &amp;
-           <c>p4</c>,
-           <c>s3</c> &amp;
-           <c>p5</c>.
+           <m>\str{s3}</m> &amp;
+           <m>\str{p1}</m>,
+           <m>\str{s3}</m> &amp;
+           <m>\str{p2}</m>,
+           <m>\str{s3}</m> &amp;
+           <m>\str{p3}</m>,
+           <m>\str{s3}</m> &amp;
+           <m>\str{p4}</m>,
+           <m>\str{s3}</m> &amp;
+           <m>\str{p5}</m>.
            Notice that we have three rows with five options in each row.
            The total number of lunch options is <m>3 \times 5 = 15</m>.
         </p>
@@ -201,11 +201,11 @@
         <p>
           <nbsp/> For a positive integer <m>n</m>,
           a <term>permutation of the set</term>
-          <m>\{\str{1},\str{2},\ldots,\str{n}\}</m> is a string of length <m>n</m> using each of the digits <c>1</c>,
-          <c>2</c>,
-          <ellipsis/>, and <c>n</c> exactly once.
+          <m>\{\str{1},\str{2},\ldots,\str{n}\}</m> is a string of length <m>n</m> using each of the digits <m>\bs{1}</m>,
+          <m>\str{2}</m>,
+          <ellipsis/>, and <m>\str{n}</m> exactly once.
           For example,
-          <c>2413</c> is a permutation of the set <m>\{\str{1},\str{2},\str{3},\str{4}\}</m>.
+          <m>\str{2413}</m> is a permutation of the set <m>\{\str{1},\str{2},\str{3},\str{4}\}</m>.
         </p>
       </statement>
     </definition>
@@ -229,33 +229,33 @@
         </p>
         <p>
           Step 1: Fill in the first space.
-          There are four ways to fill the first space because the first digit can be any of <c>1</c>,
-          <c>2</c>,
-          <c>3</c>,
-          or <c>4</c>. (4 ways)
+          There are four ways to fill the first space because the first digit can be any of <m>\bs{1}</m>,
+          <m>\str{2}</m>,
+          <m>\str{3}</m>,
+          or <m>\str{4}</m>. (4 ways)
         </p>
         <p>
           Step 2: Fill in the second space.
           There are only three ways to fill the second space,
           because the second digit cannot be the same as the first digit.
           For example,
-          if we filled in the first space with a <c>2</c> as
+          if we filled in the first space with a <m>\str{2}</m> as
           <me>
             \underline{\str{2}}~\underline{}~\underline{}~\underline{}
           </me>
-          then the second space can only be <c>1</c>,
-          <c>3</c>,
-          or <c>4</c>. (3 ways)
+          then the second space can only be <m>\bs{1}</m>,
+          <m>\str{3}</m>,
+          or <m>\str{4}</m>. (3 ways)
         </p>
         <p>
           Step 3: Fill in the third space.
           There are only two ways to fill in the third space because the third digit cannot be the same as the first or second digit.
           For example,
-          if we filled in the first two spaces with <c>2</c> and then <c>4</c> as
+          if we filled in the first two spaces with <m>\str{2}</m> and then <m>\str{4}</m> as
           <me>
             \underline{\str{2}}~\underline{\str{4}}~\underline{}~\underline{}
           </me>
-          then the third space can only be <c>1</c> or <c>3</c>. (2 ways)
+          then the third space can only be <m>\bs{1}</m> or <m>\str{3}</m>. (2 ways)
         </p>
         <p>
           Step 4: Fill in the fourth space.
@@ -263,13 +263,13 @@
           <q>no choice</q>, which means that there is only one way to fill in the fourth space.
           It must be the last missing digit.
           For example,
-          if we filled in the first three spaces with <c>2</c>,
-          and then <c>4</c>,
-          and then <c>1</c> as
+          if we filled in the first three spaces with <m>\str{2}</m>,
+          and then <m>\str{4}</m>,
+          and then <m>\bs{1}</m> as
           <me>
             \underline{\str{2}}~\underline{\str{4}}~\underline{\str{1}}~\underline{}
           </me>
-          then the fourth space can only be <c>3</c> and so our final permutation would be
+          then the fourth space can only be <m>\str{3}</m> and so our final permutation would be
           <me>
             \underline{\str{2}}~\underline{\str{4}}~\underline{\str{1}}~\underline{\str{3}}
           </me>.
@@ -316,14 +316,14 @@
         <p>
           We could make a list by considering cases.
           On our list would be each of the three salads and each of the five pizzas:
-          <c>s1</c>,
-          <c>s2</c>,
-          <c>s3</c>,
-          <c>p1</c>,
-          <c>p2</c>,
-          <c>p3</c>,
-          <c>p4</c>,
-          <c>p5</c>, The total number of lunch options is <m>3 + 5 = 8</m>.
+          <m>\str{s1}</m>,
+          <m>\str{s2}</m>,
+          <m>\str{s3}</m>,
+          <m>\str{p1}</m>,
+          <m>\str{p2}</m>,
+          <m>\str{p3}</m>,
+          <m>\str{p4}</m>,
+          <m>\str{p5}</m>, The total number of lunch options is <m>3 + 5 = 8</m>.
         </p>
         <p>
           Formally, we separate lunch options into two cases:
@@ -537,7 +537,7 @@
           <li>
             <p>
               All characters are digits
-              (<c>0</c>-<c>9</c>).
+              (<m>\bs{0}</m>-<m>\str{9}</m>).
               Hint: Step 1: fill in the first space, Step 2:
               fill in the second space, <ellipsis/>, Step 8:
               fill in the eighth space.
@@ -545,8 +545,8 @@
           </li>
           <li>
             <p>
-              The first three characters must be letters (<c>a</c>-<c>z</c>,
-              <c>A</c>-<c>Z</c>) and the rest of the characters are digits or,
+              The first three characters must be letters (<m>\str{a}</m>-<m>\str{z}</m>,
+              <m>\str{A}</m>-<m>\str{Z}</m>) and the rest of the characters are digits or,
               vice versa<fn>
               The phrase
               <q>vice versa</q>
@@ -558,16 +558,16 @@
           </li>
           <li>
             <p>
-              The characters are lowercase letters (<c>a</c>-<c>z</c>), but no letters may be repeated.
+              The characters are lowercase letters (<m>\str{a}</m>-<m>\str{z}</m>), but no letters may be repeated.
             </p>
           </li>
           <li>
             <p>
               The characters are uppercase letters,
-              and exactly one of the characters must be the letter <c>X</c>.
-              Hint: Step 1: select which space is <c>X</c>, Step 2:
-              fill in the first open space with an uppercase letter other than <c>X</c>, Step 3:
-              fill in the next open space with an uppercase letter other than <c>X</c>, etc.
+              and exactly one of the characters must be the letter <m>\str{X}</m>.
+              Hint: Step 1: select which space is <m>\str{X}</m>, Step 2:
+              fill in the first open space with an uppercase letter other than <m>\str{X}</m>, Step 3:
+              fill in the next open space with an uppercase letter other than <m>\str{X}</m>, etc.
             </p>
           </li>
         </ol>
@@ -707,9 +707,9 @@
         <me>
           \underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}
         </me>
-        that use only the characters <c>X</c>,
-        <c>f</c>,
-        and <c>2</c> and include at least one <c>X</c>.
+        that use only the characters <m>\str{X}</m>,
+        <m>\str{f}</m>,
+        and <m>\str{2}</m> and include at least one <m>\str{X}</m>.
         When explaining why the given count does not work,
         your reasons might be that we missed counting some of the options,
         that we counted some options that we should not have counted,
@@ -746,7 +746,7 @@
           <li>
             <p>
               Find a way to count to get the answer of <m>3^4-2^4</m>.
-              Hint: Count the strings that do not use the character <c>X</c>.
+              Hint: Count the strings that do not use the character <m>\str{X}</m>.
             </p>
           </li>
         </ol>
@@ -1088,20 +1088,20 @@
               <li>
                 <p>
                   All of the characters are lower-case letters
-                  (<c>a</c>-<c>z</c>).
+                  (<m>\str{a}</m>-<m>\str{z}</m>).
                 </p>
               </li>
               <li>
                 <p>
                   The characters must be alpha-numeric
-                  (<c>0</c>-<c>9</c>,
-                  <c>a</c>-<c>z</c>,
-                  <c>A</c>-<c>Z</c>).
+                  (<m>\bs{0}</m>-<m>\str{9}</m>,
+                  <m>\str{a}</m>-<m>\str{z}</m>,
+                  <m>\str{A}</m>-<m>\str{Z}</m>).
                 </p>
               </li>
               <li>
                 <p>
-                  The first character must be an uppercase letter (<c>A</c>-<c>Z</c>), and the rest of the characters are digits (0-9).
+                  The first character must be an uppercase letter (<m>\str{A}</m>-<m>\str{Z}</m>), and the rest of the characters are digits (0-9).
                 </p>
               </li>
             </ol>
@@ -1274,11 +1274,11 @@
                 <p>
                   The first character must be a special character
                   (one of:
-                  <c>%</c>,
-                  <c>&amp;</c>,
-                  <c>$</c>,
-                  <c>#</c>,
-                  or <c>?</c>),
+                  <m>\str{%}</m>,
+                  <m>\str{&amp;}</m>,
+                  <m>\str{$}</m>,
+                  <m>\str{#}</m>,
+                  or <m>\str{?}</m>),
                   and the rest of the characters are alpha-numeric.
                 </p>
               </li>
@@ -1286,11 +1286,11 @@
                 <p>
                   One of the characters must be a special character
                   (one of:
-                  <c>%</c>,
-                  <c>&amp;</c>,
-                  <c>$</c>,
-                  <c>#</c>,
-                  or <c>?</c>)
+                  <m>\str{%}</m>,
+                  <m>\str{&amp;}</m>,
+                  <m>\str{$}</m>,
+                  <m>\str{#}</m>,
+                  or <m>\str{?}</m>)
                   and the rest are alpha-numeric.
                   Hint: Step 1: select which space is the special character, Step 2:
                   fill in the special character, Step 3:
@@ -1327,17 +1327,17 @@
           <p>
             Each state of the United States decides on its own format for license plates.
             All states use only upper case letters (A-Z) and digits and allow repeated characters,
-            such as <c>MOM445</c>.
+            such as <m>\str{MOM445}</m>.
             Use steps to count how many license plates are possible in each format.
             <ol>
               <li>
                 <p>
-                  Minnesota standard license plates are in the format <c>ABC123</c> consisting of three uppercase letters followed by three digits.
+                  Minnesota standard license plates are in the format <m>\str{ABC123}</m> consisting of three uppercase letters followed by three digits.
                 </p>
               </li>
               <li>
                 <p>
-                  California standard license plates are in the format <c>1ABC234</c> consisting of one digit,
+                  California standard license plates are in the format <m>\str{1ABC234}</m> consisting of one digit,
                   then three uppercase letters, and then three digits.
                 </p>
               </li>
@@ -1346,9 +1346,9 @@
                   Arizona standard license plates are in an unusual format consisting of strings of six characters,
                   either uppercase letters or digits,
                   with the restriction that the fourth character is always a digit.
-                  Some examples are <c>ABC1DE</c>,
-                  <c>0001AB</c>,
-                  and <c>123456</c>.
+                  Some examples are <m>\str{ABC1DE}</m>,
+                  <m>\str{0001AB}</m>,
+                  and <m>\str{123456}</m>.
                 </p>
               </li>
             </ol>
@@ -1380,17 +1380,17 @@
         <title><m>Understand</m></title>
         <statement>
           <p>
-            Telephone numbers in the United States have the format <c>201-345-6789</c>.
-            The first three digits (<c>201</c>) are the <term>area code</term>,
-            the next three digits (<c>345</c>) are the <term>exchange</term>,
-            and the last four digits (<c>6789</c>) are the <term>extension</term>.
+            Telephone numbers in the United States have the format <m>\str{201-345-6789}</m>.
+            The first three digits (<m>\str{201}</m>) are the <term>area code</term>,
+            the next three digits (<m>\str{345}</m>) are the <term>exchange</term>,
+            and the last four digits (<m>\str{6789}</m>) are the <term>extension</term>.
             <ol>
               <li>
                 <p>
                   Historically,
-                  area codes were strings of length three in the format <c>ABC</c> where each character was a digit but the first digit <c>A</c> could not be <c>0</c> or <c>1</c>,
-                  the second digit <c>B</c> had to be <c>0</c> or <c>1</c>,
-                  and the third digit <c>C</c> could be any digit.
+                  area codes were strings of length three in the format <m>\str{ABC}</m> where each character was a digit but the first digit <m>\str{A}</m> could not be <m>\bs{0}</m> or <m>\bs{1}</m>,
+                  the second digit <m>\str{B}</m> had to be <m>\bs{0}</m> or <m>\bs{1}</m>,
+                  and the third digit <m>\str{C}</m> could be any digit.
                   There were a few more restrictions that we ignore here.
                   How many different area codes were there?
                 </p>
@@ -1400,23 +1400,23 @@
                   I grew up in New Jersey.
                   When I was a child,
                   the entire state of New Jersey shared one area code:
-                  <c>201</c>,
+                  <m>\str{201}</m>,
                   the smallest possible area code.
-                  How many <c>201</c> telephone numbers were there if neither the first nor the second digit of the exchange was <c>0</c> or <c>1</c>?
-                  That is, each telephone number is of the form <c>201-ABC-DEFG</c> where <c>A</c> and <c>B</c> can be any digit other than <c>0</c> or <c>1</c> and <c>C</c>,
-                  <c>D</c>,
-                  <c>E</c>,
-                  <c>F</c>,
-                  and <c>G</c> can be any digit.
+                  How many <m>\str{201}</m> telephone numbers were there if neither the first nor the second digit of the exchange was <m>\bs{0}</m> or <m>\bs{1}</m>?
+                  That is, each telephone number is of the form <m>\str{201-ABC-DEFG}</m> where <m>\str{A}</m> and <m>\str{B}</m> can be any digit other than <m>\bs{0}</m> or <m>\bs{1}</m> and <m>\str{C}</m>,
+                  <m>\str{D}</m>,
+                  <m>\str{E}</m>,
+                  <m>\str{F}</m>,
+                  and <m>\str{G}</m> can be any digit.
                 </p>
               </li>
               <li>
                 <p>
                   My neighborhood in Saint Paul, Minnesota,
-                  has historically had telephone numbers in the format <c>651-698-DEFG</c> or <c>651-699-DEFG</c> where <c>D</c>,
-                  <c>E</c>,
-                  <c>F</c>,
-                  and <c>G</c> can be any digit.
+                  has historically had telephone numbers in the format <m>\str{651-698-DEFG}</m> or <m>\str{651-699-DEFG}</m> where <m>\str{D}</m>,
+                  <m>\str{E}</m>,
+                  <m>\str{F}</m>,
+                  and <m>\str{G}</m> can be any digit.
                   How many of those telephone numbers are there?
                   Hint: Consider two cases.
                 </p>
@@ -1428,14 +1428,14 @@
         <ol>
           <li>
             <p>
-              Hint: There are eight choices for <c>A</c>,
-              two choices for <c>B</c>,
-              and ten choices for <c>C</c>.
+              Hint: There are eight choices for <m>\str{A}</m>,
+              two choices for <m>\str{B}</m>,
+              and ten choices for <m>\str{C}</m>.
             </p>
           </li>
           <li>
             <p>
-              Hint: Now there are eight choices for <c>A</c> and <c>B</c> and ten choices for the rest of the characters.
+              Hint: Now there are eight choices for <m>\str{A}</m> and <m>\str{B}</m> and ten choices for the rest of the characters.
             </p>
           </li>
           <li>
@@ -1491,16 +1491,16 @@
             <ol>
               <li>
                 <p>
-                  Start with an even number (<c>2</c>,
-                  <c>4</c>,
-                  or <c>6</c>)?
+                  Start with an even number (<m>\str{2}</m>,
+                  <m>\str{4}</m>,
+                  or <m>\str{6}</m>)?
                 </p>
               </li>
               <li>
                 <p>
-                  Start with the three even numbers followed by the three odd numbers (<c>1</c>,
-                  <c>3</c>,
-                  and <c>5</c>)?
+                  Start with the three even numbers followed by the three odd numbers (<m>\bs{1}</m>,
+                  <m>\str{3}</m>,
+                  and <m>\str{5}</m>)?
                 </p>
               </li>
               <li>
@@ -1511,13 +1511,13 @@
               </li>
               <li>
                 <p>
-                  Have <c>3</c> always followed by <c>6</c>?
+                  Have <m>\str{3}</m> always followed by <m>\str{6}</m>?
                   Hint: Think of five blanks to fill in with the five objects:
-                  <c>1</c>,
-                  <c>2</c>,
-                  <c>36</c>,
-                  <c>4</c>,
-                  and <c>5</c>.
+                  <m>\bs{1}</m>,
+                  <m>\str{2}</m>,
+                  <m>\str{36}</m>,
+                  <m>\str{4}</m>,
+                  and <m>\str{5}</m>.
                 </p>
               </li>
             </ol>
@@ -1559,13 +1559,13 @@
         <statement>
           <p>
             In this problem,
-            a Personal Identification Number (PIN) is a string of three characters<ndash/> <c>0</c>,
-            <c>1</c>,
-            <c>2</c>,
-            or <c>3</c>,
+            a Personal Identification Number (PIN) is a string of three characters<ndash/> <m>\bs{0}</m>,
+            <m>\bs{1}</m>,
+            <m>\str{2}</m>,
+            or <m>\str{3}</m>,
             where the digits appear in nondecreasing order.
             For example,
-            <c>023</c> and <c>112</c> are possible PINs but the string <c>203</c> is not allowed because <m>0\lt 2</m>.
+            <m>\str{023}</m> and <m>\str{112}</m> are possible PINs but the string <m>\str{203}</m> is not allowed because <m>0\lt 2</m>.
             Hint: You can think of the digits of a PIN as being arranged from the smallest to the largest.
             <ol>
               <li>

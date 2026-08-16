@@ -181,10 +181,10 @@
           <ol>
             <li>
               <p>
-                Identify the domain and codomain of the function <c>floor</c>.
+                Identify the domain and codomain of the function <m>\str{floor}</m>.
                 <solution>
                   <p>
-                    The domain of the function <c>floor</c> is
+                    The domain of the function <m>\str{floor}</m> is
                     <m>\mathbb{R}</m> and the codomain is <m>\mathbb{Z}</m>.
                   </p>
                 </solution>
@@ -545,11 +545,11 @@
                 <m>\fn{wgt}(\bs{1111})</m>, and <m>\fn{wgt}(\lambda)</m>.
                 <solution>
                   <p>
-                    The weight of a bit string is the number of <c>1</c> s in the bit string.
-                    Since <c>001</c> has one <c>1</c>,
+                    The weight of a bit string is the number of <m>\bs{1}</m> s in the bit string.
+                    Since <m>\bs{001}</m> has one <m>\bs{1}</m>,
                     <m>\fn{wgt}(\bs{001})=1</m>.
-                    Since <c>1111</c> has four <c>1</c> s, <m>\fn{wgt}(\bs{1111})=4</m>.
-                    Since <m>\lambda</m> has no <c>1</c> s, <m>\fn{wgt}(\lambda)=0</m>.
+                    Since <m>\bs{1111}</m> has four <m>\bs{1}</m> s, <m>\fn{wgt}(\bs{1111})=4</m>.
+                    Since <m>\lambda</m> has no <m>\bs{1}</m> s, <m>\fn{wgt}(\lambda)=0</m>.
                   </p>
                 </solution>
               </p>
@@ -559,8 +559,8 @@
                 Describe all bit strings <m>b</m> such that <m>\fn{wgt}(b)=0</m>.
                 <solution>
                   <p>
-                    For a bit string to have weight 0, it cannot contain any <c>1</c> s.
-                    That is, it must be empty or entirely <c>0</c> s.
+                    For a bit string to have weight 0, it cannot contain any <m>\bs{1}</m> s.
+                    That is, it must be empty or entirely <m>\bs{0}</m> s.
                     We can list such strings as <m>\lambda, \bs{0}, \bs{00}, \bs{000}, \bs{0000}, \ldots</m>.
                   </p>
                 </solution>
@@ -573,7 +573,7 @@
                 <solution>
                   <p>
                     We are looking for a bit string <m>b</m> that has weight <m>n</m> or,
-                    equivalently, that contains <m>n</m> <c>1</c> s.
+                    equivalently, that contains <m>n</m> <m>\bs{1}</m> s.
                     The simplest example is
                     <me>
                       b = \underbrace{\bs{11}\ldots\bs{1}}_{n}
@@ -594,7 +594,7 @@
                   <p>
                     It is not possible to have a negative weight.
                     We saw in <xref ref="part_weightn"/> and <xref ref="part_weight0"/> that any non-negative integer is the weight of some bit strings.
-                    Therefore, the image of <c>wgt</c> is <m>\mathbb{N}</m>.
+                    Therefore, the image of <m>\str{wgt}</m> is <m>\mathbb{N}</m>.
                   </p>
                 </solution>
               </p>
@@ -627,7 +627,7 @@
           <li>
             <p>
               The function <m>\fn{append}: \mathbb{B}\to \mathbb{B}^*</m> defined by <m>\fn{append}(b)=b\bs{1}</m>,
-              literally the string <m>b</m> with a <c>1</c> added to the right.
+              literally the string <m>b</m> with a <m>\bs{1}</m> added to the right.
               Evaluate <m>\fn{append}(\bs{0})</m> and <m>\fn{append}(\bs{1011})</m>.
             </p>
           </li>
@@ -752,7 +752,7 @@
             <ol>
               <li>
                 <p>
-                  Identify the domain and codomain of the function <c>ceil</c>.
+                  Identify the domain and codomain of the function <m>\str{ceil}</m>.
                 </p>
               </li>
               <li>
@@ -1158,7 +1158,7 @@
             <me>
               \fn{gplt}(n)=\left\{\begin{array}{cl} 0 \amp  \text{ if } n=1 \\ \text{ the largest prime less than or equal to } n \amp  \text{ if }  n \ge 2 \end{array} \right.
             </me>.
-            The <c>gplt</c> stands for
+            The <m>\str{gplt}</m> stands for
             <q>greatest prime less than</q>.
             <ol>
               <li>
@@ -1869,7 +1869,7 @@
         <ol>
           <li>
             <p>
-              <c>1</c>
+              <m>\bs{1}</m>
             </p>
           </li>
           <li>
@@ -1896,7 +1896,7 @@
           <p>
             In <xref ref="act_functions_bit_strings"></xref>,
             we saw the function <m>\fn{append}: \mathbb{B}\to \mathbb{B}^*</m> defined by <m>\fn{append}(b)=b\bs{1}</m>,
-            literally the string <m>b</m> with a <c>1</c> added to the right.
+            literally the string <m>b</m> with a <m>\bs{1}</m> added to the right.
             <ol>
               <li>
                 <p>
@@ -1930,7 +1930,7 @@
         <ol>
           <li>
             <p>
-              <c>01011</c>
+              <m>\bs{01011}</m>
             </p>
           </li>
           <li>
@@ -1961,7 +1961,7 @@
         <statement>
           <p>
             Consider the function <m>\fn{runzero}: \mathbb{B} \to \mathbb{N}</m> defined by
-            <m>\fn{runzero}(b) =</m> the longest number of consecutive <c>0</c> s in the bit string <m>b</m>.
+            <m>\fn{runzero}(b) =</m> the longest number of consecutive <m>\bs{0}</m> s in the bit string <m>b</m>.
             <ol>
               <li>
                 <p>
@@ -2019,7 +2019,7 @@
         <title>Understand</title>
         <statement>
           <p>
-            Consider the function <m>h: \mathbb{N} \to \mathbb{B}</m> by <m>f(n)=</m> the bit string consisting of <m>n</m> <c>0</c> s followed by <m>n</m> <c>1</c> s.
+            Consider the function <m>h: \mathbb{N} \to \mathbb{B}</m> by <m>f(n)=</m> the bit string consisting of <m>n</m> <m>\bs{0}</m> s followed by <m>n</m> <m>\bs{1}</m> s.
             <ol>
               <li>
                 <p>
@@ -2079,7 +2079,7 @@
           </li>
           <li>
             <p>
-              Hint: Try an example where <m>b</m> ends in <c>0</c> and <m>c</m> ends in <c>1</c>.
+              Hint: Try an example where <m>b</m> ends in <m>\bs{0}</m> and <m>c</m> ends in <m>\bs{1}</m>.
             </p>
           </li>
           <li>
@@ -2110,7 +2110,7 @@
               <li>
                 <p>
                   Define <m>\fn{countE}:\mathbb{A}^* \to \mathbb{Z}</m> by
-                  <m>\fn{countE}(s) =</m> the number of occurrences of <c>E</c> in the string <m>s</m>.
+                  <m>\fn{countE}(s) =</m> the number of occurrences of <m>\str{E}</m> in the string <m>s</m>.
                   Identify the domain and codomain of
                   <m>\fn{countE}</m> and evaluate <m>\fn{countE}(\str{STEEP})</m>,
                   <m>\fn{countE}(\str{STEP})</m>,

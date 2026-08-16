@@ -2,7 +2,7 @@
   <title>Excursion: Modular Arithmetic</title>
   <introduction>
     <p>
-      Many applications of number theory use a new number system based on remainders (<c>mod</c>), which we introduce in this section.
+      Many applications of number theory use a new number system based on remainders (<m>\fn{mod}</m>), which we introduce in this section.
     </p>
   </introduction>
   <subsection xml:id="sub_not_last">
@@ -149,12 +149,12 @@
   <subsection xml:id="sub_mod_clock">
     <title>The Mod Clock</title>
     <p>
-      There is a way to visualize the remainder of <m>a</m> <c>mod</c> <m>n</m>.
+      There is a way to visualize the remainder of <m>a</m> <m>\fn{mod}</m> <m>n</m>.
     </p>
     <remark>
       <title>Mod Clock</title>
       <p>
-        To find <m>a</m> <c>mod</c> <m>n</m> when <m>n \ge 1</m>,
+        To find <m>a</m> <m>\fn{mod}</m> <m>n</m> when <m>n \ge 1</m>,
         imagine an <m>n</m> hour
         <q>clock</q>
         with hours marked <m>0, 1, 2, \ldots, n-1</m> hours.
@@ -163,9 +163,9 @@
         For example, the <m>\bs{mod}</m>
          12 is shown in 
          <xref ref="fig_mod12_clock"></xref>  
-         and the  <m><c>mod</c></m>
+         and the  <m>mod</m>
           5 clock is shown in <xref ref="fig_mod12_clock"></xref>
-        The end mark is <m>a</m> <m><c>\bs{mod}</c></m> <m>n</m>.
+        The end mark is <m>a</m> <m>\bs{mod}</m> <m>n</m>.
         When <m>a</m> is negative, we instead count counterclockwise.
       </p>
       <figure xml:id="fig_mod12_clock">
@@ -196,7 +196,7 @@
                 Use the 12-hour clock
                 (marked <m>0,1, \ldots, 11</m> instead of the usual <m>1,2, \ldots 12</m>)
                 shown in <xref ref="fig_mod12_clock"></xref>
-                to calculate 20 <c>mod</c> 12.
+                to calculate 20 <m>\fn{mod}</m> 12.
 
                 
                 <solution>
@@ -207,7 +207,7 @@
                     </me>.
                   </p>
                   <p>
-                    Thus 20 <c>mod</c> 12 = 8.
+                    Thus 20 <m>\fn{mod}</m> 12 = 8.
                   </p>
                 
                 
@@ -217,7 +217,7 @@
             <li>
               <p>
                 Use the 5-hour clock shown in <xref ref="fig_mod5_clock"></xref>
-                to calculate 67 <c>mod</c> 5.
+                to calculate 67 <m>\fn{mod}</m> 5.
                 <solution>
                   <p>
                     Instead of counting off 67 hours,
@@ -228,7 +228,7 @@
                     so 15 hours will take us around the clock 3 times, ending at 0.
                     That leaves us <m>17-15 = 2</m> hours to count from there,
                     which ends at 2.
-                    Thus, 67 <c>mod</c> 5 = 2.
+                    Thus, 67 <m>\fn{mod}</m> 5 = 2.
                   </p>
                 
                 
@@ -238,7 +238,7 @@
             <li>
               <p>
                 Use the 5-hour clock shown in <xref ref="fig_mod5_clock"></xref>
-                to calculate -12 <c>mod</c> 5.
+                to calculate -12 <m>\fn{mod}</m> 5.
                 <solution>
                   <p>
                     Since -12 is negative, we start at 0 count counterclockwise 12 hours:
@@ -247,7 +247,7 @@
                     </me>.
                   </p>
                   <p>
-                    Thus, <m>-12</m> <c>mod</c> 5 = 3.
+                    Thus, <m>-12</m> <m>\fn{mod}</m> 5 = 3.
                   </p>
                 </solution>
               </p>
@@ -266,13 +266,13 @@
         <ol>
           <li>
             <p>
-              Draw the 12-hour clock and use it to evaluate 17 <c>mod</c> 12, 127 <c>mod</c> 12, 4 <c>mod</c> 12,
-              and -2 <c>mod</c> 12.
+              Draw the 12-hour clock and use it to evaluate 17 <m>\fn{mod}</m> 12, 127 <m>\fn{mod}</m> 12, 4 <m>\fn{mod}</m> 12,
+              and -2 <m>\fn{mod}</m> 12.
             </p>
           </li>
           <li>
             <p>
-              Draw the 5-hour clock and use it to evaluate 17 <c>mod</c> 5, 127 <c>mod</c> 5, 4 <c>mod</c> 5, and -2 <c>mod</c> 5.
+              Draw the 5-hour clock and use it to evaluate 17 <m>\fn{mod}</m> 5, 127 <m>\fn{mod}</m> 5, 4 <m>\fn{mod}</m> 5, and -2 <m>\fn{mod}</m> 5.
             </p>
           </li>
         </ol>
@@ -626,7 +626,7 @@
                 <p>
                   Which integers <m>n</m> are a losing position?
                   State your answer as a conjecture.
-                  Hint: Use <c>mod</c> in your answer.
+                  Hint: Use <m>\fn{mod}</m> in your answer.
                 </p>
               </li>
               <li>
@@ -634,7 +634,7 @@
                   Suppose that you are in a winning position <m>n</m> while playing the Not Last game introduced in <xref ref="act_not_last"></xref>.
                   What is your strategy for deciding whether to take one or two coins?
                   Be specific.
-                  Hint: Your answer should involve <m>n</m> and use <c>mod</c>.
+                  Hint: Your answer should involve <m>n</m> and use <m>\fn{mod}</m>.
                 </p>
               </li>
             </ol>
@@ -644,7 +644,7 @@
         <ol>
           <li>
             <p>
-              Hint: Your answer depends on <c>mod</c> 3.
+              Hint: Your answer depends on <m>\fn{mod}</m> 3.
             </p>
           </li>
           <li>
@@ -723,25 +723,25 @@
             <ol>
               <li>
                 <p>
-                  23 <c>mod</c> 5.
+                  23 <m>\fn{mod}</m> 5.
                   Hint: Copy the mod 5 clock from <xref ref="fig_mod5_clock"></xref>.
                 </p>
               </li>
               <li>
                 <p>
-                  23 <c>mod</c> 12.
+                  23 <m>\fn{mod}</m> 12.
                   Hint: Copy the mod 12 clock from <xref ref="fig_mod12_clock"></xref>.
                 </p>
               </li>
               <li>
                 <p>
-                  23 <c>mod</c> 10.
+                  23 <m>\fn{mod}</m> 10.
                   Hint: The mod 10 clock has labels <m>0,1,2,3,4,5,6,7,8,9</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  23 <c>mod</c> 6.
+                  23 <m>\fn{mod}</m> 6.
                   Hint: The mod 6 clock has labels <m>0,1,2,3,4,5</m>.
                 </p>
               </li>
@@ -764,22 +764,22 @@
             <ol>
               <li>
                 <p>
-                  <m>-10</m> <c>mod</c> 5
+                  <m>-10</m> <m>\fn{mod}</m> 5
                 </p>
               </li>
               <li>
                 <p>
-                  <m>-10</m> <c>mod</c> 6
+                  <m>-10</m> <m>\fn{mod}</m> 6
                 </p>
               </li>
               <li>
                 <p>
-                  <m>-10</m> <c>mod</c> 12
+                  <m>-10</m> <m>\fn{mod}</m> 12
                 </p>
               </li>
               <li>
                 <p>
-                  <m>-10</m> <c>mod</c> 3
+                  <m>-10</m> <m>\fn{mod}</m> 3
                 </p>
               </li>
             </ol>
@@ -806,7 +806,7 @@
               <li>
                 <p>
                   What values of <m>a</m> have <m>a~\fn{mod}~n=0</m>?
-                  That is, which values of <m>a</m> end at 0 on the <c>mod</c> <m>n</m> clock?
+                  That is, which values of <m>a</m> end at 0 on the <m>\fn{mod}</m> <m>n</m> clock?
                 </p>
               </li>
             </ol>
@@ -821,12 +821,12 @@
             <ol>
               <li>
                 <p>
-                  Use the idea of a mod <m>n</m> clock to explain why <m>a</m> <c>mod</c> <m>n=0</m> whenever <m>a</m> is a multiple of <m>n</m>.
+                  Use the idea of a mod <m>n</m> clock to explain why <m>a</m> <m>\fn{mod}</m> <m>n=0</m> whenever <m>a</m> is a multiple of <m>n</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Use the idea of a mod <m>n</m> clock to explain why <m>-1</m> <c>mod</c> <m>n=n-1</m> and <m>-2</m> <c>mod</c> <m>n=n-2</m>.
+                  Use the idea of a mod <m>n</m> clock to explain why <m>-1</m> <m>\fn{mod}</m> <m>n=n-1</m> and <m>-2</m> <m>\fn{mod}</m> <m>n=n-2</m>.
                   Hint: The mod <m>n</m> clock has labels <m>0,1,2,\ldots,n-1</m>.
                 </p>
               </li>

@@ -2,7 +2,7 @@
   <title>Counting Bit Strings</title>
   <introduction>
     <p>
-      Strings consisting only of <c>0</c> s and <c>1</c> s, or <term>bit strings</term>,
+      Strings consisting only of <m>\bs{0}</m> s and <m>\bs{1}</m> s, or <term>bit strings</term>,
       play a central role in computer science.
       All numbers, data, logical commands,
       and computer programs are encoded in a computer as bit strings.
@@ -33,20 +33,20 @@
           <ol>
             <li>
               <p>
-                A character that is <c>0</c> or <c>1</c> is a <term>bit</term>.
+                A character that is <m>\bs{0}</m> or <m>\bs{1}</m> is a <term>bit</term>.
               </p>
             </li>
             <li>
               <p>
                 A <term>bit string</term> is a string where each character is a bit.
-                For example, <c>1101</c> is a bit string.
+                For example, <m>\bs{1101}</m> is a bit string.
               </p>
             </li>
             <li>
               <p>
-                The <term>weight</term> of a bit string is the number of <c>1</c> s in the bit string.
+                The <term>weight</term> of a bit string is the number of <m>\bs{1}</m> s in the bit string.
                 For example,
-                the bit string <c>1101</c> has length four and weight three.
+                the bit string <m>\bs{1101}</m> has length four and weight three.
               </p>
             </li>
             <li>
@@ -59,8 +59,8 @@
                 you would not know that we meant the empty bit string.
                 In computer science,
                 the empty bit string is used as a start to build a new bit string.
-                If we start with <m>\lambda</m> and write <c>1</c> at the end of the string,
-                the resulting bit string is <c>1</c> (and we no longer write <m>\lambda</m>).
+                If we start with <m>\lambda</m> and write <m>\bs{1}</m> at the end of the string,
+                the resulting bit string is <m>\bs{1}</m> (and we no longer write <m>\lambda</m>).
               </p>
             </li>
           </ol>
@@ -82,13 +82,13 @@
                 <solution>
                   <p>
                     We draw the possibility tree in <xref ref="fig_tree_bit_strings_length3"></xref>.
-                    The list is <c>000</c>,
-                    <c>001</c>,
-                    <c>010</c>,
-                    <c>011</c>,
-                    <c>100</c>,
-                    <c>101</c>,<c>110</c>,
-                    <c>111</c>.
+                    The list is <m>\bs{000}</m>,
+                    <m>\bs{001}</m>,
+                    <m>\bs{010}</m>,
+                    <m>\bs{011}</m>,
+                    <m>\bs{100}</m>,
+                    <m>\bs{101}</m>,<m>\bs{110}</m>,
+                    <m>\bs{111}</m>.
                   </p>
                 
                 <figure xml:id="fig_tree_bit_strings_length3">
@@ -110,17 +110,17 @@
                   <p>
                     We draw the possibility tree below.
                     Each bit string has weight two,
-                    which means that it has exactly two <c>1</c> s and two <c>0</c> s.
-                    In the tree we need to be careful<ndash/> any time we have two <c>1</c> s or two <c>0</c> s, we have only one branch
-                    (either to just <c>0</c> or to just <c>1</c>)
+                    which means that it has exactly two <m>\bs{1}</m> s and two <m>\bs{0}</m> s.
+                    In the tree we need to be careful<ndash/> any time we have two <m>\bs{1}</m> s or two <m>\bs{0}</m> s, we have only one branch
+                    (either to just <m>\bs{0}</m> or to just <m>\bs{1}</m>)
                     instead of the usual two branches
-                    (to <c>0</c> and to <c>1</c>).
-                    The strings are <c>0011</c>,
-                    <c>0101</c>,
-                    <c>0110</c>,
-                    <c>1001</c>,
-                    <c>1010</c>,
-                    <c>1100</c>.
+                    (to <m>\bs{0}</m> and to <m>\bs{1}</m>).
+                    The strings are <m>\bs{0011}</m>,
+                    <m>\bs{0101}</m>,
+                    <m>\bs{0110}</m>,
+                    <m>\bs{1001}</m>,
+                    <m>\bs{1010}</m>,
+                    <m>\bs{1100}</m>.
                   </p>
                 
                 <figure xml:id="fig_tree_bit_strings_length4_weight2">
@@ -214,12 +214,12 @@
       <solution>
         <p>
           There is one bit string of length 0 (<m>\lambda</m>),
-          two bit strings of length one (<c>0</c>,
-          <c>1</c>) and four bit strings of length two
-          (<c>00</c>,
-          <c>01</c>,
-          <c>10</c>,
-          <c>11</c>).
+          two bit strings of length one (<m>\bs{0}</m>,
+          <m>\bs{1}</m>) and four bit strings of length two
+          (<m>\bs{00}</m>,
+          <m>\bs{01}</m>,
+          <m>\bs{10}</m>,
+          <m>\bs{11}</m>).
           In <xref ref="exam_bit_string_length3"></xref>,
           we listed the eight bit strings of length three.
           In <xref ref="act_countingbs"></xref>,
@@ -323,7 +323,7 @@
         </p>
         <p>
           There are two ways to fill in each space:
-          either <c>0</c> or <c>1</c>.
+          either <m>\bs{0}</m> or <m>\bs{1}</m>.
           We fill in the spaces in a sequence of steps.
         </p>
         <p>
@@ -363,25 +363,25 @@
           <li>
             <p>
               How many bit strings of length eight and weight one are there?
-              Hint: How many places are there for the one <c>1</c>?
+              Hint: How many places are there for the one <m>\bs{1}</m>?
             </p>
           </li>
           <li xml:id="part_bs_length8_weight2">
             <p>
               How many bit strings of length eight and weight two are there?
-              Hint: We can build such a bit string by putting a <c>0</c> or <c>1</c> in each of eight spaces:
+              Hint: We can build such a bit string by putting a <m>\bs{0}</m> or <m>\bs{1}</m> in each of eight spaces:
               <me>
                 \underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}~
               </me>
-              but we need exactly two spaces to have <c>1</c> so filling in the spaces from left to right will not work and there are too many to draw a possibility tree.
-              Instead, consider choosing which two spaces to fill in with <c>1</c>.
-              Since the remaining spaces are <c>0</c> s, the number of bit strings of length eight and weight two equals the number of ways to choose the two spaces for <c>1</c> s.
+              but we need exactly two spaces to have <m>\bs{1}</m> so filling in the spaces from left to right will not work and there are too many to draw a possibility tree.
+              Instead, consider choosing which two spaces to fill in with <m>\bs{1}</m>.
+              Since the remaining spaces are <m>\bs{0}</m> s, the number of bit strings of length eight and weight two equals the number of ways to choose the two spaces for <m>\bs{1}</m> s.
             </p>
           </li>
           <li>
             <p>
               Conjecture the number of bit strings of length <m>n</m> with weight <m>k</m> or,
-              equivalently, exactly <m>k</m> <c>1</c> s.
+              equivalently, exactly <m>k</m> <m>\bs{1}</m> s.
             </p>
           </li>
         </ol>
@@ -406,25 +406,25 @@
       <solution>
         <p>
           Let's figure out a way to rephrase this problem in terms of subsets.
-          We can build such a bit string by putting a <c>0</c> or <c>1</c> in each of 100 spaces:
+          We can build such a bit string by putting a <m>\bs{0}</m> or <m>\bs{1}</m> in each of 100 spaces:
           <me>
             \underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}\dots\underline{\phantom{X}}~\underline{\phantom{X}}~\underline{\phantom{X}}
           </me>
         </p>
         <p>
           Following the hint in <xref ref="act_countingbs"></xref>,
-          let's choose which spaces have <c>1</c> s.
+          let's choose which spaces have <m>\bs{1}</m> s.
         </p>
         <p>
-          Step 1: Fill in three spaces with <c>1</c>.
-          We choose a subset of three spaces for <c>1</c> s from the set of 100 spaces.
+          Step 1: Fill in three spaces with <m>\bs{1}</m>.
+          We choose a subset of three spaces for <m>\bs{1}</m> s from the set of 100 spaces.
           There are <m>\binom{100}{3}</m> ways to do this step.
         </p>
         <p>
-          Step 2: Fill in the remaining 97 spaces with <c>0</c>.
-          There is one way to do this step because the 97 <c>0</c> s go into the remaining 97 spaces.
+          Step 2: Fill in the remaining 97 spaces with <m>\bs{0}</m>.
+          There is one way to do this step because the 97 <m>\bs{0}</m> s go into the remaining 97 spaces.
           Alternatively,
-          you can think of choosing a subset of 97 spaces for the <c>0</c> s from the set of 97 remaining spaces.
+          you can think of choosing a subset of 97 spaces for the <m>\bs{0}</m> s from the set of 97 remaining spaces.
           There are <m>\binom{97}{97} =1</m> ways to do this step.
         </p>
         <p>
@@ -437,15 +437,15 @@
     </example>
     <p>
       We can generalize our answer and rationale from <xref ref="exam_bit_strings_length100_weight3"></xref>,
-      to get a formula for the number of bit strings of length <m>n</m> with exactly <m>k</m> <c>1</c> s
-      (or with exactly <m>k</m> <c>0</c> s).
+      to get a formula for the number of bit strings of length <m>n</m> with exactly <m>k</m> <m>\bs{1}</m> s
+      (or with exactly <m>k</m> <m>\bs{0}</m> s).
     </p>
     <theorem xml:id="thm_bit_string_exactly_k">
       <title>Number of bit strings of length <m>n</m> with exactly <m>k</m> <m>\str{1}</m>s (or with exactly <m>k</m> <m>\str{0}</m>s)</title>
       <statement>
         <p>
-          The number of bit strings of length <m>n</m> with exactly <m>k</m> <c>1</c> s
-          (or with exactly <m>k</m> <c>0</c> s)
+          The number of bit strings of length <m>n</m> with exactly <m>k</m> <m>\bs{1}</m> s
+          (or with exactly <m>k</m> <m>\bs{0}</m> s)
           is <m>\binom{n}{k}</m>.
         </p>
       </statement>
@@ -487,7 +487,7 @@
             </li>
             <li>
               <p>
-                How many bit strings of length 100 are exactly half <c>0</c> s and half <c>1</c> s?
+                How many bit strings of length 100 are exactly half <m>\bs{0}</m> s and half <m>\bs{1}</m> s?
                 <solution>
                   <p>
                     By <xref ref="thm_bit_string_exactly_k"></xref>
@@ -545,7 +545,7 @@
         </li>
         <li>
           <p>
-            We can represent each path by a bit string where <c>1</c> represents walking one unit to the right and <c>0</c> represents walking one unit down.
+            We can represent each path by a bit string where <m>\bs{1}</m> represents walking one unit to the right and <m>\bs{0}</m> represents walking one unit down.
             What is the bit string whose path is <m>a_1a_2b_2b_3c_3c_4</m>?
           </p>
         </li>
@@ -826,7 +826,7 @@
                 <m>\fn{log}_{10}</m> and <m>\fn{lg}</m> is short for <m>\fn{log}_2</m>.
                 In calculus,
                 a noninteger base <m>b=e \approx 2.718</m> is important.
-                The corresponding logarithm is named <c>ln</c>.
+                The corresponding logarithm is named <m>\str{ln}</m>.
               </p>
             </li>
           </ol>
@@ -1086,12 +1086,12 @@
             <ol>
               <li>
                 <p>
-                  Calculate the length and weight of the bit string <c>101100</c>.
+                  Calculate the length and weight of the bit string <m>\bs{101100}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Calculate the length and weight of the bit string <c>0</c>.
+                  Calculate the length and weight of the bit string <m>\bs{0}</m>.
                 </p>
               </li>
               <li>
@@ -1116,7 +1116,7 @@
           </li>
           <li>
             <p>
-              Hint: your bit string should have four <c>1</c> s and six <c>0</c> s.
+              Hint: your bit string should have four <m>\bs{1}</m> s and six <m>\bs{0}</m> s.
             </p>
           </li>
         </ol>
@@ -1141,17 +1141,17 @@
             <ol>
               <li>
                 <p>
-                  Bit strings with more <c>0</c> s than <c>1</c> s.
+                  Bit strings with more <m>\bs{0}</m> s than <m>\bs{1}</m> s.
                 </p>
               </li>
               <li>
                 <p>
-                  Bit strings that do not contain consecutive <c>0</c> s, which means that <c>00</c> does not appear in the bit string.
+                  Bit strings that do not contain consecutive <m>\bs{0}</m> s, which means that <m>\bs{00}</m> does not appear in the bit string.
                 </p>
               </li>
               <li>
                 <p>
-                  Bit strings where any <c>0</c> is immediately followed by <c>1</c>.
+                  Bit strings where any <m>\bs{0}</m> is immediately followed by <m>\bs{1}</m>.
                 </p>
               </li>
             </ol>
@@ -1161,29 +1161,29 @@
         <ol>
           <li>
             <p>
-              Hint: Start the possibility tree with two branches to <c>0</c> and <c>1</c>,
+              Hint: Start the possibility tree with two branches to <m>\bs{0}</m> and <m>\bs{1}</m>,
               as usual.
-              Next, branch to <c>0</c> and <c>1</c> again.
+              Next, branch to <m>\bs{0}</m> and <m>\bs{1}</m> again.
               After that, you need to be careful.
-              If you ever have two <c>1</c> s then the remainder of the bits are all <c>0</c> s.
+              If you ever have two <m>\bs{1}</m> s then the remainder of the bits are all <m>\bs{0}</m> s.
               There are 16 such bit strings.
-              One is all <c>0</c> s, five that have four <c>0</c> s, and ten that have three <c>0</c> s.
+              One is all <m>\bs{0}</m> s, five that have four <m>\bs{0}</m> s, and ten that have three <m>\bs{0}</m> s.
             </p>
           </li>
           <li>
             <p>
-              Hint: Start the possibility tree with two branches to <c>0</c> and <c>1</c>,
+              Hint: Start the possibility tree with two branches to <m>\bs{0}</m> and <m>\bs{1}</m>,
               as usual.
               After that, you need to be careful.
-              After every <c>1</c> there are still two branches
-              (to <c>0</c> and to <c>1</c>),
-              but after every <c>0</c> there is a single branch to <c>1</c>.
+              After every <m>\bs{1}</m> there are still two branches
+              (to <m>\bs{0}</m> and to <m>\bs{1}</m>),
+              but after every <m>\bs{0}</m> there is a single branch to <m>\bs{1}</m>.
             </p>
           </li>
           <li>
             <p>
               Hint: This part is similar to (b),
-              except that the bit string must end in <c>1</c> because a final <c>0</c> would not be immediately followed by <c>1</c>.
+              except that the bit string must end in <m>\bs{1}</m> because a final <m>\bs{0}</m> would not be immediately followed by <m>\bs{1}</m>.
             </p>
           </li>
         </ol>
@@ -1226,12 +1226,12 @@
             The <term>Hamming distance</term>
             between two bit strings is the number of places where their bits differ.
             For example,
-            the Hamming distance between <c>10011</c> and <c>11010</c> is two because they have the same first bits
-            (both <c>1</c>),
+            the Hamming distance between <m>\bs{10011}</m> and <m>\bs{11010}</m> is two because they have the same first bits
+            (both <m>\bs{1}</m>),
             different second bits, the same third bits
-            (both <c>0</c>),
+            (both <m>\bs{0}</m>),
             the same fourth bits
-            (both <c>1</c>),
+            (both <m>\bs{1}</m>),
             and different fifth bits.
             Since the bit strings differ in two places
             (second and fifth),
@@ -1240,17 +1240,17 @@
             <ol>
               <li>
                 <p>
-                  Calculate the Hamming distance between <c>00011</c> and <c>11111</c>.
+                  Calculate the Hamming distance between <m>\bs{00011}</m> and <m>\bs{11111}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  List all bit strings that are Hamming distance one from <c>00011</c>.
+                  List all bit strings that are Hamming distance one from <m>\bs{00011}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Give an example of a bit string that is Hamming distance two from <c>00011</c>.
+                  Give an example of a bit string that is Hamming distance two from <m>\bs{00011}</m>.
                 </p>
               </li>
               <li>
@@ -1279,10 +1279,10 @@
           </li>
           <li>
             <p>
-              <c>10011</c>,
-              <c>01011</c>,
+              <m>\bs{10011}</m>,
+              <m>\bs{01011}</m>,
               <ellipsis/>,
-              <c>00010</c> Note that these are organized by which bit is different:
+              <m>\bs{00010}</m> Note that these are organized by which bit is different:
               first, second, <ellipsis/>, fifth
             </p>
           </li>
@@ -1320,12 +1320,12 @@
               </li>
               <li>
                 <p>
-                  How many bit strings of length twenty contain exactly three <c>1</c> s?
+                  How many bit strings of length twenty contain exactly three <m>\bs{1}</m> s?
                 </p>
               </li>
               <li>
                 <p>
-                  How many bit strings of length twenty contain exactly three <c>0</c> s?
+                  How many bit strings of length twenty contain exactly three <m>\bs{0}</m> s?
                 </p>
               </li>
             </ol>
@@ -1346,7 +1346,7 @@
           <li>
             <p>
               Hint: There are two ways to do this problem.
-              We can choose the three places out of 20 for the <c>0</c> s or we can choose the 17 places out of 20 for the <c>1</c>.
+              We can choose the three places out of 20 for the <m>\bs{0}</m> s or we can choose the 17 places out of 20 for the <m>\bs{1}</m>.
               Either answer is correct.
             </p>
           </li>
@@ -1390,28 +1390,28 @@
             <ol>
               <li>
                 <p>
-                  How many bit strings of length 100 begin with <c>0</c>?
+                  How many bit strings of length 100 begin with <m>\bs{0}</m>?
                   Explain.
                 </p>
               </li>
               <li>
                 <p>
-                  How many bit strings of length 100 begin with <c>00</c>?
+                  How many bit strings of length 100 begin with <m>\bs{00}</m>?
                   Explain.
                 </p>
               </li>
               <li>
                 <p>
-                  How many bit strings of length 100 begin with <c>1</c> and end in <c>0</c>?
+                  How many bit strings of length 100 begin with <m>\bs{1}</m> and end in <m>\bs{0}</m>?
                 </p>
               </li>
               <li>
                 <p>
-                  How many bit strings of length 100 begin with or end in <c>0</c>?
-                  Hint: To avoid double counting of bit strings that begin with <c>0</c> and end in <c>0</c>,
+                  How many bit strings of length 100 begin with or end in <m>\bs{0}</m>?
+                  Hint: To avoid double counting of bit strings that begin with <m>\bs{0}</m> and end in <m>\bs{0}</m>,
                   consider Case 1:
-                  begins with <c>0</c> and Case 2:
-                  begins with <c>1</c> and ends in <c>0</c>.
+                  begins with <m>\bs{0}</m> and Case 2:
+                  begins with <m>\bs{1}</m> and ends in <m>\bs{0}</m>.
                 </p>
               </li>
             </ol>
@@ -1457,7 +1457,7 @@
               </li>
               <li>
                 <p>
-                  How many bit strings of length <m>n</m> have exactly <m>k</m> <c>1</c> s (or exactly <m>k</m> <c>0</c> s)?
+                  How many bit strings of length <m>n</m> have exactly <m>k</m> <m>\bs{1}</m> s (or exactly <m>k</m> <m>\bs{0}</m> s)?
                 </p>
               </li>
             </ol>
@@ -1469,11 +1469,11 @@
         <statement>
           <p>
             A <term>balanced ternary string</term>
-            is a string where each character is <c>0</c>,
-            <c>+</c>,
-            or <c>-</c>.
+            is a string where each character is <m>\bs{0}</m>,
+            <m>\str{+}</m>,
+            or <m>\str{-}</m>.
             For example,
-            <c>+<ndash/>0+</c> is a balanced ternary string of length five.
+            <m>\str{+<ndash/>0+}</m> is a balanced ternary string of length five.
             <ol>
               <li>
                 <p>
@@ -1504,26 +1504,26 @@
         <title>Explore</title>
         <statement>
           <p>
-            Consider strings using only the characters <c>A</c>,
-            <c>B</c>,
-            <c>C</c>,
-            and <c>D</c>.
+            Consider strings using only the characters <m>\str{A}</m>,
+            <m>\str{B}</m>,
+            <m>\str{C}</m>,
+            and <m>\str{D}</m>.
             Recall that a string is ordered and repeats are allowed.
             Also, we do not need to use all the characters.
             <ol>
               <li>
                 <p>
-                  How many such strings consist of exactly two <c>A</c> s and three <c>B</c> s?
+                  How many such strings consist of exactly two <m>\str{A}</m> s and three <m>\str{B}</m> s?
                 </p>
               </li>
               <li>
                 <p>
-                  How many such strings consist of exactly two <c>A</c> s, three <c>B</c> s, and four <c>C</c> s?
+                  How many such strings consist of exactly two <m>\str{A}</m> s, three <m>\str{B}</m> s, and four <m>\str{C}</m> s?
                 </p>
               </li>
               <li>
                 <p>
-                  How many such strings consist of exactly two <c>A</c> s, three <c>B</c> s, four <c>C</c> s, and five <c>D</c> s?
+                  How many such strings consist of exactly two <m>\str{A}</m> s, three <m>\str{B}</m> s, four <m>\str{C}</m> s, and five <m>\str{D}</m> s?
                 </p>
               </li>
             </ol>
@@ -1533,8 +1533,8 @@
         <ol>
           <li>
             <p>
-              Hint: Step 1 is to choose two of the five spaces for the <c>A</c> s.
-              Step 2 is to choose three of the three remaining spaces for the <c>B</c> s.
+              Hint: Step 1 is to choose two of the five spaces for the <m>\str{A}</m> s.
+              Step 2 is to choose three of the three remaining spaces for the <m>\str{B}</m> s.
               Note that there is only one way to do Step 2
               (so you can safely ignore it).
             </p>
@@ -1581,7 +1581,7 @@
           <p>
             We are interested in going from <m>a_1</m> to <m>c_4</m> in <xref ref="fig_froma1_toc4"></xref>.
             As in <xref ref="act_froma1_toc4"></xref>,
-            we can represent each path by a bit string where <c>1</c> represents walking one unit to the right and <c>0</c> represents walking one unit down.
+            we can represent each path by a bit string where <m>\bs{1}</m> represents walking one unit to the right and <m>\bs{0}</m> represents walking one unit down.
             <ol>
               <li>
                 <p>
@@ -1590,7 +1590,7 @@
               </li>
               <li>
                 <p>
-                  What is the path whose bit string is <c>11010</c>?
+                  What is the path whose bit string is <m>\bs{11010}</m>?
                 </p>
               </li>
             </ol>
@@ -1600,7 +1600,7 @@
         <ol>
           <li>
             <p>
-              <c>01101</c>
+              <m>\bs{01101}</m>
             </p>
           </li>
           <li>
@@ -1656,7 +1656,7 @@
         <ol>
           <li>
             <p>
-              Hint: Each coin is <c>0</c> and each dividing line is <c>1</c>.
+              Hint: Each coin is <m>\bs{0}</m> and each dividing line is <m>\bs{1}</m>.
               Note that the total length is <m>15+2=17</m>.
             </p>
           </li>
