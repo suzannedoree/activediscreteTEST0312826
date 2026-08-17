@@ -634,14 +634,14 @@
                 all alphanumeric characters are
                 <term>case-sensitive</term>.
                 For example,
-                <c>A</c> and <c>a</c> are different characters.
+                <m>\str{A}</m> and <m>\str{a}</m> are different characters.
                 There are, <m>10+26+26 = 62</m> alphanumeric characters
               </p>
             </li>
             <li>
               <p>
                 Any other single symbol,
-                such as <c>&amp;</c> or <c>></c>,
+                such as <m>\str{&amp;}</m> or <m>\str{>}</m>,
                 that is typically found on a keyboard key is a
                 <term>special character</term>.
               </p>
@@ -654,16 +654,16 @@
             <li>
               <p>
                 A <term>string</term> is a finite sequence of characters.
-                For example, <c>A0y2%0</c> is a string.
+                For example, <m>\str{A0y2%0}</m> is a string.
                 Note that characters may be repeated within a string and the order matters.
-                For example, <c>00%2Ay</c> is a different string.
+                For example, <m>\str{00%2Ay}</m> is a different string.
               </p>
             </li>
             <li>
               <p>
                 The <term>length of a string</term>
                 is the total number of characters in the string.
-                For example, <c>A0y2%0</c> is a string of length six.
+                For example, <m>\str{A0y2%0}</m> is a string of length six.
               </p>
             </li>
           </ol>
@@ -681,9 +681,9 @@
       <title>2-strings</title>
       <statement>
         <p>
-          List all strings of length two where the first character is <c>a</c>,
-          <c>b</c>,
-          or <c>c</c> and the second character is <c>2</c> or <c>6</c>.
+          List all strings of length two where the first character is <m>\str{a}</m>,
+          <m>\str{b}</m>,
+          or <m>\str{c}</m> and the second character is <m>\str{2}</m> or <m>\str{6}</m>.
           <ol>
             <li>
               <p>
@@ -693,24 +693,24 @@
                     Let's consider cases based on the first character.
                   </p>
                   <p>
-                    Case 1: If the first character is <c>a</c>,
-                    then we have <c>a2</c> or <c>a6</c>.
+                    Case 1: If the first character is <m>\str{a}</m>,
+                    then we have <m>\str{a2}</m> or <m>\str{a6}</m>.
                   </p>
                   <p>
-                    Case 2: If the first character is <c>b</c>,
-                    then we have <c>b2</c> and <c>b6</c>.
+                    Case 2: If the first character is <m>\str{b}</m>,
+                    then we have <m>\str{b2}</m> and <m>\str{b6}</m>.
                   </p>
                   <p>
-                    Case 3: If the first character is <c>c</c>,
-                    then we have <c>c2</c> and <c>c6</c>.
+                    Case 3: If the first character is <m>\str{c}</m>,
+                    then we have <m>\str{c2}</m> and <m>\str{c6}</m>.
                   </p>
                   <p>
-                    The strings are <c>a2</c>,
-                    <c>a6</c>,
-                    <c>b2</c>,
-                    <c>b6</c>,
-                    <c>c2</c>,
-                    <c>c6</c>.
+                    The strings are <m>\str{a2}</m>,
+                    <m>\str{a6}</m>,
+                    <m>\str{b2}</m>,
+                    <m>\str{b6}</m>,
+                    <m>\str{c2}</m>,
+                    <m>\str{c6}</m>.
                   </p>
                   <figure xml:id="fig_tree_2strings">
                   <caption>A possibility tree for 2-strings.</caption>
@@ -730,25 +730,25 @@
                   <p>
                     In <xref ref="fig_tree_2strings"></xref>,
                     we begin by drawing a starting point <m>\bullet</m> on the left.
-                    We draw three branches to nodes <c>a</c>,
-                    <c>b</c>,
-                    <c>c</c> which are the possibilities for the first character in the string.
+                    We draw three branches to nodes <m>\str{a}</m>,
+                    <m>\str{b}</m>,
+                    <m>\str{c}</m> which are the possibilities for the first character in the string.
                   </p>
                   <p>
-                    If the first character is <c>a</c>,
-                    then the second character is either <c>2</c> or <c>6</c>,
-                    and so we draw two branches from <c>a</c> to <c>a2</c> and from <c>a</c> to <c>a6</c>.
-                    Similarly we draw branches from <c>b</c> to <c>b2</c>,
-                    from <c>b</c> to <c>b6</c>,
-                    from <c>c</c> to <c>c2</c>,
-                    and from <c>c</c> to <c>c6</c>.
+                    If the first character is <m>\str{a}</m>,
+                    then the second character is either <m>\str{2}</m> or <m>\str{6}</m>,
+                    and so we draw two branches from <m>\str{a}</m> to <m>\str{a2}</m> and from <m>\str{a}</m> to <m>\str{a6}</m>.
+                    Similarly we draw branches from <m>\str{b}</m> to <m>\str{b2}</m>,
+                    from <m>\str{b}</m> to <m>\str{b6}</m>,
+                    from <m>\str{c}</m> to <m>\str{c2}</m>,
+                    and from <m>\str{c}</m> to <m>\str{c6}</m>.
                     As before, the strings are:
-                    <c>a2</c>,
-                    <c>a6</c>,
-                    <c>b2</c>,
-                    <c>b6</c>,
-                    <c>c2</c>,
-                    and <c>c6</c>.
+                    <m>\str{a2}</m>,
+                    <m>\str{a6}</m>,
+                    <m>\str{b2}</m>,
+                    <m>\str{b6}</m>,
+                    <m>\str{c2}</m>,
+                    and <m>\str{c6}</m>.
                   </p>
                   <p>
                     There is a shorthand way to draw the tree where we only list the new character in each spot instead as shown in <xref ref="fig_tree_2strings_shorthand"></xref>.
@@ -775,30 +775,30 @@
       that we considered the letters in
       <term>alphabetical order</term>,
       the order of the English alphabet:
-      <c>a</c>, <c>b</c>, <c>c</c>, <c>d</c>, <c>e</c>, <c>f</c>, <c>g</c>, <c>h</c>, <c>i</c>, <c>j</c>, <c>k</c>, <c>l</c>, <c>m</c>, <c>n</c>,
-      <c>o</c>,
-      <c>p</c>,
-      <c>q</c>,
-      <c>r</c>,
-      <c>s</c>, <c>t</c>,
-      <c>u</c>,
-      <c>v</c>,
-      <c>w</c>,
-      <c>x</c>,
-      <c>y</c>,
-      <c>z</c>
+      <m>\str{a}</m>, <m>\str{b}</m>, <m>\str{c}</m>, <m>\str{d}</m>, <m>\str{e}</m>, <m>\str{f}</m>, <m>\str{g}</m>, <m>\str{h}</m>, <m>\str{i}</m>, <m>\str{j}</m>, <m>\str{k}</m>, <m>\str{l}</m>, <m>\str{m}</m>, <m>\str{n}</m>,
+      <m>\str{o}</m>,
+      <m>\str{p}</m>,
+      <m>\str{q}</m>,
+      <m>\str{r}</m>,
+      <m>\str{s}</m>, <m>\str{t}</m>,
+      <m>\str{u}</m>,
+      <m>\str{v}</m>,
+      <m>\str{w}</m>,
+      <m>\str{x}</m>,
+      <m>\str{y}</m>,
+      <m>\str{z}</m>
     </p>
     <p>
-       <c>A</c>, <c>B</c>, <c>C</c>, <c>D</c>, <c>E</c>, <c>F</c>, <c>G</c>, <c>H</c>, <c>I</c>, <c>J</c>, <c>K</c>, <c>L</c>, <c>M</c>, <c>N</c>, <c>O</c>, <c>P</c>, <c>Q</c>,
-       <c>R</c>,
-       <c>S</c>,
-       <c>T</c>,
-       <c>U</c>,
-       <c>V</c>, <c>W</c>,
-       <c>X</c>,
-       <c>Y</c>,
-       <c>Z</c> For strings beginning with <c>a</c>,
-       we first list the string ending in <c>2</c> and then the string ending in <c>6</c>.
+       <m>\str{A}</m>, <m>\str{B}</m>, <m>\str{C}</m>, <m>\str{D}</m>, <m>\str{E}</m>, <m>\str{F}</m>, <m>\str{G}</m>, <m>\str{H}</m>, <m>\str{I}</m>, <m>\str{J}</m>, <m>\str{K}</m>, <m>\str{L}</m>, <m>\str{M}</m>, <m>\str{N}</m>, <m>\str{O}</m>, <m>\str{P}</m>, <m>\str{Q}</m>,
+       <m>\str{R}</m>,
+       <m>\str{S}</m>,
+       <m>\str{T}</m>,
+       <m>\str{U}</m>,
+       <m>\str{V}</m>, <m>\str{W}</m>,
+       <m>\str{X}</m>,
+       <m>\str{Y}</m>,
+       <m>\str{Z}</m> For strings beginning with <m>\str{a}</m>,
+       we first list the string ending in <m>\str{2}</m> and then the string ending in <m>\str{6}</m>.
        That is, we considered the digits in
        <term>numerical order</term>, from smallest to largest.
     </p>
@@ -812,26 +812,26 @@
         <ol>
           <li xml:id="part_strings_abc">
             <p>
-              Use a possibility tree to list all strings of length two where each character is <c>a</c>,
-              <c>b</c>,
-              or <c>c</c>.
+              Use a possibility tree to list all strings of length two where each character is <m>\str{a}</m>,
+              <m>\str{b}</m>,
+              or <m>\str{c}</m>.
             </p>
           </li>
           <li xml:id="part_perms_abc">
             <p>
               Let's change the rules.
-              Use a possibility tree to list all strings of length three where each character is <c>a</c>,
-              <c>b</c>,
-              <c>c</c> if repetitions are not allowed,
+              Use a possibility tree to list all strings of length three where each character is <m>\str{a}</m>,
+              <m>\str{b}</m>,
+              <m>\str{c}</m> if repetitions are not allowed,
               meaning that each letter is used exactly once.
             </p>
           </li>
           <li>
             <p>
               Look back at the tree you drew in <xref ref="part_strings_abc"/>.
-              How many strings of length <m>10</m> are there where each character is <c>a</c>,
-              <c>b</c>,
-              or <c>c</c>?
+              How many strings of length <m>10</m> are there where each character is <m>\str{a}</m>,
+              <m>\str{b}</m>,
+              or <m>\str{c}</m>?
               Repetition is allowed.
               Conjecture without writing a list or drawing a tree.
             </p>
@@ -839,9 +839,9 @@
           <li>
             <p>
               Look back at the tree you drew in <xref ref="part_perms_abc"/>.
-              How many strings of length ten are there where each character is <c>a</c>,
-              <c>b</c>,
-              <c>c</c>,<ellipsis/>, <c>j</c> and repetition is not allowed?
+              How many strings of length ten are there where each character is <m>\str{a}</m>,
+              <m>\str{b}</m>,
+              <m>\str{c}</m>,<ellipsis/>, <m>\str{j}</m> and repetition is not allowed?
               Conjecture without writing a list or drawing a tree.
             </p>
           </li>
@@ -1545,23 +1545,23 @@
             <ol>
               <li>
                 <p>
-                  Calculate the length of the string <c>8fG#tt8</c>.
+                  Calculate the length of the string <m>\str{8fG#tt8}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Are there special characters in the string <c>8fG#tt8</c>?
+                  Are there special characters in the string <m>\str{8fG#tt8}</m>?
                   Explain.
                 </p>
               </li>
               <li>
                 <p>
-                  How many times does the digit <c>8</c> appear in the string <c>8fG#tt8</c>?
+                  How many times does the digit <m>\str{8}</m> appear in the string <m>\str{8fG#tt8}</m>?
                 </p>
               </li>
               <li>
                 <p>
-                  How many times does the letter <c>g</c> appear in the string <c>8fG#tt8</c>?
+                  How many times does the letter <m>\str{g}</m> appear in the string <m>\str{8fG#tt8}</m>?
                   Be careful.
                 </p>
               </li>
@@ -1588,7 +1588,7 @@
           <li>
             <p>
               Zero.
-              Note that <c>G</c> is different from <c>g</c>.
+              Note that <m>\str{G}</m> is different from <m>\str{g}</m>.
             </p>
           </li>
         </ol>
@@ -1604,18 +1604,18 @@
                 <p>
                   Look back at the tree you drew in <xref ref="act_listing_strings"></xref>
                   <xref ref="part_perms_abc"/>.
-                  Conjecture the number of strings of length four where each character is <c>a</c>,
-                  <c>b</c>,
-                  <c>c</c>,
-                  or <c>d</c> and repetition is not allowed.
+                  Conjecture the number of strings of length four where each character is <m>\str{a}</m>,
+                  <m>\str{b}</m>,
+                  <m>\str{c}</m>,
+                  or <m>\str{d}</m> and repetition is not allowed.
                 </p>
               </li>
               <li xml:id="part_tree_perms_abcd">
                 <p>
-                  Use a possibility tree to list all strings of length four where each character is <c>a</c>,
-                  <c>b</c>,
-                  <c>c</c>,
-                  or <c>d</c> and repetition is not allowed.
+                  Use a possibility tree to list all strings of length four where each character is <m>\str{a}</m>,
+                  <m>\str{b}</m>,
+                  <m>\str{c}</m>,
+                  or <m>\str{d}</m> and repetition is not allowed.
                   Do not forget to state the final list.
                 </p>
               </li>
@@ -1657,22 +1657,22 @@
         <title>Understand</title>
         <statement>
           <p>
-            <nbsp/> Use a possibility tree to list all strings of length three where each character is <c>a</c>,
-            <c>b</c>,
-            or <c>c</c> if repetition is allowed,
+            <nbsp/> Use a possibility tree to list all strings of length three where each character is <m>\str{a}</m>,
+            <m>\str{b}</m>,
+            or <m>\str{c}</m> if repetition is allowed,
             but not consecutively.
             For example,
-            <c>aba</c> is allowed but <c>baa</c> is not.
+            <m>\str{aba}</m> is allowed but <m>\str{baa}</m> is not.
             Do not forget to state the final list.
           </p>
         </statement>
         <hint>
         <p>
-          Hint: the list begins <c>aba</c>,
-          <c>abc</c>,
-          <c>aca</c>,
-          <c>acb</c>,
-          <ellipsis/>, <c>cbc</c>.
+          Hint: the list begins <m>\str{aba}</m>,
+          <m>\str{abc}</m>,
+          <m>\str{aca}</m>,
+          <m>\str{acb}</m>,
+          <ellipsis/>, <m>\str{cbc}</m>.
           There are 12 possible strings.
         </p>
         </hint>
@@ -1756,7 +1756,7 @@
               </li>
               <li>
                 <p>
-                  Whether <c>y</c> and <c>Y</c> are considered the same character?
+                  Whether <m>\str{y}</m> and <m>\str{Y}</m> are considered the same character?
                 </p>
               </li>
               <li>
@@ -1788,21 +1788,21 @@
         <statement>
           <p>
             A <term>permutation of the set</term>
-            <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> is a string of length four using each of the digits <c>1</c>,
-            <c>2</c>,
-            <c>3</c>,
-            and <c>4</c> exactly once.
+            <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> is a string of length four using each of the digits <m>\bs{1}</m>,
+            <m>\str{2}</m>,
+            <m>\str{3}</m>,
+            and <m>\str{4}</m> exactly once.
             <ol>
               <li>
                 <p>
                   Use a possibility tree to list all permutations of the set
-                  <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> starting with <c>1</c>.
+                  <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> starting with <m>\bs{1}</m>.
                 </p>
               </li>
               <li>
                 <p>
                   Use a possibility tree to list all permutations of the set
-                  <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> starting with <c>2</c>.
+                  <m>\{\str{1},\str{2},\str{3},\str{4}\}</m> starting with <m>\str{2}</m>.
                 </p>
               </li>
               <li>
@@ -1831,11 +1831,11 @@
           </li>
           <li>
             <p>
-              Hint: Use case 1: starts with <c>1</c>, case 2:
-              starts with <c>2</c>, case 3:
-              starts with <c>3</c>,
+              Hint: Use case 1: starts with <m>\bs{1}</m>, case 2:
+              starts with <m>\str{2}</m>, case 3:
+              starts with <m>\str{3}</m>,
               and case 4:
-              starts with <c>4</c>.
+              starts with <m>\str{4}</m>.
               There are six permutations in each case.
             </p>
           </li>
@@ -1851,17 +1851,17 @@
             <ol>
               <li>
                 <p>
-                  The first first two characters are odd (<c>1</c> or <c>3</c>) and the second two characters are even
-                  (<c>2</c> or <c>4</c>).
+                  The first first two characters are odd (<m>\bs{1}</m> or <m>\str{3}</m>) and the second two characters are even
+                  (<m>\str{2}</m> or <m>\str{4}</m>).
                   For example,
-                  we might have the string <c>1342</c>.
+                  we might have the string <m>\str{1342}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  The <c>1</c> appears before <c>2</c> and <c>3</c> appears before <c>4</c>.
+                  The <m>\bs{1}</m> appears before <m>\str{2}</m> and <m>\str{3}</m> appears before <m>\str{4}</m>.
                   For example,
-                  we might have the string <c>3142</c>.
+                  we might have the string <m>\str{3142}</m>.
                 </p>
               </li>
               <li>
@@ -1869,8 +1869,8 @@
                   There is only one <term>decrease</term>,
                   meaning that there is only one place in the permutation of the set where a digit is followed by a smaller digit.
                   For example,
-                  <c>1324</c> is allowed because <c>32</c> is the only decrease,
-                  but <c>3142</c> is not allowed because both <c>31</c> and <c>42</c> are decreases.
+                  <m>\str{1324}</m> is allowed because <m>\str{32}</m> is the only decrease,
+                  but <m>\str{3142}</m> is not allowed because both <m>\str{31}</m> and <m>\str{42}</m> are decreases.
                 </p>
               </li>
             </ol>
@@ -1880,16 +1880,16 @@
         <ol>
           <li>
             <p>
-              Hint: The first branches go to <c>1</c> and <c>3</c>.
-              From <c>1</c> there is a single branch to <c>3</c> and vice versa.
-              Next, there is a branch from each endpoint to <c>2</c> and <c>4</c>.
-              Lastly, from each <c>2</c> there is a single branch to <c>4</c> and vice versa.
+              Hint: The first branches go to <m>\bs{1}</m> and <m>\str{3}</m>.
+              From <m>\bs{1}</m> there is a single branch to <m>\str{3}</m> and vice versa.
+              Next, there is a branch from each endpoint to <m>\str{2}</m> and <m>\str{4}</m>.
+              Lastly, from each <m>\str{2}</m> there is a single branch to <m>\str{4}</m> and vice versa.
               In all, there are four such permutations.
             </p>
           </li>
           <li>
             <p>
-              Hint: The permutation must begin with <c>1</c> or <c>3</c>.
+              Hint: The permutation must begin with <m>\bs{1}</m> or <m>\str{3}</m>.
               There are three such permutations in each case.
             </p>
           </li>
@@ -1898,9 +1898,9 @@
               Hint: Consider cases.
               Case 1: The decrease happens from first to second digits.
               There are three such strings:
-              <c>2134</c>,
-              <c>3124</c>,
-              and <c>4123</c>.
+              <m>\str{2134}</m>,
+              <m>\str{3124}</m>,
+              and <m>\str{4123}</m>.
               Case 2: The decrease happens from second to third digit.
               There are five such strings
               (list them).

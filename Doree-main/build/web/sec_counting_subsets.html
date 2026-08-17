@@ -39,7 +39,7 @@ htmlPresentation: false,
 <meta property="og:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta property="book:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.46"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -598,16 +598,16 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="sec_converse_cp.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Converse and Contrapositive</span></a></div>
 <ul id="ptx-toc-group-sec_converse_cp" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_converse" class="internal"><span class="codenumber">5.4.A</span> <span class="title">The Converse and Biconditional Statements</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_pff_iff" class="internal"><span class="codenumber">5.4.B</span> <span class="title">Proof Format: <span class="process-math">\(\leftrightarrow\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_pff_iff" class="internal"><span class="codenumber">5.4.B</span> <span class="title">Proof Format: Biconditional</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_contrapositive" class="internal"><span class="codenumber">5.4.C</span> <span class="title">The Contrapositive</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_pff_cp" class="internal"><span class="codenumber">5.4.D</span> <span class="title">Proof Format: <span class="process-math">\(\to\)</span> Using the Contrapositive</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_pff_cp" class="internal"><span class="codenumber">5.4.D</span> <span class="title">Proof Format: Conditional Using the Contrapositive</span></a></div></li>
 <li class="toc-item toc-subsection">
 <div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7" class="internal"><span class="codenumber">5.4.E</span> <span class="title">Exercises</span></a></div>
 <ul id="ptx-toc-group-sec_converse_cp-7" class="structural toc-item-list">
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-2" class="internal"><span class="title">Exercises for 5.4.A The Converse and Biconditional Statements</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-3" class="internal"><span class="title">Exercises for 5.4.B Proof Format: <span class="process-math">\(\leftrightarrow\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-3" class="internal"><span class="title">Exercises for 5.4.B Proof Format: Biconditional</span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-4" class="internal"><span class="title">Exercises for 5.4.C The Contrapositive</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-5" class="internal"><span class="title">Exercises for 5.4.D Proof Format: <span class="process-math">\(\to\)</span> Using the Contrapositive</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-5" class="internal"><span class="title">Exercises for 5.4.D Proof Format: Conditional Using the Contrapositive</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -999,7 +999,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para"> </div>
 <ol class="lower-alpha lower-alpha-level-1" id="act_adopting_two_cats-2-2">
 <li id="part_list_two_cats">
-<div class="para" id="part_list_two_cats-1">There are five cats (<code class="code-inline tex2jax_ignore">c1</code>, <code class="code-inline tex2jax_ignore">c2</code>, <code class="code-inline tex2jax_ignore">c3</code>, <code class="code-inline tex2jax_ignore">c4</code>, <code class="code-inline tex2jax_ignore">c5</code>) waiting to be adopted at the animal shelter. You want to adopt two of the cats. Make a list of possibilities. Notice that the order in which we choose the cats does not matter. For example, choosing <code class="code-inline tex2jax_ignore">c2</code> and <code class="code-inline tex2jax_ignore">c5</code> is the same as choosing <code class="code-inline tex2jax_ignore">c5</code> and <code class="code-inline tex2jax_ignore">c2</code>. For that reason, we use set notation to indicate a choice, such as <span class="process-math">\(\{\str{c2}, \str{c5}\}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_list_two_cats-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_list_two_cats-1">There are five cats (<span class="process-math">\(\str{c1}\text{,}\)</span> <span class="process-math">\(\str{c2}\text{,}\)</span> <span class="process-math">\(\str{c3}\text{,}\)</span> <span class="process-math">\(\str{c4}\text{,}\)</span> <span class="process-math">\(\str{c5}\)</span>) waiting to be adopted at the animal shelter. You want to adopt two of the cats. Make a list of possibilities. Notice that the order in which we choose the cats does not matter. For example, choosing <span class="process-math">\(\str{c2}\)</span> and <span class="process-math">\(\str{c5}\)</span> is the same as choosing <span class="process-math">\(\str{c5}\)</span> and <span class="process-math">\(\str{c2}\text{.}\)</span> For that reason, we use set notation to indicate a choice, such as <span class="process-math">\(\{\str{c2}, \str{c5}\}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_list_two_cats-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (a)"><a tabindex="-1" href="#part_list_two_cats" title="Copy heading and permalink for Item (a)" aria-label="Copy heading and permalink for Item (a)">🔗</a></div>
 </li>

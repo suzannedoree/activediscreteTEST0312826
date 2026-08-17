@@ -63,12 +63,12 @@
           </li>
           <li>
             <p>
-              Every bit string of length five begins or ends with <c>0</c>.
+              Every bit string of length five begins or ends with <m>\bs{0}</m>.
             </p>
           </li>
           <li xml:id="part_bs5_three0_or_three1">
             <p>
-              Every bit string of length five has at least three <c>0</c> s or at least three <c>1</c> s.
+              Every bit string of length five has at least three <m>\bs{0}</m> s or at least three <m>\bs{1}</m> s.
             </p>
           </li>
         </ol>
@@ -186,8 +186,8 @@
                     </p>
                   </li>
                 </ul>
-              In this textbook we abbreviate true as <c>T</c> and false as <c>F</c>.
-              Some computer science textbooks use <c>1</c> for true and <c>0</c> for false instead.
+              In this textbook we abbreviate true as <m>\str{T}</m> and false as <m>\str{F}</m>.
+              Some computer science textbooks use <m>\bs{1}</m> for true and <m>\bs{0}</m> for false instead.
               </p>
             </li>
           </ol>
@@ -213,9 +213,9 @@
                     <xref ref="table_truthtable_and"></xref>
                     shows the truth table for <m>P \land Q</m>.
                     Since the only time <m>P \land Q</m> is true is when both <m>P</m> and <m>Q</m> are true,
-                    the only <c>T</c> in the
+                    the only <m>\str{T}</m> in the
                     <m>P \land Q</m> column is in the first row.
-                    The other entries in the <m>P \land Q</m> column are all <c>F</c>.
+                    The other entries in the <m>P \land Q</m> column are all <m>\str{F}</m>.
                   </p>
                   <table xml:id="table_truthtable_and">
   <title>Truth table for the logical connective <term>and</term></title>
@@ -265,10 +265,10 @@
                     shows the truth table for <m>P \lor Q</m>.
                     Since <m>P \lor Q</m> is true is whenever <m>P</m> is true,
                     the first two entries in the
-                    <m>P \land Q</m> column are <c>T</c>.
+                    <m>P \land Q</m> column are <m>\str{T}</m>.
                     Since <m>P \lor Q</m> is true whenever <m>Q</m> is true,
-                    the third entry in the <m>P \land Q</m> column is also <c>T</c>.
-                    The final entry in the <m>P \land Q</m> column is <c>F</c> because neither <m>P</m> nor <m>Q</m> are true.
+                    the third entry in the <m>P \land Q</m> column is also <m>\str{T}</m>.
+                    The final entry in the <m>P \land Q</m> column is <m>\str{F}</m> because neither <m>P</m> nor <m>Q</m> are true.
                   </p>
                   <table xml:id="table_truthtable_or">
                     <title>Truth table for the logical connective <term>or</term></title>
@@ -317,7 +317,7 @@
                     <xref ref="table_truthtable_xor"></xref>
                     shows the truth table for <m>P \oplus Q</m>.
                     Since <m>P \oplus Q</m> is true exactly when one of <m>P</m> or <m>Q</m> is true,
-                    the <m>P \oplus Q</m> column has <c>T</c> in the second and third rows only.
+                    the <m>P \oplus Q</m> column has <m>\str{T}</m> in the second and third rows only.
                   </p>
                   <table xml:id="table_truthtable_xor">
                     <title>Truth table for the logical connective <term>xor</term></title>
@@ -518,7 +518,7 @@
         <p>
           The truth table is in <xref ref="table_truthtable_distrib"></xref>.
           Notice that the columns for <m>(P \lor Q) \land R</m> and for
-          <m>(P \land R) \lor (Q \land R)</m> have the same sequence of <c>T</c> s and <c>F</c> s.
+          <m>(P \land R) \lor (Q \land R)</m> have the same sequence of <m>\str{T}</m> s and <m>\str{F}</m> s.
         </p>
         <table xml:id="table_truthtable_distrib">
           <title>A truth table verifying the distributive equivalence <m>(P \lor Q) \land R \equiv (P \land R) \lor (Q \land R)</m></title>
@@ -1018,7 +1018,7 @@
                   <p>
                     <xref ref="table_truthtable_contradiction"></xref>
                     shows the truth table for <m>P \land \neg P</m>.
-                    Since the final column is all <c>F</c>,
+                    Since the final column is all <m>\str{F}</m>,
                     it follows that <m>P \land \neg P</m> is a contradiction.
                   </p>
                 <table xml:id="table_truthtable_contradiction">
@@ -1930,12 +1930,12 @@
           <li>
             <p>
               Hint: The truth table needs four rows and is similar to the table in <xref ref="table_truthtable_andnot"></xref>.
-              The last column should have three <c>T</c> and one <c>F</c>.
+              The last column should have three <m>\str{T}</m> and one <m>\str{F}</m>.
             </p>
           </li>
           <li>
             <p>
-              Hint: The last column should have one <c>T</c> and three <c>F</c>.
+              Hint: The last column should have one <m>\str{T}</m> and three <m>\str{F}</m>.
             </p>
           </li>
         </ol>
@@ -2198,7 +2198,7 @@
             <ol>
               <li>
                 <p>
-                  Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that every bit string of length five has at least three <c>0</c> s or at least three <c>1</c> s.
+                  Use a proof by contradiction <xref ref="pff_contradiction"/> to prove that every bit string of length five has at least three <m>\bs{0}</m> s or at least three <m>\bs{1}</m> s.
                   Hint: The negation would be that there exists a bit string of length five with fewer than three <m>\bs{0}</m>s and fewer than three <m>\bs{1}</m>s.
                   What is the longest such possible bit string?
                 </p>
@@ -2217,8 +2217,8 @@
           <li>
             <p>
               Hint: In the hint
-              <q>fewer than three <c>0</c> s</q>
-              means the number of <c>0</c> s is less than or equal to two.
+              <q>fewer than three <m>\bs{0}</m> s</q>
+              means the number of <m>\bs{0}</m> s is less than or equal to two.
             </p>
           </li>
           <li>
@@ -2317,7 +2317,7 @@
               \fn{lg}(3) = \frac{s}{t}
             </me>
             for some integers <m>s</m> and <m>t</m> with <m>t \neq 0</m>.
-            Using the definition of <c>lg</c> <xref ref="defn_log"/>, we can write
+            Using the definition of <m>\str{lg}</m> <xref ref="defn_log"/>, we can write
             <me>
               2^{^{\frac{s}{t}}} = \underline{\hspace{.5 in}}
             </me>.

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Sieve of Eratosthenes<div class="autopermalink" aria-hidden="true" data-description="Table 4.4.5: Sieve of Eratosthenes"><a tabindex="-1" href="#table_sieve" title="Copy heading and permalink for Table 4.4.5: Sieve of Eratosthenes" aria-label="Copy heading and permalink for Table 4.4.5: Sieve of Eratosthenes">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{1}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{2}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{3}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{4}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{5}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{6}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{7}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{8}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{9}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{10}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{11}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{12}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{13}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{14}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{15}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{16}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{17}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{18}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{19}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{20}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{21}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{22}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{23}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{24}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{25}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{26}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{27}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{28}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{29}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{30}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{31}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{32}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{33}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{34}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{35}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{37}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{38}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{39}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{40}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{41}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{42}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{43}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{44}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{45}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{46}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{47}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{48}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{49}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{50}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{51}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{52}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{53}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{54}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{55}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{56}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{57}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{58}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{59}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{60}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{61}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{62}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{63}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{64}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{65}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{66}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{67}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{68}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{69}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{70}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{71}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{72}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{73}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{74}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{75}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{76}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{77}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{78}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{79}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{80}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{81}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{82}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{83}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{84}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{85}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{86}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{87}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{88}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{89}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{90}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{91}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{92}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{93}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{94}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{95}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{96}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\underline{97}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{98}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{99}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\cancel{100}\)</span></td>
+</tr>
+</table></div>
+</figure><span class="incontext"><a class="internal" href="sec_primes.html#table_sieve">In Context</a></span>
+</body>
+</html>

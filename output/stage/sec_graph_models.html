@@ -39,7 +39,7 @@ htmlPresentation: false,
 <meta property="og:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta property="book:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.46"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -598,16 +598,16 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="sec_converse_cp.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Converse and Contrapositive</span></a></div>
 <ul id="ptx-toc-group-sec_converse_cp" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_converse" class="internal"><span class="codenumber">5.4.A</span> <span class="title">The Converse and Biconditional Statements</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_pff_iff" class="internal"><span class="codenumber">5.4.B</span> <span class="title">Proof Format: <span class="process-math">\(\leftrightarrow\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_pff_iff" class="internal"><span class="codenumber">5.4.B</span> <span class="title">Proof Format: Biconditional</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_contrapositive" class="internal"><span class="codenumber">5.4.C</span> <span class="title">The Contrapositive</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_pff_cp" class="internal"><span class="codenumber">5.4.D</span> <span class="title">Proof Format: <span class="process-math">\(\to\)</span> Using the Contrapositive</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sub_pff_cp" class="internal"><span class="codenumber">5.4.D</span> <span class="title">Proof Format: Conditional Using the Contrapositive</span></a></div></li>
 <li class="toc-item toc-subsection">
 <div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7" class="internal"><span class="codenumber">5.4.E</span> <span class="title">Exercises</span></a></div>
 <ul id="ptx-toc-group-sec_converse_cp-7" class="structural toc-item-list">
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-2" class="internal"><span class="title">Exercises for 5.4.A The Converse and Biconditional Statements</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-3" class="internal"><span class="title">Exercises for 5.4.B Proof Format: <span class="process-math">\(\leftrightarrow\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-3" class="internal"><span class="title">Exercises for 5.4.B Proof Format: Biconditional</span></a></div></li>
 <li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-4" class="internal"><span class="title">Exercises for 5.4.C The Contrapositive</span></a></div></li>
-<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-5" class="internal"><span class="title">Exercises for 5.4.D Proof Format: <span class="process-math">\(\to\)</span> Using the Contrapositive</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_converse_cp.html#sec_converse_cp-7-5" class="internal"><span class="title">Exercises for 5.4.D Proof Format: Conditional Using the Contrapositive</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1212,7 +1212,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para logical" id="act_cube_graph-2">
 <div class="para">Consider a graph <span class="process-math">\(Q\)</span> whose vertices are the bit strings of length three and where two vertices are connected by an edge if they differ in exactly one bit.<details class="ptx-footnote" aria-live="polite" id="act_cube_graph-2-2"><summary class="ptx-footnote__number" title="Footnote 3.1.2"><sup> 2 </sup></summary>
 <div class="ptx-footnote__contents" id="act_cube_graph-2-2">We could equivalently say that the bit strings have Hamming distance one, as defined in <a href="sec_bit_strings.html" class="internal" title="Section 2.4: Counting Bit Strings">Section 2.4</a> Exercise <a href="sec_bit_strings.html#exer_hamming_distance" class="xref" data-knowl="./knowl/xref/exer_hamming_distance.html" data-reveal-label="Reveal" data-close-label="Close" title=" 5: Explore">5</a>.
-</div></details> For example, the vertices <code class="code-inline tex2jax_ignore">010</code> and <code class="code-inline tex2jax_ignore">011</code> which are connected by an edge because they differ in only their third bit, but the vertex <code class="code-inline tex2jax_ignore">010</code> is not connected by an edge to the vertex <code class="code-inline tex2jax_ignore">111</code> because they differ in both the first and third bit.</div>
+</div></details> For example, the vertices <span class="process-math">\(\bs{010}\)</span> and <span class="process-math">\(\bs{011}\)</span> which are connected by an edge because they differ in only their third bit, but the vertex <span class="process-math">\(\bs{010}\)</span> is not connected by an edge to the vertex <span class="process-math">\(\bs{111}\)</span> because they differ in both the first and third bit.</div>
 <ol class="lower-alpha lower-alpha-level-1" id="act_cube_graph-2-7">
 <li id="act_cube_graph-2-7-1">
 <div class="para" id="act_cube_graph-2-7-1-1">How many vertices does <span class="process-math">\(Q\)</span> have? Hint: There should be one vertex for each bit string of length three.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_cube_graph-2-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1225,17 +1225,17 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" aria-hidden="true" data-description="Item (b)"><a tabindex="-1" href="#act_cube_graph-2-7-2" title="Copy heading and permalink for Item (b)" aria-label="Copy heading and permalink for Item (b)">🔗</a></div>
 </li>
 <li id="act_cube_graph-2-7-3">
-<div class="para" id="act_cube_graph-2-7-3-1">Explain why the vertices labeled <code class="code-inline tex2jax_ignore">010</code> and <code class="code-inline tex2jax_ignore">011</code> are connected by an edge.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_cube_graph-2-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="act_cube_graph-2-7-3-1">Explain why the vertices labeled <span class="process-math">\(\bs{010}\)</span> and <span class="process-math">\(\bs{011}\)</span> are connected by an edge.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_cube_graph-2-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (c)"><a tabindex="-1" href="#act_cube_graph-2-7-3" title="Copy heading and permalink for Item (c)" aria-label="Copy heading and permalink for Item (c)">🔗</a></div>
 </li>
 <li id="act_cube_graph-2-7-4">
-<div class="para" id="act_cube_graph-2-7-4-1">List the vertices adjacent to the vertex labeled <code class="code-inline tex2jax_ignore">010</code>. These are the neighbors of the vertex labeled <code class="code-inline tex2jax_ignore">010</code>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_cube_graph-2-7-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="act_cube_graph-2-7-4-1">List the vertices adjacent to the vertex labeled <span class="process-math">\(\bs{010}\text{.}\)</span> These are the neighbors of the vertex labeled <span class="process-math">\(\bs{010}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_cube_graph-2-7-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (d)"><a tabindex="-1" href="#act_cube_graph-2-7-4" title="Copy heading and permalink for Item (d)" aria-label="Copy heading and permalink for Item (d)">🔗</a></div>
 </li>
 <li id="act_cube_graph-2-7-5">
-<div class="para" id="act_cube_graph-2-7-5-1">What is the degree of the vertex <code class="code-inline tex2jax_ignore">010</code>?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_cube_graph-2-7-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="act_cube_graph-2-7-5-1">What is the degree of the vertex <span class="process-math">\(\bs{010}\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_cube_graph-2-7-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (e)"><a tabindex="-1" href="#act_cube_graph-2-7-5" title="Copy heading and permalink for Item (e)" aria-label="Copy heading and permalink for Item (e)">🔗</a></div>
 </li>

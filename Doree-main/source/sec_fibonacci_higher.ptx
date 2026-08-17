@@ -494,7 +494,7 @@
       <title>Using a recursion to count bit strings containing at least one \bs{0}</title>
       <statement>
         <p>
-          <nbsp/> How many bit strings of length <m>n</m> include at least one <c>0</c>?
+          <nbsp/> How many bit strings of length <m>n</m> include at least one <m>\bs{0}</m>?
           Count directly and then show how to write a recursion to count.
         </p>
       </statement>
@@ -502,27 +502,27 @@
         <p>
           By <xref ref="thm_number_bit_strings"></xref>,
           there are <m>2^n</m> bit strings of length <m>n</m>.
-          The only bit string that does not have any <c>0</c> s is <c>11</c> <m>\cdots</m> <c>1</c>.
+          The only bit string that does not have any <m>\bs{0}</m> s is <m>\bs{11}</m> <m>\cdots</m> <m>\bs{1}</m>.
           Therefore, by <xref ref="thm_count_complement"></xref>,
-          there are <m>2^n-1</m> bit strings of length <m>n</m> that include at least one <c>0</c>.
+          there are <m>2^n-1</m> bit strings of length <m>n</m> that include at least one <m>\bs{0}</m>.
         </p>
         <p>
           How can we write a recursion to count?
-          Write <m>z_n=</m> the number of bit strings of length <m>n</m> that include at least one <c>0</c>.
-          Note that the only bit string of length 1 that includes at least one <c>0</c> is <c>0</c> itself and so <m>z_1=1</m>.
-          Given a bit string of length <m>n</m> that has at least one <c>0</c>,
+          Write <m>z_n=</m> the number of bit strings of length <m>n</m> that include at least one <m>\bs{0}</m>.
+          Note that the only bit string of length 1 that includes at least one <m>\bs{0}</m> is <m>\bs{0}</m> itself and so <m>z_1=1</m>.
+          Given a bit string of length <m>n</m> that has at least one <m>\bs{0}</m>,
           we consider two cases.
         </p>
         <p>
-          Case 1: The bit string begins with <c>1</c>.
+          Case 1: The bit string begins with <m>\bs{1}</m>.
           In this case,
-          the other <m>n-1</m> bits must include at least one <c>0</c>.
+          the other <m>n-1</m> bits must include at least one <m>\bs{0}</m>.
           There are <m>z_{n-1}</m> such bit strings.
         </p>
         <p>
-          Case 2: The bit string begins with <c>0</c>.
+          Case 2: The bit string begins with <m>\bs{0}</m>.
           In this case,
-          we have at least one <c>0</c> no matter what the other <m>n-1</m> bits are.
+          we have at least one <m>\bs{0}</m> no matter what the other <m>n-1</m> bits are.
           They can be any bit string of length <m>n-1</m>.
           By <xref ref="thm_number_bit_strings"></xref>,
           there are <m>2^{n-1}</m> bit strings of length <m>n-1</m>.
@@ -544,33 +544,33 @@
       <title>Using a recursion to count bit strings that do not contain \bs{00}</title>
       <statement>
         <p>
-          Write a recursion that counts the number of bit strings of length <m>n</m> that do not contain <c>00</c>,
+          Write a recursion that counts the number of bit strings of length <m>n</m> that do not contain <m>\bs{00}</m>,
           meaning they do not contain two or more consecutive zeros.
         </p>
       </statement>
       <solution>
         <p>
-          Write <m>c_n=</m> the number of bit strings of length <m>n</m> that do not contain <c>00</c>.
-          Note that neither bit strings of length 1 contains <c>00</c> and so <m>c_1=2</m>.
-          Also note that three of the bit strings of length 2 do not contain <c>00</c>,
-          namely <c>01</c>,
-          <c>10</c>,
-          and <c>11</c>,
+          Write <m>c_n=</m> the number of bit strings of length <m>n</m> that do not contain <m>\bs{00}</m>.
+          Note that neither bit strings of length 1 contains <m>\bs{00}</m> and so <m>c_1=2</m>.
+          Also note that three of the bit strings of length 2 do not contain <m>\bs{00}</m>,
+          namely <m>\bs{01}</m>,
+          <m>\bs{10}</m>,
+          and <m>\bs{11}</m>,
           and so <m>c_2=3</m>.
-          Given a bit string of length <m>n</m> that does not include <c>00</c>,
+          Given a bit string of length <m>n</m> that does not include <m>\bs{00}</m>,
           we consider two cases.
         </p>
         <p>
-          Case 1: The bit string begins with <c>1</c>.
+          Case 1: The bit string begins with <m>\bs{1}</m>.
           In this case,
-          the other <m>n-1</m> bits cannot include <c>00</c>.
+          the other <m>n-1</m> bits cannot include <m>\bs{00}</m>.
           There are <m>c_{n-1}</m> such bit strings.
         </p>
         <p>
-          Case 2: The bit string begins with <c>0</c>.
+          Case 2: The bit string begins with <m>\bs{0}</m>.
           In this case,
-          the next bit must be <c>1</c> so that we avoid <c>00</c>.
-          The other <m>n-2</m> bits cannot include <c>00</c>. There are <m>c_{n-2}</m> such bit strings.
+          the next bit must be <m>\bs{1}</m> so that we avoid <m>\bs{00}</m>.
+          The other <m>n-2</m> bits cannot include <m>\bs{00}</m>. There are <m>c_{n-2}</m> such bit strings.
         </p>
         <p>
           Since cases add <xref ref="thm_cases_add"/>, we have
@@ -603,16 +603,16 @@
           <li>
             <p>
               We want to tile a <m>1 \times n</m> board using
-              <m>1 \times 1</m> squares that are either red (<c>R</c>), blue (<c>B</c>), and green (<c>G</c>) in such a way that we never place two red tiles next to each other.
-              That is, the tiling does not contain <c>RR</c>.
+              <m>1 \times 1</m> squares that are either red (<m>\str{R}</m>), blue (<m>\str{B}</m>), and green (<m>\str{G}</m>) in such a way that we never place two red tiles next to each other.
+              That is, the tiling does not contain <m>\str{RR}</m>.
               Let <m>t_n=</m> the number of such tilings.
               Write a second order recursive definition for <m>t_n</m>,
               including two initial conditions.
-              Hint: Break into cases based on whether the tiling starts with <c>G</c>,
-              <c>B</c>,
-              or <c>R</c>.
-              In the case where it starts with <c>R</c>,
-              explaining why the next tile must be <c>B</c> or <c>G</c>.
+              Hint: Break into cases based on whether the tiling starts with <m>\str{G}</m>,
+              <m>\str{B}</m>,
+              or <m>\str{R}</m>.
+              In the case where it starts with <m>\str{R}</m>,
+              explaining why the next tile must be <m>\str{B}</m> or <m>\str{G}</m>.
             </p>
           </li>
         </ol>
@@ -1500,7 +1500,7 @@
         <statement>
           <p>
             We want to count ways to tile a
-            <m>1 \times n</m> board using red (<c>R</c>), blue (<c>B</c>), and green (<c>G</c>) <m>1 \times 1</m> square tiles.
+            <m>1 \times n</m> board using red (<m>\str{R}</m>), blue (<m>\str{B}</m>), and green (<m>\str{G}</m>) <m>1 \times 1</m> square tiles.
             <ol>
               <li xml:id="part_red_green_tiles">
                 <p>
@@ -1513,9 +1513,9 @@
                   Let <m>b_n</m> be the number of tilings that contain at least one blue tile.
                   First, write an explicit rule for <m>b_n</m> and then,
                   write a recursive definition for <m>b_n</m>.
-                  Hint: Break into cases based on whether the tiling starts with <c>G</c>,
-                  <c>B</c>,
-                  or <c>R</c>.
+                  Hint: Break into cases based on whether the tiling starts with <m>\str{G}</m>,
+                  <m>\str{B}</m>,
+                  or <m>\str{R}</m>.
                 </p>
               </li>
               <li>
@@ -1539,17 +1539,17 @@
             <p>
               Hint: For the explicit formula use your answer to <xref ref="part_red_green_tiles"/>.
               For the recursive formula,
-              if it starts with <c>R</c> or <c>G</c>,
-              then the remainder must include <c>B</c>,
-              but if it starts with <c>B</c>,
+              if it starts with <m>\str{R}</m> or <m>\str{G}</m>,
+              then the remainder must include <m>\str{B}</m>,
+              but if it starts with <m>\str{B}</m>,
               then the remainder can be any tiling using the three colors.
             </p>
           </li>
           <li>
             <p>
-              Hint: Break into cases based on whether the tiling starts with <c>G</c>,
-              <c>B</c>,
-              or <c>R</c>.
+              Hint: Break into cases based on whether the tiling starts with <m>\str{G}</m>,
+              <m>\str{B}</m>,
+              or <m>\str{R}</m>.
             </p>
           </li>
         </ol>
@@ -1560,7 +1560,7 @@
         <statement>
           <p>
             Calculate the initial conditions and write a recursive rule defining <m>r_n=</m> the number of bit strings of length <m>n</m> that do not contain <m>\bs{000}</m>,
-            meaning that do not contain three or more consecutive <c>0</c> s, for <m>n \ge 1</m>.
+            meaning that do not contain three or more consecutive <m>\bs{0}</m> s, for <m>n \ge 1</m>.
             Hint: Look at <xref ref="exam_count_bit_strings_using_recursion_second"></xref>.
             What are the cases here?
           </p>
@@ -1703,7 +1703,7 @@
         <statement>
           <p>
             In each part,
-            find the <c>gcd</c> using the Euclidean Algorithm.
+            find the <m>\str{gcd}</m> using the Euclidean Algorithm.
             <ol>
               <li>
                 <p>
@@ -1932,8 +1932,8 @@
           <p>
             For <xref ref="act_proper_bs"></xref>,
             we defined proper bit strings.
-            Use strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that any proper bit string has an even number of <c>1</c> s.
-            Hint: In the inductive step consider two cases based on if the bit string ends in <c>1</c> or ends in <c>0</c>.
+            Use strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that any proper bit string has an even number of <m>\bs{1}</m> s.
+            Hint: In the inductive step consider two cases based on if the bit string ends in <m>\bs{1}</m> or ends in <m>\bs{0}</m>.
           </p>
         </statement>
       </exercise>
@@ -1963,9 +1963,9 @@
             Use strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that if a proper bit string <m>b</m> of length <m>n</m> has exactly weight <m>2k</m>,
             then <m>b</m> begins with
             (at least)
-            <m>k</m> <c>1</c> s.
+            <m>k</m> <m>\bs{1}</m> s.
             Hint: In the inductive step,
-            consider two cases based on if <m>b</m> ends in <c>1</c> or ends in <c>0</c>.
+            consider two cases based on if <m>b</m> ends in <m>\bs{1}</m> or ends in <m>\bs{0}</m>.
           </p>
         </statement>
       </exercise>

@@ -273,8 +273,8 @@
           Let <m>S = \{ b \in \mathbb{B}_5 \mid b \text{ has exactly two \bs{0}s } \}</m> and let <m>T = \{ b \in \mathbb{B}_5 \mid b \text{ has exactly three \bs{1}s } \}</m> where
           <m>\mathbb{B}_5</m> is the set of bit strings of length five.
           For example,
-          <m>\bs{10101} \in S</m> because it has two <c>0</c> s and
-          <m>\bs{10101} \in T</m> because it has three <c>1</c> s.
+          <m>\bs{10101} \in S</m> because it has two <m>\bs{0}</m> s and
+          <m>\bs{10101} \in T</m> because it has three <m>\bs{1}</m> s.
           Can you see that <m>S = T</m>?
           Prove <m>S=T</m>.
         </p>
@@ -282,14 +282,14 @@
       <solution>
         <p>
           <em>Proof:</em> First, let <m>b \in S</m>.
-          That is, <m>b</m> is a bit string of length five that has exactly two <c>0</c> s.
-          The remaining <m>5-2=3</m> bits must be <c>1</c> s.
+          That is, <m>b</m> is a bit string of length five that has exactly two <m>\bs{0}</m> s.
+          The remaining <m>5-2=3</m> bits must be <m>\bs{1}</m> s.
           Thus <m>b \in T</m>.
         </p>
         <p>
           Conversely, let <m>b \in T</m>.
-          That is, <m>b</m> is a bit string of length five that has exactly three <c>1</c> s.
-          The remaining <m>5-3=2</m> bits must be <c>0</c> s.
+          That is, <m>b</m> is a bit string of length five that has exactly three <m>\bs{1}</m> s.
+          The remaining <m>5-3=2</m> bits must be <m>\bs{0}</m> s.
           Thus <m>b \in S</m>.
         </p>
       </solution>
@@ -424,21 +424,21 @@
                     </row>
                     <row>
                       <cell halign="center"><m>b</m></cell>
-                      <cell halign="center">\bs{1}</cell>
-                      <cell halign="center">\bs{1}</cell>
-                      <cell halign="center">\bs{1}</cell>
-                      <cell halign="center">\bs{0}</cell>
-                      <cell halign="center">\bs{0}</cell>
-                      <cell halign="center">\bs{0}</cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
                     </row>
                   </tabular>
                 </table>
-                The first bit of <m>b</m> is <c>1</c> because <m>1 \in S</m>,
-                the second bit of <m>b</m> is <c>1</c> because <m>2 \in S</m>,
-                the third bit of <m>b</m> is <c>1</c> because <m>3 \in S</m>,
-                the fourth bit of <m>b</m> is <c>0</c> because <m>4 \notin S</m>,
-                the fifth bit of <m>b</m> is <c>0</c> because <m>5 \notin S</m>,
-                and the sixth bit of <m>b</m> is <c>0</c> because <m>6 \notin S</m>.
+                The first bit of <m>b</m> is <m>\bs{1}</m> because <m>1 \in S</m>,
+                the second bit of <m>b</m> is <m>\bs{1}</m> because <m>2 \in S</m>,
+                the third bit of <m>b</m> is <m>\bs{1}</m> because <m>3 \in S</m>,
+                the fourth bit of <m>b</m> is <m>\bs{0}</m> because <m>4 \notin S</m>,
+                the fifth bit of <m>b</m> is <m>\bs{0}</m> because <m>5 \notin S</m>,
+                and the sixth bit of <m>b</m> is <m>\bs{0}</m> because <m>6 \notin S</m>.
                 Thus, <m>b=\bs{111000}</m>.
               </p>
             </li>
@@ -476,7 +476,7 @@
                 <m>\bs{0} \land \bs{1} = \bs{0}</m>,
                 <m>\bs{1} \land \bs{0} = \bs{0}</m>,
                 and <m>\bs{1} \land \bs{1} = \bs{1}</m>.
-                Think of <c>0</c> = False and <c>1</c> = True.
+                Think of <m>\bs{0}</m> = False and <m>\bs{1}</m> = True.
               </p>
             </li>
             <li>
@@ -531,27 +531,27 @@
                     </row>
                     <row>
                       <cell halign="center"><m>b</m></cell>
-                      <cell halign="center">\bs{1}</cell>
-                      <cell halign="center">\bs{0}</cell>
-                      <cell halign="center">\bs{0}</cell>
-                      <cell halign="center">\bs{1}</cell>
-                      <cell halign="center">\bs{1}</cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
                     </row>
                     <row>
                       <cell halign="center"><m>c</m></cell>
-                      <cell halign="center">\bs{1}</cell>
-                      <cell halign="center">\bs{1}</cell>
-                      <cell halign="center">\bs{0}</cell>
-                      <cell halign="center">\bs{0}</cell>
-                      <cell halign="center">\bs{1}</cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
                     </row>
                     <row>
                       <cell halign="center"><m>b \land c</m></cell>
-                      <cell halign="center">\bs{1}</cell>
-                      <cell halign="center">\bs{0}</cell>
-                      <cell halign="center">\bs{0}</cell>
-                      <cell halign="center">\bs{0}</cell>
-                      <cell halign="center">\bs{1}</cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
+                      <cell halign="center"><m>\bs{0}</m></cell>
+                      <cell halign="center"><m>\bs{1}</m></cell>
                     </row>
                   </tabular>
                   <p>
@@ -570,8 +570,8 @@
                 <solution>
                   <p>
                     Suppose <m>b \leftrightarrow S</m> and <m>c \leftrightarrow T</m>.
-                    The only way we have a <c>1</c> in
-                    <m>b \land c</m> is when there is a <c>1</c> in <m>b</m> and a <c>1</c> in the same place in <m>c</m>.
+                    The only way we have a <m>\bs{1}</m> in
+                    <m>b \land c</m> is when there is a <m>\bs{1}</m> in <m>b</m> and a <m>\bs{1}</m> in the same place in <m>c</m>.
                     That is, when that element of <m>U</m> is in the set <m>S</m> and in the set <m>T</m>.
                     We conjecture that
                     <me>
@@ -618,6 +618,7 @@
             <p>
               Given bit strings <m>b</m> and <m>c</m> each of length <m>n</m>.
               Define the OR operator (<m>\lor</m>) as follows:
+              </p>
               <ul>
                 <li>
                   <p>
@@ -625,7 +626,7 @@
                     <m>\bs{0} \lor \bs{1} = \bs{1}</m>,
                     <m>\bs{1} \lor \bs{0} = \bs{1}</m>,
                     and <m>\bs{1} \lor \bs{1} = \bs{1}</m>.
-                    Think of <c>0</c> = False and <c>1</c> = True.
+                    Think of <m>\bs{0}</m> = False and <m>\bs{1}</m> = True.
                   </p>
                 </li>
                 <li>
@@ -633,12 +634,16 @@
                     Each bit of <m>b \lor c</m> is the <m>\lor</m> of the corresponding bit of <m>b</m> and the corresponding bit of <m>c</m>.
                   </p>
                 </li>
-              </ul>
-            </p>
-            Calculate <m>b \lor c</m> if <m>b = \bs{10011}</m> and <m>c = \bs{11001}</m>. It might help to line up the bit strings as follows.
-            <me>
-              b \lor c = \begin{array}{cccccc} \amp  \bs{1} \amp  \bs{0} \amp  \bs{0} \amp  \bs{1} \amp  \bs{1} \\ \lor  \amp  \bs{1} \amp  \bs{1} \amp  \bs{0} \amp  \bs{0} \amp  \bs{1} \\ \hline \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \end{array}
-            </me>
+                <li>
+                  Calculate <m>b \lor c</m> if <m>b = \bs{10011}</m> and <m>c = \bs{11001}</m>. It might help to line up the bit strings as follows.
+                    <me>
+                      b \lor c = \begin{array}{cccccc} 
+                        \amp  \bs{1} \amp  \bs{0} \amp  \bs{0} \amp  \bs{1} \amp  \bs{1} \\
+                      \lor  \amp  \bs{1} \amp  \bs{1} \amp  \bs{0} \amp  \bs{0} \amp  \bs{1} \\
+                        \hline \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \end{array}
+                    </me>
+                </li>
+            </ul>
           </li>
           <li>
             <p>
@@ -646,48 +651,17 @@
               write the subsets corresponding to <m>b = \bs{10011}</m>,
               <m>c = \bs{11001}</m>, and <m>b \lor c</m>.
               It might help to write the universal set as a reference.
-              <tabular>
-                <row>
-                  <cell halign="center"><m>U</m></cell>
-                  <cell halign="center">1</cell>
-                  <cell halign="center">2</cell>
-                  <cell halign="center">3</cell>
-                  <cell halign="center">4</cell>
-                  <cell halign="center">5</cell>
-                </row>
-                <row bottom="minor">
-                  <cell halign="center"></cell>
-                  <cell halign="center"></cell>
-                  <cell halign="center"></cell>
-                  <cell halign="center"></cell>
-                  <cell halign="center"></cell>
-                  <cell halign="center"></cell>
-                </row>
-                <row>
-                  <cell halign="center"><m>b</m></cell>
-                  <cell halign="center">\bs{1}</cell>
-                  <cell halign="center">\bs{0}</cell>
-                  <cell halign="center">\bs{0}</cell>
-                  <cell halign="center">\bs{1}</cell>
-                  <cell halign="center">\bs{1}</cell>
-                </row>
-                <row>
-                  <cell halign="center"><m>c</m></cell>
-                  <cell halign="center">\bs{1}</cell>
-                  <cell halign="center">\bs{1}</cell>
-                  <cell halign="center">\bs{0}</cell>
-                  <cell halign="center">\bs{0}</cell>
-                  <cell halign="center">\bs{1}</cell>
-                </row>
-                <row>
-                  <cell halign="center"><m>b \lor c</m></cell>
-                  <cell halign="center"><em>\hspace{.1in}</em></cell>
-                  <cell halign="center"><em>\hspace{.1in}</em></cell>
-                  <cell halign="center"><em>\hspace{.1in}</em></cell>
-                  <cell halign="center"><em>\hspace{.1in}</em></cell>
-                  <cell halign="center"><em>\hspace{.1in}</em></cell>
-                </row>
-              </tabular>
+
+              <me>
+              \begin{array}{cccccc} 
+              U \amp 1 \amp  2 \amp  3 \amp  4 \amp  5\\
+              \hline
+               \bs{b} \amp \bs{1}  \amp \bs{0} \amp \bs{0} \amp \bs{1} \amp \bs{1}\\
+               \bs{c} \amp \bs{1}  \amp \bs{1} \amp \bs{0} \amp \bs{0} \amp \bs{1}\\
+               b \lor c \amp 
+                \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} \amp  \underline{\hspace{.1in}} 
+                \end{array}
+               </me>
             </p>
           </li>
           <li>
@@ -1339,7 +1313,7 @@
         <ol>
           <li>
             <p>
-              Hint: The first bit string is <c>0111</c>.
+              Hint: The first bit string is <m>\bs{0111}</m>.
             </p>
           </li>
           <li>
@@ -1349,7 +1323,7 @@
           </li>
           <li>
             <p>
-              Hint: There is a <c>1</c> in <m>b</m> for each element of <m>b</m>.
+              Hint: There is a <m>\bs{1}</m> in <m>b</m> for each element of <m>b</m>.
             </p>
           </li>
         </ol>
@@ -1368,7 +1342,7 @@
                   <m>\bs{0} \oplus \bs{1} = \bs{1}</m>,
                   <m>\bs{1} \oplus \bs{0} = \bs{1}</m>,
                   and <m>\bs{1} \oplus \bs{1} = \bs{0}</m>.
-                  Think of <c>0</c> = False and <c>1</c> = True.
+                  Think of <m>\bs{0}</m> = False and <m>\bs{1}</m> = True.
                 </p>
               </li>
               <li>
@@ -1408,7 +1382,7 @@
         <ol>
           <li>
             <p>
-              <c>10001</c>
+              <m>\bs{10001}</m>
             </p>
           </li>
           <li>
@@ -1434,7 +1408,7 @@
               <li>
                 <p>
                   <m>\neg\bs{0} = \bs{1}</m> and <m>\neg \bs{1} = \bs{0}</m>.
-                  Think of <c>0</c> = False and <c>1</c> = True.
+                  Think of <m>\bs{0}</m> = False and <m>\bs{1}</m> = True.
                 </p>
               </li>
               <li>
@@ -1472,7 +1446,7 @@
         <ol>
           <li>
             <p>
-              Hint: Your answer should have two <c>1</c> s.
+              Hint: Your answer should have two <m>\bs{1}</m> s.
             </p>
           </li>
           <li>
@@ -1482,9 +1456,9 @@
           </li>
           <li>
             <p>
-              Hint: any element of <m>S</m> has a <c>1</c> in <m>b</m> and,
+              Hint: any element of <m>S</m> has a <m>\bs{1}</m> in <m>b</m> and,
               therefore,
-              a <c>0</c> in <m>\neg b</m>.
+              a <m>\bs{0}</m> in <m>\neg b</m>.
             </p>
           </li>
         </ol>
@@ -1509,7 +1483,7 @@
                   We know from the definition of the binomial coefficients <xref ref="defn_binomial_coeff"/> that if <m>U</m> is a set with <m>n</m> elements,
                   then there are <m>\binom{n}{k}</m> subsets of <m>U</m> that have exactly <m>k</m> elements.
                   Use this fact and the bit string representation of subsets to explain why it follows that there are
-                  <m>\binom{n}{k}</m> bit strings of length <m>n</m> with exactly <m>k</m> <c>1</c> s <xref ref="thm_bit_string_exactly_k"/>.
+                  <m>\binom{n}{k}</m> bit strings of length <m>n</m> with exactly <m>k</m> <m>\bs{1}</m> s <xref ref="thm_bit_string_exactly_k"/>.
                 </p>
               </li>
             </ol>

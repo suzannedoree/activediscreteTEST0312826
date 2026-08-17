@@ -32,6 +32,7 @@
                 if it can be constructed from the initial condition <em>B</em>
                 by applying the recursions <em>R1</em> and/or <em>R2</em>
                 a finite number of times each in any order where
+              </p>
                 <ul>
                   <li>
                     <title>\textbf{~ B}:</title>
@@ -54,10 +55,11 @@
                     </p>
                   </li>
                 </ul>
+              <p>
+                For example, <m>\bs{1100110}</m> is proper,
+                as we show in <xref ref="exam_proper_bs"></xref>
+                <xref ref="part_bs_is_proper"/>.
               </p>
-              For example, <m>\bs{1100110}</m> is proper,
-              as we show in <xref ref="exam_proper_bs"></xref>
-              <xref ref="part_bs_is_proper"/>.
             </li>
             <li>
               <p>
@@ -109,15 +111,15 @@
                   <p>
                     We start with <em>B</em> which tells us <m>\lambda</m> is proper.
                     If we first apply <em>R1</em>,
-                    we get that <c>0</c> is proper.
-                    To get two more <c>1</c> s we can apply <em>R2</em>
+                    we get that <m>\bs{0}</m> is proper.
+                    To get two more <m>\bs{1}</m> s we can apply <em>R2</em>
                     but that tells us <m>\bs{101}</m> is proper,
                     which is not our bit string.
                     On the other hand, if we first apply <em>R2</em>,
                     we get that <m>\bs{11}</m> is proper.
-                    To get one <c>0</c>,
+                    To get one <m>\bs{0}</m>,
                     we can apply <em>R1</em>
-                    but that tells us <c>110</c> is proper,
+                    but that tells us <m>\bs{110}</m> is proper,
                     which is also not our bit string.
                   </p>
                   <p>
@@ -173,13 +175,13 @@
         <ol>
           <li>
             <p>
-              Explain why the bit string <c>1010</c> is proper.
+              Explain why the bit string <m>\bs{1010}</m> is proper.
               That means, show how to use the rules to construct this bit string.
             </p>
           </li>
           <li>
             <p>
-              Explain why the bit string <c>111010</c> is proper.
+              Explain why the bit string <m>\bs{111010}</m> is proper.
               Again, show how to use the rules to construct this bit string.
             </p>
           </li>
@@ -196,7 +198,7 @@
           </li>
           <li>
             <p>
-              Use your tree to explain why the bit string <c>1101</c> is improper.
+              Use your tree to explain why the bit string <m>\bs{1101}</m> is improper.
             </p>
           </li>
           <li>
@@ -389,13 +391,13 @@
       </solution>
     </example>
     <p>
-      Let's practice working with proof by mathematical induction to check the unsurprising fact that any bit string consisting of all <c>0</c> s is in <m>\mathbb{P}</m>.
+      Let's practice working with proof by mathematical induction to check the unsurprising fact that any bit string consisting of all <m>\bs{0}</m> s is in <m>\mathbb{P}</m>.
     </p>
     <example xml:id="exam_math_ind_all0s_proper">
       <title>Proof by mathematical induction that involves recursively-defined set</title>
       <statement>
         <p>
-          Use mathematical induction <xref ref="pff_math_ind"/> to prove that any bit string consisting of all <c>0</c> s is in <m>\mathbb{P}</m>,
+          Use mathematical induction <xref ref="pff_math_ind"/> to prove that any bit string consisting of all <m>\bs{0}</m> s is in <m>\mathbb{P}</m>,
           the set of all proper bit strings.
         </p>
       </statement>
@@ -408,7 +410,7 @@
           First, by <em>B</em> we know that <m>\lambda \in \mathbb{P}</m>.
           Next, by <em>R1</em>,
           it follows that <m>\lambda \bs{0} = \bs{0} \in \mathbb{P}</m>.
-          Thus the bit string of length one consisting of all <c>0</c> s is in <m>\mathbb{P}</m>.
+          Thus the bit string of length one consisting of all <m>\bs{0}</m> s is in <m>\mathbb{P}</m>.
         </p>
         <p>
           Next, assume <m>b = \underbrace{\bs{000}\cdots\bs{0}}_{n-1 \text{ times } } \in \mathbb{P}</m> for some integer <m>n > 1</m>.
@@ -882,7 +884,7 @@
                   </figure>
                   <p>
                     The corresponding adjacency matrices are shown in <xref ref="tab_adj_mat_paths"></xref>.
-                    Starting with <m>P_{n-1}</m> we add a new column on the far right and a new row at the bottom which are all <c>0</c> s except the next to last entry in the column and row is <c>1</c>.
+                    Starting with <m>P_{n-1}</m> we add a new column on the far right and a new row at the bottom which are all <m>\bs{0}</m> s except the next to last entry in the column and row is <m>\bs{1}</m>.
                   </p>
                 </solution>
                 <table xml:id="tab_adj_mat_paths">
@@ -961,12 +963,12 @@
             <ol>
               <li>
                 <p>
-                  Explain why the bit string <c>101111</c> is improper.
+                  Explain why the bit string <m>\bs{101111}</m> is improper.
                 </p>
               </li>
               <li>
                 <p>
-                  Explain why the bit string <c>1011111</c> is improper.
+                  Explain why the bit string <m>\bs{1011111}</m> is improper.
                   Consider the case where you start with <em>R1</em>
                   and the case where you start with <em>R2</em>.
                 </p>
@@ -978,14 +980,14 @@
         <ol>
           <li>
             <p>
-              Hint: Look at the number of <c>1</c> s.
+              Hint: Look at the number of <m>\bs{1}</m> s.
             </p>
           </li>
           <li>
             <p>
               Hint: If you start with <em>R1</em>
-              you can show <c>101</c> is proper,
-              but there is no way to add <c>1</c> s on only the right.
+              you can show <m>\bs{101}</m> is proper,
+              but there is no way to add <m>\bs{1}</m> s on only the right.
             </p>
           </li>
         </ol>
@@ -1118,10 +1120,10 @@
         <ol>
           <li>
             <p>
-              Hint: One possible answer is any bit string that consists only of <c>0</c> s:
-              <c>0</c>,
-              <c>00</c>,
-              <c>000</c>, etc.
+              Hint: One possible answer is any bit string that consists only of <m>\bs{0}</m> s:
+              <m>\bs{0}</m>,
+              <m>\bs{00}</m>,
+              <m>\bs{000}</m>, etc.
             </p>
           </li>
           <li>
@@ -1132,7 +1134,7 @@
           </li>
           <li>
             <p>
-              Hint: Count the number of <c>0</c> s.
+              Hint: Count the number of <m>\bs{0}</m> s.
             </p>
           </li>
         </ol>

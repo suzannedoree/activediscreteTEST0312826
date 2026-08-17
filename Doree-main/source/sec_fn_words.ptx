@@ -4,7 +4,6 @@
     <p>
       Nearly all of the functions we have seen so far have had sets of numbers for their domain and codomain and have had rules defined by formulas.
       In this section,
-      we explore many new functions that have rules that are described in words,
       which include functions whose domain and codomain are sets of other discrete objects such as graphs and bit strings.
     </p>
   </introduction>
@@ -177,14 +176,14 @@
       <title>Floor as a function</title>
       <statement>
         <p>
-          The function <m>\fn{floor}:\mathbb{R} \to \mathbb{Z}</m> is defined by <m>\fn{floor}(x) = \lfloor x \rfloor</m>.
+          The function <me>\fn{floor}:\mathbb{R} \to \mathbb{Z}</me> is defined by <m>\fn{floor}(x) = \lfloor x \rfloor</m>.
           <ol>
             <li>
               <p>
-                Identify the domain and codomain of the function <c>floor</c>.
+                Identify the domain and codomain of the function <m>\str{floor}</m>.
                 <solution>
                   <p>
-                    The domain of the function <c>floor</c> is
+                    The domain of the function <m>\str{floor}</m> is
                     <m>\mathbb{R}</m> and the codomain is <m>\mathbb{Z}</m>.
                   </p>
                 </solution>
@@ -230,7 +229,9 @@
       <title>Number of divisors</title>
       <statement>
         <p>
-          The function <m>\fn{countdiv}: \mathbb{Z}^+ \to \mathbb{Z}^+</m> is defined by
+          The function 
+          <me>\fn{countdiv}: \mathbb{Z}^+ \to \mathbb{Z}^+</me>
+           is defined by
           <m>\fn{countdiv}(n)=</m> the number of (positive) divisors of <m>n</m>.
           <ol>
             <li>
@@ -305,7 +306,7 @@
         <ol>
           <li>
             <p>
-              The function <m>\fn{twopart}: \mathbb{N} \to \mathbb{N}</m> defined by
+              The function <me>\fn{twopart}: \mathbb{N} \to \mathbb{N}</me> defined by
               <m>\fn{twopart}(n)</m> is the highest power of two that divides <m>n</m>.
               Note that <m>1 = 2^0</m> is a power of two.
               Evaluate <m>\fn{twopart}(24)</m>,
@@ -314,7 +315,7 @@
           </li>
           <li>
             <p>
-              The function <m>\pi: \mathbb{N} \to \mathbb{N}</m> defined by <m>\pi(n)=</m> the number of primes less than or equal to <m>n</m>.
+              The function <me>\pi: \mathbb{N} \to \mathbb{N}</me> defined by <m>\pi(n)=</m> the number of primes less than or equal to <m>n</m>.
               Note that the function <m>\pi</m> has nothing to do with the real number <m>\pi</m>.
               Evaluate <m>\pi(6)</m> and <m>\pi(20)</m>.
             </p>
@@ -334,7 +335,9 @@
       <statement>
         <p>
           Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
-          The function <m>\fn{deg3}: \mathbb{G}_{10} \to \mathbb{N}</m> is defined by
+          The function 
+          <me>\fn{deg3}: \mathbb{G}_{10} \to \mathbb{N}</me>
+           is defined by
           <m>\fn{deg3}(G) =</m> the number of vertices of <m>G</m> that have degree 3.
           <ol>
             <li>
@@ -430,21 +433,21 @@
         <ol>
           <li>
             <p>
-              The function <m>\fn{comp}: \mathbb{G} \to \mathbb{G}</m> is defined by <m>\fn{comp}(G)=\overline{G}</m>,
+              The function <me>\fn{comp}: \mathbb{G} \to \mathbb{G}</me> is defined by <m>\fn{comp}(G)=\overline{G}</m>,
               the graph theoretic complement of the graph <m>G</m>.
               Evaluate (draw) <m>\fn{comp}(W_4)</m> for the wheel graph <m>W_4</m>.
             </p>
           </li>
           <li>
             <p>
-              The function <m>c: \mathbb{G} \to \mathbb{N}</m> is defined by <m>c(G)=</m> the the number of edges in of the longest path in <m>G</m>.
+              The function <me>c: \mathbb{G} \to \mathbb{N}</me> is defined by <m>c(G)=</m> the the number of edges in of the longest path in <m>G</m>.
               Evaluate <m>c(C_5)</m> for the cycle <m>C_5</m> and
               <m>c(K_{1,4})</m> for the complete bipartite graph (star) <m>K_{1,4}</m>.
             </p>
           </li>
           <li>
             <p>
-              The function <m>\fn{isplanar}: \mathbb{G} \to \{0,1\}</m> is defined by
+              The function <me>\fn{isplanar}: \mathbb{G} \to \{0,1\}</me> is defined by
               <me>
                 \fn{isplanar}(G) = \left\{ \begin{array}{cl} 0 \amp  \text{ if } G\text{ is planar }  \\ 1 \amp  \text{ if } G\text{ is not planar } \end{array}  \right.
               </me>.
@@ -525,7 +528,9 @@
       <title>Weight function on bit strings</title>
       <statement>
         <p>
-          Consider the function <m>\fn{wgt}: \mathbb{B} \to \mathbb{Z}</m> defined by
+          Consider the function 
+          <me>\fn{wgt}: \mathbb{B} \to \mathbb{Z}</me>
+           defined by
           <m>\fn{wgt}(b) =</m> weight of the bit string <m>b</m>.
           <ol>
             <li>
@@ -545,11 +550,11 @@
                 <m>\fn{wgt}(\bs{1111})</m>, and <m>\fn{wgt}(\lambda)</m>.
                 <solution>
                   <p>
-                    The weight of a bit string is the number of <c>1</c> s in the bit string.
-                    Since <c>001</c> has one <c>1</c>,
+                    The weight of a bit string is the number of <m>\bs{1}</m> s in the bit string.
+                    Since <m>\bs{001}</m> has one <m>\bs{1}</m>,
                     <m>\fn{wgt}(\bs{001})=1</m>.
-                    Since <c>1111</c> has four <c>1</c> s, <m>\fn{wgt}(\bs{1111})=4</m>.
-                    Since <m>\lambda</m> has no <c>1</c> s, <m>\fn{wgt}(\lambda)=0</m>.
+                    Since <m>\bs{1111}</m> has four <m>\bs{1}</m> s, <m>\fn{wgt}(\bs{1111})=4</m>.
+                    Since <m>\lambda</m> has no <m>\bs{1}</m> s, <m>\fn{wgt}(\lambda)=0</m>.
                   </p>
                 </solution>
               </p>
@@ -559,8 +564,8 @@
                 Describe all bit strings <m>b</m> such that <m>\fn{wgt}(b)=0</m>.
                 <solution>
                   <p>
-                    For a bit string to have weight 0, it cannot contain any <c>1</c> s.
-                    That is, it must be empty or entirely <c>0</c> s.
+                    For a bit string to have weight 0, it cannot contain any <m>\bs{1}</m> s.
+                    That is, it must be empty or entirely <m>\bs{0}</m> s.
                     We can list such strings as <m>\lambda, \bs{0}, \bs{00}, \bs{000}, \bs{0000}, \ldots</m>.
                   </p>
                 </solution>
@@ -573,7 +578,7 @@
                 <solution>
                   <p>
                     We are looking for a bit string <m>b</m> that has weight <m>n</m> or,
-                    equivalently, that contains <m>n</m> <c>1</c> s.
+                    equivalently, that contains <m>n</m> <m>\bs{1}</m> s.
                     The simplest example is
                     <me>
                       b = \underbrace{\bs{11}\ldots\bs{1}}_{n}
@@ -594,7 +599,7 @@
                   <p>
                     It is not possible to have a negative weight.
                     We saw in <xref ref="part_weightn"/> and <xref ref="part_weight0"/> that any non-negative integer is the weight of some bit strings.
-                    Therefore, the image of <c>wgt</c> is <m>\mathbb{N}</m>.
+                    Therefore, the image of <m>\str{wgt}</m> is <m>\mathbb{N}</m>.
                   </p>
                 </solution>
               </p>
@@ -613,34 +618,34 @@
         <ol>
           <li>
             <p>
-              The function <m>l:\mathbb{B} \to \mathbb{Z}</m> defined by <m>l(b) =</m> the length of the bit string <m>b</m>.
+              The function <me>l:\mathbb{B} \to \mathbb{Z}</me> defined by <m>l(b) =</m> the length of the bit string <m>b</m>.
               Evaluate <m>l(\bs{0})</m> and <m>l(\bs{1011})</m>.
             </p>
           </li>
           <li>
             <p>
-              The function <m>\fn{lastbit}:\mathbb{B}^* \to \mathbb{B}</m> defined by
+              The function <me>\fn{lastbit}:\mathbb{B}^* \to \mathbb{B}</me> defined by
               <m>\fn{lastbit}(b) =</m> the last bit in the bit string <m>b</m>.
               Evaluate <m>\fn{lastbit}(\bs{0})</m> and <m>\fn{lastbit}(\bs{1011})</m>.
             </p>
           </li>
           <li>
             <p>
-              The function <m>\fn{append}: \mathbb{B}\to \mathbb{B}^*</m> defined by <m>\fn{append}(b)=b\bs{1}</m>,
-              literally the string <m>b</m> with a <c>1</c> added to the right.
+              The function <me>\fn{append}: \mathbb{B}\to \mathbb{B}^*</me> defined by <m>\fn{append}(b)=b\bs{1}</m>,
+              literally the string <m>b</m> with a <m>\bs{1}</m> added to the right.
               Evaluate <m>\fn{append}(\bs{0})</m> and <m>\fn{append}(\bs{1011})</m>.
             </p>
           </li>
           <li>
             <p>
-              The function <m>\fn{reverse}:\mathbb{B}\to \mathbb{B}</m> defined by <m>\fn{reverse}(b)=\overleftarrow{b}</m>,
+              The function <me>\fn{reverse}:\mathbb{B}\to \mathbb{B}</me> defined by <m>\fn{reverse}(b)=\overleftarrow{b}</m>,
               where <m>\overleftarrow{b}</m> means the bit string <m>b</m> written in reverse order.
               Evaluate <m>\fn{reverse}(\bs{0})</m> and <m>\fn{reverse}(\bs{1011})</m>.
             </p>
           </li>
           <li>
             <p>
-              The function <m>f:\mathbb{B}^*\to \mathbb{B}</m> defined by
+              The function <me>f:\mathbb{B}^*\to \mathbb{B}</me> defined by
               <me>
                 f(b)= \left\{ \begin{array}{ll} b \amp  \text{ if the last bit of the bit string }  b \text{ is }  \bs{0} \\ b \text{ without its last  bit }   \amp  \text{ if the last bit of the bit string }  b \text{ is }  \bs{1} \end{array}  \right.
               </me>.
@@ -748,11 +753,11 @@
         <title>Practice</title>
         <statement>
           <p>
-            The function <m>\fn{ceil}: \mathbb{R} \to \mathbb{Z}</m> is defined by <m>\fn{ceil}(x) = \lceil x \rceil</m>.
+            The function <me>\fn{ceil}: \mathbb{R} \to \mathbb{Z}</me> is defined by <m>\fn{ceil}(x) = \lceil x \rceil</m>.
             <ol>
               <li>
                 <p>
-                  Identify the domain and codomain of the function <c>ceil</c>.
+                  Identify the domain and codomain of the function <m>\str{ceil}</m>.
                 </p>
               </li>
               <li>
@@ -909,7 +914,7 @@
         <title>Understand</title>
         <statement>
           <p>
-            The function <m>h: \mathbb{N} \to \mathbb{N}</m> is defined by <m>h(n) = \left\lfloor \frac{n+1}{3} \right\rfloor</m>.
+            The function <me>h: \mathbb{N} \to \mathbb{N}</me> is defined by <m>h(n) = \left\lfloor \frac{n+1}{3} \right\rfloor</m>.
             <ol>
               <li>
                 <p>
@@ -1017,7 +1022,7 @@
         <title>Explore</title>
         <statement>
           <p>
-            The function <m>r: \mathbb{R} \to \mathbb{R}</m> is defined by <m>r(x)= \lfloor x + 0.5\rfloor</m>.
+            The function <me>r: \mathbb{R} \to \mathbb{R}</me> is defined by <m>r(x)= \lfloor x + 0.5\rfloor</m>.
             <ol>
               <li>
                 <p>
@@ -1070,14 +1075,14 @@
             <ol>
               <li>
                 <p>
-                  The function <m>g: \mathbb{N} \to \mathbb{N}</m> is defined by <m>g(n)=</m> the largest integer less than or equal to <m>\sqrt{n}</m>.
+                  The function <m>g(n)=</m> the largest integer less than or equal to <m>\sqrt{n}</m>.
                   Evaluate <m>g(17)</m>, <m>g(30)</m>, and <m>g(9)</m>.
                   Show work.
                 </p>
               </li>
               <li>
                 <p>
-                  The function <m>\fn{fivepart}: \mathbb{N} \to \mathbb{N}</m> is defined by
+                  The function <me>\fn{fivepart}: \mathbb{N} \to \mathbb{N}</me> is defined by
                   <m>\fn{fivepart}(n)</m> is the highest power of five that divides <m>n</m>.
                   Note that <m>1 = 5^0</m> is a power of five.
                   Evaluate <m>\fn{fivepart}(30)</m>,
@@ -1087,7 +1092,7 @@
               </li>
               <li>
                 <p>
-                  The function <m>f:\mathbb{Z}^+ \to \mathbb{Z}^+</m> defined by <m>f(n)=</m> the number of distinct positive primes that divide <m>n</m>.
+                  The function <me>f:\mathbb{Z}^+ \to \mathbb{Z}^+</me> defined by <m>f(n)=</m> the number of distinct positive primes that divide <m>n</m>.
                   Evaluate <m>f(12)</m>, <m>f(16)</m>,
                   <m>f(30)</m>, and <m>f(1)</m>.
                   Show work.
@@ -1120,7 +1125,7 @@
         <title>Practice</title>
         <statement>
           <p>
-            Consider the function <m>t: \mathbb{Z}^+ \to \mathbb{Z}</m> defined by
+            Consider the function <me>t: \mathbb{Z}^+ \to \mathbb{Z}</me> defined by
             <me>
               t(n)= \left\{ \begin{array}{cl} 2 \amp  \text{ if }  2 \mid n \land 5 \mid n \\ 1 \amp  \text{ if }  2 \mid n \oplus 5 \mid n \\ 0 \amp  \text{ if }  2 \nmid n \land 5 \nmid n \end{array}  \right.
             </me>.
@@ -1154,11 +1159,11 @@
         <title>Practice</title>
         <statement>
           <p>
-            Consider the function <m>\fn{gplt}:\mathbb{Z}^+ \to \mathbb{N}</m> defined by
+            Consider the function <me>\fn{gplt}:\mathbb{Z}^+ \to \mathbb{N}</me> defined by
             <me>
               \fn{gplt}(n)=\left\{\begin{array}{cl} 0 \amp  \text{ if } n=1 \\ \text{ the largest prime less than or equal to } n \amp  \text{ if }  n \ge 2 \end{array} \right.
             </me>.
-            The <c>gplt</c> stands for
+            The <m>\str{gplt}</m> stands for
             <q>greatest prime less than</q>.
             <ol>
               <li>
@@ -1207,7 +1212,7 @@
         <statement>
           <p>
             In <xref ref="exam_coundiv"></xref>,
-            we defined the function <m>\fn{countdiv}: \mathbb{Z}^+ \to \mathbb{Z}^+</m> is defined by
+            we defined the function <me>\fn{countdiv}: \mathbb{Z}^+ \to \mathbb{Z}^+</me> is defined by
             <m>\fn{countdiv}(n)=</m> the number of (positive) divisors of <m>n</m>.
             <ol>
               <li>
@@ -1267,7 +1272,7 @@
         <statement>
           <p>
             Recall from <xref ref="defn_euler_phi_fn"></xref>
-            that Euler's phi function <m>\phi: \mathbb{Z}^+ \to \mathbb{Z}^+</m> is defined by
+            that Euler's phi function <me>\phi: \mathbb{Z}^+ \to \mathbb{Z}^+</me> is defined by
             <m>\phi(n)=</m> the number of integers between 1 and <m>n</m> that are coprime to <m>n</m>.
             <ol>
               <li>
@@ -1325,7 +1330,7 @@
         <title>Understand</title>
         <statement>
           <p>
-            The function <m>\fn{oddless}:\mathbb{N} \to \mathbb{N}</m> is defined by
+            The function <me>\fn{oddless}:\mathbb{N} \to \mathbb{N}</me> is defined by
             <m>\fn{oddless}(n) =</m> the number of positive odd integers less than or equal to <m>n</m>.
             <ol>
               <li>
@@ -1415,7 +1420,7 @@
         <title>Explore</title>
         <statement>
           <p>
-            The function <m>g: \mathbb{Z}^+ \to \mathbb{Z}</m> is defined by <m>g(n) = \lfloor \fn{log}(n) \rfloor + 1</m>.
+            The function <me>g: \mathbb{Z}^+ \to \mathbb{Z}</me> is defined by <m>g(n) = \lfloor \fn{log}(n) \rfloor + 1</m>.
             <ol>
               <li>
                 <p>
@@ -1448,7 +1453,7 @@
         <statement>
           <p>
             Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
-            The function <m>\fn{cleaf}: \mathbb{G}_{10} \to \mathbb{N}</m> is defined by
+            The function <me>\fn{cleaf}: \mathbb{G}_{10} \to \mathbb{N}</me> is defined by
             <m>\fn{cleaf}(G)</m> is the number of leaves (degree 1 vertices) in the graph <m>G</m>.
             <ol>
               <li>
@@ -1498,7 +1503,7 @@
         <statement>
           <p>
             Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
-            The function <m>\chi: \mathbb{G}_{10} \to \mathbb{N}</m> is defined by <m>\chi(G)</m> is the chromatic number of the graph <m>G</m>,
+            The function <me>\chi: \mathbb{G}_{10} \to \mathbb{N}</me> is defined by <m>\chi(G)</m> is the chromatic number of the graph <m>G</m>,
             as defined in <xref ref="defn_chromatic_number"></xref>.
             <ol>
               <li>
@@ -1547,7 +1552,7 @@
         <statement>
           <p>
             Let <m>\mathbb{G}</m> denote the set of all graphs.
-            The function <m>c: \mathbb{G} \to \mathbb{N}</m> is defined by <m>c(G)=</m> the number of edges in the longest path in <m>G</m>,
+            The function <me>c: \mathbb{G} \to \mathbb{N}</me> is defined by <m>c(G)=</m> the number of edges in the longest path in <m>G</m>,
             as we saw in <xref ref="act_graph_theoretic_functions"></xref>.
             <ol>
               <li>
@@ -1588,7 +1593,7 @@
         <statement>
           <p>
             Let <m>\mathbb{G}_{10}</m> denote the set of all graphs with ten vertices.
-            The function <m>\Delta:\mathbb{G}_{10} \to \mathbb{N}</m> is defined by
+            The function <me>\Delta:\mathbb{G}_{10} \to \mathbb{N}</me> is defined by
             <m>\Delta(G)</m> is the maximum degree of any vertex in <m>G</m>,
             as defined in <xref ref="defn_degree"></xref>.
             <ol>
@@ -1698,7 +1703,7 @@
         <statement>
           <p>
             Let <m>\mathbb{G}</m> denote the set of all graphs.
-            The function <m>g: \mathbb{G} \to \mathbb{N}</m> is defined by <m>g(G) =</m> the number of vertices in the smallest cycle subgraph in <m>G</m>,
+            The function <me>g: \mathbb{G} \to \mathbb{N}</me> is defined by <m>g(G) =</m> the number of vertices in the smallest cycle subgraph in <m>G</m>,
             if <m>G</m> contains any cycles,
             and 0 if <m>G</m> is acyclic.
             <ol>
@@ -1748,7 +1753,7 @@
           <p>
             Let <m>\mathbb{T}</m> denote the set of all trees as defined in <xref ref="defn_tree"></xref>
             and let <m>\mathbb{T}_3</m> denote the set of all trees with at least three vertices.
-            The function <m>\fn{prune}: \mathbb{T}_3 \to \mathbb{T}</m> is defined by
+            The function <me>\fn{prune}: \mathbb{T}_3 \to \mathbb{T}</me> is defined by
             <m>\fn{prune}(T)=</m> the graph we get when we remove all leaves and their corresponding edges from <m>T</m>.
             <ol>
               <li>
@@ -1785,7 +1790,7 @@
         <statement>
           <p>
             In <xref ref="act_functions_bit_strings"></xref>,
-            we evaluated the function <m>\fn{reverse}: \mathbb{B} \to \mathbb{B}</m> defined by <m>\fn{reverse}(b) = \overleftarrow{b}</m> where
+            we evaluated the function <me>\fn{reverse}: \mathbb{B} \to \mathbb{B}</me> defined by <m>\fn{reverse}(b) = \overleftarrow{b}</m> where
             <m>\overleftarrow{b}</m> means the bit string <m>b</m> written in reverse order.
             <ol>
               <li>
@@ -1834,7 +1839,7 @@
         <statement>
           <p>
             In <xref ref="act_functions_bit_strings"></xref>,
-            we saw the function <m>\fn{lastbit}:\mathbb{B}^* \to \mathbb{B}</m> defined by
+            we saw the function <me>\fn{lastbit}:\mathbb{B}^* \to \mathbb{B}</me> defined by
             <m>\fn{lastbit}(b) =</m> the last bit in the bit string <m>b</m>.
             <ol>
               <li>
@@ -1869,7 +1874,7 @@
         <ol>
           <li>
             <p>
-              <c>1</c>
+              <m>\bs{1}</m>
             </p>
           </li>
           <li>
@@ -1895,8 +1900,8 @@
         <statement>
           <p>
             In <xref ref="act_functions_bit_strings"></xref>,
-            we saw the function <m>\fn{append}: \mathbb{B}\to \mathbb{B}^*</m> defined by <m>\fn{append}(b)=b\bs{1}</m>,
-            literally the string <m>b</m> with a <c>1</c> added to the right.
+            we saw the function <me>\fn{append}: \mathbb{B}\to \mathbb{B}^*</me> defined by <m>\fn{append}(b)=b\bs{1}</m>,
+            literally the string <m>b</m> with a <m>\bs{1}</m> added to the right.
             <ol>
               <li>
                 <p>
@@ -1930,7 +1935,7 @@
         <ol>
           <li>
             <p>
-              <c>01011</c>
+              <m>\bs{01011}</m>
             </p>
           </li>
           <li>
@@ -1960,8 +1965,8 @@
         <title>Understand</title>
         <statement>
           <p>
-            Consider the function <m>\fn{runzero}: \mathbb{B} \to \mathbb{N}</m> defined by
-            <m>\fn{runzero}(b) =</m> the longest number of consecutive <c>0</c> s in the bit string <m>b</m>.
+            Consider the function <me>\fn{runzero}: \mathbb{B} \to \mathbb{N}</me> defined by
+            <m>\fn{runzero}(b) =</m> the longest number of consecutive <m>\bs{0}</m> s in the bit string <m>b</m>.
             <ol>
               <li>
                 <p>
@@ -2019,7 +2024,7 @@
         <title>Understand</title>
         <statement>
           <p>
-            Consider the function <m>h: \mathbb{N} \to \mathbb{B}</m> by <m>f(n)=</m> the bit string consisting of <m>n</m> <c>0</c> s followed by <m>n</m> <c>1</c> s.
+            Consider the function <m>h: \mathbb{N} \to \mathbb{B}</m> by <m>f(n)=</m> the bit string consisting of <m>n</m> <m>\bs{0}</m> s followed by <m>n</m> <m>\bs{1}</m> s.
             <ol>
               <li>
                 <p>
@@ -2044,7 +2049,7 @@
         <title>Understand</title>
         <statement>
           <p>
-            The function <m>h: \mathbb{B}^* \to \mathbb{B}</m> defined by
+            The function <me>h: \mathbb{B}^* \to \mathbb{B}</me> defined by
             <me>
               h(b) =  \left\{ \begin{array}{cl} b \amp   \text{ if the last bit of the bit string }  b \text{ is \bs{0}}  \\ b \text{ without its last bit }  \amp   \text{ if the last bit of the bit string }  b \text{ is \bs{1}} \end{array}  \right.
             </me>
@@ -2079,7 +2084,7 @@
           </li>
           <li>
             <p>
-              Hint: Try an example where <m>b</m> ends in <c>0</c> and <m>c</m> ends in <c>1</c>.
+              Hint: Try an example where <m>b</m> ends in <m>\bs{0}</m> and <m>c</m> ends in <m>\bs{1}</m>.
             </p>
           </li>
           <li>
@@ -2110,7 +2115,7 @@
               <li>
                 <p>
                   Define <m>\fn{countE}:\mathbb{A}^* \to \mathbb{Z}</m> by
-                  <m>\fn{countE}(s) =</m> the number of occurrences of <c>E</c> in the string <m>s</m>.
+                  <m>\fn{countE}(s) =</m> the number of occurrences of <m>\str{E}</m> in the string <m>s</m>.
                   Identify the domain and codomain of
                   <m>\fn{countE}</m> and evaluate <m>\fn{countE}(\str{STEEP})</m>,
                   <m>\fn{countE}(\str{STEP})</m>,
