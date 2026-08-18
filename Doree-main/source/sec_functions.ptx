@@ -211,10 +211,16 @@
                     The integer 0 can be written as a fraction,
                     for example <m>0 = \frac{0}{1}</m>.
                     Thus 0 is an element of <m>\mathbb{Q}</m>.
+                  </p>
+                  <p>
                     The integer 0 can be written as 0.0
                     (or just 0).
                     Thus 0 is an element of <m>\mathbb{R}</m>.
+                  </p>
+                  <p>
                     Since the integer 0 is not positive, 0 is not an element of <m>\mathbb{R}^+</m>.
+                  </p>
+                  <p>
                     Since the integer 0 is not nonzero, 0 is not an element of <m>\mathbb{R}^*</m>.
                   </p>
                 </solution>
@@ -230,11 +236,15 @@
                     for example <m>n = \frac{n}{1}</m>.
                     Thus <m>n</m> is an element of <m>\mathbb{Q}</m> and so
                     <m>\mathbb{Z}</m> is a subset of <m>\mathbb{Q}</m>.
+                  </p>
+                  <p>
                     Any integer <m>n</m> can also be written as a real number,
                     for example <m>n = n.0</m>
                     (or just <m>n</m>).
                     Thus <m>n</m> is an element of <m>\mathbb{R}</m> and so
                     <m>\mathbb{Z}</m> is a subset of <m>\mathbb{R}</m>.
+                  </p>
+                  <p>
                     Any rational number <m>\frac{a}{b}</m>,
                     where <m>a</m> is an integer and <m>b</m> is a nonzero integer,
                     can be written as a decimal by dividing <m>a \div b</m>.
@@ -674,6 +684,8 @@
                 <solution>
                   <p>
                     First, <m>f(5) = 5^2=25</m>.
+                  </p>
+                  <p>
                     Next, <m>f(-6) = (-6)^2=(-6)(-6)=36</m>.
                   </p>
                 </solution>
@@ -749,6 +761,8 @@
                 <solution>
                   <p>
                     First, <m>\fn{half}(-6) = \frac{-6}{2} = -3</m>.
+                  </p>
+                  <p>
                     Next, <m>\fn{half}(5) = \frac{5}{2}</m>.
                   </p>
                 </solution>
@@ -1343,10 +1357,18 @@
                     For example <m>f(.1) = 2</m> and so the point <m>(.1,2)</m> is also on the graph of <m>f</m>.
                     When we include all possible points,
                     we get all of the points on the line,
-                    as shown on the right in <xref ref="fig_graph_10nplus1"></xref>.
+                    as shown on the right in <xref ref="fig_graph_10xplus1"></xref>.
                     The equation of the line is <m>y=f(x)</m> or,
                     equivalently, <m>y=10x+1</m>.
                   </p>
+                  <figure xml:id="fig_graph_10xplus1">
+                    <caption>Graph of the function <m>g: \mathbb{R} \to \mathbb{R}</m> defined by <m>f(x) = 10x + 1</m>.</caption>
+                    <image width="60%">
+                      <latex-image>
+                        <xi:include href="TikzNew/Linear_NatvsReals_DESMOS.tikz" parse="text"/>
+                      </latex-image>
+                    </image>
+                  </figure>
                 </solution>
               </p>
             </li>
@@ -1415,6 +1437,14 @@
                     shows the graph of <m>g</m> on the left.
                     We can see that the points fall on the line <m>y = 10x+1</m>.
                   </p>
+                  <figure xml:id="fig_graph_10nplus1">
+                    <caption>Graph of the function <m>f: \mathbb{N} \to \mathbb{N}</m> defined by <m>g(n) = 10n+1</m>.</caption>
+                    <image width="60%">
+                      <latex-image>
+                        <xi:include href="TikzNew/Linear_NatvsReals_DESMOS.tikz" parse="text"/>
+                      </latex-image>
+                    </image>
+                  </figure>
                 </solution>
               </p>
             </li>
@@ -1422,16 +1452,9 @@
         </p>
       </statement>
     </example>
-    <figure xml:id="fig_graph_10nplus1">
-      <caption>Graph of the functions <m>f: \mathbb{N} \to \mathbb{N}</m> defined by <m>g(n) = 10n+1</m> (left) and <m>g: \mathbb{R} \to \mathbb{R}</m> defined by <m>f(x) = 10x + 1</m> (right).</caption>
-      <image width="35%">
-        <latex-image>
-          <xi:include href="TikzNew/Linear_NatvsReals_DESMOS.tikz" parse="text"/>
-        </latex-image>
-      </image>
-    </figure>
+    
     <p>
-      We used the free software {DESMOS\texttrademark} available at <url href="https://www.desmos.com/">DESMOS&#8482;  </url> to draw the graphs in <xref ref="fig_graph_10nplus1"></xref>.
+      We used the free graphing software <url href="https://www.desmos.com/">DESMOS&#8482;  </url> to draw the graphs in <xref ref="fig_graph_10nplus1"></xref>.
     </p>
     <p>
       When the domain and codomain are finite sets or subsets of <m>\mathbb{Z}</m>,
@@ -1453,7 +1476,7 @@
         </p>
         <figure xml:id="fig_function_finite">
           <caption>The dot diagram of the function from <xref ref="exam_function_finite"></xref>.</caption>
-          <image width="60%">
+          <image width="25%">
             <latex-image>
               <xi:include href="Tikz/Function_finite.tikz" parse="text"/>
             </latex-image>
@@ -2510,7 +2533,7 @@
               and the dot diagram is shown in <xref ref="fig_answer_exer_domain_codomain_finite"></xref>.
               <figure xml:id="fig_answer_exer_domain_codomain_finite">
                 <caption>The dot diagram for Exercise <xref ref="exer_domain_codomain_finite" text="global"></xref> <xref ref="part_first_dot_finite"/></caption>
-                <image width="60%">
+                <image width="20%">
                   <latex-image>
                     <xi:include href="Tikz/finite_dot_answer.tikz" parse="text"/>
                   </latex-image>
@@ -2529,7 +2552,7 @@
               The dot diagram is shown in <xref ref="fig_answer_exer_domain_codomain_finite2"></xref>.
               <figure xml:id="fig_answer_exer_domain_codomain_finite2">
                 <caption>The dot diagram for Exercise <xref ref="exer_domain_codomain_finite" text="global"></xref> <xref ref="part_third_dot_finite"/></caption>
-                <image width="60%">
+                <image width="20%">
                   <latex-image>
                     <xi:include href="Tikz/finite_dot_answer2.tikz" parse="text"/>
                   </latex-image>
@@ -2864,7 +2887,7 @@
               <li>
                 <p>
                   How to draw the graph of a function when the domain and codomain are subsets of <m>\mathbb{R}</m>?
-                  For any complicated rule, you are welcome to use DESMOS\texttrademark.
+                  For any complicated rule, you are welcome to use <url href="https://www.desmos.com/">DESMOS&#8482;  </url>.
                 </p>
               </li>
               <li>
@@ -2930,7 +2953,7 @@
         <statement>
           <p>
             In each part of this exercise,
-            use {DESMOS\texttrademark} to graph the functions <m>y =f(x)</m> on the same set of axes for
+            use <url href="https://www.desmos.com/">DESMOS&#8482;  </url> to graph the functions <m>y =f(x)</m> on the same set of axes for
             <m>-5 \le x \le 5</m> and <m>-15 \le x \le 15</m>.
             Some properties that could be similar or different:
             is/is not a line, having the same/different slope
