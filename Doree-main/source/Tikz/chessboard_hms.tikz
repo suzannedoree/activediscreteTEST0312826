@@ -1,0 +1,15 @@
+% \begin{tikzpicture}[x=1cm]
+% \foreach \y in {0,2,4,6}{
+%     \foreach \x in {0,2,4,6}{
+%         \fill (\x,\y) rectangle (1+\x,1+\y) rectangle (2+\x,2+\y);}}
+% \end{tikzpicture}
+
+\begin{tikzpicture}[x=1cm]
+    \foreach \x in {0,...,7} \foreach \y in {0,...,7}
+    {
+        \pgfmathparse{mod(\x+\y,2) ? "white" : "black"}
+        \edef\colour{\pgfmathresult}
+        \path[fill=\colour] (\x,\y) rectangle ++ (1,1);
+    }
+    \draw (0,0)--(0,8)--(8,8)--(8,0)--cycle;
+\end{tikzpicture}

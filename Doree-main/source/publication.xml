@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<publication>
+  <html>
+    <platform>web</platform>
+    <css colors="blue_red" />
+  </html>
+  <source>
+    <directories external="../assets" generated="../generated-assets" />
+    <latex-image-preamble>
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+\usepackage{pgfplots}
+\usepackage{setdeck}
+\pgfplotsset{compat=1.18}
+\newcommand{\bs}[1]{\texttt{#1}}
+\newcommand{\str}[1]{\texttt{#1}}
+\newcommand{\thecbs}{1.1}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+    </latex-image-preamble>
+  </source>
+</publication>

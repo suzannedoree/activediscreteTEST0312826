@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+\node[circle,draw,minimum size=2.5cm] (a) at (0,0) {};
+\filldraw (a.center) circle [radius=0.1cm];
+\foreach \k in {0,1,...,4}
+{
+\draw (90-360/5*\k:1.05) -- (90-360/5*\k:1.25);
+\draw (90-360/5*\k:0.8) node[font=\large] {\k};
+}
+\end{tikzpicture}
+
+% \begin{tikzpicture}
+% \node[circle,draw,minimum size=4cm] (a) at (0,0) {};
+% \filldraw (a.center) circle [radius=0.1cm];
+% \foreach \k in {0,1,...,4}
+% {
+% \draw (90-360/5*\k:1.8) -- (90-360/5*\k:2);
+% \draw (90-360/5*\k:1.5) node[font=\large] {\k};
+% }
+% \end{tikzpicture}

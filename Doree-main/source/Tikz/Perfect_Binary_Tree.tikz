@@ -1,0 +1,84 @@
+%Appears in \Cref{sec_graph_models}
+
+% B_1
+\begin{tikzpicture}
+[scale =.45, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{2}
+\SetVertexNoLabel
+% Root
+\Vertex[x=3,y=4]{0}
+% Children
+\Vertex[x=2,y=2]{00}
+\Vertex[x=4,y=2]{01}
+% Edges
+\Edges(0,00)
+\Edges(0,01)
+\end{tikzpicture}
+\hspace{.35in} %%%%%%%%%
+% B_2
+\begin{tikzpicture}
+[scale =.45, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{2}
+\SetVertexNoLabel
+% Root
+\Vertex[x=3,y=4]{0}
+% Children
+\Vertex[x=1,y=2]{00}
+\Vertex[x=5,y=2]{01}
+% Grandchildren
+\Vertex[x=0,y=0]{000}
+\Vertex[x=2,y=0]{001}
+\Vertex[x=4,y=0]{010}
+\Vertex[x=6,y=0]{011}
+% Edges
+\Edges(0,00)
+\Edges(0,01)
+\Edges(00,000)
+\Edges(00,001)
+\Edges(01,010)
+\Edges(01,011)
+\end{tikzpicture} 
+\hspace{.35in} %%%%%%%%%
+% B_3
+\begin{tikzpicture}
+[scale =.45, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{2}
+\SetVertexNoLabel
+% Root
+\Vertex[x=7,y=6]{0}
+% Children
+\Vertex[x=3.5,y=4]{00}
+\Vertex[x=10.5,y=4]{01}
+% Grandchildren
+\Vertex[x=2,y=2]{000}
+\Vertex[x=5,y=2]{001}
+\Vertex[x=9,y=2]{010}
+\Vertex[x=12,y=2]{011}
+% And their kids
+\Vertex[x=0.5,y=0]{0000}
+\Vertex[x=2.5,y=0]{0001}
+\Vertex[x=4,y=0]{0010}
+\Vertex[x=6,y=0]{0011}
+\Vertex[x=8,y=0]{0100}
+\Vertex[x=10,y=0]{0101}
+\Vertex[x=11.5,y=0]{0110}
+\Vertex[x=13.5,y=0]{0111}
+% Edges
+\Edges(0,00)
+\Edges(0,01)
+\Edges(00,000)
+\Edges(00,001)
+\Edges(01,010)
+\Edges(01,011)
+\Edges(000,0000)
+\Edges(000,0001)
+\Edges(001,0010)
+\Edges(001,0011)
+\Edges(010,0100)
+\Edges(010,0101)
+\Edges(011,0110)
+\Edges(011,0111)
+\end{tikzpicture} 

@@ -1,0 +1,27 @@
+% Used in \Cref{fig_hanoi_start_end}.
+
+\begin{tikzpicture}[x=0.9cm,y=0.9cm,line width=0.8pt]
+  % Pegs and bases.
+  \draw[line width=1.2pt] (0,0) -- (2.8,0);
+  \draw[line width=1.2pt] (3.1,0) -- (5.9,0);
+  \draw[line width=1.2pt] (6.2,0) -- (9.0,0);
+  \draw[line width=1.2pt] (1.4,0) -- (1.4,2.6);
+  \draw[line width=1.2pt] (4.5,0) -- (4.5,2.6);
+  \draw[line width=1.2pt] (7.6,0) -- (7.6,2.6);
+
+  % Five disks stacked on tower 3.
+  \fill[green!75!black] (6.65,0.00) rectangle (8.55,0.30);
+  \fill[blue!80] (6.80,0.30) rectangle (8.40,0.58);
+  \fill[violet!70!black] (6.95,0.58) rectangle (8.25,0.82);
+  \fill[pink!60] (7.10,0.82) rectangle (8.10,1.06);
+  \fill[pink!35] (7.25,1.06) rectangle (7.95,1.30);
+  \draw (6.65,0.00) rectangle (8.55,0.30);
+  \draw (6.80,0.30) rectangle (8.40,0.58);
+  \draw (6.95,0.58) rectangle (8.25,0.82);
+  \draw (7.10,0.82) rectangle (8.10,1.06);
+  \draw (7.25,1.06) rectangle (7.95,1.30);
+
+  \node[font=\bfseries\scriptsize] at (1.4,-0.2) {TOWER 1};
+  \node[font=\bfseries\scriptsize] at (4.5,-0.2) {TOWER 2};
+  \node[font=\bfseries\scriptsize] at (7.6,-0.2) {TOWER 3};
+\end{tikzpicture}

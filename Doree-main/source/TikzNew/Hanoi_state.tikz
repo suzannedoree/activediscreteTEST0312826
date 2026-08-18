@@ -1,0 +1,30 @@
+% Used in \Cref{fig_hanoi5}.
+
+\begin{tikzpicture}[x=0.9cm,y=0.9cm,line width=0.8pt]
+  % Pegs and bases.
+  \draw[line width=1.2pt] (0,0) -- (2.8,0);
+  \draw[line width=1.2pt] (3.1,0) -- (5.9,0);
+  \draw[line width=1.2pt] (6.2,0) -- (9.0,0);
+  \draw[line width=1.2pt] (1.4,0) -- (1.4,2.6);
+  \draw[line width=1.2pt] (4.5,0) -- (4.5,2.6);
+  \draw[line width=1.2pt] (7.6,0) -- (7.6,2.6);
+
+  % State (1,1,3,2,1): largest, 2nd largest, and smallest on tower 1;
+  % middle sizes on towers 3 and 2 respectively.
+  \fill[green!75!black] (0.50,0.00) rectangle (2.30,0.30);
+  \fill[blue!80] (0.70,0.30) rectangle (2.10,0.58);
+  \fill[pink!35] (1.00,0.58) rectangle (1.80,0.82);
+
+  \fill[pink!60] (3.35,0.00) rectangle (5.65,0.30);
+  \fill[violet!80!black] (6.55,0.00) rectangle (8.65,0.30);
+
+  \draw (0.50,0.00) rectangle (2.30,0.30);
+  \draw (0.70,0.30) rectangle (2.10,0.58);
+  \draw (1.00,0.58) rectangle (1.80,0.82);
+  \draw (3.35,0.00) rectangle (5.65,0.30);
+  \draw (6.55,0.00) rectangle (8.65,0.30);
+
+  \node[font=\bfseries\scriptsize] at (1.4,-0.2) {TOWER 1};
+  \node[font=\bfseries\scriptsize] at (4.5,-0.2) {TOWER 2};
+  \node[font=\bfseries\scriptsize] at (7.6,-0.2) {TOWER 3};
+\end{tikzpicture}

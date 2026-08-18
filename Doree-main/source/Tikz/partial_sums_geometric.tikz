@@ -1,0 +1,52 @@
+\begin{tikzpicture}[
+    term node/.style={font=\large, anchor=base},
+    op node/.style={font=\large, anchor=center, yshift=0.5ex},
+    sum node/.style={font=\bfseries\large, text=blue!80!black, anchor=base},
+    connector line/.style={draw=gray!70, thick, shorten >=3pt, shorten <=3pt}
+]
+
+%================CONFIGURATION================
+% Set the upper bound for k (e.g., 0 to 5)
+% WARNING: Do not set > 8 to avoid "Dimension too large" error
+% Partial sums geometric series TikZ
+\def\numterms{3} % Limit number of terms to prevent dimension overflow
+\def\hunit{1.0} % was 2.0
+\def\vsep{1.1} % was 1.8
+%=============================================
+
+% Initialize sum
+\def\currentSum{0}
+
+\foreach \i [count=\c] in {0,...,\numterms} {
+
+    % --- 1. Calculate Positions ---
+    \pgfmathsetmacro{\xTerm}{(\c-1) * 2 * \hunit}
+    \pgfmathsetmacro{\xOp}{\xTerm + \hunit}
+    \pgfmathsetmacro{\xSum}{\xOp - \vsep}
+
+    % --- 2. Calculate Math ---
+    % Calculate 9 * 10^i
+    % Use round() to fix floating point precision (e.g. 99.999 -> 100)
+    \pgfmathtruncatemacro{\termVal}{round(9 * pow(10, \i))}
+    
+    % Update sum
+    \pgfmathtruncatemacro{\newSum}{\currentSum + \termVal}
+    % Global update for the loop
+    \global\let\currentSum=\newSum
+
+    % --- 3. Draw Elements ---
+    \node[term node] at (\xTerm, \vsep) {\termVal};
+    \node[op node] (Op\c) at (\xOp, \vsep) {$+$};
+    \node[sum node] (S\c) at (\xSum, 0) {\currentSum};
+    \draw[connector line] (S\c) -- (Op\c);
+
+    % --- 4. Handle End Ellipses ---
+    % FIX: Check if the current loop iterator (\i) equals the max (\numterms)
+    \ifnum\i=\numterms
+        \pgfmathsetmacro{\xEllipsis}{\xOp + \hunit*0.8}
+        \node[term node] at (\xEllipsis, \vsep) {$\ldots$};
+        \node[term node] at (\xEllipsis, 0) {$\ldots$};
+    \fi
+}
+
+\end{tikzpicture}

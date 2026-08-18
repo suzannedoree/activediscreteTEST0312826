@@ -1,0 +1,28 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+%[scale=1.2,auto=left,every node/.style={circle,fill=black}]
+[scale=0.9,auto=left,every node/.style={circle,draw=black, fill=white, inner sep=.06in}]
+\node (1) at (90+0*72:1) {};
+\node  (2) at (90+1*72:1) {};
+\node  (3) at (90+2*72:1) {};
+\node  (4) at (90+3*72:1) {};
+\node  (5) at (90+4*72:1) {};
+%\node  (0) at (90+4*72:0) {0};
+%\node  (0) at (0 ,0) {0};
+\draw [thick] (1) to (2) to (3) to (4);
+\draw [thick] (1) to (3) to (5) to (2) to (4) to (1);
+\end{tikzpicture}
+\hspace{1in} %%%%%
+\begin{tikzpicture}
+[scale=0.9,auto=left,every node/.style={circle,draw=black, fill=white, inner sep=.06in}]
+\node (1) at (90+0*72:1) {};
+\node  (2) at (90+1*72:1) {};
+\node  (3) at (90+2*72:1) {};
+\node  (4) at (90+3*72:1) {};
+\node  (5) at (90+4*72:1) {};
+%\node  (0) at (90+4*72:0) {0};
+%\node  (0) at (0 ,0) {0};
+\draw [thick] (1) to (2) to (3) to (4) to (5) to (1);
+\draw [thick] (1) to (3) to (5) to (2);
+\end{tikzpicture}

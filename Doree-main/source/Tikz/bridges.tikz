@@ -1,0 +1,59 @@
+% Add this before your tikzpicture!
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+
+% Used in \Cref{act_bridges}.
+\begin{tikzpicture}[scale=0.85, transform shape]
+%[font=\sffamily\bfseries]
+
+    % --- 1. Define Coordinates & Dimensions ---
+    \coordinate (N) at (0, 3.5);
+    \coordinate (S) at (0, -3.5);
+    \def\shoreHeight{1.6}
+    \def\shoreWidth{12.2}
+    
+    % Calculate the "river" boundaries
+    \pgfmathsetmacro{\riverTop}{3.5 - \shoreHeight/2}
+    \pgfmathsetmacro{\riverBottom}{-3.5 + \shoreHeight/2}
+    \def\extTop{5}    % Extends white land to top of canvas
+    \def\extBottom{-5} % Extends white land to bottom of canvas
+
+    % --- 2. Water Background (Strictly between shores) ---
+    \fill[babyblue] (-\shoreWidth/2, \riverBottom) rectangle (\shoreWidth/2, \riverTop);
+    
+    \foreach \y in {-2.25,-1.5,...,2.25} {
+        \draw[blue!15, thin, decorate, decoration={snake, amplitude=0.8mm, segment length=6mm}] 
+            (-\shoreWidth/2, \y) -- (\shoreWidth/2, \y);
+    }
+
+    % --- 3. Draw Bridges (drawn first so they are "clipped" by the land) ---
+    \tikzset{bridge/.style={line width=8pt, black}}
+
+    % North Shore connections
+    \draw[bridge] (-3, 0) -- (-3, 3.5); 
+    \draw[bridge] (1, 0) -- (1, 3.5);   
+    \draw[bridge] (3, 0) -- (3, 3.5);   
+
+    % Between Islands
+    \draw[bridge] (-3, 0) -- (2, 0);
+
+    % South Shore connections
+    \draw[bridge] (-3, 0) -- (-3, -3.5); 
+    \draw[bridge] (2, 0) -- (2, -3.5);   
+
+    % --- 4. Land Masses (Solid white with single bank line) ---
+    
+    % North Shore: Fill and then draw only the bottom line
+    \fill[white] (-\shoreWidth/2, \riverTop) rectangle (\shoreWidth/2, \extTop);
+    \draw[thick] (-\shoreWidth/2, \riverTop) -- (\shoreWidth/2, \riverTop);
+    \node at (N) {North Shore};
+    
+    % South Shore: Fill and then draw only the top line
+    \fill[white] (-\shoreWidth/2, \riverBottom) rectangle (\shoreWidth/2, \extBottom);
+    \draw[thick] (-\shoreWidth/2, \riverBottom) -- (\shoreWidth/2, \riverBottom);
+    \node at (S) {South Shore};
+
+    % Islands (Kept as ellipses with full borders)
+    \node (small) [draw, fill=white, thick, ellipse, minimum width=2.8cm, minimum height=1.8cm] at (-3, 0) {Small Island};
+    \node (big) [draw, fill=white, thick, ellipse, minimum width=4.5cm, minimum height=2.8cm] at (2, 0) {Big Island};
+
+\end{tikzpicture}

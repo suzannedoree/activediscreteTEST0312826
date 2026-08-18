@@ -1,0 +1,49 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+% Inner circle
+\Vertex[LabelOut,Lpos=112,x=0.618,y=1.90]{$a$}
+\Vertex[LabelOut,Lpos=40,x=2,y=0]{$b$}
+\Vertex[LabelOut,Lpos= -32,x=0.618,y=-1.90]{$c$}
+\Vertex[LabelOut,Lpos= -104,x=-1.61,y=-1.17]{$d$}
+\Vertex[LabelOut,Lpos= 184,x=-1.61,y=1.17]{$e$}
+\Edges($a$,$c$,$e$,$b$,$d$,$a$)
+% Outer circle
+\Vertex[LabelOut,Lpos=112,x=1.30,y=3.99]{$A$}
+\Vertex[LabelOut,Lpos=40,x=4.2,y=0]{$B$}
+\Vertex[LabelOut,Lpos= -32,x=1.30,y=-3.99]{$C$}
+\Vertex[LabelOut,Lpos= -104,x=-3.38,y=-2.46]{$D$}
+\Vertex[LabelOut,Lpos= 184,x=-3.38,y=2.46]{$E$}
+\Edges($A$,$B$,$C$,$D$,$E$,$A$)
+% Spokes
+\Edges($a$,$A$)
+\Edges($b$,$B$)
+\Edges($c$,$C$)
+\Edges($d$,$D$)
+\Edges($e$,$E$)
+\end{tikzpicture}
+\hspace{1 in} %%%%%
+\begin{tikzpicture}
+[scale=.82,auto=left,every node/.style={circle,draw=black, fill=white, inner sep=.06in}]
+\node (1) at (1*60:1.8) {};
+\node (2) at (2*60:1.8) {};
+\node (3) at (3*60:1.8) {};
+\node (4) at (4*60:1.8) {};
+\node (5) at (5*60:1.8) {};
+\node (6) at (6*60:1.8) {};
+\node(7) at (1*120:1) {};
+\node(8) at (2*120:1) {};
+\node(9) at (3*120:1) {};
+\node(10) at (1*0:0) {};  
+\draw[thick] (1) to (2) to (3) to (4) to (5) to (6) to (1);
+\draw[thick] (2) to (7) to (10);
+\draw[thick] (6) to (9) to (10);
+\draw[thick] (4) to (8) to (10);
+\draw[thick] (1) to [out=240, in=120,looseness=1](8) ;
+\draw[thick] (5) to [out=120, in=0,looseness=1](7) ;
+\draw[thick] (3) to [out=0, in=240,looseness=1](9) ;
+\end{tikzpicture}

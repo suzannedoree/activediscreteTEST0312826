@@ -1,0 +1,44 @@
+%Used in \Cref{sec_listing}
+
+\begin{tikzpicture}[
+    grow=right,
+    level distance=1.9cm,
+    sibling distance=7.5cm,
+    every node/.style={anchor=west},
+    level 2/.style={sibling distance=4.0cm},
+    level 3/.style={sibling distance=2.2cm},
+    level 4/.style={sibling distance=1.4cm},
+    level 5/.style={sibling distance=1.0cm}
+]
+\node {$\circ$}
+    child { node {$\boldsymbol{-}$}
+        child { node {$\boldsymbol{-}$}
+            child { node {$\bullet$} }
+        }
+        child { node {$\bullet$}
+            child { node {$\boldsymbol{-}$} }
+            child { node {$\bullet$}
+                child { node {$\bullet$} }
+            }
+        }
+    }
+    child { node {$\bullet$}
+        child { node {$\boldsymbol{-}$}
+            child { node {$\boldsymbol{-}$} }
+            child { node {$\bullet$}
+                child { node {$\bullet$} }
+            }
+        }
+        child { node {$\bullet$}
+            child { node {$\boldsymbol{-}$}
+                child { node {$\bullet$} }
+            }
+            child { node {$\bullet$}
+                child { node {$\boldsymbol{-}$} }
+                child { node {$\bullet$}
+                    child { node {$\bullet$} }
+                }
+            }
+        }
+    };
+\end{tikzpicture}

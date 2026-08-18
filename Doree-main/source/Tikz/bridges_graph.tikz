@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=90,x=4,y=3]{North Shore}
+\Vertex[LabelOut,Lpos= 0,x=8,y=0]{Big Island}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{Small Island}
+\Vertex[LabelOut,Lpos= -90,x=4,y=-3]{South Shore}
+\Edges(North Shore, Small Island)
+\Edges(South Shore, Small Island)
+\Edges(South Shore, Big Island)
+\Edges(Small Island, Big Island)
+\Edges(North Shore, Big Island)
+    \draw (North Shore) to[bend left=45] (Big Island); % Bends because multiple
+\end{tikzpicture}

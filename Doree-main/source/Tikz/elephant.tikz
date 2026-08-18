@@ -1,0 +1,27 @@
+%Used in \Cref{sec_graph_models}
+
+\begin{tikzpicture}
+    [scale =.75]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+        %\SetVertexNoLabel
+    % bottom row
+    \Vertex[LabelOut,Lpos=-90,x=0,y=0]{$s_1$}
+    \Vertex[LabelOut,Lpos=-90,x=1.5,y=0]{$s_2$} 
+    \Vertex[LabelOut,Lpos=-90,x=3,y=0]{$s_3$}
+    \Vertex[LabelOut,Lpos=-90,x=4.5,y=0]{$s_4$}    
+    \Edges($s_1$,$s_2$,$s_3$,$s_4$)
+    
+    % top row
+    \Vertex[LabelOut,Lpos=90,x=1.5,y=1.5]{$e_1$}
+    \Vertex[LabelOut,Lpos=90,x=3,y=1.5]{$e_2$}   
+    \Edges($e_1$,$e_2$)
+    
+    % vertical edges
+    \Edges($e_1$,$s_2$)
+    \Edges($e_2$,$s_3$)
+    
+    % diagonal edges
+    \Edges($e_1$,$s_3$)
+    \Edges($e_2$,$s_2$)    
+\end{tikzpicture}

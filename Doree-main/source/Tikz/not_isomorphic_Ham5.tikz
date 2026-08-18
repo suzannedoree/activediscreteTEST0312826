@@ -1,0 +1,31 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.45]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=90,x=.6,y=3]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=2.4,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=3,y=1.2]{$C$}
+\Vertex[LabelOut,Lpos= -90,x=1.5,y=0]{$D$}
+\Vertex[LabelOut,Lpos= -90,x=0,y=1.2]{$E$}
+\Edges($A$, $B$, $C$, $D$, $E$, $A$)
+\Edges($A$,$D$,$B$)
+\Edges($C$,$E$)
+\end{tikzpicture}
+\hspace{1in} %%%%%
+\begin{tikzpicture}
+[scale =.45]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=90,x=.6,y=3]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=2.4,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=3,y=1.2]{$C$}
+\Vertex[LabelOut,Lpos= -90,x=1.5,y=0]{$D$}
+\Vertex[LabelOut,Lpos= -90,x=0,y=1.2]{$E$}
+\Edges($A$, $B$, $C$, $D$, $E$, $A$)
+\Edges($B$,$E$,$C$)
+\Edges($C$,$A$)
+\end{tikzpicture}

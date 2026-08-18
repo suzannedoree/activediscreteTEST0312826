@@ -1,0 +1,52 @@
+%Used in \Cref{sec_graph_thy}, \Cref{exam_graphical}.
+% Note:  full graph is graphical_finish
+
+%% STARTING ATTEMPT
+\begin{tikzpicture}
+    [scale =.75]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+        %\SetVertexNoLabel
+    % bottom row
+    \Vertex[LabelOut,Lpos=-90,x=0,y=0]{$w_1$}
+    \Vertex[LabelOut,Lpos=-90,x=1.5,y=0]{$w_2$} 
+    \Vertex[LabelOut,Lpos=-90,x=3,y=0]{$w_3$}
+    \Edges($w_1$,$w_2$,$w_3$)
+    % top row
+    \Vertex[LabelOut,Lpos=90,x=0,y=1.5]{$v_1$}
+    \Vertex[LabelOut,Lpos=90,x=1.5,y=1.5]{$v_2$} 
+    \Vertex[LabelOut,Lpos=90,x=3,y=1.5]{$v_3$}
+    \Edges($v_1$,$v_2$,$v_3$)
+    % vertical edges
+    %\Edges($v_1$,$w_1$)
+    \Edges($v_2$,$w_2$)
+    %\Edges($v_3$,$w_3$)
+    % the rest of the Xs
+    \Edges($v_1$,$w_2$,$v_3$)
+    \Edges($w_1$,$v_2$,$w_3$)
+\end{tikzpicture}
+\hspace{1 in}
+%% COMPLETED VERSION
+\begin{tikzpicture}
+    [scale =.75]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+        %\SetVertexNoLabel
+    % bottom row
+    \Vertex[LabelOut,Lpos=-90,x=0,y=0]{$w_1$}
+    \Vertex[LabelOut,Lpos=-90,x=1.5,y=0]{$w_2$} 
+    \Vertex[LabelOut,Lpos=-90,x=3,y=0]{$w_3$}
+    \Edges($w_1$,$w_2$,$w_3$)
+    % top row
+    \Vertex[LabelOut,Lpos=90,x=0,y=1.5]{$v_1$}
+    \Vertex[LabelOut,Lpos=90,x=1.5,y=1.5]{$v_2$} 
+    \Vertex[LabelOut,Lpos=90,x=3,y=1.5]{$v_3$}
+    \Edges($v_1$,$v_2$,$v_3$)
+    % vertical edges
+    \Edges($v_1$,$w_1$)
+    \Edges($v_2$,$w_2$)
+    \Edges($v_3$,$w_3$)
+    % the rest of the Xs
+    \Edges($v_1$,$w_2$,$v_3$)
+    \Edges($w_1$,$v_2$,$w_3$)
+\end{tikzpicture}

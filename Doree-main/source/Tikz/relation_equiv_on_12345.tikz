@@ -1,0 +1,29 @@
+%Used in \Cref{sec_equiv_relations}.
+
+\begin{tikzpicture}[scale =.35,
+    >=triangle 45,auto,node distance=1.5cm, thick] 
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+    %%%% Vertices
+        \Vertex[LabelOut,Lpos=180,x=0,y=6]{1}
+        \Vertex[LabelOut,Lpos=90,x=4,y=3]{2}
+        \Vertex[LabelOut,Lpos=45,x=2,y=0]{3}
+        \Vertex[LabelOut,Lpos=135,x=-2,y=0]{4}
+        \Vertex[LabelOut,Lpos=90,x=-4,y=3]{5}
+    %%%% Loops at each point
+        \path[->, every loop/.style={min distance=1mm,in=60,out=120,looseness=15}] 
+            (1) edge[loop] node { }  (1);
+        \path[->, every loop/.style={min distance=1mm,in=-30,out=30,looseness=15}] 
+            (2) edge[loop] node { }  (2);
+        \path[->, every loop/.style={min distance=1mm,in=-60,out=0,looseness=15}] 
+            (3) edge[loop] node { }  (3);
+        \path[->, every loop/.style={min distance=1mm,in=180,out=240,looseness=15}] 
+            (4) edge[loop] node { }  (4);
+        \path[->, every loop/.style={min distance=1mm,in=150,out=210,looseness=15}] 
+            (5) edge[loop] node { }  (5);
+    %%%% Additional double-headed arrows
+        \path[<->] (2) edge  node { }    (5);
+        \path[<->] (1) edge  node { }    (3);
+        \path[<->] (3) edge  node { }    (4);
+        \path[<->] (4) edge  node { }    (1);
+\end{tikzpicture}

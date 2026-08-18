@@ -1,0 +1,54 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (1.5,-2) {$A$};
+\Vertex[LabelOut,Lpos=180,x=0,y=3]{$a$}
+\Vertex[LabelOut,Lpos= 0,x=3,y=3]{$b$}
+\Vertex[LabelOut,Lpos=0,x=3,y=0]{$c$}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$d$}
+\Edges($b$, $c$, $d$)
+\end{tikzpicture}
+\hspace{.5in} %%%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (0,-2) {$\overline{A}$};
+\Vertex[LabelOut,Lpos=180,x=0,y=3]{$a$}
+\Vertex[LabelOut,Lpos= 0,x=3,y=3]{$b$}
+\Vertex[LabelOut,Lpos=0,x=-2.5,y=5.5]{$c$}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$d$}
+\Edges($a$, $b$, $d$, $a$,$c$)
+\end{tikzpicture}
+\hspace{.5in} %%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (1.5,-2) {$B$};
+\Vertex[LabelOut,Lpos=180,x=0,y=3]{$a$}
+\Vertex[LabelOut,Lpos= 0,x=3,y=3]{$b$}
+\Vertex[LabelOut,Lpos=0,x=3,y=0]{$c$}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$d$}
+\Edges($a$, $b$)
+\Edges($c$, $d$)
+\end{tikzpicture}
+\hspace{.5in} %%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\node at (1.5,-2) {$\overline{B} $};
+\Vertex[LabelOut,Lpos=180,x=0,y=3]{$a$}
+\Vertex[LabelOut,Lpos= 0,x=3,y=3]{$c$}
+\Vertex[LabelOut,Lpos=0,x=3,y=0]{$b$}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$d$}
+\Edges($a$, $c$, $b$, $d$,$a$)
+\end{tikzpicture}

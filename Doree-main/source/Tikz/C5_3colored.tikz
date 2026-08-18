@@ -1,0 +1,16 @@
+%Used in \Cref{sec_std_graphs}.
+
+% A 3-coloring of C_5
+\begin{tikzpicture}
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    \SetVertexNoLabel
+    \Vertices{circle}{a,b,c,d,e}
+    \Edges(a,b,c,d,e,a)
+
+    % Coloring the Vertices        
+        \AddVertexColor{black}{a,c}
+        \AddVertexColor{gray}{b,e}
+\end{tikzpicture}
+

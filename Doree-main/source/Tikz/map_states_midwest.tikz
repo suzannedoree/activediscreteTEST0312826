@@ -1,0 +1,32 @@
+%Used in \Cref{sec_std_graphs}
+
+\begin{tikzpicture}
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    %\SetVertexNoLabel
+    %%%%%%%
+    \Vertex[LabelOut,Lpos=180,x=0,y=10]{ND}
+    \Vertex[LabelOut,Lpos=45,x=3,y=9]{MN}
+
+    \Vertex[LabelOut,Lpos=0,x=6,y=9]{WI}
+    \Vertex[LabelOut,Lpos=180,x=0,y=8]{SD}
+    \Vertex[LabelOut,Lpos=0,x=3,y=7]{IA}
+    
+    \Vertex[LabelOut,Lpos=180,x=0,y=6]{NE}
+
+    \Vertex[LabelOut,Lpos=0,x=6,y=5]{IL}
+    \Vertex[LabelOut,Lpos=-45,x=3,y=4]{MO}
+    \Vertex[LabelOut,Lpos=180,x=0,y=4]{KS}
+    \Vertex[LabelOut,Lpos=0,x=3,y=2]{AR}
+    \Vertex[LabelOut,Lpos=180,x=0,y=2]{OK}
+    \Vertex[LabelOut,Lpos=0,x=3,y=0]{LA}
+    \Vertex[LabelOut,Lpos=180,x=0,y=0]{TX}
+
+    \Edges(ND,SD,NE,KS,OK,TX)
+    \Edges(MN,IA,MO,AR,LA)
+    \Edges(WI,IL)
+    \Edges(ND,MN,SD,IA,NE,MO,KS)
+    \Edges(MO,OK,AR,TX,LA)
+    \Edges(MN,WI,IA,IL,MO)
+\end{tikzpicture}

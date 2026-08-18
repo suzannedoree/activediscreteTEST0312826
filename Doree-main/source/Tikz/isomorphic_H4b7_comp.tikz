@@ -1,0 +1,21 @@
+%Used in \Cref{sec_subgraph_tree}.
+
+\begin{tikzpicture}
+[scale =.55, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (0,3) {$A$};
+\Vertices{circle}{$y$,$z$,$t$,$u$, $v$,$w$,$x$}
+\Edges($w$,$t$,$x$, $u$, $y$, $v$, $z$, $w$)
+\end{tikzpicture}
+\hspace{1in} %%%%%
+\begin{tikzpicture}
+[scale =.55, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (0,3) {$B$};
+\Vertices{circle}{$y$,$z$,$t$,$u$, $v$,$w$,$x$}
+\Edges($t$,$u$,$v$,$w$,$x$,$y$,$z$,$t$)
+\end{tikzpicture}

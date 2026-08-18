@@ -1,0 +1,20 @@
+%Used in \Cref{sec_graph_thy}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+%%% Cycle
+\Vertex[LabelOut,Lpos=180,x=0,y=4]{$a$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=4]{$b$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=0]{$d$}
+\Vertex[LabelOut,Lpos= 180,x=0,y=0]{$e$}
+\Edges($a$, $e$)
+\Edges($b$,$e$,$d$)
+%%% Path
+\Vertex[LabelOut,Lpos= -90,x=8,y=2]{$c$}
+\Vertex[LabelOut,Lpos= -90,x=12,y=2]{$f$}
+\Edges($c$,$f$)
+
+\end{tikzpicture}

@@ -1,0 +1,20 @@
+%Used in \Cref{sec_std_graphs}.
+
+\begin{tikzpicture}
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    \SetVertexNoLabel
+% W5
+    \Vertices{circle}{a,b,c,d,e}
+    \Vertex[x=0,y=0]{z}
+    \Edges(a,b,c,d,e,a)
+    \Edges(a,z,b)
+    \Edges(c,z,d)
+    \Edges(e,z)
+
+% Coloring the Vertices        
+        \AddVertexColor{black}{a,c}
+        \AddVertexColor{gray}{b,e}
+        \AddVertexColor{lightgray}{z}
+\end{tikzpicture}

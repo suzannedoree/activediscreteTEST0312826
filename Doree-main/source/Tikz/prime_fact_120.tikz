@@ -1,0 +1,14 @@
+\begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+  \node {120}
+    child {node {12}
+        child {node {\fbox{2}}}
+        child {node {6}
+            child {node {\fbox{2}}}
+            child {node {\fbox{3}}}
+        }
+    }
+    child {node {10}
+      child {node {\fbox{2}}}
+      child {node {\fbox{5}}}
+    };
+\end{tikzpicture}

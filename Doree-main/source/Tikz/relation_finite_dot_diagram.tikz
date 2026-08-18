@@ -1,0 +1,18 @@
+%Used in \Cref{sub_defn_relation}.
+
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetUpEdge[style={->,>=triangle 45}]
+\SetGraphUnit{2}
+%\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=180,x=0,y=3]{$a$}
+\Vertex[LabelOut,Lpos= 180,x=0,y=1]{$b$}
+\Vertex[LabelOut,Lpos=0,x=4,y=4]{$0$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=2]{$1$}
+\Vertex[LabelOut,Lpos=0,x=4,y=0]{$2$}
+\Edges($a$, $0$)
+\Edges($a$, $1$)
+\Edges($b$, $1$)
+\Edges($b$, $2$)
+\end{tikzpicture}

@@ -1,0 +1,21 @@
+%Used in \Cref{sec_rec_def_structures}
+
+\begin{tikzpicture}[
+    grow=right,
+    level distance=2.2cm,
+    sibling distance=3.8cm,
+    every node/.style={anchor=west},
+    level 2/.style={sibling distance=2.0cm},
+    level 3/.style={sibling distance=1.0cm}
+]
+\node {$\lambda$}
+    child { node {\texttt{11}}
+        child { node {\texttt{110}} }
+    }
+    child { node {\texttt{0}}
+        child { node {\texttt{101}} }
+        child { node {\texttt{00}}
+            child { node {\texttt{000}} }
+        }
+    };
+\end{tikzpicture}

@@ -1,0 +1,26 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.5, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (-2.5,2.5) {$E_1$};
+\Vertices{circle}{$c$,$b$,$a$,$h$,$g$,$f$,$e$,$d$}
+\Edges($a$,$b$,$c$,$d$,$e$,$f$,$g$,$h$,$a$)
+\Edges($a$,$e$)
+\AddVertexColor{black}{$a$, $c$, $g$}
+\AddVertexColor{gray}{$e$}
+\end{tikzpicture}
+\hspace{1in} %%%%%
+\begin{tikzpicture}
+[scale =.5, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (-2.5,2.5) {$E_2$};
+\Vertices{circle}{$c$,$b$,$a$,$h$,$g$,$f$,$e$,$d$}
+\Edges($a$,$b$,$c$,$d$,$e$,$f$,$g$,$h$,$a$)
+\Edges($a$,$d$)
+\AddVertexColor{black}{$a$, $c$, $e$, $g$}
+\end{tikzpicture}

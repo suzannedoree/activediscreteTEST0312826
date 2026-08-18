@@ -1,0 +1,80 @@
+\begin{tikzpicture}[
+    % --- Styles ---
+    term node/.style={font=\large, anchor=base},
+    % Plus node centered for clean line connections
+    op node/.style={font=\large, anchor=center, yshift=0.5ex}, 
+    % Blue color for sums
+    sum node/.style={font=\bfseries\large, text=blue!80!black, anchor=base},
+    connector line/.style={draw=gray!70, thick, shorten >=3pt, shorten <=3pt}
+]
+
+%================CONFIGURATION================
+\def\numterms{6}
+
+% Geometry settings
+\def\hunit{1.5} 
+\def\vsep{1.8}
+%=============================================
+
+% Initialize running sum at 0
+\def\currentSum{0}
+
+% --- NEW: Initialize Fibonacci Logic ---
+% We need F_{2k}. Let's track the current pair (F_{odd}, F_{even}).
+% Start with F_1 = 1, F_2 = 1.
+\def\fPrev{1} % Represents F_{2k-1} (initially F_1)
+\def\fCurr{1} % Represents F_{2k}   (initially F_2)
+
+\foreach \i [count=\c] in {1,...,\numterms} {
+
+    % --- 1. Calculate Positions (Same as before) ---
+    \pgfmathsetmacro{\xTerm}{(\c-1) * 2 * \hunit}
+    \pgfmathsetmacro{\xOp}{\xTerm + \hunit}
+    \pgfmathsetmacro{\xSum}{\xOp - \vsep}
+
+
+    % --- 2. Calculate Math (Fibonacci Summation) ---
+    % Capture the current term (F_2k) for display
+    \pgfmathsetmacro{\termValue}{int(\fCurr)}
+    
+    % Update the Partial Sum
+    \pgfmathsetmacro{\newSum}{int(\currentSum + \termValue)}
+    \global\let\currentSum=\newSum
+    
+    % --- 3. Update Fibonacci Numbers for NEXT loop ---
+    % We need to jump from (F_{2k-1}, F_{2k}) to (F_{2k+1}, F_{2k+2})
+    % Step 1: F_{2k+1} = F_{2k} + F_{2k-1}
+    \pgfmathsetmacro{\nextOdd}{int(\fCurr + \fPrev)}
+    % Step 2: F_{2k+2} = F_{2k+1} + F_{2k}
+    \pgfmathsetmacro{\nextEven}{int(\nextOdd + \fCurr)}
+    
+    % Global update for the loop
+    \global\let\fPrev=\nextOdd
+    \global\let\fCurr=\nextEven
+
+
+    % --- 4. Draw Elements ---
+    
+    % Draw the Fibonacci Number (F_2k)
+    \node[term node] at (\xTerm, \vsep) {$\termValue$};
+
+    % Draw the Plus Sign
+    \node[op node] (Op\c) at (\xOp, \vsep) {$+$};
+
+    % Draw the Partial Sum
+    \node[sum node] (S\c) at (\xSum, 0) {\currentSum};
+
+    % Draw the Connector Line
+    \draw[connector line] (S\c) -- (Op\c);
+
+
+    % --- 5. Handle End of Sequence (Ellipses) ---
+    \ifnum\c=\numterms
+        \pgfmathsetmacro{\xTopEllipsis}{\xOp + \hunit*0.8}
+        \pgfmathsetmacro{\xBottomEllipsis}{\xTopEllipsis} 
+        \node[term node] at (\xTopEllipsis, \vsep) {$\ldots$};
+        \node[term node] at (\xTopEllipsis, 0) {$\ldots$};
+    \fi
+}
+
+\end{tikzpicture}

@@ -1,0 +1,21 @@
+%Used in \Cref{sec_graph_thy}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=-90,x=0,y=0]{$a$}
+\Vertex[LabelOut,Lpos= -90,x=2,y=0]{$b$}
+\Vertex[LabelOut,Lpos= -90,x=4,y=0]{$c$}
+\Vertex[LabelOut,Lpos= -90,x=6,y=0]{$d$}
+\Vertex[LabelOut,Lpos= -90,x=8,y=0]{$e$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=4]{$x$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=4]{$y$}
+\Edges($x$,$a$,$y$)
+\Edges($x$,$b$,$y$)
+\Edges($x$,$c$,$y$)
+\Edges($x$,$d$,$y$)
+\Edges($x$,$e$,$y$)
+        \AddVertexColor{black}{$x$, $y$}
+\end{tikzpicture}

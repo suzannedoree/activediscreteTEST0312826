@@ -1,0 +1,19 @@
+% Used in 
+
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{2}
+%\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=-90,x=0,y=0]{$z$}
+\Vertex[LabelOut,Lpos= -90,x=2,y=0]{$y$}
+\Vertex[LabelOut,Lpos=-90,x=4,y=0]{$x$}
+\Vertex[LabelOut,Lpos= -90,x=6,y=0]{$w$}
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$r$}
+\Vertex[LabelOut,Lpos= 90,x=2,y=3]{$s$}
+\Vertex[LabelOut,Lpos=90,x=4,y=3]{$t$}
+\Vertex[LabelOut,Lpos= 90,x=6,y=3]{$u$}
+\Edges($r$,$s$,$t$,$u$,$w$,$x$,$y$,$z$,$r$)
+\Edges($s$,$x$,$u$)
+\Edges($t$,$z$)
+\end{tikzpicture}

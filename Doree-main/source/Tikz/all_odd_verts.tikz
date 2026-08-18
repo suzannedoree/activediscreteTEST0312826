@@ -1,0 +1,14 @@
+%Used in \Cref{sec_quants_cex}
+
+\begin{tikzpicture}
+[scale =.5, auto=left]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+% \node at (0,3) {$G$};
+\Vertices{circle}{$c$,$b$,$a$,$f$,$e$,$d$}
+\Edges($c$,$a$,$b$)
+\Edges($e$,$a$,$d$)
+\Edges($a$,$f$)
+\Edges($c$,$d$,$e$,$c$)
+\end{tikzpicture}

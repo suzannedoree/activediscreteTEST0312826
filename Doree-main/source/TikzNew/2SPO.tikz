@@ -1,0 +1,33 @@
+%% 2SPO.
+\begin{tikzpicture}[x=1.2cm,y=1.2cm]
+  \definecolor{setpurple}{RGB}{128,0,192}
+  
+  % Card background
+  \draw[rounded corners=0.15cm, line width=0.05cm] (0,0) rectangle (3,4);
+  
+  % Label
+  %\node[font=\tiny\ttfamily, anchor=west] at (0.1, 3.8) {2SPO};
+  
+  % Draw 2 striped horizontal ovals
+  % Spaced at 1.25 and 2.75 to balance them perfectly without touching
+  \foreach \y in {1.25, 2.75} {
+    \begin{scope}[shift={(1.5, \y)}]
+      
+      % Oval body with stripes
+      \begin{scope}
+        % Swapped radii to (0.65 and 0.5) to rotate 90 degrees horizontally
+        \clip (0,0) ellipse (0.65 and 0.5);
+        
+        % Expanded the \x range to ensure stripes cover the new wider width
+        \foreach \x in {-0.75, -0.6, -0.45, -0.3, -0.15, 0, 0.15, 0.3, 0.45, 0.6, 0.75} {
+          \draw[setpurple, line width=0.04cm] (\x,-0.6) -- (\x,0.6);
+        }
+      \end{scope}
+      
+      % Outline
+      \draw[setpurple, line width=0.08cm] (0,0) ellipse (0.65 and 0.5);
+      
+    \end{scope}
+  }
+\end{tikzpicture}
+

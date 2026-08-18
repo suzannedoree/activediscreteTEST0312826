@@ -1,0 +1,23 @@
+%Used in \Cref{exam_function_finite}.
+
+\begin{tikzpicture}
+[scale =.5]
+\GraphInit[vstyle=Welsh]
+\SetUpEdge[style={->,>=triangle 45}]
+\SetGraphUnit{2}
+%\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=180,x=0,y=8]{$1$}
+\Vertex[LabelOut,Lpos= 180,x=0,y=6]{$2$}
+\Vertex[LabelOut,Lpos=180,x=0,y=4]{$3$}
+\Vertex[LabelOut,Lpos=180,x=0,y=2]{$4$}
+\Vertex[LabelOut,Lpos=180,x=0,y=0]{$5$}
+\Vertex[LabelOut,Lpos=0,x=4,y=7]{$a$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=5]{$b$}
+\Vertex[LabelOut,Lpos=0,x=4,y=3]{$c$}
+\Vertex[LabelOut,Lpos=0,x=4,y=1]{$d$}
+\Edges($1$, $a$)
+\Edges($2$, $d$)
+\Edges($3$, $a$)
+\Edges($4$, $d$)
+\Edges($5$, $c$)
+\end{tikzpicture}

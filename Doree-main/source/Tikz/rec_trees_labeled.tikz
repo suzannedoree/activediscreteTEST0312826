@@ -1,0 +1,49 @@
+%Used in \Cref{sec_graph_thy}.
+
+\begin{tikzpicture}  
+    [scale =.5]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{2}
+    %\SetVertexNoLabel
+% T3
+    \Vertex[x=2,y=6]{X}
+        %Left
+        \Vertex[x=0,y=4]{L}
+        % Right
+        \Vertex[x=4,y=4]{R}
+        \Edges(L,X,R)
+%T4  
+    \Vertex[x=10,y=6]{X}
+        %Left
+        \Vertex[x=8,y=4]{LX}
+            %Subleft
+            \Vertex[x=6,y=2]{LL}
+            %Subright
+            \Vertex[x=10,y=2]{LR} 
+            \Edges(LL,LX,LR)
+        % Right
+        \Vertex[x=12,y=4]{RX}
+        \Edges(LX,X,RX)
+%T5
+    \Vertex[x=22,y=6]{X}
+        %Left
+        \Vertex[x=18,y=4]{LX}
+            %Subleft
+            \Vertex[x=16,y=2]{LLX}
+                %Subsubleft
+                    \Vertex[x=14,y=0]{LLL}
+                %Subsubright
+                    \Vertex[x=18,y=0]{LLR}   
+                    \Edges(LLL,LLX,LLR)
+            %Subright
+            \Vertex[x=20,y=2]{LRX} 
+            \Edges(LLX,LX,LRX)
+        % Right
+        \Vertex[x=26,y=4]{RX}
+            %Left
+            \Vertex[x=24,y=2]{RL}
+            %Left
+            \Vertex[x=28,y=2]{RR}
+            \Edges(RL,RX,RR)
+        \Edges(LX,X,RX)   
+\end{tikzpicture}

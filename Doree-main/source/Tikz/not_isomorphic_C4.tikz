@@ -1,0 +1,28 @@
+%Used in \Cref{sec_graph_ism}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (-2,3) {$D_1$};
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=3,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=3,y=0]{$C$}
+\Vertex[LabelOut,Lpos=-90,x=0,y=0]{$D$}
+\Edges($A$, $B$, $D$, $A$)
+\Edges($B$,$C$)
+\end{tikzpicture}
+\hspace{1 in} %%%%%
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+\SetVertexNoLabel
+\node at (-2,3) {$D_2$};
+\Vertex[LabelOut,Lpos=90,x=0,y=3]{$A$}
+\Vertex[LabelOut,Lpos= 90,x=3,y=3]{$B$}
+\Vertex[LabelOut,Lpos=-90,x=3,y=0]{$C$}
+\Vertex[LabelOut,Lpos=-90,x=0,y=0]{$D$}
+\Edges($A$, $B$, $C$, $D$, $A$)
+\end{tikzpicture}

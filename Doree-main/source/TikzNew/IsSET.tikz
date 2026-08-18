@@ -1,0 +1,12 @@
+% Used in \Cref{figure_show_set}.
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \newcommand{\setcardwithlabel}[7]{
+    \node[inner sep=0,anchor=south west] at (#1,#2) {\setcard{#4}{#5}{#6}{#7}{0.55}};
+    \node[anchor=north west,font=\scriptsize\ttfamily] at (#1+0.10,#2+3.28) {#3};
+  }
+
+  \setcardwithlabel{0.0}{0.0}{}{2}{1}{1}{2}
+  \setcardwithlabel{2.7}{0.0}{}{2}{2}{1}{2}
+  \setcardwithlabel{5.4}{0.0}{}{2}{3}{1}{2}
+\end{tikzpicture}

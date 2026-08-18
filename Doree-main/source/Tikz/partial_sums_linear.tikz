@@ -1,0 +1,93 @@
+% Used in \Cref{sec_sum_conj}.
+
+%Used in \Cref{sec_sum_conj}.
+
+%% Thanks to Gemini for this lovely code.  My prompts were: 
+% Prompt 1: I want tikz code showing evaluating a sequence of partial sums.  The top row should be the summation itself with the terms listed $1+2+3+4+5+\ldots$. There should be positive slope line segments coming up to each + sign and room below those line segments to write the partial sums, which would be 1, 3, 6, 10, 15.  Can you generate tikz code that can easily be adapted for more or fewer terms?
+% Prompt 2: That's quite good, but I want the lines to be slope 1.
+% Prompt 3: Can you modify the code to do partial products instead, please.
+% Prompt 4: Oh, can you calculate one more partial product AND there should be ... in the bottom row too
+% Prompt 5: The top row and the bottom row should have the same number of entries.  Please fix
+% Prompt 6: Perfect!  Now create the same code for sums.
+
+
+% \documentclass[tikz,border=10pt]{standalone}
+% \usepackage{tikz}
+
+% \begin{document}
+
+\begin{tikzpicture}[
+    % --- Styles ---
+    term node/.style={font=\large, anchor=base},
+    % Plus node centered for clean line connections
+    op node/.style={font=\large, anchor=center, yshift=0.5ex}, 
+    % Blue color for sums
+    sum node/.style={font=\bfseries\large, text=blue!80!black, anchor=base},
+    connector line/.style={draw=gray!70, thick, shorten >=3pt, shorten <=3pt}
+]
+
+%================CONFIGURATION================
+\def\numterms{6}
+
+% Geometry settings
+% \hunit: Horizontal spacing
+% \vsep: Vertical separation
+\def\hunit{1.5} 
+\def\vsep{1.8}
+%=============================================
+
+% Initialize running sum at 0
+\def\currentSum{0}
+
+\foreach \i [count=\c] in {1,...,\numterms} {
+
+    % --- 1. Calculate Positions ---
+    % Top Term Position
+    \pgfmathsetmacro{\xTerm}{(\c-1) * 2 * \hunit}
+    
+    % Operator Position (+)
+    \pgfmathsetmacro{\xOp}{\xTerm + \hunit}
+    
+    % Bottom Sum Position
+    % SLOPE 1 CONSTRAINT: xSum = xOp - vsep
+    \pgfmathsetmacro{\xSum}{\xOp - \vsep}
+
+
+    % --- 2. Calculate Math (Summation) ---
+    \pgfmathsetmacro{\newSum}{int(\currentSum + 4*\i-1)}
+    \global\let\currentSum=\newSum
+
+
+    % --- 3. Draw Elements ---
+    
+    % Draw the Number in the Top Row
+   \pgfmathsetmacro{\newTerm}{int(4*\i - 1)}
+    \node[term node] at (\xTerm, \vsep) {$\newTerm$};
+
+    % Draw the Plus Sign
+    \node[op node] (Op\c) at (\xOp, \vsep) {$+$};
+
+    % Draw the Partial Sum
+    \node[sum node] (S\c) at (\xSum, 0) {\currentSum};
+
+    % Draw the Connector Line
+    \draw[connector line] (S\c) -- (Op\c);
+
+
+    % --- 4. Handle End of Sequence (Ellipses) ---
+    \ifnum\c=\numterms
+        % Calculate positions for ellipses 
+        \pgfmathsetmacro{\xTopEllipsis}{\xOp + \hunit*0.8}
+        % Maintain vertical alignment with top ellipsis
+        \pgfmathsetmacro{\xBottomEllipsis}{\xTopEllipsis} 
+        
+        \node[term node] at (\xTopEllipsis, \vsep) {$\ldots$};
+        % Note: We place the bottom ellipsis directly below the top one
+        % to show the sequence continues indefinitely. 
+        \node[term node] at (\xTopEllipsis, 0) {$\ldots$};
+    \fi
+}
+
+\end{tikzpicture}
+
+% \end{document}

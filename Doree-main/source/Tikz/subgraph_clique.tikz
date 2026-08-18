@@ -1,0 +1,15 @@
+%Used in \Cref{sec_graph_thy}.
+
+\begin{tikzpicture}
+[scale =.35]
+\GraphInit[vstyle=Welsh]
+\SetGraphUnit{1.6}
+%\SetVertexNoLabel
+\Vertex[LabelOut,Lpos=180,x=0,y=4]{$a$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=4]{$b$}
+\Vertex[LabelOut,Lpos= 0,x=4,y=0]{$d$}
+\Vertex[LabelOut,Lpos= 180,x=0,y=0]{$e$}
+\Edges($a$, $b$, $d$, $e$, $b$,$a$)
+\Edges($a$,$d$)
+\Edges($b$,$e$)
+\end{tikzpicture}

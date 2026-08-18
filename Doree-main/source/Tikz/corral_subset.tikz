@@ -1,0 +1,16 @@
+    \begin{tikzpicture}[set/.style={fill=gray,fill opacity=0.1}]
+            \scope
+            \clip 
+            (0,0) circle (1);
+            \endscope
+    \draw (0,0) circle (2) 
+        (-1.5,1.5) node [text=black,above] {$A$}
+          (.5,1)node [text=black,above] {$1$}
+            (.15,-.15)node [text=black,above] {$2$}
+              (1,-1.25)node [text=black,above] {$3$}
+                (-1,.5)node [text=black,above] {$7$}
+                  (-1,-1)node [text=black,above] {$8$}
+                      %(1,.5) node [text=black,above] {$B$}
+    ;
+    \draw[set,rotate =30] (-.25,-.15) ellipse (1.3cm and .7cm);
+    \end{tikzpicture}

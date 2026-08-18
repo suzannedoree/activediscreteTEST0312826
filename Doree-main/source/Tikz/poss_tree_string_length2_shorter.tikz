@@ -1,0 +1,24 @@
+%Used in \Cref{sec_listing}
+
+\begin{tikzpicture}[
+    grow=right,
+    level distance=2.2cm,
+    sibling distance=4.8cm,
+    every node/.style={anchor=west},
+    level 2/.style={sibling distance=2.4cm},
+    level 3/.style={sibling distance=1.2cm}
+]
+\node {$\bullet$}
+    child { node {\texttt{c}}
+        child { node {\texttt{6 $\to$ a6}} }
+        child { node {\texttt{2 $\to$ a2}} }
+    }
+    child { node {\texttt{b}}
+        child { node {\texttt{6 $\to$ b6}} }
+        child { node {\texttt{2 $\to$ b2}} }
+    }
+    child { node {\texttt{a}}
+        child { node {\texttt{6 $\to$ a6}} }
+        child { node {\texttt{2 $\to$ a2}} }
+    };
+\end{tikzpicture}

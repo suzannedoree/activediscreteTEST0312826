@@ -1,0 +1,51 @@
+%Used in \Cref{sec_graph_ism}.
+
+%% Robot 1
+\begin{tikzpicture}
+    [scale =.3]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{1.6}
+        \SetVertexNoLabel
+    % triangle
+    \Vertex[LabelOut,Lpos=90,x=4,y=9]{a}
+    \Vertex[
+    LabelOut,Lpos=90,x=2,y=6]{b} 
+    \Vertex[LabelOut,Lpos=90,x=6,y=6]{c}
+    \Edges(a,b,c,a)
+    % left leg    
+    \Vertex[LabelOut,Lpos=90,x=1,y=3]{d} 
+    \Edges(b,d)
+    % right legs
+    \Vertex[LabelOut,Lpos=90,x=4.5,y=3]{e}
+    \Vertex[LabelOut,Lpos=90,x=7.5,y=3]{f} 
+    \Vertex[LabelOut,Lpos=90,x=4.5,y=0]{g}
+    \Edges(c,e,g)
+    \Edges(c,f)
+\end{tikzpicture}
+%%
+\hspace{1in}
+% another robot
+%%
+\begin{tikzpicture}
+    [scale =.3]
+    \GraphInit[vstyle=Welsh]
+    \SetGraphUnit{1.6}
+        \SetVertexNoLabel
+    % triangle
+    \Vertex[LabelOut,Lpos=90,x=2,y=6]{a}
+    \Vertex[
+    LabelOut,Lpos=90,x=0,y=3]{b} 
+    \Vertex[LabelOut,Lpos=90,x=4,y=3]{c}
+    \Edges(a,b,c,a)
+    % bottom legs    
+    \Vertex[LabelOut,Lpos=90,x=0,y=0]{d}
+    \Vertex[LabelOut,Lpos=90,x=4,y=0]{e}
+    \Edges(b,d)
+    \Edges(c,e)
+    % headgear
+    \Vertex[LabelOut,Lpos=90,x=2,y=9]{f} 
+    \Vertex[LabelOut,Lpos=90,x=0,y=12]{g}
+    \Vertex[LabelOut,Lpos=90,x=4,y=12]{h}
+    \Edges(a,f)
+    \Edges(g,f,h)
+\end{tikzpicture}
