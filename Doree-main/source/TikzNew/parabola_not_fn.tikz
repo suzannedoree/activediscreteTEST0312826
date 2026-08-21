@@ -1,0 +1,31 @@
+% Used in One-to-one and Onto functions
+
+\begin{tikzpicture}[x=0.4cm, y=1cm]
+  \begin{scope}[shift={(0,0)}]
+    % Axes with swapped limits
+    \draw[->] (-6,0) -- (16,0) node[right] {$x$};
+    \draw[->] (0,-3.4) -- (0,3.4) node[above] {$y$};
+    
+    % x-ticks (every 2 units from -6 to 16)
+    \foreach \x in {-6,-4,-2,2,4,6,8,10,12,14,16} {
+      \draw (\x,-0.12) -- (\x,0.12) node[below=4pt] {$\x$};
+    }
+    
+    % y-ticks (integers from -3 to 3)
+    \foreach \n in {-3,-2,-1,1,2,3} {
+      \draw (-0.4,\n) -- (0.4,\n) node[left=6pt] {$\n$};
+    }
+    
+    % Vertical red line at x = -3
+    \draw[very thick, red] (-3,-3.4) -- (-3,3.3);
+    
+    % Vertical red line at x = 1
+    \draw[very thick, red] (1,-3.4) -- (1,3.3);
+    
+    % Updated: Vertical red line moved to x = 9
+    \draw[very thick, red] (9,-3.4) -- (9,3.3);
+    
+    % Plot x = y^2 + 1 using parametric plot ({y^2 + 1}, y)
+    \draw[very thick, blue, domain=-3.8:3.8, samples=100] plot ({(\x)^2}, \x);
+  \end{scope}
+\end{tikzpicture}

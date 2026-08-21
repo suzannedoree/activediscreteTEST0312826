@@ -1,13 +1,18 @@
 % Used in \Cref{fig_hyperbola_notfn_DESMOS}.
 
 \begin{tikzpicture}[x=0.8cm,y=0.8cm]
+  \begin{scope}[shift={(0,0)}]
   \draw[->] (-3.4,0) -- (3.4,0) node[right] {$x$};
   \draw[->] (0,-2.8) -- (0,2.8) node[above] {$y$};
-  \draw[domain=1.05:3,samples=120,smooth] plot (\x,{sqrt(\x*\x-1)});
-  \draw[domain=1.05:3,samples=120,smooth] plot (\x,{-sqrt(\x*\x-1)});
-  \draw[domain=-3:-1.05,samples=120,smooth] plot (\x,{sqrt(\x*\x-1)});
-  \draw[domain=-3:-1.05,samples=120,smooth] plot (\x,{-sqrt(\x*\x-1)});
-  \draw[dashed] (2,-2.6) -- (2,2.6);
-  \fill (2,1.732) circle (0.06);
-  \fill (2,-1.732) circle (0.06);
+      \foreach \n in {-3,-2,-1,1,2,3} {
+      \draw (\n,-0.4) -- (\n,0.4) node[below=6pt, anchor=north east, xshift=2pt] {$\n$};
+    }
+    \foreach \y in {-3,-2,-1,1,2,3} {
+      \draw (-0.12,\y) -- (0.12,\y) node[left=4pt] {$\y$};
+    }
+  \draw[very thick, blue, domain=1.001:3,samples=120,smooth] plot (\x,{sqrt(\x*\x-1)});
+  \draw[very thick, blue, domain=1.001:3,samples=120,smooth] plot (\x,{-sqrt(\x*\x-1)});
+  \draw[very thick, blue, domain=-3:-1.001,samples=120,smooth] plot (\x,{sqrt(\x*\x-1)});
+  \draw[very thick, blue, domain=-3:-1.001,samples=120,smooth] plot (\x,{-sqrt(\x*\x-1)});
+    \end{scope}
 \end{tikzpicture}

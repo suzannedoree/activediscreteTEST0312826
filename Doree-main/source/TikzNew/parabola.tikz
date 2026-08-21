@@ -1,0 +1,26 @@
+% Used in One-to-one and onto functions
+
+\begin{tikzpicture}[x=1cm, y=0.4cm]
+  \begin{scope}[shift={(0,0)}]
+    \draw[->] (-3.4,0) -- (3.4,0) node[right] {$x$};
+    \draw[->] (0,-6) -- (0,16) node[above] {$y$};
+    
+    % Updated: Label position shifted slightly left (anchor=north east) to clear vertical line
+    \foreach \n in {-3,-2,-1,1,2,3} {
+      \draw (\n,-0.4) -- (\n,0.4) node[below=6pt, anchor=north east, xshift=2pt] {$\n$};
+    }
+    
+    \foreach \y in {-6,-4,-2,2,4,6,8,10,12,14,16} {
+      \draw (-0.12,\y) -- (0.12,\y) node[left=4pt] {$\y$};
+    }
+    
+    % Solid, very thick red vertical line at x = -3
+    \draw[very thick, red] (-3,-6) -- (-3,15.5);
+    
+    % Solid, very thick red vertical line at x = 1
+    \draw[very thick, red] (1,-6) -- (1,15.5);
+    
+    % Parabola (blue, very thick)
+    \draw[very thick, blue, domain=-3.8:3.8, samples=100] plot (\x, {(\x)^2 + 1});
+  \end{scope}
+\end{tikzpicture}

@@ -1,111 +1,61 @@
 %Used in \Cref{sec_onetoone_onto_fns}.
 
-\begin{tikzpicture}% y=x^2
-[baseline=(current bounding box.north)]
-\begin{axis}[
-    axis equal,
-    width=2in,
-    height=2in,
-    axis lines=middle,
-    axis line style={very thick},
-    grid style={thin,densely dotted,black!50},
-    grid=major,
-    xticklabels={},
-    yticklabels={},
-    xtick distance=1, ytick distance=1,
-    %extra x ticks=2, extra y ticks=4,
-    xmin=-3.2, xmax=3.2,
-    ymin=-3.2, ymax=9.2,
-    xlabel=$x$,
-    ylabel=$y$]
-    \addplot[
-    <->,
-    domain=-3.2:3.2,
-    samples=500]
-        (x,{x^2});
-\end{axis}
-\node at (2,4) {$y=f(x)$};
+%%% y = x^2
+\begin{tikzpicture}[x=.4cm, y=0.15cm]
+  \begin{scope}[shift={(0,0)}]
+    \draw[->] (-3.4,0) -- (3.4,0) node[right] {$x$};
+    \draw[->] (0,-16) -- (0,16) node[above] {$y$};
+    \foreach \n in {-3,-2,-1,1,2,3} {
+      \draw (\n,-0.4) -- (\n,0.4) node[below=6pt, anchor=north east, xshift=2pt] {$\n$};
+    }
+    \foreach \y in {-15,-10,-5,5,10,15} {
+      \draw (-0.12,\y) -- (0.12,\y) node[left=4pt] {$\y$};
+    }
+    \draw[very thick, blue, domain=-4:4, samples=100] plot (\x, {(\x)^2});
+  \end{scope}
+  \end{tikzpicture}
+ \hspace{.15in}
+ %%% y = x^3-2x+1
+\begin{tikzpicture}[x=.4cm, y=0.15cm]
+  \begin{scope}[shift={(0,0)}]
+    \draw[->] (-3.4,0) -- (3.4,0) node[right] {$x$};
+    \draw[->] (0,-16) -- (0,16) node[above] {$y$};
+    \foreach \n in {-3,-2,-1,1,2,3} {
+      \draw (\n,-0.4) -- (\n,0.4) node[below=6pt, anchor=north east, xshift=2pt] {$\n$};
+    }
+    \foreach \y in {-15,-10,-5,5,10,15} {
+      \draw (-0.12,\y) -- (0.12,\y) node[left=4pt] {$\y$};
+    }
+    \draw[very thick, blue, domain=-2.9:2.9, samples=100] plot (\x, {(\x)^3 -2*\x+1});
+  \end{scope}
+  \end{tikzpicture}
+ \hspace{.15in}
+ %%% y = 2^x
+\begin{tikzpicture}[x=.4cm, y=0.15cm]
+  \begin{scope}[shift={(0,0)}]
+    \draw[->] (-3.4,0) -- (3.4,0) node[right] {$x$};
+    \draw[->] (0,-16) -- (0,16) node[above] {$y$};
+    \foreach \n in {-3,-2,-1,1,2,3} {
+      \draw (\n,-0.4) -- (\n,0.4) node[below=6pt, anchor=north east, xshift=2pt] {$\n$};
+    }
+    \foreach \y in {-15,-10,-5,5,10,15} {
+      \draw (-0.12,\y) -- (0.12,\y) node[left=4pt] {$\y$};
+    }
+    \draw[very thick, blue, domain=-4:4, samples=100] plot (\x, {2^(\x)});
+  \end{scope}
+  \end{tikzpicture}
+ \hspace{.15in}
+ %%% y = x^3
+\begin{tikzpicture}[x=.4cm, y=0.15cm]
+  \begin{scope}[shift={(0,0)}]
+    \draw[->] (-3.4,0) -- (3.4,0) node[right] {$x$};
+    \draw[->] (0,-16) -- (0,16) node[above] {$y$};
+    \foreach \n in {-3,-2,-1,1,2,3} {
+      \draw (\n,-0.4) -- (\n,0.4) node[below=6pt, anchor=north east, xshift=2pt] {$\n$};
+    }
+    \foreach \y in {-15,-10,-5,5,10,15} {
+      \draw (-0.12,\y) -- (0.12,\y) node[left=4pt] {$\y$};
+    }
+    \draw[very thick, blue, domain=-2.6:2.7, samples=100] plot (\x, {(\x)^3 });
+  \end{scope}
 \end{tikzpicture}
-\hspace{.15in} %%%%%
-\begin{tikzpicture}% y=x^3-2x+1
-[baseline=(current bounding box.north)]
-\begin{axis}[
-    axis equal,
-    width=2in,
-    height=2in,
-    axis lines=middle,
-    axis line style={very thick},
-    grid style={thin,densely dotted,black!50},
-    grid=major,
-    xticklabels={},
-    yticklabels={},
-    xtick distance=1, ytick distance=1,
-    %extra x ticks=2, extra y ticks=4,
-    xmin=-3.2, xmax=3.2,
-    ymin=-3.2, ymax=10.2,
-    xlabel=$x$,
-    ylabel=$y$]
-    \addplot[
-    <->,
-    domain=-3.2:3.2,
-    samples=500]
-        (x,{x^3-2*x+1});
-\end{axis}
-\node at (2,4) {$y=g(x)$};
-\end{tikzpicture}
-\hspace{.15in} %%%%%
-\begin{tikzpicture}% y=2^x
-[baseline=(current bounding box.north)]
-\begin{axis}[
-    axis equal,
-    width=2in,
-    height=2in,
-    axis lines=middle,
-    axis line style={very thick},
-    grid style={thin,densely dotted,black!50},
-    grid=major,
-    xticklabels={},
-    yticklabels={},
-    xtick distance=1, ytick distance=1,
-    %extra x ticks=2, extra y ticks=4,
-    xmin=-3.2, xmax=3.2,
-    ymin=-3.2, ymax=10.2,
-    xlabel=$x$,
-    ylabel=$y$]
-    \addplot[
-    <->,
-    domain=-5.2:4.2,
-    samples=500]
-        (x,{2^x});
-\end{axis}
-\node at (2,4) {$y=h(x)$};
-\end{tikzpicture}
-\hspace{.15in} %%%%%
-\begin{tikzpicture}% y=x^3
-[baseline=(current bounding box.north)]
-\begin{axis}[
-    axis equal,
-    width=2in,
-    height=2in,
-    axis lines=middle,
-    axis line style={very thick},
-    grid style={thin,densely dotted,black!50},
-    grid=major,
-    xticklabels={},
-    yticklabels={},
-    xtick distance=1, ytick distance=1,
-    %extra x ticks=2, extra y ticks=4,
-    xmin=-3.2, xmax=3.2,
-    ymin=-3.2, ymax=10.2,
-    xlabel=$x$,
-    ylabel=$y$]
-    \addplot[
-    <->,
-    domain=-3.2:3.2,
-    samples=500]
-        (x,{x^3});
-\end{axis}
-\node at (2,4) {$y=k(x)$};
-\end{tikzpicture}
-
-

@@ -1,0 +1,27 @@
+% Used in One-to-one and onto functions
+\begin{tikzpicture}[x=2.5cm, y=2.5cm]
+  \begin{scope}[shift={(0,0)}]
+    % Axes spanning from -1.6 to 1.6
+    \draw[->] (-1.7,0) -- (1.7,0) node[right] {$x$};
+    \draw[->] (0,-1.7) -- (0,1.7) node[above] {$y$};
+    
+    % x-ticks counting by 0.5 (excluding 0)
+    \foreach \x in {-1.5,-1.0,-0.5,0.5,1.0,1.5} {
+      \draw (\x,-0.04) -- (\x,0.04) node[below=6pt] {$\x$};
+    }
+    
+    % y-ticks counting by 0.5 (excluding 0)
+    \foreach \y in {-1.5,-1.0,-0.5,0.5,1.0,1.5} {
+      \draw (-0.04,\y) -- (0.04,\y) node[left=6pt] {$\y$};
+    }
+    
+    % Vertical red line at x = 0.5
+    \draw[very thick, red] (0.5,-1.65) -- (0.5,1.65);
+    
+    % Vertical red line at x = 1.5
+    \draw[very thick, red] (1.5,-1.65) -- (1.5,1.65);
+    
+    % Blue unit circle (radius = 1 centered at origin)
+    \draw[very thick, blue] (0,0) circle (1);
+  \end{scope}
+\end{tikzpicture}

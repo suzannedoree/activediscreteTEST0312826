@@ -24,7 +24,7 @@
     </p>
     <figure xml:id="fig_subset_corral_again">
       <caption>The subset <m>\{2,8\}</m> corrals some of the elements of the set <m>A=\{1,2,3,7,8\}</m>.</caption>
-      <image width="60%">
+      <image width="30%">
         <latex-image>
           <xi:include href="Tikz/corral_subset.tikz" parse="text"/>
         </latex-image>
@@ -167,13 +167,25 @@
                     <q>how many</q>
                     indicates that we are counting.
                     Let's think about how to select a subset <m>S</m> of <m>A</m>.
+                  </p>
+                  <p>
                     Step 1: decide if <m>1 \in S</m>.
-                    There are 2 choices: yes or no. (2 ways) Step 2:
-                    decide if <m>2 \in S</m>.
-                    There are again 2 choices: yes or no. (2 ways) Step 3:
-                    decide if <m>3 \in S</m>. (2 ways).
+                    There are 2 choices: yes or no. (2 ways) 
+                  </p>
+                  <p>
+                    Step 2: decide if <m>2 \in S</m>.
+                    There are again 2 choices: yes or no. (2 ways) 
+                  </p>
+                  <p>
+                    Step 3: decide if <m>3 \in S</m>. (2 ways).
+                  </p>
+                  <p>
                     Step 4: decide if <m>4 \in S</m>. (2 ways).
+                  </p>
+                  <p>
                     Step 5: decide if <m>5 \in S</m>. (2 ways).
+                  </p>
+                  <p>
                     Since steps multiply <xref ref="thm_steps_multiply"/>,
                     there are <m>2\cdot 2 \cdot 2 \cdot 2 \cdot 2 = 2^5</m> subsets.
                   </p>
@@ -185,19 +197,7 @@
       </statement>
     </example>
     <p>
-      The result of <xref ref="exam_subsets"></xref>
-      <xref ref="part_number_subsets"/> holds in general
-    </p>
-    <theorem xml:id="thm_number_subsets">
-      <title>Number of subsets</title>
-      <statement>
-        <p>
-          A set with <m>n</m> elements has <m>2^n</m> subsets.
-        </p>
-      </statement>
-    </theorem>
-    <p>
-      Let's look at an infinite example.
+      Let's look at an example with infinite sets.
     </p>
     <example xml:id="exam_mult6_subset_evens">
       <title>Multiples of six are subset of evens</title>
@@ -354,6 +354,18 @@
         </ol>
       </p>
     </activity>
+    <p>
+      The result of <xref ref="exam_subsets"></xref>
+      <xref ref="part_number_subsets"/> holds in general
+    </p>
+    <theorem xml:id="thm_number_subsets">
+      <title>Number of subsets</title>
+      <statement>
+        <p>
+          A set with <m>n</m> elements has <m>2^n</m> subsets.
+        </p>
+      </statement>
+    </theorem>
   </subsection>
   <subsection xml:id="sub_bs_rep_subset">
     <title>Bit String Representation of Subsets</title>
@@ -976,7 +988,7 @@
                     A set <m>A</m> has <m>\fn{card}(A)=4</m> exactly when <m>A</m> has four elements.
                     The number of 4-element subsets of <m>\{0,1,2,3,4,5,6,7,8,9\}</m> is,
                     by <xref ref="defn_binomial_coeff"></xref>,
-                    exactly <m>\binom{10}{4}</m>. (If you are curious, <m>\binom{10}{4}=210</m>.
+                    exactly <m>\binom{10}{4}</m>. In case you are curious, <m>\binom{10}{4}=210</m>.
                   </p>
                 </solution>
               </p>

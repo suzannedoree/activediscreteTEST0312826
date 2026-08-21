@@ -21,7 +21,7 @@
       analyze sorting algorithms, and model gene sequencing.
       They are used in encryption and error-correction algorithms and for games such as anagrams,
       the sliding 15 puzzle,
-      and Rubik's Cube{\texttrademark}. We start with the definition.
+      and Rubik's Cube&#8482;. We start with the definition.
     </p>
     <definition xml:id="defn_permutation">
       <title>Permutation</title>
@@ -117,7 +117,16 @@
                   </p>
                 
                 <figure xml:id="fig_perm_sigma">
-                  <caption>The dot diagram and unlabeled dot diagram for <m>\sigma = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4  2 \amp  3 \amp  4 \amp  1 \end{array}  \right)</m>.</caption>
+                  <caption>The dot diagram and unlabeled dot diagram for 
+                    <m>
+                      \sigma = \left(
+                          \begin{array}{ccc c} 
+                            1 \amp  2 \amp  3 \amp  4  \\
+                            2 \amp  3 \amp  4 \amp  1 
+                          \end{array}  
+                        \right)
+                      </m>.
+                    </caption>
                   <image width="60%">
                     <latex-image>
                       <xi:include href="Tikz/perm_1234_sigma.tikz" parse="text"/>
@@ -133,7 +142,7 @@
                 <solution>
                   <p>
                     The identity permutation <m>i: \{1,2,3,4\} \to \{1,2,3,4\}</m> is defined by <m>i(n)=n</m>.
-                    END<xref ref="fig_perm_id"></xref>
+                    <xref ref="fig_perm_id"></xref>
                     shows the dot diagram of <m>i</m>.
                     Since the function <m>i</m> is both onto and one-to-one with domain and codomain of <m>\{1,2,3,4\}</m>,
                     the identity function <m>i</m> is a permutation.
@@ -144,7 +153,15 @@
                   </p>
                 
                 <figure xml:id="fig_perm_id">
-                  <caption>The dot diagram and unlabeled dot diagram for <m>i = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4  1 \amp  2 \amp  3 \amp  4 \end{array}  \right)</m>.</caption>
+                  <caption>The dot diagram and unlabeled dot diagram for 
+                    <m>
+                      i = \left(
+                        \begin{array}{ccc c} 
+                          1 \amp  2 \amp  3 \amp  4 \\ 
+                          1 \amp  2 \amp  3 \amp  4 
+                        \end{array}  \right)
+                      </m>.
+                    </caption>
                   <image width="60%">
                     <latex-image>
                       <xi:include href="Tikz/perm_1234_identity.tikz" parse="text"/>
@@ -498,53 +515,43 @@
                 <solution>
                   <p>
                     We display our work in <xref ref="tab_inv_perm"></xref>.
-                    Thus
+                  </p>
+                  <table xml:id="tab_inv_perm">
+                  <title>Calculating the inverse of a permutation</title>
+                    <tabular>
+                      <row>
+                        <cell halign="center">We know that</cell>
+                        <cell halign="center">We conclude that</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center"><m>\sigma(1) = 2</m></cell>
+                        <cell halign="center"><m>\sigma^{-1}(2)=1</m></cell>
+                      </row>
+                      <row>
+                        <cell halign="center"><m>\sigma(2) = 3</m></cell>
+                        <cell halign="center"><m>\sigma^{-1}(3)=2</m></cell>
+                      </row>
+                      <row>
+                        <cell halign="center"><m>\sigma(3) = 4</m></cell>
+                        <cell halign="center"><m>\sigma^{-1}(4)=3</m></cell>
+                      </row>
+                      <row>
+                        <cell halign="center"><m>\sigma(4) = 1</m></cell>
+                        <cell halign="center"><m>\sigma^{-1}(1)=4</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+                  <p>
+                  Thus
                     <me>
                       \sigma^{-1} = \left(\begin{array}{ccc c} 1 \amp  2 \amp  3 \amp  4 \\ 4 \amp  1 \amp  2 \amp  3 \end{array}  \right)
                     </me>
                   </p>
                 </solution>
-                <table xml:id="tab_inv_perm">
-                  <title>Calculating the inverse of a permutation</title>
-                  <tabular>
-                    <row>
-                      <cell halign="center">We know that</cell>
-                      <cell halign="center">We conclude that</cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center"><m>\sigma(1) = 2</m></cell>
-                      <cell halign="center"><m>\sigma^{-1}(2)=1</m></cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center"><m>\sigma(2) = 3</m></cell>
-                      <cell halign="center"><m>\sigma^{-1}(3)=2</m></cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center"><m>\sigma(3) = 4</m></cell>
-                      <cell halign="center"><m>\sigma^{-1}(4)=3</m></cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center"><m>\sigma(4) = 1</m></cell>
-                      <cell halign="center"><m>\sigma^{-1}(1)=4</m></cell>
-                    </row>
-                  </tabular>
-                </table>
               </p>
             </li>
             <li>
@@ -553,7 +560,6 @@
                 <solution>
                   <p>
                     We show the dot diagrams in <xref ref="fig_perms_sigma_inv"></xref>.
-                    Thus, <m>\sigma^{-1} \circ \sigma = \left(\begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 1 \amp 2 \amp 3 \amp 4 \end{array} \right) = i</m>.
                   </p>
                 
                 <figure xml:id="fig_perms_sigma_inv">
@@ -564,6 +570,10 @@
                     </latex-image>
                   </image>
                 </figure>
+                <p>
+                  Thus, <m>\sigma^{-1} \circ \sigma 
+                  = \left(\begin{array}{ccc c} 1 \amp 2 \amp 3 \amp 4 \\ 1 \amp 2 \amp 3 \amp 4 \end{array} \right) = i</m>.
+                </p>
                 </solution>
               </p>
             </li>
@@ -575,7 +585,7 @@
       It is your turn to work with inverse functions.
     </p>
     <activity xml:id="act_inv_fns">
-      <title>Invertible functions</title>
+      <title>Invertible permutations</title>
       <p>
         Consider the permutations
         <me>
@@ -720,25 +730,29 @@
       Ironically, there are two different proof formats for proving uniqueness.
       The first is direct.
     </p>
-    <proof xml:id="pff_unique_direct">
+    <theorem xml:id="pff_unique_direct">
+    <title>Proof Format: Uniqueness (Direct)</title>
+      <statement>
       <p>
-        (Uniqueness,
-        direct) Prove: There is at most one <m>n</m> with <m>P(n)</m>.
+        We can prove there is at most one <m>n</m> with <m>P(n)</m> directly by adapting the following proof format.
       </p>
-      <p>
-        <em>Proof.</em> Assume <m>P(n)</m>.
-      </p>
-      <p>
-        <nbsp/>(Explain why <m>n = k</m>.)
-      </p>
-      <p>
-        <nbsp/>Thus, if <m>P(n)</m>, then <m>n = k</m>.
-        It follows that <m>k</m> is the only possible value of <m>n</m>.
-      </p>
-      <p>
-        <nbsp/>Therefore, there is at most one <m>n</m> with <m>P(n)</m>.
-      </p>
-    </proof>
+      <proof>
+        <p>
+          Assume <m>P(n)</m>.
+        </p>
+        <p>
+          (Explain why <m>n = k</m>.)
+        </p>
+        <p>
+          Thus, if <m>P(n)</m>, then <m>n = k</m>.
+          It follows that <m>k</m> is the only possible value of <m>n</m>.
+        </p>
+        <p>
+          Therefore, there is at most one <m>n</m> with <m>P(n)</m>, namely <m>k</m>.
+        </p>
+      </proof>
+      </statement>
+    </theorem>
     <p>
       There is an indirect method to prove uniqueness that does not require us to find <m>k</m>.
       How can we do that?
@@ -750,21 +764,25 @@
       That is, we can prove if <m>P(n_1)</m> and <m>P(n_2)</m>,
       then <m>n_1=n_2</m>.
     </p>
-    <proof xml:id="pff_unique_indirect">
-      <p>
-        (Uniqueness,
-        indirect) Prove: There is at most one <m>n</m> with <m>P(n)</m>.
-      </p>
-      <p>
-        <em>Proof.</em> Assume <m>P(n_1)</m> and <m>P(n_2)</m>.
-      </p>
-      <p>
-        <nbsp/>(Explain why <m>n_1 = n_2</m>.)
-      </p>
-      <p>
-        <nbsp/>Therefore, there is at most one <m>n</m> with <m>P(n)</m>.
-      </p>
-    </proof>
+    <theorem xml:id="pff_unique_indirect">
+    <title>Proof Format: Uniqueness (Indirect)</title>
+      <statement>
+        <p>
+          We can prove there is at most one <m>n</m> with <m>P(n)</m> indirectly by adapting the following proof format.
+        </p>
+        <proof>
+          <p>
+            Assume <m>P(n_1)</m> and <m>P(n_2)</m>.
+          </p>
+          <p>
+            (Explain why <m>n_1 = n_2</m>.)
+          </p>
+          <p>
+            Therefore, there is at most one <m>n</m> with <m>P(n)</m>.
+          </p>
+        </proof>
+      </statement>
+    </theorem>
     <p>
       As usual, when we present new proof formats,
       we give you examples to copy and edit.
@@ -776,19 +794,28 @@
         <ol>
           <li xml:id="part_unique_direct_2xplus1is7">
             <p>
-              Copy the following direct proof.
-              For a fixed integer <m>a</m>,
+              Copy the following direct proof. For a fixed integer <m>a</m>,
               prove that the equation <m>2x+1 = a</m> has at most one integer solution.
-              <em>Proof.</em> Assume <m>2x+1 = a</m>.
-              Subtract one from each side of the equation to get <m>2x = a-1</m>.
-              Divide each side of the equation by two to get <m>x = \frac{a-1}{2}</m>.
-              Thus, if <m>x</m> is a solution,
-              then <m>x = \frac{a-1}{2}</m>.
-              It follows that <m>x = \frac{a-1}{2}</m> is the only possible solution.
-              Therefore, the equation <m>2x+1=a</m> has at most one integer solution.
-              <m>\Box</m> Note: There will be one solution if <m>a</m> is odd and <m>\frac{a-1}{2}</m> is an integer.
-              There will be no solutions if <m>a</m> is even and <m>\frac{a-1}{2}</m> is not an integer.
             </p>
+            <proof>
+              <p>
+                Assume <me>2x+1 = a</me>.
+                Subtract one from each side of the equation to get <me>2x = a-1</me>.
+                Divide each side of the equation by two to get <me>x = \frac{a-1}{2}</me>.
+              </p>
+              <p>
+                Thus, if <m>x</m> is a solution,
+                then <m>x = \frac{a-1}{2}</m>.
+                It follows that <m>x = \frac{a-1}{2}</m> is the only possible solution.
+              </p>
+              <p>
+                Therefore, the equation <m>2x+1=a</m> has at most one integer solution, namely <m>x = \frac{a-1}{2}</m>.
+              </p>
+              <p>
+                Note: There will be one solution if <m>a</m> is odd and <m>\frac{a-1}{2}</m> is an integer.
+                There will be no solutions if <m>a</m> is even and <m>\frac{a-1}{2}</m> is not an integer.
+              </p>
+            </proof>
           </li>
           <li>
             <p>
@@ -800,14 +827,17 @@
               Copy the following indirect proof.
               For a fixed integer <m>a</m>,
               prove that the equation <m>2x+1 = a</m> has at most one integer solution.
-              <em>Proof.</em> Assume that the integers <m>n_1</m> and <m>n_2</m> are each a solution of <m>2x+1=a</m>.
-              Then <m>2n_1+1=a</m> and <m>2n_2+1=a</m>.
-              Equating these expressions we get <m>2n_1+1 = 2n_2+1</m>.
-              Subtract one from each side of the equation to get <m>2n_1 = 2n_2</m>.
-              Divide each side of the equation by two to get <m>n_1 = n_2</m>.
-              Therefore, the equation <m>2x+1=a</m> has at most one integer solution.
-              <m>\Box</m>
             </p>
+            <proof>
+              <p>
+                Assume that the integers <m>n_1</m> and <m>n_2</m> are each a solution of <m>2x+1=a</m>.
+                Then <me>2n_1+1=a \text{ and } 2n_2+1=a.</me>
+                Equating these expressions we get <me>2n_1+1 = 2n_2+1.</me>
+                Subtract one from each side of the equation to get <me>2n_1 = 2n_2.</me>
+                Divide each side of the equation by two to get <m>n_1 = n_2</m>.
+                Therefore, the equation <m>2x+1=a</m> has at most one integer solution.
+              </p>
+            </proof>
           </li>
           <li>
             <p>
@@ -855,7 +885,7 @@
           <em>Proof.</em> Let <m>n_1</m> and <m>n_2</m> be integers.
           Assume <m>f(n_1) = f(n_2)</m>.
           By the definition of <m>f</m>,
-          it follows that <m>2n_1+1=2n_2+1</m>.
+          it follows that <me>2n_1+1=2n_2+1.</me>
           Subtract one from each side of the equation to get
           <me>
             2n_1 = 2n_2
@@ -891,38 +921,37 @@
       The second proves uniqueness,
       which we can do directly using <xref ref="pff_unique_direct"></xref>.
     </p>
-    <proof xml:id="pff_exists_unique">
-      <p>
-        Prove: <m>\exists ! n ~ P(n)</m>
-      </p>
-      <p>
-        Proof: First, consider <m>n=</m>
-        (example).
-      </p>
-      <p>
-        (Explain why <m>P(n)</m>.)
-      </p>
-      <p>
-        Therefore, <m>P(n)</m> is true for some
-        (describe type of object),
-        namely <m>n=</m>
-        (example).
-      </p>
-      <p>
-        Next, assume <m>P(n)</m>.
-      </p>
-      <p>
-        (Explain why <m>n=</m> example.)
-      </p>
-      <p>
-        Thus, if <m>P(n)</m>, then <m>n=</m> example.
-      </p>
-      <p>
-        Therefore <m>n=</m> example is the unique
-        (describe type of object)
-        such that <m>P(n)</m>, namely <m>n=</m> example.
-      </p>
-    </proof>
+    <theorem xml:id="pff_exists_unique">
+    <title>Proof Format:FILL IN</title>
+      <statement>
+        <p>
+          We can prove <m>\exists ! n ~ P(n)</m> by adapting the following proof format.
+        </p>
+        <proof>
+          <p>
+            First, consider <m>n=</m> (example).
+          </p>
+          <p>
+            (Explain why <m>P(n)</m>.)
+          </p>
+          <p>
+            Therefore, <m>P(n)</m> is true for some (describe type of object),namely <m>n=</m> (example).
+          </p>
+          <p>
+            Next, assume <m>P(n)</m>.
+          </p>
+          <p>
+            (Explain why <m>n=</m> example.)
+          </p>
+          <p>
+            Thus, if <m>P(n)</m>, then <m>n=</m> example.
+          </p>
+          <p>
+            Therefore <m>n=</m> example is the unique (describe type of object)such that <m>P(n)</m>, namely <m>n=</m> example.
+          </p>
+        </proof>
+      </statement>
+    </theorem>
     <p>
       Let's look at an example.
     </p>
@@ -932,21 +961,20 @@
         <p>
           Prove that there exists a unique graph with three vertices and three edges.
         </p>
-        <p>
-          <em>Proof.</em> First, consider the cycle <m>C_3</m>.
-          Note that <m>C_3</m> has three vertices and three edges.
-        </p>
-        <p>
-          Next, let <m>G</m> be a graph with three vertices and three edges.
-          Say the vertices are <m>u</m>, <m>v</m>, and <m>w</m>.
-          There are only three possible edges between these vertices:
-          <m>uv</m>, <m>uw</m>, and <m>vw</m>.
-          Since <m>G</m> has three edges,
-          it must have exactly those edges.
-          Thus <m>G = C_3</m>.
-          Therefore, there is at most one graph with three vertices and three edges,
-          namely <m>C_3</m>.
-        </p>
+        <solution>
+          <p>
+            <em>Proof.</em> First, consider the cycle <m>C_3</m>.
+            Note that <m>C_3</m> has three vertices and three edges.
+          </p>
+          <p>
+            Next, let <m>G</m> be a graph with three vertices and three edges.
+            Say the vertices are <m>u</m>, <m>v</m>, and <m>w</m>.
+            There are only three possible edges between these vertices: <m>uv</m>, <m>uw</m>, and <m>vw</m>.
+            Since <m>G</m> has three edges, it must have exactly those edges.
+            Thus <m>G = C_3</m>.
+            Therefore, there is at most one graph with three vertices and three edges, namely <m>C_3</m>.
+          </p>
+        </solution>
       </statement>
     </example>
   </subsection>

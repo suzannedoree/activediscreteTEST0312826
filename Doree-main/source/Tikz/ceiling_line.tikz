@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=2]
+                %%%  Circles at points Note: white, thick OR white, very thick for open, black for closed.             
+                \path [draw=red, fill=red] (2.4,0) circle (2.0pt); 
+                \path [draw=blue, fill=blue] (-2.4,0) circle (2.0pt);         
+                \path [draw=red, fill=red] (3,0.0) circle (2.0pt); 
+                \path [draw=blue, fill=blue] (-2,0.0) circle (2.0pt); 
+                %%% Vertical dash marks at points        
+                \draw[shift={(2.4,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {2.4}; 
+                \draw[shift={(-2.4,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {-2.4}; 
+                \foreach \x in {-3,-2,-1,0,1,2,3}
+                    \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-6pt) node[below] {$\x$}; 
+                %%% Heavy arrows        
+                \draw[draw=red,solid, -latex,line width=1mm,fill=black] (2.4,0) -- (3,0); 
+                \draw[draw=blue,solid, -latex,line width=1mm,fill=black] (-2.4,0) -- (-2,0);
+                %%% Axis with arrows
+                %\draw[draw=black,solid, latex-latex,line width=0.5mm,fill=black] (-3.6,0) -- (3.6,0); 
+                %%% Axis without arrows
+                \draw[draw=black,solid,line width=0.5mm,fill=black] (-3.6,0) -- (3.6,0); 
+                % Note:  layers from first command in order listed here.      
+\end{tikzpicture}

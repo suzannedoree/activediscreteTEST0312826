@@ -124,7 +124,7 @@
   <xsl:template
     match="xref[not(@text) and id(@ref)/self::li and id(@ref)/parent::ol[not(ancestor::ol)][ancestor::*[self::activity or self::example or self::theorem or self::proposition or self::lemma or self::corollary or self::remark or self::definition or self::exercise]]]"
     mode="get-text-style">
-    <xsl:text>local</xsl:text>
+    <xsl:text>global</xsl:text>
   </xsl:template>
 
   <!--

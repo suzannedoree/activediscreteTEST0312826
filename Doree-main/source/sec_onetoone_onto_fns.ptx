@@ -162,9 +162,9 @@
                 
                 <figure xml:id="fig_parabola_graph">
                   <caption>The graph of <m>y=x^2+1</m>.</caption>
-                  <image width="25%">
+                  <image width="40%">
                     <latex-image>
-                      <xi:include href="TikzNew/parabola_DESMOS.tikz" parse="text"/>
+                      <xi:include href="TikzNew/parabola.tikz" parse="text"/>
                     </latex-image>
                   </image>
                 </figure>
@@ -208,7 +208,7 @@
                 
                 <figure xml:id="fig_finite_is_function">
                   <caption>The dot diagram for a set of ordered pairs that is the rule for a function.</caption>
-                  <image width="60%">
+                  <image width="30%">
                     <latex-image>
                       <xi:include href="Tikz/finite_is_function_dotdiagram.tikz" parse="text"/>
                     </latex-image>
@@ -236,7 +236,7 @@
                 
                 <figure xml:id="fig_finite_not_function">
                   <caption>The dot diagram for a set of ordered pairs that is not the rule for a function.</caption>
-                  <image width="60%">
+                  <image width="30%">
                     <latex-image>
                       <xi:include href="Tikz/finite_not_function_dotdiagram.tikz" parse="text"/>
                     </latex-image>
@@ -262,10 +262,10 @@
                   </p>
                 
                 <figure xml:id="fig_parabola_verticallinetest_graph">
-                  <caption>The graph of <m>y=x^2+1</m> from DESMOS{\texttrademark} with sample vertical lines drawn at <m>x=-3</m> and <m>x=1</m>.</caption>
-                  <image width="25%">
+                  <caption>The graph of <m>y=x^2+1</m> with sample vertical lines drawn at <m>x=-3</m> and <m>x=1</m>.</caption>
+                  <image width="40%">
                     <latex-image>
-                      <xi:include href="TikzNew/parabola_verticallinetest_DESMOS.tikz" parse="text"/>
+                      <xi:include href="TikzNew/parabola_is_fn.tikz" parse="text"/>
                     </latex-image>
                   </image>
                 </figure>
@@ -289,10 +289,10 @@
                   </p>
                 
                 <figure xml:id="fig_unit_circle_verticallinetest">
-                  <caption>The graph of <m>x^2+y^2=1</m> from DESMOS{\texttrademark} with sample vertical lines drawn at <m>x=0.5</m> and <m>x = -1.5</m>.</caption>
-                  <image width="25%">
+                  <caption>The graph of <m>x^2+y^2=1</m> with sample vertical lines drawn at <m>x=0.5</m> and <m>x = -1.5</m>.</caption>
+                  <image width="50%">
                     <latex-image>
-                      <xi:include href="TikzNew/unit_circle_verticallinetest_DESMOS.tikz" parse="text"/>
+                      <xi:include href="TikzNew/unit_circle_not_fn.tikz" parse="text"/>
                     </latex-image>
                   </image>
                 </figure>
@@ -335,10 +335,11 @@
               is not the rule for a function from
               <m>\mathbb{R}</m> to <m>\mathbb{R}</m>.
               <figure xml:id="fig_parabola_not_function">
-                <caption>The graph of the equation <m>x = y^2</m>.</caption>
-                <image width="25%">
+                <caption>The graph of the equation <m>x = y^2</m> 
+                with sample vertical lines at <m>x=-3</m>, <m>x=1</m>, and <m>x=9</m>.</caption>
+                <image width="40%">
                   <latex-image>
-                    <xi:include href="TikzNew/parabola_not_function_DESMOS.tikz" parse="text"/>
+                    <xi:include href="TikzNew/parabola_not_fn.tikz" parse="text"/>
                   </latex-image>
                 </image>
               </figure>
@@ -479,11 +480,17 @@
           The question
           <q>how many</q>
           suggests that we should count.
+        </p>
+        <p>
           There are five elements in the set,
           so there are five choices for which element is paired with 0.
           Next, there are four elements we have not used yet,
           so there are four choices for which element is paired with 1.
-          Similarly, there are three choices for which element is paired with 2 and then two choices for which element is paired with 3 and then one choice for which element is paired with 4.
+          Similarly, there are three choices for which element is paired with 2 
+          and then two choices for which element is paired with 3 
+          and then one choice for which element is paired with 4.
+        </p>
+        <p>
           Since steps multiply <xref ref="thm_steps_multiply"/>,
           there are <m>(5)(4)(3)(2)(1) = 5!</m> pairings between the set <m>\{0,1,2,3,4\}</m> and itself.
         </p>
@@ -570,11 +577,15 @@
                     In the dot diagram drawn in <xref ref="fig_nonid_pair_naturals"></xref>,
                     there is exactly one arrow pointing out of each natural number and exactly one arrow pointing into each natural number.
                     Thus, we have a pairing.
-                    By the way, we can give a formula for this function f(n) = \left\{
-                  </p>
-                  \begin{array}{cc} n+1 \amp \text{ if } n \text{ is even } \\ n-1 \amp \text{ if } n \text{ is odd } \end{array}
-                  <p>
-                    \right<m></m>..
+                    By the way, we can give a formula for this function 
+                    <me>
+                      f(n) = \left\{
+                        \begin{array}{cc} 
+                        n+1 \amp \text{ if } n \text{ is even } \\ 
+                        n-1 \amp \text{ if } n \text{ is odd } 
+                        \end{array}
+                      \right.
+                    </me>.
                   </p>
                 
                 <figure xml:id="fig_nonid_pair_naturals">
@@ -661,7 +672,7 @@
         </p>
         <figure xml:id="fig_finite_functions">
           <caption>Finite functions</caption>
-          <image width="60%">
+          <image width="100%">
             <latex-image>
               <xi:include href="Tikz/finite_function_examples.tikz" parse="text"/>
             </latex-image>
@@ -695,10 +706,16 @@
                   <p>
                     The image and codomain of <m>f</m> are
                     <m>\{a,b,c,d\}</m> and so <m>f</m> is onto.
+                  </p>
+                  <p>
                     The image of <m>g</m> is <m>\{a,c,d\}</m> which is not all of its codomain
                     <m>\{a,b,c,d\}</m> and so <m>g</m> is not onto.
+                  </p>
+                  <p>
                     The image of <m>h</m> is <m>\{b,c,d\}</m> which is not all of its codomain
                     <m>\{a,b,c,d\}</m> and so <m>h</m> is not onto.
+                  </p>
+                  <p>
                     Notice that the function <m>k</m> has the same rule and the same domain as <m>g</m>,
                     but the codomain of <m>k</m> is
                     <m>\{a,c,d\}</m> which equals the image of <m>k</m> and so <m>k</m> is onto.
@@ -928,7 +945,7 @@
             </p>
             <figure xml:id="fig_finite_fn_act">
               <caption>Four finite functions for <xref ref="act_four_functions"></xref>.</caption>
-              <image width="60%">
+              <image width="100%">
                 <latex-image>
                   <xi:include href="Tikz/finite_function_activity.tikz" parse="text"/>
                 </latex-image>
@@ -964,8 +981,10 @@
             </p>
             <figure xml:id="fig_four_real_fns">
               <caption>Graphs of the real-valued functions <m>f, g, h</m> and <m>k</m> from <xref ref="act_four_functions"></xref> <xref ref="part_four_real_fns"/>.</caption>
-              <image source="../generated-assets/latex-image/fig_four_real_fns-2.svg" width="60%">
-                <description>Graphs of four real-valued functions.</description>
+              <image width="90%">
+                <latex-image>
+                  <xi:include href="Tikz/four_real_function_graphs.tikz" parse="text"/>
+                </latex-image>
               </image>
             </figure>
           </li>
@@ -992,7 +1011,15 @@
                 </li>
                 <li>
                   <p>
-                    The function <m>k: \mathbb{Z} \to \mathbb{Z}</m> is defined by k(n) = \left\{\begin{array}{cl} n \amp \text{ if } n\text{ is odd } \\ \frac{n}{2} \amp \text{ if } n\text{ is even } \end{array} \right<m></m>..
+                    The function <m>k: \mathbb{Z} \to \mathbb{Z}</m> is defined by 
+                    <me> k(n) = 
+                      \left\{
+                        \begin{array}{cl} 
+                          n \amp \text{ if } n\text{ is odd } \\ 
+                          \frac{n}{2} \amp \text{ if } n\text{ is even } 
+                        \end{array} 
+                      \right.
+                    </me>.
                   </p>
                 </li>
               </ul>
