@@ -24,27 +24,25 @@
         Your goal is to move the entire tower of disks from the first tower to the third tower subject to two rules:
         <ul>
           <li>
-            <title>Rule 1:</title>
             <p>
-              You may only move one disk at a time.
+              Rule 1: You may only move one disk at a time.
             </p>
           </li>
           <li>
-            <title>Rule 2:</title>
             <p>
-              You may not put a larger disk on top of a smaller one.
+              Rule 2: You may not put a larger disk on top of a smaller one.
             </p>
           </li>
         </ul>
       </p>
       <figure xml:id="fig_hanoi_start_end">
         <caption>The starting and end configurations for the Towers of Hanoi game.</caption>
-        <image width="50%">
+        <image width="60%">
           <latex-image>
             <xi:include href="TikzNew/TowerHanoiStart.tikz" parse="text"/>
           </latex-image>
         </image>
-        <image width="50%">
+        <image width="60%">
           <latex-image>
             <xi:include href="TikzNew/TowerHanoiEnd.tikz" parse="text"/>
           </latex-image>
@@ -53,7 +51,7 @@
       <ol>
         <li xml:id="part_hanoi3">
           <p>
-            Play <url href="\http://www.dynamicdrive.com/dynamicindex12/towerhanoi.htm">Towers of Hanoi.</url>
+            Play <url href="https://dynamicmathematicslearning.com/hanoi.htm">Towers of Hanoi.</url>
             You can move a disk by clicking on it and dragging it to another peg.
             Solve the puzzle for three disks.
           </p>
@@ -138,21 +136,18 @@
           we can break the process into three phases.
           <ul>
             <li>
-              <title>Phase 1</title>
               <p>
-                Relocate the top <m>n-1</m> disks in the pile to Tower 2. [<m>h_{n-1}</m> moves]
+                Phase 1: Relocate the top <m>n-1</m> disks in the pile to Tower 2. [<m>h_{n-1}</m> moves]
               </p>
             </li>
             <li>
-              <title>Phase 2</title>
               <p>
-                Move the largest disk to Tower 3. [1 move]
+                Phase 2: Move the largest disk to Tower 3. [1 move]
               </p>
             </li>
             <li>
-              <title>Phase 3</title>
               <p>
-                Relocate the top <m>n-1</m> disks in the pile to Tower 3. [<m>h_{n-1}</m> moves]
+                Phase 3: Relocate the top <m>n-1</m> disks in the pile to Tower 3. [<m>h_{n-1}</m> moves]
               </p>
             </li>
           </ul>
@@ -254,15 +249,15 @@
           </me>.
           Also notice that the second part of the rule gives an infinite list of equations:
           <md>
-            <mrow>(k=1)  c_1\amp =2c_0+3</mrow>
-            <mrow>(k=2)  c_2\amp =2c_1+3</mrow>
-            <mrow>(k=3)  c_3\amp =2c_2+3</mrow>
-            <mrow>(k=4)  c_4\amp =2c_3+3</mrow>
+            <mrow>(k=1:) \quad c_1\amp =2c_0+3</mrow>
+            <mrow>(k=2:) \quad c_2\amp =2c_1+3</mrow>
+            <mrow>(k=3:) \quad c_3\amp =2c_2+3</mrow>
+            <mrow>(k=4:) \quad c_4\amp =2c_3+3</mrow>
             <mrow>\amp  \vdots</mrow>
           </md>
         </p>
         <p>
-          It is often helpful to think of the rule in words To get each term,
+          It is often helpful to think of the rule in words: To get each term,
           we double the previous term and then add 3.
           <ol>
             <li>
@@ -703,15 +698,13 @@
           </li>
           <li>
             <p>
-              <m>5, 10, 30, 120, 600, \ldots</m> Hint: What do we multiply by to get from each term to the next?
-              Write a recursion that involves the index.
+              <m>5, 10, 30, 120, 600, \ldots</m> 
             </p>
           </li>
           <li>
             <p>
               <m>5, 9, 17, 33, 65, 129, \ldots</m>.
               Write a recursion that does not involve the index.
-              Hint: The recursion begins by doubling the previous term.
             </p>
           </li>
           <li>
@@ -722,6 +715,44 @@
           </li>
         </ol>
       </p>
+<hint>
+        <ol>
+          <li>
+            <p>
+              Hint: What constant do we add to get the next term?
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: What constant do we multiply by to get the next term?
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: There are several ways to answer this question.  
+              One method is to alternatively add or subtract. To get the alternation, try <m>(-1)^n</m>
+              Another (easier?) method comes from realizing <m>2=\frac{2}{1}</m> and answering the question: 
+              ``How are <m>\frac{2}{1}</m> and <m>\frac{1}{2}</m> related?''
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: What do we multiply by to get from each term to the next?
+              Write a recursion that involves the index.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: The recursion begins by doubling the previous term.
+            </p>
+          </li>
+          <li>
+            <p>
+              Hint: Make sure your answer involves the index.
+            </p>
+          </li>
+        </ol>
+      </hint>
     </activity>
     <p>
       Let's look at more examples writing the recursion from a list.
@@ -832,7 +863,8 @@
               </li>
               <li>
                 <p>
-                  <url href="\http://www.dynamicdrive.com/dynamicindex12/towerhanoi.htm">Watch the solution </url>  for eight disks.
+                  <url href="https://dynamicmathematicslearning.com/hanoi.htm">Watch the solution </url> 
+                  for eight disks by entering 8 and clicking Solve.
                   Does the minimum number of moves agree with your answer to <xref ref="part_hanoi8"/>?
                 </p>
               </li>
@@ -942,7 +974,7 @@
                   Represent the state in <xref ref="fig_hanoi5"></xref> with a 5-tuple.
                   <figure xml:id="fig_hanoi5">
                     <caption>A state of the Tower of Hanoi puzzle with five disks.</caption>
-                    <image width="50%">
+                    <image width="60%">
                       <latex-image>
                         <xi:include href="TikzNew/Hanoi_state.tikz" parse="text"/>
                       </latex-image>

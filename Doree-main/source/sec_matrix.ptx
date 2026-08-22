@@ -311,35 +311,37 @@
     <p>
       We can use mathematical induction to verify our conjectures about powers of matrices.
     </p>
-    <proof xml:id="pff_math_ind_matrix">
-    <p>
-      For a matrix <m>A</m>, prove <m>A^n=</m>
-      (matrix with explicit rule for each entry as a function of <m>n</m>)
-      for <m>n \ge 1</m>.
-    </p>
-    <proof>
-      <p>
-        Write <m>M_n=</m>
-        (matrix with explicit rule for each entry as a function of <m>n</m>).
-        Induct on <m>n</m>.
-      </p>
-      <p>
-        First, when <m>n=1</m> we know that <m>A^1=A=</m>
-        (matrix <m>A</m>)
-        and also <m>M_1=</m>
-        (evaluate and simplify to get the same answer).
-      </p>
-      <p>
-        Next, assume <m>A^{n-1}=M_{n-1}=</m>
-        (evaluate and simplify),
-        for some integer <m>n > 1</m>.
-        Then
-        <me>
-          A^n= AA^{n-1} = AM_{n-1} = \text{ (multiply matrices) }  = \cdots \text{ (use algebra) }  \cdots = M_n
-        </me>
-      </p>
-    </proof>
-    </proof>
+      <theorem xml:id="pff_math_ind_matrix">
+      <title>Proof Format: Mathematical Induction (Power of Matrix)</title>
+        <statement>
+          <p>
+            For a matrix <m>A</m>, we can prove <m>A^n=</m> (matrix with explicit rule 
+            for each entry as a function of <m>n</m>) for all integers <m>n \ge 1</m> 
+            using mathematical induction by adapting the following proof format.
+          </p>
+          <proof>
+            <p>
+              Write <m>M_n=</m> (matrix with explicit rule for each entry as a function of <m>n</m>).
+              Induct on <m>n</m>.
+            </p>
+            <p>
+              First, when <m>n=1</m> we know that <m>A^1=A=</m> (matrix <m>A</m>)
+              and also <m>M_1=</m> (evaluate and simplify to get the same answer).
+            </p>
+            <p>
+              Next, assume <m>A^{n-1}=M_{n-1}=</m> (evaluate and simplify),
+              for some integer <m>n > 1</m>.
+            </p>
+            <p>
+              Then
+              <me>
+                A^n= AA^{n-1} = AM_{n-1} = \text{ (multiply matrices) }  
+                = \cdots \text{ (use algebra) }  \cdots = M_n
+              </me>
+            </p>
+          </proof>
+        </statement>
+      </theorem>
     <p>
       Try using this new proof format.
     </p>
@@ -867,121 +869,121 @@
                 <title>(Most of) the multiplication table for the matrix group <m>\mathbb{D}</m></title>
                 <tabular>
                   <row>
-                    <cell halign="center"><times/></cell>
+                    <cell right="minor" halign="center"><times/></cell>
                     <cell halign="center"><m>I</m></cell>
                     <cell halign="center"><m>R</m></cell>
                     <cell halign="center"><m>S</m></cell>
-                    <cell halign="center"><m>T</m></cell>
+                    <cell right="minor" halign="center"><m>T</m></cell>
                     <cell halign="center"><m>H</m></cell>
                     <cell halign="center"><m>V</m></cell>
                     <cell halign="center"><m>P</m></cell>
                     <cell halign="center"><m>N</m></cell>
                   </row>
                   <row bottom="minor">
+                    <cell right="minor" halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
+                    <cell right="minor" halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
                   </row>
                   <row>
-                    <cell halign="center"><m>I</m></cell>
+                    <cell right="minor" halign="center"><m>I</m></cell>
                     <cell halign="center"><m>I</m></cell>
                     <cell halign="center"><m>R</m></cell>
                     <cell halign="center"><m>S</m></cell>
-                    <cell halign="center"><m>T</m></cell>
+                    <cell right="minor" halign="center"><m>T</m></cell>
                     <cell halign="center"><m>H</m></cell>
                     <cell halign="center"><m>V</m></cell>
                     <cell halign="center"><m>P</m></cell>
                     <cell halign="center"></cell>
                   </row>
                   <row>
-                    <cell halign="center"><m>R</m></cell>
+                    <cell right="minor" halign="center"><m>R</m></cell>
                     <cell halign="center"><m>R</m></cell>
                     <cell halign="center"><m>S</m></cell>
                     <cell halign="center"></cell>
-                    <cell halign="center"><m>I</m></cell>
+                    <cell right="minor" halign="center"><m>I</m></cell>
                     <cell halign="center"><m>P</m></cell>
                     <cell halign="center"><m>N</m></cell>
                     <cell halign="center"><m>V</m></cell>
                     <cell halign="center"><m>H</m></cell>
                   </row>
                   <row>
-                    <cell halign="center"><m>S</m></cell>
+                    <cell right="minor" halign="center"><m>S</m></cell>
                     <cell halign="center"><m>S</m></cell>
                     <cell halign="center"><m>T</m></cell>
                     <cell halign="center"><m>I</m></cell>
-                    <cell halign="center"><m>R</m></cell>
+                    <cell right="minor" halign="center"><m>R</m></cell>
                     <cell halign="center"><m>V</m></cell>
                     <cell halign="center"><m>H</m></cell>
                     <cell halign="center"><m>N</m></cell>
                     <cell halign="center"><m>P</m></cell>
                   </row>
                   <row>
-                    <cell halign="center"><m>T</m></cell>
+                    <cell right="minor" halign="center"><m>T</m></cell>
                     <cell halign="center"><m>T</m></cell>
                     <cell halign="center"><m>S</m></cell>
                     <cell halign="center"><m>R</m></cell>
-                    <cell halign="center"><m>I</m></cell>
+                    <cell right="minor" halign="center"><m>I</m></cell>
                     <cell halign="center"><m>N</m></cell>
                     <cell halign="center"><m>P</m></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"><m>V</m></cell>
                   </row>
                   <row bottom="minor">
+                    <cell right="minor" halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
-                    <cell halign="center"></cell>
-                    <cell halign="center"></cell>
+                    <cell right="minor" halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"></cell>
                   </row>
                   <row>
-                    <cell halign="center"><m>H</m></cell>
+                    <cell right="minor" halign="center"><m>H</m></cell>
                     <cell halign="center"><m>H</m></cell>
                     <cell halign="center"><m>N</m></cell>
                     <cell halign="center"><m>V</m></cell>
-                    <cell halign="center"><m>P</m></cell>
+                    <cell right="minor" halign="center"><m>P</m></cell>
                     <cell halign="center"><m>I</m></cell>
                     <cell halign="center"><m>S</m></cell>
                     <cell halign="center"><m>T</m></cell>
                     <cell halign="center"><m>R</m></cell>
                   </row>
                   <row>
-                    <cell halign="center"><m>V</m></cell>
+                    <cell right="minor" halign="center"><m>V</m></cell>
                     <cell halign="center"><m>V</m></cell>
                     <cell halign="center"><m>P</m></cell>
                     <cell halign="center"><m>H</m></cell>
-                    <cell halign="center"><m>N</m></cell>
+                    <cell right="minor" halign="center"><m>N</m></cell>
                     <cell halign="center"><m>S</m></cell>
                     <cell halign="center"><m>I</m></cell>
                     <cell halign="center"><m>R</m></cell>
                     <cell halign="center"><m>T</m></cell>
                   </row>
                   <row>
-                    <cell halign="center"><m>P</m></cell>
+                    <cell right="minor" halign="center"><m>P</m></cell>
                     <cell halign="center"><m>P</m></cell>
                     <cell halign="center"><m>H</m></cell>
                     <cell halign="center"><m>N</m></cell>
-                    <cell halign="center"><m>V</m></cell>
+                    <cell right="minor" halign="center"><m>V</m></cell>
                     <cell halign="center"><m>R</m></cell>
                     <cell halign="center"><m>T</m></cell>
                     <cell halign="center"></cell>
                     <cell halign="center"><m>S</m></cell>
                   </row>
                   <row>
-                    <cell halign="center"><m>N</m></cell>
+                    <cell right="minor" halign="center"><m>N</m></cell>
                     <cell halign="center"><m>N</m></cell>
                     <cell halign="center"><m>V</m></cell>
                     <cell halign="center"><m>P</m></cell>
-                    <cell halign="center"><m>H</m></cell>
+                    <cell right="minor" halign="center"><m>H</m></cell>
                     <cell halign="center"><m>T</m></cell>
                     <cell halign="center"><m>R</m></cell>
                     <cell halign="center"><m>S</m></cell>

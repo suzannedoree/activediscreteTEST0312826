@@ -95,17 +95,17 @@
               F_{15}=F_{14}+F_{13} = 377+233=610
             </me>.
           </p>
-        </solution>
+
         <table xml:id="table_first20_fib">
           <title>The first twenty Fibonacci numbers</title>
           <tabular>
             <row>
               <cell halign="center"><m>F_0=0</m></cell>
-              <cell halign="center">\hspace{.5in}</cell>
+              <cell halign="center"></cell>
               <cell halign="center"><m>F_5=5</m></cell>
-              <cell halign="center">\hspace{.5in}</cell>
+              <cell halign="center"></cell>
               <cell halign="center"><m>F_{10}=55</m></cell>
-              <cell halign="center">\hspace{.5in}</cell>
+              <cell halign="center"></cell>
               <cell halign="center"><m>F_{15}=610</m></cell>
             </row>
             <row>
@@ -146,6 +146,7 @@
             </row>
           </tabular>
         </table>
+        </solution>
       </statement>
     </example>
     <p>
@@ -254,7 +255,7 @@
             <li>
               <p>
                 The <term>Lucas sequence</term> is defined by <m>L_0=2</m>,
-                <m>L_1=1</m>, and <m>L_n=L_{n-1}+L_{n-2}</m> for <m>n\ge 2</m>.
+                <m>L_1=1</m>, and <me>L_n=L_{n-1}+L_{n-2}</me> for <m>n\ge 2</m>.
                 The Lucas sequence has the same recursion as the Fibonacci sequence,
                 but because the initial conditions are different we get a different sequence.
                 <solution>
@@ -286,7 +287,7 @@
             <li>
               <p>
                 The sequence <m>a_n</m> is defined by <m>a_1=2</m>, <m>a_2=-3</m>,
-                and <m>a_n=a_{n-2}+(-1)^{n+1}2</m> for <m>n\ge 3</m>.
+                and <me>a_n=a_{n-2}+(-1)^{n+1}2</me> for <m>n\ge 3</m>.
                 Notice that this sequence  is second order,
                 even though <m>a_{n-1}</m> is not part of the recursion.
                 <solution>
@@ -320,7 +321,7 @@
               <p>
                 The tribonacci sequence <m>t_n</m> is defined by <m>t_0=0</m>,
                 <m>t_1=1</m>, <m>t_2=1</m>,
-                and <m>t_n=t_{n-1}+t_{n-2}+t_{n-3}</m> for <m>n\ge 3</m>.
+                and <me>t_n=t_{n-1}+t_{n-2}+t_{n-3}</me> for <m>n\ge 3</m>.
                 <solution>
                   <p>
                     We are told that <m>t_0=0</m>,
@@ -368,14 +369,14 @@
           <li>
             <p>
               Evaluate the first five terms of the sequence defined by <m>a_0=3</m>,
-              <m>a_1=2</m> and <m>a_n = a_{n-1}+2a_{n-2}</m> for <m>n \ge 2</m>.
+              <m>a_1=2</m> and <me>a_n = a_{n-1}+2a_{n-2}</me> for <m>n \ge 2</m>.
               Your list should begin with the initial conditions.
             </p>
           </li>
           <li>
             <p>
               Evaluate <m>w_5</m> where <m>w_0=-1</m>, <m>w_1=2</m>,
-              <m>w_2=1</m> and <m>w_n = w_{n-1}w_{n-2}w_{n-3}</m> for <m>n \ge 3</m>.
+              <m>w_2=1</m> and <me>w_n = w_{n-1}w_{n-2}w_{n-3}</me> for <m>n \ge 3</m>.
             </p>
           </li>
           <li>
@@ -491,7 +492,7 @@
       Let's start with a first order recursion to get the idea.
     </p>
     <example xml:id="exam_count_bit_strings_using_recursion_first">
-      <title>Using a recursion to count bit strings containing at least one \bs{0}</title>
+      <title>Using a recursion to count bit strings containing at least one <m>\bs{0}</m></title>
       <statement>
         <p>
           <nbsp/> How many bit strings of length <m>n</m> include at least one <m>\bs{0}</m>?
@@ -541,7 +542,7 @@
       We can also count using higher order recursions.
     </p>
     <example xml:id="exam_count_bit_strings_using_recursion_second">
-      <title>Using a recursion to count bit strings that do not contain \bs{00}</title>
+      <title>Using a recursion to count bit strings that do not contain <m>\bs{00}</m></title>
       <statement>
         <p>
           Write a recursion that counts the number of bit strings of length <m>n</m> that do not contain <m>\bs{00}</m>,
@@ -779,19 +780,19 @@
                     <me>
                       13 \fn{ mod } 8 = 5
                     </me>
+                    <me>
+                      8 \fn{ mod } 5 = 3
+                    </me>
+                    <me>
+                      5 \fn{ mod } 3 = 2
+                    </me>
+                    <me>
+                      3 \fn{ mod } 2 = 1
+                    </me>
+                    <me>
+                      2 \fn{ mod } 1 = 0
+                    </me>
                   </p>
-                  <me>
-                    8 \fn{ mod } 5 = 3
-                  </me>
-                  <me>
-                    5 \fn{ mod } 3 = 2
-                  </me>
-                  <me>
-                    3 \fn{ mod } 2 = 1
-                  </me>
-                  <me>
-                    2 \fn{ mod } 1 = 0
-                  </me>
                   <p>
                     Thus, <m>\fn{gcd}(55,34)=1</m>.
                     They are coprime.
@@ -935,31 +936,43 @@
   <subsection xml:id="sub_pff_strong_math_ind">
     <title>Proof Format: Strong Mathematical Induction</title>
     <p>
-      There is a stronger form of mathematical induction.
-      As in the usual proof by mathematical induction,
-      we prove some statement <m>P(n)</m> for <m>n \ge s</m> for some integer <m>s</m>.
-      The base case is the same, we check <m>P(s)</m>.
+      There are stronger forms of mathematical induction for 
+      proving some statement <m>P(n)</m> for all integers <m>n \ge s</m> for some integer <m>s</m>.  
+      In this section we look at two special cases.
+    </p>
+    <p>
+      First, we consider the case where <m>P(n)</m> can be defined using a single initial condition
+      and some recursion.
+      In this case, the proof begins with the same base case, where we check <m>P(s)</m>.
       In the induction step, instead of just assuming <m>P(n-1)</m>,
       we assume <m>P(k)</m> for <m>k= s, s+1, \ldots, n-2, n-1</m>.
       That is, we assume <m>P(k)</m> whenever <m>s \le k \lt n</m>.
       As before, we use this assumption to prove <m>P(n)</m>.
       Here is the formal proof format.
     </p>
-    <proof xml:id="pff_strong_math_ind">
-    <p>
-      Prove <m>P(n)</m> for <m>n \ge s</m>.
-    </p>
-    <proof>
-      <p>
+    <theorem xml:id="pff_strong_math_ind">
+    <title>Proof Format: Mathematical Induction (First-order Strong)</title>
+      <statement>
+        <p>
+          Assuming that <m>P(n)</m> can be defined by a single initial condition and a recursion,
+          we can prove <m>P(n)</m> for all integers <m>n \ge s</m> 
+          using (first-order) strong mathematical induction by adapting the following proof format.
+        </p>
+        <proof>
+                <p>
         Induct on <m>n</m>.
-        First, when <m>n=s</m> (explain why <m>P(s)</m> is true).
+        First, when <m>n=s</m> (explain why <m>P(s)</m> is true). 
       </p>
       <p>
         Next, assume for some integer <m>n > s</m> that <m>P(k)</m> for any integer <m>k</m> with
-        <m>s \le k\lt n</m> . Then (explain why <m>P(n)</m> is true).
+        <m>s \le k\lt n</m> . 
       </p>
-    </proof>
-    </proof>
+      <p>
+        Then (explain why <m>P(n)</m> is true).
+      </p>
+        </proof>
+      </statement>
+    </theorem>
     <p>
       We consider an example.
     </p>
@@ -967,7 +980,7 @@
       <title>Using strong mathematical induction</title>
       <statement>
         <p>
-          Use strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that every integer can be written as the product of a power of two and an odd integer.
+          Use (first-order) strong mathematical induction <xref ref="pff_strong_math_ind"/> to prove that every integer can be written as the product of a power of two and an odd integer.
         </p>
       </statement>
       <solution>
@@ -1017,50 +1030,50 @@
       </solution>
     </example>
     <p>
-      We can use a special case of strong mathematical induction to verify an explicit rule for a second-order recursively-defined sequence.
+      There is another special case of strong mathematical induction we can use to verify an explicit rule for a second-order recursively-defined sequence.
       Strong mathematical induction can be extended to any higher order recursion.
     </p>
-    <proof xml:id="pff_strong_math_ind_seq">
-    <p>
-      Given the sequence <m>a</m> defined recursively by <m>a_s=</m> and <m>a_{s+1}=</m>
-      (initial conditions)
-      and <m>a_n=</m>
-      (recursive rule)
-      for <m>n \ge s+2</m>, prove <m>a_n=</m>
-      (explicit rule)
-      for <m>n \ge s</m>.
-    </p>
-    <proof>
-      <p>
-        Write <m>f(n) =</m>(explicit rule).
-        Induct on <m>n</m>.
-      </p>
-      <p>
-        First, when <m>n=s</m> we know that <m>a_s=</m>
-        (initial condition)
-        and also <m>f(s)=</m>
-        (evaluate and simplify to get the same answer).
-        Similarly, when <m>n=s+1</m> we know that <m>a_{s+1}=</m>
-        (initial condition)
-        and also <m>f(s+1)=</m>
-        (evaluate and simplify to get the same answer).
-      </p>
-      <p>
-        Next, assume <m>a_{n-1}=f(n-1)=</m>
-        (evaluate and simplify)
-        and <m>a_{n-2} = f(n-2) =</m>
-        (evaluate and simplify),
-        for some integer <m>n > s+1</m>.
-        Then
-        <md>
-          <mrow>a_n \amp  = \text{ (recursive rule) }</mrow>
-          <mrow>\amp  = \cdots \text{ (use the inductive hypothesis to replace }  a_{n-1} \text{ by }  f(n-1) \text{ and }  a_{n-2} \text{ by }  f(n-2) \cdots</mrow>
-          <mrow>\amp  = \cdots \text{ (use algebra) }  \cdots</mrow>
-          <mrow>\amp  = f(n)</mrow>
-        </md>.
-      </p>
-    </proof>
-    </proof>
+      <theorem xml:id="pff_strong_math_ind_seq">
+      <title>Proof Format: Mathematical Induction (Second-order Sequence) </title>
+        <statement>
+          <p>
+            Given the sequence <m>a</m> defined recursively 
+            by <m>a_s=</m> and <m>a_{s+1}=</m> (initial conditions)
+            and <m>a_n=</m> (recursive rule)for <m>n \ge s+2</m>,
+            we can prove <m>a_n=</m> (explicit rule) for <m>n \ge s</m> 
+            using mathematical induction by adapting the following proof format.
+          </p>
+          <proof>
+            <p>
+              Write <m>f(n) =</m>(explicit rule).
+              Induct on <m>n</m>.
+            </p>
+            <p>
+              First, when <m>n=s</m> we know that <m>a_s=</m> (first initial condition)
+              and also <m>f(s)=</m> (evaluate and simplify to get the same answer).
+            </p>
+            <p>
+              Similarly, when <m>n=s+1</m> we know that <m>a_{s+1}=</m> (second initial condition)
+            and also <m>f(s+1)=</m> (evaluate and simplify to get the same answer).
+           </p>
+           <p>
+            Next, assume <m>a_{n-1}=f(n-1)=</m> (evaluate and simplify)
+            and <m>a_{n-2} = f(n-2) =</m> (evaluate and simplify),
+            for some integer <m>n > s+1</m>.
+          </p>
+          <p>
+            Then
+            <md>
+              <mrow>a_n \amp  = \text{ (recursive rule) }</mrow>
+              <mrow>\amp  = \cdots \text{ (use the inductive hypothesis to replace }  
+              a_{n-1} \text{ by }  f(n-1) \text{ and }  a_{n-2} \text{ by }  f(n-2)\text{)} \cdots</mrow>
+              <mrow>\amp  = \cdots \text{ (use algebra) }  \cdots</mrow>
+              <mrow>\amp  = f(n)</mrow>
+            </md>.
+          </p>
+        </proof>
+    </statement>
+  </theorem>
     <p>
       As usual, when we introduce a new proof format,
       we give you an example of a proof to copy and edit.
@@ -1070,44 +1083,48 @@
       <p>
         In <xref ref="exam_rec_seq_higher_order"></xref>
         we saw the <term>Lucas numbers</term> defined by <m>L_0=2</m>,
-        <m>L_1=1</m>, and <m>L_n=L_{n-1}+L_{n-2}</m> for <m>n \ge 2</m>.
+        <m>L_1=1</m>, and <me>L_n=L_{n-1}+L_{n-2}</me> for <m>n \ge 2</m>.
         As usual, the Fibonacci sequence is defined by <m>F_0=0</m>,
-        <m>F_1=1</m>, and <m>F_n=f_{n-1}+F_{n-2}</m> for <m>n \ge 2</m>.
+        <m>F_1=1</m>, and <me>F_n=f_{n-1}+F_{n-2}</me> for <m>n \ge 2</m>.
         <ol>
           <li>
             <p>
               Copy the following proof.
-              Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that
-              <m>L_n = 2F_{n+1}-F_{n}</m> for all integers <m>n \ge 0</m>.
-              <em>Proof.</em> Write <m>f(n) = 2F_{n+1}-F_{n}</m>.
-              Induct on <m>n</m>.
-              First, when <m>n=0</m> we have <m>L_0=2</m> and also
-              <me>
-                f(0) =2F_1-F_0=2(1)-(0)=2
-              </me>.
-              Similarly, when <m>n=1</m> we have <m>L_1=1</m> and also
-              <me>
-                f(1) =2F_2-F_1=2(1)-(1)=1
-              </me>.
-              Next, assume
-              <me>
-                L_{n-1} = f(n-1)= 2F_n-F_{n-1}
-              </me>
-              and
-              <me>
-                L_{n-2} = f(n-2) = 2F_{n-1}-F_{n-2}
-              </me>
-              for some integer <m>n>1</m>.
-              Then
-              <md>
-                <mrow>L_n \amp  = L_{n-1}+L_{n-2}</mrow>
-                <mrow>\amp  = \left(2F_{n}-F_{n-1}\right) + \left(2F_{n-1}-F_{n-2}\right)</mrow>
-                <mrow>\amp  = 2F_{n}+2F_{n-1} -F_{n-1}-F_{n-2}</mrow>
-                <mrow>\amp  = 2\left(F_{n}+F_{n-1}\right)-\left(F_{n-1}+F_{n-2}\right)</mrow>
-                <mrow>\amp  = 2F_{n+1}-F_n</mrow>
-                <mrow>\amp  = f(n)</mrow>
-              </md>
+              Use mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that
+              <me>L_n = 2F_{n+1}-F_{n}</me> for all integers <m>n \ge 0</m>.
             </p>
+            <proof>
+              <p>
+                Write <m>f(n) = 2F_{n+1}-F_{n}</m>.
+                Induct on <m>n</m>.
+              </p>
+              <p>
+                First, when <m>n=0</m> we have <m>L_0=2</m> and also
+                  <me> f(0) =2F_1-F_0=2(1)-(0)=2 </me>.
+              </p>
+              <p>
+                Similarly, when <m>n=1</m> we have <m>L_1=1</m> and also
+                  <me> f(1) =2F_2-F_1=2(1)-(1)=1 </me>.
+              </p>
+              <p>
+                Next, assume
+                  <me> L_{n-1} = f(n-1)= 2F_n-F_{n-1} </me>
+                and
+                  <me> L_{n-2} = f(n-2) = 2F_{n-1}-F_{n-2} </me>
+                for some integer <m>n>1</m>.
+              </p>
+              <p>
+                Then
+                  <md>
+                    <mrow>L_n \amp  = L_{n-1}+L_{n-2}</mrow>
+                    <mrow>\amp  = \left(2F_{n}-F_{n-1}\right) + \left(2F_{n-1}-F_{n-2}\right)</mrow>
+                    <mrow>\amp  = 2F_{n}+2F_{n-1} -F_{n-1}-F_{n-2}</mrow>
+                    <mrow>\amp  = 2\left(F_{n}+F_{n-1}\right)-\left(F_{n-1}+F_{n-2}\right)</mrow>
+                    <mrow>\amp  = 2F_{n+1}-F_n</mrow>
+                    <mrow>\amp  = f(n)</mrow>
+                  </md>
+              </p>
+            </proof>
           </li>
           <li>
             <p>
@@ -1126,13 +1143,13 @@
                 w_n = w_{n-1}+w_{n-2}
               </me>
               for <m>n\ge 5</m>.
-              Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that
+              Use mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that
               <me>
                 v_n=2w_n-1
               </me>
               for <m>n \ge 3</m>.
               Note: We saw these two sequences in <xref ref="act_rec_trees"></xref>
-              where we recursively defined the trees <m>T_n</m>.
+              where we recursively defined the lopsided trees <m>T_n</m>.
               In that activity <m>w_n=</m> the number of leaves in <m>T_n</m> and <m>v_n=</m> the number of vertices in <m>T_n</m>.
             </p>
           </li>
@@ -1148,8 +1165,8 @@
         <p>
           Consider the sequence <m>a_n</m> defined recursively by <m>a_0= 1</m>,
           <m>a_1 =6</m>,
-          and <m>a_n =6a_{n-1} -9a_{n-2}</m> for <m>n \ge 2</m>.
-          Use the special case of strong mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that <m>a_n = (n+1)3^n</m> for <m>n \ge 0</m>.
+          and <me>a_n =6a_{n-1} -9a_{n-2}</me> for <m>n \ge 2</m>.
+          Use mathematical induction <xref ref="pff_strong_math_ind_seq"/> to prove that <m>a_n = (n+1)3^n</m> for <m>n \ge 0</m>.
         </p>
       </statement>
       <solution>
@@ -1190,9 +1207,6 @@
             <mrow>\amp  =(2n-(n-1))3^n</mrow>
             <mrow>\amp  = (n+1)3^n</mrow>
           </md>
-        </p>
-        <p>
-          <m>\Box</m>
         </p>
         <p>
           Notice it was convenient to write

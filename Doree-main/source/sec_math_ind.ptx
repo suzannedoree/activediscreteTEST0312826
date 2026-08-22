@@ -52,22 +52,27 @@
     <p>
       Here is the official proof format.
     </p>
-    <proof xml:id="pff_math_ind">
-    <p>
-      Prove <m>P(n)</m> for <m>n \ge s</m>.
-    </p>
-    <proof>
-      <p>
+    <theorem xml:id="pff_math_ind">
+  <title>Proof Format: Mathematical Induction</title>
+      <statement>
+        <p>
+          We can prove <m>P(n)</m> for all integers <m>n \ge s</m> using mathematical induction by adapting the following proof format.
+        </p>
+        <proof>
+          <p>
         Induct on <m>n</m>.
         First, when <m>n=s</m> we have (explain why <m>P(s)</m> is true).
       </p>
       <p>
         Next, assume <m>P(n-1)</m> for some integer <m>n > s</m>.
         That is, (restate <m>P(n-1)</m> more clearly, if needed).
+      </p>
+      <p>
         Then (explain why <m>P(n)</m> is true).
       </p>
-    </proof>
-    </proof>
+        </proof>
+    </statement>
+  </theorem>
     <p>
       The phrase
       <q>induct on <m>n</m></q>
@@ -131,7 +136,10 @@
                 <p>
                   Then
                   <me>
-                    5^n-1=5\cdot5^{n-1}-1 = 5(4k+1)-1 = 20k + 5 -1= 20k+4 = 4(5k+1)
+                    5^n-1=5\cdot5^{n-1}-1 = 5(4k+1)-1 
+                  </me>
+                  <me>
+                    = 20k + 5 -1= 20k+4 = 4(5k+1)
                   </me>
                   and so <m>4 \mid (5^n-1)</m>.
                 </p>
@@ -287,33 +295,11 @@
     <p>
       Proofs by mathematical induction can involve a lot of algebra.
       It would be a good moment to review:
-      <ul>
-        <li>
-          <p>
-            <xref ref="sub_integer_algebra"></xref>,
-          </p>
-        </li>
-        <li>
-          <p>
-            <xref ref="sub_factorials"></xref>,
-          </p>
-        </li>
-        <li>
-          <p>
-            <xref ref="sub_exp_log"></xref>,
-          </p>
-        </li>
-        <li>
-          <p>
-            <xref ref="sub_fractions"></xref>, and
-          </p>
-        </li>
-        <li>
-          <p>
-            <xref ref="sub_polys"></xref>.
-          </p>
-        </li>
-      </ul>
+      <xref ref="sub_integer_algebra"></xref>,
+      <xref ref="sub_factorials"></xref>,
+      <xref ref="sub_exp_log"></xref>,
+      <xref ref="sub_fractions"></xref>, and
+      <xref ref="sub_polys"></xref>.
     </p>
     <p>
       Specifically, within proofs of mathematical induction,
@@ -331,7 +317,8 @@
                 Consider the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=2^{n+1}-1</m>.
                 <solution>
                   <p>
-                    It may be helpful to think of <m>f(\Box) = 2^{(\Box)+1} -1</m>.
+                    It may be helpful to think of 
+                      <me>f(\Box) = 2^{(\Box)+1} -1</me>.
                     To calculate <m>f(n-1)</m>, we replace <m>n</m> in the original formula
                     (or <m>\Box</m> in this new version)
                     with <m>(n-1)</m> in parentheses to get
@@ -347,7 +334,8 @@
                 Consider the function <m>f: \mathbb{Z} \to \mathbb{Z}</m> defined by <m>f(n)=n^2-n</m>.
                 <solution>
                   <p>
-                    It may be helpful to think of <m>f(\Box) = (\Box)^2-(\Box)</m>.
+                    It may be helpful to think of 
+                      <me>f(\Box) = (\Box)^2-(\Box)</me>.
                     To calculate <m>f(n-1)</m>,
                     we replace each occurrence of <m>n</m> in the original formula
                     (or <m>\Box</m> in this new format)
@@ -402,41 +390,40 @@
       One special case where proof by mathematical induction is used is to prove an explicit rule for a recursively-defined sequence.
       We state this special case as its own proof format.
     </p>
-    <proof>
-    <p>
-      Given the sequence <m>a</m> defined recursively by <m>a_s=</m>
-      (initial condition)
-      and <m>a_n=</m>
-      (recursive rule)
-      for <m>n \ge s+1</m>, prove <m>a_n=</m>
-      (explicit rule)
-      for <m>n \ge s</m>.
-    </p>
-    <proof>
-      <p>
-        Write <m>f(n) =</m>(explicit rule).
-        Induct on <m>n</m>.
-      </p>
-      <p>
-        First, when <m>n=s</m> we know that <m>a_s=</m>
-        (initial condition)
-        and also <m>f(s)=</m>
-        (evaluate and simplify to get the same answer).
-      </p>
-      <p>
-        Next, assume <m>a_{n-1}=f(n-1)=</m>
-        (evaluate and simplify),
-        for some integer <m>n > s</m>.
-        Then
-        <md>
-          <mrow>a_n \amp  = \text{ (recursive rule) }</mrow>
-          <mrow>\amp  = \cdots \text{ (use the inductive hypothesis to replace }  a_{n-1} \text{ by }  f(n-1)) \cdots</mrow>
-          <mrow>\amp  = \cdots \text{ (use algebra) }  \cdots</mrow>
-          <mrow>\amp  = f(n)</mrow>
-        </md>.
+      <theorem xml:id="pff_math_ind_seq">
+      <title>Proof Format: Mathematical Induction (Explicit Rule Recursively-defined Sequence) </title>
+      <statement>
+        <p>
+          Given the sequence <m>a</m> defined recursively by <m>a_s=</m> (initial condition)and <m>a_n=</m> (recursive rule)
+          for <m>n \ge s+1</m>, we can prove <m>a_n=</m> (explicit rule) using mathematical induction 
+          by adapting the following proof format.
+        </p>
+        <proof>
+          <p>
+            Write <m>f(n) =</m>(explicit rule).
+            Induct on <m>n</m>.
+          </p>
+          <p>
+            First, when <m>n=s</m> we know that <m>a_s=</m> (initial condition)
+            and also <m>f(s)=</m> (evaluate and simplify to get the same answer).
+          </p>
+          <p>
+            Next, assume <m>a_{n-1}=f(n-1)=</m> (evaluate and simplify),
+            for some integer <m>n > s</m>.
+          </p>
+          <p>
+            Then
+          <md>
+            <mrow>a_n \amp  = \text{ (recursive rule) }</mrow>
+            <mrow>\amp  = \cdots \text{ (use the inductive hypothesis to replace }  a_{n-1} \text{ by }  f(n-1)) \cdots</mrow>
+            <mrow>\amp  = \cdots \text{ (use algebra) }  \cdots</mrow>
+            <mrow>\amp  = f(n)</mrow>
+          </md>.
       </p>
     </proof>
-    </proof>
+    </statement>
+  </theorem>
+  
     <p>
       Note that in the base case we prove <m>a_s=f(s)</m>.
       The inductive hypothesis is
@@ -454,11 +441,21 @@
               Copy the following proof.
               Consider the sequence <m>a</m> defined recursively by <m>a_0= 1</m> and <m>a_n = 2a_{n-1}</m> for <m>n \ge 1</m>.
               Prove that <m>a_n=2^n</m> for <m>n \ge 0</m>.
-              <em>Proof</em> Write <m>f(n) = 2^n</m>.
-              Induct on <m>n</m>.
-              First, when <m>n=0</m> we know that <m>a_0 = 1</m> and also <m>f(0) = 2^0 = 1</m>.
-              Next, assume <m>a_{n-1} = f(n-1)= 2^{n-1}</m> for some integer <m>n \ge 0</m>.
-              Then <m>a_n = 2a_{n-1} = 2 \cdot 2^{n-1} = 2^n = f(n)</m> <m>\Box</m>
+                <proof>
+                  <p>
+                    Write <m>f(n) = 2^n</m>.
+                    Induct on <m>n</m>.
+                  </p>
+                  <p>
+                    First, when <m>n=0</m> we know that <m>a_0 = 1</m> and also <m>f(0) = 2^0 = 1</m>.
+                  </p>
+                  <p>
+                    Next, assume <m>a_{n-1} = f(n-1)= 2^{n-1}</m> for some integer <m>n \ge 0</m>.
+                  </p>
+                  <p>
+                    Then <m>a_n = 2a_{n-1} = 2 \cdot 2^{n-1} = 2^n = f(n)</m> <m>\Box</m>
+                  </p>
+                </proof>
             </p>
           </li>
           <li>
@@ -535,7 +532,9 @@
                     </p>
                     <p>
                       Next, assume <m>\underline{\hspace{1in}}</m> for some integer <m>n > 1</m>.
-                      The graph <m>K_n</m> can be built from <m>K_{n-1}</m> by adding one more vertex,
+                    </p>
+                    <p>
+                      Then, the graph <m>K_n</m> can be built from <m>K_{n-1}</m> by adding one more vertex,
                       <m>v</m>,
                       and adding an edge from <m>v</m> to each of the vertices of <m>K_{n-1}</m>.
                       Notice that we are adding <m>n-1</m> new edges.

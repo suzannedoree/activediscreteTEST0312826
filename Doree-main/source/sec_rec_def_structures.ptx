@@ -35,21 +35,21 @@
               </p>
                 <ul>
                   <li>
-                    <title>\textbf{~ B}:</title>
                     <p>
+                      <em>B:</em> 
                       The empty bit string <m>\lambda</m> is proper.
                     </p>
                   </li>
                   <li>
-                    <title>\textbf{~ R1}:</title>
                     <p>
+                      <em>R1:</em>
                       If the bit string <m>b</m> is proper,
                       then the bit string <m>b\bs{0}</m> is also proper.
                     </p>
                   </li>
                   <li>
-                    <title>\textbf{~ R2}:</title>
                     <p>
+                    <em>R2:</em>
                       If the bit string <m>b</m> is proper,
                       then the bit string <m>\bs{1}b\bs{1}</m> is also proper.
                     </p>
@@ -151,27 +151,27 @@
         Recall that a bit string is <term>proper</term>
         if it can be constructed from these rules in a finite number of steps (and improper otherwise):
         <ul>
-          <li>
-            <title>\textbf{~ B}:</title>
-            <p>
-              The empty bit string <m>\lambda</m> is proper.
-            </p>
-          </li>
-          <li>
-            <title>\textbf{~ R1}:</title>
-            <p>
-              If the bit string <m>b</m> is proper,
-              then the bit string <m>b\bs{0}</m> is also proper.
-            </p>
-          </li>
-          <li>
-            <title>\textbf{~ R2}:</title>
-            <p>
-              If the bit string <m>b</m> is proper,
-              then the bit string <m>\bs{1}b\bs{1}</m> is also proper.
-            </p>
-          </li>
-        </ul>
+                  <li>
+                    <p>
+                      <em>B:</em> 
+                      The empty bit string <m>\lambda</m> is proper.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <em>R1:</em>
+                      If the bit string <m>b</m> is proper,
+                      then the bit string <m>b\bs{0}</m> is also proper.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                    <em>R2:</em>
+                      If the bit string <m>b</m> is proper,
+                      then the bit string <m>\bs{1}b\bs{1}</m> is also proper.
+                    </p>
+                  </li>
+                </ul>
         <ol>
           <li>
             <p>
@@ -247,7 +247,7 @@
                 
                 <figure xml:id="fig_tree_proper_bs5">
                   <caption>All proper bit strings of length five or less</caption>
-                  <image width="60%">
+                  <image width="90%">
                     <latex-image>
                       <xi:include href="Tikz/poss_tree_proper_bs_length5.tikz" parse="text"/>
                     </latex-image>
@@ -369,20 +369,20 @@
           We can rewrite the initial condition and recursions using set notation to obtain:
           <ul>
             <li>
-              <title>~ \textbf{B}:</title>
               <p>
+              <em> B:</em>
                 <m>\lambda \in \mathbb{P}</m>.
               </p>
             </li>
             <li>
-              <title>\textbf{~ R1}:</title>
               <p>
+              <em> R1:</em>
                 If <m>b \in \mathbb{P}</m>, then <m>b\bs{0}\in \mathbb{P}</m>.
               </p>
             </li>
             <li>
-              <title>\textbf{~ R2}:</title>
               <p>
+                <em> R2:</em>
                 If <m>b \in \mathbb{P}</m>, then <m>\bs{1}b\bs{1}\in \mathbb{P}</m>.
               </p>
             </li>
@@ -431,26 +431,26 @@
           Consider the set of integers <m>L</m> constructed recursively as follows:
           <ul>
             <li>
-              <title>\textbf{~ B1}:</title>
               <p>
+              <em> B1:</em>
                 <m>1 \in L</m>
               </p>
             </li>
             <li>
-              <title>\textbf{~ B2}:</title>
               <p>
+                <em> B2:</em>
                 <m>2 \in L</m>
               </p>
             </li>
             <li>
-              <title>\textbf{~ B3}:</title>
               <p>
+                <em> B3:</em>
                 <m>3 \in L</m>
               </p>
             </li>
             <li>
-              <title>\textbf{~ R}:</title>
               <p>
+                <em> R:</em>
                 If <m>k,m \in L</m>, then their product <m>km \in L</m>
               </p>
             </li>
@@ -529,20 +529,20 @@
         Consider the set <m>M</m> constructed recursively as follows:
         <ul>
           <li>
-            <title>\textbf{~ B1:}</title>
             <p>
+              <em> B1:</em>
               <m>2 \in M</m>
             </p>
           </li>
           <li>
-            <title>\textbf{~ B1:}</title>
             <p>
+              <em> B2:</em>
               <m>3 \in M</m>
             </p>
           </li>
           <li>
-            <title>\textbf{~ R:}</title>
             <p>
+              <em> R:</em>
               If <m>k,m \in M</m>, then <m>k+m \in M</m>.
             </p>
           </li>
@@ -665,8 +665,8 @@
       the example from <xref ref="act_coins_2and3"></xref>
       is described in terms of coins or stamps.
       In that vocabulary,
-      we can make any value of money 2{\textcent} or greater using 2{\textcent} and 3{\textcent} coins,
-      or any postage 2{\textcent} or greater using 2{\textcent} and 3{\textcent} stamps.
+      we can make any value of money 2&#162; or greater using 2&#162; and 3&#162; coins,
+      or any postage 2&#162; or greater using 2&#162; and 3&#162; stamps.
     </p>
   </subsection>
   <subsection xml:id="sub_rec_def_graphs">
@@ -692,7 +692,7 @@
       </p>
       <figure xml:id="figure_rec_trees_defn">
         <caption>Defining the lopsided tree <m>T_n</m> from <xref ref="act_rec_trees"></xref>.</caption>
-        <image width="60%">
+        <image width="30%">
           <latex-image>
             <xi:include href="Tikz/rec_trees_defn.tikz" parse="text"/>
           </latex-image>
@@ -703,7 +703,7 @@
       </p>
       <figure xml:id="figure_rec_trees_first_four">
         <caption>From left to right: the lopsided trees <m>T_1</m>, <m>T_2</m>, <m>T_3</m>, <m>T_4</m>, an <m>T_5</m> from <xref ref="act_rec_trees"></xref>.</caption>
-        <image width="60%">
+        <image width="100%">
           <latex-image>
             <xi:include href="Tikz/rec_trees_first_four.tikz" parse="text"/>
           </latex-image>
@@ -766,7 +766,6 @@
                     Thus <m>w_6 = w_5 + w_4 = 5+3=8</m>.
                     We summarize our findings in <xref ref="tab_leaves_lopsided"></xref>.
                   </p>
-                </solution>
                 <table xml:id="tab_leaves_lopsided">
                   <title>The number of leaves in the lopsided trees</title>
                   <tabular>
@@ -790,6 +789,7 @@
                     </row>
                   </tabular>
                 </table>
+                </solution>
               </p>
             </li>
             <li>
@@ -886,7 +886,7 @@
                     The corresponding adjacency matrices are shown in <xref ref="tab_adj_mat_paths"></xref>.
                     Starting with <m>P_{n-1}</m> we add a new column on the far right and a new row at the bottom which are all <m>\bs{0}</m> s except the next to last entry in the column and row is <m>\bs{1}</m>.
                   </p>
-                </solution>
+                
                 <table xml:id="tab_adj_mat_paths">
                   <title>The adjacency matrices for the paths <m>P_1</m>, <m>P_2</m>, <m>P_3</m>, <m>P_4</m>, and <m>P_5</m></title>
                   <tabular>
@@ -944,6 +944,7 @@
                     </row>
                   </tabular>
                 </table>
+                </solution>
               </p>
             </li>
           </ol>
@@ -1091,9 +1092,9 @@
             drawing a tree, considering cases, or anything complicated.
             Your conjectures should be in the form
           </p>
-          <blockquote>
-            If a bit string is/has <em>\hspace{1in}</em>, then it is automatically proper/improper.
-          </blockquote>
+            <q>
+              If a bit string is/has <fillin/>, then it is automatically proper/improper.
+            </q>
           <p>
             Your conjectures should not be examples,
             they should be general rules that apply to an infinite number of bit strings.
@@ -1175,20 +1176,20 @@
             Consider the set <m>M</m> constructed recursively as follows:
             <ul>
               <li>
-                <title>\textbf{~ B1:}</title>
                 <p>
+                  <em>B1:</em>
                   <m>3 \in M</m>
                 </p>
               </li>
               <li>
-                <title>\textbf{~ B2:}</title>
                 <p>
+                  <em>B2:</em>
                   <m>5 \in M</m>
                 </p>
               </li>
               <li>
-                <title>\textbf{~ R:}</title>
                 <p>
+                  <em>R:</em>
                   If <m>k,m \in M</m>, then <m>k+m \in M</m>.
                 </p>
               </li>
@@ -1331,21 +1332,21 @@
             Consider the set <m>M_{a,b}</m> constructed recursively as follows:
             <ul>
               <li>
-                <title>\textbf{~ B1:}</title>
                 <p>
+                  <em>B1:</em>
                   <m>a \in M_{a,b}</m>
                 </p>
               </li>
               <li>
-                <title>\textbf{~ B2:}</title>
                 <p>
+                  <em>B2:</em>
                   <m>b \in M_{a,b}</m>
                 </p>
               </li>
               <li>
-                <title>\textbf{~ R:}</title>
                 <p>
-                  f <m>k,m \in M_{a,b}</m>, then <m>k+m \in M_{a,b}</m>.
+                  <em>R:</em>
+                  If <m>k,m \in M_{a,b}</m>, then <m>k+m \in M_{a,b}</m>.
                 </p>
               </li>
             </ul>
@@ -1766,7 +1767,7 @@
           </p>
           <figure xml:id="fig_rec_trees_labeled">
             <caption>From left-to-right, labeled lopsided trees <m>T_3</m>, <m>T_4</m>, and <m>T_5</m>.</caption>
-            <image width="60%">
+            <image width="80%">
               <latex-image>
                 <xi:include href="Tikz/rec_trees_labeled.tikz" parse="text"/>
               </latex-image>
