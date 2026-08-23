@@ -884,7 +884,7 @@
         <p>
           Prove: <m>P \lor Q</m> using cases <xref ref="pff_or_by_cases"/> with the cases <m>P</m> or <m>\neg P</m>.
         </p>
-        <blockquote>
+        <q>
           <proof>
             <p>
               We consider two cases.
@@ -902,11 +902,11 @@
               In either case, <m>P \lor Q</m>.
             </p>
           </proof>
-        </blockquote>
+        </q>
         <p>
           When we cross out the obvious lines of the proof we get the following proof:
         </p>
-        <blockquote>
+        <q>
           <proof>
             <p>
              <s> We consider two cases.</s>
@@ -924,7 +924,7 @@
               <delete>In either case, <m>P \lor Q</m>.</delete>
             </p>
           </proof>
-        </blockquote>
+        </q>
         <p>
           This proof is the <xref ref="pff_or_implication"></xref>.
         </p>
@@ -956,7 +956,7 @@
             </ol>
           </p>
         </statement>
-        <hint>
+        <check>
         <ol>
           <li>
             <p>
@@ -969,7 +969,7 @@
             </p>
           </li>
         </ol>
-        </hint>
+        </check>
       </exercise>
       <exercise xml:id="exer_verify_addition">
         <title>Practice</title>
@@ -979,7 +979,7 @@
             Include an intermediate column for <m>P \lor Q</m>.
           </p>
         </statement>
-        <hint>
+        <check>
         <p>
           Hint: The truth table should have four columns:
           <m>P</m>, <m>Q</m>, <m>P \lor Q</m>, <m>P \to (P \lor Q)</m>.
@@ -988,7 +988,7 @@
           To show that the statement is a tautology,
           the last column of your truth table should be all <m>\str{T}</m> s.
         </p>
-        </hint>
+        </check>
       </exercise>
       <exercise xml:id="exer_truthtable_PimpliesnegQ">
         <title>Practice</title>
@@ -1061,7 +1061,7 @@
             (for two cases).
           </p>
         </statement>
-        <hint>
+        <check>
         <p>
           Hint: Your truth table should have eight columns:
           <m>P</m>, <m>Q</m>, <m>R</m>,
@@ -1072,7 +1072,7 @@
           as in <xref ref="exam_distributive_equiv"></xref>.
           The sixth and eighth columns should be the same.
         </p>
-        </hint>
+        </check>
       </exercise>
       <exercise xml:id="exer_rewrite_implication">
         <title>Understand</title>
@@ -1094,7 +1094,7 @@
             </ol>
           </p>
         </statement>
-        <hint>
+        <check>
         <ol>
           <li>
             <p>
@@ -1110,7 +1110,7 @@
             </p>
           </li>
         </ol>
-        </hint>
+        </check>
       </exercise>
       <exercise xml:id="exer_dyk_iften">
         <title>Recap</title>
@@ -1218,19 +1218,19 @@
             How can you write <m>n = 3(~)</m>?
           </p>
         </statement>
-        <hint>
+        <check>
         <p>
           Hint: The proof begins
         </p>
-        <blockquote>
+        <q>
         <p>
           <em>Proof</em>.  Let <m>n</m> be an integer.  Assume <m>6 \mid n</m>.  By definition of divides, <m>\ldots</m>.
         </p>
-        </blockquote>
+        </q>
         <p>
           Then use the hint.
         </p>
-        </hint>
+        </check>
       </exercise>
       <exercise xml:id="exer_divides_square_proof">
         <title>Practice</title>
@@ -1259,19 +1259,19 @@
             (You cannot use the same integer <m>k</m> for both.)
           </p>
         </statement>
-        <hint>
+        <check>
         <p>
           Hint: Here is an outline of the proof.
         </p>
-        <blockquote>
+        <q>
         <p>
           <em>Proof.</em>  Let <m>a</m> and <m>b</m> be integers.  Assume <m>\ldots</m>.
           By the definitions of even and odd, we can write <m>\ldots</m> (use hint)
           Then, first, <m>a+b= \ldots</m>. Thus, <m>\ldots.</m>
           Next, <m>ab =\ldots</m>. Thus, <m>\ldots.</m>
           </p>
-        </blockquote>
-        </hint>
+        </q>
+        </check>
       </exercise>
       <exercise xml:id="exer_divides_transitive">
         <title>Understand</title>
@@ -1287,8 +1287,8 @@
             You cannot use the same integer <m>k</m> for both.
           </p>
         </statement>
-        <hint>
-        <blockquote>
+        <check>
+        <q>
         <p>
           <em>Proof.</em>  Let <m>a</m>, <m>b</m>, and <m>c</m> be integers.  Assume <m>a \mid b</m> and <m>b \mid c</m>. By the definitions of divides, we can write <m>b=ak_1</m> and <m>c=bk_2</m> for some integers <m>k_1</m> and <m>k_2</m>. Then,
           <me>
@@ -1296,8 +1296,8 @@
           </me>
           where <m>k = k_1k_2</m> is an integer.  Thus, by definition of divides, <m>a \mid c</m>.  <m>\Box</m>
         </p>
-        </blockquote>
-        </hint>
+        </q>
+        </check>
       </exercise>
       <exercise xml:id="exer_dyk_pffifthen">
         <title>Recap</title>
@@ -1341,11 +1341,11 @@
             then that integer is odd.
           </p>
         </statement>
-        <hint>
+        <check>
         <p>
           Hint: Here is an outline of the proof.
         </p>
-        <blockquote>
+        <q>
         <p>
           <em>Proof.</em>  Let <m>n</m> be an integer and let <m>s</m> be a digit.
           First, assume <m>s</m> is even.  By definition of even we can write <m>s=\ldots</m>.  Then
@@ -1359,8 +1359,8 @@
           </me>
           where <m>k' = \ldots</m> is an integer.  Thus <m>10n+s</m> is odd.
         </p>
-        </blockquote>
-        </hint>
+        </q>
+        </check>
       </exercise>
       <exercise xml:id="exer_proof_EAthm_recursion">
         <title>Explore</title>
@@ -1449,7 +1449,7 @@
             </ol>
           </p>
         </statement>
-        <hint>
+        <check>
         <ol>
           <li>
             <p>
@@ -1468,7 +1468,7 @@
             </p>
           </li>
         </ol>
-        </hint>
+        </check>
       </exercise>
       <exercise xml:id="exer_truthtable_neg_conditional">
         <title>Understand</title>
@@ -1500,7 +1500,7 @@
             </ol>
           </p>
         </statement>
-        <hint>
+        <check>
         <ol>
           <li>
             <p>
@@ -1516,7 +1516,7 @@
             </p>
           </li>
         </ol>
-        </hint>
+        </check>
       </exercise>
       <exercise xml:id="exer_negation_ifthen_graphs">
         <title>Understand</title>
@@ -1549,7 +1549,7 @@
             </ol>
           </p>
         </statement>
-        <hint>
+        <check>
         <ol>
           <li>
             <p>
@@ -1569,7 +1569,7 @@
             </p>
           </li>
         </ol>
-        </hint>
+        </check>
       </exercise>
       <exercise xml:id="exer_negation_ifthen_even">
         <title>Understand</title>
@@ -1595,7 +1595,7 @@
             </ol>
           </p>
         </statement>
-        <hint>
+        <check>
         <ol>
           <li>
             <p>
@@ -1613,7 +1613,7 @@
             </p>
           </li>
         </ol>
-        </hint>
+        </check>
       </exercise>
       <exercise xml:id="exer_dyk_neg_conditional">
         <title>Recap</title>

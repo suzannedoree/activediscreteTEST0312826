@@ -45,6 +45,11 @@
     <xsl:text>true</xsl:text>
   </xsl:template>
 
+  <!-- Keep the underlying <hint> environment but display it as "Check" everywhere. -->
+  <xsl:template match="hint" mode="type-name">
+    <xsl:text>Check</xsl:text>
+  </xsl:template>
+
   <!--
     Inline exercises are rendered as local numbered items within a section,
     e.g. "1. Practice", "2. Understand", instead of "Checkpoint 2.1.20 ...".
