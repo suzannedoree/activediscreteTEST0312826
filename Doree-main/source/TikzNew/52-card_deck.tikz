@@ -1,0 +1,53 @@
+
+\usepackage[margin=1cm]{geometry}
+\usepackage{tikz}
+\usepackage{pgfpages}
+
+% Define custom commands for suit symbols with color
+\newcommand{\cardheart}{\textcolor{red}{$\heartsuit$}}
+\newcommand{\carddiamond}{\textcolor{red}{$\diamondsuit$}}
+\newcommand{\cardspade}{\textcolor{black}{$\spadesuit$}}
+\newcommand{\cardclub}{\textcolor{black}{$\clubsuit$}}
+
+% Macro to draw a single playing card
+% Usage: \drawcard{x}{y}{Value}{SuitSymbol}{Color}
+\newcommand{\drawcard}[5]{
+    \begin{scope}[shift={(#1,#2)}]
+        % Card outline & background
+        \draw[rounded corners=4pt, thick, fill=white] (0,0) rectangle (2.2,3.1);
+        
+        % Top-left corner value & suit
+        \node[anchor=north west, inner sep=2pt, align=center, text=#5] at (0.05, 3.05) {
+            \small\textbf{#3}\\[-2pt]\small #4
+        };
+        
+        % Center suit symbol
+        \node[font=\Large, text=#5] at (1.1, 1.55) {#4};
+        
+        % Bottom-right corner value & suit (rotated)
+        \node[anchor=north west, inner sep=2pt, align=center, text=#5, rotate=180] at (2.15, 0.05) {
+            \small\textbf{#3}\\[-2pt]\small #4
+        };
+    \end{scope}
+}
+
+\begin{tikzpicture}[x=1cm, y=1cm]
+
+% Loop through each suit and rank to generate all 52 cards
+\foreach \suit/\suitname/\suitcolor [count=\s] in {
+    {\cardheart}/Hearts/red,
+    {\carddiamond}/Diamonds/red,
+    {\cardclub}/Clubs/black,
+    {\cardspade}/Spades/black%
+} {
+    \foreach \rank [count=\r] in {A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K} {
+        % Calculate grid coordinates (13 columns, 4 rows)
+        \pgfmathsetmacro{\x}{(\r - 1) * 2.5}
+        \pgfmathsetmacro{\y}{(4 - \s) * 3.5}
+        
+        % Render the card
+        \drawcard{\x}{\y}{\rank}{\suit}{\suitcolor}
+    }
+}
+
+\end{tikzpicture}

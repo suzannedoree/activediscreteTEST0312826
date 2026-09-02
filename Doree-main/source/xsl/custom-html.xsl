@@ -40,13 +40,13 @@
     <xsl:text>false</xsl:text>
   </xsl:template>
 
-  <!-- Render authored hints as collapsed knowls by default. -->
-  <xsl:template match="hint" mode="is-hidden">
+  <!-- Render authored hints/checks as collapsed knowls by default. -->
+  <xsl:template match="hint|check" mode="is-hidden">
     <xsl:text>true</xsl:text>
   </xsl:template>
 
-  <!-- Keep the underlying <hint> environment but display it as "Check" everywhere. -->
-  <xsl:template match="hint" mode="type-name">
+  <!-- Keep the underlying hint/check environment but display it as "Check" everywhere. -->
+  <xsl:template match="hint|check" mode="type-name">
     <xsl:text>Check</xsl:text>
   </xsl:template>
 

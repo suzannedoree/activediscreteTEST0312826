@@ -98,7 +98,7 @@
                 
                 <figure xml:id="fig_part_sums_constant">
                   <caption>Calculating partial sums for <m>\displaystyle \sum_{k=1}^n2</m>.</caption>
-                  <image width="60%">
+                  <image width="90%">
                     <latex-image>
                       <xi:include href="Tikz/partial_sums_constant.tikz" parse="text"/>
                     </latex-image>
@@ -116,57 +116,57 @@
                     so it is helpful to have the partial sums in a table,
                     as shown in <xref ref="tab_partial_sums_constant"></xref>.
                   </p>
+                  <table xml:id="tab_partial_sums_constant">
+                    <title>Partial sums for <m>\displaystyle \sum_{k=1}^n2</m></title>
+                    <tabular>
+                      <row>
+                        <cell halign="center"><m>n</m></cell>
+                        <cell halign="center">1</cell>
+                        <cell halign="center">2</cell>
+                        <cell halign="center">3</cell>
+                        <cell halign="center">4</cell>
+                        <cell halign="center">5</cell>
+                        <cell halign="center">6</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center">partial sum</cell>
+                        <cell halign="center">2</cell>
+                        <cell halign="center">4</cell>
+                        <cell halign="center">6</cell>
+                        <cell halign="center">8</cell>
+                        <cell halign="center">10</cell>
+                        <cell halign="center">12</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center">pattern</cell>
+                        <cell halign="center">2(1)</cell>
+                        <cell halign="center">2(2)</cell>
+                        <cell halign="center">2(3)</cell>
+                        <cell halign="center">2(4)</cell>
+                        <cell halign="center">2(5)</cell>
+                        <cell halign="center">2(6)</cell>
+                    </row>
+                    </tabular>
+                  </table>
                 </solution>
-                <table xml:id="tab_partial_sums_constant">
-                  <title>Partial sums for <m>\displaystyle \sum_{k=1}^n2</m></title>
-                  <tabular>
-                    <row>
-                      <cell halign="center"><m>n</m></cell>
-                      <cell halign="center">1</cell>
-                      <cell halign="center">2</cell>
-                      <cell halign="center">3</cell>
-                      <cell halign="center">4</cell>
-                      <cell halign="center">5</cell>
-                      <cell halign="center">6</cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center">partial sum</cell>
-                      <cell halign="center">2</cell>
-                      <cell halign="center">4</cell>
-                      <cell halign="center">6</cell>
-                      <cell halign="center">8</cell>
-                      <cell halign="center">10</cell>
-                      <cell halign="center">12</cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center">pattern</cell>
-                      <cell halign="center">2(1)</cell>
-                      <cell halign="center">2(2)</cell>
-                      <cell halign="center">2(3)</cell>
-                      <cell halign="center">2(4)</cell>
-                      <cell halign="center">2(5)</cell>
-                      <cell halign="center">2(6)</cell>
-                    </row>
-                  </tabular>
-                </table>
               </p>
             </li>
             <li>
@@ -240,13 +240,77 @@
                   <p>
                     We start by writing out the first six terms and their partial sums,
                     as shown in <xref ref="fig_part_sums_linear"></xref>.
+                  </p>
+                  <figure xml:id="fig_part_sums_linear">
+                  <caption>Calculating partial sums for <m>\displaystyle \sum_{k=1}^n(4k-1)</m>.</caption>
+                    <image width="90%">
+                      <latex-image>
+                        <xi:include href="Tikz/partial_sums_linear.tikz" parse="text"/>
+                      </latex-image>
+                    </image>
+                  </figure>
+                  <p>
                     For example, <m>3+7 = 10</m>.
                     Next, using the previous sum
                     (as in <xref ref="rem_rec_def_partial_sum"></xref>)
                     we get <m>3+7+11 = (10) + 11 = 21</m>.
                     Then, <m>21 + 15 = 36</m>, and so on.
+                  </p>
+                  <p>
                     Next, we make a table showing the index <m>n</m> and the partial sums,
                     as shown in <xref ref="tab_partial_sums_linear"></xref>.
+                  </p>
+                  <table xml:id="tab_partial_sums_linear">
+                  <title>Partial sums for <m>\displaystyle \sum_{k=1}^n(4k-1)</m></title>
+                    <tabular>
+                      <row>
+                        <cell halign="center"><m>n</m></cell>
+                        <cell halign="center">1</cell>
+                        <cell halign="center">2</cell>
+                        <cell halign="center">3</cell>
+                        <cell halign="center">4</cell>
+                        <cell halign="center">5</cell>
+                        <cell halign="center">6</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center">partial sum</cell>
+                        <cell halign="center">3</cell>
+                        <cell halign="center">10</cell>
+                        <cell halign="center">21</cell>
+                        <cell halign="center">36</cell>
+                        <cell halign="center">55</cell>
+                        <cell halign="center">78</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center">pattern</cell>
+                        <cell halign="center">1(3)</cell>
+                        <cell halign="center">2(5)</cell>
+                        <cell halign="center">3(7)</cell>
+                        <cell halign="center">4(9)</cell>
+                        <cell halign="center">5(11)</cell>
+                        <cell halign="center">6(13)</cell>
+                      </row>
+                    </tabular>
+                  </table>
+                  <p>                  
                     To see the pattern, we follow the hint and factor each partial sum.
                     We show this pattern in the third row of the table.
                     Notice that one factor is <m>n</m> itself.
@@ -256,66 +320,7 @@
                       \displaystyle \sum_{k=1}^n(4k-1)=n(2n+1)
                     </me>
                   </p>
-                
-                <figure xml:id="fig_part_sums_linear">
-                  <caption>Calculating partial sums for <m>\displaystyle \sum_{k=1}^n(4k-1)</m>.</caption>
-                  <image width="60%">
-                    <latex-image>
-                      <xi:include href="Tikz/partial_sums_linear.tikz" parse="text"/>
-                    </latex-image>
-                  </image>
-                </figure>
                 </solution>
-                <table xml:id="tab_partial_sums_linear">
-                  <title>Partial sums for <m>\displaystyle \sum_{k=1}^n(4k-1)</m></title>
-                  <tabular>
-                    <row>
-                      <cell halign="center"><m>n</m></cell>
-                      <cell halign="center">1</cell>
-                      <cell halign="center">2</cell>
-                      <cell halign="center">3</cell>
-                      <cell halign="center">4</cell>
-                      <cell halign="center">5</cell>
-                      <cell halign="center">6</cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center">partial sum</cell>
-                      <cell halign="center">3</cell>
-                      <cell halign="center">10</cell>
-                      <cell halign="center">21</cell>
-                      <cell halign="center">36</cell>
-                      <cell halign="center">55</cell>
-                      <cell halign="center">78</cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center">pattern</cell>
-                      <cell halign="center">1(3)</cell>
-                      <cell halign="center">2(5)</cell>
-                      <cell halign="center">3(7)</cell>
-                      <cell halign="center">4(9)</cell>
-                      <cell halign="center">5(11)</cell>
-                      <cell halign="center">6(13)</cell>
-                    </row>
-                  </tabular>
-                </table>
               </p>
             </li>
             <li>
@@ -325,11 +330,65 @@
                   <p>
                     We start by writing out the first four terms and their partial sums,
                     as shown in <xref ref="fig_part_sums_geometric"></xref>.
+                  </p>
+                  <figure xml:id="fig_part_sums_geometric">
+                  <caption>Calculating partial sums for <m>\displaystyle \sum_{k=0}^n9 \cdot 10^k</m>.</caption>
+                    <image width="60%">
+                      <latex-image>
+                        <xi:include href="Tikz/partial_sums_geometric.tikz" parse="text"/>
+                      </latex-image>
+                    </image>
+                  </figure>
+                  <p>
                     For example, using <xref ref="rem_rec_def_partial_sum"></xref>,
                     we calculate <m>9+90=99</m>, then <m>99 + 900 = 999</m>,
                     and so on.
+                  </p>
+                  <p>
                     Next, we make a table showing the index <m>n</m> and the partial sums,
                     as shown in <xref ref="tab_partial_sums_geometric"></xref>.
+                  </p>
+                  <table xml:id="tab_partial_sums_geometric">
+                  <title>Partial sums for <m>\displaystyle \sum_{k=0}^n9 \cdot 10^k</m></title>
+                    <tabular>
+                      <row>
+                        <cell halign="center"><m>n</m></cell>
+                        <cell halign="center">1</cell>
+                        <cell halign="center">2</cell>
+                        <cell halign="center">3</cell>
+                        <cell halign="center">4</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center">partial sum</cell>
+                        <cell halign="center">9</cell>
+                        <cell halign="center">99</cell>
+                        <cell halign="center">999</cell>
+                        <cell halign="center">9999</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center">pattern</cell>
+                        <cell halign="center"><m>10^1-1</m></cell>
+                        <cell halign="center"><m>10^2-1</m></cell>
+                        <cell halign="center"><m>10^3-1</m></cell>
+                        <cell halign="center"><m>10^4-1</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+                  <p>
                     We notice that the partial sums are related to powers of 10 and,
                     in fact, they are each one less than the next higher power of 10.
                     We show this pattern in the third row of the table.
@@ -338,56 +397,7 @@
                       \displaystyle \sum_{k=0}^n9 \cdot 10^k=10^{n+1}-1
                     </me>.
                   </p>
-                
-                <figure xml:id="fig_part_sums_geometric">
-                  <caption>Calculating partial sums for <m>\displaystyle \sum_{k=0}^n9 \cdot 10^k</m>.</caption>
-                  <image width="60%">
-                    <latex-image>
-                      <xi:include href="Tikz/partial_sums_geometric.tikz" parse="text"/>
-                    </latex-image>
-                  </image>
-                </figure>
                 </solution>
-                <table xml:id="tab_partial_sums_geometric">
-                  <title>Partial sums for <m>\displaystyle \sum_{k=0}^n9 \cdot 10^k</m></title>
-                  <tabular>
-                    <row>
-                      <cell halign="center"><m>n</m></cell>
-                      <cell halign="center">1</cell>
-                      <cell halign="center">2</cell>
-                      <cell halign="center">3</cell>
-                      <cell halign="center">4</cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center">partial sum</cell>
-                      <cell halign="center">9</cell>
-                      <cell halign="center">99</cell>
-                      <cell halign="center">999</cell>
-                      <cell halign="center">9999</cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center">pattern</cell>
-                      <cell halign="center"><m>10^1-1</m></cell>
-                      <cell halign="center"><m>10^2-1</m></cell>
-                      <cell halign="center"><m>10^3-1</m></cell>
-                      <cell halign="center"><m>10^4-1</m></cell>
-                    </row>
-                  </tabular>
-                </table>
               </p>
             </li>
           </ol>
@@ -430,7 +440,8 @@
       <title>Explicit form of sum of reciprocals of handshake numbers</title>
       <statement>
         <p>
-          Calculate the first few partial sums and use pattern recognition to complete a conjecture about an explicit formula for the sum
+          Calculate the first few partial sums and use pattern recognition to complete a conjecture 
+          about an explicit formula for the sum
           <me>
             \displaystyle \sum_{k=1}^n\frac{2}{k(k+1)}= 1 + \frac{1}{3} + \frac{1}{6} + \ldots+\frac{2}{n(n+1)}
           </me>
@@ -455,98 +466,100 @@
             </me>.
             Next, we make a table showing the index <m>n</m> and the partial sums,
             as shown in <xref ref="tab_partial_sums_recip_hs"></xref>.
+          </p>
+          <table xml:id="tab_partial_sums_recip_hs">
+          <title>Partial sums for <m>\displaystyle \sum_{k=1}^n\frac{2}{k(k+1)}</m></title>
+            <tabular>
+              <row>
+                <cell halign="center"><m>n</m></cell>
+                <cell halign="center">1</cell>
+                <cell halign="center">2</cell>
+                <cell halign="center">3</cell>
+                <cell halign="center">4</cell>
+                <cell halign="center">5</cell>
+                <cell halign="center">6</cell>
+              </row>
+              <row bottom="minor">
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+              <row>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+              <row>
+                <cell halign="center">partial sum</cell>
+                <cell halign="center">1</cell>
+                <cell halign="center"><m>\displaystyle \frac{4}{3}</m></cell>
+                <cell halign="center"><m>\displaystyle\frac{3}{2}</m></cell>
+                <cell halign="center"><m>\displaystyle\frac{8}{5}</m></cell>
+                <cell halign="center"><m>\displaystyle\frac{5}{3}</m></cell>
+                <cell halign="center"><m>\displaystyle\frac{12}{7}</m></cell>
+              </row>
+              <row>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+              <row bottom="minor">
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+              <row>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+              <row>
+                <cell halign="center">pattern</cell>
+                <cell halign="center"><m>\displaystyle\frac{2}{2}</m></cell>
+                <cell halign="center"><m>\displaystyle\frac{4}{3}</m></cell>
+                <cell halign="center"><m>\displaystyle\frac{6}{4}</m></cell>
+                <cell halign="center"><m>\displaystyle\frac{8}{5}</m></cell>
+                <cell halign="center"><m>\displaystyle\frac{10}{6}</m></cell>
+                <cell halign="center"><m>\displaystyle\frac{12}{7}</m></cell>
+              </row>
+              <row>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+            </tabular>
+          </table>
+          <p>
             Based on this pattern, we conjecture that
             <me>
               \sum_{k=1}^n\frac{2}{k(k+1)}= \frac{2n}{n+1}
             </me>
           </p>
         </solution>
-        <table xml:id="tab_partial_sums_recip_hs">
-          <title>Partial sums for <m>\displaystyle \sum_{k=1}^n\frac{2}{k(k+1)}</m></title>
-          <tabular>
-            <row>
-              <cell halign="center"><m>n</m></cell>
-              <cell halign="center">1</cell>
-              <cell halign="center">2</cell>
-              <cell halign="center">3</cell>
-              <cell halign="center">4</cell>
-              <cell halign="center">5</cell>
-              <cell halign="center">6</cell>
-            </row>
-            <row bottom="minor">
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-            <row>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-            <row>
-              <cell halign="center">partial sum</cell>
-              <cell halign="center">1</cell>
-              <cell halign="center"><m>\displaystyle \frac{4}{3}</m></cell>
-              <cell halign="center"><m>\displaystyle\frac{3}{2}</m></cell>
-              <cell halign="center"><m>\displaystyle\frac{8}{5}</m></cell>
-              <cell halign="center"><m>\displaystyle\frac{5}{3}</m></cell>
-              <cell halign="center"><m>\displaystyle\frac{12}{7}</m></cell>
-            </row>
-            <row>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-            <row bottom="minor">
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-            <row>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-            <row>
-              <cell halign="center">pattern</cell>
-              <cell halign="center"><m>\displaystyle\frac{2}{2}</m></cell>
-              <cell halign="center"><m>\displaystyle\frac{4}{3}</m></cell>
-              <cell halign="center"><m>\displaystyle\frac{6}{4}</m></cell>
-              <cell halign="center"><m>\displaystyle\frac{8}{5}</m></cell>
-              <cell halign="center"><m>\displaystyle\frac{10}{6}</m></cell>
-              <cell halign="center"><m>\displaystyle\frac{12}{7}</m></cell>
-            </row>
-            <row>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-          </tabular>
-        </table>
       </statement>
     </example>
   </subsection>
@@ -631,7 +644,7 @@
                 
                 <figure xml:id="fig_part_products_constant">
                   <caption>Calculating partial products for <m>\displaystyle \prod_{k=1}^n2</m>.</caption>
-                  <image width="60%">
+                  <image width="90%">
                     <latex-image>
                       <xi:include href="Tikz/partial_products_constant.tikz" parse="text"/>
                     </latex-image>
@@ -649,57 +662,57 @@
                     so it is helpful to have the partial products in a table,
                     as shown in <xref ref="tab_partial_products_constant"></xref>.
                   </p>
-                </solution>
-                <table xml:id="tab_partial_products_constant">
+                  <table xml:id="tab_partial_products_constant">
                   <title>Partial products for <m>\displaystyle \prod_{k=1}^n2</m></title>
-                  <tabular>
-                    <row>
-                      <cell halign="center"><m>n</m></cell>
-                      <cell halign="center">1</cell>
-                      <cell halign="center">2</cell>
-                      <cell halign="center">3</cell>
-                      <cell halign="center">4</cell>
-                      <cell halign="center">5</cell>
-                      <cell halign="center">6</cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center">partial product</cell>
-                      <cell halign="center">2</cell>
-                      <cell halign="center">4</cell>
-                      <cell halign="center">8</cell>
-                      <cell halign="center">16</cell>
-                      <cell halign="center">32</cell>
-                      <cell halign="center">64</cell>
-                    </row>
-                    <row bottom="minor">
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                      <cell halign="center"></cell>
-                    </row>
-                    <row>
-                      <cell halign="center">pattern</cell>
-                      <cell halign="center"><m>2^1</m></cell>
-                      <cell halign="center"><m>2^2</m></cell>
-                      <cell halign="center"><m>2^3</m></cell>
-                      <cell halign="center"><m>2^4</m></cell>
-                      <cell halign="center"><m>2^5</m></cell>
-                      <cell halign="center"><m>2^6</m></cell>
-                    </row>
-                  </tabular>
-                </table>
+                    <tabular>
+                      <row>
+                        <cell halign="center"><m>n</m></cell>
+                        <cell halign="center">1</cell>
+                        <cell halign="center">2</cell>
+                        <cell halign="center">3</cell>
+                        <cell halign="center">4</cell>
+                        <cell halign="center">5</cell>
+                        <cell halign="center">6</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center">partial product</cell>
+                        <cell halign="center">2</cell>
+                        <cell halign="center">4</cell>
+                        <cell halign="center">8</cell>
+                        <cell halign="center">16</cell>
+                        <cell halign="center">32</cell>
+                        <cell halign="center">64</cell>
+                      </row>
+                      <row bottom="minor">
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                        <cell halign="center"></cell>
+                      </row>
+                      <row>
+                        <cell halign="center">pattern</cell>
+                        <cell halign="center"><m>2^1</m></cell>
+                        <cell halign="center"><m>2^2</m></cell>
+                        <cell halign="center"><m>2^3</m></cell>
+                        <cell halign="center"><m>2^4</m></cell>
+                        <cell halign="center"><m>2^5</m></cell>
+                        <cell halign="center"><m>2^6</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+                </solution>
               </p>
             </li>
             <li>
@@ -771,80 +784,85 @@
           <p>
             We start by writing out the first six terms and their partial products,
             as shown in <xref ref="fig_part_product_linear"></xref>.
+          </p>
+          <figure xml:id="fig_part_product_linear">
+            <caption>Calculating partial products for <m>\displaystyle \prod_{k=1}^nk</m>.</caption>
+            <image width="60%">
+              <latex-image>
+                <xi:include href="Tikz/partial_products_k.tikz" parse="text"/>
+              </latex-image>
+            </image>
+          </figure>
+          <p>
             For example, <m>1 \times 2 = 2</m>.
             Next, using the previous product
             (as in <xref ref="rem_rec_def_partial_prod"></xref>)
             we get <m>1 \times 2 \times 3 = (2) \times 3 = 6</m>.
             Then, <m>6 \times 4 = 24</m>, and so on.
+          </p>
+          <p>
             Next, we make a table showing the index <m>n</m> and the partial products,
             as shown in <xref ref="tab_partial_products_linear"></xref>.
             We recognize these numbers as the factorials
             (or we realize that we are multiplying consecutive integers).
             We show this pattern in the third row of the table.
+          </p>
+          <table xml:id="tab_partial_products_linear">
+            <title>Partial products for <m>\displaystyle \prod_{k=1}^nk</m></title>
+            <tabular>
+              <row>
+                <cell halign="center"><m>n</m></cell>
+                <cell halign="center">1</cell>
+                <cell halign="center">2</cell>
+                <cell halign="center">3</cell>
+                <cell halign="center">4</cell>
+                <cell halign="center">5</cell>
+                <cell halign="center">6</cell>
+              </row>
+              <row bottom="minor">
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+              <row>
+                <cell halign="center">partial product</cell>
+                <cell halign="center">1</cell>
+                <cell halign="center">2</cell>
+                <cell halign="center">6</cell>
+                <cell halign="center">24</cell>
+                <cell halign="center">120</cell>
+                <cell halign="center">720</cell>
+              </row>
+              <row bottom="minor">
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+              <row>
+                <cell halign="center">pattern</cell>
+                <cell halign="center"><m>1!</m></cell>
+                <cell halign="center"><m>2!</m></cell>
+                <cell halign="center"><m>3!</m></cell>
+                <cell halign="center"><m>4!</m></cell>
+                <cell halign="center"><m>5!</m></cell>
+                <cell halign="center"><m>6!</m></cell>
+              </row>
+            </tabular>
+          </table>
+          <p>
             Based on this pattern,
             we conjecture that <m>\displaystyle \prod_{k=1}^nk=n!</m>,
             which is no surprise because <m>1 \times 2 \times 3 \times \cdots \times n = n!</m>.
           </p>
-        
-        <figure xml:id="fig_part_product_linear">
-          <caption>Calculating partial products for <m>\displaystyle \prod_{k=1}^nk</m>.</caption>
-          <image width="60%">
-            <latex-image>
-              <xi:include href="Tikz/partial_products_k.tikz" parse="text"/>
-            </latex-image>
-          </image>
-        </figure>
         </solution>
-        <table xml:id="tab_partial_products_linear">
-          <title>Partial products for <m>\displaystyle \prod_{k=1}^nk</m></title>
-          <tabular>
-            <row>
-              <cell halign="center"><m>n</m></cell>
-              <cell halign="center">1</cell>
-              <cell halign="center">2</cell>
-              <cell halign="center">3</cell>
-              <cell halign="center">4</cell>
-              <cell halign="center">5</cell>
-              <cell halign="center">6</cell>
-            </row>
-            <row bottom="minor">
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-            <row>
-              <cell halign="center">partial product</cell>
-              <cell halign="center">1</cell>
-              <cell halign="center">2</cell>
-              <cell halign="center">6</cell>
-              <cell halign="center">24</cell>
-              <cell halign="center">120</cell>
-              <cell halign="center">720</cell>
-            </row>
-            <row bottom="minor">
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-            <row>
-              <cell halign="center">pattern</cell>
-              <cell halign="center"><m>1!</m></cell>
-              <cell halign="center"><m>2!</m></cell>
-              <cell halign="center"><m>3!</m></cell>
-              <cell halign="center"><m>4!</m></cell>
-              <cell halign="center"><m>5!</m></cell>
-              <cell halign="center"><m>6!</m></cell>
-            </row>
-          </tabular>
-        </table>
       </statement>
     </example>
     <p>
@@ -956,13 +974,86 @@
           <p>
             We start by writing out the first six terms and their partial sums,
             as shown in <xref ref="fig_part_sums_fib"></xref>.
+          </p>
+          <figure xml:id="fig_part_sums_fib">
+            <caption>Calculating partial sums for <m>\displaystyle \sum_{k=1}^nF_{2k}</m>.</caption>
+            <image width="90%">
+              <latex-image>
+                <xi:include href="Tikz/partial_sums_fib.tikz" parse="text"/>
+              </latex-image>
+            </image>
+          </figure>
+          <p>
             For example, <m>1+3 = 4</m>.
             Next, using the previous sum
             (as in <xref ref="rem_rec_def_partial_sum"></xref>)
             we get <m>1+3+8 = (4) + 8 = 12</m>.
             Then, <m>12 + 21 = 33</m>, and so on.
+          </p>
+          <p>
             Next, we make a table showing the index <m>n</m> and the partial sums,
             as shown in <xref ref="tab_partial_sums_fib"></xref>.
+          </p>
+          <table xml:id="tab_partial_sums_fib">
+            <title>Partial sums for <m>\displaystyle \sum_{k=1}^nF_{2k}</m></title>
+            <tabular>
+              <row>
+                <cell halign="center"><m>n</m></cell>
+                <cell halign="center">1</cell>
+                <cell halign="center">2</cell>
+                <cell halign="center">3</cell>
+                <cell halign="center">4</cell>
+                <cell halign="center">5</cell>
+                <cell halign="center">6</cell>
+              </row>
+              <row bottom="minor">
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+              <row>
+                <cell halign="center">partial sum</cell>
+                <cell halign="center">1</cell>
+                <cell halign="center">4</cell>
+                <cell halign="center">12</cell>
+                <cell halign="center">33</cell>
+                <cell halign="center">88</cell>
+                <cell halign="center">232</cell>
+              </row>
+              <row bottom="minor">
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+                <cell halign="center"></cell>
+              </row>
+              <row>
+                <cell halign="center">pattern</cell>
+                <cell halign="center"><m>2-1</m></cell>
+                <cell halign="center"><m>5-1</m></cell>
+                <cell halign="center"><m>13-1</m></cell>
+                <cell halign="center"><m>34-1</m></cell>
+                <cell halign="center"><m>89-1</m></cell>
+                <cell halign="center"><m>233-1</m></cell>
+              </row>
+              <row>
+                <cell halign="center"><m>=</m></cell>
+                <cell halign="center"><m>F_3-1</m></cell>
+                <cell halign="center"><m>F_5-1</m></cell>
+                <cell halign="center"><m>F_7-1</m></cell>
+                <cell halign="center"><m>F_9-1</m></cell>
+                <cell halign="center"><m>F_{11}-1</m></cell>
+                <cell halign="center"><m>F_{13}-1</m></cell>
+              </row>
+            </tabular>
+          </table>
+          <p>
             To see the pattern,
             notice that each partial sum is one less than a Fibonacci number.
             Notice that the subscripts are odd.
@@ -971,75 +1062,7 @@
               \sum_{k=1}^nF_{2k}=F_{2n+1}-1
             </me>.
           </p>
-        
-        <figure xml:id="fig_part_sums_fib">
-          <caption>Calculating partial sums for <m>\displaystyle \sum_{k=1}^nF_{2k}</m>.</caption>
-          <image width="60%">
-            <latex-image>
-              <xi:include href="Tikz/partial_sums_fib.tikz" parse="text"/>
-            </latex-image>
-          </image>
-        </figure>
         </solution>
-        <table xml:id="tab_partial_sums_fib">
-          <title>Partial sums for <m>\displaystyle \sum_{k=1}^nF_{2k}</m></title>
-          <tabular>
-            <row>
-              <cell halign="center"><m>n</m></cell>
-              <cell halign="center">1</cell>
-              <cell halign="center">2</cell>
-              <cell halign="center">3</cell>
-              <cell halign="center">4</cell>
-              <cell halign="center">5</cell>
-              <cell halign="center">6</cell>
-            </row>
-            <row bottom="minor">
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-            <row>
-              <cell halign="center">partial sum</cell>
-              <cell halign="center">1</cell>
-              <cell halign="center">4</cell>
-              <cell halign="center">12</cell>
-              <cell halign="center">33</cell>
-              <cell halign="center">88</cell>
-              <cell halign="center">232</cell>
-            </row>
-            <row bottom="minor">
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-              <cell halign="center"></cell>
-            </row>
-            <row>
-              <cell halign="center">pattern</cell>
-              <cell halign="center"><m>2-1</m></cell>
-              <cell halign="center"><m>5-1</m></cell>
-              <cell halign="center"><m>13-1</m></cell>
-              <cell halign="center"><m>34-1</m></cell>
-              <cell halign="center"><m>89-1</m></cell>
-              <cell halign="center"><m>233-1</m></cell>
-            </row>
-            <row>
-              <cell halign="center"><m>=</m></cell>
-              <cell halign="center"><m>F_3-1</m></cell>
-              <cell halign="center"><m>F_5-1</m></cell>
-              <cell halign="center"><m>F_7-1</m></cell>
-              <cell halign="center"><m>F_9-1</m></cell>
-              <cell halign="center"><m>F_{11}-1</m></cell>
-              <cell halign="center"><m>F_{13}-1</m></cell>
-            </row>
-          </tabular>
-        </table>
       </statement>
     </example>
   </subsection>
@@ -1100,7 +1123,7 @@
                   <p>
                     Based on our observation in <xref ref="part_expand_binomial_general"/>, we might guess that
                     <me>
-                      n^2 -n-6 = (n+\underline{})(n+\underline{})
+                      n^2 -n-6 = (n+<fillin/>)(n+<fillin/>)
                     </me>
                     where the sum of the integers in the blanks is <m>-1</m> and the product of the integers in the blanks is <m>-6</m>.
                     We guess that the integers are <m>-3</m> and <m>2</m> and so
@@ -1244,7 +1267,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1267,7 +1290,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_conj_powers3_constant">
         <title>Practice</title>
@@ -1290,7 +1313,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1304,7 +1327,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_conj_odds">
         <title>Practice</title>
@@ -1316,11 +1339,11 @@
             </me>
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: The partial sums are <m>1, 4, 9, \ldots</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_conj_alt_sum_sq">
         <title>Understand</title>
@@ -1344,7 +1367,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1360,7 +1383,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_conj_factorials">
         <title>Understand</title>
@@ -1373,13 +1396,13 @@
             By the way, the result of this exercise is a key step in proving the uniqueness of the factorial representations introduced in <xref ref="act_fact_rep"></xref>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: The partial sums begin
           <m>1, 5, 23, \ldots</m> and the formula involves factorials,
           but not exactly <m>n!</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_conj_recip_powers2">
         <title>Understand</title>
@@ -1391,14 +1414,14 @@
             </me>
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: The partial sums are <m>1, \frac{3}{2}, \frac{7}{4}, \ldots</m>.
           One version of the formula is a fraction in which the numerator involves a power of two
           (but not exactly <m>2^n</m>)
           and the denominator is <m>2^n</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_conj_new_odds">
         <title>Understand</title>
@@ -1418,12 +1441,12 @@
             Calculate the first few partial sums and use pattern recognition to conjecture an explicit formula for the sum sum <m>\displaystyle \sum_{k=1}^n 4 \cdot 5^k</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: The formula involves powers of five,
           but not exactly <m>5^n</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_conj_4kplus1">
         <title>Understand</title>
@@ -1435,11 +1458,11 @@
             </me>
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Factor the partial sums.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_conj_alt_sq">
         <title>Understand</title>
@@ -1451,11 +1474,11 @@
             </me>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Factor the partial sums.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_conj_4kminus3">
         <title>Understand</title>
@@ -1561,7 +1584,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1584,7 +1607,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_prod_conj_recip_constant">
         <title>Practice</title>
@@ -1607,7 +1630,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1620,7 +1643,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_prod_conj_3k_square">
         <title>Understand</title>
@@ -1643,7 +1666,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1659,7 +1682,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_prod_conj_1minus1overj">
         <title>Understand</title>
@@ -1671,7 +1694,7 @@
             </me>
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: <m>1 - \frac{1}{2} = \frac{1}{2}</m>,
           <m>1 - \frac{1}{3} = \frac{2}{3}</m>,
@@ -1680,7 +1703,7 @@
           therefore,
           the partial product are <m>\frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_prod_conj_twice_sq">
         <title>Understand</title>
@@ -1689,13 +1712,13 @@
             Calculate the first few partial products and use pattern recognition to conjecture an explicit formula for the product <m>\displaystyle \prod_{j=1}^n(2j^2)</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Keep the partial products factored:
           <m>(2\cdot 1 \cdot 1),(2\cdot 1 \cdot 1)(2\cdot 2 \cdot 2),(2\cdot 1 \cdot 1)(2\cdot 2 \cdot 2)(2\cdot 3 \cdot 3) , \ldots</m>.
           Then collect twos.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_prod_conj_2overj">
         <title>Understand</title>
@@ -1704,11 +1727,11 @@
             Calculate the first few partial products and use pattern recognition to conjecture an explicit formula for the product <m>\displaystyle \prod_{j=1}^n \frac{2}{j}</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Keep the numerator and denominator factored and do not reduce the fractions.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_product_conj">
         <title>Recap</title>
@@ -1749,12 +1772,12 @@
             </md>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: The formula involves Fibonacci numbers.
           For example, <m>12 = 13-1 = F_7-1</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_firstn_Fib_sq_conj">
         <title>Understand</title>
@@ -1767,12 +1790,12 @@
             </md>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: The formula involves Fibonacci numbers.
           Another hint: Factor.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_fib_sum_odd_terms_conj">
         <title>Understand</title>
@@ -1785,12 +1808,12 @@
             </md>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: the answers involved Fibonacci numbers.
           For example, <m>55 = F_{10}</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_fib_sums">
         <title>Recap</title>

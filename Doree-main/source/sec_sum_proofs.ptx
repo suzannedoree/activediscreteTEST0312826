@@ -21,34 +21,37 @@
       We can use mathematical induction to prove explicit formulas for summations and products.
       We begin with the proof format for a summation.
     </p>
-    <proof>
-    <p>
-      Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m>,
-      prove that <m>\displaystyle \sum_{k=s}^na_k=</m>
-      (explicit rule)
-      for <m>n \ge s</m>.
-    </p>
-    <proof>
-      <p>
-        Write <m>f(n) =</m>(explicit rule).
-        Induct on <m>n</m>.
-      </p>
-      <p>
-        First, when <m>n=s</m> we know that
-        <m>\displaystyle \sum_{k=s}^sa_k=a_s= \cdots</m> and also <m>f(s)=</m>
-        (evaluate and simplify to get the same answer).
-      </p>
-      <p>
-        Next, assume <m>\displaystyle \sum_{k=s}^{n-1}a_k=f(n-1)=</m>
-        (evaluate and simplify),
-        for some integer <m>n > s</m>.
-        Then
-        <me>
-          \sum_{k=s}^na_k = \left(\sum_{k=s}^{n-1}a_k\right) + a_n = f(n-1) + a_n = \cdots \text{ (use algebra) }  \cdots = f(n)
-        </me>
-      </p>
-    </proof>
-    </proof>
+
+    <theorem xml:id="pff_ind_sum">
+    <title>Proof Format: Mathematical Induction (Sum Formula) </title>
+        <statement>
+          <p>
+            Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m>,
+            We can prove that <m>\displaystyle \sum_{k=s}^na_k=</m> (explicit rule) for <m>n \ge s</m> 
+            using mathematical induction by adapting the following proof format.
+          </p>
+          <proof>
+            <p>
+              Write <m>f(n) =</m>(explicit rule).
+              Induct on <m>n</m>.
+            </p>
+            <p>
+              First, when <m>n=s</m> we know that
+              <m>\displaystyle \sum_{k=s}^sa_k=a_s= \cdots</m> and also <m>f(s)=</m>
+              (evaluate and simplify to get the same answer).
+            </p>
+            <p>
+              Next, assume <m>\displaystyle \sum_{k=s}^{n-1}a_k=f(n-1)=</m>
+              (evaluate and simplify),
+              for some integer <m>n > s</m>.
+              Then
+              <me>
+                \sum_{k=s}^na_k = \left(\sum_{k=s}^{n-1}a_k\right) + a_n = f(n-1) + a_n = \cdots \text{ (use algebra) }  \cdots = f(n)
+              </me>
+            </p>
+          </proof>
+      </statement>
+    </theorem>
     <p>
       The key first step in the last line of the proof uses the recursive definitions of partial sums,
       <xref ref="rem_rec_def_partial_sum"></xref>.
@@ -56,34 +59,37 @@
     <p>
       Similarly, here is the proof format for a product.
     </p>
-    <proof>
-    <p>
-      Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m>,
-      prove that <m>\displaystyle \prod_{k=s}^na_k=</m>
-      (explicit rule)
-      for <m>n \ge s</m>.
-    </p>
-    <proof>
-      <p>
-        Write <m>f(n) =</m>(explicit rule).
-        Induct on <m>n</m>.
-      </p>
-      <p>
-        First, when <m>n=s</m> we know that
-        <m>\displaystyle \prod_{k=s}^sa_k=a_s= \cdots</m> and also <m>f(s)=</m>
-        (evaluate and simplify to get the same answer).
-      </p>
-      <p>
-        Next, assume <m>\displaystyle \prod_{k=s}^{n-1}a_k=f(n-1)=</m>
-        (evaluate and simplify),
-        for some integer <m>n > s</m>.
-        Then
-        <me>
-          \prod_{k=s}^na_k = \left(\prod_{k=s}^{n-1}a_k\right) \cdot a_n = f(n-1) \cdot a_n = \cdots \text{ (use algebra) }  \cdots = f(n)
-        </me>
-      </p>
-    </proof>
-    </proof>
+
+    <theorem xml:id="pff_ind_prod">
+    <title>Proof Format: Mathematical Induction (Product Formula) </title>
+      <statement>
+        <p>
+          Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m>,
+          We can prove that <m>\displaystyle \prod_{k=s}^na_k=</m> (explicit rule) for <m>n \ge s</m> 
+          using mathematical induction by adapting the following proof format.
+        </p>
+        <proof>
+          <p>
+            Write <m>f(n) =</m>(explicit rule).
+            Induct on <m>n</m>.
+          </p>
+          <p>
+            First, when <m>n=s</m> we know that
+            <m>\displaystyle \prod_{k=s}^sa_k=a_s= \cdots</m> and also <m>f(s)=</m>
+            (evaluate and simplify to get the same answer).
+          </p>
+          <p>
+            Next, assume <m>\displaystyle \prod_{k=s}^{n-1}a_k=f(n-1)=</m>
+            (evaluate and simplify),
+            for some integer <m>n > s</m>.
+            Then
+            <me>
+              \prod_{k=s}^na_k = \left(\prod_{k=s}^{n-1}a_k\right) \cdot a_n = f(n-1) \cdot a_n = \cdots \text{ (use algebra) }  \cdots = f(n)
+            </me>
+          </p>
+        </proof>
+    </statement>
+  </theorem>
     <p>
       The key first step in the last line of the proof uses the recursive definitions of partial products,
       <xref ref="rem_rec_def_partial_prod"></xref>.
@@ -99,32 +105,62 @@
         <ol>
           <li xml:id="part_proof_ind_sum_powers2">
             <p>
-              Copy the following proof.
-              Use mathematical induction to prove that <m>\displaystyle \sum_{k=0}^n2^k=2^{n+1}-1</m> for <m>n \ge 0</m>.
-              <q>
-                <em>Proof</em> Write <m>f(n) = 2^{n+1}-1</m>.  Induct on <m>n</m>.  First, when <m>n=0</m> we know that <m>\displaystyle \sum_{k=0}^02^k=2^0=1</m> and also <m>f(0)=2^{0+1}-1=2-1=1</m>.  Next, assume <m>\displaystyle \sum_{k=0}^{n-1}2^k=f(n-1)= 2^{(n-1)+1}-1=2^n-1</m> for some integer <m>n > s</m>. Then
-                <md>
-                  <mrow>\sum_{k=0}^n2^k \amp  = \left(\sum_{k=0}^{n-1}2^k\right) + 2^n = f(n-1) + 2^n = \left(2^n-1\right)+2^n</mrow>
-                  <mrow>\amp  = 2^n+2^n-1=2\cdot2^n-1=2^{n+1}-1 = f(n)</mrow>
-                </md>.
-              </q>
+              Copy the following proof using mathematical induction to prove that 
+              <m>\displaystyle \sum_{k=0}^n2^k=2^{n+1}-1</m> for <m>n \ge 0</m>.
+                <proof>
+                  <p>
+                    Write <m>f(n) = 2^{n+1}-1</m>.  Induct on <m>n</m>.  
+                  </p>
+                  <p> 
+                    First, when <m>n=0</m> we know that <m>\displaystyle \sum_{k=0}^02^k=2^0=1</m> 
+                    and also <me>f(0)=2^{0+1}-1=2-1=1.</me>
+                  </p>
+                  <p> 
+                    Next, assume <m>\displaystyle \sum_{k=0}^{n-1}2^k=f(n-1)= 2^{(n-1)+1}-1=2^n-1</m> for some integer <m>n > s</m>. 
+                  </p>
+                  <p>
+                    Then
+                      <md>
+                        <mrow>\sum_{k=0}^n2^k \amp  = \left(\sum_{k=0}^{n-1}2^k\right) + 2^n  </mrow>
+                        <mrow> \amp = f(n-1) + 2^n = \left(2^n-1\right)+2^n </mrow>
+                        <mrow> \amp  = 2^n+2^n-1=2\cdot2^n-1=2^{n+1}-1 </mrow>
+                        <mrow> \amp = f(n)</mrow>
+                      </md>.
+                  </p>    
+                </proof>
             </p>
           </li>
           <li>
             <p>
-              Edit the proof in <xref ref="part_proof_ind_sum_powers2"/> to prove that <m>\displaystyle \sum_{k=0}^n2 \cdot 3^k = 3^{n+1}-1</m> for <m>n\ge 0</m>.
+              Edit the proof in <xref ref="part_proof_ind_sum_powers2"/> to prove that 
+              <m>\displaystyle \sum_{k=0}^n2 \cdot 3^k = 3^{n+1}-1</m> for <m>n\ge 0</m>.
             </p>
           </li>
           <li xml:id="part_proof_ind_prod_recip">
             <p>
-              Copy the following proof.
-              Use mathematical induction to prove that <m>\displaystyle \prod_{k=1}^nk=n!</m> for <m>n \ge 1</m>.
-              <q>
-                <em>Proof</em> Write <m>f(n) = n!</m>.  Induct on <m>n</m>.  First, when <m>n=1</m> we know that <m>\displaystyle \prod_{k=1}^1k=1=1</m> and also <m>f(1)=1!=1</m>.  Next, assume <m>\displaystyle \prod_{k=1}^{n-1}k=f(n-1)= (n-1)!</m> for some integer <m>n > s</m>. Then
-                <me>
-                  \prod_{k=1}^nk = \left(\prod_{k=1}^{n-1}k\right) \cdot n = f(n-1) \cdot n = \left((n-1)!\right) \cdot n = n(n-1)! =n! = f(n)
-                </me>.
-              </q>
+              Copy the following proof using mathematical induction to prove that 
+              <m>\displaystyle \prod_{k=1}^nk=n!</m> for <m>n \ge 1</m>.
+                <proof>
+                  <p>
+                    Write <m>f(n) = n!</m>.  Induct on <m>n</m>.  
+                  </p>
+                  <p>
+                    First, when <m>n=1</m> we know that <m>\displaystyle \prod_{k=1}^1k=1=1</m> and also <m>f(1)=1!=1</m>. 
+                  </p>
+                  <p> 
+                    Next, assume <m>\displaystyle \prod_{k=1}^{n-1}k=f(n-1)= (n-1)!</m> for some integer <m>n > s</m>. 
+                  </p>
+                  <p>
+                    Then
+                      <md>
+                        <mrow> \prod_{k=1}^nk \amp = \left(\prod_{k=1}^{n-1}k\right) \cdot n </mrow>
+                        <mrow> \amp = f(n-1) \cdot n </mrow>
+                        <mrow> \amp = \left((n-1)!\right) \cdot n 
+                        </mrow>
+                        <mrow> \amp = n(n-1)! =n! = f(n) </mrow>
+                      </md>
+                  </p>
+                </proof>
             </p>
           </li>
           <li>
@@ -134,30 +170,43 @@
           </li>
           <li xml:id="part_proof_ind_sum_Fib_evens">
             <p>
-              Copy the following proof.
-              Use mathematical induction to prove that
+              Copy the following proof using mathematical induction to prove that
               <m>\displaystyle \sum_{k=1}^nF_{2k}=F_{2n+1}-1</m>  for <m>n \ge 1</m> where,
               as usual,
               the Fibonacci numbers are defined by <m>F_0=0</m>, <m>F_1=1</m>,
               and <m>F_n=F_{n-1} + F_{n-2}</m> for <m>n \ge 2</m>.
-              <q>
-                <em>Proof</em> Write <m>f(n) = F_{2n+1}-1</m>.  Induct on <m>n</m>.  First, when <m>n=1</m> we have <m>\displaystyle\sum_{k=1}^1F_{2k}=F_{2(1)}=F_2=1</m> and also
-                <me>
-                  f(1) = F_{2(1)+1}-1=F_3-1=2-1=1
-                </me>.
-                Next, assume
-                <me>
-                  \sum_{k=1}^{n-1}F_{2k} = f(n-1) = F_{2(n-1)+1}-1 = F_{2n-1}-1
-                </me>
-                for some integer <m>n > 1</m>. Then
-                <md>
-                  <mrow>\sum_{k=1}^nF_{2k} \amp  = \left( \sum_{k=1}^{n-1}F_{2k} \right) + F_{2n} = f(n-1) + F_{2n} = \left(F_{2n-1}-1\right)+F_{2n}</mrow>
-                  <mrow>\amp  = \left(F_{2n} + F_{2n-1}\right) -1 = F_{2n+1}-1 = f(n)</mrow>
-                </md>
-                The next-to-last equality uses the recursive definition the Fibonacci numbers to conclude that the sum of the consecutive terms <m>F_{2n}</m> and <m>F_{2n-1}</m> equals the next term, <m>F_{2n+1}</m>.
-              </q>
-              Note: We saw this summation in <xref ref="act_fib_sums_conj"></xref>
-              <xref ref="part_fib_sums_even_index"/> and <xref ref="exam_fib_sum_conj_even_index"></xref>.
+              <proof>
+                <p>
+                  Write <m>f(n) = F_{2n+1}-1</m>.  Induct on <m>n</m>.  
+                </p>
+                <p>
+                  First, when <m>n=1</m> we have <m>\displaystyle\sum_{k=1}^1F_{2k}=F_{2(1)}=F_2=1</m> and also
+                    <me>
+                      f(1) = F_{2(1)+1}-1=F_3-1=2-1=1
+                    </me>.
+                </p>
+                <p>
+                  Next, assume
+                    <me>
+                      \sum_{k=1}^{n-1}F_{2k} = f(n-1) = F_{2(n-1)+1}-1 = F_{2n-1}-1
+                    </me>
+                  for some integer <m>n > 1</m>. 
+                </p>
+                <p>
+                  Then
+                    <md>
+                      <mrow>\ sum_{k=1}^nF_{2k} \amp  = \left( \sum_{k=1}^{n-1}F_{2k} \right) + F_{2n} = f(n-1) + F_{2n} </mrow>
+                      <mrow> \amp = \left(F_{2n-1}-1\right)+F_{2n} </mrow>
+                      <mrow> \amp  = \left(F_{2n} + F_{2n-1}\right) -1 = F_{2n+1}-1 = f(n) </mrow>
+                    </md>
+                  The next-to-last equality uses the recursive definition the Fibonacci numbers to conclude that 
+                  the sum of the consecutive terms <m>F_{2n}</m> and <m>F_{2n-1}</m> equals the next term, <m>F_{2n+1}</m>.
+                </p>
+              </proof>
+              <p>
+                Note: We saw this summation in <xref ref="act_fib_sums_conj"></xref>
+                <xref ref="part_fib_sums_even_index"/> and <xref ref="exam_fib_sum_conj_even_index"></xref>.
+              </p>
             </p>
           </li>
           <li>
@@ -184,37 +233,38 @@
       This extended proof format is especially useful for proofs involving binomial coefficients, since,
       by definition, they count objects.
     </p>
-    <proof xml:id="pff_comb_proof_sum">
-    <p>
-      Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m> where the terms <m>a_k</m> may depend on <m>n</m>,
-      prove that <m>\displaystyle \sum_{k=s}^na_k=f(n)</m> for <m>n \ge s</m>.
-    </p>
-    <proof>
-      <p>
-        We use a combinatorial proof.
-        Consider the following situation <ellipsis/>.
-      </p>
-      <p>
-        How many ways are there to <ellipsis/>?
-      </p>
-      <p>
-        First, condition on <m>k=</m>
-        (say what <m>k</m> counts).
-        In this case, there are
-        (show how to get <m>a_k</m>)
-        ways to do <ellipsis/>.
-        Since cases add <xref ref="thm_cases_add"/>,
-        there are a total of <m>\displaystyle \sum_{k=s}^na_k</m> ways.
-      </p>
-      <p>
-        On the other hand, (explain how to count using a different method to get <m>f(n)</m>.)
-      </p>
-      <p>
-        Since we counted the same quantity in two different ways,
-        it follows that <m>\displaystyle \sum_{k=s}^na_k=f(n)</m>.
-      </p>
-    </proof>
-    </proof>
+
+    <theorem xml:id="pff_comb_proof_sum">
+    <title>Proof Format: Combinatorial Proof (Sum) </title>
+      <statement>
+        <p>
+          Given the explicitly-defined sequence <m>a_k</m> for <m>k \ge s</m> where the terms <m>a_k</m> may depend on <m>n</m>,
+          we can prove that <m>\displaystyle \sum_{k=s}^na_k=</m> (explicit rule) for <m>n \ge s</m> 
+          using a combinatorial proof by adapting the following proof format.
+        </p>
+        <proof>
+          <p>
+            We use a combinatorial proof.
+            Consider the following situation <ellipsis/>.
+          </p>
+          <p>
+            How many ways are there to <ellipsis/>?
+          </p>
+          <p>
+            First, condition on <m>k=</m> (say what <m>k</m> counts).
+            In this case, there are (show how to get <m>a_k</m>) ways to do <ellipsis/>.
+            Since cases add <xref ref="thm_cases_add"/>,there are a total of <m>\displaystyle \sum_{k=s}^na_k</m> ways.
+          </p>
+          <p>
+            On the other hand, (explain how to count using a different method to get the explicit rule).
+          </p>
+          <p>
+            Since we counted the same quantity in two different ways,
+            it follows that <m>\displaystyle \sum_{k=s}^na_k=</m> (explicit rule).
+          </p>
+        </proof>
+    </statement>
+  </theorem>
     <p>
       The phrase
       <q>condition on <m>k=</m> (say what <m>k</m> counts)</q>
@@ -230,20 +280,37 @@
         <ol>
           <li xml:id="part_comb_pf_sum_row_sum_arith_tri">
             <p>
-              Copy the following proof.
-              Use a combinatorial proof to prove that
+              Copy the following combinatorial proof to that
               <me>
                 \displaystyle \sum_{k=0}^n\binom{n}{k} =2^n
               </me>
               for any natural number <m>n</m>.
               We made this conjecture about the row sums of the arithmetic triangle in <xref ref="act_pascals_patterns"></xref>
               <xref ref="part_find_row_sum_arith_tri"/>.
-              <q>
-                <em>Proof.</em>  We use a combinatorial proof.  Consider the following situation: we have the set <m>T = \{1,2,\ldots, n\}</m>.  How many ways are there to choose a subset of <m>T</m>?  First, condition on <m>k=</m> the number of elements in the subset.  There are <m>\binom{n}{k}</m> subsets with <m>k</m> elements for <m>k = 0, 1, 2, \ldots, n</m>. Since cases add <xref ref="thm_cases_add"/>, there are a total of <m>\displaystyle \sum_{k=0}^n\binom{n}{k}</m> subsets.  On the other hand, for each element of <m>T</m> we can decide whether it will be in the subset or not (2 choices). There are two choices for whether 1 is in the subset, two choices for whether 2 is in the subset, and so on up to two choices for whether <m>n</m> is in the subset.  Since steps multiply <xref ref="thm_steps_multiply"/>, there are <m>\underbrace{2\cdot 2 \cdots \cdots 2}_{n \text{ times } } = 2^n</m> subsets.  Since we counted the same quantity in two different ways, it follows that
-                <me>
-                  \sum_{k=0}^n\binom{n}{k} =2^n
-                </me>.
-              </q>
+              <proof>
+                <p>
+                  We use a combinatorial proof.  Consider the following situation: we have the set <m>T = \{1,2,\ldots, n\}</m>.  
+                  How many ways are there to choose a subset of <m>T</m>?  
+                </p>
+                <p>
+                  First, condition on <m>k=</m> the number of elements in the subset.  
+                  There are <m>\binom{n}{k}</m> subsets with <m>k</m> elements for <m>k = 0, 1, 2, \ldots, n</m>. 
+                  Since cases add <xref ref="thm_cases_add"/>, there are a total of <m>\displaystyle \sum_{k=0}^n\binom{n}{k}</m> subsets.  
+                </p>
+                <p>
+                  On the other hand, for each element of <m>T</m> we can decide whether it will be in the subset or not (2 choices). 
+                  There are two choices for whether 1 is in the subset, two choices for whether 2 is in the subset, 
+                  and so on up to two choices for whether <m>n</m> is in the subset.  
+                  Since steps multiply <xref ref="thm_steps_multiply"/>, 
+                  there are <m>\underbrace{2\cdot 2 \cdots \cdots 2}_{n \text{ times } } = 2^n</m> subsets.  
+                </p>
+                <p>
+                  Since we counted the same quantity in two different ways, it follows that
+                  <me>
+                    \sum_{k=0}^n\binom{n}{k} =2^n
+                  </me>.
+                </p>
+              </proof>
             </p>
           </li>
           <li>
@@ -472,7 +539,8 @@
       <title>Using the finite geometric sum formula</title>
       <statement>
         <p>
-          Use the finite geometric sum formula <xref ref="thm_geom_sum_finite"/> to evaluate <m>\displaystyle \sum_{k=0}^7(10\cdot2^k)=10 + 20 + 40 + \ldots + 1280</m>.
+          Use the finite geometric sum formula <xref ref="thm_geom_sum_finite"/> to evaluate 
+          <me>\displaystyle \sum_{k=0}^7(10\cdot2^k)=10 + 20 + 40 + \ldots + 1280.</me>
         </p>
       </statement>
       <solution>
@@ -918,11 +986,11 @@
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n(2k -1)=n^2</m> for <m>n\ge 1</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hints: Make sure you use parentheses in <m>f(n-1)=(n-1)^2</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_evens">
         <title>Practice</title>
@@ -940,7 +1008,7 @@
             We saw this sum in <xref ref="act_fact_rep"></xref>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: To simplify <m>n!-1+nn!</m>,
           first put the factorials together and factor to get
@@ -951,7 +1019,7 @@
         <p>
           Now, simplify <m>(1+n)n!</m> using <m>(1+n)=(n+1)</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_geom_sum5">
         <title>Practice</title>
@@ -960,7 +1028,7 @@
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n4 \cdot 5^k = 5^{n+1}-1</m> for <m>n\ge 1</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: To simplify <m>5^n-1+4\cdot5^n</m>,
           first put the powers of five together and factor to get
@@ -968,7 +1036,7 @@
             5^n+4\cdot5^n-1 = 5^n(1+4)-1 = 5^n\cdot5 - 1
           </me>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_prod_1plus_recip">
         <title>Practice</title>
@@ -977,11 +1045,11 @@
             Use mathematical induction to prove that <m>\displaystyle \prod_{k=1}^n \left(1 + \frac{1}{k}\right) = n+1</m> for <m>n\ge 1</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Note that <m>\displaystyle 1 + \frac{1}{n} = \frac{n}{n} + \frac{1}{n} =\frac{n+1}{n}</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_prod_evens">
         <title>Practice</title>
@@ -990,12 +1058,12 @@
             Use mathematical induction to prove that <m>\displaystyle \prod_{j=1}^n(2j) = 2^nn!</m> for <m>n \ge 1</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Note that <m>f(n-1) = 2^{n-1}(n-1)!</m>.
           Simplify <m>\left(2^{n-1}(n-1)!\right)(2n)</m> by collecting the powers of two and separately collecting the factorial.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_firstn_Fib_proof">
         <title>Practice</title>
@@ -1005,14 +1073,14 @@
             <m>\displaystyle\sum_{k=1}^nF_k = F_{n+2}-1</m> for <m>n \ge 1</m> where <m>F_n</m> are the Fibonacci numbers.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Note that <m>f(n-1) = F_{n+1}-1</m> and that the Fibonacci sequence includes
           <me>
             \ldots, F_n, F_{n+1}, F_{n+2}, \ldots
           </me>
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_4kplus1">
         <title>Understand</title>
@@ -1021,11 +1089,11 @@
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^n(4k-1) = n(2n+1)</m> for <m>n\ge 0</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Use two sets of parentheses to evaluate <m>f(n-1)</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_recip_powers2">
         <title>Understand</title>
@@ -1043,14 +1111,14 @@
             <m>\displaystyle\sum_{k=1}^nF_k^2= F_nF_{n+1}</m> for <m>n \ge 1</m> where <m>F_n</m> are the Fibonacci numbers.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hints: Note that
           <me>
             F_{n-1}F_n + F_n^2 = F_n(F_{n-1} + F_n)
           </me>
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sum_alt_fib_proof">
         <title>Understand</title>
@@ -1068,7 +1136,7 @@
             Use mathematical induction to prove that <m>\displaystyle \sum_{k=1}^nk \cdot 2^k = (n-1)2^{n+1}+2</m> for <m>n \ge 1</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Make sure to use parentheses when evaluating <m>f(n-1)</m>.
           Also, note that
@@ -1080,7 +1148,7 @@
             n2^{n+1}-2^{n+1}=(n-1)2^{n+1}
           </me>
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_math_ind_sum_alt_sq">
         <title>Understand</title>
@@ -1204,7 +1272,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1225,7 +1293,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_comb_pf_sum_binom_sq">
         <title>Understand</title>
@@ -1240,13 +1308,13 @@
             Condition on <m>k=</m> the number of cats chosen.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hints: Make sure to choose <m>n</m> animals in total.
           If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
           Look at <xref ref="thm_sym_arith_triangle"></xref>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_comb_pf_sum_weighted_binom_sq">
         <title>Understand</title>
@@ -1261,14 +1329,14 @@
             Condition on <m>k=</m> the number of cats chosen.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hints: Make sure to choose <m>n</m> animals in total.
           If you choose <m>k</m> cats, then you will need to choose <m>n-k</m> dogs.
           Also, look at Exercise <xref ref="exer_count_cats_dogs" text="global"></xref>
           <xref ref="part_picked_fav_cat"/>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_comb_pf_sums">
         <title>Recap</title>
@@ -1432,7 +1500,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1445,7 +1513,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_eval_sum_formulas_polys">
         <title>Practice</title>
@@ -1471,7 +1539,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1489,7 +1557,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_using_sum_formulas_polys_lin">
         <title>Understand</title>
@@ -1521,7 +1589,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1534,7 +1602,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_special_sums">
         <title>Recap</title>

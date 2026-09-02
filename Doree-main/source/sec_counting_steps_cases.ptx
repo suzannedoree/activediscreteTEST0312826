@@ -114,47 +114,40 @@
           one to each of <m>\str{s1}</m>,
           <m>\str{s2}</m>,
           and <m>\str{s3}</m>.
+        </p>
+        <p>
           Then each of those nodes would have five branches,
           one to each of <m>\str{p1}</m>,
           <m>\str{p2}</m>,
           <m>\str{p3}</m>,
           <m>\str{p4}</m>,
           <m>\str{p5}</m>.
+        </p>
+        <p>
           Our list would have each possible lunch option.
-          <m>\str{s1}</m> &amp;
-          <m>\str{p1}</m>,
-          <m>\str{s1}</m> &amp;
-          <m>\str{p2}</m>,
-          <m>\str{s1}</m> &amp;
-          <m>\str{p3}</m>,
-          <m>\str{s1}</m> &amp;
-          <m>\str{p4}</m>,
-          <m>\str{s1}</m> &amp;
-          <m>\str{p5}</m>,
         </p>
         <p>
-           <m>\str{s2}</m> &amp;
-           <m>\str{p1}</m>,
-           <m>\str{s2}</m> &amp;
-           <m>\str{p2}</m>,
-           <m>\str{s2}</m> &amp;
-           <m>\str{p3}</m>,
-           <m>\str{s2}</m> &amp;
-           <m>\str{p4}</m>,
-           <m>\str{s2}</m> &amp;
-           <m>\str{p5}</m>,
+          <m>\str{s1}</m> &amp; <m>\str{p1}</m>,
+          <m>\str{s1}</m> &amp; <m>\str{p2}</m>,
+          <m>\str{s1}</m> &amp; <m>\str{p3}</m>,
+          <m>\str{s1}</m> &amp; <m>\str{p4}</m>,
+          <m>\str{s1}</m> &amp; <m>\str{p5}</m>,
         </p>
         <p>
-           <m>\str{s3}</m> &amp;
-           <m>\str{p1}</m>,
-           <m>\str{s3}</m> &amp;
-           <m>\str{p2}</m>,
-           <m>\str{s3}</m> &amp;
-           <m>\str{p3}</m>,
-           <m>\str{s3}</m> &amp;
-           <m>\str{p4}</m>,
-           <m>\str{s3}</m> &amp;
-           <m>\str{p5}</m>.
+           <m>\str{s2}</m> &amp; <m>\str{p1}</m>,
+           <m>\str{s2}</m> &amp; <m>\str{p2}</m>,
+           <m>\str{s2}</m> &amp; <m>\str{p3}</m>,
+           <m>\str{s2}</m> &amp; <m>\str{p4}</m>,
+           <m>\str{s2}</m> &amp; <m>\str{p5}</m>,
+        </p>
+        <p>
+           <m>\str{s3}</m> &amp; <m>\str{p1}</m>,
+           <m>\str{s3}</m> &amp; <m>\str{p2}</m>,
+           <m>\str{s3}</m> &amp; <m>\str{p3}</m>,
+           <m>\str{s3}</m> &amp; <m>\str{p4}</m>,
+           <m>\str{s3}</m> &amp; <m>\str{p5}</m>.
+        </p>
+        <p>
            Notice that we have three rows with five options in each row.
            The total number of lunch options is <m>3 \times 5 = 15</m>.
         </p>
@@ -720,27 +713,69 @@
           <li>
             <p>
               Explain why the following count does not work.
-              <q>
-                Step 1: Fill in the first space. (3 ways). Step 2: Fill in the second space. (3 ways). Step 3: Fill in the third space. (3 ways). Step 4: Fill in the fourth space. (3 ways). Since steps multiply <xref ref="thm_steps_multiply"/>, there are <m>3^4=81</m> such strings.
-              </q>
+              <blockquote>
+                <p>
+                  Step 1: Fill in the first space. (3 ways). 
+                </p>
+                <p> 
+                  Step 2: Fill in the second space. (3 ways). 
+                </p>
+                <p> 
+                  Step 3: Fill in the third space. (3 ways). 
+                </p>
+                <p> 
+                  Step 4: Fill in the fourth space. (3 ways). 
+                </p>
+                <p> 
+                  Since steps multiply <xref ref="thm_steps_multiply"/>, there are <m>3^4=81</m> such strings.
+                </p>
+              </blockquote>
               Is the correct answer larger or smaller than 81?
-            </p>
+            </p>       
           </li>
           <li>
             <p>
               Explain why the following count does not work.
-              <q>
-                Step 1: Choose where an <m>\str{X}</m> goes. (4 ways) Step 2: Fill in the first blank space with <m>\str{f}</m> or <m>\str{2}</m>. (2 ways) Step 3: Fill in the second blank space with <m>\str{f}</m> or <m>\str{2}</m>. (2 ways) Step 4: Fill in the third blank space with <m>\str{f}</m> or <m>\str{2}</m>. (2 ways). Since steps multiply <xref ref="thm_steps_multiply"/>, there are <m>(4)2^3 = 32</m> ways.
-              </q>
+              <blockquote>
+                <p>
+                  Step 1: Choose where an <m>\str{X}</m> goes. (4 ways) 
+                </p>
+                <p> 
+                  Step 2: Fill in the first blank space with <m>\str{f}</m> or <m>\str{2}</m>. (2 ways) 
+                </p>
+                <p> 
+                  Step 3: Fill in the second blank space with <m>\str{f}</m> or <m>\str{2}</m>. (2 ways) 
+                </p>
+                <p> 
+                  Step 4: Fill in the third blank space with <m>\str{f}</m> or <m>\str{2}</m>. (2 ways). 
+                </p>
+                <p> 
+                  Since steps multiply <xref ref="thm_steps_multiply"/>, there are <m>(4)2^3 = 32</m> ways.
+                </p>
+              </blockquote>
               Is the correct answer larger or smaller than 32?
             </p>
           </li>
           <li>
             <p>
               Explain why the following count does not work.
-              <q>
-                Step 1: Choose where an <m>\str{X}</m> goes. (4 ways) Step 2: Fill in the first blank space. (3 ways) Step 3: Fill in the second blank space. (3 ways) Step 4: Fill in the third blank space. (3 ways). Since steps multiply <xref ref="thm_steps_multiply"/>, there are <m>(4)3^3 = 108</m> ways.
-              </q>
+              <blockquote>
+                <p>
+                  Step 1: Choose where an <m>\str{X}</m> goes. (4 ways) 
+                </p>
+                <p> 
+                  Step 2: Fill in the first blank space. (3 ways) 
+                </p>
+                <p> 
+                  Step 3: Fill in the second blank space. (3 ways) 
+                </p>
+                <p> 
+                  Step 4: Fill in the third blank space. (3 ways). 
+                </p>
+                <p> 
+                  Since steps multiply <xref ref="thm_steps_multiply"/>, there are <m>(4)3^3 = 108</m> ways.
+                </p>
+              </blockquote>
             </p>
           </li>
           <li>
@@ -1078,7 +1113,7 @@
         leave it in a format that could be easily evaluated on a calculator.
       </p>
       <exercise xml:id="exer_alphanumeric_passwords">
-        <title><m>Practice</m></title>
+        <title>Practice</title>
         <statement>
           <p>
             As in <xref ref="act_passwords"></xref>,
@@ -1107,7 +1142,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1127,10 +1162,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_PIN">
-        <title><m>Practice</m></title>
+        <title>Practice</title>
         <statement>
           <p>
             In this problem,
@@ -1160,7 +1195,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1183,10 +1218,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_perms_12345">
-        <title><m>Practice</m></title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -1206,7 +1241,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1219,10 +1254,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_tech_teams">
-        <title><m>Practice</m></title>
+        <title>Practice</title>
         <statement>
           <p>
             A small technology firm has six designers,
@@ -1245,7 +1280,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1260,10 +1295,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_passwords_special_characters">
-        <title><m>Understand</m></title>
+        <title>Understand</title>
         <statement>
           <p>
             As in <xref ref="act_passwords"></xref>,
@@ -1274,10 +1309,10 @@
                 <p>
                   The first character must be a special character
                   (one of:
-                  <m>\str{%}</m>,
-                  <m>\str{&amp;}</m>,
-                  <m>\str{$}</m>,
-                  <m>\str{#}</m>,
+                  <m>\str{\%}</m>,
+                      <m>\str{\&amp;}</m>,
+                  <m>\str{\$}</m>,
+                  <m>\str{\#}</m>,
                   or <m>\str{?}</m>),
                   and the rest of the characters are alpha-numeric.
                 </p>
@@ -1286,22 +1321,33 @@
                 <p>
                   One of the characters must be a special character
                   (one of:
-                  <m>\str{%}</m>,
-                  <m>\str{&amp;}</m>,
-                  <m>\str{$}</m>,
-                  <m>\str{#}</m>,
+                  <m>\str{\%}</m>,
+                  <m>\str{\&amp;}</m>,
+                  <m>\str{\$}</m>,
+                  <m>\str{\#}</m>,
                   or <m>\str{?}</m>)
                   and the rest are alpha-numeric.
-                  Hint: Step 1: select which space is the special character, Step 2:
-                  fill in the special character, Step 3:
-                  fill in the first open space, Step 4:
-                  fill in the next open space, etc.
+                </p>
+                <p>
+                  Hint: Try these steps.
+                </p>
+                <p>
+                  Step 1: select which space is the special character. 
+                </p>
+                <p>
+                  Step 2: fill in the special character. 
+                </p>
+                <p>
+                  Step 3: fill in the first open space. 
+                </p>
+                <p>
+                  Step 4: fill in the next open space, etc.
                 </p>
               </li>
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1319,10 +1365,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_license_plates">
-        <title><m>Understand</m></title>
+        <title>Understand</title>
         <statement>
           <p>
             Each state of the United States decides on its own format for license plates.
@@ -1354,7 +1400,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1374,10 +1420,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_phone_numbers">
-        <title><m>Understand</m></title>
+        <title>Understand</title>
         <statement>
           <p>
             Telephone numbers in the United States have the format <m>\str{201-345-6789}</m>.
@@ -1424,7 +1470,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1444,10 +1490,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_steps_cases">
-        <title><m>Recap</m></title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1484,7 +1530,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_perms_of_six">
-        <title><m>Explore</m></title>
+        <title>Explore</title>
         <statement>
           <p>
             How many permutations of <m>\{\str{1},\str{2},\str{3},\str{4},\str{5},\str{6}\}</m> satisfy each restriction?
@@ -1523,7 +1569,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Note: You should leave your answers unsimplified as part of showing your work.
           <ol>
@@ -1549,13 +1595,13 @@
             </li>
           </ol>
         </p>
-        </check>
+        </hint>
       </exercise>
     </subsubsection>
     <subsubsection>
       <title>Exercises for <xref ref="sub_counting_awry" text="global"></xref> When Counting Goes Awry</title>
       <exercise xml:id="exer_password_not_steps">
-        <title><m>Practice</m></title>
+        <title>Practice</title>
         <statement>
           <p>
             In this problem,
@@ -1588,7 +1634,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_count100_awry">
-        <title><m>Practice</m></title>
+        <title>Practice</title>
         <statement>
           <p>
             In <xref ref="exam_count100"></xref>,
@@ -1612,7 +1658,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1625,10 +1671,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_double_count_hs">
-        <title><m>Understand</m></title>
+        <title>Understand</title>
         <statement>
           <p>
             In the Handshakes puzzle <xref ref="act_handshakes"/>,
@@ -1655,7 +1701,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1668,10 +1714,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_counting_awry">
-        <title><m>Recap</m></title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>
@@ -1696,7 +1742,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_inclusion_exclusion_2sets">
-        <title><m>Explore</m></title>
+        <title>Explore</title>
         <statement>
           <p>
             <nbsp/>
@@ -1729,7 +1775,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1742,13 +1788,13 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
     </subsubsection>
     <subsubsection>
       <title>Exercises for <xref ref="sub_factorials" text="global"></xref> Algebra: Factorials</title>
       <exercise xml:id="exer_evaluate_factorials">
-        <title><m>Practice</m></title>
+        <title>Practice</title>
         <statement>
           <p>
             Show how to calculate each quantity without using technology.
@@ -1766,7 +1812,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1780,10 +1826,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_set1ton">
-        <title><m>Practice</m></title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -1804,7 +1850,7 @@
         </statement>
       </exercise>
       <exercise xml:id="exer_application_factorial">
-        <title><m>Practice</m></title>
+        <title>Practice</title>
         <statement>
           <p>
             <nbsp/>
@@ -1818,8 +1864,7 @@
               </li>
               <li>
                 <p>
-                  A standard deck of playing cards as shown in <xref ref="fig_52card_deck"></xref>
-                  (in <xref ref="sec_counting_subsets"></xref>)
+                  A standard deck of playing cards 
                   has 52 distinct cards.
                   In how many ways can a deck be ordered?
                   Write your answer as a factorial and then use technology to calculate how large that is.
@@ -1828,7 +1873,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1841,10 +1886,10 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_single_factorial">
-        <title><m>Understand</m></title>
+        <title>Understand</title>
         <statement>
           <p>
             <nbsp/>
@@ -1863,7 +1908,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1877,25 +1922,25 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_factor_factorials">
-        <title><m>Understand</m></title>
+        <title>Understand</title>
         <statement>
           <p>
             Factor and simplify <m>m!+m(m!)</m>.
             Hint: See <xref ref="exam_simplify_factorials"></xref>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: first factor out the <m>m!</m>.
           Then use the hint to further simplify your answer.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_factorials">
-        <title><m>Recap</m></title>
+        <title>Recap</title>
         <statement>
           <p>
             Do you know <ellipsis/>

@@ -50,7 +50,6 @@
           we can count all 4-element subsets of a set with seven elements,
           say <m>\{1,2,3,4,5,6,7\}</m>.
           We list these subsets in <xref ref="table_subset_list_7choose4"></xref>.
-          There are 35 subsets, so <m>\binom{7}{4}=35</m>.
         </p>
         <table xml:id="table_subset_list_7choose4">
           <title>The 4-element subsets of the set <m>\{1,2,3,4,5,6,7\}</m></title>
@@ -106,6 +105,9 @@
             </row>
           </tabular>
         </table>
+        <p>
+        There are 35 subsets, so <m>\binom{7}{4}=35</m>.
+        </p>
       </solution>
     </example>
     <p>
@@ -166,6 +168,8 @@
           where each row has, in order,
           the values <m>\binom{n}{k}</m>,
           for <m>k=0,1,2, \ldots, n</m>.
+        </p>
+        <p>
           For example,
           the first row has a single value, <m>\binom{0}{0}=1</m>.
           The second row has, in order,
@@ -173,36 +177,39 @@
           The third row has, in order,
           the values <m>\binom{2}{0}=1</m>,
           <m>\binom{2}{1}=2</m>, and <m>\binom{2}{2}=1</m>.
-          END<xref ref="figure_arith_tri_expanded"></xref>
-          shows the first eight rows of the expanded version of the arithmetic triangle that includes the binomial coefficients and their values.
+        </p>
+        <p>
+          <xref ref="figure_arith_tri_expanded"></xref>
+          shows the first eight rows of the expanded version of the arithmetic triangle 
+          that includes the binomial coefficients and their values, which can be crowded to read.
           <xref ref="figure_arith_tri_standard"></xref>
-          shows the first eight rows of the standard version that lists only the values.
+          shows the first eight rows of the standard, easier-to-read version that lists only the values.
         </p>
         <figure xml:id="figure_arith_tri_expanded">
           <caption>The first eight rows of the  arithmetic triangle in expanded format.</caption>
           <me>
-            \binom{0}{0}=1
+            	\tbinom{0}{0}=1
           </me>
           <me>
-            \binom{1}{0}=1 \hspace{.23in} \binom{1}{1}=1
+            	\tbinom{1}{0}=1 \hspace{.07in} \tbinom{1}{1}=1
           </me>
           <me>
-            \binom{2}{0}=1 \hspace{.23in} \binom{2}{1}=2 \hspace{.23in} \binom{2}{2}=1
+            	\tbinom{2}{0}=1 \hspace{.07in} \tbinom{2}{1}=2 \hspace{.07in} \tbinom{2}{2}=1
           </me>
           <me>
-            \binom{3}{0}=1 \hspace{.23in} \binom{3}{1}=3 \hspace{.23in} \binom{3}{2}=3\hspace{.23in} \binom{3}{3}=1
+            	\tbinom{3}{0}=1 \hspace{.07in} \tbinom{3}{1}=3 \hspace{.07in} \tbinom{3}{2}=3\hspace{.07in} \tbinom{3}{3}=1
           </me>
           <me>
-            \binom{4}{0}=1 \hspace{.23in} \binom{4}{1}=4 \hspace{.23in} \binom{4}{2}=6 \hspace{.23in} \binom{4}{3}=4\hspace{.23in} \binom{4}{4}=1
+            	\tbinom{4}{0}=1 \hspace{.07in} \tbinom{4}{1}=4 \hspace{.07in} \tbinom{4}{2}=6 \hspace{.07in} \tbinom{4}{3}=4\hspace{.07in} \tbinom{4}{4}=1
           </me>
           <me>
-            \binom{5}{0}=1 \hspace{.23in} \binom{5}{1}=5 \hspace{.23in} \binom{5}{2}=10 \hspace{.23in} \binom{5}{3}=10\hspace{.23in} \binom{5}{4}=5\hspace{.23in} \binom{5}{5}=1
+            	\tbinom{5}{0}=1 \hspace{.07in} \tbinom{5}{1}=5 \hspace{.07in} \tbinom{5}{2}=10 \hspace{.07in} \tbinom{5}{3}=10\hspace{.07in} \tbinom{5}{4}=5\hspace{.07in} \tbinom{5}{5}=1
           </me>
           <me>
-            \binom{6}{0}=1 \hspace{.23in} \binom{6}{1}=6\hspace{.23in} \binom{6}{2}=15 \hspace{.23in} \binom{6}{3}=20\hspace{.23in} \binom{6}{4}=15\hspace{.23in} \binom{6}{5}=6\hspace{.23in} \binom{6}{6}=1
+            \tbinom{6}{0}=1 \hspace{.07in} \tbinom{6}{1}=6\hspace{.07in} \tbinom{6}{2}=15 \hspace{.07in} \tbinom{6}{3}=20\hspace{.07in} \tbinom{6}{4}=15\hspace{.07in} \tbinom{6}{5}=6\hspace{.07in} \tbinom{6}{6}=1
           </me>
           <me>
-            \binom{7}{0}=1 \hspace{.23in} \binom{7}{1}=7\hspace{.23in} \binom{7}{2}=21 \hspace{.23in} \binom{7}{3}=35\hspace{.23in} \binom{7}{4}=35\hspace{.23in} \binom{7}{5}=21\hspace{.23in} \binom{7}{6}=7\hspace{.23in} \binom{7}{7}=1
+            	\tbinom{7}{0}=1 \hspace{.07in} \tbinom{7}{1}=7\hspace{.07in} \tbinom{7}{2}=21 \hspace{.07in} \tbinom{7}{3}=35\hspace{.07in} \tbinom{7}{4}=35\hspace{.07in} \tbinom{7}{5}=21\hspace{.07in} \tbinom{7}{6}=7\hspace{.07in} \tbinom{7}{7}=1
           </me>
         </figure>
         <figure xml:id="figure_arith_tri_standard">
@@ -396,7 +403,7 @@
         </p>
         <figure xml:id="fig_arith_triangle_recursion">
           <caption>Generating another row of the arithmetic triange.</caption>
-          <image width="60%">
+          <image width="80%">
             <latex-image>
               <xi:include href="Tikz/arith_triangle_recursion.tikz" parse="text"/>
             </latex-image>
@@ -622,7 +629,7 @@
                   </p>
                   <figure xml:id="fig_hockey_stick">
                     <caption>An example of a hockey stick sum.</caption>
-                    <image width="60%">
+                    <image width="100%">
                       <latex-image>
                         <xi:include href="Tikz/hockey_stick.tikz" parse="text"/>
                       </latex-image>
@@ -654,7 +661,7 @@
           <li xml:id="part_nplus1_squared">
             <p>
               Expand and simplify <m>(n+1)^2</m>.
-              Hint: Start by writing <m>(n+1)^2=(n+1)(n+1)</m>.
+              Hint: Start by writing <me>(n+1)^2=(n+1)(n+1).</me>
             </p>
           </li>
           <li xml:id="part_nplus1_cubed">
@@ -692,7 +699,7 @@
       we observe that the coefficients of <m>(n+1)^m</m> are the binomial coefficients.
     </p>
     <remark xml:id="rem_special_case_binomial_formula">
-      <title>Special case of the binomial formula</title>
+      <title>Special case of the binomial theorem</title>
       <p>
         For any integer <m>n</m> and nonnegative integer <m>m</m>, we have
         <me>
@@ -704,7 +711,7 @@
       Let's look at an example.
     </p>
     <example xml:id="exam_using_special_case_binom_formula">
-      <title>Using the special case of the binomial formula</title>
+      <title>Using the special case of the binomial theorem</title>
       <statement>
         <p>
           Expand <m>(n+1)^7</m> using <xref ref="rem_special_case_binomial_formula"></xref>.
@@ -1027,11 +1034,11 @@
             consult <xref ref="figure_arith_tri_expanded"></xref>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           The answers, in some order, are <m>1, 1, 4, 8, 10</m>, and 21.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_arith_tri_more_rows">
         <title>Practice</title>
@@ -1057,11 +1064,11 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           The answers, in some order, are <m>36, 126, 210</m>, and 252.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_seq_binom_coeffs">
         <title>Understand</title>
@@ -1087,7 +1094,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1105,7 +1112,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_nte_binom_coeffs">
         <title>Understand</title>
@@ -1127,7 +1134,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1142,7 +1149,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_arith_tri">
         <title>Recap</title>
@@ -1222,11 +1229,11 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           The answers, in some order, are 32, 70, and 140.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_div_arith_triangle">
         <title>Understand</title>
@@ -1266,7 +1273,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1295,7 +1302,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sums_sq_rows_arith_tri">
         <title>Understand</title>
@@ -1319,7 +1326,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1332,7 +1339,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sums_ktimes_rows_arith_tri">
         <title>Understand</title>
@@ -1357,7 +1364,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1370,7 +1377,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_sums_ktimes_sq_rows_arith_tri">
         <title>Understand</title>
@@ -1464,12 +1471,12 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: The answer is in <xref ref="act_powers_nplus1"></xref>.
           Make sure you show work.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_binom_thm">
         <title>Practice</title>
@@ -1490,7 +1497,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1503,7 +1510,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_bin_thm_proof_row_sum_pascal">
         <title>Understand</title>
@@ -1517,11 +1524,11 @@
             Hint: Expand <m>(1+1)^n</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: <m>1+1 = 2</m> and <m>1^k=1</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_bin_thm_find_row_sum">
         <title>Understand</title>
@@ -1531,11 +1538,11 @@
             Hint: Expand <m>(1+2)^n</m>.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: <m>1+2=3</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_binom_thm_xplush">
         <title>Understand</title>
@@ -1655,7 +1662,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1668,7 +1675,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_simplify_binom_formula">
         <title>Practice</title>
@@ -1781,7 +1788,7 @@
             consider cases based on whether or not <m>n</m> is in the subset.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hints: Make sure you follow the proof format.
           You can use the hint to write the story.
@@ -1790,7 +1797,7 @@
           Explain why one case gives
           <m>\binom{n-1}{k-1}</m> and why the other case gives <m>\binom{n-1}{k}</m>.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_binom_coeffs_verify_using_factorials">
         <title>Explore</title>

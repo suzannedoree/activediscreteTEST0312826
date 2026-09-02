@@ -103,7 +103,7 @@
     </p>
     <figure xml:id="fig_subset_corral">
       <caption>The subset <m>\{2,8\}</m> corrals some of the elements of the set <m>A=\{1,2,3,7,8\}</m>.</caption>      
-      <image width="60%">
+      <image width="30%">
       <latex-image>
       <xi:include href="Tikz/corral_subset.tikz" parse="text"/> 
       </latex-image></image>
@@ -150,8 +150,8 @@
         Computer scientists often write the number zero with a slash to avoid confusion with the letter <m>O</m>,
         so the zero symbol in computer science looks similar to the empty set symbol <m>\varnothing</m>.
         In this textbook,
-        we write <m>0</m> for zero without a slash and save
-        <m>\varnothing</m> to mean the empty set.
+        we write <m>0</m> for the number zero (without a slash), <m>\str{0}</m> for the zero bit, and 
+        <m>\varnothing</m> for the empty set.
       </p>
     </remark>
     <p>
@@ -368,8 +368,7 @@
       </p>
     </activity>
     <p>
-      Several exercises in this section refer to a 52-card deck of playing cards,
-      shown in <xref ref="fig_52card_deck"></xref>.
+      Several exercises in this section refer to a 52-card deck of playing cards.
       The key facts to know are stated in the following definition.
     </p>
     <definition xml:id="defn_52-card_deck">
@@ -414,17 +413,14 @@
               </p>
             </li>
           </ol>
+          <p>
+          To learn more about a standard 52-card deck of playing cards, check out 
+          <url href="https://en.wikipedia.org/wiki/Standard_52-card_deck">Wikipedia: Standard 52-card Deck</url>
+          </p>
         </p>
       </statement>
     </definition>
-    <figure xml:id="fig_52card_deck">
-      <caption>A 52-card deck of playing cards (source: Pixabay).</caption>
-      <image width="75%">
-        <latex-image>
-          <xi:include href="TikzNew/52-card_deck_Pixabay.tikz" parse="text"/>
-        </latex-image>
-      </image>
-    </figure>
+
     <p>
       Here is an example of counting hands.
     </p>
@@ -433,7 +429,6 @@
       <statement>
         <p>
           In a 52-card deck of playing cards,
-          as shown in <xref ref="fig_52card_deck"></xref>,
           how many 5-card hands have a <term>three-of-a-kind</term>,
           which is three cards of one denomination,
           a fourth card of a different denomination,
@@ -510,11 +505,11 @@
   <title>Proof Format: Combinatorial Proof</title>
   <statement>
   <p>
-      We can prove: <m>N=M</m> using a combinatorial proof by 
+      We can prove <m>N=M</m> using a combinatorial proof by 
       adapting the following proof format.
     </p>
-    <p>
-    <em>Proof.</em>
+    <proof>
+      <p>
         We use a combinatorial proof.
         Consider the following situation <ellipsis/>.
       </p>
@@ -531,7 +526,7 @@
         Since we counted the same quantity in two different ways,
         it follows that <m>N=M</m>.
       </p>
-
+    </proof>
     </statement>
 </theorem>
  
@@ -554,40 +549,51 @@
               <me>
                 \binom{m+n}{2} = \binom{m}{2} + \binom{n}{2} + mn
               </me>
-              <em>Proof.</em> 
-              </p>
+              <proof>
                <p>
-              We use a combinatorial proof.
-              Consider the following situation:
-              there are <m>m</m> cats and <m>n</m> dogs and we want to adopt two animals.
-              How many ways are there to choose the two animals?
-              </p>
-              <p>
-              First, since there are a total of <m>m+n</m> animals and we want to choose two of them,
-              the answer is <m>\binom{m+n}{2}</m>.
-              </p>
-              <p>
-              On the other hand, we can consider three cases.
-              Case 1: Choose two cats.
-              In this case, we want two out of <m>m</m> cats,
-              and so there are <m>\binom{m}{2}</m> ways to choose the two animals.
-              Case 2: Choose two dogs.
-              In this case, we want two out of <m>n</m> dogs,
-              and so there are <m>\binom{n}{2}</m> ways to choose the two animals.
-              Case 3: The only remaining case is that we choose one cat and one dog.
-              In this case,
-              we want one out of <m>m</m> cats (<m>m</m> ways) and then one out of <m>n</m> dogs
-              (<m>n</m> ways).
-              Since steps multiply
-              (by <xref ref="thm_steps_multiply"></xref>),
-              there are <m>mn</m> ways to choose the two animals.
-              Since cases add
-              (by <xref ref="thm_cases_add"></xref>),
-              there is a total of <m>\binom{m}{2} + \binom{n}{2} + mn</m> ways to choose two animals.
-              </p>
-              <p>
-              Since we counted the same quantity in two different ways,
-              it follows that <m>\binom{m+n}{2} =\binom{m}{2} + \binom{n}{2} + mn</m>
+                  We use a combinatorial proof.
+                  Consider the following situation:
+                  there are <m>m</m> cats and <m>n</m> dogs and we want to adopt two animals.
+                  How many ways are there to choose the two animals?
+                </p>
+                <p>
+                  First, since there are a total of <m>m+n</m> animals and we want to choose two of them,
+                  the answer is <m>\binom{m+n}{2}</m>.
+                </p>
+                <p>
+                  On the other hand, we can consider three cases.
+                </p>
+                <p>
+                  Case 1: Choose two cats.
+                  In this case, we want two out of <m>m</m> cats,
+                  and so there are <m>\binom{m}{2}</m> ways to choose the two animals.
+                </p>
+                <p>
+                  Case 2: Choose two dogs.
+                  In this case, we want two out of <m>n</m> dogs,
+                  and so there are <m>\binom{n}{2}</m> ways to choose the two animals.
+                </p>
+                <p>
+                  Case 3: The only remaining case is that we choose one cat and one dog.
+                  In this case,
+                  we want one out of <m>m</m> cats (<m>m</m> ways) and then one out of <m>n</m> dogs
+                  (<m>n</m> ways).
+                </p>
+                <p>
+                  Since steps multiply
+                  (by <xref ref="thm_steps_multiply"></xref>),
+                  there are <m>mn</m> ways to choose the two animals.
+                </p>
+                <p>
+                  Since cases add
+                  (by <xref ref="thm_cases_add"></xref>),
+                  there is a total of <m>\binom{m}{2} + \binom{n}{2} + mn</m> ways to choose two animals.
+                </p>
+                <p>
+                  Since we counted the same quantity in two different ways,
+                  it follows that <m>\binom{m+n}{2} =\binom{m}{2} + \binom{n}{2} + mn</m>
+                </p>
+              </proof>
             </p>
           </li>
           <li>
@@ -737,7 +743,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -770,7 +776,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_course_selection">
         <title>Practice</title>
@@ -829,7 +835,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -847,7 +853,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_eval_edge_binomial_coeffs">
         <title>Understand</title>
@@ -873,7 +879,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -891,7 +897,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_binomial_coeffs">
         <title>Recap</title>
@@ -942,7 +948,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -955,7 +961,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_volleyball">
         <title>Practice</title>
@@ -991,7 +997,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1016,7 +1022,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_library_books_complicated">
         <title>Understand</title>
@@ -1046,7 +1052,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1065,7 +1071,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_pizza_options">
         <title>Understand</title>
@@ -1105,7 +1111,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1138,7 +1144,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_unbounded">
         <title>Understand</title>
@@ -1175,7 +1181,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1202,7 +1208,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_combining_counting">
         <title>Recap</title>
@@ -1350,12 +1356,12 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: in (b) start with ``Consider a group of <m>n</m> employees.
           How many ways are there to choose <m>k</m> employees to be on a project team where one member of the team is the project manager?
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_outside_chair">
         <title>Understand</title>
@@ -1417,7 +1423,7 @@
             of whom <m>k</m> will be starters.
           </p>
         </statement>
-        <check>
+        <hint>
         <p>
           Hint: Follow the hint.
           The first way to count is the usual order:
@@ -1426,7 +1432,7 @@
           choose the starters,
           and then choose the rest of the players from the rest of the students who tried out.
         </p>
-        </check>
+        </hint>
       </exercise>
       <exercise xml:id="exer_dyk_pff_comb_pf">
         <title>Recap</title>
@@ -1481,7 +1487,7 @@
             </ol>
           </p>
         </statement>
-        <check>
+        <hint>
         <ol>
           <li>
             <p>
@@ -1495,7 +1501,7 @@
             </p>
           </li>
         </ol>
-        </check>
+        </hint>
       </exercise>
     </subsubsection>
   </subsection>
