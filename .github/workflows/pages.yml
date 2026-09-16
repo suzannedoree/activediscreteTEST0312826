@@ -38,12 +38,11 @@ jobs:
           pip install -r Doree-main/source/requirements.txt
 
       - name: Build web output
-        working-directory: Doree-main/source
         run: |
           set -e
-          rm -rf build/web
+          rm -rf Doree-main/build/web
           pretext build web
-          test -f build/web/index.html
+          test -f Doree-main/build/web/index.html
 
       - name: Configure Pages
         uses: actions/configure-pages@v6
@@ -51,7 +50,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: Doree-main/source/build/web
+          path: Doree-main/build/web
 
   deploy:
     needs: build
