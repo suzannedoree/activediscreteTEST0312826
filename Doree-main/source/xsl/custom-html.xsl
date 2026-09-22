@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:import href="/home/codespace/.ptx/2.43.2/core/xsl/pretext-html.xsl"/>
+  <xsl:import href="/root/.ptx/2.53.0/core/xsl/pretext-html.xsl"/>
 
   <!-- Use lettered subsection numbers: 2.1.A, 2.1.B, ... -->
   <xsl:template match="subsection" mode="serial-number">

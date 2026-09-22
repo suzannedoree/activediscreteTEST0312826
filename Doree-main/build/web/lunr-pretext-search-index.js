@@ -41,7 +41,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_handshakes.html#exam_hs6",
   "type": "Example",
-  "number": "1.1.1",
+  "number": "1.1.2",
   "title": "Six students shake hands.",
   "body": " Six students shake hands   What is the total number of handshakes in a group of six students if every student shakes hands with every other student once? As part of your work, draw a picture representing the situation and discuss alternative ways of counting.    We represent each of the six students with a vertex (dot or small circle) and connect each pair of students with an edge (line) corresponding to the handshake that the pair of students performed, as shown in . Notice that the number of students in the group equals the number of vertices in the picture (6), the number of handshakes each student did equals the number of edges connected to that vertex in the picture (5), and the total number of handshakes equals the total number of edges in that picture (15). By the way, we return to discuss such objects, called graphs, in Graph Theory.   A drawing representing six students shaking hands.      Counting the number of edges of the graph corresponds to simply counting the handshakes between students as they happen. That method is feasible with six students, but does not work well with 30 or 1000 students. See for the handshake graph.  For a more systematic count, notice that the first student does five handshakes, but the second student does only four new handshakes since they already shook hands with the first student. Similarly, the third student only does three new handshakes because they already shook hands with the first two students. Similarly, the fourth student does two new handshakes, the fifth student does one new handshake, and the sixth student does no new handshakes. The total number of handshakes is, therefore, .  We might rewrite this equation as .  Notice that the largest integer in the sum is one less than the number of students. In , Mateo correctly modeled the answer as a sum, but made the mistake of starting with the number of students (30) instead of one less (29).  For a more scalable method of counting, note that each of the six students does five, which appears to total handshakes. There are not actually 30 handshakes, however, because 30 counts each handshake twice once for each of the two students involved in the handshake. Since 30 is exactly twice the correct answer, the correct answer is .  In , Kierra correctly calculated the product ( ) but forgot to divide by 2.   "
 },
@@ -50,7 +50,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_handshakes.html#thm_hs",
   "type": "Theorem",
-  "number": "1.1.3",
+  "number": "1.1.4",
   "title": "",
   "body": "  {Counting handshakes} For any positive integer we have    .     .      "
 },
@@ -239,7 +239,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#exam_sq_dom6",
   "type": "Example",
-  "number": "2.1.2",
+  "number": "2.1.3",
   "title": "Squares and dominoes tiling of a <span class=\"process-math\">\\(1 \\times 6\\)<\/span> board.",
   "body": " Squares and dominoes tiling of a board       As in , list all the ways to tile a board with squares and dominoes by first listing the ways that start with a square ( ) and then listing all the ways that start with a domino ( ).  First, we list the ways that start with a square. After the square, there is effectively a board to tile. Therefore, we copy all the ways to tile the board (shown with a square bracket) and put a square in front of each, as shown in .   Tiling the board starting with a square.     Next, we list the ways that start with a domino. After the domino, there is effectively a board to tile. Therefore, we copy all the ways to tile the board (shown with a square bracket) and put a domino in front of each, as shown in .   Tiling the board starting with a domino.    Since every tiling of a board either starts with a square or with a domino, we have listed all ways to tile a board.      How many ways are there to tile a board? Explain how your answer related to the number of ways to tile a board and the number of ways to tile a board.  We listed a total of 13 ways to tile a board. Because we get one tiling of a board for each of the eight ways to tile a board and we get one tiling of a board for each of the five ways to tile a board, , the number of ways to tile a board equals the sum of the number of ways to tile a board plus the number of ways to tile a board. That is, there are ways to tile a board.        "
 },
@@ -257,7 +257,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#exam_sq_dom8",
   "type": "Example",
-  "number": "2.1.5",
+  "number": "2.1.6",
   "title": "Counting squares and dominoes tilings of a <span class=\"process-math\">\\(1 \\times 8\\)<\/span> board.",
   "body": " Counting squares and dominoes tilings of a board       Based on the recursive solution to tile a board using squares and dominoes in , how many ways can we tile a board?  We saw in that there are ways to tile a board: eight are obtained by putting a square in front of each tiling of a board and five are obtained by putting a domino in front of each tiling of a board.  Similarly, there are ways to tile a board: 13 are obtained by placing a square in front of each tiling of a board and eight are obtained by placing a domino in front of each tiling of a board.  Continuing this reasoning, there are tilings of a board.      Conjecture the number of ways to tile a board.  The one-shorter board is and the two-shorter board is . Since we got one tiling of the board for each tiling of a board and for each tiling of a board, the number of tilings of a equals the sum of the number of tilings of a board and the number of tilings of a board. That last sentence is a mouthful. Using sequence notation, which we introduce formally in , we might write where the subscript on represents the number of ways to tile a board.        "
 },
@@ -293,7 +293,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#defn_integers",
   "type": "Definition",
-  "number": "2.1.6",
+  "number": "2.1.7",
   "title": "Integers.",
   "body": " Integers       The numbers are integers .    The numbers are natural numbers (or non-negative integers ) You may find that other mathematics classes have the natural numbers starting with  . For example, the phrase for any natural number means for any integer .    The numbers are positive integers . For example, the phrase for any positive integer means for any integer .      "
 },
@@ -302,7 +302,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#defn_digit",
   "type": "Definition",
-  "number": "2.1.7",
+  "number": "2.1.8",
   "title": "Digit.",
   "body": " Digit       Each of the integers is a digit .    Two digits (or two integers) are distinct if they are not equal.    A digit (or an integer) is nonzero if it does not equal zero.      "
 },
@@ -311,7 +311,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#defn_sum_product",
   "type": "Definition",
-  "number": "2.1.8",
+  "number": "2.1.9",
   "title": "Sum, difference, and product.",
   "body": " Sum, difference, and product       The sum (or total ) of two integers and is . For example, the sum of 2 and 3 is 5 and the sum of 3 and is .    In any sum, terms are the integers that are added. For example, in the sum , the terms are 3 and .    The negative of the integer is the integer . Note that could be positive, negative, or 0. For example, the negative of 5 is , the negative of is , and the negative of 0 is 0.    The difference of the integers and , in that order, is the integer . Note that if we subtract in the opposite order, we get the negative. For example, and . That is, and are negatives of each other.    The product of the integers and is , which is normally written as . For example, the product of 2 and 3 is 6 and the product of 5 and is . Multiplication is shorthand for addition, so officially     In any product, the factors are the integers being multiplied. For example, in the product , the factors are 5 and .      "
 },
@@ -320,7 +320,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#exam_two_digit_sets",
   "type": "Example",
-  "number": "2.1.9",
+  "number": "2.1.10",
   "title": "2-digit sets.",
   "body": " 2-digit sets       List all sets of two distinct nonzero digits where the sum of the digits is 14.  Since and , two such sets are and . Notice that , but the digits that are added are not distinct. There are no other sets because the largest digit is 9, and so the smallest digit we might use is . The final list is and .      List all sets of two distinct digits where the product of the digits is 12.  Start with the smallest digit 1. We know , but 12 is not a digit. The next digit is 2 and . Thus, one set is . Next, we have the digit 3 and . Thus, another set is . The final list is , .        "
 },
@@ -338,7 +338,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#exam_kakuro_12in4",
   "type": "Example",
-  "number": "2.1.10",
+  "number": "2.1.12",
   "title": "Using cases to list digit sums.",
   "body": " Using cases to list digit sums   Use cases based on the largest digit to list all sets of four distinct nonzero digits where the sum of the digits is 17.    We consider cases based on the largest digit in the set.  Case 1: The largest digit is 9. The other three distinct nonzero digits must be less than 9 and have a sum of , either or . The two sets in this case are and .  Case 2: The largest digit is 8. The other three distinct nonzero digits must be less than 8 and have a sum of , either or . The two sets in this case are and .  Case 3: The largest digit is 7. The other three distinct nonzero digits must be less than 7 and have a sum of , either or . The two sets in this case are and .  Case 4: The largest digit is 6. The other three distinct nonzero digits must be less than 6 have a sum of which must be . The only set in this case is .  Note that the largest digit cannot be 5 because we cannot find three distinct nonzero digits that are less than 5 and add to . The largest sum of three distinct nonzero less than 5 is .  We have found all seven sets of four distinct nonzero digits where the sum of the digits is 17. They are , , , , , , and .   "
 },
@@ -347,7 +347,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#defn_characters_and_strings",
   "type": "Definition",
-  "number": "2.1.11",
+  "number": "2.1.13",
   "title": "Characters and strings.",
   "body": " Characters and strings       An alpha-numeric character is either a digit, a lowercase English letter, or an uppercase (capital) English letter. There are 26 letters in the English alphabet and each letter has a lower and upper case.    In this textbook (and most of mathematics and computer science), all alphanumeric characters are case-sensitive . For example, and are different characters. There are, alphanumeric characters    Any other single symbol, such as or , that is typically found on a keyboard key is a special character .    A character is either an alphanumeric character or a special character.    A string is a finite sequence of characters. For example, is a string. Note that characters may be repeated within a string and the order matters. For example, is a different string.    The length of a string is the total number of characters in the string. For example, is a string of length six.      "
 },
@@ -365,7 +365,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#exam_2strings",
   "type": "Example",
-  "number": "2.1.12",
+  "number": "2.1.14",
   "title": "2-strings.",
   "body": " 2-strings   List all strings of length two where the first character is , , or and the second character is or .   Construct your list by considering cases based on the first character.  Let's consider cases based on the first character.  Case 1: If the first character is , then we have or .  Case 2: If the first character is , then we have and .  Case 3: If the first character is , then we have and .  The strings are , , , , , .   A possibility tree for 2-strings.          Construct your list by drawing a possibility tree.  In , we begin by drawing a starting point on the left. We draw three branches to nodes , , which are the possibilities for the first character in the string.  If the first character is , then the second character is either or , and so we draw two branches from to and from to . Similarly we draw branches from to , from to , from to , and from to . As before, the strings are: , , , , , and .  There is a shorthand way to draw the tree where we only list the new character in each spot instead as shown in . In this case, it takes a little less work to draw the tree but a little more work to write out the final list.   A possibility tree for 2-strings, shorthand version.            "
 },
@@ -401,7 +401,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#exam_sq_dom5_tree",
   "type": "Example",
-  "number": "2.1.15",
+  "number": "2.1.18",
   "title": "Tiling a <span class=\"process-math\">\\(1 \\times 5\\)<\/span> board with squares and dominoes.",
   "body": " Tiling a board with squares and dominoes   Draw the possibility tree to list the ways to tile a board using squares ( ) and dominoes ( ) as in .    The tree in shows all eight possibilities. Notice that we changed the root symbol to to avoid confusion with the square symbol ( ). Reading across the top row, for example, gives the all-square tiling and reading the next path from branch to leaf gives the tiling .   Tiling the board with squares and dominos.      As we build a tiling of length five, we have to be careful. If we have a tiling of length four, then the only option to finish the tiling is a square because a domino would make length six. For example, the branch that begins can only be followed by . Once we have a tiling of length five, the branch ends. For example, the branch ends after three tiles.   "
 },
@@ -410,7 +410,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#defn_integer_algebra_order_operations",
   "type": "Definition",
-  "number": "2.1.17",
+  "number": "2.1.20",
   "title": "Integer algebra and the order of operations.",
   "body": " Integer algebra and the order of operations       When several operations are involved in a single calculation, we need to know the order of operations (PEMDAS) , the priority ranking for arithmetic operations. The order is   First, calculate anything inside P arentheses.    Next, calculate E xponents , in order from left to right.    Then, M ultiply and D ivide , in order from left to right.    Last, A dd and S ubtract , in order from left to right.       The commutative properties of the integers tell us that . We often use the commutative property to rewrite sums or products in standard order. For example, products are usually written alphabetically ( is standard, not ) and in products numbers come before letters ( is standard, not ). In sums, numbers often come after letters ( is common, although is also acceptable).    The associative properties of the integers tells us that . We often use the associative property to write an expression such as without parentheses, since the location of parentheses would not change the sum.    We factor an integer by writing it as a product of two integers. For example, we can factor as which we could write as or . Although it is correct to factor as , if an activity or exercise asks you to factor, the answer should not use the factor . Notice that factor can be a noun, which means the quantity we are multiplying, or a verb, which means write as a product.    The distributive property of the integers tells us that . Reading this equation from left to right tells us how to expand (or distribute or multiply out ). For example, . Equations tell us that two things are equal, so we can equally well read this equation from right to left which tells us how to factor. For example, .      "
 },
@@ -419,7 +419,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#exam_factors_terms",
   "type": "Example",
-  "number": "2.1.18",
+  "number": "2.1.21",
   "title": "Factors and terms.",
   "body": " Factors and terms       Describe the quantity using factors and terms.  There are two factors: 2 and . The second factor has two terms: and 1.      Describe the quantity using factors and terms.  There are two terms: and 1. The first term has two factors: 2 and .        "
 },
@@ -437,7 +437,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_listing.html#exam_combining_like_terms",
   "type": "Example",
-  "number": "2.1.19",
+  "number": "2.1.22",
   "title": "Combining like terms.",
   "body": " Combining like terms   Simplify the expression .    You have seen . You might have learned that this equation is analogous to saying that if I have 2 apples plus another 3 apples, then I have a total of 5 apples. In the same way, .  Alternatively, we can use the definition of the product. Since and , together we have   Yet another way of thinking about this simplification is to use the distributive property to factor   Each of these approaches is useful. So, even if you favor one approach, learn the other methods as well.   "
 },
@@ -689,7 +689,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_salad_and_pizza",
   "type": "Example",
-  "number": "2.2.1",
+  "number": "2.2.2",
   "title": "Salad and pizza.",
   "body": " Salad and pizza   As in , my favorite cafe offers three types of salad, five types of pizza, and four types of cookies for lunch. How many lunch options are there if I decide to have a salad and a pizza? This question was .    The possibility tree would have three branches from , one to each of , , and .  Then each of those nodes would have five branches, one to each of , , , , .  Our list would have each possible lunch option.   & , & , & , & , & ,   & , & , & , & , & ,   & , & , & , & , & .  Notice that we have three rows with five options in each row. The total number of lunch options is .  Formally, we can build each lunch option through a sequence of two steps. Step 1: choose a salad and then Step 2: choose a pizza. There are three ways to do Step 1 and then, no matter which salad we choose, there are five ways to do Step 2.   "
 },
@@ -698,7 +698,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#thm_steps_multiply",
   "type": "Theorem",
-  "number": "2.2.2",
+  "number": "2.2.3",
   "title": "Steps multiply.",
   "body": " Steps multiply   If we can build each example through a sequence of steps and if there are ways to do the first step, and then for each way to do the first step there are ways to do the second step, and then for each way to do the first two steps there are ways to do the third step, and so on, then there are total ways to build an example.   "
 },
@@ -707,7 +707,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#defn_permutation_of_set",
   "type": "Definition",
-  "number": "2.2.3",
+  "number": "2.2.4",
   "title": "Permutation of the set <span class=\"process-math\">\\(\\{\\str{1},\\str{2},\\ldots,\\str{n}\\}\\)<\/span>.",
   "body": " Permutation of the set    For a positive integer , a permutation of the set  is a string of length using each of the digits , , , and exactly once. For example, is a permutation of the set .   "
 },
@@ -716,7 +716,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_perms_1to4",
   "type": "Example",
-  "number": "2.2.4",
+  "number": "2.2.5",
   "title": "Permutations of the set <span class=\"process-math\">\\(\\{\\str{1},\\str{2},\\str{3},\\str{4}\\}\\)<\/span>.",
   "body": " Permutations of the set   How many permutations of the set are there?    Imagine building each permutation by filling in four spaces:   Step 1: Fill in the first space. There are four ways to fill the first space because the first digit can be any of , , , or . (4 ways)  Step 2: Fill in the second space. There are only three ways to fill the second space, because the second digit cannot be the same as the first digit. For example, if we filled in the first space with a as then the second space can only be , , or . (3 ways)  Step 3: Fill in the third space. There are only two ways to fill in the third space because the third digit cannot be the same as the first or second digit. For example, if we filled in the first two spaces with and then as then the third space can only be or . (2 ways)  Step 4: Fill in the fourth space. There is no choice , which means that there is only one way to fill in the fourth space. It must be the last missing digit. For example, if we filled in the first three spaces with , and then , and then as then the fourth space can only be and so our final permutation would be . (1 way)  Since steps multiply , there are permutations of the set . You can check by drawing the possibility tree, as in Exercise .   "
 },
@@ -734,7 +734,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_salad_or_pizza",
   "type": "Example",
-  "number": "2.2.5",
+  "number": "2.2.6",
   "title": "Salad or pizza.",
   "body": " Salad or pizza   As in , my favorite cafe offers three types of salad, five types of pizza, and four types of cookies for lunch. How many lunch options are there if I decide to have a salad or a pizza (but not both)? This question was .    We could make a list by considering cases. On our list would be each of the three salads and each of the five pizzas: , , , , , , , , The total number of lunch options is .  Formally, we separate lunch options into two cases: in the first case, we choose a salad (in 3 ways) and in the second case, we choose a pizza (in 5 ways). Notice that we do Case 1 or Case 2, but not both.   "
 },
@@ -743,7 +743,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#thm_cases_add",
   "type": "Theorem",
-  "number": "2.2.6",
+  "number": "2.2.7",
   "title": "Cases add.",
   "body": " Cases add   If we can build each example by considering separate cases and if there are ways in the first case, ways in the second case, ways in the third case, and so on, then there are total ways to build an example.   "
 },
@@ -761,7 +761,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_count100",
   "type": "Example",
-  "number": "2.2.7",
+  "number": "2.2.8",
   "title": "Counting 0-99.",
   "body": " Counting 0-99   How many integers from 0 to 99 include the digit 5?    We can list the integers that include the digit 5. They are:   A direct count gives 19 such integers. This strategy would not generalize well if we wanted 0 to 999 instead.  Alternatively, we can use cases to count the opposite. Each integer from 0 to 99 can be written as 2-digit numbers. For example, write 05 instead of 5. We know that there are 100 integers from 0 to 99. We can list the integers from 0 to 99 that do not include the digit 5 in steps.  Step 1: Choose the first (non-5) digit from (9 ways)  Step 2: Choose the second (non-5) digit from (9 ways)  Since steps multiply , there are integers from 0 to 99 that do not include the digit 5.  Since cases add, the number of integers from 0 to 99 that include the digit 5 plus the number of integers from 0 to 99 that do not include the digit 5 must equal the total number of integers from 0 to 99. That is, if is the number of integers from 0 to 99 that include the digit 5, then or, equivalently .   "
 },
@@ -770,7 +770,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#thm_count_complement",
   "type": "Theorem",
-  "number": "2.2.8",
+  "number": "2.2.9",
   "title": "Counting the opposite.",
   "body": " Counting the opposite   If there are objects, of which objects have a given property, then there are objects that have the opposite property.   "
 },
@@ -779,7 +779,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_pick_two_lunch",
   "type": "Example",
-  "number": "2.2.9",
+  "number": "2.2.10",
   "title": "Pick two lunch.",
   "body": " Pick two lunch   As in , my favorite cafe offers three types of salad, five types of pizza, and four types of cookies for lunch. How many lunch options are there if I order the Pick Two special, which is either a salad and a pizza, a salad and a cookie, or a pizza and a cookie? This question was .    We consider cases.  Case 1: Order salad and pizza. As in , we can build each lunch option through a sequence of two steps. Step 1: choose the salad (3 ways) and then step 2: choose the pizza (5 ways). Since steps multiply , there are options listed in this case.  Case 2: Order salad and a cookie. We can build each lunch choice through a sequence of two steps. Step 1: choose the salad (3 ways) and then step 2: choose the cookie (4 ways). Since steps multiply, there are options listed in this case.  Case 3: Order pizza and a cookie. We can build each lunch choice through a sequence of two steps. Step 1: choose the pizza (5 ways) and then step 2: choose the cookie (4 ways). Since steps multiply, there are options listed in this case.  Since cases add , there are  Pick Two lunch options.   "
 },
@@ -788,7 +788,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#rem_not_eval_counts_1",
   "type": "Remark",
-  "number": "2.2.10",
+  "number": "2.2.11",
   "title": "Not evaluating counts, version 1.",
   "body": " Not evaluating counts, version 1  Unless stated otherwise, when counting you may leave any answer greater than twenty in a format that could easily be evaluated on a calculator. In particular, your answer may involve addition, subtraction, multiplication, division, and parentheses.  "
 },
@@ -806,7 +806,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_not_steps",
   "type": "Example",
-  "number": "2.2.12",
+  "number": "2.2.14",
   "title": "Steps do not work.",
   "body": " Steps do not work   Explain why we cannot use steps to count the number of tilings of the board using squares ( ) and dominoes ( ), as in .    In , we drew the possibility tree shown in .  If we think of building the tiling in steps, the first step is to choose the first tile, which can be a square or a domino. In the tree, we see two branches from the root.  The second step is to choose the second tile, which can also be a square or a domino. In the tree, we see two branches from the original square or domino. So far, so good.  But in the third step, when we choose the third tile, the situation changes. In most cases, the third tile can be a square or domino, but if we started with two dominoes , then the next tile must be a square because the total length is five (and three dominoes would have length six). In the tree, we see only one branch following the option .  In the fourth step, when we choose the fourth tile, the situation becomes even more complicated. In some cases, we still have the option of a square or a domino, which corresponds to two branches of the tree. In other cases, we only have the option of a square, which corresponds to one branch in the tree. In some cases, we are done, so there are no options, which corresponds to zero branches in the tree.  To use the steps rule , we would need each step to have a constant number of branches. Since the third step could have one or two branches and the fourth (and fifth) steps could have zero, one, or two branches, we cannot use the steps rule.   "
 },
@@ -815,7 +815,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_not_cases",
   "type": "Example",
-  "number": "2.2.13",
+  "number": "2.2.15",
   "title": "Cases do not work.",
   "body": " Cases do not work   Explain why we cannot use cases to count the number of tilings of the board using squares and dominoes that begin or end with a square.    Let's see what happens if we try to count using cases. Even though we do not normally make a list when counting, it will be illustrative here to make a list in each case.  Case 1: The tiling begins with a square. The remainder of the tiling can be any square and domino tiling of a board: , , or . Therefore, we have three strings in this case:   Case 2: The tiling ends with a square. Now, the beginning of the tiling can be any square and domino tiling of a board: , , or . Therefore, we also have three strings in this case:   Notice that the tilings and appear on both lists, so there are only four distinct tilings: . The answer is 4, but if we had added the numbers from our cases, we would have , which is not correct.   "
 },
@@ -833,7 +833,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#defn_consecutive_integers",
   "type": "Definition",
-  "number": "2.2.14",
+  "number": "2.2.17",
   "title": "Consecutive integers.",
   "body": " Consecutive integers       A pair of integers is consecutive if . For example, 5 and 6 are consecutive integers because .    In general, a list of integers is consecutive if we get from each integer to the next by adding one. For example, are consecutive integers. We often refer to consecutive integers as appearing in a row on the list of integers in .      "
 },
@@ -842,7 +842,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_consecutive_integers",
   "type": "Example",
-  "number": "2.2.15",
+  "number": "2.2.18",
   "title": "Consecutive integers.",
   "body": " Consecutive integers       List the three integers immediately after the integer .  Notice that and . The next three integers after the integer are: , , and .      List the three integers immediately before the integer .  Since we add one to get from an integer to the next consecutive integer, we must subtract one to get from an integer to the previous consecutive integer. That is, the integer before must be . Similarly, the integer before must be and the integer before that is . The three integers immediately before the integer are , , and         "
 },
@@ -851,7 +851,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#defn_factorial",
   "type": "Definition",
-  "number": "2.2.16",
+  "number": "2.2.19",
   "title": "Factorial.",
   "body": " Factorial       When is a positive integer, the factorial  is the product of the consecutive integers , usually written in reverse order. For example, .    We often write which can be misleading for small powers of . For example, by definition, . Neither of these factorials includes the integer 3 as a factor, even though the notation shows a factor of (3).    It is convenient to define .    Factorials are at the same priority in the order of operations as exponents in . For example, , while , definitely a different value.      "
 },
@@ -860,7 +860,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_factorials",
   "type": "Example",
-  "number": "2.2.17",
+  "number": "2.2.20",
   "title": "Factorials.",
   "body": " Factorials   On this problem, we only use technology to check our answers.   Evaluate 6!.  By definition and using that from , we get       Evaluate when .  Since factorials come before products in the order of operations , we have .      Evaluate when .  Since parentheses come first in the order of operations, we calculate the product first to get , as in .        "
 },
@@ -878,7 +878,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#exam_simplify_factorials",
   "type": "Example",
-  "number": "2.2.18",
+  "number": "2.2.22",
   "title": "Simplifying <span class=\"process-math\">\\(n(n-1)!\\)<\/span>",
   "body": " Simplifying       Write as a single factorial:   We have       Write as a single factorial   Similarly, we have       Write as a single factorial   Similarly, we have         "
 },
@@ -887,7 +887,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_steps_cases.html#rem_not_eval_counts_2",
   "type": "Remark",
-  "number": "2.2.19",
+  "number": "2.2.23",
   "title": "Not evaluating counts, version 2.",
   "body": " Not evaluating counts, version 2  Unless stated otherwise, when counting, you may leave any answer greater than twenty in a format that could easily be evaluated on a calculator. In particular, your answer may involve addition, subtraction, multiplication, division, factorials, and parentheses.  "
 },
@@ -1103,7 +1103,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#fig_subset_corral",
   "type": "Figure",
-  "number": "2.3.1",
+  "number": "2.3.2",
   "title": "",
   "body": " The subset corrals some of the elements of the set .    "
 },
@@ -1112,7 +1112,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#defn_subsets",
   "type": "Definition",
-  "number": "2.3.2",
+  "number": "2.3.3",
   "title": "Subsets.",
   "body": " Subsets       A subset of the set is a set consisting of some of the elements of , where the word some is understood to be any number of elements from none to all. That is, the set is a subset of the set , denoted if every element of is also an element of . For example, and . Note that the set is a subset of itself. For example, .    The empty set  is the set with no elements. That is . Note that is a subset of any set. Imagine corralling no elements or drawing a shaded shape within that contains none of the elements of . For example, .      "
 },
@@ -1121,7 +1121,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#rem_notation_zero",
   "type": "Remark",
-  "number": "2.3.3",
+  "number": "2.3.4",
   "title": "Notation for zero.",
   "body": " Notation for zero  Computer scientists often write the number zero with a slash to avoid confusion with the letter , so the zero symbol in computer science looks similar to the empty set symbol . In this textbook, we write for the number zero (without a slash), for the zero bit, and for the empty set.  "
 },
@@ -1130,7 +1130,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#defn_binomial_coeff",
   "type": "Definition",
-  "number": "2.3.4",
+  "number": "2.3.5",
   "title": "Binomial coefficient.",
   "body": " Binomial coefficient   For non-negative integers and ,   The number of ways to select a subset of elements from a set of elements is the binomial coefficient  which is pronounced choose . For example, 5 choose 2 is because we saw in that there are 10 ways to select two cats from a set of five cats.    Note that if , then .      "
 },
@@ -1139,7 +1139,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#rem_not_eval_counts_3",
   "type": "Remark",
-  "number": "2.3.5",
+  "number": "2.3.6",
   "title": "Not evaluating counts, version 3.",
   "body": " Not evaluating counts, version 3  Unless stated otherwise, when counting you may leave any answer greater than twenty in a format that could easily be evaluated on a calculator. In particular, your answer may involve addition, subtraction, multiplication, division, factorials, binomial coefficients, and parentheses.  "
 },
@@ -1148,7 +1148,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#exam_four_choose_k",
   "type": "Example",
-  "number": "2.3.6",
+  "number": "2.3.7",
   "title": "Four choose <span class=\"process-math\">\\(k\\)<\/span>.",
   "body": " Four choose   Evaluate for each nonnegative integer by listing the -element subsets of .    When , the only 0-element subset is and so .  When , the 1-element subsets are and so .  When , the 2-element subsets are and so .  When , the 3-element subsets are and so .  When , the only 4-element subset is and so .  When we have .   "
 },
@@ -1166,7 +1166,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#exam_team_leader",
   "type": "Example",
-  "number": "2.3.7",
+  "number": "2.3.9",
   "title": "Team and leader.",
   "body": " Team and leader   There are 25 students in the coding club, ten of whom are first-year students. For the coding competition, we need a team of four students that includes exactly one first-year student. How many different teams are possible?    Since ten of the 25 students are first-year students, the other are not first-year students. To make a team of four with exactly one first-year student, we will also need three students who are not first-year.  Step 1: Choose the first-year student. We want one first-year student out of ten, so there are ways to do this step.  Step 2: Choose the other three students. We want three students who are not first year out of 15, so there are ways to do this step.  Since steps multiply , there are a total of ways to choose a team.   "
 },
@@ -1184,7 +1184,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#defn_52-card_deck",
   "type": "Definition",
-  "number": "2.3.8",
+  "number": "2.3.11",
   "title": "52-card deck of playing cards.",
   "body": " 52-card deck of playing cards       A hand is a set of cards, without regard to order. The name comes from the fact that in many card games you hold the cards in your hand. The number of cards in a hand varies depending on the game. Poker is a family of card games that often uses hands with five or seven cards, whereas Bridge is a card game that uses hands with thirteen cards.    Each card in the deck has one of thirteen denominations : Ace (A), 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack (J), Queen (Q), or King (K).    Each card in the deck also has one of four suits clubs , diamonds , hearts , or spades . For example, a card might be the Jack of hearts, denoted J . Note that for each choice of denomination and suit, there is exactly one card with that denomination and suit. For example, there is exactly one card that is J .    The cards with clubs and spades are black cards . The cards with diamonds and hearts are red cards .    To learn more about a standard 52-card deck of playing cards, check out Wikipedia: Standard 52-card Deck     "
 },
@@ -1193,7 +1193,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#exam_4ofakind",
   "type": "Example",
-  "number": "2.3.9",
+  "number": "2.3.12",
   "title": "Three-of-a-kind.",
   "body": " Three-of-a-kind   In a 52-card deck of playing cards, how many 5-card hands have a three-of-a-kind , which is three cards of one denomination, a fourth card of a different denomination, and fifth card of another denomination. The fourth or fifth cards cannot be the same denomination as the three-of-a-kind because that is a four-of-a-kind . The fourth and fifth cards cannot be the same denomination as each other because that is a full house . How many different 5-card hands have a three-of-a-kind?    Let's build such a hand through a series of steps.  Step 1: Select the denomination of the three-of-a-kind. Since there are 13 denominations, there are ways to complete this step.  Step 2: Select the cards for the three-of-a-kind. There are four cards in the denomination we chose in Step 1 and we want three of them, so there are ways to complete this step.  Step 3: Select the denominations of the other two cards. Since there are remaining denominations and we want two of them, there are ways to complete this step.  Step 4: Select the cards in the other two denominations. Since there are four cards in each denomination chosen in Step 3, there are ways to choose each. Since there are two cards and steps multiply , there are ways to complete this step, which finishes building our hand.  Since steps multiply , there are ways. (Any of those formats of the answer is acceptable.)   "
 },
@@ -1211,7 +1211,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#pff_comb",
   "type": "Theorem",
-  "number": "2.3.10",
+  "number": "2.3.13",
   "title": "Proof Format: Combinatorial Proof.",
   "body": " Proof Format: Combinatorial Proof   We can prove using a combinatorial proof by adapting the following proof format.   We use a combinatorial proof. Consider the following situation .  How many ways are there to ?  First, (explain how to count using one method to get .)  On the other hand, (explain how to count using a different method to get .)  Since we counted the same quantity in two different ways, it follows that .    "
 },
@@ -1229,7 +1229,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#exam_comb_proof_teamandleader",
   "type": "Example",
-  "number": "2.3.11",
+  "number": "2.3.15",
   "title": "Combinatorial proof — team and leader.",
   "body": " Combinatorial proof team and leader   Use a combinatorial proof to prove that       Proof. We use a combinatorial proof. Consider the following situation: there is a group of ten employees. How many ways are there to choose seven employees to be on a project team where one member of the team is the project leader?  First, we can choose the seven-person project team from the group of ten employees. There are ways to do this step. Then we need to choose one of those seven people on the project team to be the project leader. There are seven ways to do this step. (You could think of it as ways, but and that is simpler.) Since steps multiply , the answer is .  On the other hand, we can make the choices in reverse order. We can start by choosing the project leader, one of the ten people. There are ten ways to do this step. Then we need to choose the rest of the project team. Since we already chose the project leader, we only need six more people out of the nine remaining people. There are ways to do this step. Since steps multiply , the answer is also .  Since we counted the same quantity in two different ways, it follows that .   "
 },
@@ -1238,7 +1238,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#thm_sym_binom",
   "type": "Theorem",
-  "number": "2.3.12",
+  "number": "2.3.16",
   "title": "Symmetry of the binomial coefficients.",
   "body": " Symmetry of the binomial coefficients   For any positive integers and we have    "
 },
@@ -1247,7 +1247,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_counting_subsets.html#exam_comb_pf_sym_arith_tri",
   "type": "Example",
-  "number": "2.3.13",
+  "number": "2.3.17",
   "title": "Combinatorial proof — symmetry of the binomial coefficients.",
   "body": " Combinatorial proof symmetry of the binomial coefficients   Give a combinatorial proof of .     Proof We use a combinatorial proof. Consider the following situation: there are people who auditioned for a play, and we want to choose people to be in the play. How many ways are there to do this?  First, since we want to choose out of people, there are ways to select who is in the play.  On the other hand, instead of deciding who will be in the play, we can choose which people will not be in the play. There are people who auditioned but will not be in the play, so there are ways to select who will be in the play in this way.  Since we counted the same quantity in two different ways, it follows that .   "
 },
@@ -1490,7 +1490,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#exam_conjecture_number_bit_strings",
   "type": "Example",
-  "number": "2.4.5",
+  "number": "2.4.6",
   "title": "Conjecture number of bit strings of length <span class=\"process-math\">\\(n\\)<\/span>.",
   "body": " Conjecture number of bit strings of length   How many bit strings of length are there? State your answer as a conjecture.    There is one bit string of length 0 ( ), two bit strings of length one ( , ) and four bit strings of length two ( , , , ). In , we listed the eight bit strings of length three. In , we counted 16 bit strings of length four and 32 bit strings of length five. Notice that each integer is twice the previous number, suggesting that we are multiplying by two. shows these examples written as a product of twos.   The number of bit strings of length for     Number of bit strings of length .        0  1        1         2  4 =        3         4         5      Based on these examples, it is reasonable to conjecture that there are bit strings of length .   "
 },
@@ -1508,7 +1508,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#thm_number_bit_strings",
   "type": "Theorem",
-  "number": "2.4.7",
+  "number": "2.4.8",
   "title": "Number of bit strings of length <span class=\"process-math\">\\(n\\)<\/span>.",
   "body": " Number of bit strings of length    There are bit strings of length .    Imagine building each bit string of length by filling in the spaces:   There are two ways to fill in each space: either or . We fill in the spaces in a sequence of steps.  Step 1: Fill in the first space (2 ways).  Step 2: Fill in the second space (2 ways).  Step 3: Fill in the third space (2 ways).  We continue to fill spaces until Step : Fill in the last space (2 ways).  Since steps multiply , the total number of bit strings of length is    "
 },
@@ -1526,7 +1526,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#exam_bit_strings_length100_weight3",
   "type": "Example",
-  "number": "2.4.8",
+  "number": "2.4.10",
   "title": "Bit strings of length 100 and weight three.",
   "body": " Bit strings of length 100 and weight three   How many bit strings of length 100 and weight three are there?    Let's figure out a way to rephrase this problem in terms of subsets. We can build such a bit string by putting a or in each of 100 spaces:   Following the hint in , let's choose which spaces have s.  Step 1: Fill in three spaces with . We choose a subset of three spaces for s from the set of 100 spaces. There are ways to do this step.  Step 2: Fill in the remaining 97 spaces with . There is one way to do this step because the 97 s go into the remaining 97 spaces. Alternatively, you can think of choosing a subset of 97 spaces for the s from the set of 97 remaining spaces. There are ways to do this step.  Since steps multiply , there are bit strings of length 100 and weight three. Our final answer is , which a quick internet search shows equals 161,700 , too many to list by hand!   "
 },
@@ -1535,7 +1535,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#thm_bit_string_exactly_k",
   "type": "Theorem",
-  "number": "2.4.9",
+  "number": "2.4.11",
   "title": "Number of bit strings of length <span class=\"process-math\">\\(n\\)<\/span> with exactly <span class=\"process-math\">\\(k\\)<\/span> <span class=\"process-math\">\\(\\str{1}\\)<\/span>s (or with exactly <span class=\"process-math\">\\(k\\)<\/span> <span class=\"process-math\">\\(\\str{0}\\)<\/span>s).",
   "body": " Number of bit strings of length with exactly  s (or with exactly  s)   The number of bit strings of length with exactly  s (or with exactly  s) is .   "
 },
@@ -1544,7 +1544,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#exam_count_bs_exactlyk",
   "type": "Example",
-  "number": "2.4.10",
+  "number": "2.4.12",
   "title": "Counting bit strings with given number of <span class=\"process-math\">\\(\\bs{0}\\)<\/span>s or <span class=\"process-math\">\\(\\bs{1}\\)<\/span>s.",
   "body": " Counting bit strings with given number of s or s       Count the number of bit strings of length five and weight three.  By , there are bit strings of length five and weight three. Note that , which should agree with the tree you drew in  .      Count the number of bit strings of length eight and weight two.  By , there are bit strings of length eight and weight two, which is the answer to .      How many bit strings of length 100 are exactly half s and half s?  By there are such bit strings.        "
 },
@@ -1571,7 +1571,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#defn_exp_notation",
   "type": "Definition",
-  "number": "2.4.12",
+  "number": "2.4.15",
   "title": "Exponential notation.",
   "body": " Exponential notation       When is a positive integer,  raised to the power of  (or just  to the  ) is For example, and . Note that exponentiation is not commutative. For example, but . We practice evaluating powers without using technology to understand the definition, but, of course, you can use technology to check. Many computational tools, such as calculators, spreadsheet programs, or an Internet search, use the notation to indicate a power.    In the expression , the integer is the base , the number that we are repeatedly multiplying. The integer is the exponent , the number of times we multiply the base. The quantity is the power of  , the final product. For example, in , the base is 2, the exponent is 5, and the power of 2 is 32.    For , it is convenient to define . For example, is the number of bit strings of length zero.    The expression is  squared . For example, . This name comes from the fact that the area of a square with sides of length is .    The expression is  cubed . For example, . This name comes from the fact that the volume of a cube with sides of length is .      "
 },
@@ -1580,7 +1580,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#exam_exponential_notation",
   "type": "Example",
-  "number": "2.4.13",
+  "number": "2.4.16",
   "title": "Exponential notation.",
   "body": " Exponential notation   In this example, we only use technology to check our answers.   Evaluate .  By definition,     =      =      =      =  .    Check that 10,000. Notice that has 4 zeros.      Evaluate and .  By definition,     =      =      =  -1,000     =  10,000.    Check that . On the other hand, according to  , exponents are higher in the order of operations in than subtraction (and negation), so . Check that .      Evaluate .  By definition, .  Check that .      Evaluate .  By definition, and check that .        "
 },
@@ -1589,7 +1589,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#defn_log",
   "type": "Definition",
-  "number": "2.4.14",
+  "number": "2.4.17",
   "title": "Logarithm.",
   "body": " Logarithm       The logarithm base 10 of an integer , denoted is the exponent of the power 10 that equals . That is, if . For example, because .    The logarithm base 2 of an integer , denoted , is the exponent of the power of 2 that equals . That is, if . For example, because .    In this textbook, we only use base 2 and base 10, but logarithms can be defined in general. In this textbook, we only calculate logarithms of exact powers. We do not calculate quantities such as or . We have defined when is a nonnegative integer, but it is beyond the scope of this textbook to define what for any real number . With that definition, we can take evaluate logarithms of any positive real number. For example, and . The logarithm base of an integer , denoted is the exponent of the power of that equals . That is, if . For example, because . In this notation, is short for and is short for . In calculus, a noninteger base is important. The corresponding logarithm is named .      "
 },
@@ -1598,7 +1598,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#exam_eval_logs",
   "type": "Example",
-  "number": "2.4.15",
+  "number": "2.4.18",
   "title": "Evaluating logs.",
   "body": " Evaluating logs   In this example, we evaluate without using technology.   Evaluate .  Since , it follows that .      Evaluate and .  First, since , it follows that . Next, since , it follows that .        "
 },
@@ -1616,7 +1616,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#exam_simplify_exponents",
   "type": "Example",
-  "number": "2.4.16",
+  "number": "2.4.20",
   "title": "Simplifying exponents.",
   "body": " Simplifying exponents       Simplify by writing it as a single power.  Using , we have .  Notice that the base remains 2 and that since the powers shared a common base, the exponents added: .      Simplify by writing it as a single power.  Using , we have .  Notice that the exponents multiplied: .      Write as a power of 2.  First, write . Then, using what we learned in we get .  You can check that and .        "
 },
@@ -1625,7 +1625,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#thm_simplify_exp",
   "type": "Theorem",
-  "number": "2.4.17",
+  "number": "2.4.21",
   "title": "Simplifying exponents.",
   "body": " Simplifying exponents   For any integer and positive integers and we have the following rules.   Simplifying a product of powers (of the same base): .    Simplifying a power of a power: .      "
 },
@@ -1634,7 +1634,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#exam_simplify_22nminus1",
   "type": "Example",
-  "number": "2.4.18",
+  "number": "2.4.22",
   "title": "Simplify <span class=\"process-math\">\\(2\\cdot2^{n-1}\\)<\/span>.",
   "body": " Simplify       Simplify using .  We can write to get       Confirm your answer to using the definition of exponents.  We can write         "
 },
@@ -1643,7 +1643,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_bit_strings.html#rem_not_eval_counts_final",
   "type": "Remark",
-  "number": "2.4.19",
+  "number": "2.4.23",
   "title": "Not evaluating counts, final version.",
   "body": " Not evaluating counts, final version  Unless stated otherwise, when counting you may leave any answer greater than twenty in a format that could easily be evaluated on a calculator. In particular, your answer may involve addition, subtraction, multiplication, division, exponents, logarithms, factorials, binomial coefficients, and parentheses.  "
 },
@@ -1895,7 +1895,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_graph_models.html#defn_graph",
   "type": "Definition",
-  "number": "3.1.2",
+  "number": "3.1.3",
   "title": "Graph.",
   "body": " Graph       A vertex (or node ) is an object. For example, a vertex could be a piece of land in the city from or perhaps a student at the university. The plural of vertex is vertices and so we refer to one vertex, two vertices, three vertices, and so on.    An edge is a set of two vertices. For example, if and are distinct vertices in a graph, then is an example of a possible edge. When we model a situation using a graph, each edge represents a connection between two objects. For example, in the Bridges Puzzle , we might want an edge between two vertices to indicate that those two pieces of land are connected by a bridge. We are ignoring, for the moment, that there are two bridges between the big island and the north shore. Technically we need a slightly more general definition of an edge and what we get is a multigraph , not a simple graph. As another example, in a graph where each vertex is a student at the university, we might want an edge between two vertices to indicate that those two students have a class together this semester.    Two vertices are adjacent (or neighbors ) if they are connected by an edge. That is, if and are distinct vertices and is an edge, then the vertices and are adjacent. We also say that is adjacent to  or that is adjacent to  . So, for example, if Camilla and Quang are both in discrete mathematics class this semester, then Camilla is adjacent to Quang (and vice versa) in the student graph.    A (simple) graph (or network ) is a pair of sets: a vertex set of vertices and a edge set of edges where the elements of each edge are in the vertex set. For example, we might have the graph with the vertex set and the edge set .    A graph drawing of a graph has a point for each vertex and a line (or curve) for each edge connecting its two vertices. In this textbook, we draw each vertex as a small, open circle instead of a point. The placement of the vertices and edges is at our convenience none of the geometry such as position, length, or angle matters. For example, shows four different drawings of the graph from .  Four different drawings of the graph .           "
 },
@@ -1913,7 +1913,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_graph_models.html#exam_bridges_graph",
   "type": "Example",
-  "number": "3.1.4",
+  "number": "3.1.5",
   "title": "Bridges as a graph.",
   "body": " Bridges as a graph   Draw a multigraph representing the city in the Bridges Puzzle .    The graph is drawn in . The graph has four vertices, one for each piece of land. We have labeled them in the graph drawing for convenience. For each bridge in between two pieces of land, we draw an edge connecting the corresponding vertices in the graph. For example, there is a bridge connecting the small island and the big island, so in our graph drawing we have an edge between the vertices labeled small island and big island. There is no bridge connecting the north shore and the south shore, so in our graph drawing we do not have an edge between the vertices labeled north shore and south shore.   A multigraph representing the city in the Bridges Puzzle.       "
 },
@@ -1922,7 +1922,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_graph_models.html#exam_classmates_graph",
   "type": "Example",
-  "number": "3.1.6",
+  "number": "3.1.7",
   "title": "Classmates graph.",
   "body": " Classmates graph   Abdi, Bhavika, Cara, Drew, Elle, and Filipe are all new transfer students. This semester, Abdi, Bhavika, and Cara are in a discrete mathematics class together; Bhavika, Cara, and Drew are in an algorithms class together; and Abdi and Elle are in chemistry class together. These students do not have other classes in common.  We can model these relationships with a graph. The vertex set has a vertex for each student corresponding to the first letter of their name. Let's say two vertices are connected by an edge if those two students are taking the same class. If students have any number of classes together, we will just draw a single edge. This graph might be useful for visualizing who knows each other.   Explain why is an edge but is not.  Abdi and Cara are in the discrete mathematics class, so is an edge. All common classes are listed, and there is no class that Bhavika and Elle are taking, so is not an edge.      How many edges are in the graph?  First, since Abdi, Bhavika, and Cara are in a discrete mathematics class together, we have three edges , , and . Next, since Bhavika, Cara, and Drew are in an algorithms class, we have two more edges and . We already knew that was an edge, so we do not draw that edge again. Lastly, since Abdi and Elle are in the same chemistry class, we have one more edge: . There are a total of six edges.      Draw the graph.   shows one possible drawing of the graph. In this drawing, we chose to draw the vertices in a circle. The lines representing the edges and happen to cross, which is acceptable, but note that the point where those two edges cross is not a vertex. That is the sort of potential misunderstanding that we avoid by drawing our vertices as small circles instead of actual points.   One drawing of the classmates graph.            "
 },
@@ -1931,7 +1931,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_graph_models.html#defn_degree",
   "type": "Definition",
-  "number": "3.1.8",
+  "number": "3.1.9",
   "title": "Degree of vertex.",
   "body": " Degree of vertex       The degree of a vertex in a graph , denoted or just , is the number of edges of that contain the vertex . For example, in the graph from  with vertex set and edge set , vertex 1 has degree two because 1 is an element of two edges: and . Vertex 2 has degree three because 2 is an element of three edges: , , and . In the drawings in , we see two edges to vertex 1 and three edges to vertex 2.    Equivalently, the degree of a vertex is the number of neighbors of the vertex. For example, in the graph from  , vertex 1 has degree two because it has two neighbors, 2 and 4. Similarly, vertex 2 has degree three because it has three neighbors, 1, 3, and 4.    An isolated vertex is a vertex with degree zero. For example, is an isolated vertex in the classmates graph in , because Felipe was not a classmate of anyone else in the group of new transfer students. In there are no edges to the vertex .    A end vertex (or leaf or pendant ) is a vertex with degree 1. For example, in the classmates graph from , is an end vertex because Elle was only in a class with Abdi. In we see one edge to the vertex .      "
 },
@@ -1949,7 +1949,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_graph_models.html#defn_graph_complement",
   "type": "Definition",
-  "number": "3.1.9",
+  "number": "3.1.11",
   "title": "Graph complement.",
   "body": " Graph complement   For a graph, , the (graph) complement , , has the same set of vertices but opposite edges in the sense that is an edge of exactly when is not an edge in . Equivalently, and are adjacent in exactly when and are not adjacent in .   "
 },
@@ -1958,7 +1958,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_graph_models.html#exam_classmates_comp",
   "type": "Example",
-  "number": "3.1.10",
+  "number": "3.1.12",
   "title": "Complement of the classmates graph.",
   "body": " Complement of the classmates graph   Draw the complement of the classmates graph in .    We draw the complement in .   The complement of the classmates graph.      For example, and are not adjacent vertices in the classmates graph because Abdi and Drew are not in any of the same classes this semester. Therefore, and are adjacent vertices in the complement of the classmates graph. As another example, and are adjacent vertices in the classmates graph because Bhavika and Cara are in the algorithms class together this semester. Therefore, and are not adjacent vertices in the complement of the classmates graph.   "
 },
@@ -1976,7 +1976,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_graph_models.html#exam_deg_comp",
   "type": "Example",
-  "number": "3.1.13",
+  "number": "3.1.16",
   "title": "Degree of a vertex in the complement.",
   "body": " Degree of a vertex in the complement   In the graph drawn in , what is the relationship between the degree of a vertex in the graph and the degree of that same vertex in the complement ?    As an example, the vertex is adjacent to , , and in and is adjacent to in . Thus, and . As another example, the vertex is adjacent to and in and is adjacent to and in . Thus, and . In general, if is any vertex in , then .  This equation holds for any vertex, , because there are four other vertices in . Some of those four vertices are adjacent to in . The remainder of those four vertices must be adjacent to in . So, each of those other four vertices counts once in either or .   "
 },
@@ -2147,7 +2147,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#thm_first_thm_graph_thy",
   "type": "Theorem",
-  "number": "3.2.4",
+  "number": "3.2.5",
   "title": "The first theorem of graph theory.",
   "body": " The first theorem of graph theory   The sum of the degrees of the vertices of a graph, counting multiplicities, is twice the number of edges. Equivalently, the number of edges of a graph is half of the sum of the degrees of the vertices.   "
 },
@@ -2156,7 +2156,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#exam_check_first_thm_graph_thy",
   "type": "Example",
-  "number": "3.2.5",
+  "number": "3.2.6",
   "title": "Checking first theorem of graph theory.",
   "body": " Checking first theorem of graph theory       Check for the classmates graph drawn in .  The sum of the degrees is .  The number of edges is , as expected.      In  , we considered whether there exists a 3-regular graph of order five. Use to explain why there cannot exist such a graph.  If there were such a graph, then the sum of the degrees would be which is an odd integer but, by , the sum of the degrees is twice the number of edges, which is an even integer. Since an integer cannot be even and odd (which we will formally prove in ), such a graph is impossible.        "
 },
@@ -2165,7 +2165,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#exam_graphical",
   "type": "Example",
-  "number": "3.2.6",
+  "number": "3.2.7",
   "title": "Is this list a degree sequence of a graph?",
   "body": " Is this list a degree sequence of a graph?   For each list of nonnegative integers, draw a graph with that degree sequence or explain why there cannot be a graph with that degree sequence.      Let's see what happens if we can draw a graph with this degree sequence. Note that there are six numbers listed, so our graph has six vertices. Therefore, each of the degree five vertices must be adjacent to all of the other five vertices. Therefore, our graph must start as shown on the left in . The vertices and have degree five, but the other vertices only have degree two. We can increase their degree to three, as desired, by adding the edges and , for example, obtaining the graph drawn on the right in . Thus, this list is the degree sequence of a graph.   Drawing a graph with degree sequence .      Note that this graph is not the only graph with this degree sequence. We could have drawn edges between and and between and , for example.         Let's see if we can draw a graph with this degree sequence. It would have six vertices. As before, the two vertices of degree five would each be adjacent to the other four vertices, as in the graph drawn on the left in . But then all of the other vertices in our graph would already have degree at least two. That is a problem because our degree sequence lists a vertex of degree one. Thus, this list is not the degree sequence of any graph.        "
 },
@@ -2174,7 +2174,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#exam_handshake_graphs",
   "type": "Example",
-  "number": "3.2.8",
+  "number": "3.2.9",
   "title": "Handshakes graphs.",
   "body": " Handshakes graphs       In we drew a graph representing a group of six students shaking hands with each other, as drawn again in . How many vertices does this graph have and what does that number mean in the story? How many edges does that graph have and what does that number mean in the story?  The graph has six vertices that represent the six students. The graph has 15 edges that represent the 15 handshakes the group did.   A drawing of the complete graph showing six students shaking hands with each other.          Six discrete mathematics students had just finished shaking hands and started studying when three first-year students wandered into the room. The discrete students thought it would be polite to greet each visitor by shaking hands. (Each discrete mathematics student shakes hands with each first-year student.) Draw a graph representing this new situation, only including the new handshakes.  We draw the graph in and, as is common, we distinguish between the two types of students representing the discrete students with black vertices and the first-year students with white vertices. Which group is which color is not important and we do not have to color the vertices at all. Notice that there are vertices representing the nine students and there are edges representing the 18 new handshakes.   A drawing of the complete bipartite graph showing six discrete math students shaking hands with three first-year students.            "
 },
@@ -2183,7 +2183,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#defn_complete_completebipartite",
   "type": "Definition",
-  "number": "3.2.11",
+  "number": "3.2.12",
   "title": "Complete graphs and complete bipartite graphs.",
   "body": " Complete graphs and complete bipartite graphs       A family of graphs is a set of graphs that share many properties. We might define a family in terms of a parameter such as . In the name of the family, we often write that parameter as a subscript , a character written slightly smaller and lower. For example, the family of complete graphs (pronounced sub ) for are the graphs , , , .    For the complete graph (or handshake graph ) with vertices, denoted , has an edge between every pair of vertices. The subscript tells us the number of vertices. Note that complete starts with the sound of the letter K . For example, in  , we drew the complete graph .    For integers , the complete bipartite graph with vertices of the first type (perhaps colored black in the drawing) and vertices of the second type (perhaps colored white in the drawing), denoted has an edge between each vertex of the first type and each vertex of the second type (and no other edges). For example, in  , we drew the complete bipartite graph .    A special case of complete bipartite graphs is the star graphs for . For example, a star graph might model a corporate reporting structure such as a vice-president and their directors. shows drawings of and where we have drawn the white vertices in a circle around the central black hub vertex, as is customary.  The stars and .           "
 },
@@ -2192,7 +2192,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#exam_complete_completebipartite_star",
   "type": "Example",
-  "number": "3.2.13",
+  "number": "3.2.14",
   "title": "Complete, complete bipartite, and star graphs.",
   "body": " Complete, complete bipartite, and star graphs       Draw the complete graphs , , , , and .  See .   The complete graphs , , , , and .          For each graph, count the number of vertices and edges and determine the degree sequence: the complete graph , the complete bipartite graph , and the star   The complete graph has six vertices and 15 edges. Every vertex has degree five, and so the degree sequence is .  The complete bipartite graph has nine vertices and 18 edges. The black vertices have degree three and the white vertices have degree six, so the degree sequence is .  The star graph has six vertices and five edges. Its hub vertex has degree five and the end vertices have degree one, so its degree sequence is .      Draw the complete bipartite graph .  See .   The complete bipartite graph            "
 },
@@ -2201,7 +2201,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#defn_paths_cycles",
   "type": "Definition",
-  "number": "3.2.16",
+  "number": "3.2.17",
   "title": "Paths and cycles.",
   "body": " Paths and cycles       For , the path with vertices, denoted , has vertices each adjacent to the next in a row. Officially, if the vertex set is , then the edge set is . For example, shows drawings of the paths and .  The paths and .         For , the cycle with vertices, denoted , has vertices each adjacent to the next in a circle. Officially, if the vertex set is , then the edge set is . For example, shows drawings of the cycles and .  The cycles and .           "
 },
@@ -2210,7 +2210,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#exam_paths_cycles",
   "type": "Example",
-  "number": "3.2.19",
+  "number": "3.2.20",
   "title": "Paths and cycles.",
   "body": " Paths and cycles   For each graph, count the number of vertices and edges and write the degree sequence.   The paths and .  The path has four vertices and three edges. The end vertices have degree one and the middle vertices have degree two. The degree sequence is .  The path has five vertices and four edges. The degree sequence is .      The cycles and .  The cycle has four vertices and four edges. Every vertex has degree two, and so the degree sequence is .  The cycle has five vertices, five edges, and degree sequence .        "
 },
@@ -2228,7 +2228,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#defn_wheel_ladder",
   "type": "Definition",
-  "number": "3.2.20",
+  "number": "3.2.22",
   "title": "Wheels and ladders.",
   "body": " Wheels and ladders       For , the wheel , denoted , consists of the cycle with an additional hub vertex that is adjacent to each vertex in the cycle. For example, shows a drawing of .  The wheel .         For , ladder , denoted , consists of two copies of the path with additional edges between each pair of corresponding vertices. Officially, if the vertex set is , then the edges are   top rail:     bottom rail:     rungs:  .   For example, shows a drawing of .  The ladder .           "
 },
@@ -2237,7 +2237,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#exam_wheel_ladder",
   "type": "Example",
-  "number": "3.2.23",
+  "number": "3.2.25",
   "title": "Wheels and ladders.",
   "body": " Wheels and ladders       Draw the wheels and . For each graph count the number of vertices and edges, and list the degree sequence.   shows a drawing of the graphs. The wheel has five vertices and eight edges. The hub vertex has degree four and each of the outer vertices has degree three. Its degree sequence is .  The wheel has six vertices and ten edges. The hub vertex has degree five and each of the outer vertices has degree three. Its degree sequence is .   The wheels and .          Draw the ladder , count the number of vertices and edges, and list the degree sequence.   shows a drawing of which has ten vertices and thirteen edges. The four corner vertices have degree two and the rest of the vertices have degree three. Its degree sequence is .   The ladder .            "
 },
@@ -2246,7 +2246,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#defn_adj_matrix",
   "type": "Definition",
-  "number": "3.2.26",
+  "number": "3.2.28",
   "title": "Adjacency matrix.",
   "body": " Adjacency matrix       For any matrix , the -entry of , denoted , is the entry in row and column of . For example, if , then , , , and .    To create an adjacency matrix  of a graph with vertices, we first list the vertices of in order as . Then, the -entry of equals if is an edge and if is not an edge. See for an example.    Observe that , so the adjacency matrix of a graph is symmetric . We can use this symmetry to build an adjacency matrix. For example, once we knew that the first row of the adjacency matrix was , it follows that the first column of the adjacency matrix was also .    If the graph has vertices, then the adjacency matrix of is an matrix , which means that it has rows and columns.      "
 },
@@ -2255,7 +2255,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#exam_adj_mat",
   "type": "Example",
-  "number": "3.2.27",
+  "number": "3.2.29",
   "title": "Adjacency matrix.",
   "body": " Adjacency matrix   Find an adjacency matrix of the graph from .     has an adjacency matrix shown in .   An adjacency matrix of the graph in             Notice that the matrix depends on the order of the vertices, here shown in alphabetical order. To obtain the first row of this matrix, we note that the vertex is adjacent to the vertices and . Thus, and and the other entries in the first row are . Similarly, to get the second row, we note that is adjacent to , , , and . Thus, , , , and and the other entries are . The other rows follow in a similar way.   "
 },
@@ -2273,7 +2273,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_std_graphs.html#thm_adj_mat",
   "type": "Theorem",
-  "number": "3.2.30",
+  "number": "3.2.33",
   "title": "Adjacency matrices.",
   "body": " Adjacency matrices   Let be a graph with adjacency matrix .   Let be a vertex in . The degree of is equal to the sum of the entries in the row (or column) of corresponding to .    The adjacency matrix of the complement has the property that for all , .      "
 },
@@ -2509,7 +2509,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.3",
   "title": "Coloring Graphs",
-  "body": " Coloring Graphs   In many logistical applications of graph theory, the problem can be translated into a question about coloring graphs. Examples of such applications include source: wikipedia, graph coloring scheduling (events or tasks), resource allocation (such as assigning computer registers), and physical arrangements (such as assigning seating). In this section, we introduce graph coloring, look at applications to scheduling, and consider the minimum number of colors needed for standard graphs.    Coloring Maps  Another application of graph coloring is coloring regions of a map. We begin with an activity.   Map coloring  There are two rules for coloring a map.   Rule 1:  Each region gets a single color.    Rule 2:  Any two regions that share a common border (more than a point) must be different colors.      Following these rules, color the map in using the colors blue, green, red, and purple.  A map to color.     You can use letters for the colors, such as B = blue, G = green, R = red, P = purple. You can color it by hand Four Color Challenge color the map there, and capture a screenshot of your solution.    Draw a rectangle and divide it into six regions to create a new map that can be colored using only two colors. And show how to color it using B = blue and G = green.    Draw a rectangle and divide it into six regions to create a new map that can be colored using three colors but not two colors. Show how to color it using three colors: B = blue, G = green, and R = red and explain why it is impossible to color it using only two colors.    In the map you colored in , find a portion of the map with four regions where all four colors were needed. Copy that portion of the map and show that four colors work using B = blue, G = green, R = red, P = purple. Next, explain why it is impossible to color that portion of the map using only three colors. Hint: if it is possible to color that portion of the map using only three colors, then you need to pick a different portion.      We can model a map with a graph and rephrase our question about coloring a map into a question about coloring a graph.   Map coloring       Draw a graph with a vertex for each region of the map of midwest states shown in (in Exercise ). Draw an edge between two vertices if the corresponding regions share an edge (more than a point).  We draw the graph of map in .   A graph of midwest states.          Rephrase the map coloring question as a question about the graph.  What is the smallest number of colors that we need in order to color the vertices of the graph in such a way that adjacent vertices are different colors?           Coloring Graphs  Let's formalize the idea of coloring the vertices of a graph.   Chromatic number       A (vertex) coloring of a graph is an assignment of a color to each vertex in such a way that adjacent vertices have different colors.    A -coloring of a graph is a vertex coloring using colors. For example, the graph in has a 3-coloring.    A graph is -colorable if there exists a coloring using or fewer colors.    The chromatic number of a graph is the smallest number of colors needed to color the graph. For example, the complete bipartite graph, , shown in has chromatic number two because it can be colored using two colors (black and white) and one color would not work because there are adjacent vertices.       Let's look at a few examples.   Chromatic number of complete graph and cycle   Determine the chromatic number of each graph by finding a -coloring and then explaining why all colors are necessary.   The complete graph .  First, we can color each vertex its own color using five colors. Since any pair of vertices in are adjacent, they must be different colors and so we cannot use fewer than five colors. Thus, the chromatic number of is five.      The cycle .  If we try to color the vertices of using only two colors (gray and black), as shown in , we run into a problem. The fifth vertex cannot be gray (because it is adjacent to a vertex colored gray) and it cannot be black (because it is adjacent to a vertex colored black). It must be a third color, say white.   Coloring the cycle .      Notice that actually shows that three colors (gray, black, and white) work. Thus, the chromatic number of is three.         Let's try determining the chromatic number of graphs.   Chromatic number of graphs  To show the chromatic number of a graph is , you should draw the graph, show how to color the vertices using colors, and then explain why fewer than colors cannot work.   Explain why the chromatic number of the cycle graph is two but the chromatic number of the cycle graph is three.    Find the chromatic number of the wheel graph . Hint: use .    What's the chromatic number of ? Explain.    The graph drawn in . Find the chromatic number of . Hint: use the result of .  The graph .           Let's look at  and .   Chromatic number of complicated graphs       Find the chromatic number of the wheel graph .  First, notice that the five outer vertices form a copy of . Since has chromatic number three, the outer vertices require at least three different colors. The hub vertex is adjacent to all five outer vertices, and so it must be yet another color. Therefore, we need at least four colors to color the wheel .  Second, shows a 4-coloring of the wheel . Thus, the chromatic number of the wheel is four.   A 4-coloring of the wheel .          Find the chromatic number of the graph drawn in .  First, notice that the center four vertices form a copy of . Since has chromatic number four, we know that those four vertices must be four different colors. Therefore, we need at least four colors to color the entire graph .  Second, shows a 4-coloring of the graph. Thus, the chromatic number of is four.   A 4-coloring of the graph .             Coloring can be used to solve scheduling problems.   Scheduling alumni events   There are three time slots for alumni events this Saturday: late morning, early afternoon, or late afternoon.   Alumni Office events: Meet & Greet (M), Campus Tours (C), and Alumni Panel (A).    Theater Department events: Poetry Slam (P), Screenplay Reading (R), and Viewing Student Films (V).    Career Services events: Speed Networking (N), Interviews (I), and Leadership Development Workshop (L).     Each organization can run only one of its events at a time. In addition, events A and V both want to use the theater and events M, P, and N all want to use the main conference hall, so those events need to be at different times.   Draw a graph representing the situation where each event is a vertex and an edge connects two events if they cannot be scheduled in the same time block.  See .   Graph for scheduling alumni events.          Is there a way to assign events times?  Yes, one solution is M, R, and L in late morning; C, V, and N in early afternoon; and A, P, and I in late afternoon.      Color each vertex with a time that event could be scheduled using the key: black = late morning, gray = early afternoon, and white = late afternoon.  See .   Graph for scheduling alumni events where colors represent event time.          Restate the question from in terms of the graph and colors.  Can we color the vertices of the graph using three colors so that adjacent vertices are different colors?           Graph Conjectures  We have looked at several specific graphs and calculated quantities such as the number of vertices and edges, the degree sequence, and the chromatic number. What about families of graphs? Let's look at an example.   Graph conjectures for the complete graphs   Consider the complete graphs for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    By definition, has vertices. Recall that models the number of handshakes in a group of people. By , the number of edges is . Alternatively, there is an edge for each pair of vertices. Thus, the number of edges is equal to the number of ways to select two out of vertices, which is .  Each vertex in is adjacent to each of the other vertices. Therefore, the degree sequence is   We can color the vertices of with colors by assigning each vertex its own color. Because each vertex is adjacent to every other vertex, no two vertices can be the same color. Thus, all colors are necessary. The chromatic number of is .    We summarize the number of edges of the complete graph for later reference.   Number of edges in the complete graphs   For any positive integer , the complete graph has edges.    Try making conjectures about families of graphs.   Graph conjectures      Consider the star graphs for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    Consider the paths for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    Consider the cycles for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .        Exercises   Exercises for Coloring Maps   Practice   Go to Map Colouring to color more complicated maps. Save screenshots of three puzzles that you attempted. Were you able to solve all three? If not, where did you get stuck?    Note: You do not need to submit the screenshots.     Practice   Copy the map of the northeast states drawn in and show how to 4-color the map. Note: Both parts of New York (NY) should be one color one part (Upstate New York) is labeled NY, the other part (NYC\/Long Island) sits below Connecticut (CT)\/Rhode Island (RI) and is long and skinny.   Map of the northeastern states.         Understand       Copy the map of midwest states drawn in (in Exercise ) and show how to color the map using three colors. Note: We discussed this map in .    Find a portion of the map where all three colors were needed. Copy that portion of the map and explain why it is impossible to color that portion of the map using only two colors.         Hint: Start with ND: red, SD: blue, MN: red. Then, continue with states whose color must follow. For example, Iowa (IA) must be green. Continue.    Hint: Explain why the region formed by ND, SD, and MN needs three colors.       Recap   Do you know    What the connection is between coloring a map and coloring a graph?    How to draw a graph model of a map?        Explore    Read the Quanta magazine article Only Computers Can Solve This Map-Coloring Problem and answer the following questions based on that article.   According to this article, the Four-Color Problem was introduced in a letter, which is a common way mathematics was communicated historically. Who wrote the letter and to whom did they send it?    What does the Four-Color Theorem say?    When did the first proofs appear and who initially claimed to have proved it?    How can the Four-Color Problem be restated in terms of graph theory?    When did the final proof appear and who is credited with the final proof?    Why did the presentation of the final proof receive only polite applause, according to mathematician Don Albers?    The original, but flawed, proof has six special configurations. How many special configurations were considered in the final proof?    What is allegedly in Paul Erdös's The Book ?         Exercises for Coloring Graphs   Practice   Draw each graph and color the vertices with the fewest possible colors. No justification is necessary, but be sure that fewer colors would not work.   The star .    The path .    The cycle .    The wheel .    The ladder .         Hint: Draw the usual star with black and white vertices.    Hint: Two colors work.    Hint: Two colors work.    See .  A 3-coloring of the wheel .         Hint: Two colors work.       Understand       Show how to 3-color the vertices of the classmates graph from using red, blue, and green.    Explain why you need at least three colors to color the vertices of the classmates graph.    What is the chromatic number of the classmates graph?        Understand   Draw each graph and color the vertices with the fewest possible colors. Then explain why fewer colors would not work.   The path .    The cycle .    The complete bipartite graph .    The wheel .        Understand   Consider the graph drawn in .   The graph from Exercise .        Copy and show a 4-coloring of .    Find a subgraph (portion) of that needs at least 4 colors.    What can we conclude from and ?        Hint: Verify that you have colored all the vertices and that any pair of adjacent vertices is different colors.    Hint: Look for complete subgraphs.    Hint: (a) tells us the chromatic number is at most four and (b) tells us the chromatic number is at least four.       Understand   There are seven people and seven committees. Each person is on several committees, as described by . There are four standard meeting times: 8-9:30 AM, 10-11:30 AM, 2-3:30 PM, and 4-5:30 PM. We would like to schedule meeting times for the committees in such a way that we avoid having two meetings at the same time if any person is a member of both committees. Is there a way to do it?   Committee (cmte) members for Exercise    Person on Cmte?  Cmte 1  Cmte 2  Cmte 3  Cmte 4  Cmte 5  Cmte 6  Cmte 7              Alejandro                     Bjorn                     Cassie                     Denise                     Ebrahim                     Fiona                     Gloria              Draw a graph to represent the situation where each committee is a vertex. What should the edges represent?    Is there a way to assign meeting times? If so, color each vertex with a time it could meet using the key: red is 8-9:30 AM, blue is 10-11:30 AM, green is 2-3:30 PM, and orange is 4-5:30 PM.    Restate the question from in terms of the graph and colors.        Hint: An edge should indicate that the two committees have at least one member in common, which means that that pair of committees cannot be scheduled at the same time. The graph has seven vertices and 12 edges.    Hint: yes    Hint: Can we 4-color the graph?       Understand   What can we say about the chromatic number of a graph if ? Your answer should be a conjecture in the form of an equation or inequality involving .    contains a copy of .     can be 5-colored.         Hint: needs 5 colors, so needs 5 colors or maybe more colors.    Hint: Maybe can be colored using fewer than 5 colors if we try again.       Recap   Do you know    What a coloring of a graph is?    What the chromatic number of a graph is?    Which two things we need to check to determine the chromatic number of a graph?    How to model a scheduling problem as a graph-coloring problem?        Explore   Here is an algorithm to 4-color the vertices of graph when the maximum degree of any vertex in is three.   Assign each color a number: red (1), blue (2), green (3), and orange (4). Label the vertices , , , . Color the vertex red (1).    Go to the next vertex and color it the smallest number color that is available, keeping in mind that the vertex cannot be colored the same as any adjacent vertex. Repeat this step until is colored.    Apply this process to color the graph shown in .  Use an algorithm to color the vertices of this graph         Now consider a general graph where the maximum degree of any vertex is three. Explain why there will always be a color available in Step 2 of the algorithm. Hint: Each vertex has degree three.    What have we proved about the chromatic number of ? Hint: Your answer should be an inequality.         Hint: Color red, blue, red,     Hint: When we get to a new vertex to color, how many colors are already used by its neighbors? Explain why there is always at least one of the four colors available to color the new vertex?    Hint: We have found a 4-coloring of the graph. What does that tell us about the chromatic number?       Explore       Give an example of a graph with chromatic number two that is not a complete bipartite graph, a cycle, a path, a ladder, or a grid.    Give an example of a graph with chromatic number five that is not a complete graph.    Give an example of a graph with at least two vertices but chromatic number one.       There are many correct answers to each part. The hints describe how to build one such example.   Hint: There are many correct answers. Try starting with the star which is a complete bipartite graph, but then add more vertices and connect them with an edge to the leaves in .    Hint: Start with and add more to it, making sure you can still 5-color the graph.    Hint: The graph does not have to be connected. (And it cannot be connected.)         Exercises for Graph Conjectures   Practice   Consider the complete bipartite graphs for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve or .    Hint: There are vertices, edges, the degree sequence is   (perhaps in the other order), and the chromatic number is two.     Understand   Consider the wheels for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    Hint: There are vertices, there is exactly one vertex with degree , and the chromatic number is three or four depending on whether is even or odd (be sure to say which is which).     Understand   Consider the ladders for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    Hint: There are four vertices of degree two, and the rest have degree three. One way to count edges is to add the number of horizontal edges in the first row, the number of horizontal edges in the second row, and the number of vertical rungs.   The grid graph .         Recap   Do you know    How many edges has?    How to count the number of vertices, the number of edges, the degree sequence, and the chromatic number for a family of graphs (in terms of parameters such as or )?        Explore   For , the grid graph (or lattice graph ) is denoted . Its vertices are the point,s , in the -plane where and . There is an edge connecting two points with the same -coordinate when their -coordinates differ by 1. Also, there is an edge connecting two points with the same -coordinate when their -coordinates differ by 1. The ladder graphs are the special case where .   List the vertices of and draw those points in the -plane.    List the edges of and add those edges to your points from .    How many vertices does the graph have? Your answer should involve and .    How many edges does the graph have? Your answer should involve and .         Hint: There are 12 vertices.    Hint: The graph is drawn in     Hint: Multiply    Hint: Count the number of vertical edges. Then count the number of horizontal edges. Then add your answers.       Explore    shows drawings of perfect binary trees , , and .   The perfect binary trees , , and .      The tree has a root vertex at the top. The root vertex is adjacent to two child vertices drawn below. The tree starts with the tree and then, for each end vertex, draws two new adjacent child vertices below. These new vertices are grandchildren of the root. The tree starts with and then, for each end vertex, draws two new adjacent child vertices below. These new vertices are great-grandchildren of the root. This pattern continues to give a family of perfect binary trees , denoted for .   In the perfect binary tree , count the number of children, the number of grandchildren, and the number of great-grandchildren of the root. Use these numbers to find the number of vertices in . Hint: don't forget the root.    Draw the perfect binary tree .    Conjecture the number of leaves In a natural tree the root is at the bottom and the leaves are at the top. Graph trees are upside down. (end vertices) in .    How many vertices does have? Hint: add up the generations as in .    How many edges does have? Explain.    What are the degrees of the vertices in and how many vertices of each degree are there? Hint: The root and the leaves have degrees that are from the middle vertices.        Explore       Draw the cycle . Then, using a different colored pen, add the edges of the complement to your graph. What is the resulting graph?    Draw the path . Then, using a different colored pen, add the edges of the complement to your graph. What is the resulting graph? It might look a little different than usual.    If we draw a graph that has five vertices and then, using a different colored pen, we add the edges of the complement to the graph, what is the resulting graph? Explain.    If is any graph with five vertices and edges, how many edges does the complement have?    Generalize: if is any graph with vertices and edges, how many edges does the complement have? Hint: is useful.         "
+  "body": " Coloring Graphs   In many logistical applications of graph theory, the problem can be translated into a question about coloring graphs. Examples of such applications include source: wikipedia, graph coloring scheduling (events or tasks), resource allocation (such as assigning computer registers), and physical arrangements (such as assigning seating). In this section, we introduce graph coloring, look at applications to scheduling, and consider the minimum number of colors needed for standard graphs.    Coloring Maps  Another application of graph coloring is coloring regions of a map. We begin with an activity.   Map coloring  There are two rules for coloring a map.   Rule 1:  Each region gets a single color.    Rule 2:  Any two regions that share a common border (more than a point) must be different colors.      Following these rules, color the map in using the colors blue, green, red, and purple.  A map to color.     You can use letters for the colors, such as B = blue, G = green, R = red, P = purple. You can color it by hand Four Color Challenge color the map there, and capture a screenshot of your solution.    Draw a rectangle and divide it into six regions to create a new map that can be colored using only two colors. And show how to color it using B = blue and G = green.    Draw a rectangle and divide it into six regions to create a new map that can be colored using three colors but not two colors. Show how to color it using three colors: B = blue, G = green, and R = red and explain why it is impossible to color it using only two colors.    In the map you colored in , find a portion of the map with four regions where all four colors were needed. Copy that portion of the map and show that four colors work using B = blue, G = green, R = red, P = purple. Next, explain why it is impossible to color that portion of the map using only three colors. Hint: if it is possible to color that portion of the map using only three colors, then you need to pick a different portion.      We can model a map with a graph and rephrase our question about coloring a map into a question about coloring a graph.   Map coloring       Draw a graph with a vertex for each region of the map of midwest states shown in (in Exercise ). Draw an edge between two vertices if the corresponding regions share an edge (more than a point).  We draw the graph of map in .   A graph of midwest states.          Rephrase the map coloring question as a question about the graph.  What is the smallest number of colors that we need in order to color the vertices of the graph in such a way that adjacent vertices are different colors?           Coloring Graphs  Let's formalize the idea of coloring the vertices of a graph.   Chromatic number       A (vertex) coloring of a graph is an assignment of a color to each vertex in such a way that adjacent vertices have different colors.    A -coloring of a graph is a vertex coloring using colors. For example, the graph in has a 3-coloring.    A graph is -colorable if there exists a coloring using or fewer colors.    The chromatic number of a graph is the smallest number of colors needed to color the graph. For example, the complete bipartite graph, , shown in has chromatic number two because it can be colored using two colors (black and white) and one color would not work because there are adjacent vertices.       Let's look at a few examples.   Chromatic number of complete graph and cycle   Determine the chromatic number of each graph by finding a -coloring and then explaining why all colors are necessary.   The complete graph .  First, we can color each vertex its own color using five colors. Since any pair of vertices in are adjacent, they must be different colors and so we cannot use fewer than five colors. Thus, the chromatic number of is five.      The cycle .  If we try to color the vertices of using only two colors (gray and black), as shown in , we run into a problem. The fifth vertex cannot be gray (because it is adjacent to a vertex colored gray) and it cannot be black (because it is adjacent to a vertex colored black). It must be a third color, say white.   Coloring the cycle .      Notice that actually shows that three colors (gray, black, and white) work. Thus, the chromatic number of is three.         Let's try determining the chromatic number of graphs.   Chromatic number of graphs  To show the chromatic number of a graph is , you should draw the graph, show how to color the vertices using colors, and then explain why fewer than colors cannot work.   Explain why the chromatic number of the cycle graph is two but the chromatic number of the cycle graph is three.    Find the chromatic number of the wheel graph . Hint: use .    What's the chromatic number of ? Explain.    The graph drawn in . Find the chromatic number of . Hint: use the result of .  The graph .           Let's look at  and .   Chromatic number of complicated graphs       Find the chromatic number of the wheel graph .  First, notice that the five outer vertices form a copy of . Since has chromatic number three, the outer vertices require at least three different colors. The hub vertex is adjacent to all five outer vertices, and so it must be yet another color. Therefore, we need at least four colors to color the wheel .  Second, shows a 4-coloring of the wheel . Thus, the chromatic number of the wheel is four.   A 4-coloring of the wheel .          Find the chromatic number of the graph drawn in .  First, notice that the center four vertices form a copy of . Since has chromatic number four, we know that those four vertices must be four different colors. Therefore, we need at least four colors to color the entire graph .  Second, shows a 4-coloring of the graph. Thus, the chromatic number of is four.   A 4-coloring of the graph .             Coloring can be used to solve scheduling problems.   Scheduling alumni events   There are three time slots for alumni events this Saturday: late morning, early afternoon, or late afternoon.   Alumni Office events: Meet & Greet (M), Campus Tours (C), and Alumni Panel (A).    Theater Department events: Poetry Slam (P), Screenplay Reading (R), and Viewing Student Films (V).    Career Services events: Speed Networking (N), Interviews (I), and Leadership Development Workshop (L).     Each organization can run only one of its events at a time. In addition, events A and V both want to use the theater and events M, P, and N all want to use the main conference hall, so those events need to be at different times.   Draw a graph representing the situation where each event is a vertex and an edge connects two events if they cannot be scheduled in the same time block.  See .   Graph for scheduling alumni events.          Is there a way to assign events times?  Yes, one solution is M, R, and L in late morning; C, V, and N in early afternoon; and A, P, and I in late afternoon.      Color each vertex with a time that event could be scheduled using the key: black = late morning, gray = early afternoon, and white = late afternoon.  See .   Graph for scheduling alumni events where colors represent event time.          Restate the question from in terms of the graph and colors.  Can we color the vertices of the graph using three colors so that adjacent vertices are different colors?           Graph Conjectures  We have looked at several specific graphs and calculated quantities such as the number of vertices and edges, the degree sequence, and the chromatic number. What about families of graphs? Let's look at an example.   Graph conjectures for the complete graphs   Consider the complete graphs for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    By definition, has vertices. Recall that models the number of handshakes in a group of people. By , the number of edges is . Alternatively, there is an edge for each pair of vertices. Thus, the number of edges is equal to the number of ways to select two out of vertices, which is .  Each vertex in is adjacent to each of the other vertices. Therefore, the degree sequence is   We can color the vertices of with colors by assigning each vertex its own color. Because each vertex is adjacent to every other vertex, no two vertices can be the same color. Thus, all colors are necessary. The chromatic number of is .    We summarize the number of edges of the complete graph for later reference.   Number of edges in the complete graphs   For any positive integer , the complete graph has edges.    Try making conjectures about families of graphs.   Graph conjectures      Consider the star graphs for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    Consider the paths for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    Consider the cycles for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .        Exercises   Exercises for Coloring Maps   Practice   Go to Map Colouring to color more complicated maps. Save screenshots of three puzzles that you attempted. Were you able to solve all three? If not, where did you get stuck?    Note: You do not need to submit the screenshots.     Practice   Copy the map of the northeast states drawn in and show how to 4-color the map. Note: Both parts of New York (NY) should be one color one part (Upstate New York) is labeled NY, the other part (NYC\/Long Island) sits below Connecticut (CT)\/Rhode Island (RI) and is long and skinny.   Map of the northeastern states.   Map of northeastern states       Understand       Copy the map of midwest states drawn in (in Exercise ) and show how to color the map using three colors. Note: We discussed this map in .    Find a portion of the map where all three colors were needed. Copy that portion of the map and explain why it is impossible to color that portion of the map using only two colors.         Hint: Start with ND: red, SD: blue, MN: red. Then, continue with states whose color must follow. For example, Iowa (IA) must be green. Continue.    Hint: Explain why the region formed by ND, SD, and MN needs three colors.       Recap   Do you know    What the connection is between coloring a map and coloring a graph?    How to draw a graph model of a map?        Explore    Read the Quanta magazine article Only Computers Can Solve This Map-Coloring Problem and answer the following questions based on that article.   According to this article, the Four-Color Problem was introduced in a letter, which is a common way mathematics was communicated historically. Who wrote the letter and to whom did they send it?    What does the Four-Color Theorem say?    When did the first proofs appear and who initially claimed to have proved it?    How can the Four-Color Problem be restated in terms of graph theory?    When did the final proof appear and who is credited with the final proof?    Why did the presentation of the final proof receive only polite applause, according to mathematician Don Albers?    The original, but flawed, proof has six special configurations. How many special configurations were considered in the final proof?    What is allegedly in Paul Erdös's The Book ?         Exercises for Coloring Graphs   Practice   Draw each graph and color the vertices with the fewest possible colors. No justification is necessary, but be sure that fewer colors would not work.   The star .    The path .    The cycle .    The wheel .    The ladder .         Hint: Draw the usual star with black and white vertices.    Hint: Two colors work.    Hint: Two colors work.    See .  A 3-coloring of the wheel .         Hint: Two colors work.       Understand       Show how to 3-color the vertices of the classmates graph from using red, blue, and green.    Explain why you need at least three colors to color the vertices of the classmates graph.    What is the chromatic number of the classmates graph?        Understand   Draw each graph and color the vertices with the fewest possible colors. Then explain why fewer colors would not work.   The path .    The cycle .    The complete bipartite graph .    The wheel .        Understand   Consider the graph drawn in .   The graph from Exercise .        Copy and show a 4-coloring of .    Find a subgraph (portion) of that needs at least 4 colors.    What can we conclude from and ?        Hint: Verify that you have colored all the vertices and that any pair of adjacent vertices is different colors.    Hint: Look for complete subgraphs.    Hint: (a) tells us the chromatic number is at most four and (b) tells us the chromatic number is at least four.       Understand   There are seven people and seven committees. Each person is on several committees, as described by . There are four standard meeting times: 8-9:30 AM, 10-11:30 AM, 2-3:30 PM, and 4-5:30 PM. We would like to schedule meeting times for the committees in such a way that we avoid having two meetings at the same time if any person is a member of both committees. Is there a way to do it?   Committee (cmte) members for Exercise    Person on Cmte?  Cmte 1  Cmte 2  Cmte 3  Cmte 4  Cmte 5  Cmte 6  Cmte 7              Alejandro                     Bjorn                     Cassie                     Denise                     Ebrahim                     Fiona                     Gloria              Draw a graph to represent the situation where each committee is a vertex. What should the edges represent?    Is there a way to assign meeting times? If so, color each vertex with a time it could meet using the key: red is 8-9:30 AM, blue is 10-11:30 AM, green is 2-3:30 PM, and orange is 4-5:30 PM.    Restate the question from in terms of the graph and colors.        Hint: An edge should indicate that the two committees have at least one member in common, which means that that pair of committees cannot be scheduled at the same time. The graph has seven vertices and 12 edges.    Hint: yes    Hint: Can we 4-color the graph?       Understand   What can we say about the chromatic number of a graph if ? Your answer should be a conjecture in the form of an equation or inequality involving .    contains a copy of .     can be 5-colored.         Hint: needs 5 colors, so needs 5 colors or maybe more colors.    Hint: Maybe can be colored using fewer than 5 colors if we try again.       Recap   Do you know    What a coloring of a graph is?    What the chromatic number of a graph is?    Which two things we need to check to determine the chromatic number of a graph?    How to model a scheduling problem as a graph-coloring problem?        Explore   Here is an algorithm to 4-color the vertices of graph when the maximum degree of any vertex in is three.   Assign each color a number: red (1), blue (2), green (3), and orange (4). Label the vertices , , , . Color the vertex red (1).    Go to the next vertex and color it the smallest number color that is available, keeping in mind that the vertex cannot be colored the same as any adjacent vertex. Repeat this step until is colored.    Apply this process to color the graph shown in .  Use an algorithm to color the vertices of this graph         Now consider a general graph where the maximum degree of any vertex is three. Explain why there will always be a color available in Step 2 of the algorithm. Hint: Each vertex has degree three.    What have we proved about the chromatic number of ? Hint: Your answer should be an inequality.         Hint: Color red, blue, red,     Hint: When we get to a new vertex to color, how many colors are already used by its neighbors? Explain why there is always at least one of the four colors available to color the new vertex?    Hint: We have found a 4-coloring of the graph. What does that tell us about the chromatic number?       Explore       Give an example of a graph with chromatic number two that is not a complete bipartite graph, a cycle, a path, a ladder, or a grid.    Give an example of a graph with chromatic number five that is not a complete graph.    Give an example of a graph with at least two vertices but chromatic number one.       There are many correct answers to each part. The hints describe how to build one such example.   Hint: There are many correct answers. Try starting with the star which is a complete bipartite graph, but then add more vertices and connect them with an edge to the leaves in .    Hint: Start with and add more to it, making sure you can still 5-color the graph.    Hint: The graph does not have to be connected. (And it cannot be connected.)         Exercises for Graph Conjectures   Practice   Consider the complete bipartite graphs for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve or .    Hint: There are vertices, edges, the degree sequence is   (perhaps in the other order), and the chromatic number is two.     Understand   Consider the wheels for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    Hint: There are vertices, there is exactly one vertex with degree , and the chromatic number is three or four depending on whether is even or odd (be sure to say which is which).     Understand   Consider the ladders for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    Hint: There are four vertices of degree two, and the rest have degree three. One way to count edges is to add the number of horizontal edges in the first row, the number of horizontal edges in the second row, and the number of vertical rungs.   The grid graph .         Recap   Do you know    How many edges has?    How to count the number of vertices, the number of edges, the degree sequence, and the chromatic number for a family of graphs (in terms of parameters such as or )?        Explore   For , the grid graph (or lattice graph ) is denoted . Its vertices are the point,s , in the -plane where and . There is an edge connecting two points with the same -coordinate when their -coordinates differ by 1. Also, there is an edge connecting two points with the same -coordinate when their -coordinates differ by 1. The ladder graphs are the special case where .   List the vertices of and draw those points in the -plane.    List the edges of and add those edges to your points from .    How many vertices does the graph have? Your answer should involve and .    How many edges does the graph have? Your answer should involve and .         Hint: There are 12 vertices.    Hint: The graph is drawn in     Hint: Multiply    Hint: Count the number of vertical edges. Then count the number of horizontal edges. Then add your answers.       Explore    shows drawings of perfect binary trees , , and .   The perfect binary trees , , and .      The tree has a root vertex at the top. The root vertex is adjacent to two child vertices drawn below. The tree starts with the tree and then, for each end vertex, draws two new adjacent child vertices below. These new vertices are grandchildren of the root. The tree starts with and then, for each end vertex, draws two new adjacent child vertices below. These new vertices are great-grandchildren of the root. This pattern continues to give a family of perfect binary trees , denoted for .   In the perfect binary tree , count the number of children, the number of grandchildren, and the number of great-grandchildren of the root. Use these numbers to find the number of vertices in . Hint: don't forget the root.    Draw the perfect binary tree .    Conjecture the number of leaves In a natural tree the root is at the bottom and the leaves are at the top. Graph trees are upside down. (end vertices) in .    How many vertices does have? Hint: add up the generations as in .    How many edges does have? Explain.    What are the degrees of the vertices in and how many vertices of each degree are there? Hint: The root and the leaves have degrees that are from the middle vertices.        Explore       Draw the cycle . Then, using a different colored pen, add the edges of the complement to your graph. What is the resulting graph?    Draw the path . Then, using a different colored pen, add the edges of the complement to your graph. What is the resulting graph? It might look a little different than usual.    If we draw a graph that has five vertices and then, using a different colored pen, we add the edges of the complement to the graph, what is the resulting graph? Explain.    If is any graph with five vertices and edges, how many edges does the complement have?    Generalize: if is any graph with vertices and edges, how many edges does the complement have? Hint: is useful.         "
 },
 {
   "id": "act_map_coloring",
@@ -2525,7 +2525,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_color_graphs.html#exam_map_coloring",
   "type": "Example",
-  "number": "3.3.2",
+  "number": "3.3.3",
   "title": "Map coloring.",
   "body": " Map coloring       Draw a graph with a vertex for each region of the map of midwest states shown in (in Exercise ). Draw an edge between two vertices if the corresponding regions share an edge (more than a point).  We draw the graph of map in .   A graph of midwest states.          Rephrase the map coloring question as a question about the graph.  What is the smallest number of colors that we need in order to color the vertices of the graph in such a way that adjacent vertices are different colors?        "
 },
@@ -2534,7 +2534,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_color_graphs.html#defn_chromatic_number",
   "type": "Definition",
-  "number": "3.3.4",
+  "number": "3.3.5",
   "title": "Chromatic number.",
   "body": " Chromatic number       A (vertex) coloring of a graph is an assignment of a color to each vertex in such a way that adjacent vertices have different colors.    A -coloring of a graph is a vertex coloring using colors. For example, the graph in has a 3-coloring.    A graph is -colorable if there exists a coloring using or fewer colors.    The chromatic number of a graph is the smallest number of colors needed to color the graph. For example, the complete bipartite graph, , shown in has chromatic number two because it can be colored using two colors (black and white) and one color would not work because there are adjacent vertices.      "
 },
@@ -2543,7 +2543,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_color_graphs.html#exam_chromatic_K5_C5",
   "type": "Example",
-  "number": "3.3.5",
+  "number": "3.3.6",
   "title": "Chromatic number of complete graph and cycle.",
   "body": " Chromatic number of complete graph and cycle   Determine the chromatic number of each graph by finding a -coloring and then explaining why all colors are necessary.   The complete graph .  First, we can color each vertex its own color using five colors. Since any pair of vertices in are adjacent, they must be different colors and so we cannot use fewer than five colors. Thus, the chromatic number of is five.      The cycle .  If we try to color the vertices of using only two colors (gray and black), as shown in , we run into a problem. The fifth vertex cannot be gray (because it is adjacent to a vertex colored gray) and it cannot be black (because it is adjacent to a vertex colored black). It must be a third color, say white.   Coloring the cycle .      Notice that actually shows that three colors (gray, black, and white) work. Thus, the chromatic number of is three.        "
 },
@@ -2561,7 +2561,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_color_graphs.html#exam_chromatic_complicated",
   "type": "Example",
-  "number": "3.3.8",
+  "number": "3.3.10",
   "title": "Chromatic number of complicated graphs.",
   "body": " Chromatic number of complicated graphs       Find the chromatic number of the wheel graph .  First, notice that the five outer vertices form a copy of . Since has chromatic number three, the outer vertices require at least three different colors. The hub vertex is adjacent to all five outer vertices, and so it must be yet another color. Therefore, we need at least four colors to color the wheel .  Second, shows a 4-coloring of the wheel . Thus, the chromatic number of the wheel is four.   A 4-coloring of the wheel .          Find the chromatic number of the graph drawn in .  First, notice that the center four vertices form a copy of . Since has chromatic number four, we know that those four vertices must be four different colors. Therefore, we need at least four colors to color the entire graph .  Second, shows a 4-coloring of the graph. Thus, the chromatic number of is four.   A 4-coloring of the graph .            "
 },
@@ -2570,7 +2570,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_color_graphs.html#exam_scheduling_alumni",
   "type": "Example",
-  "number": "3.3.11",
+  "number": "3.3.13",
   "title": "Scheduling alumni events.",
   "body": " Scheduling alumni events   There are three time slots for alumni events this Saturday: late morning, early afternoon, or late afternoon.   Alumni Office events: Meet & Greet (M), Campus Tours (C), and Alumni Panel (A).    Theater Department events: Poetry Slam (P), Screenplay Reading (R), and Viewing Student Films (V).    Career Services events: Speed Networking (N), Interviews (I), and Leadership Development Workshop (L).     Each organization can run only one of its events at a time. In addition, events A and V both want to use the theater and events M, P, and N all want to use the main conference hall, so those events need to be at different times.   Draw a graph representing the situation where each event is a vertex and an edge connects two events if they cannot be scheduled in the same time block.  See .   Graph for scheduling alumni events.          Is there a way to assign events times?  Yes, one solution is M, R, and L in late morning; C, V, and N in early afternoon; and A, P, and I in late afternoon.      Color each vertex with a time that event could be scheduled using the key: black = late morning, gray = early afternoon, and white = late afternoon.  See .   Graph for scheduling alumni events where colors represent event time.          Restate the question from in terms of the graph and colors.  Can we color the vertices of the graph using three colors so that adjacent vertices are different colors?        "
 },
@@ -2579,7 +2579,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_color_graphs.html#exam_graph_conj_Ks",
   "type": "Example",
-  "number": "3.3.14",
+  "number": "3.3.16",
   "title": "Graph conjectures for the complete graphs.",
   "body": " Graph conjectures for the complete graphs   Consider the complete graphs for . Conjecture the number of vertices and edges, the degree sequence, and the chromatic number of . Some of your answers should involve .    By definition, has vertices. Recall that models the number of handshakes in a group of people. By , the number of edges is . Alternatively, there is an edge for each pair of vertices. Thus, the number of edges is equal to the number of ways to select two out of vertices, which is .  Each vertex in is adjacent to each of the other vertices. Therefore, the degree sequence is   We can color the vertices of with colors by assigning each vertex its own color. Because each vertex is adjacent to every other vertex, no two vertices can be the same color. Thus, all colors are necessary. The chromatic number of is .   "
 },
@@ -2588,7 +2588,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_color_graphs.html#thm_size_Ks",
   "type": "Theorem",
-  "number": "3.3.15",
+  "number": "3.3.17",
   "title": "Number of edges in the complete graphs.",
   "body": " Number of edges in the complete graphs   For any positive integer , the complete graph has edges.   "
 },
@@ -2617,7 +2617,7 @@ var ptx_lunr_docs = [
   "type": "",
   "number": "2",
   "title": "Practice.",
-  "body": " Practice   Copy the map of the northeast states drawn in and show how to 4-color the map. Note: Both parts of New York (NY) should be one color one part (Upstate New York) is labeled NY, the other part (NYC\/Long Island) sits below Connecticut (CT)\/Rhode Island (RI) and is long and skinny.   Map of the northeastern states.       "
+  "body": " Practice   Copy the map of the northeast states drawn in and show how to 4-color the map. Note: Both parts of New York (NY) should be one color one part (Upstate New York) is labeled NY, the other part (NYC\/Long Island) sits below Connecticut (CT)\/Rhode Island (RI) and is long and skinny.   Map of the northeastern states.   Map of northeastern states     "
 },
 {
   "id": "exer_midwest_color",
@@ -2840,7 +2840,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#defn_ism_graphs",
   "type": "Definition",
-  "number": "3.4.7",
+  "number": "3.4.8",
   "title": "Isomorphic Graphs.",
   "body": " Isomorphic Graphs       Two graphs and are isomorphic , denoted , if it is possible to label the vertices of and the vertices of in such a way that and have the same set of vertices and the same set of edges. For example, the graphs and in are isomorphic. We show a common vertex labeling in . You can check that each graph has the vertex set and the edge set . (By the way, it is acceptable to abbreviate edges using strings. For example may be abbreviated when clear from context.)  Isomorphic graphs         A planarity-style move on a graph drawing consists of moving one vertex to a different location and redrawing the edges from in its new location to each of 's neighbors. These moves are named for the game Planarity from .       "
 },
@@ -2849,7 +2849,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#rem_planarity_moves",
   "type": "Remark",
-  "number": "3.4.9",
+  "number": "3.4.10",
   "title": "Planarity-style moves.",
   "body": " Planarity-style moves  Graphs and are isomorphic exactly when we can transform a graph drawing of into a graph drawing of using a sequence of planarity-style moves. While visualizing such a transformation is a useful way to decide if two graphs are isomorphic, to prove that two graphs are isomorphic, you need to label the vertices according to the definition. If you can see the transformation, just follow the vertices to see what the labels should be. For example, we can think of transforming the graph into the graph from by shifting the vertex up and to the right and the vertices and down and to the left.  "
 },
@@ -2858,7 +2858,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#thm_ism_complement",
   "type": "Theorem",
-  "number": "3.4.10",
+  "number": "3.4.11",
   "title": "Isomorphic Complements.",
   "body": " Isomorphic Complements   For graphs and we have exactly when .   "
 },
@@ -2867,7 +2867,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#exam_prove_ism_complements",
   "type": "Example",
-  "number": "3.4.11",
+  "number": "3.4.12",
   "title": "Using complements to prove isomorphic graphs.",
   "body": " Using complements to prove isomorphic graphs   Consider the graphs and drawn in .   Are the graphs and isomorphic?        Draw their complements.  The complements and are drawn in .   Complements of graphs from .          Label the vertices of the complements to show .  We label the isolated vertex , the degree 3 vertex , and the degree 2 vertex . There is one leaf adjacent to which we label . Last, we label the other two leaves and (in either order). shows these complements labeled as well as a simplified graph drawing of the complement.   Labeling the complements from .          Is ? Explain.  Yes, by since , it follows that .       "
 },
@@ -2894,7 +2894,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#defn_subgraph",
   "type": "Definition",
-  "number": "3.4.19",
+  "number": "3.4.21",
   "title": "Subgraph.",
   "body": " Subgraph   The graph is a subgraph of the graph if each vertex of is a vertex of and each edge of is an edge of . Note that since is a graph, each edge of necessarily contains two vertices of . For example, in , the graph on the left is a subgraph of the graph on the right.   The graph is a subgraph of the graph .       "
 },
@@ -2903,7 +2903,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#exam_less_obvious_subgraphs",
   "type": "Example",
-  "number": "3.4.21",
+  "number": "3.4.23",
   "title": "Less obvious subgraphs.",
   "body": " Less obvious subgraphs   Consider the graph from . Which of the following graphs are subgraphs of ?   The cycle drawn in .  The graph from .       The cycle is a subgraph of because each of 's vertices ( , , , and ) and each of 's edges ( , , , and ) are in . Note that is the cycle , so we say is a subgraph of .      The path drawn in .  The graph from .       The path is a subgraph of because each of 's vertices ( , , , , and ) and each of 's edges (\\{f,c\\}, \\{c,b\\}, \\{b,e\\}, and \\{e,a\\}) are in . Note that is the path , so we say is a subgraph of .      The graph drawn in .  The graph from .       The graph is not a subgraph of because is an edge in but not in .      The graph drawn in .  The graph from .       The graph is a subgraph of since each vertex and edge in is in , even though has two separate pieces.        "
 },
@@ -2912,7 +2912,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#defn_cyclic_subgraphs",
   "type": "Definition",
-  "number": "3.4.26",
+  "number": "3.4.28",
   "title": "Cyclic subgraphs.",
   "body": " Cyclic subgraphs       A cyclic subgraph of a graph is a subgraph that is a copy of for some integer . For example, the graph from was a cyclic subgraph of the graph .    A graph  contains an cycle if is a subgraph for some . For example, the graph in contains several 3-cycles, a couple of 4-cycles, and 5-cycle.    A graph is acyclic if it does not contain any cyclic subgraphs. For example, the path graphs are acyclic.      "
 },
@@ -2921,7 +2921,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#exam_count_cycles",
   "type": "Example",
-  "number": "3.4.27",
+  "number": "3.4.29",
   "title": "Counting cycles.",
   "body": " Counting cycles   Count all the cycles in the graph in .    First, there are three 3-cycles: one with vertices , , and ; a second with vertices , , and ; and a third with vertices , , and .  Next, there are two 4-cycles: one with vertices , , , and and the other with vertices , , , and .  Lastly, there is one 5-cycle with vertices , , , , and .   "
 },
@@ -2930,7 +2930,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#defn_path_connected",
   "type": "Definition",
-  "number": "3.4.28",
+  "number": "3.4.30",
   "title": "Paths and connectivity.",
   "body": " Paths and connectivity       A path in a graph is a subgraph that is a copy of for some integer . For example, the graph from was a path in the graph .    A -path is a path with endpoints and . For example, the graph from is a -path (or an -path) in the graph . A single vertex is considered a -path.    A graph is connected if for all vertices , there exists a -path in . For example, the graph in is connected, as are its subgraphs and from .    A graph that is not connected is disconnected . For example, the subgraph in was disconnected because, for example, there does not exist a -path in .      "
 },
@@ -2939,7 +2939,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#exam_finding_paths",
   "type": "Example",
-  "number": "3.4.29",
+  "number": "3.4.31",
   "title": "Finding paths.",
   "body": " Finding paths   Consider the graph drawn in . Find an -path in . Is it unique?   The graph from .        One -path is . It is not unique. For example is another -path as is .   "
 },
@@ -2948,7 +2948,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#defn_tree",
   "type": "Definition",
-  "number": "3.4.31",
+  "number": "3.4.33",
   "title": "Tree.",
   "body": " Tree   A tree is an connected acyclic graph. For example, the path graphs are trees for . The graph drawn in is also a tree.   An example of a tree .       "
 },
@@ -2957,7 +2957,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subgraph_isomorphic.html#exam_not_a_tree",
   "type": "Example",
-  "number": "3.4.33",
+  "number": "3.4.35",
   "title": "Not a tree.",
   "body": " Not a tree   Explain why each graph is not a tree.   The graph drawn in .  The graph is connected, but it is not a tree because it is not acyclic. For example, contains a 3-cycle with vertices , , and . By the way, also contains a 4-cycle with vertices , , , and and a 5-cycle with vertices , , , , and .      The graph drawn in .  The graph is acyclic, but it is not a tree because it is disconnected.        "
 },
@@ -3236,7 +3236,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_classify_graphs.html#exam_classify_order3_order4",
   "type": "Example",
-  "number": "3.5.15",
+  "number": "3.5.16",
   "title": "First example of classifying graphs.",
   "body": " First example of classifying graphs       Classify all graphs with three vertices. That is, make a list of graphs having three vertices so that any graph with three vertices is isomorphic to a graph on our list and no two graphs on our list are isomorphic.  There are four such graphs drawn in . No two of these graphs are isomorphic because they have a different number of edges. You can (and should) convince yourself that there are no other options.   All graphs with three vertices.          Classify all graphs with four vertices and three edges.  There are three such graphs drawn in , labeled with their degree sequence. These graphs are not isomorphic because they have different degree sequences.  To check that this list is complete, suppose that we have a graph with four vertices and three edges. By , the sum of the degrees of the vertices is equal to twice the number of edges, which is . The degree sequence must be four nonnegative integers whose sum is equal to six. We consider the possibilities.  Case 1: The max degree is three. Notice that every other vertex is adjacent to the degree three vertex, and so the degree sequence is . We get , which is the graph on the left in .  Case 2: The max degree must be two and there is an isolated vertex. The degree sequence would have to be . Moreover, none of the three vertices having degree two can be adjacent to the isolated vertex, so the vertices having degree two must form a 3-cycle, and so we get the graph in the middle in .  Case 3: The max degree is two and there is no isolated vertices. Then, the degree sequence is . The two degree two vertices must be adjacent to each other, and so we obtain a copy of , which is the graph on the right in the graph in the middle of .  Notice that checking the graphs were non-isomorphic was much easier than checking that we found all such graphs.   All graphs with four vertices and three edges.            "
 },
@@ -3245,7 +3245,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_classify_graphs.html#exam_using_complements_classify_graphs",
   "type": "Example",
-  "number": "3.5.18",
+  "number": "3.5.19",
   "title": "Using complements to classify graphs.",
   "body": " Using complements to classify graphs       Classify all graphs with four vertices and two edges.  If the two edges share a common endpoint, then we get a graph that has the path and an isolated fourth vertex. Otherwise, we get a graph that has two separate copies of . Both are drawn in .      Use the result of to classify all graphs with four vertices and four edges.  Since the complete graph has six edges, the complement of any graph with four vertices and four edges must have four vertices and two edges. That is, the complement must be one of the two graphs we found in . The two graphs with four vertices and four edges are, therefore, and which are also drawn in . We drew them without edge crossings just for fun, so look closely at the vertex labels.   All graphs with four vertices and two or four edges.            "
 },
@@ -3461,7 +3461,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#exam_open_lockers",
   "type": "Example",
-  "number": "4.1.2",
+  "number": "4.1.3",
   "title": "Open lockers.",
   "body": " Open lockers       What is the final state of locker 99? Explain.  First note that the last student to touch locker 99 is the student. So to determine the final state of locker 99 we only need to know which students from 1-99 touched it. We can factor 99 in several ways: , , and . That is, the only students from 1-99 to touch locker 99 are students one, three, nine, 11, 33, and 99. Student one opens locker 99, student three closes it, student nine opens it, student 11 closes it, student 33 opens it, and student 99 closes it. The final state of locker 99 is that it is closed.      Conjecture how the final state of a locker depends on the number of students who touch the locker.  When the number of students who touch the locker is even, as was the case for locker 99, the final state of the locker is closed. When the number of students who touch the locker is odd, as was the case for locker 100, the final state of the locker is open. This conjecture is Conjecture A.      Conjecture which lockers have an odd number of students that touch that locker.  Notice that students who touch the locker tend to come in pairs. For example, locker 99 is touched by students one and 99, students three and 33, and students nine and 11. As another example, locker 100 is touched by students one and 100, students two and 50, students four and 25, and students five and 20. But there is one additional student who touches locker 100, student 10, which makes the total number of students touching locker 100 odd. Why is student 10 not in a pair? Because or, in other words, . We conjecture that lockers touched by an odd number of students have locker numbers equal to the square of an integer, known as a perfect square . This conjecture is Conjecture B.        "
 },
@@ -3479,7 +3479,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#defn_even_odd",
   "type": "Definition",
-  "number": "4.1.3",
+  "number": "4.1.4",
   "title": "Even and odd.",
   "body": " Even and odd       The integer is even if for some integer . For example, 18 is even because . If we wanted to be formal, we would say where .    The integer is odd if for some integer . For example, 19 is odd because . If we wanted to be formal, we would say where .      "
 },
@@ -3488,7 +3488,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#exam_even_odd_general",
   "type": "Example",
-  "number": "4.1.4",
+  "number": "4.1.5",
   "title": "Even and odd, in general.",
   "body": " Even and odd, in general   You probably know many facts about even and odd integers. In this example, we use only the definitions.   Use the definition of even to show that is even for any integer .  We want to write for some integer . We can solve to find . We divide by two to get , which is an integer. Officially, we need to use that value of to write , so is even.  Notice that we could have just factored out the two to write without any mention of .      Use the definition of odd to show that is odd for any integer .  We want to write for some integer . We can solve to find . First, we subtract and factor to get . Next, we divide by two to get , which is an integer. Officially, we need to use that value of to write , so is odd.  Notice that we could have used algebra to write without any mention of .        "
 },
@@ -3506,7 +3506,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#exam_0is_even",
   "type": "Example",
-  "number": "4.1.5",
+  "number": "4.1.7",
   "title": "Zero is even.",
   "body": " Zero is even       Use the definition to show that zero is even.  We can write . That is when . Since is an integer, it follows that zero is even.      Use the definition to show that zero is not odd.  Suppose that we could write . We can subtract one to get and then divide by two to get . Since is the only possible value of , and is not an integer, it follows that zero is not odd.        "
 },
@@ -3515,7 +3515,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#defn_divides",
   "type": "Definition",
-  "number": "4.1.6",
+  "number": "4.1.8",
   "title": "Divides.",
   "body": " Divides       The nonzero integer  divides integer , denoted , if for some integer . For example, 3 divides 15, denoted because . Note also that because and because .    If , then is a divisor (or factor ) of . For example, the (positive) divisors of 15 are: 1, 3, 5, and 15 because and . (It is harder to know that we found all the positive divisors.) The complete list of 15 divisors is 1, 3, 5 and 15.    If , then is a multiple of . For example, 10, -35, and 65 are multiples of 5.    If does not divide , we write . For example, .      "
 },
@@ -3524,7 +3524,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#exam_divides_general",
   "type": "Example",
-  "number": "4.1.7",
+  "number": "4.1.9",
   "title": "Divides, in general.",
   "body": " Divides, in general   You might know many facts about divisibility. In this example, we use only the definition.   Show that 65 is a multiple of 5.  Note that and so . Thus, 65 is a multiple of 5.      Rewrite the statement from using the word divides and divides notation.  We say that 5 divides 65, denoted .      Use the definition of divides to show that .  Factor to write , so . If we wanted to be formal, we could write where .        "
 },
@@ -3542,7 +3542,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#exam_cannot_divide_by0",
   "type": "Example",
-  "number": "4.1.8",
+  "number": "4.1.11",
   "title": "You cannot divide by zero.",
   "body": " You cannot divide by zero       Can we divide by zero? That is, is zero a divisor of any integer? Explain.  We are asking if for any integer . In we did not allow the divisor to be zero, so the answer is no. The reason we excluded zero is because if for some integer , then the only possibility is . Therefore, it is impossible for zero to divide any nonzero integer. We also do not allow zero to divide itself either. The answer is no.      Is zero a multiple of any integer?  We are asking if for any integer . That means we are looking for an integer such that . Since and is an integer, it follows that for all nonzero integers . The answer is yes.        "
 },
@@ -3551,7 +3551,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#defn_fraction_rational",
   "type": "Definition",
-  "number": "4.1.9",
+  "number": "4.1.12",
   "title": "Fraction (rational number).",
   "body": " Fraction (rational number)       For integer and nonzero integer , the fraction (or rational number ) is the number we get by dividing by , meaning . We can think of the fraction as representing an equal share of objects among places. For example, if we have 40 cucumber slices and five pickling jars, then we can put slices in each jar. Similarly, if we have four party-sized bags of candy to share equally among ten people, then each person gets of a bag.    Note that any integer is a fraction because . For example, .    In the fraction , the integer on the top of the fraction is the numerator and the integer on the bottom of the fraction is the denominator . For example, in the fraction the numerator is four and the denominator is ten.    For integers , , , and , the fractions and are equal (or equivalent ), which we write as , if . For example, and so . We can cross-multiply to confirm that .      "
 },
@@ -3560,7 +3560,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#rem_fractions_divides",
   "type": "Remark",
-  "number": "4.1.10",
+  "number": "4.1.13",
   "title": "Fractions and divisibility.",
   "body": " Fractions and divisibility  Let and be integers with . Then exactly when is an integer. Although we have this connection between fractions and divisibility, it is customary to avoid referencing fractions when working with divides.  "
 },
@@ -3569,7 +3569,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#thm_equal_fractions",
   "type": "Theorem",
-  "number": "4.1.11",
+  "number": "4.1.14",
   "title": "Equal fractions.",
   "body": " Equal fractions   For integer and nonzero integers and ,   If we multiply the numerator and denominator of a fraction by a nonzero integer, the resulting fraction is equal to the original fraction, namely .    This equation holds in both directions. Specifically, we can cancel a common nonzero factor (or reduce the fraction) using the equation .       Let , , and be integers. By the commutative and associative properties, and so, by  , , as in . Note that is the same equation read right-to-left instead.   "
 },
@@ -3578,7 +3578,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#exam_equal_fractions",
   "type": "Example",
-  "number": "4.1.12",
+  "number": "4.1.15",
   "title": "Equal fractions.",
   "body": " Equal fractions       Write as a fraction with denominator 15.  Since , we can use to multiply top and bottom of the fraction by three to get       Which fraction is larger: or ?  We can write each fraction with common denominator  . In part , we found . Similarly, we can use to multiply top and bottom of the fraction by five to get: . We can imagine as the amount of pizza each person gets if we have six pizzas shared by 15 people. In that vein, we can imagine as the amount of pizza each person gets if we have five pizzas shared by 15 people. Each person will get more pizza if we have six pizzas to share versus five pizzas to share, and so . It follows that .      Reduce the fraction .  Notice that and . By we have . Notice that 6 and 25 do not have any common divisors (other than the integers 1) and so we cannot further reduce the fraction .        "
 },
@@ -3587,7 +3587,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#defn_lowest_terms",
   "type": "Definition",
-  "number": "4.1.13",
+  "number": "4.1.16",
   "title": "Lowest terms.",
   "body": " Lowest terms       The integers and are coprime (or relatively prime ) if the only common positive divisor of and is the integer 1. For example, 6 has positive divisors 1, 2, 3, and 6 whereas 25 has positive divisors 1, 5, and 25 so their only common positive divisor is 1. Therefore, 6 and 25 are coprime.    The fraction is written in lowest terms if and are coprime. For example, since 6 and 25 are coprime, it follows that the fraction is written in lowest tersm.      "
 },
@@ -3605,7 +3605,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_even_odd_divides.html#exam_equiv_fractions",
   "type": "Example",
-  "number": "4.1.14",
+  "number": "4.1.18",
   "title": "Equivalent fractions.",
   "body": " Equivalent fractions       Reduce to lowest terms.  Let's use the definition of factorial and cancel before multiplying to get . Note that we cancel the common factor of .      How many strings of three uppercase letters are there if we cannot repeat letters?  Think of filling in three spaces with uppercase letters. The first space can be any of the 26 uppercase letters. Because repeats are not allowed, the second space can be any of the 25 remaining uppercase letters, and the third space can be any of the 24 remaining uppercase letters. Since steps multiply , the answer is .      Write your answer to as a fraction whose numerator and denominator are each a single factorial.  Notice that looks like the beginning of 26! We can multiply the numerator and denominator by to get       Reduce to lowest terms.  Let's use the definition of exponential notation and cancel before multiplying to get .  Note that we canceled 20 factors of 10 to get remaining factors of 10.      Write as a single power of 2: .  Let's use the definition of exponential notation and cancel before multiplying to get   Note that we canceled one of the factors of two to get remaining factors of two.        "
 },
@@ -3848,7 +3848,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_div_alg.html#defn_polynomials",
   "type": "Definition",
-  "number": "4.2.7",
+  "number": "4.2.8",
   "title": "Polynomials.",
   "body": " Polynomials       For an integer , a polynomial in is a sum of constant multiples of powers of . For example, is a polynomial in . To see why, we can rewrite this polynomial to show the powers of . .    In a polynomial, the integer in front of a power of is the coefficient of that power of . For example, in the polynomial , the coefficient of is 2, the coefficient of is 5, the coefficient of is , and the coefficient of is 0.    In a polynomial, the coefficient of is the constant term . For example, the constant term of is 7.    We add polynomials by collecting like terms . For example     To multiply or expand a product of polynomials, we use the distributive rule. See, for example, .      "
 },
@@ -3857,7 +3857,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_div_alg.html#exam_mult_polys",
   "type": "Example",
-  "number": "4.2.8",
+  "number": "4.2.9",
   "title": "Multiplying polynomials.",
   "body": " Multiplying polynomials       Expand .  By the distributive rule, .      Expand .  By the distributive rule (repeatedly),     =      =      =      =     The words under each product indicate the original location of the two integers that are multiplied. This method is First, Outside, Inside, Last or FOIL .        "
 },
@@ -3875,7 +3875,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_div_alg.html#exam_every_integer_even_or_odd",
   "type": "Example",
-  "number": "4.2.9",
+  "number": "4.2.11",
   "title": "Every integer is even or odd.",
   "body": " Every integer is even or odd   Use the Division Algorithm to prove that every integer is even or odd.     Proof Let be an integer. By the Division Algorithm with , there exist unique integers and such that and . Note that or . Since is unique, we are in exactly one of these two cases. Case 1: Assume . Then is even, by the definition of even. Case 2: Assume . Then is odd, by the definition of odd. In either case is even or is odd.   "
 },
@@ -3884,7 +3884,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_div_alg.html#thm_pff_cases",
   "type": "Theorem",
-  "number": "4.2.10",
+  "number": "4.2.12",
   "title": "Proof Format: Proof by Cases.",
   "body": " Proof Format: Proof by Cases   We can prove P using Proof by Cases by adapting the following proof format.   (Explain why there are cases.) We consider cases.  Case 1: Assume (Explain why is true in this case.)  Case 2: Assume (Explain why is true in this case.)     Case : Assume (Explain why is true in this case.)  In (either case\/all cases) we have .    "
 },
@@ -3902,7 +3902,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_div_alg.html#exam_product_3consec_mult3",
   "type": "Example",
-  "number": "4.2.11",
+  "number": "4.2.14",
   "title": "Using proof by cases to prove multiple of three.",
   "body": " Using proof by cases to prove multiple of three   Use a proof by cases to prove for any integer .    Let be an integer. By the Division Algorithm , we can write for some integers and with . The only possible values of are , , and . We consider three cases.  Case 1: Assume . In this case, and so where . Thus, .  Case 2: Assume . In this case, and so where . Thus, .  Case 3: Assume . In this case, and so where . Thus, .  In all cases, .   "
 },
@@ -4109,7 +4109,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_mod_arith.html#sub_mod_clock-3",
   "type": "Remark",
-  "number": "4.3.1",
+  "number": "4.3.2",
   "title": "Mod Clock.",
   "body": " Mod Clock  To find   when , imagine an hour clock with hours marked hours. To find the value of   when is positive, we count hours clockwise from . For example, the 12 is shown in and the 5 clock is shown in The end mark is   . When is negative, we instead count counterclockwise.   The 12-hour clock       The 5-hour clock      "
 },
@@ -4118,7 +4118,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_mod_arith.html#exam_eval_mod_clock",
   "type": "Example",
-  "number": "4.3.4",
+  "number": "4.3.5",
   "title": "Evaluating <span class=\"process-math\">\\(\\fn{mod}\\)<\/span> using the Mod Clock.",
   "body": " Evaluating using the Mod Clock       Use the 12-hour clock (marked instead of the usual ) shown in to calculate 20 12.  We start at 0 and count clockwise 20 hours: .  Thus 20 12 = 8.      Use the 5-hour clock shown in to calculate 67 5.  Instead of counting off 67 hours, note that 50 hours will take us around the clock 10 times, ending at 0. That leaves us hours to count from there. Note that , so 15 hours will take us around the clock 3 times, ending at 0. That leaves us hours to count from there, which ends at 2. Thus, 67 5 = 2.      Use the 5-hour clock shown in to calculate -12 5.  Since -12 is negative, we start at 0 count counterclockwise 12 hours: .  Thus,  5 = 3.        "
 },
@@ -4136,7 +4136,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_mod_arith.html#defn_integers_modn",
   "type": "Definition",
-  "number": "4.3.5",
+  "number": "4.3.7",
   "title": "The integers mod <span class=\"process-math\">\\(n\\)<\/span>.",
   "body": " The integers mod       For a positive integer , the integers mod  , denoted and pronounced Z mod , is the set . For example, and .    We can define addition and multiplication on as follows:  For example, in , we have , , and .    As in the usual order of operations (PEMDAS, ), multiplication ( ) is higher priority than addition ( ).    Addition and multiplication satisfy the commutative property  , the associative property  , and the distributive property  .      "
 },
@@ -4145,7 +4145,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_mod_arith.html#sub_integers_mod_n-5",
   "type": "Example",
-  "number": "4.3.6",
+  "number": "4.3.8",
   "title": "Addition and multiplication tables for <span class=\"process-math\">\\(\\mathbb{Z}_4\\)<\/span>.",
   "body": " Addition and multiplication tables for       Write the addition and multiplication tables for .   shows the tables. For example, and .   The arithmetic tables for , the integers mod 4       0  1  2  3           0  0  1  2  3    1  1  2  3  0    2  2  3  0  1    3  3  0  1  2        0  1  2  3           0  0  0  0  0    1  0  1  2  3    2  0  2  0  2    3  0  3  2  1           True or false? If in , then or .  The question is asking if there are any 0s in the multiplication table other than in the row and column headed by 0. It turns out there are and so this statement is false. As a counterexample, , but in .      For which values of , does have a solution?  The question is asking which rows in the multiplication table have a one in them? The rows headed by 1 and 3 each have a 1 because and also . The answer is . (It is coincidence that the corresponding solutions are .)        "
 },
@@ -4343,7 +4343,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#defn_prime",
   "type": "Definition",
-  "number": "4.4.1",
+  "number": "4.4.2",
   "title": "Prime.",
   "body": " Prime       A positive integer is prime if its only positive divisors are one and . For example, two, three, and five are prime. Note that one is not considered prime.    A positive integer is composite if it is not prime. For example, four is composite because its positive divisors are one, two, and four, not just one and four. Note that one is also not composite.    The terms prime and composite are adjectives (used to describe an integer) and nouns (a type of integer).    The integer is a nontrivial positive divisor of if and . For example, 2 is a nontrivial positive divisor of 4. In general, an integer is composite if it has a nontrivial divisor, and an integer is prime if it does not have any nontrivial positive divisors.      "
 },
@@ -4352,7 +4352,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#exam_show_prime",
   "type": "Example",
-  "number": "4.4.2",
+  "number": "4.4.3",
   "title": "Show an integer is prime or composite.",
   "body": " Show an integer is prime or composite       Show that the integer seven is prime.  We can check that (for example, by calculating which is not an integer), , , , and . Therefore, the only positive divisors of seven are one and seven. Thus, seven is prime.      Show that the integer 99 is composite.  We could list all the divisors of 99, but that is not necessary. We just need one nontrivial positive divisor of 99. For example, and so . That is, 9 is a nontrivial positive divisor of 99. Thus, 99 is composite.        "
 },
@@ -4361,7 +4361,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#thm_show_is_prime",
   "type": "Theorem",
-  "number": "4.4.3",
+  "number": "4.4.4",
   "title": "Show an integer is prime.",
   "body": " Show an integer is prime   Let be an integer.   Let be a prime. If is not a divisor of , then no multiple of is a divisor of .    If has no nontrivial positive divisors less than or equal to , then is prime.      "
 },
@@ -4370,7 +4370,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#exam_sieve",
   "type": "Example",
-  "number": "4.4.4",
+  "number": "4.4.5",
   "title": "Sieve of Eratosthenes.",
   "body": " Sieve of Eratosthenes   Use the Sieve of Eratosthenes to show that 97 is prime.    We start with a grid showing the integers 1-100 in rows of 10 in . We plan to cross out one and all composite integers and to circle all prime integers.  To begin we cross out one, circle two, and then cross out every other number thereafter, which are the even integers. Because an even integer has positive divisor two, the only prime even integer is two itself. Next, circle three and then cross out every third number thereafter, which are the multiples of three. Repeat the process for the next two integers that have not yet been crossed out, five and then seven. Since each integer in the top row is crossed out or circled\/left untouched, circle all the remaining integers that have not been crossed out to get the grid shown in . (Watch the Sieve of Eratosthenes in action.)   Sieve of Eratosthenes                                                                                                                             Notice that nowhere in this process do we divide, we only skip-count.  Skip-counting is the process of counting by a number greater than 1. How do we know that the circled integers are prime? Each of these integers is not divisible by two, three, five, or seven since we crossed out all the multiples of two, three, five, or seven. By  , each of these integers is not divisible by four, six, eight, or 10 because two was not a divisor and is not divisible by nine because three was not a divisor. That is, each of these integers are not divisible by , or . By  and since , each of these remaining integers must be prime.  In particular, 97 is prime.   "
 },
@@ -4388,7 +4388,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#exam_factor120",
   "type": "Example",
-  "number": "4.4.6",
+  "number": "4.4.8",
   "title": "Factoring 120.",
   "body": " Factoring 120   Factor 120 as much as possible.   An easy factorization is . Since both 12 and 10 are composite, they can be factored nontrivially. For example, and . Now, two and five are prime so they cannot be further factored, but six is composite and . Since two and three are prime, no further factorization is possible. This factorization is shown in the factor tree in , and we have circled the prime factors. Putting our work together, we can write .   A factor tree for the integer .        "
 },
@@ -4397,7 +4397,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#defn_prime_fact",
   "type": "Definition",
-  "number": "4.4.8",
+  "number": "4.4.10",
   "title": "Prime factorization.",
   "body": " Prime factorization       A prime factorization of a positive integer is a product of primes equal to . For example, a prime factorization of 120 is . Note that a prime is its own prime factorization. For example, a prime factorization of is .    We often group repeat primes together and write primes in increasing order to write a prime factorization of in standard order as where are distinct primes with and are positive integer exponents. For example, a prime factorization of 120 in standard order is .    The integer 1 does not have a prime factorization, but occasionally we refer to 1 as the prime factorization of 1 because it fits the format with all exponents ( ) set equal to 0.      "
 },
@@ -4406,7 +4406,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#thm_FTOArith",
   "type": "Theorem",
-  "number": "4.4.9",
+  "number": "4.4.11",
   "title": "Fundamental Theorem of Arithmetic.",
   "body": " Fundamental Theorem of Arithmetic   Each integer can be expressed as the product of primes, and when written in standard order, this prime factorization is unique.   "
 },
@@ -4424,7 +4424,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#exam_prime_fact",
   "type": "Example",
-  "number": "4.4.10",
+  "number": "4.4.13",
   "title": "Prime factorization.",
   "body": " Prime factorization    Do not use computational technology or other resources on this problem.   Find the prime factorization of .  Note that is already partially factored. We can continue to factor it further using . We get . Note that we used to simplify .      Find the prime factorization of 12!  Note that is already partially factored. We can continue to factor it further using . We get .      Find the highest power of 10 dividing 12! and explain how that information tells us how many zeros are at the end of 12! when 12! is multiplied exactly.  The highest power of 5 that divides 12! is . To get a divisor of 10, we must have a . Therefore, the highest power of 10 that divides 12! is . Each power of 10 contributes one zero at the end of the number. Since there are two 10s, it follows that there are two zeros at the end of 12! when 12! is multiplied exactly. (By the way, we can use computational technology to check that 12! = 479,001,600 , which indeed ends with two zeros.)        "
 },
@@ -4433,7 +4433,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#exam_list_divisors_from_prime_fact",
   "type": "Example",
-  "number": "4.4.11",
+  "number": "4.4.14",
   "title": "Prime factorization of divisors.",
   "body": " Prime factorization of divisors       List the positive divisors of the integer 16. Compare the prime factorization of 16 with the prime factorization of its positive divisors.  The positive divisors of are and . The prime factorizations of these divisors are , and . We can display this list in a table. lists the divisors in prime factored form and then the divisors themselves.   The positive divisors of 16                    1        \\hspace{1in}                   1  1  2  4  8  16         List the positive divisors of the integer 50. Compare the prime factorization of 50 with the prime factorization of its positive divisors.  The positive divisors of are and . The prime factorizations of these divisors are and . lists the divisors in prime factored form and then the divisors themselves. Notice that going across a row of this table, we multiply by two and going down a column of this table, we multiply by five.   The positive divisors of 50               1  2     5         \\hspace{1in}             1   2     5  10     25  50         List the positive divisors of the integer 72. Compare the prime factorization of 72 with the prime factorization of its positive divisors.  The positive divisors of are and . The prime factorizations of these divisors are , and . lists the divisors in prime factored form and then the divisors themselves. Notice that going across a row of this table, we multiply by two and going down a column of this table, we multiply by three.   The positive divisors of 72                   1  2                   \\hspace{1in}    1  2                    3                      "
 },
@@ -4451,7 +4451,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#exam_list_divisors_from_prime_fact_600",
   "type": "Example",
-  "number": "4.4.15",
+  "number": "4.4.19",
   "title": "Prime factorization of divisors of the integer 600.",
   "body": " Prime factorization of divisors of the integer 600    List the positive divisors of the integer 600 using its prime factorization.    The prime factorization of the integer 600 is .  Since there are three prime divisors, we would need a 3-dimensional table which we can represent using three 2-dimensional tables based on the power of 5 in the divisor, as shown in . The list of divisors of 600 is, therefore .   The prime factorization of the positive divisors of 600                               \\vspace{.25in}                  5             \\vspace{.25in}                                 "
 },
@@ -4460,7 +4460,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#exam_count_div_from_prime_fact",
   "type": "Example",
-  "number": "4.4.17",
+  "number": "4.4.21",
   "title": "Counting divisors from the prime factorization.",
   "body": " Counting divisors from the prime factorization   In each part of this exercise, show how to count the number of divisors from the prime factorization.   How many positive divisors does the integer 16 have? Explain.  In  , we see that the positive divisors of have a prime factorization of the form where . There are five choices for . Thus, the integer 16 has five positive divisors.      How many positive divisors does the integer 50 have? Explain.  In  , we see that the positive divisors have a prime factorization of the form where and . There are two choices for and three choices for . Since steps multiply , the integer 50 has positive divisors.      How many positive divisors does the integer 72 have? Explain.  In  , we see that the positive divisors of have a prime factorization of the form where and . There are four choices for and three choices for . Since steps multiply , the integer 72 has positive divisors.      How many positive divisors does the integer 600 have? Explain.  In , we see that the positive divisors of have a prime factorization of the form where , , and . There are four choices for , two choices for , and three choices for . Since steps multiply , the integer 600 has positive divisors.        "
 },
@@ -4469,7 +4469,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#thm_list_count_div_from_prime_fact",
   "type": "Theorem",
-  "number": "4.4.18",
+  "number": "4.4.22",
   "title": "Listing and counting divisors using prime factorization.",
   "body": " Listing and counting divisors using prime factorization   Let be an integer with prime factorization where are distinct primes with and are positive integer exponents.   The positive divisors of are integers of the form where each exponent .    The integer has exactly positive divisors.      "
 },
@@ -4478,7 +4478,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_primes.html#exam_int_10div",
   "type": "Example",
-  "number": "4.4.19",
+  "number": "4.4.23",
   "title": "Integers with exactly 10 positive divisors.",
   "body": " Integers with exactly 10 positive divisors       Describe the possible prime factorizations of an integer that has exactly 10 positive divisors.  By , we are looking for an integer with prime factorization such that .  One possibility is that there is only one prime with and so . In that case, the prime factorization is . The corresponding table would be . The other possibility is that there are two primes, and where and and so and . In that case, the prime factorization is . The corresponding table would be .      What is the smallest integer having exactly 10 positive divisors?  The smallest integer of the form is . The smallest integer of the form is . Thus, the smallest integer having exactly 10 divisors is 48.        "
 },
@@ -4757,7 +4757,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_gcd.html#sub_gcd-9",
   "type": "Example",
-  "number": "4.5.4",
+  "number": "4.5.5",
   "title": "Using prime factorization to calculate <span class=\"process-math\">\\(\\fn{gcd}\\)<\/span>.",
   "body": " Using prime factorization to calculate   Use the prime factorization of and to calculate .    The positive divisors of 252 are integers of the form where , , and . The positive divisors of 3,000 are integers of the form where , , and . Observe that . Therefore, no divisor of 252 is divisible by five. Similarly, . Therefore, no divisor of 3,000 is divisible by seven. The only other prime divisors are two and three, so the common divisors of 252 and 3,000 are integers of the form . The highest power of two that divides 252 is and the highest power of three that divides 3,000 is . Therefore, and . The largest such integer is . Thus, .   "
 },
@@ -4766,7 +4766,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_gcd.html#thm_Euclidean_algorithm",
   "type": "Theorem",
-  "number": "4.5.5",
+  "number": "4.5.6",
   "title": "Key observations for Euclidean Algorithm.",
   "body": " Key observations for Euclidean Algorithm       Given positive integers and with , we have .    Since and , the second involves smaller positive integers.    For any positive integer , we have .      "
 },
@@ -4775,7 +4775,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_gcd.html#exam_Euclidean_alg",
   "type": "Example",
-  "number": "4.5.6",
+  "number": "4.5.7",
   "title": "Using the Euclidean Algorithm.",
   "body": " Using the Euclidean Algorithm   Use the Euclidean Algorithm to calculate .    First, divide 240 by 100 to get .  By  , it follows that .  Next, divide 100 by 40 to get .  By  , it follows that .  Last, divide 40 by 20 to get .  By  and , it follows that .  Therefore, .   "
 },
@@ -4793,7 +4793,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_gcd.html#exam_coprime",
   "type": "Example",
-  "number": "4.5.7",
+  "number": "4.5.9",
   "title": "Showing two integers are coprime using their prime factors.",
   "body": " Showing two integers are coprime using their prime factors       Explain why distinct primes and are coprime.  The positive divisors of are 1 and , while the positive divisors of are 1 and . Since , their only common positive divisor is 1 and so .      Explain why the integers and are coprime when and are distinct primes.  The positive divisors of are 1, , ,  while the positive divisors of are 1, , , , . Since are primes, it follows from the uniqueness of prime factorization that the only common positive divisor of and is 1 and so .      Explain why if is odd, then 16 and are coprime.  The divisors of 16 are , , , , and . Since is odd, we know . By  , it follows that no even integer divides . All divisors of 16 are even, except for . Therefore, the only common divisors of 16 and are and so .      Explain why if and , then 15 and are coprime.  The only positive divisors of 15 are 1, 3, 5, and 15. Since and , it follows that also and so the only common positive divisor of 15 and is 1.        "
 },
@@ -4802,7 +4802,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_gcd.html#defn_euler_phi_fn",
   "type": "Definition",
-  "number": "4.5.8",
+  "number": "4.5.10",
   "title": "Euler’s totient.",
   "body": " Euler's totient   The number of integers from 1 to that are coprime to is denoted . In this context, is Euler's toitent (or Euler's function ).  is the Greek letter phi, sometimes written as .    "
 },
@@ -4811,7 +4811,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_gcd.html#exam_eulers_phi15",
   "type": "Example",
-  "number": "4.5.9",
+  "number": "4.5.11",
   "title": "Calculating <span class=\"process-math\">\\(\\varphi(15)\\)<\/span>.",
   "body": " Calculating       Copy the list of integers . Cross off all multiples of three on that list. Cross off all multiples of five on that list. Circle the remaining integers.  The multiples of three are 3, 6, 9, 12, and 15. The multiples of five are 5, 10, and 15 again.       Calculate   By  these circled integers from are coprime to 15. Thus, the integers from one to 15 that are coprime to 15 are .  Since there are eight numbers on this list, it follows that .        "
 },
@@ -5063,7 +5063,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#defn_and_or_xor",
   "type": "Definition",
-  "number": "5.1.1",
+  "number": "5.1.2",
   "title": "And, or, and xor.",
   "body": " And, or, and xor       A statement is a sentence that is either true or false. For example, if the statement is the integer six has exactly four positive divisors , then happens to be true because the positive divisors of six are 1, 2, 3, and 6. If the statement is the cycle has a vertex of degree three , then is false because all the vertices of have degree two.    For statements and , the statement  and  , denoted , is true if both and are true and false otherwise. For example, the statement the integer seven is positive and odd is true because seven is positive and seven is odd. The statement the integer six is positive and odd is false, even though six is positive because six is not odd.    For statements and , the statement  or  , denoted , is true if at least one of and are true and false otherwise. For example, the statement the integer six is positive or odd is true, because six is positive. The statement a graph with five vertices is either the cycle or the complete graph from  is false because, for example, the graph has five vertices but it is not a cycle and it is not complete.    Note that is true if both and are true. For example, the statement the integer seven is positive or odd is true. This use of or is the inclusive or because it includes the possibility of both statements being true.    When we want to exclude the possibility of both statements being true, we use the exclusive or instead. For statements and , the statement  xor  , denoted , is true if one of and is true and the other is false and false otherwise. For example, when I told my kids you can have ice cream or brownies for dessert they suggested brownies with ice cream (the inclusive or), but I probably meant one or the other but not both (the exclusive or). As another example, in we showed that every integer is either even or odd, but never both which we could write more concisely as every integer is even xor odd .    One way to summarize when a compound statement is true or false is to use a truth table which includes a column for each component of the compound statement (such as , ) and for the full compound statement (such as ) and a row for each possible combination of true or false for the component statements. For example, if our components are and , then the truth table will have four rows corresponding to the four possibilities:    is true and is true;     is true and is false;     is false and is true; and     is false and is false.   In this textbook we abbreviate true as and false as . Some computer science textbooks use for true and for false instead.      "
 },
@@ -5072,7 +5072,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#exam_truthtable_and_or_xor",
   "type": "Example",
-  "number": "5.1.2",
+  "number": "5.1.3",
   "title": "Truth tables for and, or, and xor.",
   "body": " Truth tables for and, or, and xor       Use a truth table to illustrate the meaning of the logical connective (and).   shows the truth table for . Since the only time is true is when both and are true, the only in the column is in the first row. The other entries in the column are all .   Truth table for the logical connective and                                       Use a truth table to illustrate the meaning of the logical connective (or).   shows the truth table for . Since is true is whenever is true, the first two entries in the column are . Since is true whenever is true, the third entry in the column is also . The final entry in the column is because neither nor are true.   Truth table for the logical connective or                                       Use a truth table to illustrate the meaning of the logical connective (xor).   shows the truth table for . Since is true exactly when one of or is true, the column has in the second and third rows only.   Truth table for the logical connective xor                                         "
 },
@@ -5090,7 +5090,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#exam_distributive_equiv",
   "type": "Example",
-  "number": "5.1.7",
+  "number": "5.1.9",
   "title": "Distributive rule.",
   "body": " Distributive rule   Use a truth table to verify the logical equivalence     The truth table is in . Notice that the columns for and for have the same sequence of s and s.   A truth table verifying the distributive equivalence                                                                                                          "
 },
@@ -5099,7 +5099,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#pff_and",
   "type": "Theorem",
-  "number": "5.1.9",
+  "number": "5.1.11",
   "title": "Proof Format: And.",
   "body": " Proof Format: And   We can prove by adapting the following proof format.   First, (explain why is true.) Therefore, .  Next, (explain why is true.) Therefore, .    "
 },
@@ -5108,7 +5108,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#pff_or_by_cases",
   "type": "Theorem",
-  "number": "5.1.10",
+  "number": "5.1.12",
   "title": "Proof Format: Or Using Cases.",
   "body": " Proof Format: Or Using Cases   We can prove using cases by adapting the following proof format.   (Explain why there are two cases.) We consider two cases.  Case 1: Assume . (Explain why is true in this case.) Therefore, .  Case 2: Assume . (Explain why is true in this case.) Therefore, .  In either case, we have .    "
 },
@@ -5117,7 +5117,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#pff_or_by_cases_generalized",
   "type": "Theorem",
-  "number": "5.1.11",
+  "number": "5.1.13",
   "title": "Proof Format: Or Using Cases, Generalized.",
   "body": " Proof Format: Or Using Cases, Generalized   We can prove using cases by adapting the following proof format.   (Explain why there are cases.) We consider cases.  Case 1: Assume (Explain why one of is true in this case.)  Case 2: Assume (Explain why one of is true in this case.)     Case : Assume (Explain why one of is true in this case.)  In (either case\/all cases) we have .    "
 },
@@ -5135,7 +5135,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#defn_logical_equiv",
   "type": "Definition",
-  "number": "5.1.12",
+  "number": "5.1.15",
   "title": "Logical equivalence.",
   "body": " Logical equivalence       Statements and are logically equivalent , denoted , if and always have the same truth value, either both statements are true or both statements are false. For example, we saw in that .    Statements and are not logically equivalent , denoted if sometimes one of the statements is true but the other is false. For example, as we check in Exercise because, for example, when is true and both and are false, the left-hand side is false but the right-hand side is true.      "
 },
@@ -5144,7 +5144,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#defn_negation_tautology_contradiction",
   "type": "Definition",
-  "number": "5.1.13",
+  "number": "5.1.16",
   "title": "Negation, tautology, and contradiction.",
   "body": " Negation, tautology, and contradiction       The statements and are negations if and always have the opposite truth value. That is, is true and is false or is false and is true. The statement is the negation of , denoted . For example, if is an integer and if is the statement , then is the statement .    A statement is a tautology if it is always true. For example, the statement either I will work on my homework Tuesday night or I will not work on my homework Tuesday night is a tautology.    A statement is a contradiction if it is always false. For example, the statement there is an integer with and  is a contradiction because for an integer with we know that .      "
 },
@@ -5153,7 +5153,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#exam_truthtable_negations",
   "type": "Example",
-  "number": "5.1.14",
+  "number": "5.1.17",
   "title": "Truth tables involving negations.",
   "body": " Truth tables involving negations       Use a truth table to illustrate the meaning of the logical operation (not).   shows the truth table for .   Truth table for the logical operation not                         Construct a truth table for the compound statement .   shows the truth table for , using an intermediate column for . Notice that the only time is true is when is true and is false, which happens in the second row.   Truth table for the compound statement                                             Use a truth table to show that is a contradiction.   shows the truth table for . Since the final column is all , it follows that is a contradiction.   Truth table for the contradiction                               "
 },
@@ -5162,7 +5162,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#rem_but_not",
   "type": "Remark",
-  "number": "5.1.18",
+  "number": "5.1.21",
   "title": "But not.",
   "body": " But not  It is common in English to pronounce as but not . The word but has the same meaning logically as and but in English it indicates that what follows is negative in some way. For example, while we can say I like chocolate ice cream and I don't want any now. it is more common to say I like chocolate ice cream but I don't want any now.  "
 },
@@ -5180,7 +5180,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#thm_demorgans",
   "type": "Theorem",
-  "number": "5.1.19",
+  "number": "5.1.23",
   "title": "De Morgan’s Law.",
   "body": " De Morgan's Law   For statements and , the negation of is and the negation of is . That is, we have the following logical equivalences known as De Morgan's Laws :    "
 },
@@ -5198,7 +5198,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#pff_contradiction",
   "type": "Theorem",
-  "number": "5.1.20",
+  "number": "5.1.24",
   "title": "Proof Format:Proof by Contradiction.",
   "body": " Proof Format:Proof by Contradiction   We can prove using proof by contradiction by adapting the following proof format.   Suppose not. Then (state ).  First, (explain why is true.) Therefore, .  On the other hand, (explain why is true.) Therefore, .  This is a contradiction. Therefore, .    "
 },
@@ -5216,7 +5216,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_logic_connectives.html#exam_avoid_contradiction_consec_coprime",
   "type": "Example",
-  "number": "5.1.21",
+  "number": "5.1.26",
   "title": "Rewriting without contradiction.",
   "body": " Rewriting without contradiction   Copy the proof by contradiction from  and edit to to give a proof without contradiction.  Prove that for any integer .    We have crossed out the statements that should be deleted, and boldfaced the statements that should be added.   Proof.  Suppose not. Then there exists an integer such that    Let be an integer. Write . Since 1 is a common divisor of any integer, is certainly positive.   First, by the definition of greatest common divisor , and . By the definition of divides we can write and for some integers and . Observe that and so . But, of course, so really . Since the only positive divisor of 1 is 1, it follows that .   On the other hand, we assumed that . This is a contradiction.  Thus  .   "
 },
@@ -5495,7 +5495,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#defn_quantifiers",
   "type": "Definition",
-  "number": "5.2.8",
+  "number": "5.2.9",
   "title": "Quantifiers.",
   "body": " Quantifiers   Quantifiers can be defined on any set. Throughout this definition, our examples use the set of integers.   We indicate that a statement depends on a variable by writing instead of . The notation is predicate notation . For example, if is the statement the integer is odd , then is the statement the integer is odd , which is true, but is the statement the integer is odd , which is false.    The universal quantifier , denoted , means for all .   The statement is the statement is true for all values of . For example, if is the statement the integer is even , then is the statement every integer of the form is even , which is true. On the other hand, if is the statement  , then is the statement every integer is divisible by three , which is false because, for example, 17 is not divisible by three.    The statement means is false for all values of . For example, if is the statement the integer is even , then is the statement no integer of the form is even , which is true.       The existential quantifier , denoted means there exists.    The statement means that is true for some value(s) of . For example, if means that , then means that some integer is divisible by three, which is true because, for example, 12 is divisible by three.    The statement means that is false for some value(s) of . For example, if means , then means that some integer is not divisible by three, which is true because, for example, 17 is not divisible by three.         "
 },
@@ -5504,7 +5504,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#sub_quantifiers-5",
   "type": "Remark",
-  "number": "5.2.9",
+  "number": "5.2.10",
   "title": "English words indicating quantifiers.",
   "body": " English words indicating quantifiers      Words and phrases that indicate a universal quantifier include: a, all, always, any, each, every, everyone, etc.    Words and phrases that indicate a universal quantifier followed by a negation include: impossible, never, no, no one, none, nothing, etc.    Words and phrases that indicate an existential quantifier include: at least one, can, contains, has, possible, some, someone, sometimes, there exist, there exists there is, there are, etc.    Note that some words and phrases that indicate the existential quantifier are plural, but it takes only one value of where is true to make the statement true. For example, in mathematics, some means at least one.     "
 },
@@ -5513,7 +5513,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#rem_default_universal",
   "type": "Remark",
-  "number": "5.2.10",
+  "number": "5.2.11",
   "title": "Default universal.",
   "body": " Default universal  If a statement about variables does not explicitly state a quantifier, the default assumption is that the quantifier is universal.  "
 },
@@ -5531,7 +5531,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#exam_words_quants",
   "type": "Example",
-  "number": "5.2.11",
+  "number": "5.2.13",
   "title": "Identifying quantifiers.",
   "body": " Identifying quantifiers   In each statement, find a word or phrase that indicates a quantifier and say which: or . In some parts, both quantifiers are involved. (We saw these statements in and .)   There are three distinct digits whose sum is 23.  The phrase there are indicates an existential quantifier .      Some integers are divisible by three and five.  The word some indicates an existential quantifier .      A graph with five vertices is the cycle or the complete graph .  The word a indicates a universal quantifier .      No graph has more edges than vertices.  The word no indicates a universal quantifier .      Every bit string of length five contains at least one .  The word every indicates a universal quantifier and the word contains indicates an existential quantifier .        "
 },
@@ -5540,7 +5540,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#pff_exists",
   "type": "Theorem",
-  "number": "5.2.12",
+  "number": "5.2.14",
   "title": "Proof Format: Existentially-quantified statements.",
   "body": " Proof Format: Existentially-quantified statements   We can prove by adapting the following proof format.   Consider (example).  (Explain why is true.)  Therefore, is true for some (describe type of object) , namely (example).    "
 },
@@ -5549,7 +5549,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#exam_exists_graph_5vert_5edge",
   "type": "Example",
-  "number": "5.2.13",
+  "number": "5.2.15",
   "title": "There is a graph with five vertices and five edges.",
   "body": " There is a graph with five vertices and five edges   Prove  that there is a graph that has five vertices and five edges.    The phrase there is indicates an existentially quantified statement, so we follow .   Proof. Consider the cycle . Recall that has five vertices and five edges. Therefore, there is a graph that has five vertices and five edges, namely .   "
 },
@@ -5558,7 +5558,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#exam_check_every_example",
   "type": "Example",
-  "number": "5.2.14",
+  "number": "5.2.16",
   "title": "Checking every example.",
   "body": " Checking every example   In , we introduced the integers mod 5, . In , multiplication is defined by . Prove that there is no solution to in . Note that .    We can check each element of to see if it is a solution. Our work is displayed in . Since none of the elements of is a solution, we can conclude that there is no solution to in .   Checking that has no solution in     evaluate in  does ?         0   no         1   no         2   no         3   no         4   no      "
 },
@@ -5567,7 +5567,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#pff_forall",
   "type": "Theorem",
-  "number": "5.2.16",
+  "number": "5.2.18",
   "title": "Proof Format: Universally-quantified Statement.",
   "body": " Proof Format: Universally-quantified Statement   We can prove by adapting the following proof format.   Let be an (describe the type of object).  (Explain why is true.)  Therefore, is true for all (describe the type of object) .    "
 },
@@ -5576,7 +5576,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#exam_6qminus10_is_even",
   "type": "Example",
-  "number": "5.2.17",
+  "number": "5.2.19",
   "title": "<span class=\"process-math\">\\(6q-10\\)<\/span> is even.",
   "body": " is even   Use the definition of even to prove that for every integer , the integer is even. (This proof was Exercise  .)    The phrase for every indicates a universally quantified statement, so we follow .   Proof. Let be an integer. Then where is an integer. By the definition of even, it follows that is even. Therefore, for every integer , the integer is even.   "
 },
@@ -5603,7 +5603,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#rem_omit_last_sentence_proof_quants",
   "type": "Remark",
-  "number": "5.2.18",
+  "number": "5.2.22",
   "title": "Omitting the concluding sentence of proofs of quantified statements.",
   "body": " Omitting the concluding sentence of proofs of quantified statements  It is common to omit the concluding sentence(s) of a proof of a quantified statement.  "
 },
@@ -5612,7 +5612,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#exam_omit_last_sentence_proof_quants",
   "type": "Example",
-  "number": "5.2.19",
+  "number": "5.2.23",
   "title": "Omitting the concluding lines of a proof of a quantified statement.",
   "body": " Omitting the concluding lines of a proof of a quantified statement   Write a shorter version of the proof from  .    Prove that there exists an integer such that for any integer .   Proof. Consider the integer and let be any integer. Then .   "
 },
@@ -5621,7 +5621,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#thm_neg_quants",
   "type": "Theorem",
-  "number": "5.2.20",
+  "number": "5.2.24",
   "title": "Negating quantified statements.",
   "body": " Negating quantified statements   For any statement , we have the following negations of quantified statements.   Negating a universally quantified statement: .    Negating an existentially quantified statement: .      "
 },
@@ -5630,7 +5630,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#exam_neg_forall",
   "type": "Example",
-  "number": "5.2.21",
+  "number": "5.2.25",
   "title": "Negating a universally quantified statement.",
   "body": " Negating a universally quantified statement       Explain why  is correct.  The statement says is always true. The negation would say is not always true which is equivalent to saying is sometimes false.  The statement says is sometimes true which is equivalent to saying is sometimes false.  Thus .      Explain why  is correct.  The statement says is sometimes true. The negation would say is never true which is equivalent to saying is always false.  The statement says is always true which is equivalent to saying is always false.  Thus .        "
 },
@@ -5639,7 +5639,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_quant_cex.html#defn_cex",
   "type": "Definition",
-  "number": "5.2.22",
+  "number": "5.2.26",
   "title": "Counterexample.",
   "body": " Counterexample   A counterexample is an example where a universally-quantified statement is false. For example, a counterexample to the false statement Every square integer has exactly three positive divisors from  is the integer 16 because is a square, but 16 has five positive divisors: 1, 2, 4, 8, and 16.   "
 },
@@ -5954,7 +5954,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_conditional_statements.html#exam_truthtable_compound_conditionals",
   "type": "Example",
-  "number": "5.3.6",
+  "number": "5.3.7",
   "title": "Truth tables for statements involving conditionals.",
   "body": " Truth tables for statements involving conditionals       Construct a truth table for .   shows the truth table. Note that the hypothesis is now and the conclusion is now . The only time is false is when the hypothesis is true but the conclusion is false.   Truth table for the converse                                       Use a truth table to show that is a tautology.   shows the truth table. Because the last column is all true, we can conclude that is a tautology.   Truth table showing the tautology for the simplification inference                                             Construct a truth table for . What do you notice?   shows the truth table. Because the last column is the same as the truth table for in , we can conclude that they are logically equivalent. That is, .   Truth table showing the implication equivalence                                               "
 },
@@ -5963,7 +5963,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_conditional_statements.html#thm_implication",
   "type": "Theorem",
-  "number": "5.3.10",
+  "number": "5.3.11",
   "title": "Implication equivalence.",
   "body": " Implication equivalence       For statements and , .    Equivalently, for statements and , .      "
 },
@@ -5972,7 +5972,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_conditional_statements.html#exam_if_then_else",
   "type": "Example",
-  "number": "5.3.11",
+  "number": "5.3.12",
   "title": "“If, then, else” construction.",
   "body": "  If, then, else construction   A common command in computer programming is a statement of the form If , then , else . This statement tells the computer that if is true, then do what says and if is false, then do what says.   Write the statement if , then , else in logical notation.  The statement says if , then and also if , then so we have       Consider the following statement: for any integer , if is even, then the answer is , else the answer is . What is the answer when ? What is the answer when ?  When the statement is even is true and so the answer is . On the other hand, when the statement is even is false and so the answer is .        "
 },
@@ -5981,7 +5981,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_conditional_statements.html#pff_if_then_direct",
   "type": "Theorem",
-  "number": "5.3.12",
+  "number": "5.3.13",
   "title": "Proof Format: Conditional (Direct Proof).",
   "body": " Proof Format: Conditional (Direct Proof)   We can prove by adapting the following proof format.   Assume is true.  (Explain why it follows that is true.)  Thus is true.    "
 },
@@ -6008,7 +6008,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_conditional_statements.html#exam_cex_conditionals",
   "type": "Example",
-  "number": "5.3.13",
+  "number": "5.3.16",
   "title": "Counterexamples involving conditional statements.",
   "body": " Counterexamples involving conditional statements   For each statement from (a)-(c), find a counterexample to show the statement is false.   If a graph has chromatic number four, then it must be the complete graph .  One possible counterexample is the wheel , drawn in . (By the way, we could not use as a counterexample because .) Notice that our counterexample has the hypothesis true and the conclusion false.      Given real numbers and , if , then and .  One possible counterexample is and . While it is true that , because it follows that the conclusion that and is false. Notice that our counterexample has the hypothesis true and the conclusion false. To insure that the conclusion was false, we used DeMorgan's Laws  .      For any integers and , if , then or .  One possible counterexample would be and because then but and . Notice that our counterexample has the hypothesis true and the conclusion false. To insure that the conclusion was false, we used DeMorgan's Laws  .        "
 },
@@ -6017,7 +6017,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_conditional_statements.html#thm_broken_promise",
   "type": "Theorem",
-  "number": "5.3.14",
+  "number": "5.3.17",
   "title": "Broken promise.",
   "body": " Broken promise   The negation of If , then is the broken promise  but not . That is,    "
 },
@@ -6026,7 +6026,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_conditional_statements.html#exam_neg_ifthen",
   "type": "Example",
-  "number": "5.3.15",
+  "number": "5.3.18",
   "title": "Negating conditional statements.",
   "body": " Negating conditional statements   Write the negation of each statement in a sentence. Hint: The negation should be true for your counterexample.   If a graph has chromatic number four, then it must be the complete graph .  Note that this statement does not state a specific quantifier, so following , we interpret this statement as universally quantified. Using and we get the following negation: There exists a graph that has chromatic number four but is not the complete graph . Our counterexample from found a graph, namely , that has chromatic number four but is not the complete graph .      Given real numbers and , if , then and .  We use and to find the following awkwardly-stated draft of the negation: There are real numbers and such that but it is not the case that and . We can eliminate the awkward it is not the case by using DeMorgan's law . Our negation is the following statement: There are real numbers and such that but either or . Our counterexample from found real numbers and where but .      For any integers and , if , then or .  We use and to find the following awkwardly-stated draft of the negation: There are integers and such that but it is not the case that or . We can eliminate the awkward it is not the case by using DeMorgan's law . Our negation is the following statement: There are integers and such that but and . Our counterexample from found integers and where but and .        "
 },
@@ -6035,7 +6035,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_conditional_statements.html#pff_or_implication",
   "type": "Theorem",
-  "number": "5.3.16",
+  "number": "5.3.19",
   "title": "Proof Format: Or Using Implication.",
   "body": " Proof Format: Or Using Implication   We can prove using the implication equivalence by adapting the following proof format.   Assume is false.  (Explain why it follows that is true.)  Thus is true.    "
 },
@@ -6053,7 +6053,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_conditional_statements.html#exam_implication_vs_cases_proof_or",
   "type": "Example",
-  "number": "5.3.17",
+  "number": "5.3.21",
   "title": "Compare proving an “or” statement using implication versus proof by cases.",
   "body": " Compare proving an or statement using implication versus proof by cases    Explain by considering how to prove using cases with the cases are or .    Prove: using cases with the cases or .   We consider two cases.  Case 1: Assume . Thus, .  Case 2: Assume . (Explain why follows.) Thus, .  In either case, .   When we cross out the obvious lines of the proof we get the following proof:    We consider two cases.    Case 1: Assume . Thus, .    Case 2: Assume . (Explain why follows.) Thus, .   In either case, .    This proof is the .   "
 },
@@ -6377,7 +6377,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_converse_cp.html#pff_iff",
   "type": "Theorem",
-  "number": "5.4.7",
+  "number": "5.4.8",
   "title": "Proof Format: Biconditional.",
   "body": " Proof Format: Biconditional   We can prove by adapting the following proof format.   First, assume .  (Explain why is true.)  Thus, .  Conversely, assume .  (Explain why is true.)  Thus, .    "
 },
@@ -6395,7 +6395,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_converse_cp.html#exam_fractions_divides",
   "type": "Example",
-  "number": "5.4.8",
+  "number": "5.4.10",
   "title": "Fractions and Divisibility.",
   "body": " Fractions and Divisibility   Let and be integers with . Prove that exactly when is an integer.    Proof. Let and be integers with .  First, assume . By definition of divides, for some integer . By , it follows that is an integer.  Conversely, assume is an integer. Say, . By , it follows that or, equivalently, . By the definition of divides, .     "
 },
@@ -6404,7 +6404,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_converse_cp.html#defn_contrapositive",
   "type": "Definition",
-  "number": "5.4.9",
+  "number": "5.4.11",
   "title": "Contrapositive.",
   "body": " Contrapositive   For statements and , the contrapositive of the conditional statement is the conditional statement . For example, consider the true statement if , then . The contrapositive is the statement if , then . which is also true.   "
 },
@@ -6413,7 +6413,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_converse_cp.html#exam_equiv_contrapositive",
   "type": "Example",
-  "number": "5.4.10",
+  "number": "5.4.12",
   "title": "Equivalence of statement and its contrapositive.",
   "body": " Equivalence of statement and its contrapositive       Construct a truth table of conditional and its contrapositive. What do you notice?  The truth table is shown in . Notice that the columns for the conditional and its contrapositive are identical. That means that a conditional and its contrapositive are logically equivalent.   Truth table for the contrapositive                                                         Explain in words why the contrapositive is logically equivalent to the original conditional.  Think about what makes the conditional is true. We are promising that if is true, then is true. What happens if is true? That means is false and so cannot be true (or we would break our promise) and so must be false which means is true. That is, if , then , which is the contrapositive.        "
 },
@@ -6422,7 +6422,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_converse_cp.html#thm_cp",
   "type": "Theorem",
-  "number": "5.4.12",
+  "number": "5.4.14",
   "title": "Contraposition equivalence.",
   "body": " Contraposition equivalence   For statements and ,    "
 },
@@ -6440,7 +6440,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_converse_cp.html#pff_if_then_cp",
   "type": "Theorem",
-  "number": "5.4.13",
+  "number": "5.4.16",
   "title": "Proof Format:Conditional Using the Contrapositive.",
   "body": " Proof Format:Conditional Using the Contrapositive   We can prove using the contrapositive by adapting the following proof format.   We will prove the contrapositive, namely (fill in ).  Assume is true.  (Explain why it follows that is true.)  Thus is true.    "
 },
@@ -6458,7 +6458,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_converse_cp.html#exam_product_even_implies_even_factor",
   "type": "Example",
-  "number": "5.4.14",
+  "number": "5.4.18",
   "title": "Rewriting a proof by contradiction using the contrapositive.",
   "body": " Rewriting a proof by contradiction using the contrapositive       Read the following proof by contradiction. Prove that for any integers and if is even, then is even or is even.  Suppose not. Then for some integers and we would have that is even but neither nor is even.  First, since neither nor is even, that means and are odd. By the definition of odd, we can write and for some integers and . Multiplying and we get  and so is odd.  On the other hand, we said was even. This is a contradiction.  What are the contradictory statements and ?  The contradictory statements are  is odd and  is even .      State the contrapositive of the statement For any integers and if is even, then is even or is even.   By DeMorgan's Laws , the negation of the conclusion is even or is even > is the statement and are odd . The contrapositive is for any integers and , if and are odd, then is odd . Notice that we keep the universal quantifier.      Adapt the proof from to prove for any integers and if is even, then either is even or is even using the contrapositive . Hint: you should not have to change much of the proof.  Prove: for any integers and if is even, then either is even or is even.   Proof. We will prove the contrapositive, namely for any integers and , if and are odd, then is odd.  Let and be odd integers. By the definition of odd, we can write and for some integers and . Multiplying and we get  and so is odd.        "
 },
@@ -6719,7 +6719,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_inference.html#exam_proof_logical_equiv",
   "type": "Example",
-  "number": "5.5.6",
+  "number": "5.5.7",
   "title": "Proofs of Logical Equivalences.",
   "body": " Proofs of Logical Equivalences       Many lists of equivalences omit contraposition because it can be proved from the other equivalences. Prove contraposition using other equivalences This was  .    Proof:        using implication     using the commutative property     using double negation     using implication        Fill in the missing steps of the proof using the given equivalences to prove This was  .    Proof.      using implication     using the distributive property     using implication (twice)          "
 },
@@ -6728,7 +6728,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_inference.html#exam_neg_complicated",
   "type": "Example",
-  "number": "5.5.7",
+  "number": "5.5.8",
   "title": "Negating a complicated statement.",
   "body": " Negating a complicated statement   Negate the statement and simplify your negation so that there are no negation signs in front of parentheses. State which equivalences you use.           using De Morgan's laws          using De Morgan's laws (twice)          using double negation.      "
 },
@@ -6746,7 +6746,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_inference.html#defn_logical_infer",
   "type": "Definition",
-  "number": "5.5.8",
+  "number": "5.5.10",
   "title": "Logical Inferences.",
   "body": " Logical Inferences       For statements and statement , a logical inference , denoted , is a rule saying if we know that statement is true, then we can conclude that statement is also true. For example, in  we proved that is a tautology. Therefore, if we know that is true, we can conclude that is true. We write . (This inference is  .)    An logical inference can also involve multiple statements. That is, for statements , , , , and . The logical inference means that if we know that statements , , , are true, then we can conclude that statement is also true. For example, if we know that is true and is true, then we can conclude that is true. We write . (This inference is  .)    A logical inference is valid if the corresponding conditional statement is a tautology or, equivalently, if . For example, is a valid inference because is a tautology.      "
 },
@@ -6755,7 +6755,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_inference.html#thm_logical_infer",
   "type": "Theorem",
-  "number": "5.5.9",
+  "number": "5.5.11",
   "title": "Logical inferences.",
   "body": " Logical inferences   For any logical statements and we have the following valid logical inferences.    Simplification       Addition       Conjunction       Modus ponens (m.p.)       Modus tollens (m.t.)        "
 },
@@ -6764,7 +6764,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_inference.html#exam_mp_valid",
   "type": "Example",
-  "number": "5.5.10",
+  "number": "5.5.12",
   "title": "Why <em class=\"emphasis\">modus ponens<\/em> is valid.",
   "body": " Why modus ponens is valid   We proved modus ponens in  using equivalences. In this example, we look at two different ways to show that modus ponens is a valid inference.   Explain in words why modus ponens makes sense.  Suppose we know that is true and that is true. The statement promises that if is true, then is guaranteed to be true. Since is indeed true, it follows that is true.      Prove modus ponens is valid using a truth table.  To prove modus ponens is valid, we need to prove that is a tautology. The truth table is shown in . Notice that the last column is all , so is a tautology. Therefore, modus ponens is valid.   Truth table showing modus ponens is valid for                                                      "
 },
@@ -6773,7 +6773,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_inference.html#exam_prove_mt_using_equiv_and_infer",
   "type": "Example",
-  "number": "5.5.12",
+  "number": "5.5.14",
   "title": "Validity of <em class=\"emphasis\">modus tollens<\/em>.",
   "body": " Validity of modus tollens   Prove modus tollens is valid using equivalences and the other inferences.    We want to prove that if and are each true, then is true. As we work through the proof, let's number each statement for future reference.   Proof. Assume ① and ② .  By ① and contraposition , it follows that ③ .  By ② , ③ , and modus ponens , it follows that .     "
 },
@@ -6791,7 +6791,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_inference.html#exam_proof_equiv_infer",
   "type": "Example",
-  "number": "5.5.13",
+  "number": "5.5.16",
   "title": "Proof using equivalences and inferences.",
   "body": " Proof using equivalences and inferences   Fill in the missing equivalences, inferences, or conclusions to prove      Proof. Assume ① and ② .  By ① and DeMorgan's Law it follows that ③ .  By ③ and simplification, it follows that ③ .  By ③ , ② , and modus tollens , it follows that ④ .  By ③ and the commutative property, it follows that ⑤ .  By ⑤ and simplification, it follows that ⑥ .  By ④ , ⑥ , and conjunction, it follows that ⑦ .  By ⑦ and Demorgan's laws, it follows that .   "
 },
@@ -7106,7 +7106,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#exam_garden",
   "type": "Example",
-  "number": "6.1.9",
+  "number": "6.1.10",
   "title": "Garden.",
   "body": " Garden   Each tomatillo plant in my garden produces about 100 tomatillos.   One year I planted 3 plants. Approximately how many tomatillos grew?  I grew around tomatillos, which made a lot of salsa verde!      If I planted plants, approximately how many tomatillos would grow?  I would grow around tomatillos. In general, we say that the number of tomatillos is a function of the number of plants.        "
 },
@@ -7115,7 +7115,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#defn_function",
   "type": "Definition",
-  "number": "6.1.10",
+  "number": "6.1.11",
   "title": "Function.",
   "body": " Function   A function , , consists of three parts: a domain set, a codomain set, and a rule. Specifically,   The domain of the function is the set of acceptable input values. For example, in , we could have any non-negative integer number of plants, so the domain was .    The codomain of the function is the set of acceptable output values. For example, in , we could have any non-negative integer number of tomatillos, so the codomain was also .    To define a function, we need to say what the domain and codomain sets are. When is a function with domain set and codomain set , we use arrow notation to write which is pronounced maps from to . For example, in we would write . If you want to know the domain of a function, look for the set before the arrow. Similarly, if you want to know the codomain of a function, look for the set after the arrow.    The third part of a function is rule that, for each element in the domain of , uniquely determines a corresponding element in the codomain of . For example, in for the input value of plants, the rule for the output value is tomatillos.    We use function notation  , pronounced of , to denote the output corresponding to the input . We often write . For example, in , our rule was .    Given an input value in the domain, we evaluate the function at to get the corresponding output value in the codomain. For example, in , when we evaluate at 3 plants we get tomatillos.    There is one more set associated with a function. The image of the function is the set of actual output values the set of all elements in the codomain such that there exists an element in the codomain with . The image is a subset of the codomain. For example, in , we can only get multiples of 100, so the image of is the set of nonnegative multiples of 100: .      "
 },
@@ -7124,7 +7124,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#exam_fn_on1234",
   "type": "Example",
-  "number": "6.1.11",
+  "number": "6.1.12",
   "title": "Function vocabulary with finite sets.",
   "body": " Function vocabulary with finite sets   Consider the function defined by . That is, , , , and .   What are the domain and codomain of the function ?  The domain of is and the codomain is .      Find all values of such that . Is it unique?  Note that . Yes, it is unique because no other value of has .      Does there exist a value of such that ? Explain.  No, no value of has .      Describe the image of .  The image of is the set which happens to be the codomain.        "
 },
@@ -7133,7 +7133,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#exam_square_function",
   "type": "Example",
-  "number": "6.1.12",
+  "number": "6.1.13",
   "title": "Function vocabulary with infinite sets.",
   "body": " Function vocabulary with infinite sets   Consider the function defined by .   What are the domain and codomain of the function ?  The domain of is and the codomain is .      Evaluate and .  First, .  Next, .      Find all values of such that .  Note that and . The values are and .      Does there exist a value of such that ? Explain.  No, if , then we would have which is not an integer because 3 is not a perfect square.      Describe the image of .  The image of is the set of perfect squares         "
 },
@@ -7142,7 +7142,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#exam_fn_multiletter_name",
   "type": "Example",
-  "number": "6.1.13",
+  "number": "6.1.14",
   "title": "Functions with multi-letter names.",
   "body": " Functions with multi-letter names   Consider the function defined by .   What are the domain and codomain of the function ?  The domain of is and the codomain is .      Evaluate and .  First, .  Next, .      Find a value of such that .  Note that .      Does there exist a value of such that ? Explain.  No, if , then we would have . Using the definition of equal fractions , we would have and so which is not an integer. Since the domain is the integers, we cannot find an integer with .      Describe the image of .  Any integer is in the image of because . Any fraction of the form where is an integer is also in the image of because . Thus, the image of is the set         "
 },
@@ -7160,7 +7160,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#exam_diff_fns_same_rule",
   "type": "Example",
-  "number": "6.1.14",
+  "number": "6.1.16",
   "title": "Different functions with the same rules.",
   "body": " Different functions with the same rules   Consider the following functions: is defined by , is defined by , and is defined by .   How are the functions , , and different?  One difference is their domain and codomain. The function has domain but the functions and have domain . The functions and have codomain but the function has codomain .      Evaluate each function at .  We have , , and .      Evaluate each function at or explain why that is not possible.  We have but and are not defined because -6 is not an element of their domain .      Explain why we cannot define a function by .  Since 1 is in the domain , if were a function, then would need to be in the codomain. Since the codomain is and -1 is not an element of , we cannot define this function.      Compare the images of , , and .  The image of is because given any integer , we can find an integer such that , namely . We can check that . On the other hand, the image of and are the set because the smallest element of the domain is 0.        "
 },
@@ -7169,7 +7169,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#defn_constant_identity_fixed_points",
   "type": "Definition",
-  "number": "6.1.15",
+  "number": "6.1.17",
   "title": "Constant functions, the identity function, and fixed points.",
   "body": " Constant functions, the identity function, and fixed points       For sets and and a specified element of , a function defined by is a constant function . For example, the function defined by is a constant function. No matter what the input value is, the output is always 3. For example, , , and .    For a set , the identity function is the function defined by is . For example, the function defined by is the identity function on . We can evaluate to get , , , and .    For a function , an element of the domain is a fixed point of the function if . Note that must also be an element of the codomain . For example, the function defined by has two fixed points: 0 and 1 because and . On the other hand, there are no fixed points of the function defined by . As another example, every element of the domain is a fixed point of the identity function.      "
 },
@@ -7178,7 +7178,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#defn_piecewise_defined_function",
   "type": "Definition",
-  "number": "6.1.16",
+  "number": "6.1.18",
   "title": "Piecewise-defined function.",
   "body": " Piecewise-defined function       A piecewise-defined function is a function in which the domain set is divided into cases and the rule for the function If you are uncomfortable that there is not a single formula for , then you are in good company. This modern formal definition of function was not widely accepted until the early 1900s. Source: wikipedia (History of the Function Concept) depends on the case. For example, we might define a function with domain where the rule uses one formula when we input an even integer and a different formula when we input an odd integer.    We can write a piecewise-defined function using the notation .      "
 },
@@ -7187,7 +7187,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#exam_piecewise_defined_function",
   "type": "Example",
-  "number": "6.1.17",
+  "number": "6.1.19",
   "title": "Piecewise-defined function.",
   "body": " Piecewise-defined function   Consider the function defined by in the case where is even and in the case where is odd. In computer science lingo we might say if is even, then , else (meaning if is odd) . We can write this rule as    Evaluate .  We know that 6 is even and so we are in the first case where . Therefore .      Evaluate .  We know that 7 is odd and so we are in the second case where and so .      Does there exist an integer such that ? Explain  Note that if is even, then is odd and, therefore, cannot equal eight. On the other hand, if is odd, then would imply that which is even. No, there does not exist an integer such that .      Describe the image of .  Any odd integer is in the image because is even and so . Any even integer of the form where is odd is also in the image because is odd and so . The integers that are not in the image are the even integers of the form where is even which are the multiples of 4. The image of is the set of integers that are not multiples of 4. That is, the image of is         "
 },
@@ -7196,7 +7196,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#exam_function_finite",
   "type": "Example",
-  "number": "6.1.18",
+  "number": "6.1.20",
   "title": "Function on a finite set defined by a list.",
   "body": " Function on a finite set defined by a list   Consider the function defined by    The function is piecewise-defined. Write in the usual piecewise notation.  We can write . Alternatively, we could write       What is the domain and codomain of ?  The domain of is the set and the codomain of is the set .      Find an integer in such that . How many input values of have ?  Note that and so is one such value. Another such value is because as well. There are two values of for which .      What is the image of ?  The actual outputs are , , and and so the image is the set .      Does there exist an integer in with ? Explain.  No, the image is so is not in the image.        "
 },
@@ -7214,7 +7214,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#defn_graph_function",
   "type": "Definition",
-  "number": "6.1.19",
+  "number": "6.1.22",
   "title": "Graph of function where the domain and codomain are subsets of <span class=\"process-math\">\\(\\mathbb{R}\\)<\/span>.",
   "body": " Graph of function where the domain and codomain are subsets of   Consider a function where and are subsets of . The graph of the function  is the set of points on the -plane such that . Note that each point on the graph is of the form . For example, if is a function with , then the point is on the graph of .   "
 },
@@ -7223,7 +7223,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#exam_graph_10n_1",
   "type": "Example",
-  "number": "6.1.20",
+  "number": "6.1.23",
   "title": "Graphs of the function in the <span class=\"process-math\">\\(xy\\)<\/span>-plane.",
   "body": " Graphs of the function in the -plane       Consider the function is defined by . Draw the graph of the function on the -plane.  We can make a small table of values of the function and corresponding points on the graph.   Evaluating the function defined by      point                                        Since accepts all real numbers as input values, there are many more points on the graph of in between the points listed in the table. For example and so the point is also on the graph of . When we include all possible points, we get all of the points on the line, as shown in . The equation of the line is or, equivalently, .   Graph of the function defined by .          Consider the function defined by . Draw the graph of the function on the -plane.  Now the only acceptable input values for are nonnegagtive integers, so there are no points on the graph of in between the points in . shows the graph of . We can see that the points fall on the line .   Graph of the function defined by .            "
 },
@@ -7232,7 +7232,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#defn_dot_diagram_function",
   "type": "Definition",
-  "number": "6.1.24",
+  "number": "6.1.27",
   "title": "Dot diagram for finite or discrete functions.",
   "body": " Dot diagram for finite or discrete functions   Consider a function where and are finite sets or subsets of . The dot diagram for has a line of points labeled by the elements of and another line of points labeled by the elements of . If either set is infinite, then we include at one or both ends of the line of points. For each element in the domain, we draw an arrow from the point labeled to the point labeled . For example, we draw the dot diagram for the function from in .   The dot diagram of the function from .       "
 },
@@ -7241,7 +7241,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_functions.html#exam_dot_diagram_shift_left1",
   "type": "Example",
-  "number": "6.1.26",
+  "number": "6.1.29",
   "title": "Dot diagram for <span class=\"process-math\">\\(\\fn{lshift}\\)<\/span>.",
   "body": " Dot diagram for   Draw the dot diagram for the function defined by .    Since the domain and codomain are the set which is infinite, let's draw the points in two horizontal lines. shows a portion of the dot diagram, along with on each end to indicate that the pattern continues in both directions. We have drawn arrows from each integer to , that is from to . Many arrows are missing. For example, the diagram does not show the arrow from -3 in the top row to -4 in the bottom row and does not show the arrow from 4 in the top row to 3 in the bottom row.   The dot diagram of the function from .       "
 },
@@ -7583,7 +7583,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fn_words.html#exam_floor_function",
   "type": "Example",
-  "number": "6.2.5",
+  "number": "6.2.6",
   "title": "Floor as a function.",
   "body": " Floor as a function   The function is defined by .   Identify the domain and codomain of the function .  The domain of the function is and the codomain is .      Give an example of a real number such that . Now find a different real number such that .  Note that and so one example is . Another example is because .      Describe all real numbers such that .  Any real number that is 11 or larger, but not as larger as 12 will have . We can describe these real numbers using the inequality or the interval .        "
 },
@@ -7592,7 +7592,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fn_words.html#exam_coundiv",
   "type": "Example",
-  "number": "6.2.6",
+  "number": "6.2.7",
   "title": "Number of divisors.",
   "body": " Number of divisors   The function is defined by the number of (positive) divisors of .   Evaluate .  The divisors of four are: 1, 2, and 4. Since there are three divisors, .      Find an integer such that . Is it unique? Explain.  The integer six has four divisors: 1, 2, 3, and 6. Therefore . It is not unique because, for example, the integer ten also has four divisors: 1, 2, 5, and 10 and so as well.      Describe all integers with .  By our work in , there are two possible prime factorizations of a number having four positive divisors: or where and are distinct primes. (If we made a divisor table, it would be or .)      Give a counterexample to the statement: for every positive integer and , if , then . It follows that the function is not increasing.  We want an example that shows the statement is false, meaning it is a broken promise. A counterexample is and because but and , so .        "
 },
@@ -7610,7 +7610,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fn_words.html#exam_count_vert_deg3",
   "type": "Example",
-  "number": "6.2.7",
+  "number": "6.2.9",
   "title": "Count vertices of degree three.",
   "body": " Count vertices of degree three   Let denote the set of all graphs with ten vertices. The function is defined by the number of vertices of that have degree 3.   Identify the domain and codomain of .  The domain is and the codomain is .      Evaluate where is the complete bipartite graph defined in .  The complete bipartite graph has three (black) vertices of degree seven and seven (white) vertices of degree three, so .      Evaluate where is the cycle defined in .  The cycle has ten vertices of degree two and, therefore, no vertices of degree three, so .      Evaluate where is the wheel defined in .  The wheel has one hub vertex of degree nine and nine outer vertices of degree three, so .      Evaluate where is the ladder defined in .  The ladder has four corner vertices of degree two and the other inner vertices have degree three, so .      It turns out we can draw a graph with ten vertices such that for , and 10 and so the image of is . Draw a graph with ten vertices such that . (Challenge yourself to draw the others.)  One such graph is drawn in .   A graph with exactly two vertices of degree three from .            "
 },
@@ -7628,7 +7628,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fn_words.html#defn_sets_bit_strings",
   "type": "Definition",
-  "number": "6.2.9",
+  "number": "6.2.12",
   "title": "Sets of bit strings.",
   "body": " Sets of bit strings       The symbol The lowercase Greek letter lambda, denoted , is similar to the English letter .  represents the empty bit string . It has length and weight 0.    The set of all bit strings is the set .    The set of all non-empty bit strings is the set without , namely .    For any non-negative integer , the set of all bit strings of length is . For example, , , and .      "
 },
@@ -7637,7 +7637,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fn_words.html#exam_weight_function_bit_strings",
   "type": "Example",
-  "number": "6.2.10",
+  "number": "6.2.13",
   "title": "Weight function on bit strings.",
   "body": " Weight function on bit strings   Consider the function defined by weight of the bit string .   What are the domain and codomain of the function ?  The domain is the set of all bit strings, , and the codomain is the set of all integers, .      Evaluate , , and .  The weight of a bit string is the number of s in the bit string. Since has one , . Since has four s, . Since has no s, .      Describe all bit strings such that .  For a bit string to have weight 0, it cannot contain any s. That is, it must be empty or entirely s. We can list such strings as .      For a positive integer , describe a bit string such that .  We are looking for a bit string that has weight or, equivalently, that contains  s. The simplest example is , the bit string with 1s. Other answers are possible, such as       What is the image of the function ?  It is not possible to have a negative weight. We saw in and that any non-negative integer is the weight of some bit strings. Therefore, the image of is .        "
 },
@@ -8042,7 +8042,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#exam_pairing_finite_sets",
   "type": "Example",
-  "number": "6.3.11",
+  "number": "6.3.12",
   "title": "Pairing finite sets.",
   "body": " Pairing finite sets   Give an example of a pairing of the sets and .    A possible pairing is . Another pairing is . We verify this example satisfies the definition of a pairing in .   "
 },
@@ -8051,7 +8051,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#defn_pairing",
   "type": "Definition",
-  "number": "6.3.12",
+  "number": "6.3.13",
   "title": "Pairing.",
   "body": " Pairing   A pairing , , between sets and is a set of ordered pairs where the first coordinate, , is an element of the set , the second coordinate, , is an element of the set and the set satisfies the following properties.   Each element of is the first coordinate of exactly one ordered pair in .    Each element of is the second coordinate of exactly one ordered pair in .     When we have a pairing, we write to denote that is in the set.  For example, in we saw that if and , then the set is a pairing because 1 is the first coordinate of exactly one ordered pair, namely , 2 is the first coordinate of exactly one ordered pair, namely , 3 is the first coordinate of exactly one ordered pair, namely , and 4 is the first coordinate of exactly one ordered pair, namely . Similarly, is the second coordinate of exactly one ordered pair, namely , is the second coordinate of exactly one ordered pair, namely , is the second coordinate of exactly one ordered pair, namely , and is the second coordinate of exactly one ordered pair, namely .   "
 },
@@ -8069,7 +8069,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#exam_count_pairings_self",
   "type": "Example",
-  "number": "6.3.13",
+  "number": "6.3.15",
   "title": "Counting the number of pairings between a set and itself.",
   "body": " Counting the number of pairings between a set and itself   How many different pairings between the set and itself are there?    The question how many suggests that we should count.  There are five elements in the set, so there are five choices for which element is paired with 0. Next, there are four elements we have not used yet, so there are four choices for which element is paired with 1. Similarly, there are three choices for which element is paired with 2 and then two choices for which element is paired with 3 and then one choice for which element is paired with 4.  Since steps multiply , there are pairings between the set and itself.   "
 },
@@ -8078,7 +8078,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#exam_pairing_infinite_sets",
   "type": "Example",
-  "number": "6.3.14",
+  "number": "6.3.16",
   "title": "Pairing infinite sets.",
   "body": " Pairing infinite sets       Check that gives a pairing between and the set of even integers .  In the dot diagram drawn in , each integer has exactly one arrow pointing out of it and each even integer has exactly one arrow pointing into it. Thus, we have a pairing.   A pairing between the set of integers and the set of even integers.          Explain why is not a pairing between and itself.  In the dot diagram drawn in , there is no arrow pointing into 0. That means there is no ordered pair with second coordinate 0 and so we do not have a pairing.   Dot diagram of showing it is not a pairing between and itself.          Explain why is not a pairing between and itself.  In the dot diagram drawn in , there are two different arrows pointing into 0. That means there are two ordered pairs with second coordinate 0, namely and .   Dot diagram of showing it is not a pairing between and itself.          Find a pairing of with itself that is not the identity pairing .  In the dot diagram drawn in , there is exactly one arrow pointing out of each natural number and exactly one arrow pointing into each natural number. Thus, we have a pairing. By the way, we can give a formula for this function .   A nonidentity pairing of with itself.            "
 },
@@ -8087,7 +8087,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#rem_fn_notation_pairing",
   "type": "Remark",
-  "number": "6.3.19",
+  "number": "6.3.21",
   "title": "Function notation for pairings.",
   "body": " Function notation for pairings  For sets and , a pairing, , between and defines a function by when is in . In this context, we write .  "
 },
@@ -8096,7 +8096,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#rem_pairings_as_fns",
   "type": "Remark",
-  "number": "6.3.20",
+  "number": "6.3.22",
   "title": "When the rule of a function is a pairing.",
   "body": " When the rule of a function is a pairing  For sets and , a rule, , for a function is a pairing if it satisfies the following properties.   Existence: Each element of is the second coordinate of at least one ordered pair in . That is, for each element in , there is at least one element in such that . (Onto property)    Uniqueness: Each element of is the second coordinate of at most one ordered pair in . That is, or each element , there is at most one element such that . (One-to-one property)     "
 },
@@ -8105,7 +8105,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#defn_onto",
   "type": "Definition",
-  "number": "6.3.21",
+  "number": "6.3.23",
   "title": "Onto.",
   "body": " Onto   A function is onto (or surjective ) if for each element of , there is at least one element such that . That is, for each element in , there is at least one ordered pair in the rule for with second coordinate . For example, the functions and defined by the dot diagrams in are onto, but the function is not onto because nothing maps to and the function is not onto because nothing maps to .   Finite functions       "
 },
@@ -8114,7 +8114,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#exam_onto_image",
   "type": "Example",
-  "number": "6.3.23",
+  "number": "6.3.25",
   "title": "Onto in terms of image.",
   "body": " Onto in terms of image       Restate the definition of onto in terms of the image of a function.  A function is onto if the image of is the entire codomain .      Use the image to determine which of the functions in . are onto.  The image and codomain of are and so is onto.  The image of is which is not all of its codomain and so is not onto.  The image of is which is not all of its codomain and so is not onto.  Notice that the function has the same rule and the same domain as , but the codomain of is which equals the image of and so is onto.        "
 },
@@ -8123,7 +8123,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#exam_not_onto",
   "type": "Example",
-  "number": "6.3.24",
+  "number": "6.3.26",
   "title": "Show functions are not onto.",
   "body": " Show functions are not onto   Show that each function is not onto.   The function is defined by .  The function is not onto because for any real number we know that and so . For example, there is no value of for which . In the graph of , shown in , we can see that the lowest point on the graph is and the image of is which is not all of the codomain .      The function is defined by .  The function is not onto because the image is only multiples of 3. For example, there is no value of for which .      The function is defined by the length of the bit string where is the set of all bit strings.  Since the length of a bit string is nonnegative, there is no bit string with , for example. Note that if we had set the codomain as , then the function would be onto.      The function defined by is the highest power of two that divides . We saw this function in .  The image of is the set of powers of two: . Since the image is not all of the codomain , the function is not onto. As a specific counterexample we could say has no solution.        "
 },
@@ -8132,7 +8132,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#exam_proof_onto",
   "type": "Example",
-  "number": "6.3.25",
+  "number": "6.3.27",
   "title": "Proof that a function is onto.",
   "body": " Proof that a function is onto   Use the proof formats for universally and existentially quantified statements ( and ) to prove that the function defined by is onto.     Proof. Let be a real number. Consider which is also a real number. Then . Thus, there exists a real number such that , namely .   Note that we nested inside . For another example of a similar proof, see in .   "
 },
@@ -8141,7 +8141,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#defn_onetoone",
   "type": "Definition",
-  "number": "6.3.26",
+  "number": "6.3.28",
   "title": "One-to-one.",
   "body": " One-to-one   A function is one-to-one (or injective ) if for each element of , there is at most one element such that . That is, for each element in , there is at most one ordered pair in the rule for with second coordinate . For example, the functions and defined by the dot diagrams in are one-to-one, but the functions and are not one-to-one because, for example and .   "
 },
@@ -8150,7 +8150,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#exam_onetoone",
   "type": "Example",
-  "number": "6.3.27",
+  "number": "6.3.29",
   "title": "Show functions are not one-to-one.",
   "body": " Show functions are not one-to-one   Show that each function is not one-to-one.   The function is defined by .  The function is not one-to-one because and .      The function is defined by the number of positive divisors of .  The positive divisors of six are 1, 2, 3, and 6 and the positive divisors of 10 are 1, 2, 5, and 10. Therefore, the function is not one-to-one because and (because ).      The function is defined by the length of the bit string where is the set of all bit strings.  The function is not one-to-one because, for example, and also .        "
 },
@@ -8168,7 +8168,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#defn_bijection",
   "type": "Definition",
-  "number": "6.3.30",
+  "number": "6.3.33",
   "title": "Bijection.",
   "body": " Bijection   A function is a bijection if it is one-to-one and onto. Note that is a bijection exactly when is a pairing. For example, the function defined by the dot diagrams in is a bijection. It corresponds to the pairing which we saw in .   "
 },
@@ -8177,7 +8177,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_onetoone_onto_fns.html#exam_bijections",
   "type": "Example",
-  "number": "6.3.31",
+  "number": "6.3.34",
   "title": "Examples of bijections.",
   "body": " Examples of bijections   Explain how we know each of the following functions is a bijection.   The function defined by .  We drew the graph of this function in . Note that each point in the bottom row has exactly one arrow pointing into it, and so the function is a bijection.      The function is defined by .  Given a real number , there is exactly one real number such that . As we saw in , it must be .      Let be the set of all graphs. The function defined by , the graph-theoretic complement of .  Given a graph , there is exactly one graph such that , namely because .        "
 },
@@ -8519,7 +8519,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#defn_inverse_fn",
   "type": "Definition",
-  "number": "6.4.13",
+  "number": "6.4.14",
   "title": "Inverse function.",
   "body": " Inverse function       A function is invertible if the equation has exactly one solution for each value of in . For example, the function defined by is invertible because the equation is really which has one solution, namely . On the other hand, the function defined by the bit string without its last bit is not invertible because, for example, has two solutions, namely = and = .    For an invertible function , the inverse function  is defined by is the unique solution of . That is, exactly when . In this way, undoes . Note that is pronounced as inverse . For example, if is defined by , then is defined by . We can think of the function as adding one, and so its inverse undoes that operation by subtracting one.      "
 },
@@ -8528,7 +8528,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#thm_invertible_fn",
   "type": "Theorem",
-  "number": "6.4.14",
+  "number": "6.4.15",
   "title": "Invertible Functions.",
   "body": " Invertible Functions   For sets and , a function is invertible if and only if is a bijection (one-to-one and onto) or, equivalently, if and only if the rule for , , is a pairing.   "
 },
@@ -8537,7 +8537,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#exam_inverse_perm",
   "type": "Example",
-  "number": "6.4.15",
+  "number": "6.4.16",
   "title": "Inverse of a permutation.",
   "body": " Inverse of a permutation   Consider the permutation . Since is a permutation, it is one-to-one and onto. Thus, is invertible.   Find the inverse .  We display our work in .   Calculating the inverse of a permutation    We know that  We conclude that                         Thus       Calculate using the dot diagrams.  We show the dot diagrams in .   Calculating using dot diagrams.      Thus, .        "
 },
@@ -8555,7 +8555,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#defn_fn_composition",
   "type": "Definition",
-  "number": "6.4.18",
+  "number": "6.4.20",
   "title": "Function composition.",
   "body": " Function composition       Consider functions and . Their composite function  is defined by . We often write instead of ; that is, . For example, if is defined by and is defined by , then . Note that .    If a function has the same set for its domain and codomain, then the ( th) iterate of is the composite . For example, if is defined by , then is defined by and is defined by . By the way, it is reasonable to conjecture that is defined by for any positive integer .      "
 },
@@ -8564,7 +8564,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#thm_inv_fn_comp",
   "type": "Theorem",
-  "number": "6.4.19",
+  "number": "6.4.21",
   "title": "Inverses and function composition.",
   "body": " Inverses and function composition   If is an invertible function, then , where is the identity function on , and , where is the identity function on .   "
 },
@@ -8573,7 +8573,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#pff_unique_direct",
   "type": "Theorem",
-  "number": "6.4.20",
+  "number": "6.4.22",
   "title": "Proof Format: Uniqueness (Direct).",
   "body": " Proof Format: Uniqueness (Direct)   We can prove there is at most one with directly by adapting the following proof format.   Assume .  (Explain why .)  Thus, if , then . It follows that is the only possible value of .  Therefore, there is at most one with , namely .    "
 },
@@ -8582,7 +8582,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#pff_unique_indirect",
   "type": "Theorem",
-  "number": "6.4.21",
+  "number": "6.4.23",
   "title": "Proof Format: Uniqueness (Indirect).",
   "body": " Proof Format: Uniqueness (Indirect)   We can prove there is at most one with indirectly by adapting the following proof format.   Assume and .  (Explain why .)  Therefore, there is at most one with .    "
 },
@@ -8609,7 +8609,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#rem_alt_defn_onetoone",
   "type": "Remark",
-  "number": "6.4.22",
+  "number": "6.4.25",
   "title": "Alternative definition of one-to-one.",
   "body": " Alternative definition of one-to-one  Let be a function. Then is one-to-one exactly when it satisfies the following condition. For all elements and in , if , then .  "
 },
@@ -8618,7 +8618,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#exam_prove_onetoone",
   "type": "Example",
-  "number": "6.4.23",
+  "number": "6.4.26",
   "title": "Prove function is one-to-one.",
   "body": " Prove function is one-to-one   Prove that the function defined by is one-to-one, using .     Proof. Let and be integers. Assume . By the definition of , it follows that Subtract one from each side of the equation to get .  Divide each side of the equation by two to get .  Therefore, the function defined by is one-to-one.   "
 },
@@ -8627,7 +8627,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#rem_notation_unique",
   "type": "Remark",
-  "number": "6.4.24",
+  "number": "6.4.27",
   "title": "Notation for uniqueness.",
   "body": " Notation for uniqueness  There exists a unique value of such that is denoted .  "
 },
@@ -8636,7 +8636,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#pff_exists_unique",
   "type": "Theorem",
-  "number": "6.4.25",
+  "number": "6.4.28",
   "title": "Proof Format:FILL IN.",
   "body": " Proof Format:FILL IN   We can prove by adapting the following proof format.   First, consider (example).  (Explain why .)  Therefore, is true for some (describe type of object),namely (example).  Next, assume .  (Explain why example.)  Thus, if , then example.  Therefore example is the unique (describe type of object)such that , namely example.    "
 },
@@ -8645,7 +8645,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_perms.html#exam_exist_unique",
   "type": "Example",
-  "number": "6.4.26",
+  "number": "6.4.29",
   "title": "Proof that there exists a unique.",
   "body": " Proof that there exists a unique   Prove that there exists a unique graph with three vertices and three edges.    Proof. First, consider the cycle . Note that has three vertices and three edges.  Next, let be a graph with three vertices and three edges. Say the vertices are , , and . There are only three possible edges between these vertices: , , and . Since has three edges, it must have exactly those edges. Thus . Therefore, there is at most one graph with three vertices and three edges, namely .    "
 },
@@ -8888,7 +8888,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_explicitly_defined_sequences.html#exam_next_term_explicit",
   "type": "Example",
-  "number": "6.5.6",
+  "number": "6.5.8",
   "title": "Modeling with explicitly-defined sequences.",
   "body": " Modeling with explicitly-defined sequences   Write a simple explicit rule that generates each sequence.   The sequence begins .  Let's make a table comparing , the numerator sequence, and the denominator sequence, in . Notice that the numerator is the constant 1 and the denominator equals the index if we start at . A possible formula is for .   The sequence from      1  2  3  4  5            numerator  1  1  1  1  1            denominator  1  2  3  4  5             1             The sequence begins .  We add three to get from each term to the next, so the answer likely involves . Let's make a table comparing , , and the terms of the sequence starting at , in . Notice that we can get from to by adding five. A possible formula is for .   The sequence from      0  1  2  3  4  5              0  3  6  9  12  15              5  8  11  14  17  20                  The sequence begins .  We can use to get the alternation, so let's make a table comparing , , and the absolute value of the terms of the sequence starting at , in . Notice that the absolute value of the terms of the sequence are two more than the index . A possible formula is for .   The sequence from      0  1  2  3  4  5              1  -1  1  -1  1  -1              2  3  4  5  6  7              2  -3  4  -5  6  -7                  The sequence begins .  Let's make a table comparing , the numerator sequence, the denominator sequence, and the terms of the sequence starting at in . Notice the numerator is twice the index so it equals . For the denominator, we add four to get from each term to the next, so the answer likely involves . Let's add a row for to our table. We can get from to the denominator by subtracting one. A possible formula is for .   The sequence from      1  2  3  4            2  4  6  8           numerator  2  4  6  8            4  8  12  16           denominator  3  7  11  15                              The sequence begins .  We multiply by 10 to get from each term to the next, so the answer likely involves . Let's make a table comparing , , and the terms of the sequence starting at , in . We can get from to the terms by multiplying by two. A possible formula is for .   The sequence from      0  1  2  3  4             1  10  100  1000  10000             2  20  200  2000  20000                 The sequence begins .  To get from each term to the next we add two, then add four, then add eight, and then add 16 so perhaps the pattern involves powers of two again. Let's make a table comparing , , and the terms of the sequence starting at , in . We can get from to the terms by adding one. A possible formula is for .   The sequence from      0  1  2  3  4             1  2  4  8  16             2  3  5  9  17                 The sequence begins .  To get from each term to the next we add one, add two, then add four, then add eight, so perhaps the pattern involves powers of two. Let's make a table comparing , , and the terms of the sequence starting at , in . The powers of two and the terms differ by one, but they are not aligned. Let's write each term using powers of two. We see the power of two is one larger than the index, so the pattern involves . A possible formula is for .   The sequence from      0  1  2  3  4             1  2  4  8  16             1  3  7  15  31                         The sequence begins .  The terms are growing large quickly. Let's look at their ratios , , , .., ... It's almost like we are multiplying by one, then multiplying by two, then by three, then by four, then by five. That pattern would involve Let's make a table comparing , , and the terms of the sequence starting at , in . A possible formula is for .   The sequence from      1  2  3  4  5  6              1  2  6  24  120  600              4  5  9  27  123  603                  The sequence begins .  Since all the terms are multiples of three, let's start by factoring out three from each term to get . To get from each term to the next we add one, add two, then add three, then add four, so the answer likely involves or , which we first saw in the Handshakes Puzzle . Let's make a table comparing , , and the terms of the sequence starting at , in . Notice that we can get from the handshake numbers to the terms by multiplying by three. A possible formula is for .   The sequence from      1  2  3  4  5  6              1  3  6  10  15  21              3  9  18  30  45  63                  The sequence begins . Hint: Factor.  Let's make a table comparing and the terms of the sequence starting at in factored form, in . Notice that is the product of and the odds. A possible formula is for .   The sequence from      1  2  3  4  5             1  6  15  28  45                 The sequence begins .  Notice that the terms repeat, so floor or ceiling is likely involved. Since each term repeats twice, let's try . Let's make a table comparing , , and the terms of the sequence starting at , in . Notice that the ceiling function works. A possible formula is for .   The sequence from      1  2  3  4  5  6  7  8                0.5  1  1.5  2  2.5  3  3.5  4                1  1  2  2  3  3  4  4                    The sequence begins .  Let's make a table comparing and the terms of the sequence starting at in factored form, in . Notice the first term in the product is one less than and the second term in the product is one more than . (We could have factored 0 in many ways, but writing continues the pattern.) A possible formula is for .  Note that and so there is a quicker way to have found this pattern, provided we thought to compare the terms to instead, as in .   The sequence from      1  2  3  4  5  6              0  3  8  15  24  35               The sequence from  revisited     1  2  3  4  5  6              1  4  9  16  25  36              0  3  8  15  24  35                    "
 },
@@ -8897,7 +8897,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_explicitly_defined_sequences.html#exam_seq_prime_fact",
   "type": "Example",
-  "number": "6.5.20",
+  "number": "6.5.22",
   "title": "Sequences involving prime factorization.",
   "body": " Sequences involving prime factorization       Evaluate the first fifteen terms of the sequence defined by the number of distinct odd primes dividing for .   shows the odd prime divisors and the value of of each integer . The first fifteen terms are    The sequence from      1  2  3  4  5  6  7  8  9  10  11  12  13  14  15                      odd prime divisors  none  none  3  none  5  3  7  none  3  5  11  3  13  7  3, 5                       0  0  1  0  1  1  1  0  1  1  1  1  1  1  2         What is the first term of the sequence defined in that equals three?  We are looking for the smallest integer that is divisible by three distinct odd primes. Those primes must be 3, 5, and 7. The smallest integer divisible by 3, 5, and 7 is .      Evaluate the first ten terms of the sequence defined by .  Notice that . When is prime we have and so , , , and . When is composite we have and so , , , , and . The first ten terms are .      Write a simple explicit rule in words that generates the sequence Start the index at 1. Hint: the rule involves the prime factorization of the index.  It can be helpful to look at the terms listed with their index as in . Notice that the terms of the sequence are either 1 or an odd prime. The terms equal to 1 are , , , , and , namely where the index is a power of 2, which no odd prime divides. The terms equal to 3 are , , , , and , namely where the index is multiple of 3. The terms equal to 5 are , , and where the index is a multiple of 5, although . The terms equal to 7 are and where the index is a multiple of 7, although . In each case, the term is an odd prime dividing the index. The last clues are the exceptions even though 15 is divisible by both 3 and 5 and even though 21 is divisible by both 3 and 7. My guess is that . We use the phrase otherwise to indicate any cases not covered earlier. In this example, those cases are when is not a power of 2.   The sequence from      1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21                             1  1  3  1  5  3  7  1  3  5  11  3  13  7  3  1  17  3  19  5  3           "
 },
@@ -8906,7 +8906,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_explicitly_defined_sequences.html#defn_seq_primes",
   "type": "Definition",
-  "number": "6.5.23",
+  "number": "6.5.25",
   "title": "Sequence of primes.",
   "body": " Sequence of primes   The sequence of primes , denoted , for is defined by . lists the first ten terms of this sequence. For example, the first prime is and the seventh prime is .   "
 },
@@ -8915,8 +8915,8 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_explicitly_defined_sequences.html#table_prime_seq",
   "type": "Table",
-  "number": "6.5.24",
-  "title": "The first ten terms of the sequence of primes from Definition 6.5.23",
+  "number": "6.5.26",
+  "title": "The first ten terms of the sequence of primes from Definition 6.5.25",
   "body": " The first ten terms of the sequence of primes from     1  2  3  4  5  6  7  8  9  10                  2  3  5  7  11  13  17  19  23  29    "
 },
 {
@@ -8924,7 +8924,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_explicitly_defined_sequences.html#seq_involving_pisubn",
   "type": "Example",
-  "number": "6.5.25",
+  "number": "6.5.27",
   "title": "Sequences involving <span class=\"process-math\">\\(\\pi_n\\)<\/span>.",
   "body": " Sequences involving       Evaluate the first five terms of the sequence defined by for .  We calculate , , , , and .      Write a simple explicit rule in words that generates the sequence Start the index at 1. Hint: the rule involves the sequence of primes .  It is helpful to look at the prime sequence in . Notice that our sequence has , , , ,  , and .  In general,   This pattern is not easy to notice and a hint might have helped. Since all but the first term is even, we might have tried dividing the terms by 2 to get   One might (or might not) then have noticed that these numbers are in between consecutive primes and, in fact, the average of consecutive primes.        "
 },
@@ -9248,7 +9248,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#defn_set_builder_notation",
   "type": "Definition",
-  "number": "7.1.4",
+  "number": "7.1.5",
   "title": "Set-builder notation.",
   "body": " Set-builder notation       Given a set and a predicate A predicate (or Boolean ) is a statement that is true or false.  defined for all elements , the set , pronounced the set of all elements in such that , is the set of all elements of that satisfy implicit condition  . Note that is a subset of . For example, if and is the statement is even , then . For example, because 2 is even but because 3 is not even.    Given a set and a function where is defined for all , the set , pronounced the set of all elements of the form where in an element of , is the set of all elements of the explicit format  where . For example, if and , then . To show we write . Note that need not be a subset of . It is just built using the set .    The sets and are described in set-builder notation because the notation tells us how to build the set.      "
 },
@@ -9257,7 +9257,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#exam_set_mult4",
   "type": "Example",
-  "number": "7.1.5",
+  "number": "7.1.6",
   "title": "Set of multiples of 4 up to 64.",
   "body": " Set of multiples of 4 up to 64   In , we saw the set which represents the set of multiples of 4 from 4 to 64. Use set-builder notation to define .    One way to define would be implicitly: where the 16 comes from the fact that . We could alternatively define mixing implicit and explicit forms:    "
 },
@@ -9266,7 +9266,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#rem_implicit_explicit_sets",
   "type": "Remark",
-  "number": "7.1.6",
+  "number": "7.1.7",
   "title": "Elements of implicitly or explicitly-defined sets.",
   "body": " Elements of implicitly or explicitly-defined sets      Given a set , a predicate defined for all elements , and the set ,   To show , we check that and that is true.    If we know , then we can conclude that and is true.       Given a set , a function defined on , and the set ,   To show , we write for some .    If we know , then we can conclude that for some .        "
 },
@@ -9275,7 +9275,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#exam_implicit_explicit_bs",
   "type": "Example",
-  "number": "7.1.7",
+  "number": "7.1.8",
   "title": "Listing elements of implicit and explicitly-defined sets of bit strings.",
   "body": " Listing elements of implicit and explicitly-defined sets of bit strings   As usual, let denote the set of all bit strings of length three.   List all elements of the implicitly-defined set . Recall from that the weight of a bit string is the number of s in the bit string.  There are bit strings of length three and weight two are: , , and and so .      List all elements of the explicitly-defined set .  For each bit string in we get a new bit string in . Thus, . Note that the elements of are bit strings of length 4, in .        "
 },
@@ -9284,7 +9284,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#exam_sq_powers2",
   "type": "Example",
-  "number": "7.1.8",
+  "number": "7.1.9",
   "title": "Squares and powers of two.",
   "body": " Squares and powers of two   Consider the explicitly-defined sets of integers and    Describe the sets and in words.  The set is the set of all square integers and is the set of all powers of two.      Show that and .  To show we need to write 16 as a square, that is for some . We can write and so .  Similarly, to show we need to write 16 as a power of two, that is for some . We can write and so .      Write implicit definitions for and .  As in , to check that an integer is an element of we need to find a nonnegative integer such that . Thus   Similarly, as in , to check that an integer is an element of we need to find a nonnegative integer such that . Thus         "
 },
@@ -9293,7 +9293,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#exam_image_setbuilder",
   "type": "Example",
-  "number": "7.1.9",
+  "number": "7.1.10",
   "title": "Writing the image of a function in set-builder notation.",
   "body": " Writing the image of a function in set-builder notation   Write the image of the function in set builder notation.    The image of is all the actual output values . We can write the image explicitly as . We can also write the image implicitly as    "
 },
@@ -9311,7 +9311,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#defn_set_ops",
   "type": "Definition",
-  "number": "7.1.10",
+  "number": "7.1.12",
   "title": "Set operations.",
   "body": " Set operations   Let and be subsets of a set . In this context, is the universal set.   The intersection of and , denoted and pronounced intersect , is the set , where is the logical connective and , as introduced in . Note that looks similar to . For example, we might be interested in the intersection of the set of students who have completed a discrete mathematics course and the set of students who have completed a linear algebra course, because such students have the prerequisite to take an abstract algebra course.    The union of and , denoted and pronounced union , is the set , where is the logical connective (inclusive) or , as introduced in . Note that looks similar to . For example, we might be interested in the union of the set of students who are math majors and the set of students who are computer science majors because we would like to invite that whole group to a talk.    The symmetric difference of and , denoted , is the set , where (or xor) is the logical connective exclusive or , as introduced in . For example, we might want to identify people who attended a recent performance of La Bohème or of Tosca, but not both, to offer them the opportunity to buy a season membership to the opera, noting that people who already have a season membership will likely have attended both. If is the set of people who attended La Bohème and is the set of people who attended Tosca, then the set we want is .    The difference of and , denoted and pronounced without , is the set . For example, we might want to send a reminder to patients who received a flu vaccine last year but have not yet done so this year. That would be the set where is the set of people who received a flu vaccine last year and is the set of people who received a flu vaccine this year. Note that is usually different. In our example, would be the patients who received their flu vaccine this year but not last year. The symbol looks like the logical operator .    The complement of (in a universal set ), denoted , is the set . Yes, . For example, we might want to reach out to all students who are not yet registered for the fall term. If is the set of all students who have registered for fall term and is the set of all students, then is the set we want.      "
 },
@@ -9320,7 +9320,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#defn_venn_diagram",
   "type": "Definition",
-  "number": "7.1.11",
+  "number": "7.1.13",
   "title": "Venn diagram.",
   "body": " Venn diagram   A Venn diagram represents a set by a circle, square, or other curve surrounding all the elements in that set. The standard Venn diagram for two sets looks somewhat like a butterfly. (You will have to imagine the antennae yourself.) For example, the Venn diagram of sets and is shown in .   Venn diagram showing the sets and .       "
 },
@@ -9329,7 +9329,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#fig_venn_int_union",
   "type": "Figure",
-  "number": "7.1.13",
+  "number": "7.1.15",
   "title": "",
   "body": " Venn diagram showing the intersection and union     "
 },
@@ -9338,7 +9338,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#fig_venn_diff",
   "type": "Figure",
-  "number": "7.1.14",
+  "number": "7.1.16",
   "title": "",
   "body": " Venn diagram showing the symmetric difference and each difference and .     "
 },
@@ -9347,7 +9347,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#exam_setops",
   "type": "Example",
-  "number": "7.1.15",
+  "number": "7.1.17",
   "title": "Set operations.",
   "body": " Set operations   For sets and calculate the following sets. You might want to look back at .   The union and the intersection .  The intersection includes the elements in the overlap of and so . The union includes all elements in or or both so .      The symmetric difference and each difference and .  The symmetric difference includes the elements in exactly one of or but not both so . The difference includes the elements of that are not also in so . Similarly, the difference includes the elements of that are not also in so .        "
 },
@@ -9356,7 +9356,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#fig_venn_complement",
   "type": "Figure",
-  "number": "7.1.16",
+  "number": "7.1.18",
   "title": "",
   "body": " Venn diagram showing the set complement in a universal set .     "
 },
@@ -9365,7 +9365,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#exam_set_complement",
   "type": "Example",
-  "number": "7.1.17",
+  "number": "7.1.19",
   "title": "Set complements.",
   "body": " Set complements       Evaluate for the set in the universal set .  The complement includes all elements (of ) that are not in so .      In the set of all bit strings , consider the set . Evaluate .  The complement includes all bit strings that do not have at least one , that is all bit strings consisting solely of , and the empty string . That is         "
 },
@@ -9374,7 +9374,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#fig_venn_3sets",
   "type": "Figure",
-  "number": "7.1.18",
+  "number": "7.1.20",
   "title": "",
   "body": " The standard Venn diagram for the three sets.     "
 },
@@ -9383,7 +9383,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sets.html#exam_set_ops_3sets",
   "type": "Example",
-  "number": "7.1.19",
+  "number": "7.1.21",
   "title": "Set operations with three sets.",
   "body": " Set operations with three sets   Consider the sets , , and as drawn in .   The standard Venn diagram for the three sets , , and .      In this example, every element of happens to already lie within , but in other examples there might be some element in that part of the diagram.   Calculate .  Note that . Thus,       Calculate .  Note that . Thus,   Notice that we got different answers because the placement of the parentheses matters.        "
 },
@@ -9734,7 +9734,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subsets.html#thm_number_subsets",
   "type": "Theorem",
-  "number": "7.2.8",
+  "number": "7.2.9",
   "title": "Number of subsets.",
   "body": " Number of subsets   A set with elements has subsets.   "
 },
@@ -9743,7 +9743,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subsets.html#defn_bs_rep_subsets",
   "type": "Definition",
-  "number": "7.2.9",
+  "number": "7.2.10",
   "title": "Bit string representation of subsets.",
   "body": " Bit string representation of subsets       Let be a finite set and let be a subset of . The bit string representation of (in ) is where For example, for , let's calculate the bit string representation of the subset . It can help to write the universal set as a reference set as in .  Representing the subset of the universal set using the bit string     1  2  3  4  5  6              1  2  3                         The first bit of is because , the second bit of is because , the third bit of is because , the fourth bit of is because , the fifth bit of is because , and the sixth bit of is because . Thus, .    When is the bit string representing the subset (in a universal set ), we write . For example, .      "
 },
@@ -9752,7 +9752,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subsets.html#exam_bs_rep_AND",
   "type": "Example",
-  "number": "7.2.11",
+  "number": "7.2.12",
   "title": "The AND operator on bit strings and its connection to set operations.",
   "body": " The AND operator on bit strings and its connection to set operations   Given bit strings and each of length . Define the AND operator ( ) as follows:    , , , and . Think of = False and = True.    Each bit of is the of the corresponding bit of and the corresponding bit of .      If and , calculate .  We have   Thus .      In the set , find the subsets corresponding to , to , and to .  We can write the universal set as a reference set to get     1  2  3  4  5                                    Thus , , and .      Make a conjecture about the relationship in general: if and , then .  Suppose and . The only way we have a in is when there is a in and a in the same place in . That is, when that element of is in the set and in the set . We conjecture that         "
 },
@@ -9770,7 +9770,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subsets.html#exam_2elt_sets",
   "type": "Example",
-  "number": "7.2.12",
+  "number": "7.2.14",
   "title": "Two-element sets.",
   "body": " Two-element sets   Each of the following sets has two elements: , , and .   List the elements of each set.  The outermost set of brackets denote the start and end of our set. When we remove the outermost set of brackets we get the list of elements.    set  elements         and     and     and     and    Note that the presence or absence of set brackets is important.      Which of those sets contains the element ? The element ?  Looking at the list of elements, we see that the sets and contain the element , but only the set contains the element .        "
 },
@@ -9779,7 +9779,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subsets.html#defn_power_set",
   "type": "Definition",
-  "number": "7.2.13",
+  "number": "7.2.15",
   "title": "Power set.",
   "body": " Power set   Given a set , the power set of , denoted is the set of all subsets of . That is, . For example, the power set of is .   "
 },
@@ -9788,7 +9788,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subsets.html#exam_set_of_sets_setbuilder",
   "type": "Example",
-  "number": "7.2.14",
+  "number": "7.2.16",
   "title": "Sets of sets defined using set-builder notation.",
   "body": " Sets of sets defined using set-builder notation   Give examples of two different elements in each set. Recall that is the set of all subsets of .      We want subsets of that contain 2 but not -3. One example is since and . Another example is because but .         We want subsets of that have three elements. One example is and another example is .        "
 },
@@ -9806,7 +9806,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subsets.html#exam_is7_function",
   "type": "Example",
-  "number": "7.2.15",
+  "number": "7.2.18",
   "title": "Is 7 in set?",
   "body": " Is 7 in set?   The function is defined by    Identify the domain and codomain of .  The domain of is and the codomain of is .      Evaluate and .  Since 7 is one of the elements in , we are in the first case and so . Since 7 is not one of the elements in , we are in the second case and so .      Identify the image of .  The image is because the only outputs are 0 and 1 (and both happen).      Is onto? Is one-to-one?  First, is onto because the image is the entire codomain. For example, we saw that and .  Next, is not one-to-one because, for example, and .        "
 },
@@ -9815,7 +9815,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_subsets.html#exam_cardinality_fn_set",
   "type": "Example",
-  "number": "7.2.16",
+  "number": "7.2.19",
   "title": "Cardinality of a set.",
   "body": " Cardinality of a set   The function is defined by , the number of elements in the set .   Evaluate and .  The set has four elements, so . The set has one element, so .      Identify the domain, codomain, and image of .  The domain is , meaning we can input any subset of . The codomain is meaning the output is always a nonnegative integer. The image is the set of actual output values. Since each subset of has between 0 and 10 elements, and all are possible, the image is .      How many elements of have ? Explain how you counted.  A set has exactly when has four elements. The number of 4-element subsets of is, by , exactly . In case you are curious, .      Is onto? Is one-to-one?  First, is not onto because, for example, is impossible because can have at most 10 elements.  Next, is not one-to-one. We just saw that there are 210 sets with .        "
 },
@@ -10166,7 +10166,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_partitions.html#exam_max_part_fn_partitions",
   "type": "Example",
-  "number": "7.3.7",
+  "number": "7.3.8",
   "title": "Max part function on partitions.",
   "body": " Max part function on partitions   Let be the set of all partitions of the integer 10. The function is defined by is the first part of .   Identify the domain and codomain of .  The domain is and the codomain is .      Evaluate and .  We have and .      Give an example of a partition of the integer 10 such that . Is it unique?  Note that is a partition of 10 and . It is not unique because, for example, as well.      Is onto? Explain.  No, the image of is .      Is one-to-one? Explain.  No, we saw two different partitions with         "
 },
@@ -10175,7 +10175,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_partitions.html#defn_conjugate_partition",
   "type": "Definition",
-  "number": "7.3.8",
+  "number": "7.3.9",
   "title": "Conjugate of a partition.",
   "body": " Conjugate of a partition   The conjugate of the partition is the partition where is the number of squares in the first column of the diagram for , is the number of squares in the second column of the diagram for , and so on through is the number of squares in the column of the diagram for and where is the number of columns in the diagram for . For example, the conjugate of the partition is the partition as we see in .   "
 },
@@ -10184,7 +10184,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_partitions.html#exam_conj_partition4and14",
   "type": "Example",
-  "number": "7.3.9",
+  "number": "7.3.10",
   "title": "Calculating the conjugate of a partition.",
   "body": " Calculating the conjugate of a partition       Calculate the conjugate of the partition .  The diagram for the partition is shown on the left in .   The diagram of the partition of the integer four and its conjugate .      The diagram has two squares in the first column, one square in the second column, and one square in the third column. Therefore, the conjugate of is the partition shown on the right in .      Calculate the conjugate of the partition .  The conjugate of is . These partitions are drawn in .   The diagram of the partition of the integer 14 and its conjugate .            "
 },
@@ -10193,7 +10193,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_partitions.html#rem_conj_partitions_geom",
   "type": "Remark",
-  "number": "7.3.12",
+  "number": "7.3.13",
   "title": "Calculating conjugate partitions geometrically.",
   "body": " Calculating conjugate partitions geometrically  Given the diagram of a partition, when can reflect the squares across the line of slope -1 ( ) through the upper level corner of the diagram to get the diagram of the conjugate.  "
 },
@@ -10202,7 +10202,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_partitions.html#defn_self_conj_partitions",
   "type": "Definition",
-  "number": "7.3.13",
+  "number": "7.3.14",
   "title": "Self-conjugate partitions.",
   "body": " Self-conjugate partitions   A partition is self-conjugate if it equals its conjugate.   "
 },
@@ -10220,7 +10220,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_partitions.html#exam_conjugate_function",
   "type": "Example",
-  "number": "7.3.14",
+  "number": "7.3.16",
   "title": "Conjugation function on partitions of an integer.",
   "body": " Conjugation function on partitions of an integer   Let be the set of partitions of the integer four. Define the function by the conjugate of .   Calculate and .  In this notation, and .      Use the function to describe self-conjugate partitions.  A self-conjugate partition is precisely a partition such that . That is, a self-conjugate partition is a fixed point of the function .        "
 },
@@ -10238,7 +10238,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_partitions.html#defn_cycles_cyclic_states",
   "type": "Definition",
-  "number": "7.3.16",
+  "number": "7.3.19",
   "title": "Cycles and cyclic states.",
   "body": " Cycles and cyclic states   Let denote the partitions of the integer , as defined in . For a fixed positive integer , the process introduced in defines a function . When we repeat this process, we are iterating the function . That is, we are calculating . where is the th iterate of the function , as defined in .   A state is cyclic if when we start at that state we eventually return to that state. That is, is cyclic if for some positive integer . For example, with five coins the cyclic states are , , and .    A -cycle is a list of distinct states: where . The length of the cycle is . For example, the three cyclic states in form a 3-cycle. As another example, any fixed points are 1-cycles.      "
 },
@@ -10535,7 +10535,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#rem_fn_on_cart_prod",
   "type": "Remark",
-  "number": "7.4.6",
+  "number": "7.4.7",
   "title": "Notation for Functions on Cartesian products.",
   "body": " Notation for Functions on Cartesian products  For sets , ,  , if we have a function with domain , then we should write where each , but the double parentheses look silly, so we often write instead.  "
 },
@@ -10544,7 +10544,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#sub_fn_cart_prod-5",
   "type": "Example",
-  "number": "7.4.7",
+  "number": "7.4.8",
   "title": "Functions involving Cartesian products of sets.",
   "body": " Functions involving Cartesian products of sets       Consider the function defined by . Identify the domain and codomain of , evaluate , and describe the set of all ordered pairs with as a set of points in the -plane.  The domain of is and the codomain is . Next, . To find all points with we solve to get which is the line with slope -1 and -intercept 7.      Consider the function defined by . Identify the domain and codomain of , evaluate and , and describe the image of .  The domain is and the codomain is . We evaluate and . There are only finitely many integers in the domain so we can find the image by listing the values . You can confirm each of these ordered pairs is in the codomain, as required.      Consider the function defined by where and , the least (smallest) integer that it a common multiple of and . Identify the domain and codomain of , evaluate , and describe all fixed points of the function .  The domain is and the codomain is also . We evaluate . The fixed points of are the points where . It follows that is a common divisor of and and is a common multiple of and . That happens exactly when , so is a fixed point exactly when .        "
 },
@@ -10553,7 +10553,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#exam_cart_prod_fn_discrete",
   "type": "Example",
-  "number": "7.4.8",
+  "number": "7.4.9",
   "title": "Functions involving Cartesian products and discrete objects.",
   "body": " Functions involving Cartesian products and discrete objects       Let and, as usual, let denote the set of all subsets of . Consider the function defined by . Evaluate .  We have .      Let be the set of digits and let be the set of all strings of digits of length three, the numbers 0-999 written as three-digit numbers. Consider the function defined by . Evaluate .  We get .        "
 },
@@ -10571,7 +10571,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#defn_relation",
   "type": "Definition",
-  "number": "7.4.9",
+  "number": "7.4.11",
   "title": "Relation.",
   "body": " Relation       For any sets and , a relation (from X to Y) is a subset of . For example, the set is a relation from to .    In many of the important examples, , and we just say is a relation on . For example, the set is relation on . We could equivalently define .      "
 },
@@ -10580,7 +10580,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#defn_graph_fn",
   "type": "Definition",
-  "number": "7.4.10",
+  "number": "7.4.12",
   "title": "Graph of a function.",
   "body": " Graph of a function   For sets and and function , the graph of the function  is the relation or, equivalently, the graph of is . For example, if is the function defined by , then the graph of is the line that has slope two and intercept one.   "
 },
@@ -10589,7 +10589,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#exam_graph_fn_is_relation",
   "type": "Example",
-  "number": "7.4.11",
+  "number": "7.4.13",
   "title": "The graph of a function on <span class=\"process-math\">\\(\\mathbb{Z}\\)<\/span>.",
   "body": " The graph of a function on   Consider the function defined by and let be the graph of .   Is ? Is ?  Since , it follows that is not on the graph of and so . On the other hand, since , it follows that is on the graph of and so .      Find all integers such that and find all integers such that .  First, if , then . No other value of is possible because by the definition of function there is only one value for . Next, if , then . Solving we get and so and .        "
 },
@@ -10598,7 +10598,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#defn_draw_relations_dot_diagrams",
   "type": "Definition",
-  "number": "7.4.12",
+  "number": "7.4.14",
   "title": "Drawing relations on finite sets or subsets of <span class=\"process-math\">\\(\\mathbb{Z}\\)<\/span> using dot diagrams.",
   "body": " Drawing relations on finite sets or subsets of using dot diagrams    When and are finite sets or subsets of , we can represent a relation from to using a dot diagram where we draw a vertex for each element of on the left and a vertex for each element of on the right. Then we draw an arrow from to if . This is the same dot diagram we used to represent functions on a finite sets or subsets of . For example, the relation from to can be represented using the dot diagram shown in .   The dot diagram for a relation on finite sets.       "
 },
@@ -10607,7 +10607,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#defn_draw_relations_directed_graph",
   "type": "Definition",
-  "number": "7.4.14",
+  "number": "7.4.16",
   "title": "Drawing relations on a finite set or subset of <span class=\"process-math\">\\(\\mathbb{Z}\\)<\/span> using a directed graph.",
   "body": " Drawing relations on a finite set or subset of using a directed graph    When is a relation on a finite set or subset of , we can also represent using a (possibly infinite) directed graph . We draw a vertex for each element of and an arrow from to for each pair . If and , then we draw a double-headed arrow . If , then we draw a loop  an arrow beginning and ending at .   "
 },
@@ -10616,7 +10616,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#exam_directed_graph_relation",
   "type": "Example",
-  "number": "7.4.15",
+  "number": "7.4.17",
   "title": "Directed graphs for three relations on <span class=\"process-math\">\\(\\{1,2,3\\}\\)<\/span>.",
   "body": " Directed graphs for three relations on   Consider three different relations on the set defined by     Draw the directed graph for each relation.    In each case our vertices are 1, 2, and 3. The directed graphs are drawn in .   From left-to-right, the directed graphs for the relations , , and from .       "
 },
@@ -10625,7 +10625,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#exam_digraph_rel_infinite",
   "type": "Example",
-  "number": "7.4.17",
+  "number": "7.4.19",
   "title": "Directed graph of a relation on <span class=\"process-math\">\\(\\mathbb{Z}\\)<\/span>.",
   "body": " Directed graph of a relation on   Draw the directed graph of the relation on defined by where denotes the absolute value.   Note that is true in two cases. First, if , then . Second, if , then . Therefore . For example, when we have and . The directed graph is drawn in .   The directed graph of a relation on .        "
 },
@@ -10634,7 +10634,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#rem_alt_notation_relations",
   "type": "Remark",
-  "number": "7.4.19",
+  "number": "7.4.21",
   "title": "Alternative notation for relations.",
   "body": " Alternative notation for relations      It is sometimes convenient to write instead of . This notation is particularly helpful if itself is a Cartesian product, so we can write instead of the potentially awkward ordered pair of ordered pairs .    We often define a symbol for commonly-used relations. For example, if , then instead of , we might just write .     "
 },
@@ -10643,7 +10643,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_relations.html#exam_relation_on_cart_prod",
   "type": "Example",
-  "number": "7.4.20",
+  "number": "7.4.22",
   "title": "A relation on a Cartesian product.",
   "body": " A relation on a Cartesian product   Define a relation on by if or, equivalently, if .   Show that .  We check that or, equivalently, , and so .      Describe the set of ordered pairs such that .  If , then or, equivalently, . The set of ordered pairs related to is .        "
 },
@@ -10967,7 +10967,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_equiv_relations.html#exam_rel_finite_not_trans",
   "type": "Example",
-  "number": "7.5.6",
+  "number": "7.5.7",
   "title": "When is a relation on finite set transitive?",
   "body": " When is a relation on finite set transitive?   We saw in how to use the directed graph of a relation on a finite set to determine whether the relation is reflexive or symmetric. How can we use the directed graph of a relation on a finite set to determine whether the relation is transitive?    Suppose is a relation on a finite set and that and . There are four cases, as drawn in .   Shortcuts and barbells: checking transitivity on finite relation.      Case 1: First, consider when , , and are three distinct elements of . Then the directed graph has arrows from to and from to . We need to check if , indicated by the dashed arrow from to in our diagram. To be transitive, any time we have a two-step path in the directed graph, we must also have the shortcut (vector sum) .  Case 2: Next, consider when or . If , then . If , then . In either case is automatically in so we can ignore this case.  Case 3: The remaining case is when . We need to check . Swapping order, we also need to check . That is, any time there is a double-headed arrow in the graph, we need to have a loop at each end, or barbells , which we draw in our diagram with dashed loops.   "
 },
@@ -10976,7 +10976,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_equiv_relations.html#exam_equiv_rel_graphs",
   "type": "Example",
-  "number": "7.5.8",
+  "number": "7.5.9",
   "title": "Examples of equivalence relations on graphs.",
   "body": " Examples of equivalence relations on graphs   Consider the set , the set of all graphs on six vertices. Give some examples of equivalence relations on .    There are many different examples. Here are a few:    if and have the same number of edges.     if and have the same degree sequence.     if and contain the same number of 3-cycles.     if , where denotes that the graphs are isomorphic.      "
 },
@@ -10985,7 +10985,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_equiv_relations.html#defn_equiv_class",
   "type": "Definition",
-  "number": "7.5.9",
+  "number": "7.5.10",
   "title": "Equivalence classes.",
   "body": " Equivalence classes   Consider a set and an equivalence relation (or ) on .   For any element , the equivalence class containing  is the set . For example, for the relation , the equivalence class of is . Note that is the same set.    The quotient space , denoted and pronounced mod , is the set of all equivalence classes. For example, for the relation , there are two equivalence classes: the even integers and the odd integers. Thus .      "
 },
@@ -10994,7 +10994,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_equiv_relations.html#exam_equiv_classes_12345",
   "type": "Example",
-  "number": "7.5.10",
+  "number": "7.5.11",
   "title": "Equivalence classes for an equivalence relation on <span class=\"process-math\">\\(\\{1,2,3,4,5\\}\\)<\/span>.",
   "body": " Equivalence classes for an equivalence relation on   Consider the equivalence relation on defined by the directed graph drawn in .   An equivalence relation on .        Calculate .  There are three arrows out of 1 or, equivalently, three ordered pairs of the form , namely , , and . Thus .      Calculate .  There are two arrows out of 2 or, equivalently, two ordered pairs of the form , namely and . Thus .      How many different equivalence classes are there?  We can check that , , and . Therefore, there are only two equivalence classes: and . It is convenient to refer to these equivalence classes using the smallest possible representative as and .      Describe the quotient space .  The quotient space consists of two equivalence classes: .       "
 },
@@ -11012,7 +11012,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_equiv_relations.html#rem_equiv_class_partition",
   "type": "Remark",
-  "number": "7.5.12",
+  "number": "7.5.14",
   "title": "Equivalence classes and partitions.",
   "body": " Equivalence classes and partitions  Let be a set.   If is an equivalence relation on , then the distinct equivalence classes under form a partition of the set .    If is a partition of , then the relation on defined by if and are both in the same set for some is an equivalence relation. Moreover, its equivalence classes are exactly .     "
 },
@@ -11021,7 +11021,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_equiv_relations.html#defn_cong_modn",
   "type": "Definition",
-  "number": "7.5.13",
+  "number": "7.5.15",
   "title": "Congruence mod <span class=\"process-math\">\\(n\\)<\/span>.",
   "body": " Congruence mod       For a positive integer , the integers and  are congruent modulo  , denoted , if , that is, if and have the same remainder when divided by . For example, because and . As another example, for any integer , if , then that . For example, . It turns out that congruence modulo is an equivalence relation.    For a positive integer , the congruence class mod of is . Note that the congruence class is the equivalence class under the congruence relation. For example, .    The integers mod  introduced in is formally defined as . For example, .      "
 },
@@ -11030,7 +11030,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_equiv_relations.html#thm_cong_modn",
   "type": "Theorem",
-  "number": "7.5.14",
+  "number": "7.5.16",
   "title": "Alternate characterization of congruence <span class=\"process-math\">\\(\\fn{mod}\\)<\/span> <span class=\"process-math\">\\(n\\)<\/span>.",
   "body": " Alternate characterization of congruence    Let , , and be integers with . Then if and only if .   "
 },
@@ -11039,7 +11039,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_equiv_relations.html#exam_alt_defn_cong",
   "type": "Example",
-  "number": "7.5.15",
+  "number": "7.5.17",
   "title": "Using the alternate characterization of congruence <span class=\"process-math\">\\(\\fn{mod}\\)<\/span> <span class=\"process-math\">\\(n\\)<\/span>.",
   "body": " Using the alternate characterization of congruence        Use to show that .  We can check that and so . Thus .      Prove that if , then for any integers , , and with .  Since we are proving a conditional statement, we use .   Proof Let , , and be integers with . Assume . By , it follows that . By , we can write for some integer . Then where is an integer. By , it follows that . By , it follows that .      State the converse of the statement from and construct a counterexample to show that the converse is false.  The converse is: if , then for any integers , , and with . For a counterexample we need integers , , and with such that the promise is broken. That is, we want but . A counterexample is and because but .        "
 },
@@ -11390,7 +11390,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_recursively_defined_sequences.html#exam_hanoi_recursion",
   "type": "Example",
-  "number": "8.1.2",
+  "number": "8.1.3",
   "title": "Tower of Hanoi puzzle.",
   "body": " Tower of Hanoi puzzle   Consider the sequence where is the minimum number of moves needed to solve the puzzle with disks for . The minimum number of moves needed to solve the puzzle with disks would then be . Make a conjecture about a rule for in terms of .    To solve the puzzle for disks, we can break the process into three phases.   Phase 1: Relocate the top disks in the pile to Tower 2. [ moves]    Phase 2: Move the largest disk to Tower 3. [1 move]    Phase 3: Relocate the top disks in the pile to Tower 3. [ moves]     This analysis tells us that .   "
 },
@@ -11399,7 +11399,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_recursively_defined_sequences.html#exam_first_look_rec_seq",
   "type": "Example",
-  "number": "8.1.3",
+  "number": "8.1.4",
   "title": "First look at recursively-defined sequences.",
   "body": " First look at recursively-defined sequences       Consider the sequence from that was defined by for . The first few terms are . What do we notice about how each term is calculated from the previous term?  Each term ( ) is ten more than the previous term ( ) . That is, .  Thus for we have .      Consider the sequence from that was defined by for . The first few terms are . What do we notice about how each term is calculated from the previous term?  Each term ( ) is ten times the previous term ( ). That is, .  Thus for we have         "
 },
@@ -11408,7 +11408,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_recursively_defined_sequences.html#exam_double_and_add3",
   "type": "Example",
-  "number": "8.1.4",
+  "number": "8.1.5",
   "title": "Double and add three.",
   "body": " Double and add three   Consider the sequence is defined by the and for . Note that the rule for this sequence is actually piecewise-defined . Also notice that the second part of the rule gives an infinite list of equations:   It is often helpful to think of the rule in words: To get each term, we double the previous term and then add 3.   Evaluate .  First recall that . When the rule tells us .  Next, when we get .  When we have .  Finally, when we find .      Write an explicit rule for .  Since we are multiplying the previous term by 2 each time, it is reasonable to suspect that an explicit formula involves a power of 2. compares the first five terms of to the powers of 2. Since there is no obvious pattern with we have listed and then as well. It looks like is 3 smaller than and so we conjecture that .  We can check that the definition gives and our explicit formula gives . We will see how to verify these conjectures in .   The terms of the sequence from compared to the powers of 2     0  1  2  3  4             1  5  13  29  61             1  2  4  8  16             2  4  8  16  32             4  8  16  32  64           "
 },
@@ -11417,7 +11417,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_recursively_defined_sequences.html#sub_seq_recursive-7",
   "type": "Definition",
-  "number": "8.1.6",
+  "number": "8.1.7",
   "title": "Recursively-defined sequence.",
   "body": " Recursively-defined sequence       The first term (or first few terms) of a sequence is the initial condition(s) . If a sequence starts at for some nonnegative integer , then the initial condition is (and perhaps subsequent terms such as , , etc.) For example, the initial condition for the sequence defined in was .    A recursion (or recursive rule ) for a sequence specifies how each term ( ) can be calculated from the previous term(s) ( and perhaps , , and so on). For example, the recursion for the sequence defined in was . A recursion may involve the index as well as previous term(s). A recursion should use the previous term(s) in a nontrivial way. We do not consider explicitly-defined rules (that use the index but not previous terms) to be recursive.    A sequence is recursively-defined if we are given a recursion and enough initial conditions to evaluate the recursion at all values. For example, the recursion for the sequence defined in starts at , so we needed the initial condition to provide the value of .    A recursive rule that involves only one previous term is first order . For example, the sequence defined in is first-order.      "
 },
@@ -11435,7 +11435,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_recursively_defined_sequences.html#exam_eval_rec_def_seq_involving_index",
   "type": "Example",
-  "number": "8.1.7",
+  "number": "8.1.9",
   "title": "Evaluating recursively-defined sequences that involve the index.",
   "body": " Evaluating recursively-defined sequences that involve the index       Evaluate for the sequence defined by and for . What do you notice? Write an explicit formula for .  When , we have .  When , we have .  When , we have .  When , we have .  Notice , , , , and .  We conjecture that for .      Evaluate for the sequence defined by and for . What do you notice? Write an explicit formula for .  When , we have .  When , we have .  When , we have .  Notice that , , , and .  We conjecture that       Evaluate for the sequence defined by and for . What do you notice? Write an explicit formula for . Hint: Factor.  When , we have .  When , we have .  When , we have .  When , we have .  Notice that , , , , and .  We conjecture that for .        "
 },
@@ -11444,7 +11444,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_recursively_defined_sequences.html#exam_write_rec_from_list",
   "type": "Example",
-  "number": "8.1.8",
+  "number": "8.1.10",
   "title": "Write the recursive rule for sequence from list.",
   "body": " Write the recursive rule for sequence from list       Write a simple recursive rule that generates a sequence that begins   To get from each term to the next we add 1. That is, .  Thus and for . By the way, an explicit rule for this sequence is for .      Write a simple recursive rule that generates a sequence defined by for . Hint: The recursive definition depends on the index as well as the previous term.  Let's find the first few terms of . We get , , , , and . That is, the sequence begins   Look at what we add to get each term from the previous term: .  The values we are adding appear to depend on the index. An explicit rule for these terms we are adding is for . A recursive rule is and for .        "
 },
@@ -11462,7 +11462,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_recursively_defined_sequences.html#exam_next_term_recursive",
   "type": "Example",
-  "number": "8.1.9",
+  "number": "8.1.12",
   "title": "Modeling with recursively-defined sequences.",
   "body": " Modeling with recursively-defined sequences   Write a simple recursive rule that generates each sequence. Make sure you state where the index starts and include the initial condition. Start your indexing at 0 or 1 (your choice).    Write a recursion that involves the index.  Look at what we multiply by to get each term from the previous term: .  If we set , then , , , and .  We conjecture that and for .       . Write a recursion that does not involve the index. Hint: The recursion begins by doubling the previous term.  Let's set . Notice that , , , , and . We conjecture that and for .       . Now write a recursion that involves the index.  Look at what we add to get each term from the previous term: .  The terms we added are . Each integer we added is twice the previous integer, so an explicit form is for . That is, we have .  Thus, we have , , , , , and .  We conjecture that and for .        "
 },
@@ -11696,7 +11696,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_math_ind.html#exam_math_ind_number_bs",
   "type": "Example",
-  "number": "8.2.3",
+  "number": "8.2.4",
   "title": "Number of bit strings.",
   "body": " Number of bit strings       In , we proved that for there are bit strings of length . Use mathematical induction to prove that there are bit strings of length .   Proof Induct on . First, when , there is exactly one bit string of length zero, namely , the empty bit string. Since , it follows that there are bit strings of length zero.  Next, assume there are bit strings of length for some integer . Let be a bit string of length . Since the length of is at least 1, we can consider two cases.  Case 1: starts with . Then where is a bit string of length . By the inductive hypothesis, there are choices for the bit string . Therefore, there are choices for the bit string in this case.  Case 2: starts with . Then where is a bit string of length . By the inductive hypothesis, there are choices for the bit string . Therefore, there are also choices for the bit string in this case.  Then, since cases add , there are bit strings of length .      What was the inductive hypothesis?  The inductive hypothesis was that there are bit strings of length for some integer .      Explain step-by-step why the algebra in the final equation is correct.  For any number we have . In particular, . Next, .        "
 },
@@ -11705,7 +11705,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_math_ind.html#exam_math_ind_tree_size",
   "type": "Example",
-  "number": "8.2.4",
+  "number": "8.2.5",
   "title": "Tree with <span class=\"process-math\">\\(n\\)<\/span> vertices has exactly <span class=\"process-math\">\\(n-1\\)<\/span> edges.",
   "body": " Tree with vertices has exactly edges   Use mathematical induction to prove that a tree with vertices has exactly edges.     Proof Induct on .  First, when the only tree is a single vertex which has zero edges, and .  Next, assume that any tree with vertices has exactly edges for some integer . Let be a tree with vertices. Since every tree with at least two vertices has at least one leaf, there exists a vertex in such that .  Consider the graph formed by removing and the one edge ending at from . Since was a tree, it does not contain any cycles so neither does . Since is connected, any two vertices in are connected by a path in . Since , there is no path that includes in the middle (because that would mean ). Therefore any two vertices other than are connected by a path in that does not include and so is still connected. Last, has vertices because we removed one vertex.  By our inductive hypothesis, it follows that has exactly edges. Since we only removed one edge from , it follows that has exactly edges.   "
 },
@@ -11714,7 +11714,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_math_ind.html#exam_eval_fofnminus1",
   "type": "Example",
-  "number": "8.2.5",
+  "number": "8.2.6",
   "title": "Evaluating <span class=\"process-math\">\\(f(n-1)\\)<\/span>.",
   "body": " Evaluating   In each part, evaluate and simplify your answer.   Consider the function defined by .  It may be helpful to think of . To calculate , we replace in the original formula (or in this new version) with in parentheses to get .      Consider the function defined by .  It may be helpful to think of . To calculate , we replace each occurrence of in the original formula (or in this new format) by in parentheses to get         "
 },
@@ -11732,7 +11732,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_math_ind.html#pff_math_ind_seq",
   "type": "Theorem",
-  "number": "8.2.6",
+  "number": "8.2.8",
   "title": "Proof Format: Mathematical Induction (Explicit Rule Recursively-defined Sequence).",
   "body": " Proof Format: Mathematical Induction (Explicit Rule Recursively-defined Sequence)   Given the sequence defined recursively by (initial condition)and (recursive rule) for , we can prove (explicit rule) using mathematical induction by adapting the following proof format.   Write (explicit rule). Induct on .  First, when we know that (initial condition) and also (evaluate and simplify to get the same answer).  Next, assume (evaluate and simplify), for some integer .  Then .    "
 },
@@ -11993,7 +11993,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_matrix.html#exam_matrix_functions",
   "type": "Example",
-  "number": "8.3.3",
+  "number": "8.3.4",
   "title": "Functions that involve matrices.",
   "body": " Functions that involve matrices   Let be the set of matrices with integer entries.   Consider the function defined by . Identify the domain and codomain of and evaluate .  The domain is , the codomain is , and .      Consider the function defined by . Identify the domain and codomain of and evaluate .  The domain is , the codomain is , and .      Consider the function defined by where . Identify the domain and codomain of and evaluate .  The domain is , the codomain is also , and         "
 },
@@ -12002,7 +12002,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_matrix.html#exam_matrix_sets",
   "type": "Example",
-  "number": "8.3.4",
+  "number": "8.3.5",
   "title": "Sets that involve matrices.",
   "body": " Sets that involve matrices       Give two examples of elements in the set   We can choose any integer values of and . For example, when and , we get the element . As another example, when and , we get the element .      Confirm that and are elements of the set   We check that . Thus . Next, we check that . Thus .      Give an explicit definition of the set where .  Suppose . Then . We must have which means . We must also have which means . That is, . We can write         "
 },
@@ -12011,7 +12011,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_matrix.html#pff_math_ind_matrix",
   "type": "Theorem",
-  "number": "8.3.5",
+  "number": "8.3.6",
   "title": "Proof Format: Mathematical Induction (Power of Matrix).",
   "body": " Proof Format: Mathematical Induction (Power of Matrix)   For a matrix , we can prove (matrix with explicit rule for each entry as a function of ) for all integers using mathematical induction by adapting the following proof format.   Write (matrix with explicit rule for each entry as a function of ). Induct on .  First, when we know that (matrix ) and also (evaluate and simplify to get the same answer).  Next, assume (evaluate and simplify), for some integer .  Then     "
 },
@@ -12029,7 +12029,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_matrix.html#defn_group",
   "type": "Definition",
-  "number": "8.3.6",
+  "number": "8.3.8",
   "title": "Group.",
   "body": " Group   Let be a set with an operation such that    is closed under : for all elements .     is associative : for all elements .    There is an identity element such that and for all elements .    For each element , there exists an inverse element such that and .      "
 },
@@ -12038,7 +12038,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_matrix.html#exam_intmod4_add_group",
   "type": "Example",
-  "number": "8.3.7",
+  "number": "8.3.9",
   "title": "<span class=\"process-math\">\\(\\mathbb{Z}_4\\)<\/span> is a group under addition.",
   "body": " is a group under addition   In we saw that the integers mod 4 is the set with addition defined by .   Write the addition table for .  We show the addition table in . For example, .   The addition table     0  1  2  3           0  0  1  2  3    1  1  2  3  0    2  2  3  0  1    3  3  0  1  2         Check that is a group under addition.  First, every entry in table is 0, 1, 2, or 3 so is closed under . Next, is associative because where we used that addition in is associative. The identity element is 0, as you can check in the table. Note that , , , and . Therefore, the inverse of 0 is 0, the inverse of 1 is 3, the inverse of 2 is 2, and the inverse of 3 is 1. Sometimes we say the additive identity or the additive inverse to emphasis the operation is addition.        "
 },
@@ -12047,7 +12047,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_matrix.html#exam_mult_gp_mod12",
   "type": "Example",
-  "number": "8.3.9",
+  "number": "8.3.11",
   "title": "Finite multiplicative group mod <span class=\"process-math\">\\(12\\)<\/span>.",
   "body": " Finite multiplicative group mod   Recall that the integers mod 12 are . Multiplication is defined by . Consider the subset of .   Write the multiplication table for .  We show the multiplication table in . For example, because .   The multiplication table for     1  5  7  11           1  1  5  7  11    5  5  1  11  7    7  7  11  1  5    11  11  7  5  1         Check that is a group under multiplication.  First, every entry in table is 1, 5, 7, or 1 so is closed under . Next, is associative because where we used that multiplication in is associative. The identity element is 1, as you can check in the table. Note that , , , and . Therefore, the inverse of 1 is 1, the inverse of 5 is 5, the inverse of 7 is 7, and the inverse of 11 is 11. Sometimes we say the multiplicative identity or the multiplicative inverse to emphasis the operation is multiplication.        "
 },
@@ -12056,7 +12056,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_matrix.html#defn_abelian",
   "type": "Definition",
-  "number": "8.3.11",
+  "number": "8.3.13",
   "title": "Commutative group.",
   "body": " Commutative group   A group with operation is abelian (or commutative ) if for all elements . For example, and are abelian.   "
 },
@@ -12065,7 +12065,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_matrix.html#exam_nonabel_permgp",
   "type": "Example",
-  "number": "8.3.12",
+  "number": "8.3.14",
   "title": "Nonabelian group.",
   "body": " Nonabelian group   Let be the set of all permutations on the set with the operation which is function composition, introduced in . Write     Write the operation table for .  We show the operation table in . For example, .  Recall that we can compose permutations using dot diagrams as in .   Calculating the composite of permutations in using dot diagrams.      Be careful as .   The operation table for                                                                                 Check that is a group under function composition.  First, every entry in table is , , , , , or so is closed under . Next, is associative because for . Thus . The identity element is , as you can check in the table. Note that the inverse of is , the inverse of is , the inverse of is , the inverse of is , the inverse of is , and the inverse of is . Sometimes we say the identity function or the inverse function to emphasis the operation is composition.        "
 },
@@ -12335,7 +12335,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_rec_def_structures.html#exam_proper_bs5",
   "type": "Example",
-  "number": "8.4.4",
+  "number": "8.4.5",
   "title": "Proper bit strings of length up to five.",
   "body": " Proper bit strings of length up to five       Draw a possibility tree to list all proper bit strings of length up to five.  We begin with the tree in . Since we only want bit strings of length at most five, we can apply R1 and R2 to any bit string in that tree, but once we have a bit string of length four we can only apply R1 . The tree is shown in .   All proper bit strings of length five or less          How many proper bit strings of length five are there? How many improper bit strings of length five are there? Explain.  We see in that there are eight proper bit strings of length five. They are . Recall from that there are bit strings of length five. Therefore, there are improper bit strings of length five.      Explain how we can obtain a list of proper bit strings of length five from the list of proper bit strings of length three and four.  There are two ways to obtain a proper bit string of length five.  Case 1: Start with a proper bit string of length four and apply R1 . The proper bit strings of length four are so we get   Case 2: Start with a proper bit string of length three and apply R2 . The proper bit strings of length three are so we get         "
 },
@@ -12344,7 +12344,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_rec_def_structures.html#defn_language",
   "type": "Definition",
-  "number": "8.4.6",
+  "number": "8.4.7",
   "title": "Language.",
   "body": " Language       An alphabet is a set of characters. For example, the usual English alphabet is an alphabet. The set of bits, , is also an alphabet.    A (formal) language over the alphabet is a set of strings where each character of each string is an element of . For example, , the set of all bit strings, is a language over . Similarly, , is another language over .      "
 },
@@ -12353,7 +12353,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_rec_def_structures.html#exam_rec_def_set_proper_bs",
   "type": "Example",
-  "number": "8.4.7",
+  "number": "8.4.8",
   "title": "Recursively-defined set of proper bit strings.",
   "body": " Recursively-defined set of proper bit strings   Give a recursive definition of the set , where proper bit strings are defined in .    We can rewrite the initial condition and recursions using set notation to obtain:    B:  .     R1: If , then .     R2: If , then .      "
 },
@@ -12362,7 +12362,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_rec_def_structures.html#exam_math_ind_all0s_proper",
   "type": "Example",
-  "number": "8.4.8",
+  "number": "8.4.9",
   "title": "Proof by mathematical induction that involves recursively-defined set.",
   "body": " Proof by mathematical induction that involves recursively-defined set   Use mathematical induction to prove that any bit string consisting of all s is in , the set of all proper bit strings.     Proof. We induct on , the length of the bit string.  First, by B we know that . Next, by R1 , it follows that . Thus the bit string of length one consisting of all s is in .  Next, assume for some integer . Then by R1 , it follows that    "
 },
@@ -12371,7 +12371,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_rec_def_structures.html#exam_mult_2and3_set",
   "type": "Example",
-  "number": "8.4.9",
+  "number": "8.4.10",
   "title": "Multiplicative set.",
   "body": " Multiplicative set   Consider the set of integers constructed recursively as follows:    B1:       B2:       B3:       R: If , then their product      The consists of all integers that can be formed using B1 , B2 , B3 , and R a finite number of times.   Is ? Is ? Is ? Justify your answers.  First, by B2  and by B3  . Then, by R , it follows that and then it follows from R again that , so yes.  Next, there is no combination of 2s and 3s that multiply to give 20 because the prime factorization of . Therefore there is no way to construct 20, so no.  Last, by B1 .      Give an explicit definition of .  Notice that includes 1 and any integer we can build as a product of 2s and 3s. That is,       Give an implicit definition of .  One implicit definition is but a more specific implicit definition is         "
 },
@@ -12389,7 +12389,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_rec_def_structures.html#exam_coins_2and3",
   "type": "Example",
-  "number": "8.4.10",
+  "number": "8.4.12",
   "title": "Additive set.",
   "body": " Additive set   Consider the set constructed recursively in .   Explain why .  We can show any even integer as follows. Write for some integer . By B1 we know . Applying R  times we get . But . Thus .  We can show any odd integer for as follows. Write for some integer . Since , it follows that . By B2 we know . Applying R  times we get . But . Thus .      Use mathematical induction to verify that for any integer .   Proof. Induct on .  First, when , we know by B .  Next, assume for some . We consider two cases.  Case 1: Somewhere in the process of constructing we used B1 . That is, for some . Adding one to each side of the equation we get , and so can be constructed from using B2 and R .  Case 2: Nowhere in the process of constructing did we use B1 . It follows that somewhere in the process of constructing we used B2 . That is, for some . Adding one to each side of the equation we get , and so can be constructed from using B1 twice and R .        "
 },
@@ -12407,7 +12407,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_rec_def_structures.html#exam_lopsided_trees",
   "type": "Example",
-  "number": "8.4.13",
+  "number": "8.4.16",
   "title": "Lopsided trees.",
   "body": " Lopsided trees   In , we defined the family of lopsided trees . Write the number of leaves in the lopsided tree for .   Make a table showing the values of for .  We can count the leaves in the graphs in for . For note that the leaves in consists of the leaves from (on the left) and the leaves from (on the right). Thus . We summarize our findings in .   The number of leaves in the lopsided trees     1  2  3  4  5  6     1  1  2  3  5  8         Write a recursive definition for for , including the initial conditions.  Since the leaves in are the leaves from (on the left) and the leaves from (on the right), we get for . The initial conditions are and . Since the recursion uses two previous terms, we need two initial conditions to start.        "
 },
@@ -12416,7 +12416,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_rec_def_structures.html#exam_rec_path_graphs",
   "type": "Example",
-  "number": "8.4.15",
+  "number": "8.4.18",
   "title": "Recursive definition of the path graphs.",
   "body": " Recursive definition of the path graphs   Consider the path graphs . We can define these graphs recursively setting to be a single vertex and then is formed from by adding one new vertex and an edge connecting that new vertex to one of the end vertices of .   Use this definition to draw the first five path graphs.  The first five path graphs are drawn in .   The path graphs          Write a recursive definition for the number of vertices of and the number of edges of .  First, has one vertex and zero edges so and . Next, at each step we add one new vertex and so the number of new vertices is 1 more than the number of old vertices. That is, for . Similarly, at each step we add one new edge and so the number of new edges is 1 more than the number of old edges. That is, for . Notice that and are defined using the same recursive rule but because they have different initial conditions we get different sequences. In fact, and for .      Determine the adjacency matrices for , , , , and . Then describe how the adjacency matrix for can be constructed from the adjacency matrix for .   shows labeled versions of the path graphs , , , , and .   Paths , , , , and labeled.      The corresponding adjacency matrices are shown in . Starting with we add a new column on the far right and a new row at the bottom which are all s except the next to last entry in the column and row is .   The adjacency matrices for the paths , , , , and           \\hspace{.15in}          \\hspace{.15in}          \\hspace{.15in}          \\hspace{.15in}                  "
 },
@@ -12659,7 +12659,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#exam_ntr_higher",
   "type": "Example",
-  "number": "8.5.7",
+  "number": "8.5.8",
   "title": "Modeling with higher order recursively-defined sequences.",
   "body": " Modeling with higher order recursively-defined sequences   For each list, find a simple pattern generating a sequence. Write the initial conditions and a higher order recursive rule for the sequence. Start your indexing at 0.   The sequence begins 2, 5, 6, 10, 15, 24, 38, .  Look at what happens when we add consecutive terms. We get , , , and so on. In each case, we get one more than the next term. That is, each term is the one less than the sum of the previous two terms. A recursive definition is , , and for .      The sequence begins .  Look at what happens when we multiply consecutive terms. We get , , and . In each case, we get the next term of the sequence. A recursive definition is , , and for .        "
 },
@@ -12668,7 +12668,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#exam_diff_order_rec",
   "type": "Example",
-  "number": "8.5.8",
+  "number": "8.5.9",
   "title": "Different order recursions.",
   "body": " Different order recursions   Consider the sequence that begins    Write a third order recursive definition for the sequence, starting your index at 0.  We want to combine 2, 5, and 10 to make 13 and then use the same combination with 5, 10, and 13 to make 18. Note that and . A recursion is , , , and for .      Write a first order recursive definition for the sequence, starting your index at 0.  Notice how we can add either three or five to get from each term to the next: .  Since the number we add alternates, the formula involves . Using that and we get the first order recursive definition and for .        "
 },
@@ -12677,7 +12677,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#exam_count_bit_strings_using_recursion_first",
   "type": "Example",
-  "number": "8.5.9",
+  "number": "8.5.10",
   "title": "Using a recursion to count bit strings containing at least one <span class=\"process-math\">\\(\\bs{0}\\)<\/span>.",
   "body": " Using a recursion to count bit strings containing at least one    How many bit strings of length include at least one ? Count directly and then show how to write a recursion to count.    By , there are bit strings of length . The only bit string that does not have any s is   . Therefore, by , there are bit strings of length that include at least one .  How can we write a recursion to count? Write the number of bit strings of length that include at least one . Note that the only bit string of length 1 that includes at least one is itself and so . Given a bit string of length that has at least one , we consider two cases.  Case 1: The bit string begins with . In this case, the other bits must include at least one . There are such bit strings.  Case 2: The bit string begins with . In this case, we have at least one no matter what the other bits are. They can be any bit string of length . By , there are bit strings of length . Therefore, there are such bit strings.  Since cases add , we get for and the initial condition is .   "
 },
@@ -12686,7 +12686,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#exam_count_bit_strings_using_recursion_second",
   "type": "Example",
-  "number": "8.5.10",
+  "number": "8.5.11",
   "title": "Using a recursion to count bit strings that do not contain <span class=\"process-math\">\\(\\bs{00}\\)<\/span>.",
   "body": " Using a recursion to count bit strings that do not contain   Write a recursion that counts the number of bit strings of length that do not contain , meaning they do not contain two or more consecutive zeros.    Write the number of bit strings of length that do not contain . Note that neither bit strings of length 1 contains and so . Also note that three of the bit strings of length 2 do not contain , namely , , and , and so . Given a bit string of length that does not include , we consider two cases.  Case 1: The bit string begins with . In this case, the other bits cannot include . There are such bit strings.  Case 2: The bit string begins with . In this case, the next bit must be so that we avoid . The other bits cannot include . There are such bit strings.  Since cases add , we have for and initial conditions and .   "
 },
@@ -12713,7 +12713,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#exam_fib_mult3",
   "type": "Example",
-  "number": "8.5.11",
+  "number": "8.5.14",
   "title": "Fibonacci numbers that are multiples of three.",
   "body": " Fibonacci numbers that are multiples of three       When does ? State your answer as a conjecture.  The first few Fibonacci numbers that are divisible by 3 are , , , and . It appears that when . Notice that so we can get fancy and rewrite our conjecture as when . We can also write our conjecture explicitly as .      Use the recursive rule and algebra to prove for .  The recursive rule for the Fibonacci sequence allows us to write any Fibonacci number as the sum of the two preceding Fibonacci numbers. We repeatedly use this idea, and simplify by collecting like terms, to get .  Whew!      Use the identity from and mathematical induction to prove that for .   Proof First, when we have and so .  Next, assume for some integer . By the definition of divides we can write for some integer . Then using the identity from we have .  Thus .        "
 },
@@ -12722,7 +12722,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#exam_fib_gcd",
   "type": "Example",
-  "number": "8.5.12",
+  "number": "8.5.15",
   "title": "Fibonaccis and the <span class=\"process-math\">\\(\\fn{gcd}\\)<\/span>.",
   "body": " Fibonaccis and the       Use the Euclidean Algorithm to evaluate . What do you notice?  The steps of the Euclidean Algorithm are          Thus, . They are coprime.  Notice how we calculated each of the previous Fibonacci numbers. In fact, the Fibonacci are a worst-case scenario for the Euclidean Algorithm, meaning it takes the most steps possible relatively to the size of the integers.      Use the Euclidean Algorithm to evaluate . What do you notice?  The steps of the Euclidean Algorithm are   .  Thus .  Look what happens if we write the answer in terms of the Fibonacci numbers. We get .        "
 },
@@ -12731,7 +12731,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#exam_fib_matrix",
   "type": "Example",
-  "number": "8.5.13",
+  "number": "8.5.16",
   "title": "Fibonacci matrix.",
   "body": " Fibonacci matrix   Consider the matrix .   Calculate , , and .  First,   Next,   Last,       Make a conjecture about an explicit formula for .  Notice that each power of has Fibonacci numbers as entries. For example, . We might reasonably conjecture that for .      Use mathematical induction to prove your conjecture.  We use .   Proof. Induct on . Write .  First, when we have and .  Next, assume for some integer . Then .        "
 },
@@ -12740,7 +12740,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#pff_strong_math_ind",
   "type": "Theorem",
-  "number": "8.5.14",
+  "number": "8.5.17",
   "title": "Proof Format: Mathematical Induction (First-order Strong).",
   "body": " Proof Format: Mathematical Induction (First-order Strong)   Assuming that can be defined by a single initial condition and a recursion, we can prove for all integers using (first-order) strong mathematical induction by adapting the following proof format.   Induct on . First, when (explain why is true).  Next, assume for some integer that for any integer with .  Then (explain why is true).    "
 },
@@ -12749,7 +12749,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#exam_strong_math_ind",
   "type": "Example",
-  "number": "8.5.15",
+  "number": "8.5.18",
   "title": "Using strong mathematical induction.",
   "body": " Using strong mathematical induction   Use (first-order) strong mathematical induction to prove that every integer can be written as the product of a power of two and an odd integer.     Proof Induct on .  First, when we can write which is a product of a power of two (namely ) and an odd integer (namely 1) so the result holds.  Next, assume for some integer that any integer with can be written as the product of a power of two and an odd integer. We consider two cases.  Case 1: is odd. In this case, which is the product of a power of two (namely ) and an odd integer (namely ) so the result holds.  Case 2: is even. In this case, by definition of even we can write for some integer . Note that so by our inductive hypothesis, can be written as the product of a power of two and an odd integer. Write where is a nonnegative integer and is an odd integer. Then which is the product of a power of two (namely ) and an odd integer (namely ).  In either case, can be written as the product of a power of two and an odd integer.   "
 },
@@ -12758,7 +12758,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#pff_strong_math_ind_seq",
   "type": "Theorem",
-  "number": "8.5.16",
+  "number": "8.5.19",
   "title": "Proof Format: Mathematical Induction (Second-order Sequence).",
   "body": " Proof Format: Mathematical Induction (Second-order Sequence)   Given the sequence defined recursively by and (initial conditions) and (recursive rule)for , we can prove (explicit rule) for using mathematical induction by adapting the following proof format.   Write (explicit rule). Induct on .  First, when we know that (first initial condition) and also (evaluate and simplify to get the same answer).  Similarly, when we know that (second initial condition) and also (evaluate and simplify to get the same answer).  Next, assume (evaluate and simplify) and (evaluate and simplify), for some integer .  Then .    "
 },
@@ -12776,7 +12776,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_fibonacci_higher.html#exam_strong_math_ind_explicit",
   "type": "Example",
-  "number": "8.5.17",
+  "number": "8.5.21",
   "title": "Verifying the explicit form of second order recursively-defined sequence.",
   "body": " Verifying the explicit form of second order recursively-defined sequence   Consider the sequence defined recursively by , , and for . Use mathematical induction to prove that for .     Proof. Write . Induct on .  First, when we have and .  Similarly, when we have and .  Next, assume and for some integer . Then   Notice it was convenient to write because . Similarly, it was convenient to write because .   "
 },
@@ -13109,7 +13109,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_model_sum_prod.html#exam_count_5x5sq",
   "type": "Example",
-  "number": "9.1.2",
+  "number": "9.1.3",
   "title": "Counting <span class=\"process-math\">\\(\\times 5\\)<\/span> squares.",
   "body": " Counting squares   How many squares are there on the chessboard?    Think of taking a square and moving it around on top of the square. If we start with a the square in the upper left hand corner, we can move it one, two, or three units to the right. That is, there are four squares that fit along the top row. If we move it down one unit, there are also four squares that fit one row down. Similarly, there are four squares that fit two rows down and four squares that fit three rows down. That is the furthest we can go, so there are different squares.  There is a more sophisticated way to count. We can create a pairing between each possible squares and its upper left-hand corner, which is a square. Which squares can be the upper left-hand corner of a square? The answer is any squares in the square that sits in the upper left-hand corner of the chessboard. (If we try to put the upper left-hand corner of the square anywhere else on the chessboard, then the square will not fit.) Because we have a pairing, the number of squares equals the number of squares in the square that sits in the upper left-hand corner of the chessboard. Since any square has exactly of the squares, the answer again is .   "
 },
@@ -13127,7 +13127,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_model_sum_prod.html#exam_fact_rep",
   "type": "Example",
-  "number": "9.1.4",
+  "number": "9.1.6",
   "title": "Factorial representation.",
   "body": " Factorial representation   Consider the factorial representation of an integer introduced in .   Calculate the factorial representations of 17 and of 100.  First,   Next,       What happens if we calculate the factorial representation of ?  We get which is a 1 followed by four 0s.      What is the largest multiple of you could have in the factorial representation? Explain. Generalize  We could have but we would not have because The largest multiple of in the factorial representation is four. In general, the largest multiple of in the factorial representation is because       What is the largest integer whose factorial representation uses up to 5!?  The largest integer would be .  By the way, .      What is the largest integer whose factorial representation uses up to ?  We can write the largest integer as the sum which seems more natural to write in reverse order as         "
 },
@@ -13136,7 +13136,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_model_sum_prod.html#defn_fact_rep",
   "type": "Definition",
-  "number": "9.1.5",
+  "number": "9.1.7",
   "title": "Factorial representation.",
   "body": " Factorial representation   For a positive integer , the factorial representation of is if for some integer where each integer .   "
 },
@@ -13145,7 +13145,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_model_sum_prod.html#defn_sigma_pi",
   "type": "Definition",
-  "number": "9.1.6",
+  "number": "9.1.8",
   "title": "Sum and product notation.",
   "body": " Sum and product notation   Consider a (finite) list of numbers for some integers and .   We can abbreviate their sum using summation (Sigma) notation : which is pronounced the sum from to of sub . For example, our answer to is .    We can abbreviate their product using product (Pi) notation : which is pronounced the product from to of sub . For example, .    The numbers we add in a sum are the terms and the numbers we multiply in a product are the factors .    We say the sum or product starts at . Often or .      "
 },
@@ -13154,7 +13154,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_model_sum_prod.html#exam_sigma_pi",
   "type": "Example",
-  "number": "9.1.7",
+  "number": "9.1.9",
   "title": "Summation and product notation.",
   "body": " Summation and product notation       Evaluate .  This sum starts at and ends when . When , we have , when , we have , when , we have , and when , we have . We add these terms to get the sum       Evaluate .  This product starts at and ends when . When , we have , when , we have , and when , we have . We multiply these factors to get the product .      Write using summation notation in a natural way starting at .  Our sum starts at 1 and ends at . The terms equal the index so we get         "
 },
@@ -13172,7 +13172,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_model_sum_prod.html#exam_sum_fib_binom",
   "type": "Example",
-  "number": "9.1.8",
+  "number": "9.1.11",
   "title": "Sums of Fibonacci numbers and binomial coefficients.",
   "body": " Sums of Fibonacci numbers and binomial coefficients       Recall that the Fibonacci sequence is defined by , , and . For example, , and . Evaluate .  We have       Recall that the binomial coefficients is the number of -element subsets of a set of elements. For example, Evaluate and .  First, .  Next, .        "
 },
@@ -13424,7 +13424,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#exam_count_digits_base3",
   "type": "Example",
-  "number": "9.2.5",
+  "number": "9.2.6",
   "title": "Counting digits in base three.",
   "body": " Counting digits in base three   How many digits are needed to represent 100,000 in base three?    Since and , we need through but not . Thus, the base three representation of 100,000 needs 11 digits for the coefficients of    "
 },
@@ -13433,7 +13433,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#defn_bal_tern_rep",
   "type": "Definition",
-  "number": "9.2.6",
+  "number": "9.2.7",
   "title": "Balanced ternary representation.",
   "body": " Balanced ternary representation   For an integer , the balanced ternary representation of is if for some integer where each integer . We write in place of 1 and in place of -1. For example,    "
 },
@@ -13442,7 +13442,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#exam_bal_tern_rep",
   "type": "Example",
-  "number": "9.2.7",
+  "number": "9.2.8",
   "title": "Balanced ternary representation.",
   "body": " Balanced ternary representation   Convert 23 to balanced ternary representation.    The largest integer we can obtain using 1, 3, 9 is .  Therefore, to obtain 23, we need to use as follows:    "
 },
@@ -13451,7 +13451,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#defn_binary",
   "type": "Definition",
-  "number": "9.2.8",
+  "number": "9.2.9",
   "title": "Binary representation.",
   "body": " Binary representation   For a nonnegative integer , the binary representation of is if for some integer where each integer . For example, the integer . We check that .  The programming language Python uses the prefix to indicate a binary integer. For example, we write .   "
 },
@@ -13460,7 +13460,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#rem_bit_strings_binary",
   "type": "Remark",
-  "number": "9.2.9",
+  "number": "9.2.10",
   "title": "The connection between bit strings and binary integers.",
   "body": " The connection between bit strings and binary integers  In binary representation, the coefficients can be thought of as bits or . Therefore, any bit string represents a binary integer. Note that different bit strings can represent the same integer. For example, , , each represent six because , but they are different bit strings because has length three, has length four, and has length seven.  "
 },
@@ -13469,7 +13469,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#table_powers_2and16",
   "type": "Table",
-  "number": "9.2.10",
+  "number": "9.2.11",
   "title": "Small powers of two and 16",
   "body": " Small powers of two and 16                                                "
 },
@@ -13478,7 +13478,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#exam_binary_decimal",
   "type": "Example",
-  "number": "9.2.11",
+  "number": "9.2.12",
   "title": "Conversion between decimal and binary.",
   "body": " Conversion between decimal and binary       Convert to decimal.  To determine the highest power of 2 involved, we count in from the right: , , , , and finally . We have       Convert 46 to binary.  First, since , we only need to use 32, 16, 8, 4, 2, and 1. Notice , , and and so we have         "
 },
@@ -13496,7 +13496,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#defn_hex",
   "type": "Definition",
-  "number": "9.2.12",
+  "number": "9.2.14",
   "title": "Hexadecimal representation.",
   "body": " Hexadecimal representation       In hexadecimal (base 16) representation, the coefficients are 0, 1, 2, , 15. Since the coefficients 10, 11, 12, 13, 14, and 15 are 2-digit numbers we use the letters , , , , , and in their place, as shown in .  Hexadecimal representation of 10, 11, 12, 13, 14, and 15    integer  10  11  12  13  14  15             hex letter          Thus, hex digits are . For example, the integer because and so The programming language Python uses the prefix to indicate a hexadecimal integer. For example, we write .      "
 },
@@ -13505,7 +13505,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#exam_hex_decimal",
   "type": "Example",
-  "number": "9.2.14",
+  "number": "9.2.16",
   "title": "Conversion between decimal and hexadecimal.",
   "body": " Conversion between decimal and hexadecimal       Convert to decimal.  To determine the highest power of 16 involved, we count in from the right: , , and then . Recalling that and , we have .      Convert 695 to hexadecimal.  Note that is the highest power of 16 less than 695. Since , we subtract to get . Next we calculate as the largest multiple of 16 less than 183 and subtract again to get . Recalling that , we have         "
 },
@@ -13523,7 +13523,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_binary_hex.html#exam_hex_binary_conv",
   "type": "Example",
-  "number": "9.2.15",
+  "number": "9.2.18",
   "title": "Direct conversion between binary and hexadecimal.",
   "body": " Direct conversion between binary and hexadecimal       In we saw that . It turns out that . Explain how the hexadecimal and binary representations are related.  Every four-bit binary number represents a decimal number and each of those decimal numbers can be written as a single hex digit. There are four bits per hex digit because . Let's take the binary representation of 695 and, working from right to left, replace every group of four bits with its single hex digit to get . We used that , , and .      Convert directly to binary.  Noting that and , we replace each hex digit with its 4-bit binary representation to get . Therefore, .      Convert directly to binary.  Noting that and , we replace each hex digit with its 4-bit binary representation, adding s in front as needed, to get . Thus .        "
 },
@@ -13829,7 +13829,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_conj.html#exam_sum_recip_hs_conj",
   "type": "Example",
-  "number": "9.3.11",
+  "number": "9.3.12",
   "title": "Explicit form of sum of reciprocals of handshake numbers.",
   "body": " Explicit form of sum of reciprocals of handshake numbers   Calculate the first few partial sums and use pattern recognition to complete a conjecture about an explicit formula for the sum    The first five partial sums are . Notice the denominators are of the form which suggests that we should rewrite the fractions over the denominators to get . Next, we make a table showing the index and the partial sums, as shown in .   Partial sums for     1  2  3  4  5  6                      partial sum  1                                    pattern                    Based on this pattern, we conjecture that     "
 },
@@ -13838,7 +13838,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_conj.html#defn_partial_prod",
   "type": "Definition",
-  "number": "9.3.13",
+  "number": "9.3.14",
   "title": "Partial products.",
   "body": " Partial products   Consider a list of numbers for some integers and .   For the product , the partial products are , and so on. For example, for the product , the partial products are , and so on.    The sequence of partial products is . For example, the sequence of partial products in our example begins .      "
 },
@@ -13847,7 +13847,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_conj.html#exam_partial_prod_conj_constant",
   "type": "Example",
-  "number": "9.3.14",
+  "number": "9.3.15",
   "title": "Conjecture explicit form of product of constant.",
   "body": " Conjecture explicit form of product of constant   Consider the product .   Calculate the partial products.  We display the partial products using a shorthand in . At each sign, we draw a line and record the product from the beginning to that line.   Calculating partial products for .          Display the partial products in a table.  We are interested in finding an explicit formula for the product as a function of , so it is helpful to have the partial products in a table, as shown in .   Partial products for     1  2  3  4  5  6             partial product  2  4  8  16  32  64             pattern               Use pattern recognition to conjecture an explicit form.  We notice that each partial product is two to the index , and add another row to our table to show the pattern. We conjecture , which is no surprise since         "
 },
@@ -13856,7 +13856,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_conj.html#rem_rec_def_partial_prod",
   "type": "Remark",
-  "number": "9.3.17",
+  "number": "9.3.18",
   "title": "Recursive definition of partial product.",
   "body": " Recursive definition of partial product  Consider a list of numbers for some integers and . Then   We can remember this recursion as   "
 },
@@ -13865,7 +13865,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_conj.html#exam_conj_explicit_prod_linear",
   "type": "Example",
-  "number": "9.3.18",
+  "number": "9.3.19",
   "title": "Conjecture explicit formula for product.",
   "body": " Conjecture explicit formula for product   Calculate the first few partial products, display your findings in a table, and use pattern recognition to conjecture an explicit formula for the product: .   We start by writing out the first six terms and their partial products, as shown in .   Calculating partial products for .      For example, . Next, using the previous product (as in ) we get . Then, , and so on.  Next, we make a table showing the index and the partial products, as shown in . We recognize these numbers as the factorials (or we realize that we are multiplying consecutive integers). We show this pattern in the third row of the table.   Partial products for     1  2  3  4  5  6             partial product  1  2  6  24  120  720             pattern           Based on this pattern, we conjecture that , which is no surprise because .    "
 },
@@ -13892,7 +13892,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_conj.html#exam_fib_sum_conj_even_index",
   "type": "Example",
-  "number": "9.3.22",
+  "number": "9.3.25",
   "title": "Fibonacci sum conjecture.",
   "body": " Fibonacci sum conjecture   Calculate the first six partial sums and use pattern recognition to conjecture an explicit formula for the sum   The first fifteen Fibonacci numbers appear in .   We start by writing out the first six terms and their partial sums, as shown in .   Calculating partial sums for .      For example, . Next, using the previous sum (as in ) we get . Then, , and so on.  Next, we make a table showing the index and the partial sums, as shown in .   Partial sums for     1  2  3  4  5  6             partial sum  1  4  12  33  88  232             pattern                    To see the pattern, notice that each partial sum is one less than a Fibonacci number. Notice that the subscripts are odd. We conjecture .    "
 },
@@ -13901,7 +13901,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_conj.html#exam_unfoil",
   "type": "Example",
-  "number": "9.3.25",
+  "number": "9.3.28",
   "title": "Factoring polynomial.",
   "body": " Factoring polynomial       Multiply and write the answer as a polynomial in the variable .  Using the distributive property (FOIL) as discussed in , we get     =      =      =     Observe that the coefficient is , the sum of and , and the constant term is , the product of and .      Factor .  Based on our observation in , we might guess that where the sum of the integers in the blanks is and the product of the integers in the blanks is . We guess that the integers are and and so . This process of factoring is sometimes nicknamed unfoiling , since we FOIL to check. .      Multiply and write the answer as a polynomial in the variable .  Multiplying we get     =      =      =         Factor .  We can use the result of ,         "
 },
@@ -13919,7 +13919,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_conj.html#exam_factor_nonmonic_quad",
   "type": "Example",
-  "number": "9.3.26",
+  "number": "9.3.30",
   "title": "Factor quadratic polynomial.",
   "body": " Factor quadratic polynomial   Factor .    Let's try a product of the form . To get the constant term , one of the blanks must be 1 and the other must be . Since , we can factor .   "
 },
@@ -14243,7 +14243,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#rem_generating_arith_triangle",
   "type": "Remark",
-  "number": "9.4.8",
+  "number": "9.4.9",
   "title": "Generating the arithmetic triangle.",
   "body": " Generating the arithmetic triangle  We can generate the arithmetic triangle as follows.   The first row is 1.    The entry in each subsequent row is the sum of the two entries above it in the previous row, with the understanding that a missing entry equals zero.     "
 },
@@ -14252,7 +14252,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#thm_pascals_recursion",
   "type": "Theorem",
-  "number": "9.4.9",
+  "number": "9.4.10",
   "title": "Recursive definition of the binomial coefficients.",
   "body": " Recursive definition of the binomial coefficients   The binomial coefficients can be defined recursively by and for any nonnegative integer and integer .   "
 },
@@ -14261,7 +14261,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#exam_arith_tri_row9",
   "type": "Example",
-  "number": "9.4.10",
+  "number": "9.4.11",
   "title": "Adding another row to the arithmetic triangle.",
   "body": " Adding another row to the arithmetic triangle   Use to write the row of the arithmetic triangle that begins with 1, 8.    We begin with a copy of the row that begins with 1, 7 from . We add neighboring entries to calculate the entries of the next row:    The result is shown in .   Generating another row of the arithmetic triange.       "
 },
@@ -14279,7 +14279,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#thm_sym_arith_triangle",
   "type": "Theorem",
-  "number": "9.4.12",
+  "number": "9.4.14",
   "title": "Symmetry in the arithmetic triangle.",
   "body": " Symmetry in the arithmetic triangle   For nonnegative integers and , we have    "
 },
@@ -14288,7 +14288,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#exam_using_sym_arith_triangle",
   "type": "Example",
-  "number": "9.4.13",
+  "number": "9.4.15",
   "title": "Using the symmetry in the arithmetic triangle.",
   "body": " Using the symmetry in the arithmetic triangle       Evaluate for a integer .  We saw in that . Using symmetry , we get       Explain why .  Using symmetry , we get         "
 },
@@ -14297,7 +14297,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#exam_sum_rows_arith_triangle",
   "type": "Example",
-  "number": "9.4.14",
+  "number": "9.4.16",
   "title": "Sums of rows of the arithmetic triangle.",
   "body": " Sums of rows of the arithmetic triangle       Calculate the sum of the entries in the eighth row of the arithmetic triangle.  We add the entries to get .      What did you notice? Conjecture an explicit formula for the sum.  We notice that .  We conjecture that         "
 },
@@ -14306,7 +14306,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#thm_sum_rows_arith_triangle",
   "type": "Theorem",
-  "number": "9.4.15",
+  "number": "9.4.17",
   "title": "Sums of rows of the arithmetic triangle.",
   "body": " Sums of rows of the arithmetic triangle   For nonnegative integers we have    "
 },
@@ -14315,7 +14315,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#exam_hockey_stick",
   "type": "Example",
-  "number": "9.4.16",
+  "number": "9.4.18",
   "title": "Hockey stick.",
   "body": " Hockey stick       Use the arithmetic triangle to evaluate .       Use the arithmetic triangle to evaluate .       Conjecture an explicit formula for the sum .  From we know . From we know . Based on these two examples, it is reasonable to conjecture that       Why is this called the hockey stick theorem?  For example, the sum from is highlighted in . The shape of the encircling polygon looks like a hockey stick.   An example of a hockey stick sum.            "
 },
@@ -14333,7 +14333,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#rem_special_case_binomial_formula",
   "type": "Remark",
-  "number": "9.4.18",
+  "number": "9.4.21",
   "title": "Special case of the binomial theorem.",
   "body": " Special case of the binomial theorem  For any integer and nonnegative integer , we have   "
 },
@@ -14342,7 +14342,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#exam_using_special_case_binom_formula",
   "type": "Example",
-  "number": "9.4.19",
+  "number": "9.4.22",
   "title": "Using the special case of the binomial theorem.",
   "body": " Using the special case of the binomial theorem   Expand using .    We get .  The coefficients 1, 7, 21, 35, 35, 21, 7, and 1 come from the eighth row of the arithmetic triangle .   "
 },
@@ -14351,7 +14351,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#thm_binomial_thm",
   "type": "Theorem",
-  "number": "9.4.20",
+  "number": "9.4.23",
   "title": "The binomial theorem.",
   "body": " The binomial theorem   For any real numbers and and any nonnegative integer , we have    "
 },
@@ -14360,7 +14360,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#exam_practice_binom_thm",
   "type": "Example",
-  "number": "9.4.21",
+  "number": "9.4.24",
   "title": "Practice using binomial theorem.",
   "body": " Practice using binomial theorem   Use the binomial theorem to expand and simplify your answer.    Our coefficients come from the row beginning 1, 3 in . We use , , and in the binomial theorem to get .   "
 },
@@ -14369,7 +14369,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#exam_bin_thm_proof",
   "type": "Example",
-  "number": "9.4.22",
+  "number": "9.4.25",
   "title": "Using the Binomial Theorem to prove a sum formula.",
   "body": " Using the Binomial Theorem to prove a sum formula   Use the Binomial Theorem to prove our conjecture from  : for .    We use , , and to get . When we simplify each side we get    "
 },
@@ -14387,7 +14387,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#thm_binom_coeffs_formula",
   "type": "Theorem",
-  "number": "9.4.23",
+  "number": "9.4.27",
   "title": "Explicit formula for binomial coefficients.",
   "body": " Explicit formula for binomial coefficients   For integers , we have    "
 },
@@ -14396,7 +14396,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#exam_proof_explicit_binom",
   "type": "Example",
-  "number": "9.4.24",
+  "number": "9.4.28",
   "title": "Combinatorial proof of the explicit formula for the binomial coefficients.",
   "body": " Combinatorial proof of the explicit formula for the binomial coefficients   Use a combinatorial proof to prove .     Proof. We use a combinatorial proof. Consider the following situation there are movies. How many ways are there to rank our top as movie #1, movie #2, , movie # ?  First, we have choices for movie #1, and then choices for movie #2, and so on until choices for movie # . Note that is a list of rankings. Since steps multiply , there are ways to rank our top movies. We can write this product in terms of factorials. There are ways to rank our top movies.  On the other hand, we can first pick the movies as a set in ways and then rank these movies in ways. Since steps multiply , there are ways to rank our top movies.  Since we counted the same quantity in two different ways, it follows that   Dividing each side of this equation by we get as desired.   "
 },
@@ -14405,7 +14405,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_arith_triangle.html#exam_using_formula_binom_coeffs",
   "type": "Example",
-  "number": "9.4.25",
+  "number": "9.4.29",
   "title": "Using the explicit formula for binomial coefficients.",
   "body": " Using the explicit formula for binomial coefficients       Use the explicit formula for the binomial coefficients to evaluate .  We have , and and so   Looking back at we confirm . Remember that the index begins at so the 5th entry corresponds to .      Use the explicit formula for the binomial coefficients to show that .  We have and . It is useful to note that   Thus, .      Use the explicit formula for the binomial coefficients to prove algebraically that   First,   Next, using we have   Since we got the same answer, it follows that .        "
 },
@@ -14693,7 +14693,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#pff_comb_proof_sum",
   "type": "Theorem",
-  "number": "9.5.3",
+  "number": "9.5.4",
   "title": "Proof Format: Combinatorial Proof (Sum).",
   "body": " Proof Format: Combinatorial Proof (Sum)   Given the explicitly-defined sequence for where the terms may depend on , we can prove that (explicit rule) for using a combinatorial proof by adapting the following proof format.   We use a combinatorial proof. Consider the following situation .  How many ways are there to ?  First, condition on (say what counts). In this case, there are (show how to get ) ways to do . Since cases add ,there are a total of ways.  On the other hand, (explain how to count using a different method to get the explicit rule).  Since we counted the same quantity in two different ways, it follows that (explicit rule).    "
 },
@@ -14720,7 +14720,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#exam_finite_geom_sum",
   "type": "Example",
-  "number": "9.5.4",
+  "number": "9.5.7",
   "title": "Finite geometric sum conjecture.",
   "body": " Finite geometric sum conjecture   Consider real numbers and and the sum .  Note that is a function of and .   Evaluate when and .  We get .      Expand and simplify your answer.  We get   Thus, .      Use your answer to to find a formula for in terms of and .  Since , we can divide each side of the equation by to get .      Use your formula from to evaluate when and . Check that you get the same answer as in .  We get .      Conjecture an explicit formula for when .  We conjecture that .      Use your formula from to show that .  We get .        "
 },
@@ -14729,7 +14729,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#thm_geom_sum_finite",
   "type": "Theorem",
-  "number": "9.5.5",
+  "number": "9.5.8",
   "title": "Sum of finite geometric.",
   "body": " Sum of finite geometric   For real numbers and ,    "
 },
@@ -14738,7 +14738,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#exam_geom_sum_application",
   "type": "Example",
-  "number": "9.5.6",
+  "number": "9.5.9",
   "title": "Using the finite geometric sum formula.",
   "body": " Using the finite geometric sum formula   Use the finite geometric sum formula to evaluate     Our sum is geometric with , , and so by we have    "
 },
@@ -14747,7 +14747,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#thm_linearity_sums",
   "type": "Theorem",
-  "number": "9.5.7",
+  "number": "9.5.10",
   "title": "Linearity properties of sums.",
   "body": " Linearity properties of sums   Let and be sequences of real numbers for for some nonnegative integer and let be a real number. Then    .     .      "
 },
@@ -14756,7 +14756,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#thm_sum_formula_polys",
   "type": "Theorem",
-  "number": "9.5.8",
+  "number": "9.5.11",
   "title": "Summation formulas for powers of integers.",
   "body": " Summation formulas for powers of integers   For a nonnegative integer we have   The sum of a constant: .    The sum of the first integers: .    The sum of the first squares: .    The sum of the first cubes: .      "
 },
@@ -14765,7 +14765,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#exam_sum_formulas",
   "type": "Example",
-  "number": "9.5.9",
+  "number": "9.5.12",
   "title": "Using linearity properties and summation formulas.",
   "body": " Using linearity properties and summation formulas   Use linearity properties and summation formulas to evaluate each sum.   Evaluate   By  with we have .      Evaluate   By  with we have .      Evaluate   By  with we have . Not sure we really needed a formula here.      Evaluate .  We begin by multiplying (using FOIL) to get . Then we can apply the linearity properties of sums and our answers from the previous parts to get .        "
 },
@@ -14774,7 +14774,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#defn_fraction_addition",
   "type": "Definition",
-  "number": "9.5.10",
+  "number": "9.5.13",
   "title": "Adding Fractions.",
   "body": " Adding Fractions       For integers , , and with , the sum of the fractions is given by . For example,     To add two fractions using , we need the two fractions to have the same denominator ( common denominator ). If two fractions have different denominators, we can replace one or both fractions with equivalent fractions that have a common denominator using .      "
 },
@@ -14783,7 +14783,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#fraction_arithmetic",
   "type": "Example",
-  "number": "9.5.11",
+  "number": "9.5.14",
   "title": "Adding and Subtracting Fractions.",
   "body": " Adding and Subtracting Fractions   In this example, we only use computational technology to check our answers.   Write as one fraction and simplify .  We can use 4 as the common denominator.       Write as one fraction and simplify .  We can use as the common denominator.       Write as one fraction and simplify .  We can rewrite 2 as the fraction and then use 3 as the common denominator.       Write as one fraction and simplify .  We can use as the common denominator.    By the way, it is sometimes useful to reverse this equation to write       Write as one fraction and simplify .  Recall that so we can use as the common denominator.       Write as one fraction and simplify .  Recall that so we can use as the common denominator to get         "
 },
@@ -14792,7 +14792,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#defn_multiplying_fractions",
   "type": "Definition",
-  "number": "9.5.12",
+  "number": "9.5.15",
   "title": "Multiplying Fractions.",
   "body": " Multiplying Fractions       For integers with , the product of the fractions is given by . For example, .      "
 },
@@ -14801,7 +14801,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_sum_proofs.html#exam_multiplying_fractions",
   "type": "Example",
-  "number": "9.5.13",
+  "number": "9.5.16",
   "title": "Multiplying Fractions.",
   "body": " Multiplying Fractions   In this example, we only use computational technology to check our answers.   Write as one fraction and simplify: .  By , .      Write as one fraction and simplify .  We have       Write as one fraction and simplify .  To use , we need to write 5 as the fraction . Next, .      Simplify   First, we can write 4 as and multiply the fractions to get . Next, we can use 3 as the common denominator and write 1 as to get . Next, using the distributive property and simplifying we get . Last, we can simplify the power of 4 to get         "
 },
@@ -15179,7 +15179,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_hotelinfinity.html#defn_countable",
   "type": "Definition",
-  "number": "10.1.1",
+  "number": "10.1.2",
   "title": "Countable and Uncountable Sets.",
   "body": " Countable and Uncountable Sets       Sets and  are the same size set (have the same cardinality) if there exists a pairing between and , as defined in . Equivalently, if there exists a function that is a bijection (onto and one-to-one). For example, is the same size as because we have the pairing , or, equivalently the function defined by is onto and one-to-one.    A set is countable if it is the same size as the natural numbers . That is, if there is a bijection that is onto and one-to-one. For example, is countable because defined by is onto and one-to-one.    A set is uncountable if it is not countable. For example, the interval is uncountable, as shown in the video Hotel Infinity, Part Five.      "
 },
@@ -15188,7 +15188,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_hotelinfinity.html#rem_alt_defn_countable",
   "type": "Remark",
-  "number": "10.1.2",
+  "number": "10.1.3",
   "title": "Alternative characterizations of countable.",
   "body": " Alternative characterizations of countable  The following statements are equivalent.   The set is countable. (There is a bijection .)    The set fits into and fills Hotel Infinity.    There is a sequence that lists each element of exactly once. (Recall that a function with domain is a sequence starting at 0.)     "
 },
@@ -15197,7 +15197,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_hotelinfinity.html#exam_integers_countable",
   "type": "Example",
-  "number": "10.1.3",
+  "number": "10.1.4",
   "title": "The integers are countable.",
   "body": " The integers are countable   Show that the integers are countable by finding a sequence that lists each integer exactly once.    Consider the sequence . The pattern defining this sequence should be clear but we can write a rule for fun. For , define    "
 },
@@ -15206,7 +15206,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec_hotelinfinity.html#defn_discrete",
   "type": "Definition",
-  "number": "10.1.4",
+  "number": "10.1.5",
   "title": "Discrete.",
   "body": " Discrete   A set is discrete if it is finite or countable.   "
 }
