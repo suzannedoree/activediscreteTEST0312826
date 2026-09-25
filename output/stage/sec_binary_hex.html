@@ -31,6 +31,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@ htmlPresentation: false,
 <meta property="og:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta property="book:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.46"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.53"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.53"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -61,21 +62,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1bda041f5a098305.css">
+<script src="_static/prefix-runtime.8b982cdcb4aa84b9.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.0499040fbb8ea56b.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></div>
 <p class="byline">Dr. Suzanne Dorée</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -88,7 +89,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -273,7 +284,9 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_prologue.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue</span></a></div>
-<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_prologue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_handshakes.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Handshakes</span></a></div>
 <ul id="ptx-toc-group-sec_handshakes" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_handshakes.html#sec_handshakes-3" class="internal"><span class="codenumber">1.1.A</span> <span class="title">Counting Handshakes</span></a></div></li>
@@ -287,11 +300,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_counting.html" class="internal"><span class="codenumber">2</span> <span class="title">Listing and Counting</span></a></div>
 <ul id="ptx-toc-group-ch_counting" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_counting-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_listing.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Organized Listing</span></a></div>
 <ul id="ptx-toc-group-sec_listing" class="structural toc-item-list">
@@ -365,6 +380,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_graph_theory.html" class="internal"><span class="codenumber">3</span> <span class="title">Graph Theory</span></a></div>
 <ul id="ptx-toc-group-ch_graph_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_graph_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_graph_models.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Modeling with Graphs</span></a></div>
 <ul id="ptx-toc-group-sec_graph_models" class="structural toc-item-list">
@@ -450,6 +466,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_number_theory.html" class="internal"><span class="codenumber">4</span> <span class="title">Number Theory</span></a></div>
 <ul id="ptx-toc-group-ch_number_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_number_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_even_odd_divides.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integer Division</span></a></div>
 <ul id="ptx-toc-group-sec_even_odd_divides" class="structural toc-item-list">
@@ -537,6 +554,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_logic_proof.html" class="internal"><span class="codenumber">5</span> <span class="title">Logic and Proof</span></a></div>
 <ul id="ptx-toc-group-ch_logic_proof" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_logic_proof-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
@@ -633,6 +651,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_functions.html" class="internal"><span class="codenumber">6</span> <span class="title">Functions</span></a></div>
 <ul id="ptx-toc-group-ch_functions" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_functions-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_functions.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Functions and Their Representations</span></a></div>
 <ul id="ptx-toc-group-sec_functions" class="structural toc-item-list">
@@ -722,6 +741,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sets_rel.html" class="internal"><span class="codenumber">7</span> <span class="title">Sets and Relations</span></a></div>
 <ul id="ptx-toc-group-ch_sets_rel" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sets_rel-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_sets.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sets</span></a></div>
 <ul id="ptx-toc-group-sec_sets" class="structural toc-item-list">
@@ -806,6 +826,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_recursion_induction.html" class="internal"><span class="codenumber">8</span> <span class="title">Recursion and Induction</span></a></div>
 <ul id="ptx-toc-group-ch_recursion_induction" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_recursion_induction-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_recursively_defined_sequences.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Recursively-defined Sequences</span></a></div>
 <ul id="ptx-toc-group-sec_recursively_defined_sequences" class="structural toc-item-list">
@@ -893,6 +914,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch_sum_prod.html" class="internal"><span class="codenumber">9</span> <span class="title">Sums and Products</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch_sum_prod">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sum_prod-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_model_sum_prod.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Modeling with Sums and Products</span></a></div>
 <ul id="ptx-toc-group-sec_model_sum_prod" class="structural toc-item-list">
@@ -976,37 +998,40 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_epilogue.html" class="internal"><span class="codenumber">10</span> <span class="title">Epilogue</span></a></div>
-<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_epilogue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_hotelinfinity.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Hotel Infinity</span></a></div>
 <ul id="ptx-toc-group-sec_hotelinfinity" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_hotel_infinity" class="internal"><span class="codenumber">10.1.A</span> <span class="title">Hotel Infinity</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_countable" class="internal"><span class="codenumber">10.1.B</span> <span class="title">The Definition of Discrete</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec_binary_hex">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Binary and Hexadecimal Representations</span>
-</h2>
+</h1>
 <section class="introduction" id="sec_binary_hex-2">
 <div class="para" id="sec_binary_hex-2-1">In <a href="sec_model_sum_prod.html#act_fact_rep" class="xref" data-knowl="./knowl/xref/act_fact_rep.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.1.B: Factorial Representations Puzzle">Activity 9.1.B</a>, we represent a positive integer using the sum of factorials. A more widely-used representation uses the sum of powers instead. The decimal numbers that we use every day are represented using powers of 10. Historically,<details class="ptx-footnote" aria-live="polite" id="sec_binary_hex-2-1-2"><summary class="ptx-footnote__number" title="Footnote 9.2.1"><sup> 1 </sup></summary>
 <div class="ptx-footnote__contents" id="sec_binary_hex-2-1-2">Using data from <a class="external" href="https://en.wikipedia.org/wiki/List_of_numeral_systems" target="_blank">Wikipedia List of Numeral Systems</a> (retrieved November 30, 2025).
 </div></details> people have used a variety of bases. We see remnants of base 60 that the Babylonians and others used (where Iraq is now) in 60 seconds per minute, 60 minutes per hour, or 360<span class="process-math">\(^\circ\)</span> in a circle. Mayan and Aztec (in Mexico and Central America) used base 20, and there are references to groups of 20 in many modern indigenous languages ranging from Basque (in Spain and France) to Inuit (in Alaska). In Nigeria and Nepal, many languages incorporate base 12, which we see today in the 12-hour clock, 12 inches to a foot, and 12 eggs in a carton. Other bases are possible, but the most commonly-used modern representations are binary, which uses powers of two, and hexadecimal, which uses powers of 16.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_binary_hex-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="sub_base_b">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Base <span class="process-math">\(b\)</span> Representation</span>
-</h3>
+</h2>
 <div class="para" id="sub_base_b-2">We start with the definition of representing integers using powers of any integer <span class="process-math">\(b&gt;1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_base_b-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_base_b"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Base <span class="process-math">\(b\)</span> representation.</span>
-</h4>
+<article class="definition definition-like" id="defn_base_b"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Base <span class="process-math">\(b\)</span> representation.</span>
+</h3>
 <div class="para logical" id="defn_base_b-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_base_b-2-1-2">
+<ol class="lower-alpha" id="defn_base_b-2-1-2">
 <li id="defn_base_b-2-1-2-1">
 <div class="para logical" id="defn_base_b-2-1-2-1-1">
 <div class="para">For a fixed integer <span class="process-math">\(b &gt; 1\)</span> and nonnegative integer <span class="process-math">\(n\text{,}\)</span> the <dfn class="terminology">base <em class="emphasis">b</em> representation</dfn> of <span class="process-math">\(n\)</span> is</div>
@@ -1073,13 +1098,13 @@ n=\sum_{i=0}^ka_ib^i = a_kb^k + \dots + a_3b^ 3+a_2b^2+a_1b^1+a_0b^0
 </article>
 <div class="para" id="sub_base_b-4">We consider an example.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_base_b-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_ternary" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ternary Conversion.</span>
-</h4></summary>
+<details id="exam_ternary" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ternary Conversion.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_ternary-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_ternary-2-1-2">
+<ol class="lower-alpha" id="exam_ternary-2-1-2">
 <li id="exam_ternary-2-1-2-1">
 <div class="para" id="exam_ternary-2-1-2-1-1">Convert <span class="process-math">\((21021)_3\)</span> to decimal. 
 <details id="exam_ternary-2-1-2-1-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1128,13 +1153,13 @@ n=\sum_{i=0}^ka_ib^i = a_kb^k + \dots + a_3b^ 3+a_2b^2+a_1b^1+a_0b^0
 </article></details>
 <div class="para" id="sub_base_b-6">Here are examples using base five and base eight.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_base_b-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_quinary_octal" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quinary and octal conversions.</span>
-</h4></summary>
+<details id="exam_quinary_octal" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Quinary and octal conversions.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_quinary_octal-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_quinary_octal-2-1-2">
+<ol class="lower-alpha" id="exam_quinary_octal-2-1-2">
 <li id="exam_quinary_octal-2-1-2-1">
 <div class="para" id="exam_quinary_octal-2-1-2-1-1">Convert <span class="process-math">\((413)_5\)</span> and <span class="process-math">\((1723)_8\)</span> to decimal. 
 <details id="exam_quinary_octal-2-1-2-1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1234,12 +1259,12 @@ n=\sum_{i=0}^ka_ib^i = a_kb^k + \dots + a_3b^ 3+a_2b^2+a_1b^1+a_0b^0
 </figure>
 <div class="para" id="sub_base_b-10">Try converting between bases.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_base_b-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_baseb_conv"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.A</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Base <span class="process-math">\(b\)</span> conversions.</span>
-</h4>
+<article class="activity project-like" id="act_baseb_conv"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Base <span class="process-math">\(b\)</span> conversions.</span>
+</h3>
 <div class="para logical" id="act_baseb_conv-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_baseb_conv-2-2">
+<ol class="lower-alpha" id="act_baseb_conv-2-2">
 <li id="act_baseb_conv-2-2-1">
 <div class="para" id="act_baseb_conv-2-2-1-1">Convert <span class="process-math">\((1220)_3\)</span> to decimal.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_baseb_conv-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1282,9 +1307,9 @@ n=\sum_{i=0}^ka_ib^i = a_kb^k + \dots + a_3b^ 3+a_2b^2+a_1b^1+a_0b^0
 </article>
 <div class="para" id="sub_base_b-12">Let’s look at <a href="sec_binary_hex.html#act_baseb_conv" class="xref" data-knowl="./knowl/xref/act_baseb_conv.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.2.A: Base b conversions">Activity 9.2.A</a> <a href="sec_binary_hex.html#part_count_digits_base3" class="xref" data-knowl="./knowl/xref/part_count_digits_base3.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (g)">(g)</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_base_b-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_count_digits_base3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Counting digits in base three.</span>
-</h4></summary>
+<details id="exam_count_digits_base3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Counting digits in base three.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="exam_count_digits_base3-2-1">How many digits are needed to represent 100,000 in base three?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_digits_base3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1300,16 +1325,16 @@ n=\sum_{i=0}^ka_ib^i = a_kb^k + \dots + a_3b^ 3+a_2b^2+a_1b^1+a_0b^0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_digits_base3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 9.2.5.1"><a tabindex="-1" href="#exam_count_digits_base3-3" title="Copy heading and permalink for Solution 9.2.5.1" aria-label="Copy heading and permalink for Solution 9.2.5.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 9.2.6.1"><a tabindex="-1" href="#exam_count_digits_base3-3" title="Copy heading and permalink for Solution 9.2.6.1" aria-label="Copy heading and permalink for Solution 9.2.6.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.5: Counting digits in base three"><a tabindex="-1" href="#exam_count_digits_base3" title="Copy heading and permalink for Example 9.2.5: Counting digits in base three" aria-label="Copy heading and permalink for Example 9.2.5: Counting digits in base three">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.6: Counting digits in base three"><a tabindex="-1" href="#exam_count_digits_base3" title="Copy heading and permalink for Example 9.2.6: Counting digits in base three" aria-label="Copy heading and permalink for Example 9.2.6: Counting digits in base three">🔗</a></div>
 </article></details>
 <div class="para" id="sub_base_b-14">There is a variant of ternary representation in which we use 0, 1, and <span class="process-math">\(-1\)</span> instead of 0, 1, and 2.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_base_b-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_bal_tern_rep"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Balanced ternary representation.</span>
-</h4>
+<article class="definition definition-like" id="defn_bal_tern_rep"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Balanced ternary representation.</span>
+</h3>
 <div class="para logical" id="defn_bal_tern_rep-2-1">
 <div class="para">For an integer <span class="process-math">\(n\text{,}\)</span> the <dfn class="terminology">balanced ternary representation</dfn> of <span class="process-math">\(n\)</span> is</div>
 <div class="displaymath process-math" id="defn_bal_tern_rep-2-1-4">
@@ -1333,13 +1358,13 @@ n=a_k3^k + \dots + a_33^ 3+a_23^2+a_13^1+a_03^0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_bal_tern_rep-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 9.2.6: Balanced ternary representation"><a tabindex="-1" href="#defn_bal_tern_rep" title="Copy heading and permalink for Definition 9.2.6: Balanced ternary representation" aria-label="Copy heading and permalink for Definition 9.2.6: Balanced ternary representation">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 9.2.7: Balanced ternary representation"><a tabindex="-1" href="#defn_bal_tern_rep" title="Copy heading and permalink for Definition 9.2.7: Balanced ternary representation" aria-label="Copy heading and permalink for Definition 9.2.7: Balanced ternary representation">🔗</a></div>
 </article>
 <div class="para" id="sub_base_b-16">Let’s look at an example of representing an integer using balanced ternary.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_base_b-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_bal_tern_rep" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Balanced ternary representation.</span>
-</h4></summary>
+<details id="exam_bal_tern_rep" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Balanced ternary representation.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="exam_bal_tern_rep-2-1">Convert 23 to balanced ternary representation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_bal_tern_rep-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1367,21 +1392,21 @@ n=a_k3^k + \dots + a_33^ 3+a_23^2+a_13^1+a_03^0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_bal_tern_rep-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 9.2.7.1"><a tabindex="-1" href="#exam_bal_tern_rep-3" title="Copy heading and permalink for Solution 9.2.7.1" aria-label="Copy heading and permalink for Solution 9.2.7.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 9.2.8.1"><a tabindex="-1" href="#exam_bal_tern_rep-3" title="Copy heading and permalink for Solution 9.2.8.1" aria-label="Copy heading and permalink for Solution 9.2.8.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.7: Balanced ternary representation"><a tabindex="-1" href="#exam_bal_tern_rep" title="Copy heading and permalink for Example 9.2.7: Balanced ternary representation" aria-label="Copy heading and permalink for Example 9.2.7: Balanced ternary representation">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.8: Balanced ternary representation"><a tabindex="-1" href="#exam_bal_tern_rep" title="Copy heading and permalink for Example 9.2.8: Balanced ternary representation" aria-label="Copy heading and permalink for Example 9.2.8: Balanced ternary representation">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.2.A: Base b Representation"><a tabindex="-1" href="#sub_base_b" title="Copy heading and permalink for Subsection 9.2.A: Base b Representation" aria-label="Copy heading and permalink for Subsection 9.2.A: Base b Representation">🔗</a></div>
 </section>
 <section class="subsection" id="sub_binary">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Binary  Representation</span>
-</h3>
+</h2>
 <div class="para" id="sub_binary-2">The most common base used in computer science is two, because integers in base two are represented by bit strings.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binary-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_binary"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Binary representation.</span>
-</h4>
+<article class="definition definition-like" id="defn_binary"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.9</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Binary representation.</span>
+</h3>
 <div class="para logical" id="defn_binary-2-1">
 <div class="para">For a nonnegative integer <span class="process-math">\(n\text{,}\)</span> the <dfn class="terminology">binary representation</dfn> of <span class="process-math">\(n\)</span> is</div>
 <div class="displaymath process-math" id="defn_binary-2-1-4">
@@ -1408,11 +1433,11 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </div> 
 <div class="para" id="defn_binary-2-2">The programming language Python uses the prefix <span class="process-math">\(\str{0b}\)</span> to indicate a binary integer. For example, we write <span class="process-math">\(6=\bs{0b110}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_binary-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 9.2.8: Binary representation"><a tabindex="-1" href="#defn_binary" title="Copy heading and permalink for Definition 9.2.8: Binary representation" aria-label="Copy heading and permalink for Definition 9.2.8: Binary representation">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 9.2.9: Binary representation"><a tabindex="-1" href="#defn_binary" title="Copy heading and permalink for Definition 9.2.9: Binary representation" aria-label="Copy heading and permalink for Definition 9.2.9: Binary representation">🔗</a></div>
 </article>
-<article class="remark remark-like" id="rem_bit_strings_binary"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The connection between bit strings and binary integers.</span>
-</h4>
+<article class="remark remark-like" id="rem_bit_strings_binary"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.10</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The connection between bit strings and binary integers.</span>
+</h3>
 <div class="para logical" id="rem_bit_strings_binary-2">
 <div class="para">In binary representation, the coefficients can be thought of as bits <span class="process-math">\(\bs{0}\)</span> or <span class="process-math">\(\bs{1}\text{.}\)</span> Therefore, any bit string represents a binary integer. Note that different bit strings can represent the same integer. For example, <span class="process-math">\(\bs{110}\text{,}\)</span> <span class="process-math">\(\bs{0110}\text{,}\)</span> <span class="process-math">\(\bs{0000110}\)</span> each represent six because</div>
 <div class="displaymath process-math" id="rem_bit_strings_binary-2-6">
@@ -1423,11 +1448,11 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 <div class="para">but they are different bit strings because <span class="process-math">\(\bs{110}\)</span> has length three, <span class="process-math">\(\bs{0110}\)</span> has length four, and <span class="process-math">\(\bs{0000110}\)</span> has length seven.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#rem_bit_strings_binary-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Remark 9.2.9: The connection between bit strings and binary integers"><a tabindex="-1" href="#rem_bit_strings_binary" title="Copy heading and permalink for Remark 9.2.9: The connection between bit strings and binary integers" aria-label="Copy heading and permalink for Remark 9.2.9: The connection between bit strings and binary integers">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Remark 9.2.10: The connection between bit strings and binary integers"><a tabindex="-1" href="#rem_bit_strings_binary" title="Copy heading and permalink for Remark 9.2.10: The connection between bit strings and binary integers" aria-label="Copy heading and permalink for Remark 9.2.10: The connection between bit strings and binary integers">🔗</a></div>
 </article>
-<div class="para" id="sub_binary-5">For binary, it is useful to know the powers of two as listed in <a href="sec_binary_hex.html#table_powers_2and16" class="xref" data-knowl="./knowl/xref/table_powers_2and16.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.2.10: Small powers of two and 16">Table 9.2.10</a>. (We have also included the powers of 16 that we need later for hexadecimal representation.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binary-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sub_binary-5">For binary, it is useful to know the powers of two as listed in <a href="sec_binary_hex.html#table_powers_2and16" class="xref" data-knowl="./knowl/xref/table_powers_2and16.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.2.11: Small powers of two and 16">Table 9.2.11</a>. (We have also included the powers of 16 that we need later for hexadecimal representation.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binary-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="table_powers_2and16"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Small powers of two and 16<div class="autopermalink" aria-hidden="true" data-description="Table 9.2.10: Small powers of two and 16"><a tabindex="-1" href="#table_powers_2and16" title="Copy heading and permalink for Table 9.2.10: Small powers of two and 16" aria-label="Copy heading and permalink for Table 9.2.10: Small powers of two and 16">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table_powers_2and16"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Small powers of two and 16<div class="autopermalink" aria-hidden="true" data-description="Table 9.2.11: Small powers of two and 16"><a tabindex="-1" href="#table_powers_2and16" title="Copy heading and permalink for Table 9.2.11: Small powers of two and 16" aria-label="Copy heading and permalink for Table 9.2.11: Small powers of two and 16">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(16^0=\)</span></td>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2^0=\)</span></td>
@@ -1476,13 +1501,13 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </figure>
 <div class="para" id="sub_binary-7">Let’s look at a few examples.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binary-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_binary_decimal" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between decimal and binary.</span>
-</h4></summary>
+<details id="exam_binary_decimal" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.12</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between decimal and binary.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_binary_decimal-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_binary_decimal-2-1-2">
+<ol class="lower-alpha" id="exam_binary_decimal-2-1-2">
 <li id="exam_binary_decimal-2-1-2-1">
 <div class="para" id="exam_binary_decimal-2-1-2-1-1">Convert <span class="process-math">\((\bs{10110})_2\)</span> to decimal. 
 <details id="exam_binary_decimal-2-1-2-1-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1528,16 +1553,16 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_binary_decimal-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.11: Conversion between decimal and binary"><a tabindex="-1" href="#exam_binary_decimal" title="Copy heading and permalink for Example 9.2.11: Conversion between decimal and binary" aria-label="Copy heading and permalink for Example 9.2.11: Conversion between decimal and binary">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.12: Conversion between decimal and binary"><a tabindex="-1" href="#exam_binary_decimal" title="Copy heading and permalink for Example 9.2.12: Conversion between decimal and binary" aria-label="Copy heading and permalink for Example 9.2.12: Conversion between decimal and binary">🔗</a></div>
 </article></details>
 <div class="para" id="sub_binary-9">It is your turn to practice.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binary-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_bin_decimal"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.B</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between decimal and binary.</span>
-</h4>
+<article class="activity project-like" id="act_bin_decimal"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between decimal and binary.</span>
+</h3>
 <div class="para logical" id="act_bin_decimal-2">
 <div class="para">Use the definition of binary to convert the representation of integers by hand. That means do not use other algorithms you might have learned or computational technology, except to check.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_bin_decimal-2-1">
+<ol class="lower-alpha" id="act_bin_decimal-2-1">
 <li id="act_bin_decimal-2-1-1">
 <div class="para" id="act_bin_decimal-2-1-1-1">Convert <span class="process-math">\((\bs{11100})_2\)</span> to decimal.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_bin_decimal-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1560,21 +1585,21 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.2.B: Binary  Representation"><a tabindex="-1" href="#sub_binary" title="Copy heading and permalink for Subsection 9.2.B: Binary  Representation" aria-label="Copy heading and permalink for Subsection 9.2.B: Binary  Representation">🔗</a></div>
 </section>
 <section class="subsection" id="sub_hex">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hexadecimal Representation</span>
-</h3>
+</h2>
 <div class="para" id="sub_hex-2">Another common base used in computer science is 16.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_hex-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_hex"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hexadecimal representation.</span>
-</h4>
+<article class="definition definition-like" id="defn_hex"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.14</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hexadecimal representation.</span>
+</h3>
 <div class="para logical" id="defn_hex-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_hex-2-1-2">
+<ol class="lower-alpha" id="defn_hex-2-1-2">
 <li id="defn_hex-2-1-2-1">
 <div class="para logical" id="defn_hex-2-1-2-1-1">
-<div class="para">In <dfn class="terminology">hexadecimal</dfn> (base 16) representation, the coefficients are  0, 1, 2, …, 15. Since the coefficients 10, 11, 12, 13, 14, and 15 are 2-digit numbers we use the letters <span class="process-math">\(\str{A}\text{,}\)</span> <span class="process-math">\(\str{B}\text{,}\)</span> <span class="process-math">\(\str{C}\text{,}\)</span> <span class="process-math">\(\str{D}\text{,}\)</span> <span class="process-math">\(\str{E}\text{,}\)</span> and <span class="process-math">\(\str{F}\)</span> in their place, as shown in <a href="sec_binary_hex.html#table_hex_letters" class="xref" data-knowl="./knowl/xref/table_hex_letters.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.2.13: Hexadecimal representation of 10, 11, 12, 13, 14, and 15">Table 9.2.13</a>. 
-<figure class="table table-like" id="table_hex_letters"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Hexadecimal representation of 10, 11, 12, 13, 14, and 15<div class="autopermalink" aria-hidden="true" data-description="Table 9.2.13: Hexadecimal representation of 10, 11, 12, 13, 14, and 15"><a tabindex="-1" href="#table_hex_letters" title="Copy heading and permalink for Table 9.2.13: Hexadecimal representation of 10, 11, 12, 13, 14, and 15" aria-label="Copy heading and permalink for Table 9.2.13: Hexadecimal representation of 10, 11, 12, 13, 14, and 15">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para">In <dfn class="terminology">hexadecimal</dfn> (base 16) representation, the coefficients are  0, 1, 2, …, 15. Since the coefficients 10, 11, 12, 13, 14, and 15 are 2-digit numbers we use the letters <span class="process-math">\(\str{A}\text{,}\)</span> <span class="process-math">\(\str{B}\text{,}\)</span> <span class="process-math">\(\str{C}\text{,}\)</span> <span class="process-math">\(\str{D}\text{,}\)</span> <span class="process-math">\(\str{E}\text{,}\)</span> and <span class="process-math">\(\str{F}\)</span> in their place, as shown in <a href="sec_binary_hex.html#table_hex_letters" class="xref" data-knowl="./knowl/xref/table_hex_letters.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.2.15: Hexadecimal representation of 10, 11, 12, 13, 14, and 15">Table 9.2.15</a>. 
+<figure class="table table-like" id="table_hex_letters"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Hexadecimal representation of 10, 11, 12, 13, 14, and 15<div class="autopermalink" aria-hidden="true" data-description="Table 9.2.15: Hexadecimal representation of 10, 11, 12, 13, 14, and 15"><a tabindex="-1" href="#table_hex_letters" title="Copy heading and permalink for Table 9.2.15: Hexadecimal representation of 10, 11, 12, 13, 14, and 15" aria-label="Copy heading and permalink for Table 9.2.15: Hexadecimal representation of 10, 11, 12, 13, 14, and 15">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines">integer</td>
 <td class="c m b0 r0 l0 t0 lines">10</td>
@@ -1628,17 +1653,17 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_hex-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 9.2.12: Hexadecimal representation"><a tabindex="-1" href="#defn_hex" title="Copy heading and permalink for Definition 9.2.12: Hexadecimal representation" aria-label="Copy heading and permalink for Definition 9.2.12: Hexadecimal representation">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 9.2.14: Hexadecimal representation"><a tabindex="-1" href="#defn_hex" title="Copy heading and permalink for Definition 9.2.14: Hexadecimal representation" aria-label="Copy heading and permalink for Definition 9.2.14: Hexadecimal representation">🔗</a></div>
 </article>
 <div class="para" id="sub_hex-4">Let’s look at a few examples.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_hex-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_hex_decimal" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between decimal and hexadecimal.</span>
-</h4></summary>
+<details id="exam_hex_decimal" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between decimal and hexadecimal.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_hex_decimal-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_hex_decimal-2-1-2">
+<ol class="lower-alpha" id="exam_hex_decimal-2-1-2">
 <li id="exam_hex_decimal-2-1-2-1">
 <div class="para" id="exam_hex_decimal-2-1-2-1-1">Convert <span class="process-math">\((\bs{A5F})_{16}\)</span> to decimal. 
 <details id="exam_hex_decimal-2-1-2-1-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1683,16 +1708,16 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_hex_decimal-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.14: Conversion between decimal and hexadecimal"><a tabindex="-1" href="#exam_hex_decimal" title="Copy heading and permalink for Example 9.2.14: Conversion between decimal and hexadecimal" aria-label="Copy heading and permalink for Example 9.2.14: Conversion between decimal and hexadecimal">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.16: Conversion between decimal and hexadecimal"><a tabindex="-1" href="#exam_hex_decimal" title="Copy heading and permalink for Example 9.2.16: Conversion between decimal and hexadecimal" aria-label="Copy heading and permalink for Example 9.2.16: Conversion between decimal and hexadecimal">🔗</a></div>
 </article></details>
 <div class="para" id="sub_hex-6">It is your turn to practice.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_hex-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_hex_decimal"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.C</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between decimal and hexadecimal.</span>
-</h4>
+<article class="activity project-like" id="act_hex_decimal"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between decimal and hexadecimal.</span>
+</h3>
 <div class="para logical" id="act_hex_decimal-2">
 <div class="para">Use the definition of hexadecimal to convert the representation of integers by hand. That means do not use other algorithms you might have learned or computational technology, except to check.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_hex_decimal-2-1">
+<ol class="lower-alpha" id="act_hex_decimal-2-1">
 <li id="act_hex_decimal-2-1-1">
 <div class="para" id="act_hex_decimal-2-1-1-1">Convert <span class="process-math">\((\bs{C8}_{16})\)</span> to decimal.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_hex_decimal-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1720,20 +1745,20 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.2.C: Hexadecimal Representation"><a tabindex="-1" href="#sub_hex" title="Copy heading and permalink for Subsection 9.2.C: Hexadecimal Representation" aria-label="Copy heading and permalink for Subsection 9.2.C: Hexadecimal Representation">🔗</a></div>
 </section>
 <section class="subsection" id="sub_hex_shorthand_binary">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hex as a Shorthand for Binary</span>
-</h3>
+</h2>
 <div class="para" id="sub_hex_shorthand_binary-2">We observed from <a href="sec_binary_hex.html#table_baseb_50" class="xref" data-knowl="./knowl/xref/table_baseb_50.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.2.4: Base b representations of the integer 50">Table 9.2.4</a> that the larger the base, the shorter the representation of an integer in that base. While binary is longer than base three, five, eight, or 10, hexadecimal is shorter than base three, five, eight, or 10. That is one reason why hexadecimal representation is used, because it helps compress data. But there is another reason. Hexadecimal is an easy-to-read shorthand for the often difficult-to-read binary. Let’s see an example of this shorthand.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_hex_shorthand_binary-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_hex_binary_conv" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Direct conversion between binary and hexadecimal.</span>
-</h4></summary>
+<details id="exam_hex_binary_conv" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Direct conversion between binary and hexadecimal.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_hex_binary_conv-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_hex_binary_conv-2-1-2">
+<ol class="lower-alpha" id="exam_hex_binary_conv-2-1-2">
 <li id="exam_hex_binary_conv-2-1-2-1">
-<div class="para" id="exam_hex_binary_conv-2-1-2-1-1">In <a href="sec_binary_hex.html#exam_hex_decimal" class="xref" data-knowl="./knowl/xref/exam_hex_decimal.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.2.14: Conversion between decimal and hexadecimal">Example 9.2.14</a> we saw that <span class="process-math">\(695 = (\bs{2B7})_{16}\text{.}\)</span> It turns out that <span class="process-math">\(695 = (\bs{1010110111})_2\text{.}\)</span> Explain how the hexadecimal and binary representations are related. 
+<div class="para" id="exam_hex_binary_conv-2-1-2-1-1">In <a href="sec_binary_hex.html#exam_hex_decimal" class="xref" data-knowl="./knowl/xref/exam_hex_decimal.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.2.16: Conversion between decimal and hexadecimal">Example 9.2.16</a> we saw that <span class="process-math">\(695 = (\bs{2B7})_{16}\text{.}\)</span> It turns out that <span class="process-math">\(695 = (\bs{1010110111})_2\text{.}\)</span> Explain how the hexadecimal and binary representations are related. 
 <details id="exam_hex_binary_conv-2-1-2-1-1-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exam_hex_binary_conv-2-1-2-1-1-4-1">
@@ -1795,16 +1820,16 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_hex_binary_conv-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.15: Direct conversion between binary and hexadecimal"><a tabindex="-1" href="#exam_hex_binary_conv" title="Copy heading and permalink for Example 9.2.15: Direct conversion between binary and hexadecimal" aria-label="Copy heading and permalink for Example 9.2.15: Direct conversion between binary and hexadecimal">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.2.18: Direct conversion between binary and hexadecimal"><a tabindex="-1" href="#exam_hex_binary_conv" title="Copy heading and permalink for Example 9.2.18: Direct conversion between binary and hexadecimal" aria-label="Copy heading and permalink for Example 9.2.18: Direct conversion between binary and hexadecimal">🔗</a></div>
 </article></details>
 <div class="para" id="sub_hex_shorthand_binary-4">It is your turn to practice.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_hex_shorthand_binary-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_bin_hex"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.D</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between binary and hexadecimal.</span>
-</h4>
+<article class="activity project-like" id="act_bin_hex"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between binary and hexadecimal.</span>
+</h3>
 <div class="para logical" id="act_bin_hex-2">
 <div class="para">In this problem use the definition of binary and hexadecimal to convert the representation of integers by hand. That means do not use other algorithms you might have learned or computational technology, except to check.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_bin_hex-2-1">
+<ol class="lower-alpha" id="act_bin_hex-2-1">
 <li id="act_bin_hex-2-1-1">
 <div class="para" id="act_bin_hex-2-1-1-1">Convert <span class="process-math">\((\bs{E7})_{16}\)</span> directly to binary. That means without converting to decimal first.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_bin_hex-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1822,23 +1847,23 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.2.D: Hex as a Shorthand for Binary"><a tabindex="-1" href="#sub_hex_shorthand_binary" title="Copy heading and permalink for Subsection 9.2.D: Hex as a Shorthand for Binary" aria-label="Copy heading and permalink for Subsection 9.2.D: Hex as a Shorthand for Binary">🔗</a></div>
 </section>
 <section class="subsection" id="sec_binary_hex-7">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.E</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
-</h3>
+</h2>
 <div class="para" id="sec_binary_hex-7-2">Many exercises in this section could be answered using a calculator or online resources. Since the purpose of the exercises is to help you understand the representation, please work out the solutions by hand and be sure to show work. Also, even if you know a simpler conversion algorithm, be sure to use the formal process outlined in this section.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_binary_hex-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 9.2.E: Exercises"><a tabindex="-1" href="#sec_binary_hex-7" title="Copy heading and permalink for Subsection 9.2.E: Exercises" aria-label="Copy heading and permalink for Subsection 9.2.E: Exercises">🔗</a></div>
 </section>
 <section class="subsection" id="sec_binary_hex-8">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.F</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 9.2.A Base <span class="process-math">\(b\)</span> Representation</span>
-</h3>
-<article class="exercise exercise-like" id="exer_conv_from_baseb"><h4 class="heading">
+</h2>
+<article class="exercise exercise-like" id="exer_conv_from_baseb"><h3 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_conv_from_baseb-2-1">
 <div class="para">Convert each integer to decimal.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_from_baseb-2-1-1">
+<ol class="lower-alpha" id="exer_conv_from_baseb-2-1-1">
 <li id="exer_conv_from_baseb-2-1-1-1">
 <div class="para" id="exer_conv_from_baseb-2-1-1-1-1">
 <span class="process-math">\(\displaystyle (21)_3\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_from_baseb-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1870,12 +1895,12 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 1: Practice"><a tabindex="-1" href="#exer_conv_from_baseb" title="  1: Practice" aria-label="  1: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_conv_to_baseb"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_conv_to_baseb"><h3 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_conv_to_baseb-2-1">
 <div class="para">Convert 45 into base <span class="process-math">\(b\)</span> where</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_to_baseb-2-1-2">
+<ol class="lower-alpha" id="exer_conv_to_baseb-2-1-2">
 <li id="exer_conv_to_baseb-2-1-2-1">
 <div class="para" id="exer_conv_to_baseb-2-1-2-1-1">
 <span class="process-math">\(\displaystyle b=3\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_to_baseb-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1900,7 +1925,7 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 <div class="solutions">
 <details id="exer_conv_to_baseb-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_to_baseb-3-1">
+<ol class="lower-alpha" id="exer_conv_to_baseb-3-1">
 <li id="exer_conv_to_baseb-3-1-1">
 <div class="para" id="exer_conv_to_baseb-3-1-1-1">
 <span class="process-math">\(\displaystyle (1200)_3\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_to_baseb-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1923,12 +1948,12 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 2: Practice"><a tabindex="-1" href="#exer_conv_to_baseb" title="  2: Practice" aria-label="  2: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_count_digits_100000_baseb"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_count_digits_100000_baseb"><h3 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_count_digits_100000_baseb-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_count_digits_100000_baseb-2-1-2">
+<ol class="lower-alpha" id="exer_count_digits_100000_baseb-2-1-2">
 <li id="exer_count_digits_100000_baseb-2-1-2-1">
 <div class="para" id="exer_count_digits_100000_baseb-2-1-2-1-1">How many digits are needed to represent 100,000 in base five? Hint: <span class="process-math">\(5^7 = 78125\)</span> and <span class="process-math">\(5^8=390625\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_count_digits_100000_baseb-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1944,12 +1969,12 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 3: Understand"><a tabindex="-1" href="#exer_count_digits_100000_baseb" title="  3: Understand" aria-label="  3: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_conv_from_bal3"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_conv_from_bal3"><h3 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_conv_from_bal3-2-1">
 <div class="para">Convert each integer to decimal.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_from_bal3-2-1-1">
+<ol class="lower-alpha" id="exer_conv_from_bal3-2-1-1">
 <li id="exer_conv_from_bal3-2-1-1-1">
 <div class="para" id="exer_conv_from_bal3-2-1-1-1-1">
 <span class="process-math">\(\displaystyle (+0+0)_{bal3}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_from_bal3-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1981,19 +2006,19 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 4: Understand"><a tabindex="-1" href="#exer_conv_from_bal3" title="  4: Understand" aria-label="  4: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_conv_to_bal3_1to10"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_conv_to_bal3_1to10"><h3 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h4>
+</h3>
 <div class="para" id="exer_conv_to_bal3_1to10-2-1">Convert each integer to balanced ternary representation: <span class="process-math">\(1, 2, 3, 4, 5, 6, 7, 8, 9, 10\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_to_bal3_1to10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 5: Understand"><a tabindex="-1" href="#exer_conv_to_bal3_1to10" title="  5: Understand" aria-label="  5: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_conv_to_bal3_larger"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_conv_to_bal3_larger"><h3 class="heading">
 <span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_conv_to_bal3_larger-2-1">
 <div class="para">Convert each integer to balanced ternary representation.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_to_bal3_larger-2-1-1">
+<ol class="lower-alpha" id="exer_conv_to_bal3_larger-2-1-1">
 <li id="exer_conv_to_bal3_larger-2-1-1-1">
 <div class="para" id="exer_conv_to_bal3_larger-2-1-1-1-1">20<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_to_bal3_larger-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2010,7 +2035,7 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 <div class="solutions">
 <details id="exer_conv_to_bal3_larger-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_to_bal3_larger-3-1">
+<ol class="lower-alpha" id="exer_conv_to_bal3_larger-3-1">
 <li id="exer_conv_to_bal3_larger-3-1-1">
 <div class="para" id="exer_conv_to_bal3_larger-3-1-1-1">Hint: The answer involves two <span class="process-math">\(+\)</span> and two <span class="process-math">\(-\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_to_bal3_larger-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2027,12 +2052,12 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 6: Understand"><a tabindex="-1" href="#exer_conv_to_bal3_larger" title="  6: Understand" aria-label="  6: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_base_rep"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_base_rep"><h3 class="heading">
 <span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_dyk_base_rep-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_base_rep-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_base_rep-2-1-2">
 <li id="exer_dyk_base_rep-2-1-2-1">
 <div class="para" id="exer_dyk_base_rep-2-1-2-1-1">How to convert between base <span class="process-math">\(b\)</span> and decimal using the definition of base <span class="process-math">\(b\)</span> representation, especially for <span class="process-math">\(b=\)</span> 3, 5, and 8?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_base_rep-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2058,9 +2083,9 @@ n=\sum_{i=0}^ka_i2^i = a_k2^k + \dots + a_32^ 3+a_22^2+a_12^1+a_02^0
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 7: Recap"><a tabindex="-1" href="#exer_dyk_base_rep" title="  7: Recap" aria-label="  7: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_divides_baseb"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_divides_baseb"><h3 class="heading">
 <span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_divides_baseb-2-1">
 <div class="para">Suppose the integer <span class="process-math">\(n\)</span> is written in base <span class="process-math">\(b\)</span> as</div>
 <div class="displaymath process-math" id="exer_divides_baseb-2-1-3">
@@ -2070,7 +2095,7 @@ n = a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 + a_1b + a_0
 </div>
 <div class="para">where each integer <span class="process-math">\(0 \le a_i \lt  b\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_divides_baseb-2-1-5">
+<ol class="lower-alpha" id="exer_divides_baseb-2-1-5">
 <li id="exer_divides_baseb-2-1-5-1">
 <div class="para" id="exer_divides_baseb-2-1-5-1-1">What is <span class="process-math">\(n \fn{ mod } b\text{?}\)</span> Explain your reasoning or show work.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_divides_baseb-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2092,7 +2117,7 @@ n = a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 + a_1b + a_0
 <div class="solutions">
 <details id="exer_divides_baseb-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_divides_baseb-3-1">
+<ol class="lower-alpha" id="exer_divides_baseb-3-1">
 <li id="part_mod_base">
 <div class="para" id="part_mod_base-1">
 <span class="process-math">\(\displaystyle a_0\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_mod_base-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2122,12 +2147,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 8: Explore"><a tabindex="-1" href="#exer_divides_baseb" title="  8: Explore" aria-label="  8: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_largest_baseb"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_largest_baseb"><h3 class="heading">
 <span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_largest_baseb-2-1">
 <div class="para">The results of this problem are used to prove the uniqueness of the base <span class="process-math">\(b\)</span> representation.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_largest_baseb-2-1-2">
+<ol class="lower-alpha" id="exer_largest_baseb-2-1-2">
 <li id="exer_largest_baseb-2-1-2-1">
 <div class="para" id="exer_largest_baseb-2-1-2-1-1">The largest integer we can represent in 3 digits in base 3 is <span class="process-math">\((222)_3\)</span> and in base 5 is <span class="process-math">\((444)_5\text{.}\)</span> Convert each of these integers to decimal.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_largest_baseb-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2150,15 +2175,15 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.2.F: Exercises for 9.2.A Base b Representation"><a tabindex="-1" href="#sec_binary_hex-8" title="Copy heading and permalink for Subsection 9.2.F: Exercises for 9.2.A Base b Representation" aria-label="Copy heading and permalink for Subsection 9.2.F: Exercises for 9.2.A Base b Representation">🔗</a></div>
 </section>
 <section class="subsection" id="sec_binary_hex-9">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.G</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 9.2.B Binary  Representation</span>
-</h3>
-<article class="exercise exercise-like" id="exer_conv_from_binary"><h4 class="heading">
+</h2>
+<article class="exercise exercise-like" id="exer_conv_from_binary"><h3 class="heading">
 <span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_conv_from_binary-2-1">
 <div class="para">Convert each integer to decimal.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_from_binary-2-1-1">
+<ol class="lower-alpha" id="exer_conv_from_binary-2-1-1">
 <li id="exer_conv_from_binary-2-1-1-1">
 <div class="para" id="exer_conv_from_binary-2-1-1-1-1">
 <span class="process-math">\(\displaystyle (\bs{1100})_2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_from_binary-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2183,7 +2208,7 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 <div class="solutions">
 <details id="exer_conv_from_binary-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_from_binary-3-1">
+<ol class="lower-alpha" id="exer_conv_from_binary-3-1">
 <li id="exer_conv_from_binary-3-1-1">
 <div class="para" id="exer_conv_from_binary-3-1-1-1">12<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_from_binary-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2205,12 +2230,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 10: Practice"><a tabindex="-1" href="#exer_conv_from_binary" title="  10: Practice" aria-label="  10: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_conv_to_binary"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_conv_to_binary"><h3 class="heading">
 <span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_conv_to_binary-2-1">
 <div class="para">Convert each integer to binary.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_to_binary-2-1-1">
+<ol class="lower-alpha" id="exer_conv_to_binary-2-1-1">
 <li id="exer_conv_to_binary-2-1-1-1">
 <div class="para" id="exer_conv_to_binary-2-1-1-1-1">17<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_to_binary-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2239,7 +2264,7 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 <div class="hint solution-like knowl__content">
 <div class="para logical" id="exer_conv_to_binary-3-1">
 <div class="para">Note: Show how to write each integer as a sum of distinct powers of two.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_to_binary-3-1-1">
+<ol class="lower-alpha" id="exer_conv_to_binary-3-1-1">
 <li id="exer_conv_to_binary-3-1-1-1">
 <div class="para" id="exer_conv_to_binary-3-1-1-1-1">
 <span class="process-math">\(\displaystyle (\bs{10001})_2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_to_binary-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2269,12 +2294,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 11: Practice"><a tabindex="-1" href="#exer_conv_to_binary" title="  11: Practice" aria-label="  11: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_count_bits_binary"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_count_bits_binary"><h3 class="heading">
 <span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_count_bits_binary-2-1">
-<div class="para">For each integer, determine how many bits are needed for the binary representation without finding the binary representation. Hint: Consult <a href="sec_binary_hex.html#table_powers_2and16" class="xref" data-knowl="./knowl/xref/table_powers_2and16.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.2.10: Small powers of two and 16">Table 9.2.10</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_count_bits_binary-2-1-2">
+<div class="para">For each integer, determine how many bits are needed for the binary representation without finding the binary representation. Hint: Consult <a href="sec_binary_hex.html#table_powers_2and16" class="xref" data-knowl="./knowl/xref/table_powers_2and16.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.2.11: Small powers of two and 16">Table 9.2.11</a>.</div>
+<ol class="lower-alpha" id="exer_count_bits_binary-2-1-2">
 <li id="exer_count_bits_binary-2-1-2-1">
 <div class="para" id="exer_count_bits_binary-2-1-2-1-1">100<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_count_bits_binary-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2298,7 +2323,7 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 <div class="hint solution-like knowl__content">
 <div class="para logical" id="exer_count_bits_binary-3-1">
 <div class="para">Make sure you explain how to count without converting.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_count_bits_binary-3-1-1">
+<ol class="lower-alpha" id="exer_count_bits_binary-3-1-1">
 <li id="exer_count_bits_binary-3-1-1-1">
 <div class="para" id="exer_count_bits_binary-3-1-1-1-1">Hint: The highest power of two less than 100 is <span class="process-math">\(64=2^6\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_count_bits_binary-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2322,12 +2347,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 12: Understand"><a tabindex="-1" href="#exer_count_bits_binary" title="  12: Understand" aria-label="  12: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_binary_rep"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_binary_rep"><h3 class="heading">
 <span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_dyk_binary_rep-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_binary_rep-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_binary_rep-2-1-2">
 <li id="exer_dyk_binary_rep-2-1-2-1">
 <div class="para" id="exer_dyk_binary_rep-2-1-2-1-1">What the values of <span class="process-math">\(2^0, 2^1, \ldots, 2^{10}\)</span> equal?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_binary_rep-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2348,9 +2373,9 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 13: Recap"><a tabindex="-1" href="#exer_dyk_binary_rep" title="  13: Recap" aria-label="  13: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_binary_alg_example"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_binary_alg_example"><h3 class="heading">
 <span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_binary_alg_example-2-1">
 <div class="para">Here’s an alternative way to find the binary representation of the integer 100.</div>
 <ul class="disc" id="exer_binary_alg_example-2-1-1">
@@ -2399,7 +2424,7 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div> 
 <div class="para logical" id="exer_binary_alg_example-2-2">
 <div class="para">Use this new process to find the binary representation of each integer. Be sure to show work.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_binary_alg_example-2-2-1">
+<ol class="lower-alpha" id="exer_binary_alg_example-2-2-1">
 <li id="exer_binary_alg_example-2-2-1-1">
 <div class="para" id="exer_binary_alg_example-2-2-1-1-1">17<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binary_alg_example-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2428,7 +2453,7 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 <div class="hint solution-like knowl__content">
 <div class="para logical" id="exer_binary_alg_example-3-1">
 <div class="para">Make sure to show how you are using the algorithm.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_binary_alg_example-3-1-1">
+<ol class="lower-alpha" id="exer_binary_alg_example-3-1-1">
 <li id="exer_binary_alg_example-3-1-1-1">
 <div class="para" id="exer_binary_alg_example-3-1-1-1-1">
 <span class="process-math">\(\displaystyle (\bs{10001})_2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binary_alg_example-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2453,19 +2478,19 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 14: Explore"><a tabindex="-1" href="#exer_binary_alg_example" title="  14: Explore" aria-label="  14: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_binary_alg_explain"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_binary_alg_explain"><h3 class="heading">
 <span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h4>
+</h3>
 <div class="para" id="exer_binary_alg_explain-2-1">Explain why the algorithm introduced in Exercise <a href="sec_binary_hex.html#exer_binary_alg_example" class="xref" data-knowl="./knowl/xref/exer_binary_alg_example.html" data-reveal-label="Reveal" data-close-label="Close" title=" 14: Explore">14</a> works in general.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binary_alg_explain-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 15: Explore"><a tabindex="-1" href="#exer_binary_alg_explain" title="  15: Explore" aria-label="  15: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_largest_binary"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_largest_binary"><h3 class="heading">
 <span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_largest_binary-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_largest_binary-2-1-2">
+<ol class="lower-alpha" id="exer_largest_binary-2-1-2">
 <li id="exer_largest_binary-2-1-2-1">
 <div class="para" id="exer_largest_binary-2-1-2-1-1">The largest integer we can represent in three bits in binary is <span class="process-math">\((\bs{111})_2\text{.}\)</span> Convert this integer to decimal.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_largest_binary-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2492,7 +2517,7 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 <div class="solutions">
 <details id="exer_largest_binary-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_largest_binary-3-1">
+<ol class="lower-alpha" id="exer_largest_binary-3-1">
 <li id="exer_largest_binary-3-1-1">
 <div class="para" id="exer_largest_binary-3-1-1-1">Hint: <span class="process-math">\(4+2+1\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_largest_binary-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2521,15 +2546,15 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.2.G: Exercises for 9.2.B Binary  Representation"><a tabindex="-1" href="#sec_binary_hex-9" title="Copy heading and permalink for Subsection 9.2.G: Exercises for 9.2.B Binary  Representation" aria-label="Copy heading and permalink for Subsection 9.2.G: Exercises for 9.2.B Binary  Representation">🔗</a></div>
 </section>
 <section class="subsection" id="sec_binary_hex-10">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.H</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 9.2.C Hexadecimal Representation</span>
-</h3>
-<article class="exercise exercise-like" id="exer_conv_from_hex"><h4 class="heading">
+</h2>
+<article class="exercise exercise-like" id="exer_conv_from_hex"><h3 class="heading">
 <span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_conv_from_hex-2-1">
 <div class="para">Convert each integer to decimal.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_from_hex-2-1-1">
+<ol class="lower-alpha" id="exer_conv_from_hex-2-1-1">
 <li id="exer_conv_from_hex-2-1-1-1">
 <div class="para" id="exer_conv_from_hex-2-1-1-1-1">
 <span class="process-math">\(\displaystyle (\bs{33})_{16}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_from_hex-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2554,7 +2579,7 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 <div class="solutions">
 <details id="exer_conv_from_hex-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_from_hex-3-1">
+<ol class="lower-alpha" id="exer_conv_from_hex-3-1">
 <li id="exer_conv_from_hex-3-1-1">
 <div class="para" id="exer_conv_from_hex-3-1-1-1">51<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_from_hex-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2576,12 +2601,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 17: Practice"><a tabindex="-1" href="#exer_conv_from_hex" title="  17: Practice" aria-label="  17: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_conv_to_hex"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_conv_to_hex"><h3 class="heading">
 <span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_conv_to_hex-2-1">
 <div class="para">Convert each integer to hexadecimal.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_to_hex-2-1-1">
+<ol class="lower-alpha" id="exer_conv_to_hex-2-1-1">
 <li id="exer_conv_to_hex-2-1-1-1">
 <div class="para" id="exer_conv_to_hex-2-1-1-1-1">17<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_to_hex-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2608,7 +2633,7 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 <div class="solutions">
 <details id="exer_conv_to_hex-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_to_hex-3-1">
+<ol class="lower-alpha" id="exer_conv_to_hex-3-1">
 <li id="exer_conv_to_hex-3-1-1">
 <div class="para" id="exer_conv_to_hex-3-1-1-1">
 <span class="process-math">\(\displaystyle (11)_{16}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_to_hex-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2636,12 +2661,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 18: Practice"><a tabindex="-1" href="#exer_conv_to_hex" title="  18: Practice" aria-label="  18: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_count_bits_hex"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_count_bits_hex"><h3 class="heading">
 <span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_count_bits_hex-2-1">
-<div class="para">For each integer, determine how many hex digits are needed for the hexadecimal representation without finding the hexadecimal representation. Hint: Consult <a href="sec_binary_hex.html#table_powers_2and16" class="xref" data-knowl="./knowl/xref/table_powers_2and16.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.2.10: Small powers of two and 16">Table 9.2.10</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_count_bits_hex-2-1-2">
+<div class="para">For each integer, determine how many hex digits are needed for the hexadecimal representation without finding the hexadecimal representation. Hint: Consult <a href="sec_binary_hex.html#table_powers_2and16" class="xref" data-knowl="./knowl/xref/table_powers_2and16.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.2.11: Small powers of two and 16">Table 9.2.11</a>.</div>
+<ol class="lower-alpha" id="exer_count_bits_hex-2-1-2">
 <li id="exer_count_bits_hex-2-1-2-1">
 <div class="para" id="exer_count_bits_hex-2-1-2-1-1">100<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_count_bits_hex-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2662,12 +2687,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 19: Understand"><a tabindex="-1" href="#exer_count_bits_hex" title="  19: Understand" aria-label="  19: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_hex_rep"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_hex_rep"><h3 class="heading">
 <span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_dyk_hex_rep-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_hex_rep-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_hex_rep-2-1-2">
 <li id="exer_dyk_hex_rep-2-1-2-1">
 <div class="para" id="exer_dyk_hex_rep-2-1-2-1-1">What the value of <span class="process-math">\(16^2\)</span> equals?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_hex_rep-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2688,12 +2713,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 20: Recap"><a tabindex="-1" href="#exer_dyk_hex_rep" title="  20: Recap" aria-label="  20: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_largest_hex"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_largest_hex"><h3 class="heading">
 <span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_largest_hex-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_largest_hex-2-1-2">
+<ol class="lower-alpha" id="exer_largest_hex-2-1-2">
 <li id="exer_largest_hex-2-1-2-1">
 <div class="para" id="exer_largest_hex-2-1-2-1-1">The largest integer we can represent in two hex digits in hexadecimal is <span class="process-math">\((\bs{FF})_{16}\text{.}\)</span> Convert this integer to decimal.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_largest_hex-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2719,12 +2744,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 21: Explore"><a tabindex="-1" href="#exer_largest_hex" title="  21: Explore" aria-label="  21: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_RBG_colors_hex"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_RBG_colors_hex"><h3 class="heading">
 <span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_RBG_colors_hex-2-1">
 <div class="para">Digital colors are represented in hex. The first two digits control the amount of red, from <span class="process-math">\((\bs{00})_{16}=0\)</span> (none) to <span class="process-math">\((\bs{FF})_{16}=255\)</span> (fully saturated). The next two digits control the amount of green, and the last two digits control the amount of blue.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_RBG_colors_hex-2-1-3">
+<ol class="lower-alpha" id="exer_RBG_colors_hex-2-1-3">
 <li id="exer_RBG_colors_hex-2-1-3-1">
 <div class="para" id="exer_RBG_colors_hex-2-1-3-1-1">Describe the color <span class="process-math">\(\bs{00FF00}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_RBG_colors_hex-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2752,15 +2777,15 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.2.H: Exercises for 9.2.C Hexadecimal Representation"><a tabindex="-1" href="#sec_binary_hex-10" title="Copy heading and permalink for Subsection 9.2.H: Exercises for 9.2.C Hexadecimal Representation" aria-label="Copy heading and permalink for Subsection 9.2.H: Exercises for 9.2.C Hexadecimal Representation">🔗</a></div>
 </section>
 <section class="subsection" id="sec_binary_hex-11">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.I</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 9.2.D Hex as a Shorthand for Binary</span>
-</h3>
-<article class="exercise exercise-like" id="exer_check_conv_bin_hex"><h4 class="heading">
+</h2>
+<article class="exercise exercise-like" id="exer_check_conv_bin_hex"><h3 class="heading">
 <span class="codenumber">23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_check_conv_bin_hex-2-1">
-<div class="para">In Exercise <a href="sec_binary_hex.html#exer_conv_to_binary" class="xref" data-knowl="./knowl/xref/exer_conv_to_binary.html" data-reveal-label="Reveal" data-close-label="Close" title=" 11: Practice">11</a> and Exercise <a href="sec_binary_hex.html#exer_conv_to_hex" class="xref" data-knowl="./knowl/xref/exer_conv_to_hex.html" data-reveal-label="Reveal" data-close-label="Close" title=" 18: Practice">18</a>, we wrote each of the following integers in both binary and hexadecimal representation. Confirm that the correspondence from <a href="sec_binary_hex.html#exam_hex_binary_conv" class="xref" data-knowl="./knowl/xref/exam_hex_binary_conv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.2.15: Direct conversion between binary and hexadecimal">Example 9.2.15</a> holds.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_check_conv_bin_hex-2-1-4">
+<div class="para">In Exercise <a href="sec_binary_hex.html#exer_conv_to_binary" class="xref" data-knowl="./knowl/xref/exer_conv_to_binary.html" data-reveal-label="Reveal" data-close-label="Close" title=" 11: Practice">11</a> and Exercise <a href="sec_binary_hex.html#exer_conv_to_hex" class="xref" data-knowl="./knowl/xref/exer_conv_to_hex.html" data-reveal-label="Reveal" data-close-label="Close" title=" 18: Practice">18</a>, we wrote each of the following integers in both binary and hexadecimal representation. Confirm that the correspondence from <a href="sec_binary_hex.html#exam_hex_binary_conv" class="xref" data-knowl="./knowl/xref/exam_hex_binary_conv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.2.18: Direct conversion between binary and hexadecimal">Example 9.2.18</a> holds.</div>
+<ol class="lower-alpha" id="exer_check_conv_bin_hex-2-1-4">
 <li id="exer_check_conv_bin_hex-2-1-4-1">
 <div class="para" id="exer_check_conv_bin_hex-2-1-4-1-1">17<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_check_conv_bin_hex-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2776,12 +2801,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 23: Practice"><a tabindex="-1" href="#exer_check_conv_bin_hex" title="  23: Practice" aria-label="  23: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_conv_binary_hex"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_conv_binary_hex"><h3 class="heading">
 <span class="codenumber">24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_conv_binary_hex-2-1">
-<div class="para">Complete these conversions directly, as in <a href="sec_binary_hex.html#exam_hex_binary_conv" class="xref" data-knowl="./knowl/xref/exam_hex_binary_conv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.2.15: Direct conversion between binary and hexadecimal">Example 9.2.15</a>, without using decimal representation.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_binary_hex-2-1-2">
+<div class="para">Complete these conversions directly, as in <a href="sec_binary_hex.html#exam_hex_binary_conv" class="xref" data-knowl="./knowl/xref/exam_hex_binary_conv.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.2.18: Direct conversion between binary and hexadecimal">Example 9.2.18</a>, without using decimal representation.</div>
+<ol class="lower-alpha" id="exer_conv_binary_hex-2-1-2">
 <li id="exer_conv_binary_hex-2-1-2-1">
 <div class="para" id="exer_conv_binary_hex-2-1-2-1-1">Convert <span class="process-math">\((\bs{E062A})_{16}\)</span> to binary.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_binary_hex-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2798,7 +2823,7 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 <div class="solutions">
 <details id="exer_conv_binary_hex-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_conv_binary_hex-3-1">
+<ol class="lower-alpha" id="exer_conv_binary_hex-3-1">
 <li id="exer_conv_binary_hex-3-1-1">
 <div class="para" id="exer_conv_binary_hex-3-1-1-1">Hint: There are eight <span class="process-math">\(\bs{1}\)</span> s in the answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_conv_binary_hex-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2815,12 +2840,12 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 24: Understand"><a tabindex="-1" href="#exer_conv_binary_hex" title="  24: Understand" aria-label="  24: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_bin_hex"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_bin_hex"><h3 class="heading">
 <span class="codenumber">25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_dyk_bin_hex-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_bin_hex-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_bin_hex-2-1-2">
 <li id="exer_dyk_bin_hex-2-1-2-1">
 <div class="para" id="exer_dyk_bin_hex-2-1-2-1-1">How to convert directly between binary and hexadecimal?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_bin_hex-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2836,9 +2861,9 @@ a_kb^k + a_{k-1}b^{k-1} + \ldots + a_2b^2 \fn{ mod } b = 0\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 25: Recap"><a tabindex="-1" href="#exer_dyk_bin_hex" title="  25: Recap" aria-label="  25: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_why_group4_binhex_works"><h4 class="heading">
+<article class="exercise exercise-like" id="exer_why_group4_binhex_works"><h3 class="heading">
 <span class="codenumber">26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h4>
+</h3>
 <div class="para logical" id="exer_why_group4_binhex_works-2-1">
 <div class="para">Consider the integer</div>
 <div class="displaymath process-math" id="exer_why_group4_binhex_works-2-1-1">

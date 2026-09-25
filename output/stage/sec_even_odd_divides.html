@@ -31,6 +31,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@ htmlPresentation: false,
 <meta property="og:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta property="book:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.46"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.53"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.53"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -61,21 +62,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1bda041f5a098305.css">
+<script src="_static/prefix-runtime.8b982cdcb4aa84b9.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.0499040fbb8ea56b.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></div>
 <p class="byline">Dr. Suzanne Dorée</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -88,7 +89,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -106,7 +117,7 @@ eBookConfig.enable_chatcodes =  false;
 <legend>Assistive technologies</legend>
 <label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
 </fieldset>
-<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="ch_number_theory.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_number_theory.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_div_alg.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="ch_number_theory-2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch_number_theory.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec_div_alg.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\newpara}{}
 \newcommand{\nats}{\mathbb{N}}
 \newcommand{\subcountawry}{\bf{When\ Counting\ Goes\ Awry}}  
@@ -273,7 +284,9 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_prologue.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue</span></a></div>
-<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_prologue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_handshakes.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Handshakes</span></a></div>
 <ul id="ptx-toc-group-sec_handshakes" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_handshakes.html#sec_handshakes-3" class="internal"><span class="codenumber">1.1.A</span> <span class="title">Counting Handshakes</span></a></div></li>
@@ -287,11 +300,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_counting.html" class="internal"><span class="codenumber">2</span> <span class="title">Listing and Counting</span></a></div>
 <ul id="ptx-toc-group-ch_counting" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_counting-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_listing.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Organized Listing</span></a></div>
 <ul id="ptx-toc-group-sec_listing" class="structural toc-item-list">
@@ -365,6 +380,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_graph_theory.html" class="internal"><span class="codenumber">3</span> <span class="title">Graph Theory</span></a></div>
 <ul id="ptx-toc-group-ch_graph_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_graph_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_graph_models.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Modeling with Graphs</span></a></div>
 <ul id="ptx-toc-group-sec_graph_models" class="structural toc-item-list">
@@ -450,6 +466,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch_number_theory.html" class="internal"><span class="codenumber">4</span> <span class="title">Number Theory</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch_number_theory">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_number_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section contains-active">
 <div class="toc-title-box"><a href="sec_even_odd_divides.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integer Division</span></a></div>
 <ul class="structural toc-item-list active" id="ptx-toc-group-sec_even_odd_divides">
@@ -537,6 +554,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_logic_proof.html" class="internal"><span class="codenumber">5</span> <span class="title">Logic and Proof</span></a></div>
 <ul id="ptx-toc-group-ch_logic_proof" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_logic_proof-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
@@ -633,6 +651,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_functions.html" class="internal"><span class="codenumber">6</span> <span class="title">Functions</span></a></div>
 <ul id="ptx-toc-group-ch_functions" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_functions-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_functions.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Functions and Their Representations</span></a></div>
 <ul id="ptx-toc-group-sec_functions" class="structural toc-item-list">
@@ -722,6 +741,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sets_rel.html" class="internal"><span class="codenumber">7</span> <span class="title">Sets and Relations</span></a></div>
 <ul id="ptx-toc-group-ch_sets_rel" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sets_rel-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_sets.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sets</span></a></div>
 <ul id="ptx-toc-group-sec_sets" class="structural toc-item-list">
@@ -806,6 +826,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_recursion_induction.html" class="internal"><span class="codenumber">8</span> <span class="title">Recursion and Induction</span></a></div>
 <ul id="ptx-toc-group-ch_recursion_induction" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_recursion_induction-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_recursively_defined_sequences.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Recursively-defined Sequences</span></a></div>
 <ul id="ptx-toc-group-sec_recursively_defined_sequences" class="structural toc-item-list">
@@ -893,6 +914,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sum_prod.html" class="internal"><span class="codenumber">9</span> <span class="title">Sums and Products</span></a></div>
 <ul id="ptx-toc-group-ch_sum_prod" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sum_prod-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_model_sum_prod.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Modeling with Sums and Products</span></a></div>
 <ul id="ptx-toc-group-sec_model_sum_prod" class="structural toc-item-list">
@@ -976,38 +998,41 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_epilogue.html" class="internal"><span class="codenumber">10</span> <span class="title">Epilogue</span></a></div>
-<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_epilogue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_hotelinfinity.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Hotel Infinity</span></a></div>
 <ul id="ptx-toc-group-sec_hotelinfinity" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_hotel_infinity" class="internal"><span class="codenumber">10.1.A</span> <span class="title">Hotel Infinity</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_countable" class="internal"><span class="codenumber">10.1.B</span> <span class="title">The Definition of Discrete</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec_even_odd_divides">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integer Division</span>
-</h2>
+</h1>
 <section class="introduction" id="sec_even_odd_divides-2">
 <div class="para" id="sec_even_odd_divides-2-1">In this section, we begin our exploration of integer division by discussing even and odd integers, divisors, and fractions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_even_odd_divides-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="sub_lockers">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Opening and Closing Lockers</span>
-</h3>
+</h2>
 <div class="para" id="sub_lockers-2">But first, a puzzle.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_lockers-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_lockers"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.A</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lockers Puzzle.</span>
-</h4>
+<article class="activity project-like" id="act_lockers"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lockers Puzzle.</span>
+</h3>
 <div class="para" id="act_lockers-2">At Perpetual High School, a never-ending line of students marches down a never-ending hallway of lockers. The first student opens each locker. The second student closes every other locker (002, 004, 006, etc.) The third student changes the state of every third locker, which means closing 003, opening 006, etc. And so on, with the <span class="process-math">\(d^{th}\)</span> student changing the state of every <span class="process-math">\(d^{\text{ th } }\)</span> locker.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_lockers-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig_lockers"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/fig_lockers-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The first few lockers at Perpetual High School.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.1.1"><a tabindex="-1" href="#fig_lockers" title="Copy heading and permalink for Figure 4.1.1" aria-label="Copy heading and permalink for Figure 4.1.1">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The first few lockers at Perpetual High School.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.1.2"><a tabindex="-1" href="#fig_lockers" title="Copy heading and permalink for Figure 4.1.2" aria-label="Copy heading and permalink for Figure 4.1.2">🔗</a></div></figcaption>
 </figure>
-<ol class="lower-alpha lower-alpha-level-1" id="act_lockers-4">
+<ol class="lower-alpha" id="act_lockers-4">
 <li id="act_lockers-4-1">
 <div class="para" id="act_lockers-4-1-1">Calculate the final state of each of the first ten lockers. Show some work.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_lockers-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1043,13 +1068,13 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sub_lockers-4">Be sure to complete <a href="sec_even_odd_divides.html#act_lockers" class="xref" data-knowl="./knowl/xref/act_lockers.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.1.A: Lockers Puzzle">Activity 4.1.A</a> because we are about to reveal some of the answers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_lockers-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_open_lockers" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Open lockers.</span>
-</h4></summary>
+<details id="exam_open_lockers" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Open lockers.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_open_lockers-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_open_lockers-2-1-2">
+<ol class="lower-alpha" id="exam_open_lockers-2-1-2">
 <li id="exam_open_lockers-2-1-2-1">
 <div class="para" id="exam_open_lockers-2-1-2-1-1">What is the final state of locker 99? Explain. 
 <details id="exam_open_lockers-2-1-2-1-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1086,13 +1111,13 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_open_lockers-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.2: Open lockers"><a tabindex="-1" href="#exam_open_lockers" title="Copy heading and permalink for Example 4.1.2: Open lockers" aria-label="Copy heading and permalink for Example 4.1.2: Open lockers">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.3: Open lockers"><a tabindex="-1" href="#exam_open_lockers" title="Copy heading and permalink for Example 4.1.3: Open lockers" aria-label="Copy heading and permalink for Example 4.1.3: Open lockers">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 4.1.A: Opening and Closing Lockers"><a tabindex="-1" href="#sub_lockers" title="Copy heading and permalink for Subsection 4.1.A: Opening and Closing Lockers" aria-label="Copy heading and permalink for Subsection 4.1.A: Opening and Closing Lockers">🔗</a></div>
 </section>
 <section class="subsection" id="sub_even_odd">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Even and Odd Integers</span>
-</h3>
+</h2>
 <div class="para logical" id="sub_even_odd-2">
 <div class="para">We have seen several situations in which it mattered whether an integer is even or odd. An odd number of bridges was problematic in solving the Bridges Puzzle in <a href="sec_graph_models.html#act_bridges" class="xref" data-knowl="./knowl/xref/act_bridges.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 3.1.A: Bridges Puzzle">Activity 3.1.A</a>. The chromatic number of the cycle <span class="process-math">\(C_s\)</span> and the wheels <span class="process-math">\(W_s\)</span> depended on whether <span class="process-math">\(s\)</span> was even or odd. In each of those examples, we recognize that an even integer is the sum of twos: on-off, on-off, …, on-off in the Bridges Puzzle or black-white, black-white, …, black-white in coloring a cycle. That is, <span class="process-math">\(n\)</span> is <dfn class="terminology">even</dfn> if we can write</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/act_bridges.html" id="sub_even_odd-2-9">
@@ -1103,12 +1128,12 @@ n = \underbrace{2 + 2 + 2 + \ldots + 2}_{k \text{ times } } = 2k\text{.}
 <div class="para">Equivalently, we can think of even integers as those that divide exactly in half. That is, <span class="process-math">\(n=k+k = 2k\text{.}\)</span> We state the formal definition.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_even_odd-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_even_odd"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Even and odd.</span>
-</h4>
+<article class="definition definition-like" id="defn_even_odd"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Even and odd.</span>
+</h3>
 <div class="para logical" id="defn_even_odd-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_even_odd-2-1-2">
+<ol class="lower-alpha" id="defn_even_odd-2-1-2">
 <li id="defn_even_odd-2-1-2-1">
 <div class="para" id="defn_even_odd-2-1-2-1-1">The integer <span class="process-math">\(n\)</span> is <dfn class="terminology">even</dfn> if <span class="process-math">\(n=2k\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> For example, 18 is even because <span class="process-math">\(18=2(9)\text{.}\)</span> If we wanted to be formal, we would say <span class="process-math">\(18=2k\)</span> where <span class="process-math">\(k=9\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_even_odd-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1122,17 +1147,17 @@ n = \underbrace{2 + 2 + 2 + \ldots + 2}_{k \text{ times } } = 2k\text{.}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_even_odd-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 4.1.3: Even and odd"><a tabindex="-1" href="#defn_even_odd" title="Copy heading and permalink for Definition 4.1.3: Even and odd" aria-label="Copy heading and permalink for Definition 4.1.3: Even and odd">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 4.1.4: Even and odd"><a tabindex="-1" href="#defn_even_odd" title="Copy heading and permalink for Definition 4.1.4: Even and odd" aria-label="Copy heading and permalink for Definition 4.1.4: Even and odd">🔗</a></div>
 </article>
 <div class="para" id="sub_even_odd-4">Here are some more general examples.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_even_odd-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_even_odd_general" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Even and odd, in general.</span>
-</h4></summary>
+<details id="exam_even_odd_general" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Even and odd, in general.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_even_odd_general-2-1">
 <div class="para">You probably know many facts about even and odd integers. In this example, we use only the definitions.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_even_odd_general-2-1-1">
+<ol class="lower-alpha" id="exam_even_odd_general-2-1-1">
 <li id="exam_even_odd_general-2-1-1-1">
 <div class="para" id="exam_even_odd_general-2-1-1-1-1">Use the definition of even to show that <span class="process-math">\(6t\)</span> is even for any integer <span class="process-math">\(t\text{.}\)</span> 
 <details id="exam_even_odd_general-2-1-1-1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1196,16 +1221,16 @@ n = \underbrace{2 + 2 + 2 + \ldots + 2}_{k \text{ times } } = 2k\text{.}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_even_odd_general-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.4: Even and odd, in general"><a tabindex="-1" href="#exam_even_odd_general" title="Copy heading and permalink for Example 4.1.4: Even and odd, in general" aria-label="Copy heading and permalink for Example 4.1.4: Even and odd, in general">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.5: Even and odd, in general"><a tabindex="-1" href="#exam_even_odd_general" title="Copy heading and permalink for Example 4.1.5: Even and odd, in general" aria-label="Copy heading and permalink for Example 4.1.5: Even and odd, in general">🔗</a></div>
 </article></details>
 <div class="para" id="sub_even_odd-6">Try working with these definitions. As before, you should not use facts that you might know about even and odd integers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_even_odd-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_even_odd"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.B</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Even and odd.</span>
-</h4>
+<article class="activity project-like" id="act_even_odd"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Even and odd.</span>
+</h3>
 <div class="para logical" id="act_even_odd-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_even_odd-2-2">
+<ol class="lower-alpha" id="act_even_odd-2-2">
 <li id="act_even_odd-2-2-1">
 <div class="para" id="act_even_odd-2-2-1-1">Use the definition of even to show that 34 is even.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_even_odd-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1238,13 +1263,13 @@ n = \underbrace{2 + 2 + 2 + \ldots + 2}_{k \text{ times } } = 2k\text{.}
 </article>
 <div class="para" id="sub_even_odd-8">In <a href="sec_even_odd_divides.html#act_even_odd" class="xref" data-knowl="./knowl/xref/act_even_odd.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.1.B: Even and odd">Activity 4.1.B</a> <a href="sec_even_odd_divides.html#part_0is_even" class="xref" data-knowl="./knowl/xref/part_0is_even.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (c)">(c)</a> we asked if zero is even, odd, both, or neither. A common incorrect answer is neither, perhaps because neither is the correct answer to a different question, namely is zero positive, negative, both, or neither? Let’s show that zero is even and not odd.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_even_odd-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_0is_even" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Zero is even.</span>
-</h4></summary>
+<details id="exam_0is_even" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Zero is even.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_0is_even-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_0is_even-2-1-2">
+<ol class="lower-alpha" id="exam_0is_even-2-1-2">
 <li id="exam_0is_even-2-1-2-1">
 <div class="para" id="exam_0is_even-2-1-2-1-1">Use the definition to show that zero is even. 
 <details id="exam_0is_even-2-1-2-1-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1270,16 +1295,16 @@ n = \underbrace{2 + 2 + 2 + \ldots + 2}_{k \text{ times } } = 2k\text{.}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_0is_even-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.5: Zero is even"><a tabindex="-1" href="#exam_0is_even" title="Copy heading and permalink for Example 4.1.5: Zero is even" aria-label="Copy heading and permalink for Example 4.1.5: Zero is even">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.7: Zero is even"><a tabindex="-1" href="#exam_0is_even" title="Copy heading and permalink for Example 4.1.7: Zero is even" aria-label="Copy heading and permalink for Example 4.1.7: Zero is even">🔗</a></div>
 </article></details>
-<div class="para" id="sub_even_odd-10">It turns out that every integer is even or odd and never both. We prove this result in <a href="sec_div_alg.html#exam_every_integer_even_or_odd" class="xref" data-knowl="./knowl/xref/exam_every_integer_even_or_odd.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.2.9: Every integer is even or odd">Example 4.2.9</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_even_odd-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sub_even_odd-10">It turns out that every integer is even or odd and never both. We prove this result in <a href="sec_div_alg.html#exam_every_integer_even_or_odd" class="xref" data-knowl="./knowl/xref/exam_every_integer_even_or_odd.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 4.2.11: Every integer is even or odd">Example 4.2.11</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_even_odd-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 4.1.B: Even and Odd Integers"><a tabindex="-1" href="#sub_even_odd" title="Copy heading and permalink for Subsection 4.1.B: Even and Odd Integers" aria-label="Copy heading and permalink for Subsection 4.1.B: Even and Odd Integers">🔗</a></div>
 </section>
 <section class="subsection" id="sub_divides">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divisibility</span>
-</h3>
+</h2>
 <div class="para logical" id="sub_divides-2">
 <div class="para">In the Lockers Puzzle <a href="sec_even_odd_divides.html#act_lockers" class="xref" data-knowl="./knowl/xref/act_lockers.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.1.A: Lockers Puzzle">Activity 4.1.A</a>, the <span class="process-math">\(d^{\text{ th } }\)</span> student touches locker <span class="process-math">\(d\text{,}\)</span> locker <span class="process-math">\(d+d=2d\text{,}\)</span> locker <span class="process-math">\(d+d+d=3d\text{,}\)</span> etc. In general, the <span class="process-math">\(d^{\text{ th } }\)</span> student touches locker <span class="process-math">\(n\)</span> when we can write</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/act_lockers.html" id="sub_divides-2-8">
@@ -1290,12 +1315,12 @@ n=\underbrace{d+d+ \ldots+d}_{k \text{ times } } =dk
 <div class="para">for some integer <span class="process-math">\(k\text{.}\)</span> We make this concept formal with another definition.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_divides-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_divides"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divides.</span>
-</h4>
+<article class="definition definition-like" id="defn_divides"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divides.</span>
+</h3>
 <div class="para logical" id="defn_divides-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_divides-2-1-2">
+<ol class="lower-alpha" id="defn_divides-2-1-2">
 <li id="defn_divides-2-1-2-1">
 <div class="para" id="defn_divides-2-1-2-1-1">The nonzero integer <span class="process-math">\(d\)</span> <dfn class="terminology">divides</dfn> integer <span class="process-math">\(n\text{,}\)</span> denoted <span class="process-math">\(d \mid n\text{,}\)</span> if <span class="process-math">\(n = dk\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> For example, 3 divides 15, denoted <span class="process-math">\(3 \mid 15\)</span> because <span class="process-math">\(15 = 3(5)\text{.}\)</span> Note also that <span class="process-math">\(3 \mid -15\)</span> because <span class="process-math">\(-15 = 3(-5)\)</span> and <span class="process-math">\(-3 \mid 15\)</span> because <span class="process-math">\(15 = -3(-5)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_divides-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1319,17 +1344,17 @@ n=\underbrace{d+d+ \ldots+d}_{k \text{ times } } =dk
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_divides-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 4.1.6: Divides"><a tabindex="-1" href="#defn_divides" title="Copy heading and permalink for Definition 4.1.6: Divides" aria-label="Copy heading and permalink for Definition 4.1.6: Divides">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 4.1.8: Divides"><a tabindex="-1" href="#defn_divides" title="Copy heading and permalink for Definition 4.1.8: Divides" aria-label="Copy heading and permalink for Definition 4.1.8: Divides">🔗</a></div>
 </article>
 <div class="para" id="sub_divides-4">Here are some more general examples.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_divides-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_divides_general" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divides, in general.</span>
-</h4></summary>
+<details id="exam_divides_general" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.9</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divides, in general.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_divides_general-2-1">
 <div class="para">You might know many facts about divisibility. In this example, we use only the definition.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_divides_general-2-1-1">
+<ol class="lower-alpha" id="exam_divides_general-2-1-1">
 <li id="part_65mult5">
 <div class="para" id="part_65mult5-1">Show that 65 is a multiple of 5. 
 <details id="part_65mult5-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1366,16 +1391,16 @@ n=\underbrace{d+d+ \ldots+d}_{k \text{ times } } =dk
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_divides_general-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.7: Divides, in general"><a tabindex="-1" href="#exam_divides_general" title="Copy heading and permalink for Example 4.1.7: Divides, in general" aria-label="Copy heading and permalink for Example 4.1.7: Divides, in general">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.9: Divides, in general"><a tabindex="-1" href="#exam_divides_general" title="Copy heading and permalink for Example 4.1.9: Divides, in general" aria-label="Copy heading and permalink for Example 4.1.9: Divides, in general">🔗</a></div>
 </article></details>
 <div class="para" id="sub_divides-6">It is your turn to practice with divides.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_divides-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_divides"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.C</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divides.</span>
-</h4>
+<article class="activity project-like" id="act_divides"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divides.</span>
+</h3>
 <div class="para logical" id="act_divides-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_divides-2-2">
+<ol class="lower-alpha" id="act_divides-2-2">
 <li id="act_divides-2-2-1">
 <div class="para" id="act_divides-2-2-1-1">List the divisors of 12. Note: do not forget the negative divisors.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_divides-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1418,18 +1443,18 @@ n=\underbrace{d+d+ \ldots+d}_{k \text{ times } } =dk
 </article>
 <div class="para" id="sub_divides-8">You may have heard, correctly, that we cannot divide by zero. Let’s take a closer look at <a href="sec_even_odd_divides.html#act_divides" class="xref" data-knowl="./knowl/xref/act_divides.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.1.C: Divides">Activity 4.1.C</a> <a href="sec_even_odd_divides.html#part_does_0dividen" class="xref" data-knowl="./knowl/xref/part_does_0dividen.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (f)">(f)</a> and <a href="sec_even_odd_divides.html#part_does_ndivide0" class="xref" data-knowl="./knowl/xref/part_does_ndivide0.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (g)">(g)</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_divides-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_cannot_divide_by0" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">You cannot divide by zero.</span>
-</h4></summary>
+<details id="exam_cannot_divide_by0" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.11</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">You cannot divide by zero.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_cannot_divide_by0-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_cannot_divide_by0-2-1-2">
+<ol class="lower-alpha" id="exam_cannot_divide_by0-2-1-2">
 <li id="exam_cannot_divide_by0-2-1-2-1">
 <div class="para" id="exam_cannot_divide_by0-2-1-2-1-1">Can we divide by zero? That is, is zero a divisor of any integer? Explain. 
 <details id="exam_cannot_divide_by0-2-1-2-1-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_cannot_divide_by0-2-1-2-1-1-1-1">We are asking if <span class="process-math">\(0 \mid n\)</span> for any integer <span class="process-math">\(n\text{.}\)</span> In <a href="sec_even_odd_divides.html#defn_divides" class="xref" data-knowl="./knowl/xref/defn_divides.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.1.6: Divides">Definition 4.1.6</a> we did not allow the divisor <span class="process-math">\(d\)</span> to be zero, so the answer is no. The reason we excluded zero is because if <span class="process-math">\(n = 0(k) =0\)</span> for some integer <span class="process-math">\(k\text{,}\)</span> then the only possibility is <span class="process-math">\(n=0\text{.}\)</span> Therefore, it is impossible for zero to divide any nonzero integer. We also do not allow zero to divide itself either. The answer is no.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_cannot_divide_by0-2-1-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_cannot_divide_by0-2-1-2-1-1-1-1">We are asking if <span class="process-math">\(0 \mid n\)</span> for any integer <span class="process-math">\(n\text{.}\)</span> In <a href="sec_even_odd_divides.html#defn_divides" class="xref" data-knowl="./knowl/xref/defn_divides.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.1.8: Divides">Definition 4.1.8</a> we did not allow the divisor <span class="process-math">\(d\)</span> to be zero, so the answer is no. The reason we excluded zero is because if <span class="process-math">\(n = 0(k) =0\)</span> for some integer <span class="process-math">\(k\text{,}\)</span> then the only possibility is <span class="process-math">\(n=0\text{.}\)</span> Therefore, it is impossible for zero to divide any nonzero integer. We also do not allow zero to divide itself either. The answer is no.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_cannot_divide_by0-2-1-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_cannot_divide_by0-2-1-2-1-1-1" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_cannot_divide_by0-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1450,21 +1475,21 @@ n=\underbrace{d+d+ \ldots+d}_{k \text{ times } } =dk
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_cannot_divide_by0-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.8: You cannot divide by zero"><a tabindex="-1" href="#exam_cannot_divide_by0" title="Copy heading and permalink for Example 4.1.8: You cannot divide by zero" aria-label="Copy heading and permalink for Example 4.1.8: You cannot divide by zero">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.11: You cannot divide by zero"><a tabindex="-1" href="#exam_cannot_divide_by0" title="Copy heading and permalink for Example 4.1.11: You cannot divide by zero" aria-label="Copy heading and permalink for Example 4.1.11: You cannot divide by zero">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 4.1.C: Divisibility"><a tabindex="-1" href="#sub_divides" title="Copy heading and permalink for Subsection 4.1.C: Divisibility" aria-label="Copy heading and permalink for Subsection 4.1.C: Divisibility">🔗</a></div>
 </section>
 <section class="subsection" id="sub_fractions">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Algebra: Equivalent Fractions</span>
-</h3>
+</h2>
 <div class="para" id="sub_fractions-2">When we divide one integer by another (nonzero) integer, sometimes we get an integer, but sometimes we get a fraction (rational number) that is not an integer. Here is the formal definition.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fractions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_fraction_rational"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fraction (rational number).</span>
-</h4>
+<article class="definition definition-like" id="defn_fraction_rational"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.12</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fraction (rational number).</span>
+</h3>
 <div class="para logical" id="defn_fraction_rational-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_fraction_rational-2-1-2">
+<ol class="lower-alpha" id="defn_fraction_rational-2-1-2">
 <li id="defn_fraction_rational-2-1-2-1">
 <div class="para logical" id="defn_fraction_rational-2-1-2-1-1">
 <div class="para">For integer <span class="process-math">\(n\)</span> and nonzero integer <span class="process-math">\(d\text{,}\)</span> the <dfn class="terminology">fraction</dfn> (or <dfn class="terminology">rational number</dfn>) is the number we get by dividing <span class="process-math">\(n\)</span> by <span class="process-math">\(d\text{,}\)</span> meaning</div>
@@ -1514,26 +1539,26 @@ n=\underbrace{d+d+ \ldots+d}_{k \text{ times } } =dk
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_fraction_rational-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 4.1.9: Fraction (rational number)"><a tabindex="-1" href="#defn_fraction_rational" title="Copy heading and permalink for Definition 4.1.9: Fraction (rational number)" aria-label="Copy heading and permalink for Definition 4.1.9: Fraction (rational number)">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 4.1.12: Fraction (rational number)"><a tabindex="-1" href="#defn_fraction_rational" title="Copy heading and permalink for Definition 4.1.12: Fraction (rational number)" aria-label="Copy heading and permalink for Definition 4.1.12: Fraction (rational number)">🔗</a></div>
 </article>
 <div class="para" id="sub_fractions-4">There is a connection between divides and fractions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fractions-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="remark remark-like" id="rem_fractions_divides"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fractions and divisibility.</span>
-</h4>
+<article class="remark remark-like" id="rem_fractions_divides"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.13</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fractions and divisibility.</span>
+</h3>
 <div class="para" id="rem_fractions_divides-2">Let <span class="process-math">\(d\)</span> and <span class="process-math">\(n\)</span> be integers with <span class="process-math">\(d\neq 0\text{.}\)</span> Then <span class="process-math">\(d \mid n\)</span> exactly when <span class="process-math">\(\frac{n}{d}\)</span> is an integer. Although we have this connection between fractions and divisibility, it is customary to avoid referencing fractions when working with divides.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#rem_fractions_divides-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Remark 4.1.10: Fractions and divisibility"><a tabindex="-1" href="#rem_fractions_divides" title="Copy heading and permalink for Remark 4.1.10: Fractions and divisibility" aria-label="Copy heading and permalink for Remark 4.1.10: Fractions and divisibility">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Remark 4.1.13: Fractions and divisibility"><a tabindex="-1" href="#rem_fractions_divides" title="Copy heading and permalink for Remark 4.1.13: Fractions and divisibility" aria-label="Copy heading and permalink for Remark 4.1.13: Fractions and divisibility">🔗</a></div>
 </article>
 <div class="para" id="sub_fractions-6">Every fraction has (infinitely) many different names. We often want to write a fraction in its simplest form. Other times, it is useful to write a fraction with a denominator such that the fraction is not in its simplest form– for example, to add, subtract, or compare fractions. The next theorem verifies both operations.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fractions-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_equal_fractions"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equal fractions.</span>
-</h4>
+<article class="theorem theorem-like" id="thm_equal_fractions"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.14</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equal fractions.</span>
+</h3>
 <div class="para logical" id="thm_equal_fractions-2-1">
 <div class="para">For integer <span class="process-math">\(n\)</span> and nonzero integers <span class="process-math">\(d\)</span> and <span class="process-math">\(c\text{,}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="thm_equal_fractions-2-1-4">
+<ol class="lower-alpha" id="thm_equal_fractions-2-1-4">
 <li id="part_thm_common_denom">
 <div class="para logical" id="part_thm_common_denom-1">
 <div class="para">If we multiply the numerator and denominator of a fraction by a nonzero integer, the resulting fraction is equal to the original fraction, namely</div>
@@ -1561,9 +1586,9 @@ n=\underbrace{d+d+ \ldots+d}_{k \text{ times } } =dk
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_equal_fractions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 4.1.11: Equal fractions"><a tabindex="-1" href="#thm_equal_fractions" title="Copy heading and permalink for Theorem 4.1.11: Equal fractions" aria-label="Copy heading and permalink for Theorem 4.1.11: Equal fractions">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 4.1.14: Equal fractions"><a tabindex="-1" href="#thm_equal_fractions" title="Copy heading and permalink for Theorem 4.1.14: Equal fractions" aria-label="Copy heading and permalink for Theorem 4.1.14: Equal fractions">🔗</a></div>
 </article>
-<details id="thm_equal_fractions-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
+<details id="thm_equal_fractions-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary>
 <article class="hiddenproof knowl__content">
 <div class="para logical" id="thm_equal_fractions-3-1">
 <div class="para">Let <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(d\text{,}\)</span> and <span class="process-math">\(c \neq 0\)</span> be integers. By the commutative and associative properties,</div>
@@ -1572,7 +1597,7 @@ n=\underbrace{d+d+ \ldots+d}_{k \text{ times } } =dk
 n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 \end{equation*}
 </div>
-<div class="para">and so, by <a href="sec_even_odd_divides.html#defn_fraction_rational" class="xref" data-knowl="./knowl/xref/defn_fraction_rational.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.1.9: Fraction (rational number)">Definition 4.1.9</a> <a href="sec_even_odd_divides.html#part_defn_equal_fractions" class="xref" data-knowl="./knowl/xref/part_defn_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (d)">(d)</a>,</div>
+<div class="para">and so, by <a href="sec_even_odd_divides.html#defn_fraction_rational" class="xref" data-knowl="./knowl/xref/defn_fraction_rational.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 4.1.12: Fraction (rational number)">Definition 4.1.12</a> <a href="sec_even_odd_divides.html#part_defn_equal_fractions" class="xref" data-knowl="./knowl/xref/part_defn_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (d)">(d)</a>,</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/defn_fraction_rational.html ./knowl/xref/part_defn_equal_fractions.html ./knowl/xref/part_thm_common_denom.html ./knowl/xref/part_thm_reduce_fraction.html" id="thm_equal_fractions-3-1-7">
 \begin{equation*}
 \frac{n}{d} =  \frac{c(n)}{c(d)}\text{,}
@@ -1581,23 +1606,23 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="para">as in <a href="sec_even_odd_divides.html#part_thm_common_denom" class="xref" data-knowl="./knowl/xref/part_thm_common_denom.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a>. Note that <a href="sec_even_odd_divides.html#part_thm_reduce_fraction" class="xref" data-knowl="./knowl/xref/part_thm_reduce_fraction.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (b)">(b)</a> is the same equation read right-to-left instead.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_equal_fractions-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Proof 4.1.11.1"><a tabindex="-1" href="#thm_equal_fractions-3" title="Copy heading and permalink for Proof 4.1.11.1" aria-label="Copy heading and permalink for Proof 4.1.11.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Proof 4.1.14.1"><a tabindex="-1" href="#thm_equal_fractions-3" title="Copy heading and permalink for Proof 4.1.14.1" aria-label="Copy heading and permalink for Proof 4.1.14.1">🔗</a></div>
 </article></details>
 <div class="para" id="sub_fractions-8">Let’s see this theorem in action.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fractions-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_equal_fractions" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equal fractions.</span>
-</h4></summary>
+<details id="exam_equal_fractions" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.15</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equal fractions.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_equal_fractions-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_equal_fractions-2-1-2">
+<ol class="lower-alpha" id="exam_equal_fractions-2-1-2">
 <li id="part_twofifths">
 <div class="para" id="part_twofifths-1">Write <span class="process-math">\(\frac{2}{5}\)</span> as a fraction with denominator 15. 
 <details id="part_twofifths-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="part_twofifths-1-2-1">
-<div class="para">Since <span class="process-math">\(15=3 \times 5\text{,}\)</span> we can use <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.11: Equal fractions">Theorem 4.1.11</a> to multiply top and bottom of the fraction by three to get</div>
+<div class="para">Since <span class="process-math">\(15=3 \times 5\text{,}\)</span> we can use <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.14: Equal fractions">Theorem 4.1.14</a> to multiply top and bottom of the fraction by three to get</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_equal_fractions.html" id="part_twofifths-1-2-1-3">
 \begin{equation*}
 \frac{2}{5} =\frac{3(2)}{3(5)} =\frac{6}{15}
@@ -1615,7 +1640,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <details id="exam_equal_fractions-2-1-2-2-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exam_equal_fractions-2-1-2-2-1-3-1">
-<div class="para">We can write each fraction with <dfn class="terminology">common denominator</dfn> <span class="process-math">\(3 \times 5 = 15\text{.}\)</span> In part <a href="sec_even_odd_divides.html#part_twofifths" class="xref" data-knowl="./knowl/xref/part_twofifths.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a>, we found <span class="process-math">\(\frac{2}{5} =\frac{6}{15}\text{.}\)</span> Similarly, we can use <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.11: Equal fractions">Theorem 4.1.11</a> to multiply top and bottom of the fraction <span class="process-math">\(\frac{1}{3}\)</span> by five to get:</div>
+<div class="para">We can write each fraction with <dfn class="terminology">common denominator</dfn> <span class="process-math">\(3 \times 5 = 15\text{.}\)</span> In part <a href="sec_even_odd_divides.html#part_twofifths" class="xref" data-knowl="./knowl/xref/part_twofifths.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a>, we found <span class="process-math">\(\frac{2}{5} =\frac{6}{15}\text{.}\)</span> Similarly, we can use <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.14: Equal fractions">Theorem 4.1.14</a> to multiply top and bottom of the fraction <span class="process-math">\(\frac{1}{3}\)</span> by five to get:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/part_twofifths.html ./knowl/xref/thm_equal_fractions.html" id="exam_equal_fractions-2-1-2-2-1-3-1-7">
 \begin{equation*}
 \frac{1}{3} =\frac{5(1)}{5(3)} =\frac{5}{15}\text{.}
@@ -1635,7 +1660,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <details id="exam_equal_fractions-2-1-2-3-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exam_equal_fractions-2-1-2-3-1-2-1">
-<div class="para">Notice that <span class="process-math">\(4 \mid 24\)</span> and <span class="process-math">\(4 \mid 100\text{.}\)</span> By <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.11: Equal fractions">Theorem 4.1.11</a> we have</div>
+<div class="para">Notice that <span class="process-math">\(4 \mid 24\)</span> and <span class="process-math">\(4 \mid 100\text{.}\)</span> By <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.14: Equal fractions">Theorem 4.1.14</a> we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_equal_fractions.html" id="exam_equal_fractions-2-1-2-3-1-2-1-4">
 \begin{equation*}
 \frac{24}{100} = \frac{4(6)}{4(25)}= \frac{6}{25}\text{.}
@@ -1653,16 +1678,16 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_equal_fractions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.12: Equal fractions"><a tabindex="-1" href="#exam_equal_fractions" title="Copy heading and permalink for Example 4.1.12: Equal fractions" aria-label="Copy heading and permalink for Example 4.1.12: Equal fractions">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.15: Equal fractions"><a tabindex="-1" href="#exam_equal_fractions" title="Copy heading and permalink for Example 4.1.15: Equal fractions" aria-label="Copy heading and permalink for Example 4.1.15: Equal fractions">🔗</a></div>
 </article></details>
 <div class="para" id="sub_fractions-10">The concept of a fraction that cannot be further reduced has a formal name.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fractions-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_lowest_terms"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lowest terms.</span>
-</h4>
+<article class="definition definition-like" id="defn_lowest_terms"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Lowest terms.</span>
+</h3>
 <div class="para logical" id="defn_lowest_terms-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_lowest_terms-2-1-2">
+<ol class="lower-alpha" id="defn_lowest_terms-2-1-2">
 <li id="defn_lowest_terms-2-1-2-1">
 <div class="para" id="defn_lowest_terms-2-1-2-1-1">The integers <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> are <dfn class="terminology">coprime</dfn> (or <dfn class="terminology">relatively prime</dfn>) if the only common positive divisor of <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> is the integer 1. For example, 6 has positive divisors 1, 2, 3, and 6 whereas 25 has positive divisors 1, 5, and 25 so their only common positive divisor is 1. Therefore, 6 and 25 are coprime.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_lowest_terms-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1676,23 +1701,23 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_lowest_terms-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 4.1.13: Lowest terms"><a tabindex="-1" href="#defn_lowest_terms" title="Copy heading and permalink for Definition 4.1.13: Lowest terms" aria-label="Copy heading and permalink for Definition 4.1.13: Lowest terms">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 4.1.16: Lowest terms"><a tabindex="-1" href="#defn_lowest_terms" title="Copy heading and permalink for Definition 4.1.16: Lowest terms" aria-label="Copy heading and permalink for Definition 4.1.16: Lowest terms">🔗</a></div>
 </article>
 <div class="para" id="sub_fractions-12">We revisit the concept of coprime in <a href="sec_gcd.html" class="internal" title="Section 4.5: Greatest Common Divisor">Section 4.5</a>. Let’s practice reducing fractions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fractions-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_equiv_fractions"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.D</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equivalent fractions.</span>
-</h4>
+<article class="activity project-like" id="act_equiv_fractions"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equivalent fractions.</span>
+</h3>
 <div class="para logical" id="act_equiv_fractions-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_equiv_fractions-2-2">
+<ol class="lower-alpha" id="act_equiv_fractions-2-2">
 <li id="act_equiv_fractions-2-2-1">
 <div class="para" id="act_equiv_fractions-2-2-1-1">Reduce <span class="process-math">\(\displaystyle \frac{15}{70}\)</span> to lowest terms.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_equiv_fractions-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (a)"><a tabindex="-1" href="#act_equiv_fractions-2-2-1" title="Copy heading and permalink for Item (a)" aria-label="Copy heading and permalink for Item (a)">🔗</a></div>
 </li>
 <li id="act_equiv_fractions-2-2-2">
-<div class="para" id="act_equiv_fractions-2-2-2-1">Reduce <span class="process-math">\(\displaystyle\frac{5!}{6!}\)</span> to lowest terms. Hint: Use the definition of factorial <a href="sec_counting_steps_cases.html#defn_factorial" class="xref" data-knowl="./knowl/xref/defn_factorial.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.16: Factorial">Definition 2.2.16</a> and cancel before multiplying.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_equiv_fractions-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="act_equiv_fractions-2-2-2-1">Reduce <span class="process-math">\(\displaystyle\frac{5!}{6!}\)</span> to lowest terms. Hint: Use the definition of factorial <a href="sec_counting_steps_cases.html#defn_factorial" class="xref" data-knowl="./knowl/xref/defn_factorial.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.19: Factorial">Definition 2.2.19</a> and cancel before multiplying.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_equiv_fractions-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (b)"><a tabindex="-1" href="#act_equiv_fractions-2-2-2" title="Copy heading and permalink for Item (b)" aria-label="Copy heading and permalink for Item (b)">🔗</a></div>
 </li>
@@ -1707,7 +1732,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="autopermalink" aria-hidden="true" data-description="Item (d)"><a tabindex="-1" href="#act_equiv_fractions-2-2-4" title="Copy heading and permalink for Item (d)" aria-label="Copy heading and permalink for Item (d)">🔗</a></div>
 </li>
 <li id="act_equiv_fractions-2-2-5">
-<div class="para" id="act_equiv_fractions-2-2-5-1">Reduce <span class="process-math">\(\displaystyle\frac{2^3}{2^5}\)</span> to lowest terms. Hint: Use the definition of exponential notation <a href="sec_bit_strings.html#defn_exp_notation" class="xref" data-knowl="./knowl/xref/defn_exp_notation.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.4.12: Exponential notation">Definition 2.4.12</a> and cancel before multiplying.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_equiv_fractions-2-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="act_equiv_fractions-2-2-5-1">Reduce <span class="process-math">\(\displaystyle\frac{2^3}{2^5}\)</span> to lowest terms. Hint: Use the definition of exponential notation <a href="sec_bit_strings.html#defn_exp_notation" class="xref" data-knowl="./knowl/xref/defn_exp_notation.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.4.15: Exponential notation">Definition 2.4.15</a> and cancel before multiplying.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_equiv_fractions-2-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (e)"><a tabindex="-1" href="#act_equiv_fractions-2-2-5" title="Copy heading and permalink for Item (e)" aria-label="Copy heading and permalink for Item (e)">🔗</a></div>
 </li>
@@ -1733,13 +1758,13 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </article>
 <div class="para" id="sub_fractions-14">We look at a few examples similar to <a href="sec_sum_proofs.html#act_fractions" class="xref" data-knowl="./knowl/xref/act_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.5.D: Fractions">Activity 9.5.D</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fractions-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_equiv_fractions" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equivalent fractions.</span>
-</h4></summary>
+<details id="exam_equiv_fractions" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equivalent fractions.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_equiv_fractions-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_equiv_fractions-2-1-2">
+<ol class="lower-alpha" id="exam_equiv_fractions-2-1-2">
 <li id="exam_equiv_fractions-2-1-2-1">
 <div class="para" id="exam_equiv_fractions-2-1-2-1-1">Reduce <span class="process-math">\(\displaystyle\frac{48!}{50!}\)</span> to lowest terms. 
 <details id="exam_equiv_fractions-2-1-2-1-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1764,7 +1789,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="para" id="part_3string_letters-1">How many strings of three uppercase letters are there if we cannot repeat letters? 
 <details id="part_3string_letters-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_3string_letters-1-1-1">Think of filling in three spaces with uppercase letters. The first space can be any of the 26 uppercase letters. Because repeats are not allowed, the second space can be any of the 25 remaining uppercase letters, and the third space can be any of the 24 remaining uppercase letters. Since steps multiply <a href="sec_counting_steps_cases.html#thm_steps_multiply" class="xref" data-knowl="./knowl/xref/thm_steps_multiply.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.2: Steps multiply">Theorem 2.2.2</a>, the answer is <span class="process-math">\((26)(25)(24)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_3string_letters-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_3string_letters-1-1-1">Think of filling in three spaces with uppercase letters. The first space can be any of the 26 uppercase letters. Because repeats are not allowed, the second space can be any of the 25 remaining uppercase letters, and the third space can be any of the 24 remaining uppercase letters. Since steps multiply <a href="sec_counting_steps_cases.html#thm_steps_multiply" class="xref" data-knowl="./knowl/xref/thm_steps_multiply.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.3: Steps multiply">Theorem 2.2.3</a>, the answer is <span class="process-math">\((26)(25)(24)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_3string_letters-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#part_3string_letters-1-1" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_3string_letters-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1832,20 +1857,20 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_equiv_fractions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.14: Equivalent fractions"><a tabindex="-1" href="#exam_equiv_fractions" title="Copy heading and permalink for Example 4.1.14: Equivalent fractions" aria-label="Copy heading and permalink for Example 4.1.14: Equivalent fractions">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.1.18: Equivalent fractions"><a tabindex="-1" href="#exam_equiv_fractions" title="Copy heading and permalink for Example 4.1.18: Equivalent fractions" aria-label="Copy heading and permalink for Example 4.1.18: Equivalent fractions">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 4.1.D: Algebra: Equivalent Fractions"><a tabindex="-1" href="#sub_fractions" title="Copy heading and permalink for Subsection 4.1.D: Algebra: Equivalent Fractions" aria-label="Copy heading and permalink for Subsection 4.1.D: Algebra: Equivalent Fractions">🔗</a></div>
 </section>
 <section class="subsection" id="sec_even_odd_divides-7">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.E</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
-</h3>
+</h2>
 <section class="subsubsection" id="sec_even_odd_divides-7-2">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 4.1.A Opening and Closing Lockers</span>
-</h4>
-<article class="exercise exercise-like" id="exer_locker24"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_locker24"><h4 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para" id="exer_locker24-2-1">Without using any conjectures from <a href="sec_even_odd_divides.html#act_lockers" class="xref" data-knowl="./knowl/xref/act_lockers.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.1.A: Lockers Puzzle">Activity 4.1.A</a>, explain how to find the final state of Locker 24. Be detailed.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_locker24-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -1858,12 +1883,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 1: Practice"><a tabindex="-1" href="#exer_locker24" title="  1: Practice" aria-label="  1: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_lockers_2or3"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_lockers_2or3"><h4 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_lockers_2or3-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_lockers_2or3-2-1-2">
+<ol class="lower-alpha" id="exer_lockers_2or3-2-1-2">
 <li id="exer_lockers_2or3-2-1-2-1">
 <div class="para" id="exer_lockers_2or3-2-1-2-1-1">In the Lockers puzzle <a href="sec_even_odd_divides.html#act_lockers" class="xref" data-knowl="./knowl/xref/act_lockers.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.1.A: Lockers Puzzle">Activity 4.1.A</a>, Locker 001 is only touched once. Of all the lockers, which are only touched twice? Make a conjecture that depends on only the locker number.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_lockers_2or3-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1880,7 +1905,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_lockers_2or3-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_lockers_2or3-3-1">
+<ol class="lower-alpha" id="exer_lockers_2or3-3-1">
 <li id="exer_lockers_2or3-3-1-1">
 <div class="para" id="exer_lockers_2or3-3-1-1-1">Hint: Examples include lockers 2, 3, 5, 7, 11.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_lockers_2or3-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1897,12 +1922,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 2: Understand"><a tabindex="-1" href="#exer_lockers_2or3" title="  2: Understand" aria-label="  2: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_lockers_touchedmost"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_lockers_touchedmost"><h4 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_lockers_touchedmost-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_lockers_touchedmost-2-1-2">
+<ol class="lower-alpha" id="exer_lockers_touchedmost-2-1-2">
 <li id="exer_lockers_touchedmost-2-1-2-1">
 <div class="para" id="exer_lockers_touchedmost-2-1-2-1-1">Of the first 50 lockers, which are touched by the most students in the Lockers Puzzle <a href="sec_even_odd_divides.html#act_lockers" class="xref" data-knowl="./knowl/xref/act_lockers.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.1.A: Lockers Puzzle">Activity 4.1.A</a>? Do not use technology or other resources to find the answer. Show work.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_lockers_touchedmost-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1920,17 +1945,17 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 4.1.A Opening and Closing Lockers"><a tabindex="-1" href="#sec_even_odd_divides-7-2" title="Copy heading and permalink for Subsubsection: Exercises for 4.1.A Opening and Closing Lockers" aria-label="Copy heading and permalink for Subsubsection: Exercises for 4.1.A Opening and Closing Lockers">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_even_odd_divides-7-3">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 4.1.B Even and Odd Integers</span>
-</h4>
+</h3>
 <div class="para" id="sec_even_odd_divides-7-3-2">When an exercise asks you to use the definition of even or odd, you should use only that definition and algebra. Do not use other facts you might know about even or odd integers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_even_odd_divides-7-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="exer_2026even_2025odd"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_2026even_2025odd"><h4 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_2026even_2025odd-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_2026even_2025odd-2-1-2">
+<ol class="lower-alpha" id="exer_2026even_2025odd-2-1-2">
 <li id="exer_2026even_2025odd-2-1-2-1">
 <div class="para" id="exer_2026even_2025odd-2-1-2-1-1">Use the definition of even to show that 2026 is even.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_2026even_2025odd-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1947,7 +1972,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_2026even_2025odd-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_2026even_2025odd-3-1">
+<ol class="lower-alpha" id="exer_2026even_2025odd-3-1">
 <li id="exer_2026even_2025odd-3-1-1">
 <div class="para" id="exer_2026even_2025odd-3-1-1-1">Hint: Write <span class="process-math">\(2026 = 2(\hspace{0.5in})\)</span> and fill in the parentheses.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_2026even_2025odd-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1964,12 +1989,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 4: Practice"><a tabindex="-1" href="#exer_2026even_2025odd" title="  4: Practice" aria-label="  4: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_examples_even_odd_sum_product"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_examples_even_odd_sum_product"><h4 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_examples_even_odd_sum_product-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_examples_even_odd_sum_product-2-1-2">
+<ol class="lower-alpha" id="exer_examples_even_odd_sum_product-2-1-2">
 <li id="exer_examples_even_odd_sum_product-2-1-2-1">
 <div class="para" id="exer_examples_even_odd_sum_product-2-1-2-1-1">Give an example of two integers whose sum is even and whose product is odd.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_examples_even_odd_sum_product-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1996,7 +2021,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_examples_even_odd_sum_product-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_examples_even_odd_sum_product-3-1">
+<ol class="lower-alpha" id="exer_examples_even_odd_sum_product-3-1">
 <li id="exer_examples_even_odd_sum_product-3-1-1">
 <div class="para" id="exer_examples_even_odd_sum_product-3-1-1-1">Hint: Both integers must be odd.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_examples_even_odd_sum_product-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2023,12 +2048,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 5: Practice"><a tabindex="-1" href="#exer_examples_even_odd_sum_product" title="  5: Practice" aria-label="  5: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_linears_even_odd"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_linears_even_odd"><h4 class="heading">
 <span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_linears_even_odd-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_linears_even_odd-2-1-2">
+<ol class="lower-alpha" id="exer_linears_even_odd-2-1-2">
 <li id="part_6qminus10_is_even">
 <div class="para" id="part_6qminus10_is_even-1">For any integer <span class="process-math">\(q\text{,}\)</span> use the definition of even to show that <span class="process-math">\(6q-10\)</span> is even.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_6qminus10_is_even-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2050,7 +2075,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_linears_even_odd-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_linears_even_odd-3-1">
+<ol class="lower-alpha" id="exer_linears_even_odd-3-1">
 <li id="exer_linears_even_odd-3-1-1">
 <div class="para" id="exer_linears_even_odd-3-1-1-1">Hint: Write <span class="process-math">\(6q-10=2(\hspace{0.5in})\)</span> and fill in the parentheses.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_linears_even_odd-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2072,12 +2097,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 6: Understand"><a tabindex="-1" href="#exer_linears_even_odd" title="  6: Understand" aria-label="  6: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_even_odd"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_even_odd"><h4 class="heading">
 <span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_even_odd-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_even_odd-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_even_odd-2-1-2">
 <li id="exer_dyk_even_odd-2-1-2-1">
 <div class="para" id="exer_dyk_even_odd-2-1-2-1-1">How even and odd are defined?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_even_odd-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2093,12 +2118,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 7: Recap"><a tabindex="-1" href="#exer_dyk_even_odd" title="  7: Recap" aria-label="  7: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_prove_consecutive_even_odd"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_prove_consecutive_even_odd"><h4 class="heading">
 <span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_prove_consecutive_even_odd-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_prove_consecutive_even_odd-2-1-2">
+<ol class="lower-alpha" id="exer_prove_consecutive_even_odd-2-1-2">
 <li id="exer_prove_consecutive_even_odd-2-1-2-1">
 <div class="para" id="exer_prove_consecutive_even_odd-2-1-2-1-1">Consider an even integer <span class="process-math">\(n\text{.}\)</span> Use the definitions of even and odd to show that the next consecutive integer, <span class="process-math">\(n+1\text{,}\)</span> is odd.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_consecutive_even_odd-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2115,7 +2140,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_prove_consecutive_even_odd-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_prove_consecutive_even_odd-3-1">
+<ol class="lower-alpha" id="exer_prove_consecutive_even_odd-3-1">
 <li id="exer_prove_consecutive_even_odd-3-1-1">
 <div class="para" id="exer_prove_consecutive_even_odd-3-1-1-1">Hint: Write <span class="process-math">\(n=2k\)</span> and then evaluate <span class="process-math">\(n+1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_consecutive_even_odd-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2134,18 +2159,18 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 4.1.B Even and Odd Integers"><a tabindex="-1" href="#sec_even_odd_divides-7-3" title="Copy heading and permalink for Subsubsection: Exercises for 4.1.B Even and Odd Integers" aria-label="Copy heading and permalink for Subsubsection: Exercises for 4.1.B Even and Odd Integers">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_even_odd_divides-7-4">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 4.1.C Divisibility</span>
-</h4>
+</h3>
 <div class="para" id="sec_even_odd_divides-7-4-2">When an exercise asks you to use the definition of divides, you should use only that definition and algebra. Do not use other facts you might know about divisibility.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_even_odd_divides-7-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="exer_divides_notation"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_divides_notation"><h4 class="heading">
 <span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_divides_notation-2-1">
 <div class="para">  Rewrite each statement using the divides symbol <span class="process-math">\(\mid\)</span> or <span class="process-math">\(\nmid\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_divides_notation-2-1-4">
+<ol class="lower-alpha" id="exer_divides_notation-2-1-4">
 <li id="exer_divides_notation-2-1-4-1">
 <div class="para" id="exer_divides_notation-2-1-4-1-1">15 divides 105<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_divides_notation-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2187,7 +2212,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_divides_notation-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_divides_notation-3-1">
+<ol class="lower-alpha" id="exer_divides_notation-3-1">
 <li id="exer_divides_notation-3-1-1">
 <div class="para" id="exer_divides_notation-3-1-1-1">
 <span class="process-math">\(\displaystyle 5 \mid 105\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_divides_notation-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2231,12 +2256,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 9: Practice"><a tabindex="-1" href="#exer_divides_notation" title="  9: Practice" aria-label="  9: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_list_divisors"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_list_divisors"><h4 class="heading">
 <span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_list_divisors-2-1">
 <div class="para">List all the positive divisors of each integer. Do not use technology or other resources.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_list_divisors-2-1-1">
+<ol class="lower-alpha" id="exer_list_divisors-2-1-1">
 <li id="exer_list_divisors-2-1-1-1">
 <div class="para" id="exer_list_divisors-2-1-1-1-1">seven<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_list_divisors-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2262,12 +2287,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 10: Practice"><a tabindex="-1" href="#exer_list_divisors" title="  10: Practice" aria-label="  10: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_prove_divides"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_prove_divides"><h4 class="heading">
 <span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_prove_divides-2-1">
 <div class="para">A teacher has a class of 20 students, and he wants to arrange them into equally sized groups.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_prove_divides-2-1-1">
+<ol class="lower-alpha" id="exer_prove_divides-2-1-1">
 <li id="exer_prove_divides-2-1-1-1">
 <div class="para" id="exer_prove_divides-2-1-1-1-1">Use the definition of divides to show that <span class="process-math">\(4 \mid 20\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_divides-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2299,7 +2324,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_prove_divides-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_prove_divides-3-1">
+<ol class="lower-alpha" id="exer_prove_divides-3-1">
 <li id="exer_prove_divides-3-1-1">
 <div class="para" id="exer_prove_divides-3-1-1-1">Hint: Write <span class="process-math">\(4q-8=4(\hspace{0.5in})\)</span> and fill in the parentheses.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_divides-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2316,12 +2341,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 11: Understand"><a tabindex="-1" href="#exer_prove_divides" title="  11: Understand" aria-label="  11: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_prove_divides_general"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_prove_divides_general"><h4 class="heading">
 <span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_prove_divides_general-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_prove_divides_general-2-1-2">
+<ol class="lower-alpha" id="exer_prove_divides_general-2-1-2">
 <li id="exer_prove_divides_general-2-1-2-1">
 <div class="para" id="exer_prove_divides_general-2-1-2-1-1">Use the definition of divides to show that four is a divisor of <span class="process-math">\(4q-8\)</span> for any integer <span class="process-math">\(q\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_divides_general-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2337,12 +2362,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 12: Understand"><a tabindex="-1" href="#exer_prove_divides_general" title="  12: Understand" aria-label="  12: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dividesn"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dividesn"><h4 class="heading">
 <span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dividesn-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dividesn-2-1-2">
+<ol class="lower-alpha" id="exer_dividesn-2-1-2">
 <li id="exer_dividesn-2-1-2-1">
 <div class="para" id="exer_dividesn-2-1-2-1-1">Use the definition of divides to show that <span class="process-math">\(n \mid n\)</span> for any integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dividesn-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2358,12 +2383,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 13: Understand"><a tabindex="-1" href="#exer_dividesn" title="  13: Understand" aria-label="  13: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_divisors_of_factorials"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_divisors_of_factorials"><h4 class="heading">
 <span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_divisors_of_factorials-2-1">
-<div class="para">Factorials were defined in <a href="sec_counting_steps_cases.html#defn_factorial" class="xref" data-knowl="./knowl/xref/defn_factorial.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.16: Factorial">Definition 2.2.16</a>. In this problem, do not use technology or other resources.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_divisors_of_factorials-2-1-2">
+<div class="para">Factorials were defined in <a href="sec_counting_steps_cases.html#defn_factorial" class="xref" data-knowl="./knowl/xref/defn_factorial.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.19: Factorial">Definition 2.2.19</a>. In this problem, do not use technology or other resources.</div>
+<ol class="lower-alpha" id="exer_divisors_of_factorials-2-1-2">
 <li id="exer_divisors_of_factorials-2-1-2-1">
 <div class="para" id="exer_divisors_of_factorials-2-1-2-1-1">Show that <span class="process-math">\(7 \mid 9!\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_divisors_of_factorials-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2385,7 +2410,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_divisors_of_factorials-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_divisors_of_factorials-3-1">
+<ol class="lower-alpha" id="exer_divisors_of_factorials-3-1">
 <li id="exer_divisors_of_factorials-3-1-1">
 <div class="para" id="exer_divisors_of_factorials-3-1-1-1">Hint: Write <span class="process-math">\(9!=7(\hspace{0.5in})\)</span> and fill in the parentheses with the product of the other factors of <span class="process-math">\(9!\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_divisors_of_factorials-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2407,12 +2432,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 14: Understand"><a tabindex="-1" href="#exer_divisors_of_factorials" title="  14: Understand" aria-label="  14: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_divides"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_divides"><h4 class="heading">
 <span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_divides-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_divides-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_divides-2-1-2">
 <li id="exer_dyk_divides-2-1-2-1">
 <div class="para" id="exer_dyk_divides-2-1-2-1-1">What <span class="process-math">\(d \mid n\)</span> and <span class="process-math">\(d \nmid n\)</span> mean?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_divides-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2438,12 +2463,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 15: Recap"><a tabindex="-1" href="#exer_dyk_divides" title="  15: Recap" aria-label="  15: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_divides_square"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_divides_square"><h4 class="heading">
 <span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_divides_square-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_divides_square-2-1-2">
+<ol class="lower-alpha" id="exer_divides_square-2-1-2">
 <li id="exer_divides_square-2-1-2-1">
 <div class="para" id="exer_divides_square-2-1-2-1-1">Consider an integer <span class="process-math">\(n\)</span> such that <span class="process-math">\(4 \mid n\text{.}\)</span> Use the definition of divides to show that <span class="process-math">\(4 \mid n^2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_divides_square-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2460,7 +2485,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_divides_square-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_divides_square-3-1">
+<ol class="lower-alpha" id="exer_divides_square-3-1">
 <li id="exer_divides_square-3-1-1">
 <div class="para" id="exer_divides_square-3-1-1-1">Hint: Write <span class="process-math">\(n=4k\text{,}\)</span> expand and simplify <span class="process-math">\(n^2\text{,}\)</span> and then factor out four.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_divides_square-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2479,15 +2504,15 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 4.1.C Divisibility"><a tabindex="-1" href="#sec_even_odd_divides-7-4" title="Copy heading and permalink for Subsubsection: Exercises for 4.1.C Divisibility" aria-label="Copy heading and permalink for Subsubsection: Exercises for 4.1.C Divisibility">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_even_odd_divides-7-5">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 4.1.D Algebra: Equivalent Fractions</span>
-</h4>
-<article class="exercise exercise-like" id="exer_equal_fractions"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_equal_fractions"><h4 class="heading">
 <span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_equal_fractions-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_equal_fractions-2-1-2">
+<ol class="lower-alpha" id="exer_equal_fractions-2-1-2">
 <li id="exer_equal_fractions-2-1-2-1">
 <div class="para" id="exer_equal_fractions-2-1-2-1-1">Write <span class="process-math">\(\frac{7}{10}\)</span> as a fraction with denominator 30.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_equal_fractions-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2514,7 +2539,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_equal_fractions-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_equal_fractions-3-1">
+<ol class="lower-alpha" id="exer_equal_fractions-3-1">
 <li id="exer_equal_fractions-3-1-1">
 <div class="para" id="exer_equal_fractions-3-1-1-1">
 <span class="process-math">\(\displaystyle \frac{21}{30}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_equal_fractions-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2532,7 +2557,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="autopermalink" aria-hidden="true" data-description="Item 17.(c)"><a tabindex="-1" href="#exer_equal_fractions-3-1-3" title="Copy heading and permalink for Item 17.(c)" aria-label="Copy heading and permalink for Item 17.(c)">🔗</a></div>
 </li>
 <li id="exer_equal_fractions-3-1-4">
-<div class="para" id="exer_equal_fractions-3-1-4-1">Hint: Use <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.11: Equal fractions">Theorem 4.1.11</a> <a href="sec_even_odd_divides.html#part_thm_reduce_fraction" class="xref" data-knowl="./knowl/xref/part_thm_reduce_fraction.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (b)">(b)</a> with <span class="process-math">\(c=5\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_equal_fractions-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_equal_fractions-3-1-4-1">Hint: Use <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.14: Equal fractions">Theorem 4.1.14</a> <a href="sec_even_odd_divides.html#part_thm_reduce_fraction" class="xref" data-knowl="./knowl/xref/part_thm_reduce_fraction.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (b)">(b)</a> with <span class="process-math">\(c=5\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_equal_fractions-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 17.(d)"><a tabindex="-1" href="#exer_equal_fractions-3-1-4" title="Copy heading and permalink for Item 17.(d)" aria-label="Copy heading and permalink for Item 17.(d)">🔗</a></div>
 </li>
@@ -2542,14 +2567,14 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 17: Practice"><a tabindex="-1" href="#exer_equal_fractions" title="  17: Practice" aria-label="  17: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_reduce_fraction_factorials"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_reduce_fraction_factorials"><h4 class="heading">
 <span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_reduce_fraction_factorials-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_reduce_fraction_factorials-2-1-2">
+<ol class="lower-alpha" id="exer_reduce_fraction_factorials-2-1-2">
 <li id="exer_reduce_fraction_factorials-2-1-2-1">
-<div class="para" id="exer_reduce_fraction_factorials-2-1-2-1-1">Reduce <span class="process-math">\(\displaystyle \frac{6!}{8!}\)</span> to lowest terms. Hint: Use the definition of factorial <a href="sec_counting_steps_cases.html#defn_factorial" class="xref" data-knowl="./knowl/xref/defn_factorial.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.16: Factorial">Definition 2.2.16</a> and cancel before multiplying.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_reduce_fraction_factorials-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_reduce_fraction_factorials-2-1-2-1-1">Reduce <span class="process-math">\(\displaystyle \frac{6!}{8!}\)</span> to lowest terms. Hint: Use the definition of factorial <a href="sec_counting_steps_cases.html#defn_factorial" class="xref" data-knowl="./knowl/xref/defn_factorial.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.2.19: Factorial">Definition 2.2.19</a> and cancel before multiplying.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_reduce_fraction_factorials-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 18.(a)"><a tabindex="-1" href="#exer_reduce_fraction_factorials-2-1-2-1" title="Copy heading and permalink for Item 18.(a)" aria-label="Copy heading and permalink for Item 18.(a)">🔗</a></div>
 </li>
@@ -2579,7 +2604,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_reduce_fraction_factorials-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_reduce_fraction_factorials-3-1">
+<ol class="lower-alpha" id="exer_reduce_fraction_factorials-3-1">
 <li id="exer_reduce_fraction_factorials-3-1-1">
 <div class="para" id="exer_reduce_fraction_factorials-3-1-1-1">
 <span class="process-math">\(\displaystyle \frac{1}{56}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_reduce_fraction_factorials-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2613,12 +2638,12 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 18: Understand"><a tabindex="-1" href="#exer_reduce_fraction_factorials" title="  18: Understand" aria-label="  18: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_fractions"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_fractions"><h4 class="heading">
 <span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_fractions-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_fractions-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_fractions-2-1-2">
 <li id="exer_dyk_fractions-2-1-2-1">
 <div class="para" id="exer_dyk_fractions-2-1-2-1-1">How a fraction is related to integer division?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_fractions-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2649,14 +2674,14 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 19: Recap"><a tabindex="-1" href="#exer_dyk_fractions" title="  19: Recap" aria-label="  19: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_reduce_fractions_powers"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_reduce_fractions_powers"><h4 class="heading">
 <span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_reduce_fractions_powers-2-1">
 <div class="para">For this exercise, all exponents should be nonnegative. (If you have seen negative exponents, the answers should still make sense, just use nonnegative exponents.)</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_reduce_fractions_powers-2-1-1">
+<ol class="lower-alpha" id="exer_reduce_fractions_powers-2-1-1">
 <li id="exer_reduce_fractions_powers-2-1-1-1">
-<div class="para" id="exer_reduce_fractions_powers-2-1-1-1-1">Reduce <span class="process-math">\(\displaystyle \frac{2^{11}}{2^5}\)</span> to lowest terms. Hint: Use the definition of exponential notation <a href="sec_bit_strings.html#defn_exp_notation" class="xref" data-knowl="./knowl/xref/defn_exp_notation.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.4.12: Exponential notation">Definition 2.4.12</a> and cancel before multiplying.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_reduce_fractions_powers-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_reduce_fractions_powers-2-1-1-1-1">Reduce <span class="process-math">\(\displaystyle \frac{2^{11}}{2^5}\)</span> to lowest terms. Hint: Use the definition of exponential notation <a href="sec_bit_strings.html#defn_exp_notation" class="xref" data-knowl="./knowl/xref/defn_exp_notation.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.4.15: Exponential notation">Definition 2.4.15</a> and cancel before multiplying.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_reduce_fractions_powers-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 20.(a)"><a tabindex="-1" href="#exer_reduce_fractions_powers-2-1-1-1" title="Copy heading and permalink for Item 20.(a)" aria-label="Copy heading and permalink for Item 20.(a)">🔗</a></div>
 </li>
@@ -2676,7 +2701,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 <div class="solutions">
 <details id="exer_reduce_fractions_powers-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_reduce_fractions_powers-3-1">
+<ol class="lower-alpha" id="exer_reduce_fractions_powers-3-1">
 <li id="exer_reduce_fractions_powers-3-1-1">
 <div class="para" id="exer_reduce_fractions_powers-3-1-1-1">
 <span class="process-math">\(2^6\)</span> (or <span class="process-math">\(\frac{2^6}{1})\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_reduce_fractions_powers-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2705,7 +2730,7 @@ n(c(d)) = n \times c \times d = c \times n \times d = (c(n))d
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="ch_number_theory.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_div_alg.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="ch_number_theory-2.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_div_alg.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

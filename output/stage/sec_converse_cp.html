@@ -31,6 +31,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@ htmlPresentation: false,
 <meta property="og:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta property="book:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.46"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.53"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.53"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -61,21 +62,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1bda041f5a098305.css">
+<script src="_static/prefix-runtime.8b982cdcb4aa84b9.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.0499040fbb8ea56b.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></div>
 <p class="byline">Dr. Suzanne Dorée</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -88,7 +89,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -273,7 +284,9 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_prologue.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue</span></a></div>
-<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_prologue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_handshakes.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Handshakes</span></a></div>
 <ul id="ptx-toc-group-sec_handshakes" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_handshakes.html#sec_handshakes-3" class="internal"><span class="codenumber">1.1.A</span> <span class="title">Counting Handshakes</span></a></div></li>
@@ -287,11 +300,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_counting.html" class="internal"><span class="codenumber">2</span> <span class="title">Listing and Counting</span></a></div>
 <ul id="ptx-toc-group-ch_counting" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_counting-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_listing.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Organized Listing</span></a></div>
 <ul id="ptx-toc-group-sec_listing" class="structural toc-item-list">
@@ -365,6 +380,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_graph_theory.html" class="internal"><span class="codenumber">3</span> <span class="title">Graph Theory</span></a></div>
 <ul id="ptx-toc-group-ch_graph_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_graph_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_graph_models.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Modeling with Graphs</span></a></div>
 <ul id="ptx-toc-group-sec_graph_models" class="structural toc-item-list">
@@ -450,6 +466,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_number_theory.html" class="internal"><span class="codenumber">4</span> <span class="title">Number Theory</span></a></div>
 <ul id="ptx-toc-group-ch_number_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_number_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_even_odd_divides.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integer Division</span></a></div>
 <ul id="ptx-toc-group-sec_even_odd_divides" class="structural toc-item-list">
@@ -537,6 +554,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch_logic_proof.html" class="internal"><span class="codenumber">5</span> <span class="title">Logic and Proof</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch_logic_proof">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_logic_proof-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
@@ -633,6 +651,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_functions.html" class="internal"><span class="codenumber">6</span> <span class="title">Functions</span></a></div>
 <ul id="ptx-toc-group-ch_functions" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_functions-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_functions.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Functions and Their Representations</span></a></div>
 <ul id="ptx-toc-group-sec_functions" class="structural toc-item-list">
@@ -722,6 +741,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sets_rel.html" class="internal"><span class="codenumber">7</span> <span class="title">Sets and Relations</span></a></div>
 <ul id="ptx-toc-group-ch_sets_rel" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sets_rel-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_sets.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sets</span></a></div>
 <ul id="ptx-toc-group-sec_sets" class="structural toc-item-list">
@@ -806,6 +826,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_recursion_induction.html" class="internal"><span class="codenumber">8</span> <span class="title">Recursion and Induction</span></a></div>
 <ul id="ptx-toc-group-ch_recursion_induction" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_recursion_induction-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_recursively_defined_sequences.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Recursively-defined Sequences</span></a></div>
 <ul id="ptx-toc-group-sec_recursively_defined_sequences" class="structural toc-item-list">
@@ -893,6 +914,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sum_prod.html" class="internal"><span class="codenumber">9</span> <span class="title">Sums and Products</span></a></div>
 <ul id="ptx-toc-group-ch_sum_prod" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sum_prod-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_model_sum_prod.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Modeling with Sums and Products</span></a></div>
 <ul id="ptx-toc-group-sec_model_sum_prod" class="structural toc-item-list">
@@ -976,35 +998,38 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_epilogue.html" class="internal"><span class="codenumber">10</span> <span class="title">Epilogue</span></a></div>
-<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_epilogue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_hotelinfinity.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Hotel Infinity</span></a></div>
 <ul id="ptx-toc-group-sec_hotelinfinity" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_hotel_infinity" class="internal"><span class="codenumber">10.1.A</span> <span class="title">Hotel Infinity</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_countable" class="internal"><span class="codenumber">10.1.B</span> <span class="title">The Definition of Discrete</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec_converse_cp">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Converse and Contrapositive</span>
-</h2>
+</h1>
 <section class="introduction" id="sec_converse_cp-2">
 <div class="para" id="sec_converse_cp-2-1">In this section, we continue our discussion of conditional statements, including the converse and contrapositive of a conditional statement. The contrapositive provides an alternative proof format for proving that a conditional is true. We also introduce biconditional (if and only if) statements and the proof format for biconditional statements.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_converse_cp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="sub_converse">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Converse and Biconditional Statements</span>
-</h3>
+</h2>
 <div class="para" id="sub_converse-2">The statement <span class="process-math">\(P \to Q\)</span> promises that if <span class="process-math">\(P\)</span> is true, then <span class="process-math">\(Q\)</span> is also true. It does not say the reverse.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_converse-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_converse"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Converse and inverse.</span>
-</h4>
+<article class="definition definition-like" id="defn_converse"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Converse and inverse.</span>
+</h3>
 <div class="para logical" id="defn_converse-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_converse-2-1-2">
+<ol class="lower-alpha" id="defn_converse-2-1-2">
 <li id="defn_converse-2-1-2-1">
 <div class="para" id="defn_converse-2-1-2-1-1">For statements <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> the <dfn class="terminology">converse</dfn> of <span class="process-math">\(P \to Q\)</span> is <span class="process-math">\(Q \to P\text{.}\)</span> For example, for the statement “for all integers <span class="process-math">\(s\text{,}\)</span> if <span class="process-math">\(s\)</span> is even, then <span class="process-math">\(s^2\)</span> is even”. the converse is “for all integers <span class="process-math">\(s\text{,}\)</span> if <span class="process-math">\(s^2\)</span> is even, then <span class="process-math">\(s\)</span> is even”.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_converse-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1027,18 +1052,18 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sub_converse-4">Let’s compare the truth table for a conditional statement to its converse.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_converse-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_converse" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The converse.</span>
-</h4></summary>
+<details id="exam_converse" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The converse.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_converse-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_converse-2-1-2">
+<ol class="lower-alpha" id="exam_converse-2-1-2">
 <li id="exam_converse-2-1-2-1">
 <div class="para" id="exam_converse-2-1-2-1-1">Construct a truth table for a conditional statement and its converse. 
 <details id="exam_converse-2-1-2-1-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_converse-2-1-2-1-1-1-1">We constructed the truth table for the converse in <a href="sec_conditional_statements.html#exam_truthtable_compound_conditionals" class="xref" data-knowl="./knowl/xref/exam_truthtable_compound_conditionals.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.3.6: Truth tables for statements involving conditionals">Example 5.3.6</a>. We repeat that here alongside the conditional for comparison in <a href="sec_conditional_statements.html#table_truthtable_converse" class="xref" data-knowl="./knowl/xref/table_truthtable_converse.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.3.7: Truth table for the converse Q \to P">Table 5.3.7</a>. Notice that both a statement and its converse can be true or either can be true with the other false.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_converse-2-1-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_converse-2-1-2-1-1-1-1">We constructed the truth table for the converse in <a href="sec_conditional_statements.html#exam_truthtable_compound_conditionals" class="xref" data-knowl="./knowl/xref/exam_truthtable_compound_conditionals.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.3.7: Truth tables for statements involving conditionals">Example 5.3.7</a>. We repeat that here alongside the conditional for comparison in <a href="sec_conditional_statements.html#table_truthtable_converse" class="xref" data-knowl="./knowl/xref/table_truthtable_converse.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.3.8: Truth table for the converse Q \to P">Table 5.3.8</a>. Notice that both a statement and its converse can be true or either can be true with the other false.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_converse-2-1-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="table table-like" id="table_truthtable_converse_again"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Truth table for a conditional and its converse<div class="autopermalink" aria-hidden="true" data-description="Table 5.4.3: Truth table for a conditional and its converse"><a tabindex="-1" href="#table_truthtable_converse_again" title="Copy heading and permalink for Table 5.4.3: Truth table for a conditional and its converse" aria-label="Copy heading and permalink for Table 5.4.3: Truth table for a conditional and its converse">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
@@ -1087,7 +1112,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="exam_converse-2-1-2-2-1">Give an example of a true conditional statement that has a false converse. 
 <details id="exam_converse-2-1-2-2-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_converse-2-1-2-2-1-1-1">Consider the conditional statement If <span class="process-math">\(k=3\text{,}\)</span> then <span class="process-math">\(k^2 = 9\text{.}\)</span> This statement is true because if <span class="process-math">\(k=3\text{,}\)</span> then <span class="process-math">\(k^2=3^2=9\text{.}\)</span> The converse is if <span class="process-math">\(k^2=9\text{,}\)</span> then <span class="process-math">\(k=3\text{.}\)</span> The converse is false because if <span class="process-math">\(k=-3\text{,}\)</span> then <span class="process-math">\(k^2=(-3)^2=9\)</span> is true but <span class="process-math">\(k=-3=3\)</span> is false. That is, we have a broken promise <a href="sec_conditional_statements.html#thm_broken_promise" class="xref" data-knowl="./knowl/xref/thm_broken_promise.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.14: Broken promise">Theorem 5.3.14</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_converse-2-1-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_converse-2-1-2-2-1-1-1">Consider the conditional statement If <span class="process-math">\(k=3\text{,}\)</span> then <span class="process-math">\(k^2 = 9\text{.}\)</span> This statement is true because if <span class="process-math">\(k=3\text{,}\)</span> then <span class="process-math">\(k^2=3^2=9\text{.}\)</span> The converse is if <span class="process-math">\(k^2=9\text{,}\)</span> then <span class="process-math">\(k=3\text{.}\)</span> The converse is false because if <span class="process-math">\(k=-3\text{,}\)</span> then <span class="process-math">\(k^2=(-3)^2=9\)</span> is true but <span class="process-math">\(k=-3=3\)</span> is false. That is, we have a broken promise <a href="sec_conditional_statements.html#thm_broken_promise" class="xref" data-knowl="./knowl/xref/thm_broken_promise.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.17: Broken promise">Theorem 5.3.17</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_converse-2-1-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_converse-2-1-2-2-1-1" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_converse-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1112,12 +1137,12 @@ eBookConfig.enable_chatcodes =  false;
 </article></details>
 <div class="para" id="sub_converse-6">When both a conditional statement, <span class="process-math">\(P \to Q\text{,}\)</span> and its converse, <span class="process-math">\(Q \to P\text{,}\)</span> are true, we say “<span class="process-math">\(P\)</span> <dfn class="terminology">if and only if</dfn> <span class="process-math">\(Q\)</span>”. We give a formal definition of the biconditional.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_converse-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_biconditional"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Biconditional statements.</span>
-</h4>
+<article class="definition definition-like" id="defn_biconditional"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Biconditional statements.</span>
+</h3>
 <div class="para logical" id="defn_biconditional-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_biconditional-2-1-2">
+<ol class="lower-alpha" id="defn_biconditional-2-1-2">
 <li id="defn_biconditional-2-1-2-1">
 <div class="para logical" id="defn_biconditional-2-1-2-1-1">
 <div class="para">For statements <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> the <dfn class="terminology">biconditional</dfn> statement, denoted <span class="process-math">\(P \leftrightarrow Q\text{,}\)</span> is the following compound statement:</div>
@@ -1143,13 +1168,13 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sub_converse-8">Let’s construct a truth table for a biconditional statement.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_converse-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_truthtable_biconditional" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Truth table of biconditional statement.</span>
-</h4></summary>
+<details id="exam_truthtable_biconditional" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Truth table of biconditional statement.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_truthtable_biconditional-2-1">
 <div class="para">   </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_truthtable_biconditional-2-1-3">
+<ol class="lower-alpha" id="exam_truthtable_biconditional-2-1-3">
 <li id="exam_truthtable_biconditional-2-1-3-1">
 <div class="para" id="exam_truthtable_biconditional-2-1-3-1-1">Construct a truth table for a biconditional statement. 
 <details id="exam_truthtable_biconditional-2-1-3-1-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1223,12 +1248,12 @@ eBookConfig.enable_chatcodes =  false;
 </article></details>
 <div class="para" id="sub_converse-10">Let’s practice working with the converse and biconditional statements.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_converse-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_converse_iff"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.A</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The converse and biconditional statements.</span>
-</h4>
+<article class="activity project-like" id="act_converse_iff"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The converse and biconditional statements.</span>
+</h3>
 <div class="para logical" id="act_converse_iff-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_converse_iff-2-2">
+<ol class="lower-alpha" id="act_converse_iff-2-2">
 <li id="act_converse_iff-2-2-1">
 <div class="para" id="act_converse_iff-2-2-1-1">State the converse of the statement “if the graph <span class="process-math">\(G\)</span> has a vertex of degree five, then the graph <span class="process-math">\(G\)</span> has at least six vertices”. Is the statement true? Is the converse true?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_converse_iff-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1261,9 +1286,9 @@ eBookConfig.enable_chatcodes =  false;
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 5.4.A: The Converse and Biconditional Statements"><a tabindex="-1" href="#sub_converse" title="Copy heading and permalink for Subsection 5.4.A: The Converse and Biconditional Statements" aria-label="Copy heading and permalink for Subsection 5.4.A: The Converse and Biconditional Statements">🔗</a></div>
 </section>
 <section class="subsection" id="sub_pff_iff">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format: Biconditional</span>
-</h3>
+</h2>
 <div class="para logical" id="sub_pff_iff-2">
 <div class="para">Since the biconditional is defined as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/pff_and.html ./knowl/xref/pff_if_then_direct.html" id="sub_pff_iff-2-1">
@@ -1271,15 +1296,15 @@ eBookConfig.enable_chatcodes =  false;
 P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 \end{equation*}
 </div>
-<div class="para">we can combine the proof formats for “and” <a href="sec_logic_connectives.html#pff_and" class="xref" data-knowl="./knowl/xref/pff_and.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.9: Proof Format: And">Theorem 5.1.9</a> with the proof format for a conditional statement <a href="sec_conditional_statements.html#pff_if_then_direct" class="xref" data-knowl="./knowl/xref/pff_if_then_direct.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.12: Proof Format: Conditional (Direct Proof)">Theorem 5.3.12</a> to get a new proof format to prove a biconditional statement. Normally in “and” proofs we begin the two parts with the words “First” and “Second” (or “First” and “Next”). In the proof of a biconditional statement, the second part proves the converse, so we begin with the word “Conversely” instead.</div>
+<div class="para">we can combine the proof formats for “and” <a href="sec_logic_connectives.html#pff_and" class="xref" data-knowl="./knowl/xref/pff_and.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.11: Proof Format: And">Theorem 5.1.11</a> with the proof format for a conditional statement <a href="sec_conditional_statements.html#pff_if_then_direct" class="xref" data-knowl="./knowl/xref/pff_if_then_direct.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.3.13: Proof Format: Conditional (Direct Proof)">Theorem 5.3.13</a> to get a new proof format to prove a biconditional statement. Normally in “and” proofs we begin the two parts with the words “First” and “Second” (or “First” and “Next”). In the proof of a biconditional statement, the second part proves the converse, so we begin with the word “Conversely” instead.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_iff-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="pff_iff"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format: Biconditional.</span>
-</h4>
+<article class="theorem theorem-like" id="pff_iff"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format: Biconditional.</span>
+</h3>
 <div class="para" id="pff_iff-2-1">We can prove <span class="process-math">\(P \leftrightarrow Q\)</span> by adapting the following proof format.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_iff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<details id="pff_iff-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5></summary>
+<details id="pff_iff-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">
 <div class="para" id="pff_iff-2-2-1">First, assume <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_iff-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1294,19 +1319,19 @@ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 <div class="para" id="pff_iff-2-2-6">Thus, <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_iff-2-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 1"><a tabindex="-1" href="#pff_iff-2-2" title="Copy heading and permalink for Proof 1" aria-label="Copy heading and permalink for Proof 1">🔗</a></div>
-</article></details><div class="autopermalink" aria-hidden="true" data-description="Theorem 5.4.7: Proof Format: Biconditional"><a tabindex="-1" href="#pff_iff" title="Copy heading and permalink for Theorem 5.4.7: Proof Format: Biconditional" aria-label="Copy heading and permalink for Theorem 5.4.7: Proof Format: Biconditional">🔗</a></div>
+</article></details><div class="autopermalink" aria-hidden="true" data-description="Theorem 5.4.8: Proof Format: Biconditional"><a tabindex="-1" href="#pff_iff" title="Copy heading and permalink for Theorem 5.4.8: Proof Format: Biconditional" aria-label="Copy heading and permalink for Theorem 5.4.8: Proof Format: Biconditional">🔗</a></div>
 </article>
 <div class="para" id="sub_pff_iff-4">As usual, when we introduce a new proof format, we provide an example for you to copy and edit.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_iff-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_iff_proof"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.B</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Biconditional proof.</span>
-</h4>
+<article class="activity project-like" id="act_iff_proof"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Biconditional proof.</span>
+</h3>
 <div class="para logical" id="act_iff_proof-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_iff_proof-2-2">
+<ol class="lower-alpha" id="act_iff_proof-2-2">
 <li id="act_iff_proof-2-2-1">
 <div class="para" id="act_iff_proof-2-2-1-1">Copy the following proof. Prove for any integer <span class="process-math">\(a\)</span> that <span class="process-math">\(a \fn{ mod } 3 = 1\)</span> if and only if <span class="process-math">\(3 \mid (a-1)\text{.}\)</span> 
-<details id="act_iff_proof-2-2-1-1-4" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5></summary>
+<details id="act_iff_proof-2-2-1-1-4" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">
 <div class="para" id="act_iff_proof-2-2-1-1-4-1">Let <span class="process-math">\(a\)</span> be an integer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_iff_proof-2-2-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1331,9 +1356,9 @@ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 </article>
 <div class="para" id="sub_pff_iff-6">We can now prove the connection between divides and fractions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_iff-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_fractions_divides" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fractions and Divisibility.</span>
-</h4></summary>
+<details id="exam_fractions_divides" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.10</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fractions and Divisibility.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="exam_fractions_divides-2-1">Let <span class="process-math">\(d\)</span> and <span class="process-math">\(n\)</span> be integers with <span class="process-math">\(d \neq 0\text{.}\)</span> Prove that <span class="process-math">\(d \mid n\)</span> exactly when <span class="process-math">\(\frac{n}{d}\)</span> is an integer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_fractions_divides-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
@@ -1343,7 +1368,7 @@ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 <em class="emphasis">Proof.</em> Let <span class="process-math">\(d\)</span> and <span class="process-math">\(n\)</span> be integers with <span class="process-math">\(d \neq 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_fractions_divides-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="exam_fractions_divides-2-2-2">
-<div class="para">First, assume <span class="process-math">\(d \mid n\text{.}\)</span> By definition of divides, <span class="process-math">\(n=dk\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> By <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.11: Equal fractions">Theorem 4.1.11</a>, it follows that</div>
+<div class="para">First, assume <span class="process-math">\(d \mid n\text{.}\)</span> By definition of divides, <span class="process-math">\(n=dk\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> By <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.14: Equal fractions">Theorem 4.1.14</a>, it follows that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_equal_fractions.html" id="exam_fractions_divides-2-2-2-5">
 \begin{equation*}
 \frac{n}{d} = \frac{dk}{d(1)} = \frac{k}{1} = k
@@ -1359,43 +1384,43 @@ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 \frac{n}{d} = k = \frac{k}{1}\text{.}
 \end{equation*}
 </div>
-<div class="para">By <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.11: Equal fractions">Theorem 4.1.11</a>, it follows that <span class="process-math">\(n(1) = k(d)\)</span> or, equivalently, <span class="process-math">\(n=dk\text{.}\)</span> By the definition of divides, <span class="process-math">\(d \mid n\text{.}\)</span> <span class="process-math">\(\Box\)</span>
+<div class="para">By <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.14: Equal fractions">Theorem 4.1.14</a>, it follows that <span class="process-math">\(n(1) = k(d)\)</span> or, equivalently, <span class="process-math">\(n=dk\text{.}\)</span> By the definition of divides, <span class="process-math">\(d \mid n\text{.}\)</span> <span class="process-math">\(\Box\)</span>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_fractions_divides-2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_fractions_divides-2-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
-</div></details><div class="autopermalink" aria-hidden="true" data-description="Example 5.4.8: Fractions and Divisibility"><a tabindex="-1" href="#exam_fractions_divides" title="Copy heading and permalink for Example 5.4.8: Fractions and Divisibility" aria-label="Copy heading and permalink for Example 5.4.8: Fractions and Divisibility">🔗</a></div>
+</div></details><div class="autopermalink" aria-hidden="true" data-description="Example 5.4.10: Fractions and Divisibility"><a tabindex="-1" href="#exam_fractions_divides" title="Copy heading and permalink for Example 5.4.10: Fractions and Divisibility" aria-label="Copy heading and permalink for Example 5.4.10: Fractions and Divisibility">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 5.4.B: Proof Format: Biconditional"><a tabindex="-1" href="#sub_pff_iff" title="Copy heading and permalink for Subsection 5.4.B: Proof Format: Biconditional" aria-label="Copy heading and permalink for Subsection 5.4.B: Proof Format: Biconditional">🔗</a></div>
 </section>
 <section class="subsection" id="sub_contrapositive">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Contrapositive</span>
-</h3>
+</h2>
 <div class="para" id="sub_contrapositive-2">While a conditional statement and its converse are not logically equivalent, there is a related conditional that is logically equivalent to a conditional.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_contrapositive-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_contrapositive"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Contrapositive.</span>
-</h4>
+<article class="definition definition-like" id="defn_contrapositive"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.11</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Contrapositive.</span>
+</h3>
 <div class="para" id="defn_contrapositive-2-1">For statements <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> the <dfn class="terminology">contrapositive</dfn> of the conditional statement <span class="process-math">\(P \to Q\)</span> is the conditional statement <span class="process-math">\(\neg Q \to \neg P\text{.}\)</span> For example, consider the true statement “if <span class="process-math">\(k=3\text{,}\)</span> then <span class="process-math">\(k^2=9\)</span>”. The contrapositive is the statement “if <span class="process-math">\(k^2 \neq 9\text{,}\)</span> then <span class="process-math">\(k \neq 3\)</span>”. which is also true.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_contrapositive-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 5.4.9: Contrapositive"><a tabindex="-1" href="#defn_contrapositive" title="Copy heading and permalink for Definition 5.4.9: Contrapositive" aria-label="Copy heading and permalink for Definition 5.4.9: Contrapositive">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 5.4.11: Contrapositive"><a tabindex="-1" href="#defn_contrapositive" title="Copy heading and permalink for Definition 5.4.11: Contrapositive" aria-label="Copy heading and permalink for Definition 5.4.11: Contrapositive">🔗</a></div>
 </article>
 <div class="para" id="sub_contrapositive-4">Let’s explore the logical equivalence of a conditional and its contrapositive.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_contrapositive-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_equiv_contrapositive" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equivalence of statement and its contrapositive.</span>
-</h4></summary>
+<details id="exam_equiv_contrapositive" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.12</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equivalence of statement and its contrapositive.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_equiv_contrapositive-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_equiv_contrapositive-2-1-2">
+<ol class="lower-alpha" id="exam_equiv_contrapositive-2-1-2">
 <li id="exam_equiv_contrapositive-2-1-2-1">
 <div class="para" id="exam_equiv_contrapositive-2-1-2-1-1">Construct a truth table of conditional and its contrapositive. What do you notice? 
 <details id="exam_equiv_contrapositive-2-1-2-1-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_equiv_contrapositive-2-1-2-1-1-1-1">The truth table is shown in <a href="sec_converse_cp.html#table_truthtable_contrapositive" class="xref" data-knowl="./knowl/xref/table_truthtable_contrapositive.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.4.11: Truth table for the contrapositive">Table 5.4.11</a>. Notice that the columns for the conditional and its contrapositive are identical. That means that a conditional and its contrapositive are logically equivalent.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_equiv_contrapositive-2-1-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_equiv_contrapositive-2-1-2-1-1-1-1">The truth table is shown in <a href="sec_converse_cp.html#table_truthtable_contrapositive" class="xref" data-knowl="./knowl/xref/table_truthtable_contrapositive.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.4.13: Truth table for the contrapositive">Table 5.4.13</a>. Notice that the columns for the conditional and its contrapositive are identical. That means that a conditional and its contrapositive are logically equivalent.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_equiv_contrapositive-2-1-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="table_truthtable_contrapositive"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Truth table for the contrapositive<div class="autopermalink" aria-hidden="true" data-description="Table 5.4.11: Truth table for the contrapositive"><a tabindex="-1" href="#table_truthtable_contrapositive" title="Copy heading and permalink for Table 5.4.11: Truth table for the contrapositive" aria-label="Copy heading and permalink for Table 5.4.11: Truth table for the contrapositive">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table_truthtable_contrapositive"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Truth table for the contrapositive<div class="autopermalink" aria-hidden="true" data-description="Table 5.4.13: Truth table for the contrapositive"><a tabindex="-1" href="#table_truthtable_contrapositive" title="Copy heading and permalink for Table 5.4.13: Truth table for the contrapositive" aria-label="Copy heading and permalink for Table 5.4.13: Truth table for the contrapositive">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P\)</span></td>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(Q\)</span></td>
@@ -1464,13 +1489,13 @@ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_equiv_contrapositive-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 5.4.10: Equivalence of statement and its contrapositive"><a tabindex="-1" href="#exam_equiv_contrapositive" title="Copy heading and permalink for Example 5.4.10: Equivalence of statement and its contrapositive" aria-label="Copy heading and permalink for Example 5.4.10: Equivalence of statement and its contrapositive">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 5.4.12: Equivalence of statement and its contrapositive"><a tabindex="-1" href="#exam_equiv_contrapositive" title="Copy heading and permalink for Example 5.4.12: Equivalence of statement and its contrapositive" aria-label="Copy heading and permalink for Example 5.4.12: Equivalence of statement and its contrapositive">🔗</a></div>
 </article></details>
 <div class="para" id="sub_contrapositive-6">We add the contrapositive to our list of logical equivalences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_contrapositive-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_cp"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Contraposition equivalence.</span>
-</h4>
+<article class="theorem theorem-like" id="thm_cp"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.14</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Contraposition equivalence.</span>
+</h3>
 <div class="para logical" id="thm_cp-2-1">
 <div class="para">For statements <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span>
 </div>
@@ -1481,16 +1506,16 @@ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_cp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 5.4.12: Contraposition equivalence"><a tabindex="-1" href="#thm_cp" title="Copy heading and permalink for Theorem 5.4.12: Contraposition equivalence" aria-label="Copy heading and permalink for Theorem 5.4.12: Contraposition equivalence">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 5.4.14: Contraposition equivalence"><a tabindex="-1" href="#thm_cp" title="Copy heading and permalink for Theorem 5.4.14: Contraposition equivalence" aria-label="Copy heading and permalink for Theorem 5.4.14: Contraposition equivalence">🔗</a></div>
 </article>
 <div class="para" id="sub_contrapositive-8">Let’s practice working with the contrapositive.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_contrapositive-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_cp"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.C</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Contrapositive.</span>
-</h4>
+<article class="activity project-like" id="act_cp"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Contrapositive.</span>
+</h3>
 <div class="para logical" id="act_cp-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_cp-2-2">
+<ol class="lower-alpha" id="act_cp-2-2">
 <li id="act_cp-2-2-1">
 <div class="para" id="act_cp-2-2-1-1">Write the contrapositive of the true statement “for all integers <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n&gt;10\text{,}\)</span> then <span class="process-math">\(n&gt;5\)</span>”.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_cp-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1518,17 +1543,17 @@ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 5.4.C: The Contrapositive"><a tabindex="-1" href="#sub_contrapositive" title="Copy heading and permalink for Subsection 5.4.C: The Contrapositive" aria-label="Copy heading and permalink for Subsection 5.4.C: The Contrapositive">🔗</a></div>
 </section>
 <section class="subsection" id="sub_pff_cp">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format: Conditional Using the Contrapositive</span>
-</h3>
+</h2>
 <div class="para" id="sub_pff_cp-2">Since a conditional and its contrapositive are logically equivalent, we have a new way to prove <span class="process-math">\(P \to Q\text{:}\)</span> we can prove its contrapositive <span class="process-math">\(\neg Q \to \neg P\)</span> instead.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_cp-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="pff_if_then_cp"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format:Conditional Using the Contrapositive.</span>
-</h4>
+<article class="theorem theorem-like" id="pff_if_then_cp"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format:Conditional Using the Contrapositive.</span>
+</h3>
 <div class="para" id="pff_if_then_cp-2-1">We can prove <span class="process-math">\(P \to Q\)</span> using the contrapositive by adapting the following proof format.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_if_then_cp-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<details id="pff_if_then_cp-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5></summary>
+<details id="pff_if_then_cp-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">
 <div class="para" id="pff_if_then_cp-2-2-1">We will prove the contrapositive, namely (fill in <span class="process-math">\(\neg Q \to \neg P\)</span>).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_if_then_cp-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1539,19 +1564,19 @@ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P)\text{,}
 <div class="para" id="pff_if_then_cp-2-2-4">Thus <span class="process-math">\(\neg P\)</span> is true.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_if_then_cp-2-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 1"><a tabindex="-1" href="#pff_if_then_cp-2-2" title="Copy heading and permalink for Proof 1" aria-label="Copy heading and permalink for Proof 1">🔗</a></div>
-</article></details><div class="autopermalink" aria-hidden="true" data-description="Theorem 5.4.13: Proof Format:Conditional Using the Contrapositive"><a tabindex="-1" href="#pff_if_then_cp" title="Copy heading and permalink for Theorem 5.4.13: Proof Format:Conditional Using the Contrapositive" aria-label="Copy heading and permalink for Theorem 5.4.13: Proof Format:Conditional Using the Contrapositive">🔗</a></div>
+</article></details><div class="autopermalink" aria-hidden="true" data-description="Theorem 5.4.16: Proof Format:Conditional Using the Contrapositive"><a tabindex="-1" href="#pff_if_then_cp" title="Copy heading and permalink for Theorem 5.4.16: Proof Format:Conditional Using the Contrapositive" aria-label="Copy heading and permalink for Theorem 5.4.16: Proof Format:Conditional Using the Contrapositive">🔗</a></div>
 </article>
 <div class="para" id="sub_pff_cp-4">Let’s do an example with this new proof format.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_cp-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_direct_proof_ifnsqoddthennodd"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.D</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Contrapositive proof if <span class="process-math">\(n^2\)</span> is odd, then <span class="process-math">\(n\)</span> is also odd.</span>
-</h4>
+<article class="activity project-like" id="act_direct_proof_ifnsqoddthennodd"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Contrapositive proof if <span class="process-math">\(n^2\)</span> is odd, then <span class="process-math">\(n\)</span> is also odd.</span>
+</h3>
 <div class="para logical" id="act_direct_proof_ifnsqoddthennodd-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_direct_proof_ifnsqoddthennodd-2-2">
+<ol class="lower-alpha" id="act_direct_proof_ifnsqoddthennodd-2-2">
 <li id="part_ifnsqoddthennodd">
 <div class="para" id="part_ifnsqoddthennodd-1">Perhaps you noticed in <a href="sec_converse_cp.html#act_cp" class="xref" data-knowl="./knowl/xref/act_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 5.4.C: Contrapositive">Activity 5.4.C</a> <a href="sec_converse_cp.html#part_cp_easier" class="xref" data-knowl="./knowl/xref/part_cp_easier.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (d)">(d)</a> that the contrapositive would be easier to prove. Copy the following proof. Prove for any integer <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(n^2\)</span> is odd then <span class="process-math">\(n\)</span> is odd. 
-<details id="part_ifnsqoddthennodd-1-6" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5></summary>
+<details id="part_ifnsqoddthennodd-1-6" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">
 <div class="para" id="part_ifnsqoddthennodd-1-6-1">Let <span class="process-math">\(n\)</span> be an integer. We will prove the contrapositive, namely that if <span class="process-math">\(n\)</span> is even, then <span class="process-math">\(n^2\)</span> is even.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_ifnsqoddthennodd-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1582,16 +1607,16 @@ n^2=(2k)^2=(2k)(2k) = (2)(2)kk = 4k^2 = 2(2k^2)\text{.}
 </article>
 <div class="para" id="sub_pff_cp-6">When a proof by contradiction does not use the supposed hypothesis until the ending contradiction, we can often rewrite the proof using the contrapositive, avoiding the proof by contradiction.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_cp-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_product_even_implies_even_factor" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Rewriting a proof by contradiction using the contrapositive.</span>
-</h4></summary>
+<details id="exam_product_even_implies_even_factor" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Rewriting a proof by contradiction using the contrapositive.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_product_even_implies_even_factor-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_product_even_implies_even_factor-2-1-2">
+<ol class="lower-alpha" id="exam_product_even_implies_even_factor-2-1-2">
 <li id="part_contradiction_product_even_implies_even_factor">
 <div class="para" id="part_contradiction_product_even_implies_even_factor-1">Read the following proof by contradiction. Prove that for any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> if <span class="process-math">\(ab\)</span> is even, then <span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even. 
-<details id="part_contradiction_product_even_implies_even_factor-1-6" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5></summary>
+<details id="part_contradiction_product_even_implies_even_factor-1-6" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">
 <div class="para" id="part_contradiction_product_even_implies_even_factor-1-6-1">Suppose not. Then for some integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> we would have that <span class="process-math">\(ab\)</span> is even but neither <span class="process-math">\(a\)</span> nor <span class="process-math">\(b\)</span> is even.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_contradiction_product_even_implies_even_factor-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1627,7 +1652,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 <div class="para" id="exam_product_even_implies_even_factor-2-1-2-2-1">State the contrapositive of the statement “For any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> if <span class="process-math">\(ab\)</span> is even, then <span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even.” 
 <details id="exam_product_even_implies_even_factor-2-1-2-2-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_product_even_implies_even_factor-2-1-2-2-1-2-1">By DeMorgan’s Laws <a href="sec_logic_connectives.html#thm_demorgans" class="xref" data-knowl="./knowl/xref/thm_demorgans.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.19: De Morgan’s Law">Theorem 5.1.19</a>, the negation of the conclusion “<span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even”&gt; is the statement “<span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are odd”. The contrapositive is “for any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are odd, then <span class="process-math">\(ab\)</span> is odd”. Notice that we keep the universal quantifier.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_product_even_implies_even_factor-2-1-2-2-1-2-1">By DeMorgan’s Laws <a href="sec_logic_connectives.html#thm_demorgans" class="xref" data-knowl="./knowl/xref/thm_demorgans.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.1.23: De Morgan’s Law">Theorem 5.1.23</a>, the negation of the conclusion “<span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even”&gt; is the statement “<span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are odd”. The contrapositive is “for any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are odd, then <span class="process-math">\(ab\)</span> is odd”. Notice that we keep the universal quantifier.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-2-1-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1635,7 +1660,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 <div class="autopermalink" aria-hidden="true" data-description="Item (b)"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-2" title="Copy heading and permalink for Item (b)" aria-label="Copy heading and permalink for Item (b)">🔗</a></div>
 </li>
 <li id="exam_product_even_implies_even_factor-2-1-2-3">
-<div class="para" id="exam_product_even_implies_even_factor-2-1-2-3-1">Adapt the proof from <a href="sec_converse_cp.html#part_contradiction_product_even_implies_even_factor" class="xref" data-knowl="./knowl/xref/part_contradiction_product_even_implies_even_factor.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a> to prove for any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> if <span class="process-math">\(ab\)</span> is even, then either <span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even using the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.13: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.13</a>. Hint: you should not have to change much of the proof. 
+<div class="para" id="exam_product_even_implies_even_factor-2-1-2-3-1">Adapt the proof from <a href="sec_converse_cp.html#part_contradiction_product_even_implies_even_factor" class="xref" data-knowl="./knowl/xref/part_contradiction_product_even_implies_even_factor.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a> to prove for any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> if <span class="process-math">\(ab\)</span> is even, then either <span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even using the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.16: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.16</a>. Hint: you should not have to change much of the proof. 
 <details id="exam_product_even_implies_even_factor-2-1-2-3-1-8" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="exam_product_even_implies_even_factor-2-1-2-3-1-8-1">Prove: for any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> if <span class="process-math">\(ab\)</span> is even, then either <span class="process-math">\(a\)</span> is even or <span class="process-math">\(b\)</span> is even.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1-2-3-1-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1666,23 +1691,23 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_product_even_implies_even_factor-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 5.4.14: Rewriting a proof by contradiction using the contrapositive"><a tabindex="-1" href="#exam_product_even_implies_even_factor" title="Copy heading and permalink for Example 5.4.14: Rewriting a proof by contradiction using the contrapositive" aria-label="Copy heading and permalink for Example 5.4.14: Rewriting a proof by contradiction using the contrapositive">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 5.4.18: Rewriting a proof by contradiction using the contrapositive"><a tabindex="-1" href="#exam_product_even_implies_even_factor" title="Copy heading and permalink for Example 5.4.18: Rewriting a proof by contradiction using the contrapositive" aria-label="Copy heading and permalink for Example 5.4.18: Rewriting a proof by contradiction using the contrapositive">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 5.4.D: Proof Format: Conditional Using the Contrapositive"><a tabindex="-1" href="#sub_pff_cp" title="Copy heading and permalink for Subsection 5.4.D: Proof Format: Conditional Using the Contrapositive" aria-label="Copy heading and permalink for Subsection 5.4.D: Proof Format: Conditional Using the Contrapositive">🔗</a></div>
 </section>
 <section class="subsection" id="sec_converse_cp-7">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.E</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
-</h3>
+</h2>
 <section class="subsubsection" id="sec_converse_cp-7-2">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 5.4.A The Converse and Biconditional Statements</span>
-</h4>
-<article class="exercise exercise-like" id="exer_converse_TorF_lessthan"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_converse_TorF_lessthan"><h4 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_converse_TorF_lessthan-2-1">
 <div class="para">Consider the statement “for any real number <span class="process-math">\(x\text{,}\)</span> if <span class="process-math">\(x^2 \le 100\text{,}\)</span> then <span class="process-math">\(x \le 10\)</span>”.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_converse_TorF_lessthan-2-1-2">
+<ol class="lower-alpha" id="exer_converse_TorF_lessthan-2-1-2">
 <li id="exer_converse_TorF_lessthan-2-1-2-1">
 <div class="para" id="exer_converse_TorF_lessthan-2-1-2-1-1">Is the statement true or false?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_converse_TorF_lessthan-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1704,7 +1729,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 <div class="solutions">
 <details id="exer_converse_TorF_lessthan-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_converse_TorF_lessthan-3-1">
+<ol class="lower-alpha" id="exer_converse_TorF_lessthan-3-1">
 <li id="exer_converse_TorF_lessthan-3-1-1">
 <div class="para" id="exer_converse_TorF_lessthan-3-1-1-1">True. Note: In fact, <span class="process-math">\(-10 \le x \le 10\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_converse_TorF_lessthan-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1726,12 +1751,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 1: Practice"><a tabindex="-1" href="#exer_converse_TorF_lessthan" title="  1: Practice" aria-label="  1: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_converse_TorF_divides"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_converse_TorF_divides"><h4 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_converse_TorF_divides-2-1">
 <div class="para">Consider the statement “for all integers <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(6 \mid n\text{,}\)</span> then <span class="process-math">\(3 \mid n\)</span>”.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_converse_TorF_divides-2-1-2">
+<ol class="lower-alpha" id="exer_converse_TorF_divides-2-1-2">
 <li id="exer_converse_TorF_divides-2-1-2-1">
 <div class="para" id="exer_converse_TorF_divides-2-1-2-1-1">Is the statement true or false?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_converse_TorF_divides-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1752,12 +1777,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 2: Practice"><a tabindex="-1" href="#exer_converse_TorF_divides" title="  2: Practice" aria-label="  2: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_converse_TorF_mod"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_converse_TorF_mod"><h4 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_converse_TorF_mod-2-1">
 <div class="para">Consider the statement “for any integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> if <span class="process-math">\(a \fn{ mod } 5 = b \fn{ mod } 5\text{,}\)</span> then <span class="process-math">\(a^2 \fn{ mod } 5 = b^2 \fn{ mod } 5\)</span>”</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_converse_TorF_mod-2-1-2">
+<ol class="lower-alpha" id="exer_converse_TorF_mod-2-1-2">
 <li id="exer_converse_TorF_mod-2-1-2-1">
 <div class="para" id="exer_converse_TorF_mod-2-1-2-1-1">Is the statement true or false?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_converse_TorF_mod-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1779,7 +1804,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 <div class="solutions">
 <details id="exer_converse_TorF_mod-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_converse_TorF_mod-3-1">
+<ol class="lower-alpha" id="exer_converse_TorF_mod-3-1">
 <li id="exer_converse_TorF_mod-3-1-1">
 <div class="para" id="exer_converse_TorF_mod-3-1-1-1">True<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_converse_TorF_mod-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1801,19 +1826,19 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 3: Practice"><a tabindex="-1" href="#exer_converse_TorF_mod" title="  3: Practice" aria-label="  3: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_converse_inverse_equiv"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_converse_inverse_equiv"><h4 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para" id="exer_converse_inverse_equiv-2-1">Use a truth table to show that the converse <span class="process-math">\(Q \to P\)</span> and the inverse <span class="process-math">\(\neg P \to \neg Q\)</span> are logically equivalent. Include intermediate columns for <span class="process-math">\(\neg P\)</span> and <span class="process-math">\(\neg Q\text{.}\)</span> This result helps explain why we rarely discuss the inverse.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_converse_inverse_equiv-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 4: Practice"><a tabindex="-1" href="#exer_converse_inverse_equiv" title="  4: Practice" aria-label="  4: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_TorF_iff"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_TorF_iff"><h4 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_TorF_iff-2-1">
 <div class="para">Decide if each biconditional statement from <a href="sec_converse_cp.html#act_converse_iff" class="xref" data-knowl="./knowl/xref/act_converse_iff.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 5.4.A: The converse and biconditional statements">Activity 5.4.A</a> is true or false. Explain briefly.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_TorF_iff-2-1-2">
+<ol class="lower-alpha" id="exer_TorF_iff-2-1-2">
 <li id="exer_TorF_iff-2-1-2-1">
 <div class="para" id="exer_TorF_iff-2-1-2-1-1">For any integers <span class="process-math">\(k\text{,}\)</span> <span class="process-math">\(k&gt;10\)</span> if and only if <span class="process-math">\(k&gt;5\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_TorF_iff-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1835,7 +1860,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 <div class="solutions">
 <details id="exer_TorF_iff-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_TorF_iff-3-1">
+<ol class="lower-alpha" id="exer_TorF_iff-3-1">
 <li id="exer_TorF_iff-3-1-1">
 <div class="para" id="exer_TorF_iff-3-1-1-1">Hint: One direction is true, but the other direction is false. Find a counterexample.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_TorF_iff-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1857,19 +1882,19 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 5: Practice"><a tabindex="-1" href="#exer_TorF_iff" title="  5: Practice" aria-label="  5: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_neg_biconditional"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_neg_biconditional"><h4 class="heading">
 <span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_neg_biconditional-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_neg_biconditional-2-1-2">
+<ol class="lower-alpha" id="exer_neg_biconditional-2-1-2">
 <li id="exer_neg_biconditional-2-1-2-1">
 <div class="para" id="exer_neg_biconditional-2-1-2-1-1">Construct a truth table for <span class="process-math">\(\neg(P \leftrightarrow Q)\text{.}\)</span> Hint: Copy the truth table from <a href="sec_converse_cp.html#exam_truthtable_biconditional" class="xref" data-knowl="./knowl/xref/exam_truthtable_biconditional.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.4.5: Truth table of biconditional statement">Example 5.4.5</a> and add one additional column.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_neg_biconditional-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 6.(a)"><a tabindex="-1" href="#exer_neg_biconditional-2-1-2-1" title="Copy heading and permalink for Item 6.(a)" aria-label="Copy heading and permalink for Item 6.(a)">🔗</a></div>
 </li>
 <li id="exer_neg_biconditional-2-1-2-2">
-<div class="para" id="exer_neg_biconditional-2-1-2-2-1">The negation <span class="process-math">\(\neg(P \leftrightarrow Q)\)</span> is logically equivalent to a simpler statement. What is it? Hint: <a href="sec_logic_connectives.html#table_truthtable_xor" class="xref" data-knowl="./knowl/xref/table_truthtable_xor.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.1.5: Truth table for the logical connective xor">Table 5.1.5</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_neg_biconditional-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_neg_biconditional-2-1-2-2-1">The negation <span class="process-math">\(\neg(P \leftrightarrow Q)\)</span> is logically equivalent to a simpler statement. What is it? Hint: <a href="sec_logic_connectives.html#table_truthtable_xor" class="xref" data-knowl="./knowl/xref/table_truthtable_xor.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.1.6: Truth table for the logical connective xor">Table 5.1.6</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_neg_biconditional-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 6.(b)"><a tabindex="-1" href="#exer_neg_biconditional-2-1-2-2" title="Copy heading and permalink for Item 6.(b)" aria-label="Copy heading and permalink for Item 6.(b)">🔗</a></div>
 </li>
@@ -1878,12 +1903,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 6: Understand"><a tabindex="-1" href="#exer_neg_biconditional" title="  6: Understand" aria-label="  6: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_converse_iff"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_converse_iff"><h4 class="heading">
 <span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_converse_iff-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_converse_iff-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_converse_iff-2-1-2">
 <li id="exer_dyk_converse_iff-2-1-2-1">
 <div class="para" id="exer_dyk_converse_iff-2-1-2-1-1">What the converse of <span class="process-math">\(P \to Q\)</span> is?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_converse_iff-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1911,13 +1936,13 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 5.4.A The Converse and Biconditional Statements"><a tabindex="-1" href="#sec_converse_cp-7-2" title="Copy heading and permalink for Subsubsection: Exercises for 5.4.A The Converse and Biconditional Statements" aria-label="Copy heading and permalink for Subsubsection: Exercises for 5.4.A The Converse and Biconditional Statements">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_converse_cp-7-3">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 5.4.B Proof Format: Biconditional</span>
-</h4>
-<article class="exercise exercise-like" id="exer_proof_iff_even"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_proof_iff_even"><h4 class="heading">
 <span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
-<div class="para" id="exer_proof_iff_even-2-1">Use <a href="sec_converse_cp.html#pff_iff" class="xref" data-knowl="./knowl/xref/pff_iff.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.7: Proof Format: Biconditional">Theorem 5.4.7</a> to prove that <span class="process-math">\(n\)</span> is even if and only if <span class="process-math">\(n+3\)</span> is odd, for any integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_iff_even-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_proof_iff_even-2-1">Use <a href="sec_converse_cp.html#pff_iff" class="xref" data-knowl="./knowl/xref/pff_iff.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.8: Proof Format: Biconditional">Theorem 5.4.8</a> to prove that <span class="process-math">\(n\)</span> is even if and only if <span class="process-math">\(n+3\)</span> is odd, for any integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_iff_even-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_proof_iff_even-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1929,10 +1954,10 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 8: Practice"><a tabindex="-1" href="#exer_proof_iff_even" title="  8: Practice" aria-label="  8: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_proof_iff_solution"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_proof_iff_solution"><h4 class="heading">
 <span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
-<div class="para" id="exer_proof_iff_solution-2-1">Use <a href="sec_converse_cp.html#pff_iff" class="xref" data-knowl="./knowl/xref/pff_iff.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.7: Proof Format: Biconditional">Theorem 5.4.7</a> to prove that <span class="process-math">\(2n-7=5\)</span> if and only if <span class="process-math">\(n =6\)</span> for any integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_iff_solution-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_proof_iff_solution-2-1">Use <a href="sec_converse_cp.html#pff_iff" class="xref" data-knowl="./knowl/xref/pff_iff.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.8: Proof Format: Biconditional">Theorem 5.4.8</a> to prove that <span class="process-math">\(2n-7=5\)</span> if and only if <span class="process-math">\(n =6\)</span> for any integer <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_iff_solution-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_proof_iff_solution-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1951,12 +1976,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 9: Practice"><a tabindex="-1" href="#exer_proof_iff_solution" title="  9: Practice" aria-label="  9: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_pff_iff"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_pff_iff"><h4 class="heading">
 <span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_pff_iff-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_pff_iff-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_pff_iff-2-1-2">
 <li id="exer_dyk_pff_iff-2-1-2-1">
 <div class="para" id="exer_dyk_pff_iff-2-1-2-1-1">How to format the proof of a biconditional statement?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_pff_iff-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1974,15 +1999,15 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 5.4.B Proof Format: Biconditional"><a tabindex="-1" href="#sec_converse_cp-7-3" title="Copy heading and permalink for Subsubsection: Exercises for 5.4.B Proof Format: Biconditional" aria-label="Copy heading and permalink for Subsubsection: Exercises for 5.4.B Proof Format: Biconditional">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_converse_cp-7-4">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 5.4.C The Contrapositive</span>
-</h4>
-<article class="exercise exercise-like" id="exer_cp_assorted"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_cp_assorted"><h4 class="heading">
 <span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_cp_assorted-2-1">
 <div class="para">Write the contrapositive of each statement.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cp_assorted-2-1-1">
+<ol class="lower-alpha" id="exer_cp_assorted-2-1-1">
 <li id="exer_cp_assorted-2-1-1-1">
 <div class="para" id="exer_cp_assorted-2-1-1-1-1">For any real number <span class="process-math">\(x\text{,}\)</span> if <span class="process-math">\(3x \le 6\text{,}\)</span> then <span class="process-math">\(x \le 2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cp_assorted-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2004,7 +2029,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 <div class="solutions">
 <details id="exer_cp_assorted-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cp_assorted-3-1">
+<ol class="lower-alpha" id="exer_cp_assorted-3-1">
 <li id="exer_cp_assorted-3-1-1">
 <div class="para" id="exer_cp_assorted-3-1-1-1">For any real number <span class="process-math">\(x\text{,}\)</span> if <span class="process-math">\(x &gt; 2\text{,}\)</span> then <span class="process-math">\(3x &gt; 6\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cp_assorted-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2026,12 +2051,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 11: Practice"><a tabindex="-1" href="#exer_cp_assorted" title="  11: Practice" aria-label="  11: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_subgraph_acyclic"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_subgraph_acyclic"><h4 class="heading">
 <span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_subgraph_acyclic-2-1">
 <div class="para">Let <span class="process-math">\(H\)</span> be a subgraph of a graph <span class="process-math">\(G\text{.}\)</span> Consider the statement If <span class="process-math">\(G\)</span> is acyclic, then <span class="process-math">\(H\)</span> is acyclic.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_subgraph_acyclic-2-1-5">
+<ol class="lower-alpha" id="exer_subgraph_acyclic-2-1-5">
 <li id="exer_subgraph_acyclic-2-1-5-1">
 <div class="para" id="exer_subgraph_acyclic-2-1-5-1-1">State the contrapositive of this statement and explain why it’s true.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_subgraph_acyclic-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2048,7 +2073,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 <div class="solutions">
 <details id="exer_subgraph_acyclic-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_subgraph_acyclic-3-1">
+<ol class="lower-alpha" id="exer_subgraph_acyclic-3-1">
 <li id="exer_subgraph_acyclic-3-1-1">
 <div class="para" id="exer_subgraph_acyclic-3-1-1-1">Hint: The negation of “acyclic” is “contains a cycle.”<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_subgraph_acyclic-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2065,12 +2090,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 12: Understand"><a tabindex="-1" href="#exer_subgraph_acyclic" title="  12: Understand" aria-label="  12: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_cp_irrat"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_cp_irrat"><h4 class="heading">
 <span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_cp_irrat-2-1">
 <div class="para">Write the contrapositive of each statement.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cp_irrat-2-1-1">
+<ol class="lower-alpha" id="exer_cp_irrat-2-1-1">
 <li id="exer_cp_irrat-2-1-1-1">
 <div class="para" id="exer_cp_irrat-2-1-1-1-1">For all real numbers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> if <span class="process-math">\(x\)</span> is rational and <span class="process-math">\(y\)</span> is irrational, then <span class="process-math">\(x+y\)</span> is irrational. Note: from <a href="sec_functions.html#defn_sets_of_real_numbers" class="xref" data-knowl="./knowl/xref/defn_sets_of_real_numbers.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 6.1.4: Sets of real numbers">Definition 6.1.4</a> rational and irrational are negations.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cp_irrat-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2094,7 +2119,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 <div class="hint solution-like knowl__content">
 <div class="para logical" id="exer_cp_irrat-3-1">
 <div class="para">Hint: Use DeMorgan’s laws any time you need to negate a statement involving “and” or “or”.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cp_irrat-3-1-3">
+<ol class="lower-alpha" id="exer_cp_irrat-3-1-3">
 <li id="exer_cp_irrat-3-1-3-1">
 <div class="para" id="exer_cp_irrat-3-1-3-1-1">Hint: The contrapositive begins “For all real numbers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> if <span class="process-math">\(x+y\)</span> is rational, then …”<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cp_irrat-3-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2118,12 +2143,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 13: Understand"><a tabindex="-1" href="#exer_cp_irrat" title="  13: Understand" aria-label="  13: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_cp"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_cp"><h4 class="heading">
 <span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_cp-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_cp-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_cp-2-1-2">
 <li id="exer_dyk_cp-2-1-2-1">
 <div class="para" id="exer_dyk_cp-2-1-2-1-1">What the contrapositive of <span class="process-math">\(P \to Q\)</span> is?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_cp-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2146,20 +2171,20 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 5.4.C The Contrapositive"><a tabindex="-1" href="#sec_converse_cp-7-4" title="Copy heading and permalink for Subsubsection: Exercises for 5.4.C The Contrapositive" aria-label="Copy heading and permalink for Subsubsection: Exercises for 5.4.C The Contrapositive">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_converse_cp-7-5">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 5.4.D Proof Format: Conditional Using the Contrapositive</span>
-</h4>
-<article class="exercise exercise-like" id="exer_proof_sq_even_implies_even"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_proof_sq_even_implies_even"><h4 class="heading">
 <span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
-<div class="para" id="exer_proof_sq_even_implies_even-2-1">Use the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.13: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.13</a> to prove that for any integer <span class="process-math">\(s\text{,}\)</span> if <span class="process-math">\(s^2\)</span> is even then <span class="process-math">\(s\)</span> is even.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_sq_even_implies_even-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_proof_sq_even_implies_even-2-1">Use the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.16: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.16</a> to prove that for any integer <span class="process-math">\(s\text{,}\)</span> if <span class="process-math">\(s^2\)</span> is even then <span class="process-math">\(s\)</span> is even.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_sq_even_implies_even-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 15: Practice"><a tabindex="-1" href="#exer_proof_sq_even_implies_even" title="  15: Practice" aria-label="  15: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_proof_3m_odd"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_proof_3m_odd"><h4 class="heading">
 <span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
-<div class="para" id="exer_proof_3m_odd-2-1">Use the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.13: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.13</a> to prove for any integer <span class="process-math">\(m\text{,}\)</span> if <span class="process-math">\(3m\)</span> is odd, then <span class="process-math">\(m\)</span> is odd. (We proved the converse in <a href="sec_conditional_statements.html#act_pffifthen" class="xref" data-knowl="./knowl/xref/act_pffifthen.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 5.3.B: Direct proof of a conditional statement">Activity 5.3.B</a> <a href="sec_conditional_statements.html#part_if_then_direct" class="xref" data-knowl="./knowl/xref/part_if_then_direct.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a>.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_3m_odd-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_proof_3m_odd-2-1">Use the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.16: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.16</a> to prove for any integer <span class="process-math">\(m\text{,}\)</span> if <span class="process-math">\(3m\)</span> is odd, then <span class="process-math">\(m\)</span> is odd. (We proved the converse in <a href="sec_conditional_statements.html#act_pffifthen" class="xref" data-knowl="./knowl/xref/act_pffifthen.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 5.3.B: Direct proof of a conditional statement">Activity 5.3.B</a> <a href="sec_conditional_statements.html#part_if_then_direct" class="xref" data-knowl="./knowl/xref/part_if_then_direct.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a>.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_3m_odd-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_proof_3m_odd-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -2182,12 +2207,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 16: Practice"><a tabindex="-1" href="#exer_proof_3m_odd" title="  16: Practice" aria-label="  16: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_prove_only_check_prime_divisors"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_prove_only_check_prime_divisors"><h4 class="heading">
 <span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
-<div class="para" id="exer_prove_only_check_prime_divisors-2-1">In this exercise we prove <a href="sec_primes.html#thm_show_is_prime" class="xref" data-knowl="./knowl/xref/thm_show_is_prime.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.3: Show an integer is prime">Theorem 4.4.3</a> <a href="sec_primes.html#part_only_check_prime_divisors" class="xref" data-knowl="./knowl/xref/part_only_check_prime_divisors.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_only_check_prime_divisors-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_prove_only_check_prime_divisors-2-1">In this exercise we prove <a href="sec_primes.html#thm_show_is_prime" class="xref" data-knowl="./knowl/xref/thm_show_is_prime.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.4: Show an integer is prime">Theorem 4.4.4</a> <a href="sec_primes.html#part_only_check_prime_divisors" class="xref" data-knowl="./knowl/xref/part_only_check_prime_divisors.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_only_check_prime_divisors-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<div class="para" id="exer_prove_only_check_prime_divisors-2-2">Use the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.13: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.13</a> to prove that for any integers <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(p\text{,}\)</span> and <span class="process-math">\(m\text{,}\)</span> if <span class="process-math">\(p \nmid n\text{,}\)</span> then <span class="process-math">\(mp \nmid n\text{.}\)</span> Note that this statement can be rephrased as if <span class="process-math">\(p\)</span> is not a divisor of <span class="process-math">\(n\text{,}\)</span> then no multiple of <span class="process-math">\(p\)</span> is a divisor of <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_only_check_prime_divisors-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_prove_only_check_prime_divisors-2-2">Use the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.16: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.16</a> to prove that for any integers <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(p\text{,}\)</span> and <span class="process-math">\(m\text{,}\)</span> if <span class="process-math">\(p \nmid n\text{,}\)</span> then <span class="process-math">\(mp \nmid n\text{.}\)</span> Note that this statement can be rephrased as if <span class="process-math">\(p\)</span> is not a divisor of <span class="process-math">\(n\text{,}\)</span> then no multiple of <span class="process-math">\(p\)</span> is a divisor of <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_only_check_prime_divisors-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_prove_only_check_prime_divisors-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -2206,12 +2231,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 17: Understand"><a tabindex="-1" href="#exer_prove_only_check_prime_divisors" title="  17: Understand" aria-label="  17: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_prove_only_check_to_sqrtn"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_prove_only_check_to_sqrtn"><h4 class="heading">
 <span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
-<div class="para" id="exer_prove_only_check_to_sqrtn-2-1">In this exercise we prove <a href="sec_primes.html#thm_show_is_prime" class="xref" data-knowl="./knowl/xref/thm_show_is_prime.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.3: Show an integer is prime">Theorem 4.4.3</a> <a href="sec_primes.html#part_only_check_to_sqrtn" class="xref" data-knowl="./knowl/xref/part_only_check_to_sqrtn.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (b)">(b)</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_only_check_to_sqrtn-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_prove_only_check_to_sqrtn-2-1">In this exercise we prove <a href="sec_primes.html#thm_show_is_prime" class="xref" data-knowl="./knowl/xref/thm_show_is_prime.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.4.4: Show an integer is prime">Theorem 4.4.4</a> <a href="sec_primes.html#part_only_check_to_sqrtn" class="xref" data-knowl="./knowl/xref/part_only_check_to_sqrtn.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (b)">(b)</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_only_check_to_sqrtn-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<div class="para" id="exer_prove_only_check_to_sqrtn-2-2">Prove for any integers <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(ab=n\text{,}\)</span> then <span class="process-math">\(a \le \sqrt{n}\)</span> or <span class="process-math">\(b \le \sqrt{n}\text{.}\)</span> Hint: Prove the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.13: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.13</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_only_check_to_sqrtn-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_prove_only_check_to_sqrtn-2-2">Prove for any integers <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(ab=n\text{,}\)</span> then <span class="process-math">\(a \le \sqrt{n}\)</span> or <span class="process-math">\(b \le \sqrt{n}\text{.}\)</span> Hint: Prove the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.16: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.16</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_only_check_to_sqrtn-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_prove_only_check_to_sqrtn-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -2223,12 +2248,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 18: Understand"><a tabindex="-1" href="#exer_prove_only_check_to_sqrtn" title="  18: Understand" aria-label="  18: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_pff_cp"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_pff_cp"><h4 class="heading">
 <span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_pff_cp-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_pff_cp-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_pff_cp-2-1-2">
 <li id="exer_dyk_pff_cp-2-1-2-1">
 <div class="para" id="exer_dyk_pff_cp-2-1-2-1-1">How to prove a conditional statement by proving the contrapositive instead?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_pff_cp-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2249,10 +2274,10 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 19: Recap"><a tabindex="-1" href="#exer_dyk_pff_cp" title="  19: Recap" aria-label="  19: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_proof_iff_using_cp_evens"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_proof_iff_using_cp_evens"><h4 class="heading">
 <span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
-<div class="para" id="exer_proof_iff_using_cp_evens-2-1">Use <a href="sec_converse_cp.html#pff_iff" class="xref" data-knowl="./knowl/xref/pff_iff.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.7: Proof Format: Biconditional">Theorem 5.4.7</a> to prove that <span class="process-math">\(m\)</span> is odd if and only if <span class="process-math">\(m^3\)</span> is odd. Hint: Use the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.13: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.13</a> for the converse (second part).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_iff_using_cp_evens-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_proof_iff_using_cp_evens-2-1">Use <a href="sec_converse_cp.html#pff_iff" class="xref" data-knowl="./knowl/xref/pff_iff.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.8: Proof Format: Biconditional">Theorem 5.4.8</a> to prove that <span class="process-math">\(m\)</span> is odd if and only if <span class="process-math">\(m^3\)</span> is odd. Hint: Use the contrapositive <a href="sec_converse_cp.html#pff_if_then_cp" class="xref" data-knowl="./knowl/xref/pff_if_then_cp.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 5.4.16: Proof Format:Conditional Using the Contrapositive">Theorem 5.4.16</a> for the converse (second part).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_proof_iff_using_cp_evens-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_proof_iff_using_cp_evens-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -2271,12 +2296,12 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 20: Explore"><a tabindex="-1" href="#exer_proof_iff_using_cp_evens" title="  20: Explore" aria-label="  20: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_prove_sqrt2_irrat"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_prove_sqrt2_irrat"><h4 class="heading">
 <span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para" id="exer_prove_sqrt2_irrat-2-1">Copy the following proof by contradiction that <span class="process-math">\(\sqrt{2}\)</span> is irrational, being sure to figure out why each statement is true.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_sqrt2_irrat-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<details id="exer_prove_sqrt2_irrat-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h6></summary>
+<details id="exer_prove_sqrt2_irrat-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5></summary>
 <article class="hiddenproof knowl__content">
 <div class="para" id="exer_prove_sqrt2_irrat-2-2-1">Suppose not. Then <span class="process-math">\(\sqrt{2}\)</span> is rational.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_sqrt2_irrat-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2291,7 +2316,7 @@ ab=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_sqrt2_irrat-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="exer_prove_sqrt2_irrat-2-2-3">By <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.11: Equal fractions">Theorem 4.1.11</a>, we may assume that we have canceled any common factors so that <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> are coprime.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_sqrt2_irrat-2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_prove_sqrt2_irrat-2-2-3">By <a href="sec_even_odd_divides.html#thm_equal_fractions" class="xref" data-knowl="./knowl/xref/thm_equal_fractions.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 4.1.14: Equal fractions">Theorem 4.1.14</a>, we may assume that we have canceled any common factors so that <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> are coprime.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_prove_sqrt2_irrat-2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="exer_prove_sqrt2_irrat-2-2-4">
 <div class="para">On the other hand, multiply each side of this equation by <span class="process-math">\(t\)</span> to get</div>
