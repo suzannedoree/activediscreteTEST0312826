@@ -31,6 +31,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@ htmlPresentation: false,
 <meta property="og:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta property="book:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.46"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.53"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.53"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -61,21 +62,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1bda041f5a098305.css">
+<script src="_static/prefix-runtime.8b982cdcb4aa84b9.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.0499040fbb8ea56b.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></div>
 <p class="byline">Dr. Suzanne Dorée</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -88,7 +89,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -273,7 +284,9 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_prologue.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue</span></a></div>
-<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_prologue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_handshakes.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Handshakes</span></a></div>
 <ul id="ptx-toc-group-sec_handshakes" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_handshakes.html#sec_handshakes-3" class="internal"><span class="codenumber">1.1.A</span> <span class="title">Counting Handshakes</span></a></div></li>
@@ -287,11 +300,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_counting.html" class="internal"><span class="codenumber">2</span> <span class="title">Listing and Counting</span></a></div>
 <ul id="ptx-toc-group-ch_counting" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_counting-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_listing.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Organized Listing</span></a></div>
 <ul id="ptx-toc-group-sec_listing" class="structural toc-item-list">
@@ -365,6 +380,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_graph_theory.html" class="internal"><span class="codenumber">3</span> <span class="title">Graph Theory</span></a></div>
 <ul id="ptx-toc-group-ch_graph_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_graph_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_graph_models.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Modeling with Graphs</span></a></div>
 <ul id="ptx-toc-group-sec_graph_models" class="structural toc-item-list">
@@ -450,6 +466,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_number_theory.html" class="internal"><span class="codenumber">4</span> <span class="title">Number Theory</span></a></div>
 <ul id="ptx-toc-group-ch_number_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_number_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_even_odd_divides.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integer Division</span></a></div>
 <ul id="ptx-toc-group-sec_even_odd_divides" class="structural toc-item-list">
@@ -537,6 +554,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_logic_proof.html" class="internal"><span class="codenumber">5</span> <span class="title">Logic and Proof</span></a></div>
 <ul id="ptx-toc-group-ch_logic_proof" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_logic_proof-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
@@ -633,6 +651,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_functions.html" class="internal"><span class="codenumber">6</span> <span class="title">Functions</span></a></div>
 <ul id="ptx-toc-group-ch_functions" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_functions-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_functions.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Functions and Their Representations</span></a></div>
 <ul id="ptx-toc-group-sec_functions" class="structural toc-item-list">
@@ -722,6 +741,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sets_rel.html" class="internal"><span class="codenumber">7</span> <span class="title">Sets and Relations</span></a></div>
 <ul id="ptx-toc-group-ch_sets_rel" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sets_rel-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_sets.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sets</span></a></div>
 <ul id="ptx-toc-group-sec_sets" class="structural toc-item-list">
@@ -806,6 +826,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_recursion_induction.html" class="internal"><span class="codenumber">8</span> <span class="title">Recursion and Induction</span></a></div>
 <ul id="ptx-toc-group-ch_recursion_induction" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_recursion_induction-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_recursively_defined_sequences.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Recursively-defined Sequences</span></a></div>
 <ul id="ptx-toc-group-sec_recursively_defined_sequences" class="structural toc-item-list">
@@ -893,6 +914,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch_sum_prod.html" class="internal"><span class="codenumber">9</span> <span class="title">Sums and Products</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch_sum_prod">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sum_prod-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_model_sum_prod.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Modeling with Sums and Products</span></a></div>
 <ul id="ptx-toc-group-sec_model_sum_prod" class="structural toc-item-list">
@@ -976,23 +998,26 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_epilogue.html" class="internal"><span class="codenumber">10</span> <span class="title">Epilogue</span></a></div>
-<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_epilogue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_hotelinfinity.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Hotel Infinity</span></a></div>
 <ul id="ptx-toc-group-sec_hotelinfinity" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_hotel_infinity" class="internal"><span class="codenumber">10.1.A</span> <span class="title">Hotel Infinity</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_countable" class="internal"><span class="codenumber">10.1.B</span> <span class="title">The Definition of Discrete</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec_arith_triangle">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Arithmetic Triangle</span>
-</h2>
+</h1>
 <section class="introduction" id="sec_arith_triangle-2">
 <div class="para logical" id="sec_arith_triangle-2-1">
-<div class="para">In <a href="ch_counting.html" class="internal" title="Chapter 2: Listing and Counting">Chapter 2</a>, we saw three counting techniques: steps (where we multiply), cases (where we add), and subsets (where we use binomial coefficients). In <a href="sec_model_sum_prod.html" class="internal" title="Section 9.1: Modeling with Sums and Products">Section 9.1</a> and <a href="sec_sum_conj.html" class="internal" title="Section 9.3: Conjectures of Explicit Formulas for Sums and Products">Section 9.3</a>, we worked with sums and products. In this section, we revisit the binomial coefficients, defined in <a href="sec_counting_subsets.html#defn_binomial_coeff" class="xref" data-knowl="./knowl/xref/defn_binomial_coeff.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.3.4: Binomial coefficient">Definition 2.3.4</a>, which are</div>
+<div class="para">In <a href="ch_counting.html" class="internal" title="Chapter 2: Listing and Counting">Chapter 2</a>, we saw three counting techniques: steps (where we multiply), cases (where we add), and subsets (where we use binomial coefficients). In <a href="sec_model_sum_prod.html" class="internal" title="Section 9.1: Modeling with Sums and Products">Section 9.1</a> and <a href="sec_sum_conj.html" class="internal" title="Section 9.3: Conjectures of Explicit Formulas for Sums and Products">Section 9.3</a>, we worked with sums and products. In this section, we revisit the binomial coefficients, defined in <a href="sec_counting_subsets.html#defn_binomial_coeff" class="xref" data-knowl="./knowl/xref/defn_binomial_coeff.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.3.5: Binomial coefficient">Definition 2.3.5</a>, which are</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ch_counting.html ./knowl/xref/sec_model_sum_prod.html ./knowl/xref/sec_sum_conj.html ./knowl/xref/defn_binomial_coeff.html" id="sec_arith_triangle-2-1-5">
 \begin{equation*}
 \binom{n}{k} = \text{ the number of ways to select a subset of }  k \text{ elements from a set of }  n \text{ elements }
@@ -1004,21 +1029,21 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_arith_triangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="sub_arith_triangle">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Arithmetic Triangle</span>
-</h3>
+</h2>
 <div class="para" id="sub_arith_triangle-2">How do we calculate the value of <span class="process-math">\(\binom{n}{k}\text{?}\)</span> Let’s first look at an example using the definition.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_arith_triangle-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_eval_7choose4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating a binomial coefficient by listing subsets.</span>
-</h4></summary>
+<details id="exam_eval_7choose4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating a binomial coefficient by listing subsets.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="exam_eval_7choose4-2-1">Evaluate <span class="process-math">\(\binom{7}{4}\)</span> without using computational technology.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_eval_7choose4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exam_eval_7choose4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_eval_7choose4-3-1">By <a href="sec_counting_subsets.html#defn_binomial_coeff" class="xref" data-knowl="./knowl/xref/defn_binomial_coeff.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.3.4: Binomial coefficient">Definition 2.3.4</a>, we can count all 4-element subsets of a set with seven elements, say <span class="process-math">\(\{1,2,3,4,5,6,7\}\text{.}\)</span> We list these subsets in <a href="sec_arith_triangle.html#table_subset_list_7choose4" class="xref" data-knowl="./knowl/xref/table_subset_list_7choose4.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.4.2: The 4-element subsets of the set \{1,2,3,4,5,6,7\}">Table 9.4.2</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_eval_7choose4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_eval_7choose4-3-1">By <a href="sec_counting_subsets.html#defn_binomial_coeff" class="xref" data-knowl="./knowl/xref/defn_binomial_coeff.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 2.3.5: Binomial coefficient">Definition 2.3.5</a>, we can count all 4-element subsets of a set with seven elements, say <span class="process-math">\(\{1,2,3,4,5,6,7\}\text{.}\)</span> We list these subsets in <a href="sec_arith_triangle.html#table_subset_list_7choose4" class="xref" data-knowl="./knowl/xref/table_subset_list_7choose4.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.4.2: The 4-element subsets of the set \{1,2,3,4,5,6,7\}">Table 9.4.2</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_eval_7choose4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="table table-like" id="table_subset_list_7choose4"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The 4-element subsets of the set <span class="process-math">\(\{1,2,3,4,5,6,7\}\)</span><div class="autopermalink" aria-hidden="true" data-description="Table 9.4.2: The 4-element subsets of the set \{1,2,3,4,5,6,7\}"><a tabindex="-1" href="#table_subset_list_7choose4" title="Copy heading and permalink for Table 9.4.2: The 4-element subsets of the set \{1,2,3,4,5,6,7\}" aria-label="Copy heading and permalink for Table 9.4.2: The 4-element subsets of the set \{1,2,3,4,5,6,7\}">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
@@ -1081,13 +1106,13 @@ eBookConfig.enable_chatcodes =  false;
 </article></details>
 <div class="para" id="sub_arith_triangle-4">There are some values of binomial coefficients that we can compute from the definition.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_arith_triangle-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_border_values_binom_coeffs" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Border values of binomial coefficients.</span>
-</h4></summary>
+<details id="exam_border_values_binom_coeffs" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Border values of binomial coefficients.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_border_values_binom_coeffs-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_border_values_binom_coeffs-2-1-2">
+<ol class="lower-alpha" id="exam_border_values_binom_coeffs-2-1-2">
 <li id="exam_border_values_binom_coeffs-2-1-2-1">
 <div class="para" id="exam_border_values_binom_coeffs-2-1-2-1-1">Explain why <span class="process-math">\(\binom{n}{0}=1\)</span> and <span class="process-math">\(\binom{n}{n}=1\)</span> using the definition of the binomial coefficients. 
 <details id="exam_border_values_binom_coeffs-2-1-2-1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1117,9 +1142,9 @@ eBookConfig.enable_chatcodes =  false;
 </article></details>
 <div class="para" id="sub_arith_triangle-6">Listing the <span class="process-math">\(k\)</span>-element subsets of a set with <span class="process-math">\(n\)</span> elements is tedious, even for small values of <span class="process-math">\(n\)</span> and <span class="process-math">\(k\text{,}\)</span> and it is impractical for any larger values. We would like a more efficient way to calculate the values of <span class="process-math">\(\binom{n}{k}\)</span> by hand for small values of <span class="process-math">\(n\)</span> and <span class="process-math">\(k\text{.}\)</span> For larger values, we seek a recursive definition to compute the values. We begin with a way to list binomial coefficients in a triangular array.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_arith_triangle-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_arith_triangle"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The arithmetic triangle.</span>
-</h4>
+<article class="definition definition-like" id="defn_arith_triangle"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The arithmetic triangle.</span>
+</h3>
 <div class="para" id="defn_arith_triangle-2-1">The <dfn class="terminology">arithmetic triangle</dfn> is an array of binomial coefficients, where each row has, in order, the values <span class="process-math">\(\binom{n}{k}\text{,}\)</span> for <span class="process-math">\(k=0,1,2, \ldots, n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_arith_triangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
 <div class="para" id="defn_arith_triangle-2-2">For example, the first row has a single value, <span class="process-math">\(\binom{0}{0}=1\text{.}\)</span> The second row has, in order, the values <span class="process-math">\(\binom{1}{0}=1\)</span> and <span class="process-math">\(\binom{1}{1}=1\text{.}\)</span> The third row has, in order, the values <span class="process-math">\(\binom{2}{0}=1\text{,}\)</span> <span class="process-math">\(\binom{2}{1}=2\text{,}\)</span> and <span class="process-math">\(\binom{2}{2}=1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_arith_triangle-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1214,13 +1239,13 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sub_arith_triangle-8">We can use the arithmetic triangle to evaluate binomial coefficients.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_arith_triangle-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_using_arith_tri_eval" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the arithmetic triangle to evaluate binomial coefficients.</span>
-</h4></summary>
+<details id="exam_using_arith_tri_eval" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the arithmetic triangle to evaluate binomial coefficients.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_using_arith_tri_eval-2-1">
 <div class="para">Use the arithmetic triangle drawn in <a href="sec_arith_triangle.html#figure_arith_tri_standard" class="xref" data-knowl="./knowl/xref/figure_arith_tri_standard.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.6">Figure 9.4.6</a> to evaluate each binomial coefficient. If you are not sure where to look in the triangle, refer to <a href="sec_arith_triangle.html#figure_arith_tri_expanded" class="xref" data-knowl="./knowl/xref/figure_arith_tri_expanded.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.5">Figure 9.4.5</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_using_arith_tri_eval-2-1-3">
+<ol class="lower-alpha" id="exam_using_arith_tri_eval-2-1-3">
 <li id="exam_using_arith_tri_eval-2-1-3-1">
 <div class="para" id="exam_using_arith_tri_eval-2-1-3-1-1">Evaluate <span class="process-math">\(\displaystyle \binom{4}{2}\text{.}\)</span> 
 <details id="exam_using_arith_tri_eval-2-1-3-1-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1232,7 +1257,7 @@ eBookConfig.enable_chatcodes =  false;
 \binom{4}{0}=1, \binom{4}{1}=4, \binom{4}{2}=6, \ldots\text{.}
 \end{equation*}
 </div>
-<div class="para">This answer agrees with our list of the 2-element subsets of <span class="process-math">\(\{1,2,3,4\}\)</span> from <a href="sec_counting_subsets.html#exam_four_choose_k" class="xref" data-knowl="./knowl/xref/exam_four_choose_k.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.3.6: Four choose k">Example 2.3.6</a>.</div>
+<div class="para">This answer agrees with our list of the 2-element subsets of <span class="process-math">\(\{1,2,3,4\}\)</span> from <a href="sec_counting_subsets.html#exam_four_choose_k" class="xref" data-knowl="./knowl/xref/exam_four_choose_k.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.3.7: Four choose k">Example 2.3.7</a>.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_arith_tri_eval-2-1-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_using_arith_tri_eval-2-1-3-1-1-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
@@ -1265,12 +1290,12 @@ eBookConfig.enable_chatcodes =  false;
 </article></details>
 <div class="para" id="sub_arith_triangle-10">Try working with the arithmetic triangle.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_arith_triangle-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_arith_tri"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.A</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The arithmetic triangle.</span>
-</h4>
+<article class="activity project-like" id="act_arith_tri"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The arithmetic triangle.</span>
+</h3>
 <div class="para logical" id="act_arith_tri-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_arith_tri-2-2">
+<ol class="lower-alpha" id="act_arith_tri-2-2">
 <li id="act_arith_tri-2-2-1">
 <div class="para" id="act_arith_tri-2-2-1-1">Copy the first eight rows of the arithmetic triangle.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_arith_tri-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1322,12 +1347,12 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sub_arith_triangle-12">Make sure to complete <a href="sec_arith_triangle.html#act_arith_tri" class="xref" data-knowl="./knowl/xref/act_arith_tri.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.4.A: The arithmetic triangle">Activity 9.4.A</a> before reading on because we are going to share the key observation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_arith_triangle-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="remark remark-like" id="rem_generating_arith_triangle"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Generating the arithmetic triangle.</span>
-</h4>
+<article class="remark remark-like" id="rem_generating_arith_triangle"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.9</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Generating the arithmetic triangle.</span>
+</h3>
 <div class="para logical" id="rem_generating_arith_triangle-2">
 <div class="para">We can generate the arithmetic triangle as follows.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="rem_generating_arith_triangle-2-1">
+<ol class="lower-alpha" id="rem_generating_arith_triangle-2-1">
 <li id="rem_generating_arith_triangle-2-1-1">
 <div class="para" id="rem_generating_arith_triangle-2-1-1-1">The first row is 1.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#rem_generating_arith_triangle-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1341,13 +1366,13 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#rem_generating_arith_triangle-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Remark 9.4.8: Generating the arithmetic triangle"><a tabindex="-1" href="#rem_generating_arith_triangle" title="Copy heading and permalink for Remark 9.4.8: Generating the arithmetic triangle" aria-label="Copy heading and permalink for Remark 9.4.8: Generating the arithmetic triangle">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Remark 9.4.9: Generating the arithmetic triangle"><a tabindex="-1" href="#rem_generating_arith_triangle" title="Copy heading and permalink for Remark 9.4.9: Generating the arithmetic triangle" aria-label="Copy heading and permalink for Remark 9.4.9: Generating the arithmetic triangle">🔗</a></div>
 </article>
 <div class="para" id="sub_arith_triangle-14">We state this recursion formally.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_arith_triangle-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_pascals_recursion"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recursive definition of the binomial coefficients.</span>
-</h4>
+<article class="theorem theorem-like" id="thm_pascals_recursion"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.10</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recursive definition of the binomial coefficients.</span>
+</h3>
 <div class="para logical" id="thm_pascals_recursion-2-1">
 <div class="para">The binomial coefficients can be defined recursively by <span class="process-math">\(\binom{n}{0}=\binom{n}{n}=1\)</span> and</div>
 <div class="displaymath process-math" id="thm_pascals_recursion-2-1-2">
@@ -1359,15 +1384,15 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_pascals_recursion-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.9: Recursive definition of the binomial coefficients"><a tabindex="-1" href="#thm_pascals_recursion" title="Copy heading and permalink for Theorem 9.4.9: Recursive definition of the binomial coefficients" aria-label="Copy heading and permalink for Theorem 9.4.9: Recursive definition of the binomial coefficients">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.10: Recursive definition of the binomial coefficients"><a tabindex="-1" href="#thm_pascals_recursion" title="Copy heading and permalink for Theorem 9.4.10: Recursive definition of the binomial coefficients" aria-label="Copy heading and permalink for Theorem 9.4.10: Recursive definition of the binomial coefficients">🔗</a></div>
 </article>
 <div class="para" id="sub_arith_triangle-16">Let’s see this formula in action.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_arith_triangle-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_arith_tri_row9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Adding another row to the arithmetic triangle.</span>
-</h4></summary>
+<details id="exam_arith_tri_row9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.11</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Adding another row to the arithmetic triangle.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
-<div class="para" id="exam_arith_tri_row9-2-1">Use <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.9: Recursive definition of the binomial coefficients">Theorem 9.4.9</a> to write the row of the arithmetic triangle that begins with 1, 8.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_arith_tri_row9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_arith_tri_row9-2-1">Use <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.10: Recursive definition of the binomial coefficients">Theorem 9.4.10</a> to write the row of the arithmetic triangle that begins with 1, 8.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_arith_tri_row9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exam_arith_tri_row9-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1386,28 +1411,28 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_arith_tri_row9-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="exam_arith_tri_row9-3-2">The result is shown in <a href="sec_arith_triangle.html#fig_arith_triangle_recursion" class="xref" data-knowl="./knowl/xref/fig_arith_triangle_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.11">Figure 9.4.11</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_arith_tri_row9-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_arith_tri_row9-3-2">The result is shown in <a href="sec_arith_triangle.html#fig_arith_triangle_recursion" class="xref" data-knowl="./knowl/xref/fig_arith_triangle_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.12">Figure 9.4.12</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_arith_tri_row9-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig_arith_triangle_recursion"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/fig_arith_triangle_recursion-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Generating another row of the arithmetic triange.<div class="autopermalink" aria-hidden="true" data-description="Figure 9.4.11"><a tabindex="-1" href="#fig_arith_triangle_recursion" title="Copy heading and permalink for Figure 9.4.11" aria-label="Copy heading and permalink for Figure 9.4.11">🔗</a></div></figcaption>
-</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.10.1"><a tabindex="-1" href="#exam_arith_tri_row9-3" title="Copy heading and permalink for Solution 9.4.10.1" aria-label="Copy heading and permalink for Solution 9.4.10.1">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Generating another row of the arithmetic triange.<div class="autopermalink" aria-hidden="true" data-description="Figure 9.4.12"><a tabindex="-1" href="#fig_arith_triangle_recursion" title="Copy heading and permalink for Figure 9.4.12" aria-label="Copy heading and permalink for Figure 9.4.12">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.11.1"><a tabindex="-1" href="#exam_arith_tri_row9-3" title="Copy heading and permalink for Solution 9.4.11.1" aria-label="Copy heading and permalink for Solution 9.4.11.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.10: Adding another row to the arithmetic triangle"><a tabindex="-1" href="#exam_arith_tri_row9" title="Copy heading and permalink for Example 9.4.10: Adding another row to the arithmetic triangle" aria-label="Copy heading and permalink for Example 9.4.10: Adding another row to the arithmetic triangle">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.11: Adding another row to the arithmetic triangle"><a tabindex="-1" href="#exam_arith_tri_row9" title="Copy heading and permalink for Example 9.4.11: Adding another row to the arithmetic triangle" aria-label="Copy heading and permalink for Example 9.4.11: Adding another row to the arithmetic triangle">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.4.A: The Arithmetic Triangle"><a tabindex="-1" href="#sub_arith_triangle" title="Copy heading and permalink for Subsection 9.4.A: The Arithmetic Triangle" aria-label="Copy heading and permalink for Subsection 9.4.A: The Arithmetic Triangle">🔗</a></div>
 </section>
 <section class="subsection" id="sub_pascal_patterns">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Patterns in the Arithmetic Triangle</span>
-</h3>
+</h2>
 <div class="para" id="sub_pascal_patterns-2">There are many patterns that involve binomial coefficients.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pascal_patterns-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_pascals_patterns"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.B</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Looking for patterns in the arithmetic triangle.</span>
-</h4>
+<article class="activity project-like" id="act_pascals_patterns"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Looking for patterns in the arithmetic triangle.</span>
+</h3>
 <div class="para logical" id="act_pascals_patterns-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_pascals_patterns-2-2">
+<ol class="lower-alpha" id="act_pascals_patterns-2-2">
 <li id="part_arith_tri_sym_conj">
 <div class="para" id="part_arith_tri_sym_conj-1">Do you notice a symmetry in the arithmetic triangle? State your observation as a conjecture of the form <span class="process-math">\(\binom{n}{k}=\binom{n}{}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_arith_tri_sym_conj-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1438,9 +1463,9 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sub_pascal_patterns-4">Let’s look at the first two patterns from <a href="sec_arith_triangle.html#act_pascals_patterns" class="xref" data-knowl="./knowl/xref/act_pascals_patterns.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.4.B: Looking for patterns in the arithmetic triangle">Activity 9.4.B</a>. We begin with the left-right symmetry.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pascal_patterns-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_sym_arith_triangle"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Symmetry in the arithmetic triangle.</span>
-</h4>
+<article class="theorem theorem-like" id="thm_sym_arith_triangle"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.14</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Symmetry in the arithmetic triangle.</span>
+</h3>
 <div class="para logical" id="thm_sym_arith_triangle-2-1">
 <div class="para">For nonnegative integers <span class="process-math">\(n\)</span> and <span class="process-math">\(k\text{,}\)</span> we have</div>
 <div class="displaymath process-math" id="thm_sym_arith_triangle-2-1-3">
@@ -1450,23 +1475,23 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_sym_arith_triangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.12: Symmetry in the arithmetic triangle"><a tabindex="-1" href="#thm_sym_arith_triangle" title="Copy heading and permalink for Theorem 9.4.12: Symmetry in the arithmetic triangle" aria-label="Copy heading and permalink for Theorem 9.4.12: Symmetry in the arithmetic triangle">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.14: Symmetry in the arithmetic triangle"><a tabindex="-1" href="#thm_sym_arith_triangle" title="Copy heading and permalink for Theorem 9.4.14: Symmetry in the arithmetic triangle" aria-label="Copy heading and permalink for Theorem 9.4.14: Symmetry in the arithmetic triangle">🔗</a></div>
 </article>
 <div class="para" id="sub_pascal_patterns-6">We can use this theorem to evaluate binomial coefficients.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pascal_patterns-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_using_sym_arith_triangle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the symmetry in the arithmetic triangle.</span>
-</h4></summary>
+<details id="exam_using_sym_arith_triangle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.15</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the symmetry in the arithmetic triangle.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_using_sym_arith_triangle-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_using_sym_arith_triangle-2-1-2">
+<ol class="lower-alpha" id="exam_using_sym_arith_triangle-2-1-2">
 <li id="exam_using_sym_arith_triangle-2-1-2-1">
 <div class="para" id="exam_using_sym_arith_triangle-2-1-2-1-1">Evaluate <span class="process-math">\(\binom{n}{n-1}\)</span> for a integer <span class="process-math">\(n\ge 1\text{.}\)</span> 
 <details id="exam_using_sym_arith_triangle-2-1-2-1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exam_using_sym_arith_triangle-2-1-2-1-1-3-1">
-<div class="para">We saw in <a href="sec_arith_triangle.html#exam_border_values_binom_coeffs" class="xref" data-knowl="./knowl/xref/exam_border_values_binom_coeffs.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.4.3: Border values of binomial coefficients">Example 9.4.3</a> that <span class="process-math">\(\binom{n}{1}=1\text{.}\)</span> Using symmetry <a href="sec_arith_triangle.html#thm_sym_arith_triangle" class="xref" data-knowl="./knowl/xref/thm_sym_arith_triangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.12: Symmetry in the arithmetic triangle">Theorem 9.4.12</a>, we get</div>
+<div class="para">We saw in <a href="sec_arith_triangle.html#exam_border_values_binom_coeffs" class="xref" data-knowl="./knowl/xref/exam_border_values_binom_coeffs.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.4.3: Border values of binomial coefficients">Example 9.4.3</a> that <span class="process-math">\(\binom{n}{1}=1\text{.}\)</span> Using symmetry <a href="sec_arith_triangle.html#thm_sym_arith_triangle" class="xref" data-knowl="./knowl/xref/thm_sym_arith_triangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.14: Symmetry in the arithmetic triangle">Theorem 9.4.14</a>, we get</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_border_values_binom_coeffs.html ./knowl/xref/thm_sym_arith_triangle.html" id="exam_using_sym_arith_triangle-2-1-2-1-1-3-1-4">
 \begin{equation*}
 \binom{n}{n-1} = \binom{n}{n-(n-1)} = \binom{n}{1} = n
@@ -1484,7 +1509,7 @@ eBookConfig.enable_chatcodes =  false;
 <details id="exam_using_sym_arith_triangle-2-1-2-2-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exam_using_sym_arith_triangle-2-1-2-2-1-2-1">
-<div class="para">Using symmetry <a href="sec_arith_triangle.html#thm_sym_arith_triangle" class="xref" data-knowl="./knowl/xref/thm_sym_arith_triangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.12: Symmetry in the arithmetic triangle">Theorem 9.4.12</a>, we get</div>
+<div class="para">Using symmetry <a href="sec_arith_triangle.html#thm_sym_arith_triangle" class="xref" data-knowl="./knowl/xref/thm_sym_arith_triangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.14: Symmetry in the arithmetic triangle">Theorem 9.4.14</a>, we get</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_sym_arith_triangle.html" id="exam_using_sym_arith_triangle-2-1-2-2-1-2-1-2">
 \begin{equation*}
 \binom{n}{n-2} = \binom{n}{n-(n-2)}=\binom{n}{2}
@@ -1500,17 +1525,17 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_sym_arith_triangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.13: Using the symmetry in the arithmetic triangle"><a tabindex="-1" href="#exam_using_sym_arith_triangle" title="Copy heading and permalink for Example 9.4.13: Using the symmetry in the arithmetic triangle" aria-label="Copy heading and permalink for Example 9.4.13: Using the symmetry in the arithmetic triangle">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.15: Using the symmetry in the arithmetic triangle"><a tabindex="-1" href="#exam_using_sym_arith_triangle" title="Copy heading and permalink for Example 9.4.15: Using the symmetry in the arithmetic triangle" aria-label="Copy heading and permalink for Example 9.4.15: Using the symmetry in the arithmetic triangle">🔗</a></div>
 </article></details>
 <div class="para" id="sub_pascal_patterns-8">Next, let’s look at the row sums.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pascal_patterns-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_sum_rows_arith_triangle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sums of rows of the arithmetic triangle.</span>
-</h4></summary>
+<details id="exam_sum_rows_arith_triangle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sums of rows of the arithmetic triangle.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_sum_rows_arith_triangle-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_sum_rows_arith_triangle-2-1-2">
+<ol class="lower-alpha" id="exam_sum_rows_arith_triangle-2-1-2">
 <li id="exam_sum_rows_arith_triangle-2-1-2-1">
 <div class="para" id="exam_sum_rows_arith_triangle-2-1-2-1-1">Calculate the sum of the entries in the eighth row of the arithmetic triangle. 
 <details id="exam_sum_rows_arith_triangle-2-1-2-1-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1559,13 +1584,13 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_sum_rows_arith_triangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.14: Sums of rows of the arithmetic triangle"><a tabindex="-1" href="#exam_sum_rows_arith_triangle" title="Copy heading and permalink for Example 9.4.14: Sums of rows of the arithmetic triangle" aria-label="Copy heading and permalink for Example 9.4.14: Sums of rows of the arithmetic triangle">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.16: Sums of rows of the arithmetic triangle"><a tabindex="-1" href="#exam_sum_rows_arith_triangle" title="Copy heading and permalink for Example 9.4.16: Sums of rows of the arithmetic triangle" aria-label="Copy heading and permalink for Example 9.4.16: Sums of rows of the arithmetic triangle">🔗</a></div>
 </article></details>
 <div class="para" id="sub_pascal_patterns-10">Let’s state our conjecture. We prove it in Exercise <a href="sec_arith_triangle.html#exer_bin_thm_find_row_sum" class="xref" data-knowl="./knowl/xref/exer_bin_thm_find_row_sum.html" data-reveal-label="Reveal" data-close-label="Close" title=" 17: Understand">17</a> and using a different method in <a href="sec_sum_proofs.html" class="internal" title="Section 9.5: Proofs of Explicit Formulas for Sums and Products">Section 9.5</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pascal_patterns-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_sum_rows_arith_triangle"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sums of rows of the arithmetic triangle.</span>
-</h4>
+<article class="theorem theorem-like" id="thm_sum_rows_arith_triangle"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.17</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sums of rows of the arithmetic triangle.</span>
+</h3>
 <div class="para logical" id="thm_sum_rows_arith_triangle-2-1">
 <div class="para">For nonnegative integers <span class="process-math">\(n\)</span> we have</div>
 <div class="displaymath process-math" id="thm_sum_rows_arith_triangle-2-1-2">
@@ -1575,17 +1600,17 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_sum_rows_arith_triangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.15: Sums of rows of the arithmetic triangle"><a tabindex="-1" href="#thm_sum_rows_arith_triangle" title="Copy heading and permalink for Theorem 9.4.15: Sums of rows of the arithmetic triangle" aria-label="Copy heading and permalink for Theorem 9.4.15: Sums of rows of the arithmetic triangle">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.17: Sums of rows of the arithmetic triangle"><a tabindex="-1" href="#thm_sum_rows_arith_triangle" title="Copy heading and permalink for Theorem 9.4.17: Sums of rows of the arithmetic triangle" aria-label="Copy heading and permalink for Theorem 9.4.17: Sums of rows of the arithmetic triangle">🔗</a></div>
 </article>
 <div class="para" id="sub_pascal_patterns-12">Here is another summation pattern that involves the binomial coefficients.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pascal_patterns-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_hockey_stick" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hockey stick.</span>
-</h4></summary>
+<details id="exam_hockey_stick" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hockey stick.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_hockey_stick-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_hockey_stick-2-1-2">
+<ol class="lower-alpha" id="exam_hockey_stick-2-1-2">
 <li id="part_hockey_stick2">
 <div class="para" id="part_hockey_stick2-1">Use the arithmetic triangle to evaluate <span class="process-math">\(\displaystyle \sum_{k=2}^5 \binom{k}{2}\text{.}\)</span> 
 <details id="part_hockey_stick2-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1648,10 +1673,10 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="exam_hockey_stick-2-1-2-4-1">Why is this called the “hockey stick” theorem? 
 <details id="exam_hockey_stick-2-1-2-4-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_hockey_stick-2-1-2-4-1-2-1">For example, the sum from <a href="sec_arith_triangle.html#part_hockey_stick2" class="xref" data-knowl="./knowl/xref/part_hockey_stick2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a> is highlighted in <a href="sec_arith_triangle.html#fig_hockey_stick" class="xref" data-knowl="./knowl/xref/fig_hockey_stick.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.17">Figure 9.4.17</a>. The shape of the encircling polygon looks like a hockey stick.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_hockey_stick-2-1-2-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_hockey_stick-2-1-2-4-1-2-1">For example, the sum from <a href="sec_arith_triangle.html#part_hockey_stick2" class="xref" data-knowl="./knowl/xref/part_hockey_stick2.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (a)">(a)</a> is highlighted in <a href="sec_arith_triangle.html#fig_hockey_stick" class="xref" data-knowl="./knowl/xref/fig_hockey_stick.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.19">Figure 9.4.19</a>. The shape of the encircling polygon looks like a hockey stick.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_hockey_stick-2-1-2-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig_hockey_stick"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/fig_hockey_stick-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An example of a hockey stick sum.<div class="autopermalink" aria-hidden="true" data-description="Figure 9.4.17"><a tabindex="-1" href="#fig_hockey_stick" title="Copy heading and permalink for Figure 9.4.17" aria-label="Copy heading and permalink for Figure 9.4.17">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An example of a hockey stick sum.<div class="autopermalink" aria-hidden="true" data-description="Figure 9.4.19"><a tabindex="-1" href="#fig_hockey_stick" title="Copy heading and permalink for Figure 9.4.19" aria-label="Copy heading and permalink for Figure 9.4.19">🔗</a></div></figcaption>
 </figure><div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_hockey_stick-2-1-2-4-1-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_hockey_stick-2-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1660,23 +1685,23 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_hockey_stick-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.16: Hockey stick"><a tabindex="-1" href="#exam_hockey_stick" title="Copy heading and permalink for Example 9.4.16: Hockey stick" aria-label="Copy heading and permalink for Example 9.4.16: Hockey stick">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.18: Hockey stick"><a tabindex="-1" href="#exam_hockey_stick" title="Copy heading and permalink for Example 9.4.18: Hockey stick" aria-label="Copy heading and permalink for Example 9.4.18: Hockey stick">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.4.B: Patterns in the Arithmetic Triangle"><a tabindex="-1" href="#sub_pascal_patterns" title="Copy heading and permalink for Subsection 9.4.B: Patterns in the Arithmetic Triangle" aria-label="Copy heading and permalink for Subsection 9.4.B: Patterns in the Arithmetic Triangle">🔗</a></div>
 </section>
 <section class="subsection" id="sub_binom_thm">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Binomial Theorem</span>
-</h3>
+</h2>
 <div class="para" id="sub_binom_thm-2">The binomial coefficients get their name from polynomials involving two variables that have the binomial coefficients as their coefficients.<details class="ptx-footnote" aria-live="polite" id="sub_binom_thm-2-1"><summary class="ptx-footnote__number" title="Footnote 9.4.2"><sup> 2 </sup></summary>
 <div class="ptx-footnote__contents" id="sub_binom_thm-2-1">The word “binomial” literally means two names, like <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span>
 </div></details> In our first activity, we look at polynomials in one variable.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binom_thm-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_powers_nplus1"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.C</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Powers of <span class="process-math">\(n+1\)</span>.</span>
-</h4>
+<article class="activity project-like" id="act_powers_nplus1"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Powers of <span class="process-math">\(n+1\)</span>.</span>
+</h3>
 <div class="para logical" id="act_powers_nplus1-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_powers_nplus1-2-2">
+<ol class="lower-alpha" id="act_powers_nplus1-2-2">
 <li id="part_nplus1_squared">
 <div class="para logical" id="part_nplus1_squared-1">
 <div class="para">Expand and simplify <span class="process-math">\((n+1)^2\text{.}\)</span> Hint: Start by writing</div>
@@ -1721,9 +1746,9 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sub_binom_thm-4">In <a href="sec_arith_triangle.html#act_powers_nplus1" class="xref" data-knowl="./knowl/xref/act_powers_nplus1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.4.C: Powers of n+1">Activity 9.4.C</a>, we observe that the coefficients of <span class="process-math">\((n+1)^m\)</span> are the binomial coefficients.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binom_thm-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="remark remark-like" id="rem_special_case_binomial_formula"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Special case of the binomial theorem.</span>
-</h4>
+<article class="remark remark-like" id="rem_special_case_binomial_formula"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.21</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Special case of the binomial theorem.</span>
+</h3>
 <div class="para logical" id="rem_special_case_binomial_formula-2">
 <div class="para">For any integer <span class="process-math">\(n\)</span> and nonnegative integer <span class="process-math">\(m\text{,}\)</span> we have</div>
 <div class="displaymath process-math" id="rem_special_case_binomial_formula-2-3">
@@ -1733,15 +1758,15 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#rem_special_case_binomial_formula-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Remark 9.4.18: Special case of the binomial theorem"><a tabindex="-1" href="#rem_special_case_binomial_formula" title="Copy heading and permalink for Remark 9.4.18: Special case of the binomial theorem" aria-label="Copy heading and permalink for Remark 9.4.18: Special case of the binomial theorem">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Remark 9.4.21: Special case of the binomial theorem"><a tabindex="-1" href="#rem_special_case_binomial_formula" title="Copy heading and permalink for Remark 9.4.21: Special case of the binomial theorem" aria-label="Copy heading and permalink for Remark 9.4.21: Special case of the binomial theorem">🔗</a></div>
 </article>
 <div class="para" id="sub_binom_thm-6">Let’s look at an example.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binom_thm-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_using_special_case_binom_formula" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the special case of the binomial theorem.</span>
-</h4></summary>
+<details id="exam_using_special_case_binom_formula" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.22</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the special case of the binomial theorem.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
-<div class="para" id="exam_using_special_case_binom_formula-2-1">Expand <span class="process-math">\((n+1)^7\)</span> using <a href="sec_arith_triangle.html#rem_special_case_binomial_formula" class="xref" data-knowl="./knowl/xref/rem_special_case_binomial_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 9.4.18: Special case of the binomial theorem">Remark 9.4.18</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_special_case_binom_formula-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_using_special_case_binom_formula-2-1">Expand <span class="process-math">\((n+1)^7\)</span> using <a href="sec_arith_triangle.html#rem_special_case_binomial_formula" class="xref" data-knowl="./knowl/xref/rem_special_case_binomial_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 9.4.21: Special case of the binomial theorem">Remark 9.4.21</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_special_case_binom_formula-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exam_using_special_case_binom_formula-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1759,16 +1784,16 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para" id="exam_using_special_case_binom_formula-3-2">The coefficients 1, 7, 21, 35, 35, 21, 7, and 1 come from the eighth row of the arithmetic triangle <a href="sec_arith_triangle.html#figure_arith_tri_standard" class="xref" data-knowl="./knowl/xref/figure_arith_tri_standard.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.6">Figure 9.4.6</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_special_case_binom_formula-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.19.1"><a tabindex="-1" href="#exam_using_special_case_binom_formula-3" title="Copy heading and permalink for Solution 9.4.19.1" aria-label="Copy heading and permalink for Solution 9.4.19.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.22.1"><a tabindex="-1" href="#exam_using_special_case_binom_formula-3" title="Copy heading and permalink for Solution 9.4.22.1" aria-label="Copy heading and permalink for Solution 9.4.22.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.19: Using the special case of the binomial theorem"><a tabindex="-1" href="#exam_using_special_case_binom_formula" title="Copy heading and permalink for Example 9.4.19: Using the special case of the binomial theorem" aria-label="Copy heading and permalink for Example 9.4.19: Using the special case of the binomial theorem">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.22: Using the special case of the binomial theorem"><a tabindex="-1" href="#exam_using_special_case_binom_formula" title="Copy heading and permalink for Example 9.4.22: Using the special case of the binomial theorem" aria-label="Copy heading and permalink for Example 9.4.22: Using the special case of the binomial theorem">🔗</a></div>
 </article></details>
 <div class="para" id="sub_binom_thm-8">The pattern works for the sum of two real numbers, <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> raised to a nonnegative integer power.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binom_thm-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_binomial_thm"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The binomial theorem.</span>
-</h4>
+<article class="theorem theorem-like" id="thm_binomial_thm"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.23</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The binomial theorem.</span>
+</h3>
 <div class="para logical" id="thm_binomial_thm-2-1">
 <div class="para">For any real numbers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> and any nonnegative integer <span class="process-math">\(m\text{,}\)</span> we have</div>
 <div class="displaymath process-math" id="thm_binomial_thm-2-1-4">
@@ -1778,15 +1803,15 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_binomial_thm-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.20: The binomial theorem"><a tabindex="-1" href="#thm_binomial_thm" title="Copy heading and permalink for Theorem 9.4.20: The binomial theorem" aria-label="Copy heading and permalink for Theorem 9.4.20: The binomial theorem">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.23: The binomial theorem"><a tabindex="-1" href="#thm_binomial_thm" title="Copy heading and permalink for Theorem 9.4.23: The binomial theorem" aria-label="Copy heading and permalink for Theorem 9.4.23: The binomial theorem">🔗</a></div>
 </article>
-<div class="para" id="sub_binom_thm-10">Notice that if <span class="process-math">\(x=n\)</span> and <span class="process-math">\(y=1\text{,}\)</span> then we have the special case in <a href="sec_arith_triangle.html#rem_special_case_binomial_formula" class="xref" data-knowl="./knowl/xref/rem_special_case_binomial_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 9.4.18: Special case of the binomial theorem">Remark 9.4.18</a>. Let’s practice using this theorem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binom_thm-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sub_binom_thm-10">Notice that if <span class="process-math">\(x=n\)</span> and <span class="process-math">\(y=1\text{,}\)</span> then we have the special case in <a href="sec_arith_triangle.html#rem_special_case_binomial_formula" class="xref" data-knowl="./knowl/xref/rem_special_case_binomial_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 9.4.21: Special case of the binomial theorem">Remark 9.4.21</a>. Let’s practice using this theorem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binom_thm-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_practice_binom_thm" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice using binomial theorem.</span>
-</h4></summary>
+<details id="exam_practice_binom_thm" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.24</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice using binomial theorem.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
-<div class="para" id="exam_practice_binom_thm-2-1">Use the binomial theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.20: The binomial theorem">Theorem 9.4.20</a> to expand <span class="process-math">\((x-2)^3\)</span> and simplify your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_practice_binom_thm-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_practice_binom_thm-2-1">Use the binomial theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: The binomial theorem">Theorem 9.4.23</a> to expand <span class="process-math">\((x-2)^3\)</span> and simplify your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_practice_binom_thm-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exam_practice_binom_thm-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1800,19 +1825,19 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_practice_binom_thm-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.21.1"><a tabindex="-1" href="#exam_practice_binom_thm-3" title="Copy heading and permalink for Solution 9.4.21.1" aria-label="Copy heading and permalink for Solution 9.4.21.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.24.1"><a tabindex="-1" href="#exam_practice_binom_thm-3" title="Copy heading and permalink for Solution 9.4.24.1" aria-label="Copy heading and permalink for Solution 9.4.24.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.21: Practice using binomial theorem"><a tabindex="-1" href="#exam_practice_binom_thm" title="Copy heading and permalink for Example 9.4.21: Practice using binomial theorem" aria-label="Copy heading and permalink for Example 9.4.21: Practice using binomial theorem">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.24: Practice using binomial theorem"><a tabindex="-1" href="#exam_practice_binom_thm" title="Copy heading and permalink for Example 9.4.24: Practice using binomial theorem" aria-label="Copy heading and permalink for Example 9.4.24: Practice using binomial theorem">🔗</a></div>
 </article></details>
 <div class="para" id="sub_binom_thm-12">We can use the Binomial Theorem to prove an explicit formula for a summation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_binom_thm-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_bin_thm_proof" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the Binomial Theorem to prove a sum formula.</span>
-</h4></summary>
+<details id="exam_bin_thm_proof" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.25</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the Binomial Theorem to prove a sum formula.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_bin_thm_proof-2-1">
-<div class="para">Use the Binomial Theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.20: The binomial theorem">Theorem 9.4.20</a> to prove our conjecture from <a href="sec_arith_triangle.html#act_pascals_patterns" class="xref" data-knowl="./knowl/xref/act_pascals_patterns.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.4.B: Looking for patterns in the arithmetic triangle">Activity 9.4.B</a> <a href="sec_arith_triangle.html#part_alt_row_sum_arith_tri" class="xref" data-knowl="./knowl/xref/part_alt_row_sum_arith_tri.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (c)">(c)</a>:</div>
+<div class="para">Use the Binomial Theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: The binomial theorem">Theorem 9.4.23</a> to prove our conjecture from <a href="sec_arith_triangle.html#act_pascals_patterns" class="xref" data-knowl="./knowl/xref/act_pascals_patterns.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.4.B: Looking for patterns in the arithmetic triangle">Activity 9.4.B</a> <a href="sec_arith_triangle.html#part_alt_row_sum_arith_tri" class="xref" data-knowl="./knowl/xref/part_alt_row_sum_arith_tri.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (c)">(c)</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_binomial_thm.html ./knowl/xref/act_pascals_patterns.html ./knowl/xref/part_alt_row_sum_arith_tri.html" id="exam_bin_thm_proof-2-1-4">
 \begin{equation*}
 \sum_{k=0}^n(-1)^k\binom{n}{k}=0
@@ -1840,26 +1865,26 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_bin_thm_proof-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.22.1"><a tabindex="-1" href="#exam_bin_thm_proof-3" title="Copy heading and permalink for Solution 9.4.22.1" aria-label="Copy heading and permalink for Solution 9.4.22.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.25.1"><a tabindex="-1" href="#exam_bin_thm_proof-3" title="Copy heading and permalink for Solution 9.4.25.1" aria-label="Copy heading and permalink for Solution 9.4.25.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.22: Using the Binomial Theorem to prove a sum formula"><a tabindex="-1" href="#exam_bin_thm_proof" title="Copy heading and permalink for Example 9.4.22: Using the Binomial Theorem to prove a sum formula" aria-label="Copy heading and permalink for Example 9.4.22: Using the Binomial Theorem to prove a sum formula">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.25: Using the Binomial Theorem to prove a sum formula"><a tabindex="-1" href="#exam_bin_thm_proof" title="Copy heading and permalink for Example 9.4.25: Using the Binomial Theorem to prove a sum formula" aria-label="Copy heading and permalink for Example 9.4.25: Using the Binomial Theorem to prove a sum formula">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.4.C: The Binomial Theorem"><a tabindex="-1" href="#sub_binom_thm" title="Copy heading and permalink for Subsection 9.4.C: The Binomial Theorem" aria-label="Copy heading and permalink for Subsection 9.4.C: The Binomial Theorem">🔗</a></div>
 </section>
 <section class="subsection" id="sub_factorial_binomial">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explicit Formula for Binomial Coefficients</span>
-</h3>
-<div class="para" id="sub_factorial_binomial-2">When we count, we often leave binomial coefficients in our answers. If we need an exact value, then we can use computational technology. The fastest way to evaluate binomial coefficients by hand and the method that computational technology uses is the recursive formula <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.9: Recursive definition of the binomial coefficients">Theorem 9.4.9</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_factorial_binomial-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h2>
+<div class="para" id="sub_factorial_binomial-2">When we count, we often leave binomial coefficients in our answers. If we need an exact value, then we can use computational technology. The fastest way to evaluate binomial coefficients by hand and the method that computational technology uses is the recursive formula <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.10: Recursive definition of the binomial coefficients">Theorem 9.4.10</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_factorial_binomial-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sub_factorial_binomial-3">There is also an explicit formula for binomial coefficients. Although this formula is impractical for large values of <span class="process-math">\(n\)</span> and <span class="process-math">\(k\text{,}\)</span> it can be useful for theoretical purposes. Let’s derive that explicit formula.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_factorial_binomial-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_formula_binom_coeffs"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.D</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explicit formula for binomial coefficients.</span>
-</h4>
+<article class="activity project-like" id="act_formula_binom_coeffs"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explicit formula for binomial coefficients.</span>
+</h3>
 <div class="para logical" id="act_formula_binom_coeffs-2">
 <div class="para">Suppose there are 100 movies and we want to rank our top ten as movie #1, movie #2, …, movie #10.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_formula_binom_coeffs-2-2">
+<ol class="lower-alpha" id="act_formula_binom_coeffs-2-2">
 <li id="act_formula_binom_coeffs-2-2-1">
 <div class="para" id="act_formula_binom_coeffs-2-2-1-1">One option is to choose movie #1, and then choose movie #2, and so on. How many ways are there to rank the movies this way? It is okay to have … in your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_formula_binom_coeffs-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1902,9 +1927,9 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sub_factorial_binomial-5">In <a href="sec_arith_triangle.html#act_formula_binom_coeffs" class="xref" data-knowl="./knowl/xref/act_formula_binom_coeffs.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.4.D: Explicit formula for binomial coefficients">Activity 9.4.D</a> we derived an explicit formula for the binomial coefficients.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_factorial_binomial-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="thm_binom_coeffs_formula"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.23</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explicit formula for binomial coefficients.</span>
-</h4>
+<article class="theorem theorem-like" id="thm_binom_coeffs_formula"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.27</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explicit formula for binomial coefficients.</span>
+</h3>
 <div class="para logical" id="thm_binom_coeffs_formula-2-1">
 <div class="para">For integers <span class="process-math">\(0 \le k \le n\text{,}\)</span> we have</div>
 <div class="displaymath process-math" id="thm_binom_coeffs_formula-2-1-2">
@@ -1914,15 +1939,15 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#thm_binom_coeffs_formula-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.23: Explicit formula for binomial coefficients"><a tabindex="-1" href="#thm_binom_coeffs_formula" title="Copy heading and permalink for Theorem 9.4.23: Explicit formula for binomial coefficients" aria-label="Copy heading and permalink for Theorem 9.4.23: Explicit formula for binomial coefficients">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 9.4.27: Explicit formula for binomial coefficients"><a tabindex="-1" href="#thm_binom_coeffs_formula" title="Copy heading and permalink for Theorem 9.4.27: Explicit formula for binomial coefficients" aria-label="Copy heading and permalink for Theorem 9.4.27: Explicit formula for binomial coefficients">🔗</a></div>
 </article>
-<div class="para" id="sub_factorial_binomial-7">Let’s look at how we might prove <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: Explicit formula for binomial coefficients">Theorem 9.4.23</a> using a combinatorial proof.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_factorial_binomial-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sub_factorial_binomial-7">Let’s look at how we might prove <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.27: Explicit formula for binomial coefficients">Theorem 9.4.27</a> using a combinatorial proof.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_factorial_binomial-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_proof_explicit_binom" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.24</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Combinatorial proof of the explicit formula for the binomial coefficients.</span>
-</h4></summary>
+<details id="exam_proof_explicit_binom" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.28</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Combinatorial proof of the explicit formula for the binomial coefficients.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
-<div class="para" id="exam_proof_explicit_binom-2-1">Use a combinatorial proof <a href="sec_counting_subsets.html#pff_comb" class="xref" data-knowl="./knowl/xref/pff_comb.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.10: Proof Format: Combinatorial Proof">Theorem 2.3.10</a> to prove <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: Explicit formula for binomial coefficients">Theorem 9.4.23</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_proof_explicit_binom-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_proof_explicit_binom-2-1">Use a combinatorial proof <a href="sec_counting_subsets.html#pff_comb" class="xref" data-knowl="./knowl/xref/pff_comb.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.13: Proof Format: Combinatorial Proof">Theorem 2.3.13</a> to prove <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.27: Explicit formula for binomial coefficients">Theorem 9.4.27</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_proof_explicit_binom-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exam_proof_explicit_binom-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1932,7 +1957,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="para logical" id="exam_proof_explicit_binom-3-2">
 <div class="para">First, we have <span class="process-math">\(n\)</span> choices for movie #1, and then <span class="process-math">\(n-1\)</span> choices for movie #2, and so on until <span class="process-math">\(n-(k-1)\)</span> choices for movie #<span class="process-math">\(k\text{.}\)</span> Note that <span class="process-math">\(n-0, n-1, \ldots,
-n-(k-1)\)</span> is a list of <span class="process-math">\(k\)</span> rankings. Since steps multiply <a href="sec_counting_steps_cases.html#thm_steps_multiply" class="xref" data-knowl="./knowl/xref/thm_steps_multiply.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.2: Steps multiply">Theorem 2.2.2</a>, there are</div>
+n-(k-1)\)</span> is a list of <span class="process-math">\(k\)</span> rankings. Since steps multiply <a href="sec_counting_steps_cases.html#thm_steps_multiply" class="xref" data-knowl="./knowl/xref/thm_steps_multiply.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.3: Steps multiply">Theorem 2.2.3</a>, there are</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_steps_multiply.html" id="exam_proof_explicit_binom-3-2-8">
 \begin{equation*}
 n(n-1)\ldots(n-(k-1))
@@ -1948,7 +1973,7 @@ n(n-1)\ldots(n-(k-1)) = \frac{n(n-1)\ldots(n-(k-1))(n-k)\ldots(3)(2)(1)} {(n-k)\
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_proof_explicit_binom-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="exam_proof_explicit_binom-3-3">
-<div class="para">On the other hand, we can first pick the <span class="process-math">\(k\)</span> movies as a set in <span class="process-math">\(\binom{n}{k}\)</span> ways and then rank these <span class="process-math">\(k\)</span> movies in <span class="process-math">\(k(k-1)\ldots(3)(2)(1) = k!\)</span> ways. Since steps multiply <a href="sec_counting_steps_cases.html#thm_steps_multiply" class="xref" data-knowl="./knowl/xref/thm_steps_multiply.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.2: Steps multiply">Theorem 2.2.2</a>, there are</div>
+<div class="para">On the other hand, we can first pick the <span class="process-math">\(k\)</span> movies as a set in <span class="process-math">\(\binom{n}{k}\)</span> ways and then rank these <span class="process-math">\(k\)</span> movies in <span class="process-math">\(k(k-1)\ldots(3)(2)(1) = k!\)</span> ways. Since steps multiply <a href="sec_counting_steps_cases.html#thm_steps_multiply" class="xref" data-knowl="./knowl/xref/thm_steps_multiply.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.3: Steps multiply">Theorem 2.2.3</a>, there are</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_steps_multiply.html" id="exam_proof_explicit_binom-3-3-6">
 \begin{equation*}
 \binom{n}{k}k!
@@ -1976,22 +2001,22 @@ n(n-1)\ldots(n-(k-1)) = \frac{n(n-1)\ldots(n-(k-1))(n-k)\ldots(3)(2)(1)} {(n-k)\
 <div class="para">as desired.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_proof_explicit_binom-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.24.1"><a tabindex="-1" href="#exam_proof_explicit_binom-3" title="Copy heading and permalink for Solution 9.4.24.1" aria-label="Copy heading and permalink for Solution 9.4.24.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 9.4.28.1"><a tabindex="-1" href="#exam_proof_explicit_binom-3" title="Copy heading and permalink for Solution 9.4.28.1" aria-label="Copy heading and permalink for Solution 9.4.28.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.24: Combinatorial proof of the explicit formula for the binomial coefficients"><a tabindex="-1" href="#exam_proof_explicit_binom" title="Copy heading and permalink for Example 9.4.24: Combinatorial proof of the explicit formula for the binomial coefficients" aria-label="Copy heading and permalink for Example 9.4.24: Combinatorial proof of the explicit formula for the binomial coefficients">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.28: Combinatorial proof of the explicit formula for the binomial coefficients"><a tabindex="-1" href="#exam_proof_explicit_binom" title="Copy heading and permalink for Example 9.4.28: Combinatorial proof of the explicit formula for the binomial coefficients" aria-label="Copy heading and permalink for Example 9.4.28: Combinatorial proof of the explicit formula for the binomial coefficients">🔗</a></div>
 </article></details>
 <div class="para" id="sub_factorial_binomial-9">This formula is primarily useful for theoretical examples.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_factorial_binomial-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_using_formula_binom_coeffs" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.25</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the explicit formula for binomial coefficients.</span>
-</h4></summary>
+<details id="exam_using_formula_binom_coeffs" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.29</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using the explicit formula for binomial coefficients.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_using_formula_binom_coeffs-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_using_formula_binom_coeffs-2-1-2">
+<ol class="lower-alpha" id="exam_using_formula_binom_coeffs-2-1-2">
 <li id="exam_using_formula_binom_coeffs-2-1-2-1">
-<div class="para" id="exam_using_formula_binom_coeffs-2-1-2-1-1">Use the explicit formula for the binomial coefficients <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: Explicit formula for binomial coefficients">Theorem 9.4.23</a> to evaluate <span class="process-math">\(\binom{8}{4}\text{.}\)</span> 
+<div class="para" id="exam_using_formula_binom_coeffs-2-1-2-1-1">Use the explicit formula for the binomial coefficients <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.27: Explicit formula for binomial coefficients">Theorem 9.4.27</a> to evaluate <span class="process-math">\(\binom{8}{4}\text{.}\)</span> 
 <details id="exam_using_formula_binom_coeffs-2-1-2-1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="exam_using_formula_binom_coeffs-2-1-2-1-1-3-1">
@@ -2003,7 +2028,7 @@ n(n-1)\ldots(n-(k-1)) = \frac{n(n-1)\ldots(n-(k-1))(n-k)\ldots(3)(2)(1)} {(n-k)\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_formula_binom_coeffs-2-1-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="exam_using_formula_binom_coeffs-2-1-2-1-1-3-2">Looking back at <a href="sec_arith_triangle.html#exam_arith_tri_row9" class="xref" data-knowl="./knowl/xref/exam_arith_tri_row9.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.4.10: Adding another row to the arithmetic triangle">Example 9.4.10</a> we confirm <span class="process-math">\(\binom{8}{4}=70\text{.}\)</span> Remember that the index begins at <span class="process-math">\(k=0\)</span> so the 5th entry corresponds to <span class="process-math">\(k=4\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_formula_binom_coeffs-2-1-2-1-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_using_formula_binom_coeffs-2-1-2-1-1-3-2">Looking back at <a href="sec_arith_triangle.html#exam_arith_tri_row9" class="xref" data-knowl="./knowl/xref/exam_arith_tri_row9.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.4.11: Adding another row to the arithmetic triangle">Example 9.4.11</a> we confirm <span class="process-math">\(\binom{8}{4}=70\text{.}\)</span> Remember that the index begins at <span class="process-math">\(k=0\)</span> so the 5th entry corresponds to <span class="process-math">\(k=4\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_formula_binom_coeffs-2-1-2-1-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_using_formula_binom_coeffs-2-1-2-1-1-3" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_formula_binom_coeffs-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2012,7 +2037,7 @@ n(n-1)\ldots(n-(k-1)) = \frac{n(n-1)\ldots(n-(k-1))(n-k)\ldots(3)(2)(1)} {(n-k)\
 </li>
 <li id="part_nchoose2_formula_again">
 <div class="para logical" id="part_nchoose2_formula_again-1">
-<div class="para">Use the explicit formula for the binomial coefficients <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: Explicit formula for binomial coefficients">Theorem 9.4.23</a> to show that</div>
+<div class="para">Use the explicit formula for the binomial coefficients <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.27: Explicit formula for binomial coefficients">Theorem 9.4.27</a> to show that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_binom_coeffs_formula.html" id="part_nchoose2_formula_again-1-2">
 \begin{equation*}
 \binom{n}{2} = \frac{n(n-1)}{2}\text{.}
@@ -2048,7 +2073,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </li>
 <li id="exam_using_formula_binom_coeffs-2-1-2-3">
 <div class="para logical" id="exam_using_formula_binom_coeffs-2-1-2-3-1">
-<div class="para">Use the explicit formula for the binomial coefficients <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: Explicit formula for binomial coefficients">Theorem 9.4.23</a> to prove algebraically that</div>
+<div class="para">Use the explicit formula for the binomial coefficients <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.27: Explicit formula for binomial coefficients">Theorem 9.4.27</a> to prove algebraically that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_binom_coeffs_formula.html ./knowl/xref/part_nchoose2_formula_again.html" id="exam_using_formula_binom_coeffs-2-1-2-3-1-2">
 \begin{equation*}
 \binom{2n}{2} = 2\binom{n}{2} + n^2
@@ -2087,22 +2112,22 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_using_formula_binom_coeffs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.25: Using the explicit formula for binomial coefficients"><a tabindex="-1" href="#exam_using_formula_binom_coeffs" title="Copy heading and permalink for Example 9.4.25: Using the explicit formula for binomial coefficients" aria-label="Copy heading and permalink for Example 9.4.25: Using the explicit formula for binomial coefficients">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 9.4.29: Using the explicit formula for binomial coefficients"><a tabindex="-1" href="#exam_using_formula_binom_coeffs" title="Copy heading and permalink for Example 9.4.29: Using the explicit formula for binomial coefficients" aria-label="Copy heading and permalink for Example 9.4.29: Using the explicit formula for binomial coefficients">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 9.4.D: Explicit Formula for Binomial Coefficients"><a tabindex="-1" href="#sub_factorial_binomial" title="Copy heading and permalink for Subsection 9.4.D: Explicit Formula for Binomial Coefficients" aria-label="Copy heading and permalink for Subsection 9.4.D: Explicit Formula for Binomial Coefficients">🔗</a></div>
 </section>
 <section class="subsection" id="sec_arith_triangle-7">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.E</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
-</h3>
+</h2>
 <section class="subsubsection" id="sec_arith_triangle-7-2">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 9.4.A The Arithmetic Triangle</span>
-</h4>
-<article class="exercise exercise-like" id="exer_arith_tri_eval_small"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_arith_tri_eval_small"><h4 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_arith_tri_eval_small-2-1">
-<div class="para">Use the arithmetic triangle from <a href="sec_arith_triangle.html#figure_arith_tri_standard" class="xref" data-knowl="./knowl/xref/figure_arith_tri_standard.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.6">Figure 9.4.6</a> and the next row found in <a href="sec_arith_triangle.html#exam_arith_tri_row9" class="xref" data-knowl="./knowl/xref/exam_arith_tri_row9.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.4.10: Adding another row to the arithmetic triangle">Example 9.4.10</a> to evaluate the following binomial coefficients:</div>
+<div class="para">Use the arithmetic triangle from <a href="sec_arith_triangle.html#figure_arith_tri_standard" class="xref" data-knowl="./knowl/xref/figure_arith_tri_standard.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.6">Figure 9.4.6</a> and the next row found in <a href="sec_arith_triangle.html#exam_arith_tri_row9" class="xref" data-knowl="./knowl/xref/exam_arith_tri_row9.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.4.11: Adding another row to the arithmetic triangle">Example 9.4.11</a> to evaluate the following binomial coefficients:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/figure_arith_tri_standard.html ./knowl/xref/exam_arith_tri_row9.html ./knowl/xref/figure_arith_tri_expanded.html" id="exer_arith_tri_eval_small-2-1-3">
 \begin{equation*}
 \binom{8}{1}, \binom{7}{2}, \binom{4}{3}, \binom{4}{4}, \binom{2}{0}, \binom{5}{3}\text{.}
@@ -2121,14 +2146,14 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 1: Practice"><a tabindex="-1" href="#exer_arith_tri_eval_small" title="  1: Practice" aria-label="  1: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_arith_tri_more_rows"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_arith_tri_more_rows"><h4 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_arith_tri_more_rows-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_arith_tri_more_rows-2-1-2">
+<ol class="lower-alpha" id="exer_arith_tri_more_rows-2-1-2">
 <li id="part_arith_tri_11rows">
-<div class="para" id="part_arith_tri_11rows-1">Draw the arithmetic triangle from <a href="sec_arith_triangle.html#figure_arith_tri_standard" class="xref" data-knowl="./knowl/xref/figure_arith_tri_standard.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.6">Figure 9.4.6</a> and use <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.9: Recursive definition of the binomial coefficients">Theorem 9.4.9</a> to continue the triangle through the row that begins with 1, 10.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_arith_tri_11rows-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_arith_tri_11rows-1">Draw the arithmetic triangle from <a href="sec_arith_triangle.html#figure_arith_tri_standard" class="xref" data-knowl="./knowl/xref/figure_arith_tri_standard.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.6">Figure 9.4.6</a> and use <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.10: Recursive definition of the binomial coefficients">Theorem 9.4.10</a> to continue the triangle through the row that begins with 1, 10.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_arith_tri_11rows-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 2.(a)"><a tabindex="-1" href="#part_arith_tri_11rows" title="Copy heading and permalink for Item 2.(a)" aria-label="Copy heading and permalink for Item 2.(a)">🔗</a></div>
 </li>
@@ -2157,12 +2182,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 2: Practice"><a tabindex="-1" href="#exer_arith_tri_more_rows" title="  2: Practice" aria-label="  2: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_seq_binom_coeffs"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_seq_binom_coeffs"><h4 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_seq_binom_coeffs-2-1">
 <div class="para">Evaluate the first six terms of each sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_seq_binom_coeffs-2-1-1">
+<ol class="lower-alpha" id="exer_seq_binom_coeffs-2-1-1">
 <li id="exer_seq_binom_coeffs-2-1-1-1">
 <div class="para" id="exer_seq_binom_coeffs-2-1-1-1-1">
 <span class="process-math">\(\displaystyle a_n= \binom{n}{3}\)</span> for <span class="process-math">\(n \ge 3\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_seq_binom_coeffs-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2187,7 +2212,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 <div class="solutions">
 <details id="exer_seq_binom_coeffs-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_seq_binom_coeffs-3-1">
+<ol class="lower-alpha" id="exer_seq_binom_coeffs-3-1">
 <li id="exer_seq_binom_coeffs-3-1-1">
 <div class="para" id="exer_seq_binom_coeffs-3-1-1-1">Hint: The second term is 4.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_seq_binom_coeffs-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2209,12 +2234,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 3: Understand"><a tabindex="-1" href="#exer_seq_binom_coeffs" title="  3: Understand" aria-label="  3: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_nte_binom_coeffs"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_nte_binom_coeffs"><h4 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_nte_binom_coeffs-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Hint: Write each term as a binomial coefficient.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_nte_binom_coeffs-2-1-1">
+<ol class="lower-alpha" id="exer_nte_binom_coeffs-2-1-1">
 <li id="exer_nte_binom_coeffs-2-1-1-1">
 <div class="para" id="exer_nte_binom_coeffs-2-1-1-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(1, 3, 6, 10, 15, 21, \ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_nte_binom_coeffs-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2231,7 +2256,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 <div class="solutions">
 <details id="exer_nte_binom_coeffs-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_nte_binom_coeffs-3-1">
+<ol class="lower-alpha" id="exer_nte_binom_coeffs-3-1">
 <li id="exer_nte_binom_coeffs-3-1-1">
 <div class="para" id="exer_nte_binom_coeffs-3-1-1-1">Hint: The answer is of the form <span class="process-math">\(\binom{}{2}\)</span> where the upper number depends on <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_nte_binom_coeffs-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2248,19 +2273,19 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 4: Understand"><a tabindex="-1" href="#exer_nte_binom_coeffs" title="  4: Understand" aria-label="  4: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_arith_tri"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_arith_tri"><h4 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_arith_tri-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_arith_tri-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_arith_tri-2-1-2">
 <li id="exer_dyk_arith_tri-2-1-2-1">
 <div class="para" id="exer_dyk_arith_tri-2-1-2-1-1">What the binomial coefficients count?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_arith_tri-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 5.(a)"><a tabindex="-1" href="#exer_dyk_arith_tri-2-1-2-1" title="Copy heading and permalink for Item 5.(a)" aria-label="Copy heading and permalink for Item 5.(a)">🔗</a></div>
 </li>
 <li id="exer_dyk_arith_tri-2-1-2-2">
-<div class="para" id="exer_dyk_arith_tri-2-1-2-2-1">How to create the first 7-10 rows of the arithmetic triangle using <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.9: Recursive definition of the binomial coefficients">Theorem 9.4.9</a>?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_arith_tri-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_dyk_arith_tri-2-1-2-2-1">How to create the first 7-10 rows of the arithmetic triangle using <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.10: Recursive definition of the binomial coefficients">Theorem 9.4.10</a>?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_arith_tri-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 5.(b)"><a tabindex="-1" href="#exer_dyk_arith_tri-2-1-2-2" title="Copy heading and permalink for Item 5.(b)" aria-label="Copy heading and permalink for Item 5.(b)">🔗</a></div>
 </li>
@@ -2279,12 +2304,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 5: Recap"><a tabindex="-1" href="#exer_dyk_arith_tri" title="  5: Recap" aria-label="  5: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_nte_binom_coeffs_harder"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_nte_binom_coeffs_harder"><h4 class="heading">
 <span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_nte_binom_coeffs_harder-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Hint: Write each term as a binomial coefficient.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_nte_binom_coeffs_harder-2-1-1">
+<ol class="lower-alpha" id="exer_nte_binom_coeffs_harder-2-1-1">
 <li id="exer_nte_binom_coeffs_harder-2-1-1-1">
 <div class="para" id="exer_nte_binom_coeffs_harder-2-1-1-1-1">The sequence <span class="process-math">\(c\)</span> begins <span class="process-math">\(1, 2, 6, 20, 70, \ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_nte_binom_coeffs_harder-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2302,15 +2327,15 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 9.4.A The Arithmetic Triangle"><a tabindex="-1" href="#sec_arith_triangle-7-2" title="Copy heading and permalink for Subsubsection: Exercises for 9.4.A The Arithmetic Triangle" aria-label="Copy heading and permalink for Subsubsection: Exercises for 9.4.A The Arithmetic Triangle">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_arith_triangle-7-3">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 9.4.B Patterns in the Arithmetic Triangle</span>
-</h4>
-<article class="exercise exercise-like" id="exer_sums_row4_arith_tri"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_sums_row4_arith_tri"><h4 class="heading">
 <span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_sums_row4_arith_tri-2-1">
 <div class="para">  Use the arithmetic triangle to evaluate each sum.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_sums_row4_arith_tri-2-1-2">
+<ol class="lower-alpha" id="exer_sums_row4_arith_tri-2-1-2">
 <li id="part_sum_sq_row4_arith_tri">
 <div class="para" id="part_sum_sq_row4_arith_tri-1">
 <span class="process-math">\(\displaystyle \displaystyle \sum_{k=0}^4\binom{4}{k}^2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_sum_sq_row4_arith_tri-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2342,12 +2367,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 7: Practice"><a tabindex="-1" href="#exer_sums_row4_arith_tri" title="  7: Practice" aria-label="  7: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_div_arith_triangle"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_div_arith_triangle"><h4 class="heading">
 <span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_div_arith_triangle-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_div_arith_triangle-2-1-2">
+<ol class="lower-alpha" id="exer_div_arith_triangle-2-1-2">
 <li id="exer_div_arith_triangle-2-1-2-1">
 <div class="para" id="exer_div_arith_triangle-2-1-2-1-1">Check that <span class="process-math">\(\displaystyle 7\mid \binom{7}{k}\)</span> for <span class="process-math">\(0 \lt k \lt 7\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_div_arith_triangle-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2379,7 +2404,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 <div class="solutions">
 <details id="exer_div_arith_triangle-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_div_arith_triangle-3-1">
+<ol class="lower-alpha" id="exer_div_arith_triangle-3-1">
 <li id="exer_div_arith_triangle-3-1-1">
 <div class="para" id="exer_div_arith_triangle-3-1-1-1">Check <span class="process-math">\(7 \mid 7\text{,}\)</span> <span class="process-math">\(7 \mid 21\text{,}\)</span> and <span class="process-math">\(7 \mid 35\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_div_arith_triangle-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2411,12 +2436,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 8: Understand"><a tabindex="-1" href="#exer_div_arith_triangle" title="  8: Understand" aria-label="  8: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_sums_sq_rows_arith_tri"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_sums_sq_rows_arith_tri"><h4 class="heading">
 <span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_sums_sq_rows_arith_tri-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_sums_sq_rows_arith_tri-2-1-2">
+<ol class="lower-alpha" id="exer_sums_sq_rows_arith_tri-2-1-2">
 <li id="exer_sums_sq_rows_arith_tri-2-1-2-1">
 <div class="para" id="exer_sums_sq_rows_arith_tri-2-1-2-1-1">Calculate the first four partial sums of <span class="process-math">\(\displaystyle \sum_{k=0}^n\binom{n}{k}^2\text{.}\)</span> Caution: Since the terms we are adding depend on <span class="process-math">\(n\text{,}\)</span> you need to find each partial sum on its own. You cannot using the previous partial sum.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_sums_sq_rows_arith_tri-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2433,7 +2458,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 <div class="solutions">
 <details id="exer_sums_sq_rows_arith_tri-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_sums_sq_rows_arith_tri-3-1">
+<ol class="lower-alpha" id="exer_sums_sq_rows_arith_tri-3-1">
 <li id="exer_sums_sq_rows_arith_tri-3-1-1">
 <div class="para" id="exer_sums_sq_rows_arith_tri-3-1-1-1">Hint: The third partial sum is 6.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_sums_sq_rows_arith_tri-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2450,12 +2475,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 9: Understand"><a tabindex="-1" href="#exer_sums_sq_rows_arith_tri" title="  9: Understand" aria-label="  9: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_sums_ktimes_rows_arith_tri"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_sums_ktimes_rows_arith_tri"><h4 class="heading">
 <span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_sums_ktimes_rows_arith_tri-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_sums_ktimes_rows_arith_tri-2-1-2">
+<ol class="lower-alpha" id="exer_sums_ktimes_rows_arith_tri-2-1-2">
 <li id="exer_sums_ktimes_rows_arith_tri-2-1-2-1">
 <div class="para" id="exer_sums_ktimes_rows_arith_tri-2-1-2-1-1">Calculate the first four partial sums of <span class="process-math">\(\displaystyle \sum_{k=0}^nk\binom{n}{k}\text{.}\)</span> Caution: Since the terms we are adding depend on <span class="process-math">\(n\text{,}\)</span> you need to find each partial sum on its own. You cannot using the previous partial sum.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_sums_ktimes_rows_arith_tri-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2472,7 +2497,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 <div class="solutions">
 <details id="exer_sums_ktimes_rows_arith_tri-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_sums_ktimes_rows_arith_tri-3-1">
+<ol class="lower-alpha" id="exer_sums_ktimes_rows_arith_tri-3-1">
 <li id="exer_sums_ktimes_rows_arith_tri-3-1-1">
 <div class="para" id="exer_sums_ktimes_rows_arith_tri-3-1-1-1">Hint: The fourth partial sum is 12.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_sums_ktimes_rows_arith_tri-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2489,12 +2514,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 10: Understand"><a tabindex="-1" href="#exer_sums_ktimes_rows_arith_tri" title="  10: Understand" aria-label="  10: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_sums_ktimes_sq_rows_arith_tri"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_sums_ktimes_sq_rows_arith_tri"><h4 class="heading">
 <span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_sums_ktimes_sq_rows_arith_tri-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_sums_ktimes_sq_rows_arith_tri-2-1-2">
+<ol class="lower-alpha" id="exer_sums_ktimes_sq_rows_arith_tri-2-1-2">
 <li id="exer_sums_ktimes_sq_rows_arith_tri-2-1-2-1">
 <div class="para" id="exer_sums_ktimes_sq_rows_arith_tri-2-1-2-1-1">Calculate the first four partial sums of <span class="process-math">\(\displaystyle \sum_{k=0}^nk\binom{n}{k}^2\text{.}\)</span> Caution: Since the terms we are adding depend on <span class="process-math">\(n\text{,}\)</span> you need to find each partial sum on its own. You cannot using the previous partial sum.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_sums_ktimes_sq_rows_arith_tri-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2510,12 +2535,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 11: Understand"><a tabindex="-1" href="#exer_sums_ktimes_sq_rows_arith_tri" title="  11: Understand" aria-label="  11: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_arith_tri_patterns"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_arith_tri_patterns"><h4 class="heading">
 <span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_arith_tri_patterns-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_arith_tri_patterns-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_arith_tri_patterns-2-1-2">
 <li id="exer_dyk_arith_tri_patterns-2-1-2-1">
 <div class="para" id="exer_dyk_arith_tri_patterns-2-1-2-1-1">Why the arithmetic triangle has left-right symmetry?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_arith_tri_patterns-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2541,25 +2566,25 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 12: Recap"><a tabindex="-1" href="#exer_dyk_arith_tri_patterns" title="  12: Recap" aria-label="  12: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fib_sum_in_arith_tri"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fib_sum_in_arith_tri"><h4 class="heading">
 <span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para" id="exer_fib_sum_in_arith_tri-2-1">The Fibonacci numbers appear as the sum of integers in the arithmetic triangle. Find them and express your answer as <span class="process-math">\(F_n=\)</span> a sum involving binomial coefficients. Hint: Look at an angle.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_sum_in_arith_tri-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 13: Explore"><a tabindex="-1" href="#exer_fib_sum_in_arith_tri" title="  13: Explore" aria-label="  13: Explore">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 9.4.B Patterns in the Arithmetic Triangle"><a tabindex="-1" href="#sec_arith_triangle-7-3" title="Copy heading and permalink for Subsubsection: Exercises for 9.4.B Patterns in the Arithmetic Triangle" aria-label="Copy heading and permalink for Subsubsection: Exercises for 9.4.B Patterns in the Arithmetic Triangle">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_arith_triangle-7-4">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 9.4.C The Binomial Theorem</span>
-</h4>
-<article class="exercise exercise-like" id="exer_expand_nplus1_tothe4"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_expand_nplus1_tothe4"><h4 class="heading">
 <span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_expand_nplus1_tothe4-2-1">
 <div class="para">In <a href="sec_arith_triangle.html#act_powers_nplus1" class="xref" data-knowl="./knowl/xref/act_powers_nplus1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.4.C: Powers of n+1">Activity 9.4.C</a>, we found that <span class="process-math">\((n+1)^3=n^3+3n^2+3n+1\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_expand_nplus1_tothe4-2-1-3">
+<ol class="lower-alpha" id="exer_expand_nplus1_tothe4-2-1-3">
 <li id="exer_expand_nplus1_tothe4-2-1-3-1">
 <div class="para logical" id="exer_expand_nplus1_tothe4-2-1-3-1-1">
 <div class="para">Expand and simplify <span class="process-math">\((n+1)^4\text{.}\)</span> Hint:</div>
@@ -2590,19 +2615,19 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 14: Practice"><a tabindex="-1" href="#exer_expand_nplus1_tothe4" title="  14: Practice" aria-label="  14: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_binom_thm"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_binom_thm"><h4 class="heading">
 <span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_binom_thm-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_binom_thm-2-1-2">
+<ol class="lower-alpha" id="exer_binom_thm-2-1-2">
 <li id="exer_binom_thm-2-1-2-1">
-<div class="para" id="exer_binom_thm-2-1-2-1-1">Use the binomial theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.20: The binomial theorem">Theorem 9.4.20</a> to expand <span class="process-math">\((n+1)^8\)</span> and simplify your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binom_thm-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_binom_thm-2-1-2-1-1">Use the binomial theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: The binomial theorem">Theorem 9.4.23</a> to expand <span class="process-math">\((n+1)^8\)</span> and simplify your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binom_thm-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 15.(a)"><a tabindex="-1" href="#exer_binom_thm-2-1-2-1" title="Copy heading and permalink for Item 15.(a)" aria-label="Copy heading and permalink for Item 15.(a)">🔗</a></div>
 </li>
 <li id="exer_binom_thm-2-1-2-2">
-<div class="para" id="exer_binom_thm-2-1-2-2-1">Use the binomial theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.20: The binomial theorem">Theorem 9.4.20</a> to expand <span class="process-math">\((n-1)^4\)</span> and simplify your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binom_thm-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_binom_thm-2-1-2-2-1">Use the binomial theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: The binomial theorem">Theorem 9.4.23</a> to expand <span class="process-math">\((n-1)^4\)</span> and simplify your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binom_thm-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 15.(b)"><a tabindex="-1" href="#exer_binom_thm-2-1-2-2" title="Copy heading and permalink for Item 15.(b)" aria-label="Copy heading and permalink for Item 15.(b)">🔗</a></div>
 </li>
@@ -2612,7 +2637,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 <div class="solutions">
 <details id="exer_binom_thm-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_binom_thm-3-1">
+<ol class="lower-alpha" id="exer_binom_thm-3-1">
 <li id="exer_binom_thm-3-1-1">
 <div class="para" id="exer_binom_thm-3-1-1-1">Hint: The answer begins <span class="process-math">\(n^8+8n^7+26n^6+\ldots\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binom_thm-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2629,9 +2654,9 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 15: Practice"><a tabindex="-1" href="#exer_binom_thm" title="  15: Practice" aria-label="  15: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_bin_thm_proof_row_sum_pascal"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_bin_thm_proof_row_sum_pascal"><h4 class="heading">
 <span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_bin_thm_proof_row_sum_pascal-2-1">
 <div class="para">Use the Binomial Theorem to prove</div>
 <div class="displaymath process-math" id="exer_bin_thm_proof_row_sum_pascal-2-1-1">
@@ -2653,9 +2678,9 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 16: Understand"><a tabindex="-1" href="#exer_bin_thm_proof_row_sum_pascal" title="  16: Understand" aria-label="  16: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_bin_thm_find_row_sum"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_bin_thm_find_row_sum"><h4 class="heading">
 <span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para" id="exer_bin_thm_find_row_sum-2-1">Use the Binomial Theorem to find an explicit formula for <span class="process-math">\(\displaystyle \sum_{k=0}^n 2^k\binom{n}{k}\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span> Hint: Expand <span class="process-math">\((1+2)^n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_bin_thm_find_row_sum-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
@@ -2668,12 +2693,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 17: Understand"><a tabindex="-1" href="#exer_bin_thm_find_row_sum" title="  17: Understand" aria-label="  17: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_binom_thm_xplush"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_binom_thm_xplush"><h4 class="heading">
 <span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_binom_thm_xplush-2-1">
-<div class="para">Use the binomial theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.20: The binomial theorem">Theorem 9.4.20</a> to expand the power and simplify your answer.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_binom_thm_xplush-2-1-2">
+<div class="para">Use the binomial theorem <a href="sec_arith_triangle.html#thm_binomial_thm" class="xref" data-knowl="./knowl/xref/thm_binomial_thm.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: The binomial theorem">Theorem 9.4.23</a> to expand the power and simplify your answer.</div>
+<ol class="lower-alpha" id="exer_binom_thm_xplush-2-1-2">
 <li id="exer_binom_thm_xplush-2-1-2-1">
 <div class="para" id="exer_binom_thm_xplush-2-1-2-1-1">
 <span class="process-math">\(\displaystyle (x+h)^2\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binom_thm_xplush-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2697,12 +2722,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 18: Understand"><a tabindex="-1" href="#exer_binom_thm_xplush" title="  18: Understand" aria-label="  18: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_binom_thm"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_binom_thm"><h4 class="heading">
 <span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_binom_thm-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_binom_thm-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_binom_thm-2-1-2">
 <li id="exer_dyk_binom_thm-2-1-2-1">
 <div class="para" id="exer_dyk_binom_thm-2-1-2-1-1">What the binomial theorem says?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_binom_thm-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2723,9 +2748,9 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 19: Recap"><a tabindex="-1" href="#exer_dyk_binom_thm" title="  19: Recap" aria-label="  19: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_diff_quo"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_diff_quo"><h4 class="heading">
 <span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_diff_quo-2-1">
 <div class="para">If you have completed Exercise <a href="sec_arith_triangle.html#exer_binom_thm_xplush" class="xref" data-knowl="./knowl/xref/exer_binom_thm_xplush.html" data-reveal-label="Reveal" data-close-label="Close" title=" 18: Understand">18</a>, then you may use those answers here. For each function, evaluate and simplify the difference quotient</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exer_binom_thm_xplush.html" id="exer_diff_quo-2-1-2">
@@ -2735,7 +2760,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="para">so that there are no fractions. Next, evaluate your answer when <span class="process-math">\(h=0\text{.}\)</span> Your final answer should be an expression involving <span class="process-math">\(x\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_diff_quo-2-1-5">
+<ol class="lower-alpha" id="exer_diff_quo-2-1-5">
 <li id="exer_diff_quo-2-1-5-1">
 <div class="para logical" id="exer_diff_quo-2-1-5-1-1">
 <div class="para">
@@ -2773,15 +2798,15 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 9.4.C The Binomial Theorem"><a tabindex="-1" href="#sec_arith_triangle-7-4" title="Copy heading and permalink for Subsubsection: Exercises for 9.4.C The Binomial Theorem" aria-label="Copy heading and permalink for Subsubsection: Exercises for 9.4.C The Binomial Theorem">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_arith_triangle-7-5">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 9.4.D Explicit Formula for Binomial Coefficients</span>
-</h4>
-<article class="exercise exercise-like" id="exer_eval_binom_formula"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_eval_binom_formula"><h4 class="heading">
 <span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_binom_formula-2-1">
-<div class="para">Use <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: Explicit formula for binomial coefficients">Theorem 9.4.23</a> to evaluate each binomial coefficient by hand. Show work. You may use computational technology to check.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_binom_formula-2-1-2">
+<div class="para">Use <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.27: Explicit formula for binomial coefficients">Theorem 9.4.27</a> to evaluate each binomial coefficient by hand. Show work. You may use computational technology to check.</div>
+<ol class="lower-alpha" id="exer_eval_binom_formula-2-1-2">
 <li id="exer_eval_binom_formula-2-1-2-1">
 <div class="para" id="exer_eval_binom_formula-2-1-2-1-1">
 <span class="process-math">\(\displaystyle \binom{12}{3}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_binom_formula-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2800,7 +2825,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 <div class="solutions">
 <details id="exer_eval_binom_formula-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_binom_formula-3-1">
+<ol class="lower-alpha" id="exer_eval_binom_formula-3-1">
 <li id="exer_eval_binom_formula-3-1-1">
 <div class="para" id="exer_eval_binom_formula-3-1-1-1">Hint: The number is just over 200.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_binom_formula-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2817,12 +2842,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 21: Practice"><a tabindex="-1" href="#exer_eval_binom_formula" title="  21: Practice" aria-label="  21: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_simplify_binom_formula"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_simplify_binom_formula"><h4 class="heading">
 <span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_simplify_binom_formula-2-1">
-<div class="para">Simplify each binomial coefficient using <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: Explicit formula for binomial coefficients">Theorem 9.4.23</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_simplify_binom_formula-2-1-2">
+<div class="para">Simplify each binomial coefficient using <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.27: Explicit formula for binomial coefficients">Theorem 9.4.27</a>.</div>
+<ol class="lower-alpha" id="exer_simplify_binom_formula-2-1-2">
 <li id="exer_simplify_binom_formula-2-1-2-1">
 <div class="para" id="exer_simplify_binom_formula-2-1-2-1-1">
 <span class="process-math">\(\displaystyle \binom{n}{n}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_simplify_binom_formula-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2852,16 +2877,16 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 22: Practice"><a tabindex="-1" href="#exer_simplify_binom_formula" title="  22: Practice" aria-label="  22: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_factorial_proof_sym_recursion_pascal"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_factorial_proof_sym_recursion_pascal"><h4 class="heading">
 <span class="codenumber">23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_factorial_proof_sym_recursion_pascal-2-1">
-<div class="para">Prove each identity algebraically using <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: Explicit formula for binomial coefficients">Theorem 9.4.23</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_factorial_proof_sym_recursion_pascal-2-1-2">
+<div class="para">Prove each identity algebraically using <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.27: Explicit formula for binomial coefficients">Theorem 9.4.27</a>.</div>
+<ol class="lower-alpha" id="exer_factorial_proof_sym_recursion_pascal-2-1-2">
 <li id="exer_factorial_proof_sym_recursion_pascal-2-1-2-1">
 <div class="para logical" id="exer_factorial_proof_sym_recursion_pascal-2-1-2-1-1">
 <div class="para">
-<a href="sec_arith_triangle.html#thm_sym_arith_triangle" class="xref" data-knowl="./knowl/xref/thm_sym_arith_triangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.12: Symmetry in the arithmetic triangle">Theorem 9.4.12</a>:</div>
+<a href="sec_arith_triangle.html#thm_sym_arith_triangle" class="xref" data-knowl="./knowl/xref/thm_sym_arith_triangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.14: Symmetry in the arithmetic triangle">Theorem 9.4.14</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_sym_arith_triangle.html" id="exer_factorial_proof_sym_recursion_pascal-2-1-2-1-1-2">
 \begin{equation*}
 \binom{n}{k} = \binom{n}{n-k}\text{.}
@@ -2874,7 +2899,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 <li id="exer_factorial_proof_sym_recursion_pascal-2-1-2-2">
 <div class="para logical" id="exer_factorial_proof_sym_recursion_pascal-2-1-2-2-1">
 <div class="para">
-<a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.9: Recursive definition of the binomial coefficients">Theorem 9.4.9</a>:</div>
+<a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.10: Recursive definition of the binomial coefficients">Theorem 9.4.10</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_pascals_recursion.html" id="exer_factorial_proof_sym_recursion_pascal-2-1-2-2-1-2">
 \begin{equation*}
 \binom{n}{k} = \binom{n-1}{k-1} + \binom{n}{k}\text{.}
@@ -2889,11 +2914,11 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 23: Understand"><a tabindex="-1" href="#exer_factorial_proof_sym_recursion_pascal" title="  23: Understand" aria-label="  23: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_arith_tri_prove_sym"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_arith_tri_prove_sym"><h4 class="heading">
 <span class="codenumber">24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_arith_tri_prove_sym-2-1">
-<div class="para">Write a combinatorial proof of <a href="sec_arith_triangle.html#thm_sym_arith_triangle" class="xref" data-knowl="./knowl/xref/thm_sym_arith_triangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.12: Symmetry in the arithmetic triangle">Theorem 9.4.12</a> using <a href="sec_counting_subsets.html#pff_comb" class="xref" data-knowl="./knowl/xref/pff_comb.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.10: Proof Format: Combinatorial Proof">Theorem 2.3.10</a>:</div>
+<div class="para">Write a combinatorial proof of <a href="sec_arith_triangle.html#thm_sym_arith_triangle" class="xref" data-knowl="./knowl/xref/thm_sym_arith_triangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.14: Symmetry in the arithmetic triangle">Theorem 9.4.14</a> using <a href="sec_counting_subsets.html#pff_comb" class="xref" data-knowl="./knowl/xref/pff_comb.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.13: Proof Format: Combinatorial Proof">Theorem 2.3.13</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_sym_arith_triangle.html ./knowl/xref/pff_comb.html" id="exer_arith_tri_prove_sym-2-1-3">
 \begin{equation*}
 \binom{n}{k} = \binom{n}{n-k}\text{.}
@@ -2904,12 +2929,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 24: Understand"><a tabindex="-1" href="#exer_arith_tri_prove_sym" title="  24: Understand" aria-label="  24: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_binom_formula"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_binom_formula"><h4 class="heading">
 <span class="codenumber">25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_binom_formula-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_binom_formula-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_binom_formula-2-1-2">
 <li id="exer_dyk_binom_formula-2-1-2-1">
 <div class="para" id="exer_dyk_binom_formula-2-1-2-1-1">What the explicit formula for <span class="process-math">\(\binom{n}{k}\)</span> is?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_binom_formula-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2921,7 +2946,7 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 <div class="autopermalink" aria-hidden="true" data-description="Item 25.(b)"><a tabindex="-1" href="#exer_dyk_binom_formula-2-1-2-2" title="Copy heading and permalink for Item 25.(b)" aria-label="Copy heading and permalink for Item 25.(b)">🔗</a></div>
 </li>
 <li id="exer_dyk_binom_formula-2-1-2-3">
-<div class="para" id="exer_dyk_binom_formula-2-1-2-3-1">What the steps are in a combinatorial proof <a href="sec_counting_subsets.html#pff_comb" class="xref" data-knowl="./knowl/xref/pff_comb.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.10: Proof Format: Combinatorial Proof">Theorem 2.3.10</a>?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_binom_formula-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_dyk_binom_formula-2-1-2-3-1">What the steps are in a combinatorial proof <a href="sec_counting_subsets.html#pff_comb" class="xref" data-knowl="./knowl/xref/pff_comb.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.13: Proof Format: Combinatorial Proof">Theorem 2.3.13</a>?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_binom_formula-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 25.(c)"><a tabindex="-1" href="#exer_dyk_binom_formula-2-1-2-3" title="Copy heading and permalink for Item 25.(c)" aria-label="Copy heading and permalink for Item 25.(c)">🔗</a></div>
 </li>
@@ -2930,11 +2955,11 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 25: Recap"><a tabindex="-1" href="#exer_dyk_binom_formula" title="  25: Recap" aria-label="  25: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_comb_pf_recursion_arith_tri"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_comb_pf_recursion_arith_tri"><h4 class="heading">
 <span class="codenumber">26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_comb_pf_recursion_arith_tri-2-1">
-<div class="para">Write a combinatorial proof of <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.9: Recursive definition of the binomial coefficients">Theorem 9.4.9</a> using <a href="sec_counting_subsets.html#pff_comb" class="xref" data-knowl="./knowl/xref/pff_comb.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.10: Proof Format: Combinatorial Proof">Theorem 2.3.10</a>:</div>
+<div class="para">Write a combinatorial proof of <a href="sec_arith_triangle.html#thm_pascals_recursion" class="xref" data-knowl="./knowl/xref/thm_pascals_recursion.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.10: Recursive definition of the binomial coefficients">Theorem 9.4.10</a> using <a href="sec_counting_subsets.html#pff_comb" class="xref" data-knowl="./knowl/xref/pff_comb.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.3.13: Proof Format: Combinatorial Proof">Theorem 2.3.13</a>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_pascals_recursion.html ./knowl/xref/pff_comb.html" id="exer_comb_pf_recursion_arith_tri-2-1-3">
 \begin{equation*}
 \binom{n}{k} = \binom{n-1}{k-1} + \binom{n}{k}\text{.}
@@ -2953,12 +2978,12 @@ n! = n(n-1)(n-2)(n-3) \cdots (3)(2)(1) = n(n-1)(n-2)!
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 26: Explore"><a tabindex="-1" href="#exer_comb_pf_recursion_arith_tri" title="  26: Explore" aria-label="  26: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_binom_coeffs_verify_using_factorials"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_binom_coeffs_verify_using_factorials"><h4 class="heading">
 <span class="codenumber">27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_binom_coeffs_verify_using_factorials-2-1">
-<div class="para">Use <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.23: Explicit formula for binomial coefficients">Theorem 9.4.23</a> to prove each identity algebraically.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_binom_coeffs_verify_using_factorials-2-1-2">
+<div class="para">Use <a href="sec_arith_triangle.html#thm_binom_coeffs_formula" class="xref" data-knowl="./knowl/xref/thm_binom_coeffs_formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 9.4.27: Explicit formula for binomial coefficients">Theorem 9.4.27</a> to prove each identity algebraically.</div>
+<ol class="lower-alpha" id="exer_binom_coeffs_verify_using_factorials-2-1-2">
 <li id="exer_binom_coeffs_verify_using_factorials-2-1-2-1">
 <div class="para" id="exer_binom_coeffs_verify_using_factorials-2-1-2-1-1">
 <span class="process-math">\(\displaystyle \displaystyle (n-m)\binom{n}{m} = n \binom{n-1}{m}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binom_coeffs_verify_using_factorials-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>

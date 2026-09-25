@@ -31,6 +31,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@ htmlPresentation: false,
 <meta property="og:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta property="book:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.46"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.53"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.53"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -61,21 +62,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1bda041f5a098305.css">
+<script src="_static/prefix-runtime.8b982cdcb4aa84b9.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.0499040fbb8ea56b.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></div>
 <p class="byline">Dr. Suzanne Dorée</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -88,7 +89,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -273,7 +284,9 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_prologue.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue</span></a></div>
-<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_prologue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_handshakes.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Handshakes</span></a></div>
 <ul id="ptx-toc-group-sec_handshakes" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_handshakes.html#sec_handshakes-3" class="internal"><span class="codenumber">1.1.A</span> <span class="title">Counting Handshakes</span></a></div></li>
@@ -287,11 +300,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_counting.html" class="internal"><span class="codenumber">2</span> <span class="title">Listing and Counting</span></a></div>
 <ul id="ptx-toc-group-ch_counting" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_counting-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_listing.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Organized Listing</span></a></div>
 <ul id="ptx-toc-group-sec_listing" class="structural toc-item-list">
@@ -365,6 +380,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_graph_theory.html" class="internal"><span class="codenumber">3</span> <span class="title">Graph Theory</span></a></div>
 <ul id="ptx-toc-group-ch_graph_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_graph_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_graph_models.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Modeling with Graphs</span></a></div>
 <ul id="ptx-toc-group-sec_graph_models" class="structural toc-item-list">
@@ -450,6 +466,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_number_theory.html" class="internal"><span class="codenumber">4</span> <span class="title">Number Theory</span></a></div>
 <ul id="ptx-toc-group-ch_number_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_number_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_even_odd_divides.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integer Division</span></a></div>
 <ul id="ptx-toc-group-sec_even_odd_divides" class="structural toc-item-list">
@@ -537,6 +554,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_logic_proof.html" class="internal"><span class="codenumber">5</span> <span class="title">Logic and Proof</span></a></div>
 <ul id="ptx-toc-group-ch_logic_proof" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_logic_proof-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
@@ -633,6 +651,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_functions.html" class="internal"><span class="codenumber">6</span> <span class="title">Functions</span></a></div>
 <ul id="ptx-toc-group-ch_functions" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_functions-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_functions.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Functions and Their Representations</span></a></div>
 <ul id="ptx-toc-group-sec_functions" class="structural toc-item-list">
@@ -722,6 +741,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch_sets_rel.html" class="internal"><span class="codenumber">7</span> <span class="title">Sets and Relations</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch_sets_rel">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sets_rel-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_sets.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sets</span></a></div>
 <ul id="ptx-toc-group-sec_sets" class="structural toc-item-list">
@@ -806,6 +826,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_recursion_induction.html" class="internal"><span class="codenumber">8</span> <span class="title">Recursion and Induction</span></a></div>
 <ul id="ptx-toc-group-ch_recursion_induction" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_recursion_induction-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_recursively_defined_sequences.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Recursively-defined Sequences</span></a></div>
 <ul id="ptx-toc-group-sec_recursively_defined_sequences" class="structural toc-item-list">
@@ -893,6 +914,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sum_prod.html" class="internal"><span class="codenumber">9</span> <span class="title">Sums and Products</span></a></div>
 <ul id="ptx-toc-group-ch_sum_prod" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sum_prod-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_model_sum_prod.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Modeling with Sums and Products</span></a></div>
 <ul id="ptx-toc-group-sec_model_sum_prod" class="structural toc-item-list">
@@ -976,20 +998,23 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_epilogue.html" class="internal"><span class="codenumber">10</span> <span class="title">Epilogue</span></a></div>
-<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_epilogue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_hotelinfinity.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Hotel Infinity</span></a></div>
 <ul id="ptx-toc-group-sec_hotelinfinity" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_hotel_infinity" class="internal"><span class="codenumber">10.1.A</span> <span class="title">Hotel Infinity</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_countable" class="internal"><span class="codenumber">10.1.B</span> <span class="title">The Definition of Discrete</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec_relations">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cartesian Products and Relations</span>
-</h2>
+</h1>
 <section class="introduction" id="sec_relations-2">
 <div class="para logical" id="sec_relations-2-1">
 <div class="para">All mathematics can be built from sets. A key step is to use sets to define relations. Functions and operations are examples of relations, but that is just the tip of the iceberg. Almost every mathematical symbol you know is either the name of a set or a relation. For example, each of the following mathematical symbols represents a relation</div>
@@ -1003,17 +1028,17 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec_relations-2-2">Relations are built from the Cartesian product of sets, so we begin there.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_relations-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="sub_cart_prod">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Cartesian Product of Sets</span>
-</h3>
+</h2>
 <div class="para" id="sub_cart_prod-2">The Cartesian product of sets is another set operation that we can use to build new sets from known sets. The Cartesian product of two sets is defined using ordered pairs, which we define in <a href="sec_onetoone_onto_fns.html#defn_ordered_pairs" class="xref" data-knowl="./knowl/xref/defn_ordered_pairs.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 6.3.1: Ordered pairs">Definition 6.3.1</a>. It is useful to form the Cartesian product of any finite number of sets. For that, we need to extend the definition to ordered tuples of any finite length.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_cart_prod-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_ordered_tuple"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ordered tuples.</span>
-</h4>
+<article class="definition definition-like" id="defn_ordered_tuple"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ordered tuples.</span>
+</h3>
 <div class="para logical" id="defn_ordered_tuple-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_ordered_tuple-2-1-2">
+<ol class="lower-alpha" id="defn_ordered_tuple-2-1-2">
 <li id="defn_ordered_tuple-2-1-2-1">
 <div class="para logical" id="defn_ordered_tuple-2-1-2-1-1">
 <div class="para">For sets <span class="process-math">\(X_1\text{,}\)</span> <span class="process-math">\(X_2\text{,}\)</span> <span class="process-math">\(X_3\text{,}\)</span>…, <span class="process-math">\(X_n\)</span> and elements <span class="process-math">\(x_1\in X_1\text{,}\)</span> <span class="process-math">\(x_2\in X_2\text{,}\)</span> <span class="process-math">\(x_3\in X_3\text{,}\)</span> …, <span class="process-math">\(x_n\in X_n\text{,}\)</span> the <dfn class="terminology">ordered <span class="process-math">\(n\)</span> tuple</dfn> <span class="process-math">\((x_1,x_2,x_3, \ldots, x_n)\)</span> is defined by</div>
@@ -1050,9 +1075,9 @@ eBookConfig.enable_chatcodes =  false;
 </article>
 <div class="para" id="sub_cart_prod-4">In applications to databases, the coordinates often come from different sets.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_cart_prod-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_ordered_tuples_data" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ordered tuples of data.</span>
-</h4></summary>
+<details id="exam_ordered_tuples_data" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ordered tuples of data.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="exam_ordered_tuples_data-2-1">Create 4-tuples to represent each student at a university where the first coordinate is the student’s first name, the second coordinate is that student’s family name, the third coordinate is the number of credit hours the student has completed, and the fourth coordinate indicates if the student lives on-campus or off-campus.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_ordered_tuples_data-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1075,12 +1100,12 @@ eBookConfig.enable_chatcodes =  false;
 </article></details>
 <div class="para" id="sub_cart_prod-6">We are now ready to define the Cartesian product of sets.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_cart_prod-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_cart_prod_sets"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cartesian product of sets.</span>
-</h4>
+<article class="definition definition-like" id="defn_cart_prod_sets"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cartesian product of sets.</span>
+</h3>
 <div class="para logical" id="defn_cart_prod_sets-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_cart_prod_sets-2-1-2">
+<ol class="lower-alpha" id="defn_cart_prod_sets-2-1-2">
 <li id="defn_cart_prod_sets-2-1-2-1">
 <div class="para logical" id="defn_cart_prod_sets-2-1-2-1-1">
 <div class="para">Given sets <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\text{,}\)</span> the <dfn class="terminology">Cartesian product</dfn>, denoted <span class="process-math">\(X \times Y\text{,}\)</span> is the set of all ordered pairs of the form <span class="process-math">\((x,y)\)</span> where <span class="process-math">\(x \in X\)</span> and <span class="process-math">\(y\in Y\text{.}\)</span> That is,</div>
@@ -1138,9 +1163,9 @@ X^n=\underbrace{X \times X \times X \times \cdots \times X}_{n \text{ times } }\
 </article>
 <div class="para" id="sub_cart_prod-8">If the elements of the sets <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are real numbers, then <span class="process-math">\(S \times T \subseteq \mathbb{R}^2\)</span> and so we can draw <span class="process-math">\(X \times Y\)</span> as points in the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_cart_prod-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="sub_cart_prod-9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Drawing the Cartesian product of two sets of real numbers as points in the <span class="process-math">\(xy\)</span>-plane.</span>
-</h4></summary>
+<details id="sub_cart_prod-9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Drawing the Cartesian product of two sets of real numbers as points in the <span class="process-math">\(xy\)</span>-plane.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="sub_cart_prod-9-2-1">Consider the sets <span class="process-math">\(X = \{2,3,5\}\)</span> and <span class="process-math">\(Y = \{0,1\}\)</span> from <a href="sec_relations.html#defn_cart_prod_sets" class="xref" data-knowl="./knowl/xref/defn_cart_prod_sets.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.4.3: Cartesian product of sets">Definition 7.4.3</a>. Draw <span class="process-math">\(X \times Y\)</span> as points in the <span class="process-math">\(xy-\)</span>plane.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_cart_prod-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1158,12 +1183,12 @@ X^n=\underbrace{X \times X \times X \times \cdots \times X}_{n \text{ times } }\
 </article></details>
 <div class="para" id="sub_cart_prod-10">Your turn to work with ordered pairs, ordered tuples, and the Cartesian product of sets.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_cart_prod-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_cart_prod"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.A</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cartesian product.</span>
-</h4>
+<article class="activity project-like" id="act_cart_prod"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cartesian product.</span>
+</h3>
 <div class="para logical" id="act_cart_prod-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_cart_prod-2-2">
+<ol class="lower-alpha" id="act_cart_prod-2-2">
 <li id="act_cart_prod-2-2-1">
 <div class="para" id="act_cart_prod-2-2-1-1">Consider the sets <span class="process-math">\(P = \{0,1,2,3\}\)</span> and <span class="process-math">\(Q = \{1,5,7\}\text{.}\)</span> Give an example of an element in <span class="process-math">\(P \times Q\)</span> and an element in <span class="process-math">\(Q \times P\text{.}\)</span> Is there any ordered pair in both <span class="process-math">\(P \times Q\)</span> and <span class="process-math">\(Q \times P\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_cart_prod-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1201,28 +1226,28 @@ X^n=\underbrace{X \times X \times X \times \cdots \times X}_{n \text{ times } }\
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 7.4.A: The Cartesian Product of Sets"><a tabindex="-1" href="#sub_cart_prod" title="Copy heading and permalink for Subsection 7.4.A: The Cartesian Product of Sets" aria-label="Copy heading and permalink for Subsection 7.4.A: The Cartesian Product of Sets">🔗</a></div>
 </section>
 <section class="subsection" id="sub_fn_cart_prod">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions Involving Cartesian Products</span>
-</h3>
+</h2>
 <div class="para" id="sub_fn_cart_prod-2">Note that the domain and/or codomain of a function can be a Cartesian product. A quick note on notation when the domain is a Cartesian product<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fn_cart_prod-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="remark remark-like" id="rem_fn_on_cart_prod"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Notation for Functions on Cartesian products.</span>
-</h4>
+<article class="remark remark-like" id="rem_fn_on_cart_prod"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Notation for Functions on Cartesian products.</span>
+</h3>
 <div class="para" id="rem_fn_on_cart_prod-2">For sets <span class="process-math">\(X_1\text{,}\)</span> <span class="process-math">\(X_2\text{,}\)</span> … <span class="process-math">\(X_n\text{,}\)</span> if we have a function <span class="process-math">\(f\)</span> with domain <span class="process-math">\(X_1 \times X_2 \times \cdots \times X_n\text{,}\)</span> then we should write <span class="process-math">\(f((x_1,x_2, \ldots,
 x_n))\)</span> where each <span class="process-math">\(x_i \in X_i\text{,}\)</span> but the double parentheses look silly, so we often write <span class="process-math">\(f(x_1,x_2, \ldots, x_n)\)</span> instead.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#rem_fn_on_cart_prod-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Remark 7.4.6: Notation for Functions on Cartesian products"><a tabindex="-1" href="#rem_fn_on_cart_prod" title="Copy heading and permalink for Remark 7.4.6: Notation for Functions on Cartesian products" aria-label="Copy heading and permalink for Remark 7.4.6: Notation for Functions on Cartesian products">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Remark 7.4.7: Notation for Functions on Cartesian products"><a tabindex="-1" href="#rem_fn_on_cart_prod" title="Copy heading and permalink for Remark 7.4.7: Notation for Functions on Cartesian products" aria-label="Copy heading and permalink for Remark 7.4.7: Notation for Functions on Cartesian products">🔗</a></div>
 </article>
 <div class="para" id="sub_fn_cart_prod-4">Here are some examples of functions involving Cartesian products of sets.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fn_cart_prod-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="sub_fn_cart_prod-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions involving Cartesian products of sets.</span>
-</h4></summary>
+<details id="sub_fn_cart_prod-5" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions involving Cartesian products of sets.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="sub_fn_cart_prod-5-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="sub_fn_cart_prod-5-2-1-2">
+<ol class="lower-alpha" id="sub_fn_cart_prod-5-2-1-2">
 <li id="sub_fn_cart_prod-5-2-1-2-1">
 <div class="para" id="sub_fn_cart_prod-5-2-1-2-1-1">Consider the function <span class="process-math">\(f: \mathbb{R}^2 \to \mathbb{R}\)</span> defined by <span class="process-math">\(f(x,y) = x+y\text{.}\)</span> Identify the domain and codomain of <span class="process-math">\(f\text{,}\)</span> evaluate <span class="process-math">\(f(3,4)\text{,}\)</span> and describe the set of all ordered pairs <span class="process-math">\((x,y)\)</span> with <span class="process-math">\(f(x,y)=0\)</span> as a set of points in the <span class="process-math">\(xy\)</span>-plane. 
 <details id="sub_fn_cart_prod-5-2-1-2-1-1-8" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1267,17 +1292,17 @@ x_n))\)</span> where each <span class="process-math">\(x_i \in X_i\text{,}\)</sp
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fn_cart_prod-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.7: Functions involving Cartesian products of sets"><a tabindex="-1" href="#sub_fn_cart_prod-5" title="Copy heading and permalink for Example 7.4.7: Functions involving Cartesian products of sets" aria-label="Copy heading and permalink for Example 7.4.7: Functions involving Cartesian products of sets">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.8: Functions involving Cartesian products of sets"><a tabindex="-1" href="#sub_fn_cart_prod-5" title="Copy heading and permalink for Example 7.4.8: Functions involving Cartesian products of sets" aria-label="Copy heading and permalink for Example 7.4.8: Functions involving Cartesian products of sets">🔗</a></div>
 </article></details>
 <div class="para" id="sub_fn_cart_prod-6">As usual, the domain and codomain of functions can involve any type of discrete object.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fn_cart_prod-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_cart_prod_fn_discrete" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions involving Cartesian products and discrete objects.</span>
-</h4></summary>
+<details id="exam_cart_prod_fn_discrete" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.9</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions involving Cartesian products and discrete objects.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_cart_prod_fn_discrete-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_cart_prod_fn_discrete-2-1-2">
+<ol class="lower-alpha" id="exam_cart_prod_fn_discrete-2-1-2">
 <li id="exam_cart_prod_fn_discrete-2-1-2-1">
 <div class="para" id="exam_cart_prod_fn_discrete-2-1-2-1-1">Let <span class="process-math">\(S = \{0,1,2,3\}\)</span> and, as usual, let <span class="process-math">\(\mathscr{P}(S)\)</span> denote the set of all subsets of <span class="process-math">\(S\text{.}\)</span> Consider the function <span class="process-math">\(\fn{int}: \mathscr{P}(S)^2 \to \mathscr{P}(S)\)</span> defined by <span class="process-math">\(\fn{int}(A,B) = A \cap B\text{.}\)</span> Evaluate <span class="process-math">\(\fn{int}(\{0,1,2\},\{2,3\})\text{.}\)</span> 
 <details id="exam_cart_prod_fn_discrete-2-1-2-1-1-7" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1312,17 +1337,17 @@ T=\{000,001,002,\ldots, 998, 999\}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_cart_prod_fn_discrete-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.8: Functions involving Cartesian products and discrete objects"><a tabindex="-1" href="#exam_cart_prod_fn_discrete" title="Copy heading and permalink for Example 7.4.8: Functions involving Cartesian products and discrete objects" aria-label="Copy heading and permalink for Example 7.4.8: Functions involving Cartesian products and discrete objects">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.9: Functions involving Cartesian products and discrete objects"><a tabindex="-1" href="#exam_cart_prod_fn_discrete" title="Copy heading and permalink for Example 7.4.9: Functions involving Cartesian products and discrete objects" aria-label="Copy heading and permalink for Example 7.4.9: Functions involving Cartesian products and discrete objects">🔗</a></div>
 </article></details>
 <div class="para" id="sub_fn_cart_prod-8">Try to work with functions involving Cartesian products<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fn_cart_prod-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_fn_cart_prod"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.B</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions involving Cartesian products.</span>
-</h4>
+<article class="activity project-like" id="act_fn_cart_prod"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions involving Cartesian products.</span>
+</h3>
 <div class="para logical" id="act_fn_cart_prod-2">
 <div class="para">Consider the function <span class="process-math">\(f: \mathbb{Z}^2 \to \mathbb{Z}\)</span> defined by <span class="process-math">\(f(a,b) = ab\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_fn_cart_prod-2-3">
+<ol class="lower-alpha" id="act_fn_cart_prod-2-3">
 <li id="act_fn_cart_prod-2-3-1">
 <div class="para" id="act_fn_cart_prod-2-3-1-1">State the domain and codomain of <span class="process-math">\(f\)</span> and evaluate <span class="process-math">\(f(3,4)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_fn_cart_prod-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1350,17 +1375,17 @@ T=\{000,001,002,\ldots, 998, 999\}
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 7.4.B: Functions Involving Cartesian Products"><a tabindex="-1" href="#sub_fn_cart_prod" title="Copy heading and permalink for Subsection 7.4.B: Functions Involving Cartesian Products" aria-label="Copy heading and permalink for Subsection 7.4.B: Functions Involving Cartesian Products">🔗</a></div>
 </section>
 <section class="subsection" id="sub_defn_relation">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Relations and Their Representations</span>
-</h3>
+</h2>
 <div class="para" id="sub_defn_relation-2">We are now ready to define a relation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_relation"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Relation.</span>
-</h4>
+<article class="definition definition-like" id="defn_relation"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.11</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Relation.</span>
+</h3>
 <div class="para logical" id="defn_relation-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_relation-2-1-2">
+<ol class="lower-alpha" id="defn_relation-2-1-2">
 <li id="defn_relation-2-1-2-1">
 <div class="para" id="defn_relation-2-1-2-1-1">For any sets <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\text{,}\)</span> a <dfn class="terminology">relation (from X to Y)</dfn> is a subset of <span class="process-math">\(X \times Y\text{.}\)</span> For example, the set <span class="process-math">\(R=\{(a,0),(a,1),(b,1),(b,2)\}\)</span> is a relation from <span class="process-math">\(\{a,b\}\)</span> to <span class="process-math">\(\{0,1,2\}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_relation-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1374,13 +1399,13 @@ T=\{000,001,002,\ldots, 998, 999\}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_relation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 7.4.9: Relation"><a tabindex="-1" href="#defn_relation" title="Copy heading and permalink for Definition 7.4.9: Relation" aria-label="Copy heading and permalink for Definition 7.4.9: Relation">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 7.4.11: Relation"><a tabindex="-1" href="#defn_relation" title="Copy heading and permalink for Definition 7.4.11: Relation" aria-label="Copy heading and permalink for Definition 7.4.11: Relation">🔗</a></div>
 </article>
 <div class="para" id="sub_defn_relation-4">Note that the graph of any function is a relation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_graph_fn"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Graph of a function.</span>
-</h4>
+<article class="definition definition-like" id="defn_graph_fn"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.12</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Graph of a function.</span>
+</h3>
 <div class="para logical" id="defn_graph_fn-2-1">
 <div class="para">For sets <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> and function <span class="process-math">\(f: X \to Y\text{,}\)</span> the <dfn class="terminology">graph of the function</dfn> <span class="process-math">\(f\)</span> is the relation</div>
 <div class="displaymath process-math" id="defn_graph_fn-2-1-6">
@@ -1397,7 +1422,7 @@ T=\{000,001,002,\ldots, 998, 999\}
 <div class="para">For example, if <span class="process-math">\(f: \mathbb{R} \to \mathbb{R}\)</span> is the function defined by <span class="process-math">\(f(x) = 2x+1\text{,}\)</span> then the graph of <span class="process-math">\(f\)</span> is the line <span class="process-math">\(y=2x+1\)</span> that has slope two and intercept one.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_graph_fn-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 7.4.10: Graph of a function"><a tabindex="-1" href="#defn_graph_fn" title="Copy heading and permalink for Definition 7.4.10: Graph of a function" aria-label="Copy heading and permalink for Definition 7.4.10: Graph of a function">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 7.4.12: Graph of a function"><a tabindex="-1" href="#defn_graph_fn" title="Copy heading and permalink for Definition 7.4.12: Graph of a function" aria-label="Copy heading and permalink for Definition 7.4.12: Graph of a function">🔗</a></div>
 </article>
 <div class="para" id="sub_defn_relation-6">More generally, any graph in the <span class="process-math">\(xy\)</span>-plane is a relation on <span class="process-math">\(\mathbb{R}\text{.}\)</span> For example, the unit circle <span class="process-math">\(U = \{ (x,y) \mid x^2+y^2=1\}\)</span> shown in <a href="sec_onetoone_onto_fns.html#fig_unit_circle_verticallinetest" class="xref" data-knowl="./knowl/xref/fig_unit_circle_verticallinetest.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.3.9">Figure 6.3.9</a> is a relation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1405,14 +1430,14 @@ T=\{000,001,002,\ldots, 998, 999\}
 </div>
 <div class="para" id="sub_defn_relation-8">Let’s look at another example of the graph of a function.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_graph_fn_is_relation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The graph of a function on <span class="process-math">\(\mathbb{Z}\)</span>.</span>
-</h4></summary>
+<details id="exam_graph_fn_is_relation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.13</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The graph of a function on <span class="process-math">\(\mathbb{Z}\)</span>.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_graph_fn_is_relation-2-1">
 <div class="para">Consider the function <span class="process-math">\(s: \mathbb{Z} \to \mathbb{Z}\)</span> defined by <span class="process-math">\(s(n) = n^2+1\)</span> and let <span class="process-math">\(R\)</span> be the graph of <span class="process-math">\(s\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_graph_fn_is_relation-2-1-5">
+<ol class="lower-alpha" id="exam_graph_fn_is_relation-2-1-5">
 <li id="exam_graph_fn_is_relation-2-1-5-1">
 <div class="para" id="exam_graph_fn_is_relation-2-1-5-1-1">Is <span class="process-math">\((3,8) \in R\text{?}\)</span> Is <span class="process-math">\((2,5) \in R\text{?}\)</span> 
 <details id="exam_graph_fn_is_relation-2-1-5-1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1428,7 +1453,7 @@ T=\{000,001,002,\ldots, 998, 999\}
 <div class="para" id="exam_graph_fn_is_relation-2-1-5-2-1">Find all integers <span class="process-math">\(m \in \mathbb{Z}\)</span> such that <span class="process-math">\((2,m) \in R\)</span> and find all integers <span class="process-math">\(n \in \mathbb{Z}\)</span> such that <span class="process-math">\((n,5) \in R\text{.}\)</span> 
 <details id="exam_graph_fn_is_relation-2-1-5-2-1-5" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_graph_fn_is_relation-2-1-5-2-1-5-1">First, if <span class="process-math">\((2,m) \in R\text{,}\)</span> then <span class="process-math">\(m = s(2) = 5\text{.}\)</span> No other value of <span class="process-math">\(m\)</span> is possible because by the definition of function <a href="sec_functions.html#defn_function" class="xref" data-knowl="./knowl/xref/defn_function.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 6.1.10: Function">Definition 6.1.10</a> there is only one value for <span class="process-math">\(f(2)\text{.}\)</span> Next, if <span class="process-math">\((n,5) \in R\text{,}\)</span> then <span class="process-math">\(5 = f(n) = n^2 +1\text{.}\)</span> Solving we get <span class="process-math">\(n^2=4\)</span> and so <span class="process-math">\(n=2\)</span> and <span class="process-math">\(n=-2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_graph_fn_is_relation-2-1-5-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_graph_fn_is_relation-2-1-5-2-1-5-1">First, if <span class="process-math">\((2,m) \in R\text{,}\)</span> then <span class="process-math">\(m = s(2) = 5\text{.}\)</span> No other value of <span class="process-math">\(m\)</span> is possible because by the definition of function <a href="sec_functions.html#defn_function" class="xref" data-knowl="./knowl/xref/defn_function.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 6.1.11: Function">Definition 6.1.11</a> there is only one value for <span class="process-math">\(f(2)\text{.}\)</span> Next, if <span class="process-math">\((n,5) \in R\text{,}\)</span> then <span class="process-math">\(5 = f(n) = n^2 +1\text{.}\)</span> Solving we get <span class="process-math">\(n^2=4\)</span> and so <span class="process-math">\(n=2\)</span> and <span class="process-math">\(n=-2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_graph_fn_is_relation-2-1-5-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_graph_fn_is_relation-2-1-5-2-1-5" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_graph_fn_is_relation-2-1-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1438,33 +1463,33 @@ T=\{000,001,002,\ldots, 998, 999\}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_graph_fn_is_relation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.11: The graph of a function on \mathbb{Z}"><a tabindex="-1" href="#exam_graph_fn_is_relation" title="Copy heading and permalink for Example 7.4.11: The graph of a function on \mathbb{Z}" aria-label="Copy heading and permalink for Example 7.4.11: The graph of a function on \mathbb{Z}">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.13: The graph of a function on \mathbb{Z}"><a tabindex="-1" href="#exam_graph_fn_is_relation" title="Copy heading and permalink for Example 7.4.13: The graph of a function on \mathbb{Z}" aria-label="Copy heading and permalink for Example 7.4.13: The graph of a function on \mathbb{Z}">🔗</a></div>
 </article></details>
 <div class="para" id="sub_defn_relation-10">When <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are finite sets or subsets of <span class="process-math">\(\mathbb{Z}\text{,}\)</span> we have two ways to visually represent a relation from <span class="process-math">\(X\)</span> to <span class="process-math">\(Y\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_draw_relations_dot_diagrams"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Drawing relations on finite sets or subsets of <span class="process-math">\(\mathbb{Z}\)</span> using dot diagrams.</span>
-</h4>
-<div class="para" id="defn_draw_relations_dot_diagrams-2-1">  When <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are finite sets or subsets of <span class="process-math">\(\mathbb{Z}\text{,}\)</span> we can represent a relation <span class="process-math">\(R\)</span> from <span class="process-math">\(X\)</span> to <span class="process-math">\(Y\)</span> using a <dfn class="terminology">dot diagram</dfn> where we draw a vertex for each element of <span class="process-math">\(X\)</span> on the left and a vertex for each element of <span class="process-math">\(Y\)</span> on the right. Then we draw an arrow from <span class="process-math">\(x\)</span> to <span class="process-math">\(y\)</span> if <span class="process-math">\((x,y) \in R\text{.}\)</span> This is the same dot diagram we used to represent functions on a finite sets or subsets of <span class="process-math">\(\mathbb{Z}\text{.}\)</span> For example, the relation <span class="process-math">\(R=\{(a,0),(a,1),(b,1),(b,2)\}\)</span> from <span class="process-math">\(\{a,b\}\)</span> to <span class="process-math">\(\{0,1,2\}\)</span> can be represented using the dot diagram shown in <a href="sec_relations.html#fig_relation_finite_dot_diagram" class="xref" data-knowl="./knowl/xref/fig_relation_finite_dot_diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.13">Figure 7.4.13</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_draw_relations_dot_diagrams-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="definition definition-like" id="defn_draw_relations_dot_diagrams"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.14</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Drawing relations on finite sets or subsets of <span class="process-math">\(\mathbb{Z}\)</span> using dot diagrams.</span>
+</h3>
+<div class="para" id="defn_draw_relations_dot_diagrams-2-1">  When <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are finite sets or subsets of <span class="process-math">\(\mathbb{Z}\text{,}\)</span> we can represent a relation <span class="process-math">\(R\)</span> from <span class="process-math">\(X\)</span> to <span class="process-math">\(Y\)</span> using a <dfn class="terminology">dot diagram</dfn> where we draw a vertex for each element of <span class="process-math">\(X\)</span> on the left and a vertex for each element of <span class="process-math">\(Y\)</span> on the right. Then we draw an arrow from <span class="process-math">\(x\)</span> to <span class="process-math">\(y\)</span> if <span class="process-math">\((x,y) \in R\text{.}\)</span> This is the same dot diagram we used to represent functions on a finite sets or subsets of <span class="process-math">\(\mathbb{Z}\text{.}\)</span> For example, the relation <span class="process-math">\(R=\{(a,0),(a,1),(b,1),(b,2)\}\)</span> from <span class="process-math">\(\{a,b\}\)</span> to <span class="process-math">\(\{0,1,2\}\)</span> can be represented using the dot diagram shown in <a href="sec_relations.html#fig_relation_finite_dot_diagram" class="xref" data-knowl="./knowl/xref/fig_relation_finite_dot_diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.15">Figure 7.4.15</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_draw_relations_dot_diagrams-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
 <figure class="figure figure-like" id="fig_relation_finite_dot_diagram"><div class="image-box" style="width: 20%; margin-left: 40%; margin-right: 40%;"><img src="generated/latex-image/fig_relation_finite_dot_diagram-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The dot diagram for a relation on finite sets.<div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.13"><a tabindex="-1" href="#fig_relation_finite_dot_diagram" title="Copy heading and permalink for Figure 7.4.13" aria-label="Copy heading and permalink for Figure 7.4.13">🔗</a></div></figcaption>
-</figure><div class="autopermalink" aria-hidden="true" data-description="Definition 7.4.12: Drawing relations on finite sets or subsets of \mathbb{Z} using dot diagrams"><a tabindex="-1" href="#defn_draw_relations_dot_diagrams" title="Copy heading and permalink for Definition 7.4.12: Drawing relations on finite sets or subsets of \mathbb{Z} using dot diagrams" aria-label="Copy heading and permalink for Definition 7.4.12: Drawing relations on finite sets or subsets of \mathbb{Z} using dot diagrams">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The dot diagram for a relation on finite sets.<div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.15"><a tabindex="-1" href="#fig_relation_finite_dot_diagram" title="Copy heading and permalink for Figure 7.4.15" aria-label="Copy heading and permalink for Figure 7.4.15">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Definition 7.4.14: Drawing relations on finite sets or subsets of \mathbb{Z} using dot diagrams"><a tabindex="-1" href="#defn_draw_relations_dot_diagrams" title="Copy heading and permalink for Definition 7.4.14: Drawing relations on finite sets or subsets of \mathbb{Z} using dot diagrams" aria-label="Copy heading and permalink for Definition 7.4.14: Drawing relations on finite sets or subsets of \mathbb{Z} using dot diagrams">🔗</a></div>
 </article>
 <div class="para" id="sub_defn_relation-12">When <span class="process-math">\(X=Y\text{,}\)</span> there is another way we can represent the relation visually.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_draw_relations_directed_graph"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Drawing relations on a finite set or subset of <span class="process-math">\(\mathbb{Z}\)</span> using a directed graph.</span>
-</h4>
+<article class="definition definition-like" id="defn_draw_relations_directed_graph"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Drawing relations on a finite set or subset of <span class="process-math">\(\mathbb{Z}\)</span> using a directed graph.</span>
+</h3>
 <div class="para" id="defn_draw_relations_directed_graph-2-1">  When <span class="process-math">\(R\)</span> is a relation on a finite set <span class="process-math">\(X\)</span> or subset of <span class="process-math">\(\mathbb{Z}\text{,}\)</span> we can also represent <span class="process-math">\(R\)</span> using a <dfn class="terminology">(possibly infinite) directed graph</dfn>. We draw a vertex for each element of <span class="process-math">\(X\)</span> and an arrow from <span class="process-math">\(x\)</span> to <span class="process-math">\(y\)</span> for each pair <span class="process-math">\((x,y) \in R\text{.}\)</span> If <span class="process-math">\((x,y) \in R\)</span> and <span class="process-math">\((y,x) \in R\text{,}\)</span> then we draw a <dfn class="terminology">double-headed arrow</dfn>. If <span class="process-math">\((x,x) \in R\text{,}\)</span> then we draw a <em class="emphasis">loop</em> — an arrow beginning and ending at <span class="process-math">\(x\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_draw_relations_directed_graph-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 7.4.14: Drawing relations on a finite set or subset of \mathbb{Z} using a directed graph"><a tabindex="-1" href="#defn_draw_relations_directed_graph" title="Copy heading and permalink for Definition 7.4.14: Drawing relations on a finite set or subset of \mathbb{Z} using a directed graph" aria-label="Copy heading and permalink for Definition 7.4.14: Drawing relations on a finite set or subset of \mathbb{Z} using a directed graph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 7.4.16: Drawing relations on a finite set or subset of \mathbb{Z} using a directed graph"><a tabindex="-1" href="#defn_draw_relations_directed_graph" title="Copy heading and permalink for Definition 7.4.16: Drawing relations on a finite set or subset of \mathbb{Z} using a directed graph" aria-label="Copy heading and permalink for Definition 7.4.16: Drawing relations on a finite set or subset of \mathbb{Z} using a directed graph">🔗</a></div>
 </article>
 <div class="para" id="sub_defn_relation-14">Here are some examples.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_directed_graph_relation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Directed graphs for three relations on <span class="process-math">\(\{1,2,3\}\)</span>.</span>
-</h4></summary>
+<details id="exam_directed_graph_relation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.17</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Directed graphs for three relations on <span class="process-math">\(\{1,2,3\}\)</span>.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_directed_graph_relation-2-1">
 <div class="para">Consider three different relations on the set <span class="process-math">\(X =\{1,2,3\}\)</span> defined by</div>
@@ -1490,20 +1515,20 @@ R_3 = \{ (1,3), (2,3),(3,1)\}
 <div class="solutions">
 <details id="exam_directed_graph_relation-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_directed_graph_relation-3-1">In each case our vertices are 1, 2, and 3. The directed graphs are drawn in <a href="sec_relations.html#fig_directed_graph_three_relations" class="xref" data-knowl="./knowl/xref/fig_directed_graph_three_relations.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.16">Figure 7.4.16</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_directed_graph_relation-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_directed_graph_relation-3-1">In each case our vertices are 1, 2, and 3. The directed graphs are drawn in <a href="sec_relations.html#fig_directed_graph_three_relations" class="xref" data-knowl="./knowl/xref/fig_directed_graph_three_relations.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.18">Figure 7.4.18</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_directed_graph_relation-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig_directed_graph_three_relations"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/fig_directed_graph_three_relations-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>From left-to-right, the directed graphs for the relations <span class="process-math">\(R_1\text{,}\)</span> <span class="process-math">\(R_2\text{,}\)</span> and <span class="process-math">\(R_3\)</span> from <a href="sec_relations.html#exam_directed_graph_relation" class="xref" data-knowl="./knowl/xref/exam_directed_graph_relation.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.4.15: Directed graphs for three relations on \{1,2,3\}">Example 7.4.15</a>.<div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.16"><a tabindex="-1" href="#fig_directed_graph_three_relations" title="Copy heading and permalink for Figure 7.4.16" aria-label="Copy heading and permalink for Figure 7.4.16">🔗</a></div></figcaption>
-</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 7.4.15.1"><a tabindex="-1" href="#exam_directed_graph_relation-3" title="Copy heading and permalink for Solution 7.4.15.1" aria-label="Copy heading and permalink for Solution 7.4.15.1">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>From left-to-right, the directed graphs for the relations <span class="process-math">\(R_1\text{,}\)</span> <span class="process-math">\(R_2\text{,}\)</span> and <span class="process-math">\(R_3\)</span> from <a href="sec_relations.html#exam_directed_graph_relation" class="xref" data-knowl="./knowl/xref/exam_directed_graph_relation.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 7.4.17: Directed graphs for three relations on \{1,2,3\}">Example 7.4.17</a>.<div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.18"><a tabindex="-1" href="#fig_directed_graph_three_relations" title="Copy heading and permalink for Figure 7.4.18" aria-label="Copy heading and permalink for Figure 7.4.18">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 7.4.17.1"><a tabindex="-1" href="#exam_directed_graph_relation-3" title="Copy heading and permalink for Solution 7.4.17.1" aria-label="Copy heading and permalink for Solution 7.4.17.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.15: Directed graphs for three relations on \{1,2,3\}"><a tabindex="-1" href="#exam_directed_graph_relation" title="Copy heading and permalink for Example 7.4.15: Directed graphs for three relations on \{1,2,3\}" aria-label="Copy heading and permalink for Example 7.4.15: Directed graphs for three relations on \{1,2,3\}">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.17: Directed graphs for three relations on \{1,2,3\}"><a tabindex="-1" href="#exam_directed_graph_relation" title="Copy heading and permalink for Example 7.4.17: Directed graphs for three relations on \{1,2,3\}" aria-label="Copy heading and permalink for Example 7.4.17: Directed graphs for three relations on \{1,2,3\}">🔗</a></div>
 </article></details>
 <div class="para" id="sub_defn_relation-16">We can draw directed graphs for a relation on an infinite subset.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_digraph_rel_infinite" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Directed graph of a relation on <span class="process-math">\(\mathbb{Z}\)</span>.</span>
-</h4></summary>
+<details id="exam_digraph_rel_infinite" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.19</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Directed graph of a relation on <span class="process-math">\(\mathbb{Z}\)</span>.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_digraph_rel_infinite-2-1">
 <div class="para">Draw the directed graph of the relation on <span class="process-math">\(\mathbb{Z}\)</span> defined by</div>
@@ -1524,22 +1549,22 @@ R= \{ (a,b) \mid |a-b|=1\}
 R = \{(a,b) \mid b = a \pm 1\}\text{.}
 \end{equation*}
 </div>
-<div class="para">For example, when <span class="process-math">\(a=1\)</span> we have <span class="process-math">\((1,2) \in R\)</span> and <span class="process-math">\((1,0)\in R\text{.}\)</span> The directed graph is drawn in <a href="sec_relations.html#fig_digraph_rel_infinite" class="xref" data-knowl="./knowl/xref/fig_digraph_rel_infinite.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.18">Figure 7.4.18</a>.</div>
+<div class="para">For example, when <span class="process-math">\(a=1\)</span> we have <span class="process-math">\((1,2) \in R\)</span> and <span class="process-math">\((1,0)\in R\text{.}\)</span> The directed graph is drawn in <a href="sec_relations.html#fig_digraph_rel_infinite" class="xref" data-knowl="./knowl/xref/fig_digraph_rel_infinite.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.20">Figure 7.4.20</a>.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_digraph_rel_infinite-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig_digraph_rel_infinite"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="generated/latex-image/fig_digraph_rel_infinite-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The directed graph of a relation on <span class="process-math">\(\mathbb{Z}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.18"><a tabindex="-1" href="#fig_digraph_rel_infinite" title="Copy heading and permalink for Figure 7.4.18" aria-label="Copy heading and permalink for Figure 7.4.18">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The directed graph of a relation on <span class="process-math">\(\mathbb{Z}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.20"><a tabindex="-1" href="#fig_digraph_rel_infinite" title="Copy heading and permalink for Figure 7.4.20" aria-label="Copy heading and permalink for Figure 7.4.20">🔗</a></div></figcaption>
 </figure><div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_digraph_rel_infinite-2-2" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
-</div></details><div class="autopermalink" aria-hidden="true" data-description="Example 7.4.17: Directed graph of a relation on \mathbb{Z}"><a tabindex="-1" href="#exam_digraph_rel_infinite" title="Copy heading and permalink for Example 7.4.17: Directed graph of a relation on \mathbb{Z}" aria-label="Copy heading and permalink for Example 7.4.17: Directed graph of a relation on \mathbb{Z}">🔗</a></div>
+</div></details><div class="autopermalink" aria-hidden="true" data-description="Example 7.4.19: Directed graph of a relation on \mathbb{Z}"><a tabindex="-1" href="#exam_digraph_rel_infinite" title="Copy heading and permalink for Example 7.4.19: Directed graph of a relation on \mathbb{Z}" aria-label="Copy heading and permalink for Example 7.4.19: Directed graph of a relation on \mathbb{Z}">🔗</a></div>
 </article></details>
 <div class="para" id="sub_defn_relation-18">There are several shorthands for relations.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="remark remark-like" id="rem_alt_notation_relations"><h4 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Alternative notation for relations.</span>
-</h4>
+<article class="remark remark-like" id="rem_alt_notation_relations"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.21</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Alternative notation for relations.</span>
+</h3>
 <div class="para logical" id="rem_alt_notation_relations-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="rem_alt_notation_relations-2-2">
+<ol class="lower-alpha" id="rem_alt_notation_relations-2-2">
 <li id="rem_alt_notation_relations-2-2-1">
 <div class="para" id="rem_alt_notation_relations-2-2-1-1">It is sometimes convenient to write <span class="process-math">\(x \sim y\)</span> instead of <span class="process-math">\((x,y) \in R\text{.}\)</span> This notation is particularly helpful if <span class="process-math">\(X\)</span> itself is a Cartesian product, so we can write <span class="process-math">\((a,b) \sim (c,d)\)</span> instead of the potentially awkward ordered pair of ordered pairs <span class="process-math">\(((a,b),(c,d)) \in R\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#rem_alt_notation_relations-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1553,18 +1578,18 @@ R = \{(a,b) \mid b = a \pm 1\}\text{.}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#rem_alt_notation_relations-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Remark 7.4.19: Alternative notation for relations"><a tabindex="-1" href="#rem_alt_notation_relations" title="Copy heading and permalink for Remark 7.4.19: Alternative notation for relations" aria-label="Copy heading and permalink for Remark 7.4.19: Alternative notation for relations">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Remark 7.4.21: Alternative notation for relations"><a tabindex="-1" href="#rem_alt_notation_relations" title="Copy heading and permalink for Remark 7.4.21: Alternative notation for relations" aria-label="Copy heading and permalink for Remark 7.4.21: Alternative notation for relations">🔗</a></div>
 </article>
 <div class="para" id="sub_defn_relation-20">Let’s see an example of the <span class="process-math">\(\sim\)</span> notation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_relation_on_cart_prod" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A relation on a Cartesian product.</span>
-</h4></summary>
+<details id="exam_relation_on_cart_prod" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.22</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A relation on a Cartesian product.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_relation_on_cart_prod-2-1">
 <div class="para">Define a relation on <span class="process-math">\(X=\mathbb{Z} \times\mathbb{Z}^+\)</span> by <span class="process-math">\((a_1,b_1) \sim (a_2,b_2)\)</span> if <span class="process-math">\(a_1b_2 = a_2b_1\)</span> or, equivalently, if <span class="process-math">\(\frac{a_1}{b_1}=\frac{a_2}{b_2}\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_relation_on_cart_prod-2-1-5">
+<ol class="lower-alpha" id="exam_relation_on_cart_prod-2-1-5">
 <li id="exam_relation_on_cart_prod-2-1-5-1">
 <div class="para" id="exam_relation_on_cart_prod-2-1-5-1-1">Show that <span class="process-math">\((4,6) \sim (2,3)\text{.}\)</span> 
 <details id="exam_relation_on_cart_prod-2-1-5-1-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1590,16 +1615,16 @@ R = \{(a,b) \mid b = a \pm 1\}\text{.}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_relation_on_cart_prod-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.20: A relation on a Cartesian product"><a tabindex="-1" href="#exam_relation_on_cart_prod" title="Copy heading and permalink for Example 7.4.20: A relation on a Cartesian product" aria-label="Copy heading and permalink for Example 7.4.20: A relation on a Cartesian product">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 7.4.22: A relation on a Cartesian product"><a tabindex="-1" href="#exam_relation_on_cart_prod" title="Copy heading and permalink for Example 7.4.22: A relation on a Cartesian product" aria-label="Copy heading and permalink for Example 7.4.22: A relation on a Cartesian product">🔗</a></div>
 </article></details>
 <div class="para" id="sub_defn_relation-22">It is your turn to work with relations.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_relation-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_relations"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.C</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Relations.</span>
-</h4>
+<article class="activity project-like" id="act_relations"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Relations.</span>
+</h3>
 <div class="para logical" id="act_relations-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_relations-2-2">
+<ol class="lower-alpha" id="act_relations-2-2">
 <li id="part_first_relation">
 <div class="para" id="part_first_relation-1">Draw the dot diagram and the directed graph for the relation <span class="process-math">\(R=\{(0,0), (1,0), (1,1), (1,2)\}\)</span> on <span class="process-math">\(X=\{0,1,2\}\text{.}\)</span> Explain why <span class="process-math">\(R\)</span> is not the rule for a function.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_first_relation-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1650,19 +1675,19 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 7.4.C: Relations and Their Representations"><a tabindex="-1" href="#sub_defn_relation" title="Copy heading and permalink for Subsection 7.4.C: Relations and Their Representations" aria-label="Copy heading and permalink for Subsection 7.4.C: Relations and Their Representations">🔗</a></div>
 </section>
 <section class="subsection" id="sec_relations-6">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
-</h3>
+</h2>
 <section class="subsubsection" id="sec_relations-6-2">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 7.4.A The Cartesian Product of Sets</span>
-</h4>
-<article class="exercise exercise-like" id="exer_ordered_tuple"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_ordered_tuple"><h4 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_ordered_tuple-2-1">
 <div class="para">Write each ordered tuple as a set of sets using <a href="sec_relations.html#defn_ordered_tuple" class="xref" data-knowl="./knowl/xref/defn_ordered_tuple.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 7.4.1: Ordered tuples">Definition 7.4.1</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_ordered_tuple-2-1-2">
+<ol class="lower-alpha" id="exer_ordered_tuple-2-1-2">
 <li id="exer_ordered_tuple-2-1-2-1">
 <div class="para" id="exer_ordered_tuple-2-1-2-1-1">
 <span class="process-math">\(\displaystyle (3,7)\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_ordered_tuple-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1686,12 +1711,12 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 1: Practice"><a tabindex="-1" href="#exer_ordered_tuple" title="  1: Practice" aria-label="  1: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_cart_prod_2sets"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_cart_prod_2sets"><h4 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_cart_prod_2sets-2-1">
 <div class="para">Consider the sets <span class="process-math">\(K = \{0, 2, 4\}\text{,}\)</span> <span class="process-math">\(L = \{1,3\}\)</span> and <span class="process-math">\(M = \{2\}\text{.}\)</span> For each Cartesian product, list the elements and represent the product as a set of points in the <span class="process-math">\(xy\)</span>-plane.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cart_prod_2sets-2-1-5">
+<ol class="lower-alpha" id="exer_cart_prod_2sets-2-1-5">
 <li id="exer_cart_prod_2sets-2-1-5-1">
 <div class="para" id="exer_cart_prod_2sets-2-1-5-1-1">
 <span class="process-math">\(\displaystyle K \times L\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cart_prod_2sets-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1721,13 +1746,13 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 2: Practice"><a tabindex="-1" href="#exer_cart_prod_2sets" title="  2: Practice" aria-label="  2: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_cart_prod_count"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_cart_prod_count"><h4 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_cart_prod_count-2-1">
 <div class="para">Consider the sets <span class="process-math">\(A = \{1, 2, 3, 4, 5, 6\}\)</span> and <span class="process-math">\(B = \{0, 1, 2\}\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cart_prod_count-2-1-3">
+<ol class="lower-alpha" id="exer_cart_prod_count-2-1-3">
 <li id="exer_cart_prod_count-2-1-3-1">
 <div class="para" id="exer_cart_prod_count-2-1-3-1-1">Draw <span class="process-math">\(A \times B\)</span> as set of points in the usual <span class="process-math">\(xy\)</span>-plane. How many ordered pairs are in <span class="process-math">\(A \times B\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cart_prod_count-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1754,7 +1779,7 @@ y_1-y_2=3(x_1-x_2)\text{.}
 <div class="solutions">
 <details id="exer_cart_prod_count-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cart_prod_count-3-1">
+<ol class="lower-alpha" id="exer_cart_prod_count-3-1">
 <li id="exer_cart_prod_count-3-1-1">
 <div class="para" id="exer_cart_prod_count-3-1-1-1">Hint: There should be 18 points.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cart_prod_count-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1781,13 +1806,13 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 3: Practice"><a tabindex="-1" href="#exer_cart_prod_count" title="  3: Practice" aria-label="  3: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_cart_prod_morethan2_sets"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_cart_prod_morethan2_sets"><h4 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_cart_prod_morethan2_sets-2-1">
 <div class="para">Consider the sets <span class="process-math">\(S = \{1,2,3\}\text{,}\)</span> <span class="process-math">\(T = \{5,7\}\text{,}\)</span> and <span class="process-math">\(V = \{3,7\}\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cart_prod_morethan2_sets-2-1-4">
+<ol class="lower-alpha" id="exer_cart_prod_morethan2_sets-2-1-4">
 <li id="exer_cart_prod_morethan2_sets-2-1-4-1">
 <div class="para" id="exer_cart_prod_morethan2_sets-2-1-4-1-1">List the elements of <span class="process-math">\(S \times T \times V\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cart_prod_morethan2_sets-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1808,12 +1833,12 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 4: Practice"><a tabindex="-1" href="#exer_cart_prod_morethan2_sets" title="  4: Practice" aria-label="  4: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_cart_prod_order_formula"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_cart_prod_order_formula"><h4 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_cart_prod_order_formula-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cart_prod_order_formula-2-1-2">
+<ol class="lower-alpha" id="exer_cart_prod_order_formula-2-1-2">
 <li id="exer_cart_prod_order_formula-2-1-2-1">
 <div class="para" id="exer_cart_prod_order_formula-2-1-2-1-1">Conjecture how <span class="process-math">\(|X \times Y|\)</span> is related to <span class="process-math">\(|X|\)</span> and <span class="process-math">\(|Y|\)</span> when <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are finite sets. Hint: This result is why the Cartesian product is called a “product” and written with <span class="times-sign">×</span>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cart_prod_order_formula-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1837,12 +1862,12 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 5: Understand"><a tabindex="-1" href="#exer_cart_prod_order_formula" title="  5: Understand" aria-label="  5: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_cart_prod"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_cart_prod"><h4 class="heading">
 <span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_cart_prod-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_cart_prod-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_cart_prod-2-1-2">
 <li id="exer_dyk_cart_prod-2-1-2-1">
 <div class="para" id="exer_dyk_cart_prod-2-1-2-1-1">How to define an ordered pair and an ordered <span class="process-math">\(n\)</span>-tuple?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_cart_prod-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1870,16 +1895,16 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 7.4.A The Cartesian Product of Sets"><a tabindex="-1" href="#sec_relations-6-2" title="Copy heading and permalink for Subsubsection: Exercises for 7.4.A The Cartesian Product of Sets" aria-label="Copy heading and permalink for Subsubsection: Exercises for 7.4.A The Cartesian Product of Sets">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_relations-6-3">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 7.4.B Functions Involving Cartesian Products</span>
-</h4>
-<article class="exercise exercise-like" id="exer_linear_fn_onRsq"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_linear_fn_onRsq"><h4 class="heading">
 <span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_linear_fn_onRsq-2-1">
 <div class="para">Consider the function <span class="process-math">\(f: \mathbb{R}^2 \to \mathbb{R}\)</span> defined by <span class="process-math">\(f(x,y) = x-2y\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_linear_fn_onRsq-2-1-3">
+<ol class="lower-alpha" id="exer_linear_fn_onRsq-2-1-3">
 <li id="exer_linear_fn_onRsq-2-1-3-1">
 <div class="para" id="exer_linear_fn_onRsq-2-1-3-1-1">Identify the domain of <span class="process-math">\(f\)</span> and the codomain of <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_linear_fn_onRsq-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1906,7 +1931,7 @@ y_1-y_2=3(x_1-x_2)\text{.}
 <div class="solutions">
 <details id="exer_linear_fn_onRsq-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_linear_fn_onRsq-3-1">
+<ol class="lower-alpha" id="exer_linear_fn_onRsq-3-1">
 <li id="exer_linear_fn_onRsq-3-1-1">
 <div class="para" id="exer_linear_fn_onRsq-3-1-1-1">Hint: The domain is <span class="process-math">\(\mathbb{R}^2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_linear_fn_onRsq-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1933,13 +1958,13 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 7: Practice"><a tabindex="-1" href="#exer_linear_fn_onRsq" title="  7: Practice" aria-label="  7: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fn_into_Zsq_div_mod"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fn_into_Zsq_div_mod"><h4 class="heading">
 <span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_fn_into_Zsq_div_mod-2-1">
 <div class="para">Consider the function <span class="process-math">\(\fn{dfive}: \mathbb{N} \to \mathbb{N} \times \mathbb{N}\)</span> defined by <span class="process-math">\(\fn{dfive}(n) = (n ~\fn{div}~ 5, n ~\fn{mod}~ 5)\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fn_into_Zsq_div_mod-2-1-3">
+<ol class="lower-alpha" id="exer_fn_into_Zsq_div_mod-2-1-3">
 <li id="exer_fn_into_Zsq_div_mod-2-1-3-1">
 <div class="para" id="exer_fn_into_Zsq_div_mod-2-1-3-1-1">Identify the domain and codomain of <span class="process-math">\(\str{dfive}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fn_into_Zsq_div_mod-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1966,7 +1991,7 @@ y_1-y_2=3(x_1-x_2)\text{.}
 <div class="solutions">
 <details id="exer_fn_into_Zsq_div_mod-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fn_into_Zsq_div_mod-3-1">
+<ol class="lower-alpha" id="exer_fn_into_Zsq_div_mod-3-1">
 <li id="exer_fn_into_Zsq_div_mod-3-1-1">
 <div class="para" id="exer_fn_into_Zsq_div_mod-3-1-1-1">Hint: They are not the same set.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fn_into_Zsq_div_mod-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1994,12 +2019,12 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 8: Practice"><a tabindex="-1" href="#exer_fn_into_Zsq_div_mod" title="  8: Practice" aria-label="  8: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_gcd_as_fn_two_var"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_gcd_as_fn_two_var"><h4 class="heading">
 <span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_gcd_as_fn_two_var-2-1">
 <div class="para">Consider the function <span class="process-math">\(\fn{gcd}: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+\)</span> defined by <span class="process-math">\(\fn{gcd}(a,b) = \fn{gcd}(a,b)\text{.}\)</span> (Meaning <span class="process-math">\(\str{gcd}\)</span> already was a function of two variables, we just had not made that observation formal yet.)</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_gcd_as_fn_two_var-2-1-4">
+<ol class="lower-alpha" id="exer_gcd_as_fn_two_var-2-1-4">
 <li id="exer_gcd_as_fn_two_var-2-1-4-1">
 <div class="para" id="exer_gcd_as_fn_two_var-2-1-4-1-1">Identify the domain and codomain of <span class="process-math">\(\str{gcd}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_gcd_as_fn_two_var-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2026,7 +2051,7 @@ y_1-y_2=3(x_1-x_2)\text{.}
 <div class="solutions">
 <details id="exer_gcd_as_fn_two_var-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_gcd_as_fn_two_var-3-1">
+<ol class="lower-alpha" id="exer_gcd_as_fn_two_var-3-1">
 <li id="exer_gcd_as_fn_two_var-3-1-1">
 <div class="para" id="exer_gcd_as_fn_two_var-3-1-1-1">Hint: The codomain is <span class="process-math">\(\mathbb{Z}^+ \to \mathbb{Z}^+\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_gcd_as_fn_two_var-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2053,13 +2078,13 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 9: Practice"><a tabindex="-1" href="#exer_gcd_as_fn_two_var" title="  9: Practice" aria-label="  9: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_cart_prod_fn_bs"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_cart_prod_fn_bs"><h4 class="heading">
 <span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_cart_prod_fn_bs-2-1">
 <div class="para">Let <span class="process-math">\(\mathbb{B}\)</span> denote the set of all bit strings and let <span class="process-math">\(\mathbb{B}_k\)</span> denote the bit strings of length <span class="process-math">\(k\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cart_prod_fn_bs-2-1-4">
+<ol class="lower-alpha" id="exer_cart_prod_fn_bs-2-1-4">
 <li id="exer_cart_prod_fn_bs-2-1-4-1">
 <div class="para" id="exer_cart_prod_fn_bs-2-1-4-1-1">Consider the function <span class="process-math">\(\fn{concat}:\mathbb{B}_5 \times \mathbb{B}_5 \to \mathbb{B}_{10}\)</span> defined by <span class="process-math">\(\fn{concat}(b,c)=bc\)</span> the bit string that consists of <span class="process-math">\(b\)</span> followed by <span class="process-math">\(c\)</span> (the <dfn class="terminology">concatenation</dfn> function). Evaluate <span class="process-math">\(\fn{concat}(\bs{01110},\bs{11100})\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cart_prod_fn_bs-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2076,7 +2101,7 @@ y_1-y_2=3(x_1-x_2)\text{.}
 <div class="solutions">
 <details id="exer_cart_prod_fn_bs-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_cart_prod_fn_bs-3-1">
+<ol class="lower-alpha" id="exer_cart_prod_fn_bs-3-1">
 <li id="exer_cart_prod_fn_bs-3-1-1">
 <div class="para" id="exer_cart_prod_fn_bs-3-1-1-1">Hint: Your answer should be a bit string of length 10 that starts and ends with <span class="process-math">\(\bs{0}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_cart_prod_fn_bs-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2093,13 +2118,13 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 10: Practice"><a tabindex="-1" href="#exer_cart_prod_fn_bs" title="  10: Practice" aria-label="  10: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fn_integer_lattice"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fn_integer_lattice"><h4 class="heading">
 <span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_fn_integer_lattice-2-1">
 <div class="para">Consider the function <span class="process-math">\(s: \mathbb{Z}^2 \to \mathbb{Z}^2\)</span> defined by <span class="process-math">\(s(a,b) = (a+b,a-b)\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fn_integer_lattice-2-1-3">
+<ol class="lower-alpha" id="exer_fn_integer_lattice-2-1-3">
 <li id="exer_fn_integer_lattice-2-1-3-1">
 <div class="para" id="exer_fn_integer_lattice-2-1-3-1-1">Evaluate <span class="process-math">\(s(1,2), s(-2,5)\text{,}\)</span> and <span class="process-math">\(s(0,0)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fn_integer_lattice-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2121,7 +2146,7 @@ y_1-y_2=3(x_1-x_2)\text{.}
 <div class="solutions">
 <details id="exer_fn_integer_lattice-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fn_integer_lattice-3-1">
+<ol class="lower-alpha" id="exer_fn_integer_lattice-3-1">
 <li id="exer_fn_integer_lattice-3-1-1">
 <div class="para" id="exer_fn_integer_lattice-3-1-1-1">Hint: <span class="process-math">\(s(1,2)=(3,-1)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fn_integer_lattice-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2143,13 +2168,13 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 11: Understand"><a tabindex="-1" href="#exer_fn_integer_lattice" title="  11: Understand" aria-label="  11: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_addition_onetoone_onto"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_addition_onetoone_onto"><h4 class="heading">
 <span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_addition_onetoone_onto-2-1">
 <div class="para">Consider the function <span class="process-math">\(g: \mathbb{Z}^2 \to \mathbb{Z}\)</span> defined by <span class="process-math">\(g(a,b) = a+b\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_addition_onetoone_onto-2-1-3">
+<ol class="lower-alpha" id="exer_addition_onetoone_onto-2-1-3">
 <li id="exer_addition_onetoone_onto-2-1-3-1">
 <div class="para" id="exer_addition_onetoone_onto-2-1-3-1-1">Is <span class="process-math">\(g\)</span> onto? Briefly justify your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_addition_onetoone_onto-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2165,13 +2190,13 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 12: Understand"><a tabindex="-1" href="#exer_addition_onetoone_onto" title="  12: Understand" aria-label="  12: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_gcd_onetoone_onto"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_gcd_onetoone_onto"><h4 class="heading">
 <span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_gcd_onetoone_onto-2-1">
 <div class="para">Consider the function <span class="process-math">\(\fn{gcd}: \mathbb{Z}^+ \times \mathbb{Z}^+ \to \mathbb{Z}^+\)</span> defined by <span class="process-math">\(\fn{gcd}(a,b)\)</span> is the greatest common divisor of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_gcd_onetoone_onto-2-1-5">
+<ol class="lower-alpha" id="exer_gcd_onetoone_onto-2-1-5">
 <li id="exer_gcd_onetoone_onto-2-1-5-1">
 <div class="para" id="exer_gcd_onetoone_onto-2-1-5-1-1">Is <span class="process-math">\(\fn{gcd}\)</span> onto? Briefly justify your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_gcd_onetoone_onto-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2187,12 +2212,12 @@ y_1-y_2=3(x_1-x_2)\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 13: Understand"><a tabindex="-1" href="#exer_gcd_onetoone_onto" title="  13: Understand" aria-label="  13: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_data_fn_graphs_sets"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_data_fn_graphs_sets"><h4 class="heading">
 <span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_data_fn_graphs_sets-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_data_fn_graphs_sets-2-1-2">
+<ol class="lower-alpha" id="exer_data_fn_graphs_sets-2-1-2">
 <li id="exer_data_fn_graphs_sets-2-1-2-1">
 <div class="para logical" id="exer_data_fn_graphs_sets-2-1-2-1-1">
 <div class="para">Let <span class="process-math">\(\mathscr{A}\)</span> be the set of all 5-element subsets of <span class="process-math">\(\mathbb{R}\text{.}\)</span> Consider the function <span class="process-math">\(f: \mathscr{A} \to \mathbb{R}^3\)</span> defined by</div>
@@ -2218,7 +2243,7 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 <div class="solutions">
 <details id="exer_data_fn_graphs_sets-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_data_fn_graphs_sets-3-1">
+<ol class="lower-alpha" id="exer_data_fn_graphs_sets-3-1">
 <li id="exer_data_fn_graphs_sets-3-1-1">
 <div class="para" id="exer_data_fn_graphs_sets-3-1-1-1">Hint: The answer is a 3-tuple with second coordinate equal to 6.1.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_data_fn_graphs_sets-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2235,12 +2260,12 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 14: Understand"><a tabindex="-1" href="#exer_data_fn_graphs_sets" title="  14: Understand" aria-label="  14: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_cart_prod_fns"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_cart_prod_fns"><h4 class="heading">
 <span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_cart_prod_fns-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_cart_prod_fns-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_cart_prod_fns-2-1-2">
 <li id="exer_dyk_cart_prod_fns-2-1-2-1">
 <div class="para" id="exer_dyk_cart_prod_fns-2-1-2-1-1">Why we write <span class="process-math">\(f(x,y)\)</span> instead of <span class="process-math">\(f((x,y))\)</span> when the domain of <span class="process-math">\(f\)</span> is the Cartesian product <span class="process-math">\(X \times Y\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_cart_prod_fns-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2271,12 +2296,12 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 15: Recap"><a tabindex="-1" href="#exer_dyk_cart_prod_fns" title="  15: Recap" aria-label="  15: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fn_integer_lattice_again"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fn_integer_lattice_again"><h4 class="heading">
 <span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_fn_integer_lattice_again-2-1">
 <div class="para">Consider the function <span class="process-math">\(s: \mathbb{Z}^2 \to \mathbb{Z}^2\)</span> defined by <span class="process-math">\(s(a,b) = (a+b,a-b)\)</span> from Exercise <a href="sec_relations.html#exer_fn_integer_lattice" class="xref" data-knowl="./knowl/xref/exer_fn_integer_lattice.html" data-reveal-label="Reveal" data-close-label="Close" title=" 11: Understand">11</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fn_integer_lattice_again-2-1-4">
+<ol class="lower-alpha" id="exer_fn_integer_lattice_again-2-1-4">
 <li id="exer_fn_integer_lattice_again-2-1-4-1">
 <div class="para" id="exer_fn_integer_lattice_again-2-1-4-1-1">If <span class="process-math">\(a,b\)</span> are both even integers or both odd integers, what can you say about the coordinates of <span class="process-math">\(s(a,b)\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fn_integer_lattice_again-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2302,14 +2327,14 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 16: Explore"><a tabindex="-1" href="#exer_fn_integer_lattice_again" title="  16: Explore" aria-label="  16: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_inverse_fn_on_cart_prod"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_inverse_fn_on_cart_prod"><h4 class="heading">
 <span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_inverse_fn_on_cart_prod-2-1">
 <div class="para">Consider the function<details class="ptx-footnote" aria-live="polite" id="exer_inverse_fn_on_cart_prod-2-1-1"><summary class="ptx-footnote__number" title="Footnote 7.4.1"><sup> 1 </sup></summary>
 <div class="ptx-footnote__contents" id="exer_inverse_fn_on_cart_prod-2-1-1">If you have studied linear algebra, <span class="process-math">\(T\)</span> is the linear transformation corresponding to the matrix <span class="process-math">\(\left[ \begin{array}{rr} 0 \amp -1 \\ 1 \amp 0 \end{array} \right]\)</span> which rotates the <span class="process-math">\(xy\)</span>-plane by 90<span class="process-math">\(^\circ\)</span> counterclockwise, except we are restricting it to points where both coordinates are integers.
 </div></details> <span class="process-math">\(f: \mathbb{Z}^2 \to \mathbb{Z}^2\)</span> defined by <span class="process-math">\(f(a,b) = (-b,a)\text{.}\)</span> For example, <span class="process-math">\(f(2,3) = (-3,2)\text{.}\)</span> The function <span class="process-math">\(f\)</span> is a bijection, so it has an inverse function.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_inverse_fn_on_cart_prod-2-1-6">
+<ol class="lower-alpha" id="exer_inverse_fn_on_cart_prod-2-1-6">
 <li id="exer_inverse_fn_on_cart_prod-2-1-6-1">
 <div class="para" id="exer_inverse_fn_on_cart_prod-2-1-6-1-1">Evaluate <span class="process-math">\(f^{-1}(-3,2)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_inverse_fn_on_cart_prod-2-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2332,16 +2357,16 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 7.4.B Functions Involving Cartesian Products"><a tabindex="-1" href="#sec_relations-6-3" title="Copy heading and permalink for Subsubsection: Exercises for 7.4.B Functions Involving Cartesian Products" aria-label="Copy heading and permalink for Subsubsection: Exercises for 7.4.B Functions Involving Cartesian Products">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_relations-6-4">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 7.4.C Relations and Their Representations</span>
-</h4>
-<article class="exercise exercise-like" id="exer_relation_def_list"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_relation_def_list"><h4 class="heading">
 <span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_relation_def_list-2-1">
 <div class="para">Draw the directed graph for each relation on the set <span class="process-math">\(X=\{0,1,2\}\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_relation_def_list-2-1-2">
+<ol class="lower-alpha" id="exer_relation_def_list-2-1-2">
 <li id="exer_relation_def_list-2-1-2-1">
 <div class="para" id="exer_relation_def_list-2-1-2-1-1">
 <span class="process-math">\(\displaystyle \{(0,0), (0,1), (1,0), (1,2), (2,2)\}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_relation_def_list-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2366,7 +2391,7 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 <div class="solutions">
 <details id="exer_relation_def_list-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_relation_def_list-3-1">
+<ol class="lower-alpha" id="exer_relation_def_list-3-1">
 <li id="exer_relation_def_list-3-1-1">
 <div class="para" id="exer_relation_def_list-3-1-1-1">Hint: The directed graph has two loops, one double-headed arrow, and one single-headed arrow.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_relation_def_list-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2388,13 +2413,13 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 18: Practice"><a tabindex="-1" href="#exer_relation_def_list" title="  18: Practice" aria-label="  18: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_relation_def_set-builder"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_relation_def_set-builder"><h4 class="heading">
 <span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_relation_def_set-builder-2-1">
 <div class="para">Draw the directed graph of each relation defined on the set <span class="process-math">\(Y = \{1,2,3,4,5,6\}\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_relation_def_set-builder-2-1-2">
+<ol class="lower-alpha" id="exer_relation_def_set-builder-2-1-2">
 <li id="exer_relation_def_set-builder-2-1-2-1">
 <div class="para" id="exer_relation_def_set-builder-2-1-2-1-1">
 <span class="process-math">\(\displaystyle \{ (m,n) \mid m&gt;n \}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_relation_def_set-builder-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2419,11 +2444,11 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 <div class="solutions">
 <details id="exer_relation_def_set-builder-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_relation_def_set-builder-3-1">
+<ol class="lower-alpha" id="exer_relation_def_set-builder-3-1">
 <li id="part_digraph_rel123456_greater">
-<div class="para" id="part_digraph_rel123456_greater-1">The directed graph is drawn in <a href="sec_relations.html#fig_digraph_relon123456" class="xref" data-knowl="./knowl/xref/fig_digraph_relon123456.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.40">Figure 7.4.40</a>. 
+<div class="para" id="part_digraph_rel123456_greater-1">The directed graph is drawn in <a href="sec_relations.html#fig_digraph_relon123456" class="xref" data-knowl="./knowl/xref/fig_digraph_relon123456.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.43">Figure 7.4.43</a>. 
 <figure class="figure figure-like" id="fig_digraph_relon123456"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="generated/latex-image/fig_digraph_relon123456-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.40<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The directed graph of the relation on <span class="process-math">\(\{1,2,3,4,5,6\}\)</span> defined by <span class="process-math">\(\{(m,n) \mid m &gt; n\}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.40"><a tabindex="-1" href="#fig_digraph_relon123456" title="Copy heading and permalink for Figure 7.4.40" aria-label="Copy heading and permalink for Figure 7.4.40">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.43<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The directed graph of the relation on <span class="process-math">\(\{1,2,3,4,5,6\}\)</span> defined by <span class="process-math">\(\{(m,n) \mid m &gt; n\}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.43"><a tabindex="-1" href="#fig_digraph_relon123456" title="Copy heading and permalink for Figure 7.4.43" aria-label="Copy heading and permalink for Figure 7.4.43">🔗</a></div></figcaption>
 </figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_digraph_rel123456_greater-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 19.(a)"><a tabindex="-1" href="#part_digraph_rel123456_greater" title="Copy heading and permalink for Item 19.(a)" aria-label="Copy heading and permalink for Item 19.(a)">🔗</a></div>
@@ -2444,13 +2469,13 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 19: Practice"><a tabindex="-1" href="#exer_relation_def_set-builder" title="  19: Practice" aria-label="  19: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_linear_relation_reals"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_linear_relation_reals"><h4 class="heading">
 <span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_linear_relation_reals-2-1">
 <div class="para">Consider the relation <span class="process-math">\(\sim\)</span> defined on <span class="process-math">\(\mathbb{R}\)</span> by <span class="process-math">\(x \sim y\)</span> if <span class="process-math">\(y = x+2\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_linear_relation_reals-2-1-5">
+<ol class="lower-alpha" id="exer_linear_relation_reals-2-1-5">
 <li id="exer_linear_relation_reals-2-1-5-1">
 <div class="para" id="exer_linear_relation_reals-2-1-5-1-1">Is <span class="process-math">\(1 \sim 3\text{?}\)</span> Explain.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_linear_relation_reals-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2476,13 +2501,13 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 20: Practice"><a tabindex="-1" href="#exer_linear_relation_reals" title="  20: Practice" aria-label="  20: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_relations_integerfs"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_relations_integerfs"><h4 class="heading">
 <span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_relations_integerfs-2-1">
 <div class="para">For each relation <span class="process-math">\(R\)</span> defined on the integers <span class="process-math">\(\mathbb{Z}\text{,}\)</span> first decide if <span class="process-math">\((3,8) \in R\)</span> and then give an example of an ordered pair of the form <span class="process-math">\((a,a) \in R\)</span> for some <span class="process-math">\(a \in \mathbb{Z}\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_relations_integerfs-2-1-6">
+<ol class="lower-alpha" id="exer_relations_integerfs-2-1-6">
 <li id="exer_relations_integerfs-2-1-6-1">
 <div class="para" id="exer_relations_integerfs-2-1-6-1-1">
 <span class="process-math">\(\displaystyle R= \{(a,b) \mid ab =0 \}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_relations_integerfs-2-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2520,16 +2545,16 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 21: Practice"><a tabindex="-1" href="#exer_relations_integerfs" title="  21: Practice" aria-label="  21: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_all_relations_01"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_all_relations_01"><h4 class="heading">
 <span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_all_relations_01-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_all_relations_01-2-1-2">
+<ol class="lower-alpha" id="exer_all_relations_01-2-1-2">
 <li id="exer_all_relations_01-2-1-2-1">
-<div class="para" id="exer_all_relations_01-2-1-2-1-1">Find all relations on <span class="process-math">\(\{0,1\}\)</span> and draw the directed graph for each relation. Save a little time by not labeling the vertices — just draw the vertex that represents 0 on the left and the vertex that represents 1 on the right. For example, the relation <span class="process-math">\(\{(1,0),(1,1)\}\)</span> can be drawn quickly as shown in <a href="sec_relations.html#fig_reln_01_quick" class="xref" data-knowl="./knowl/xref/fig_reln_01_quick.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.44">Figure 7.4.44</a>. 
+<div class="para" id="exer_all_relations_01-2-1-2-1-1">Find all relations on <span class="process-math">\(\{0,1\}\)</span> and draw the directed graph for each relation. Save a little time by not labeling the vertices — just draw the vertex that represents 0 on the left and the vertex that represents 1 on the right. For example, the relation <span class="process-math">\(\{(1,0),(1,1)\}\)</span> can be drawn quickly as shown in <a href="sec_relations.html#fig_reln_01_quick" class="xref" data-knowl="./knowl/xref/fig_reln_01_quick.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.4.47">Figure 7.4.47</a>. 
 <figure class="figure figure-like" id="fig_reln_01_quick"><div class="image-box" style="width: 20%; margin-left: 40%; margin-right: 40%;"><img src="generated/latex-image/fig_reln_01_quick-2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.44<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Quick drawing of the directed graph for the relation <span class="process-math">\(\{(1,0),(1,1)\}\)</span> on <span class="process-math">\(\{0,1\}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.44"><a tabindex="-1" href="#fig_reln_01_quick" title="Copy heading and permalink for Figure 7.4.44" aria-label="Copy heading and permalink for Figure 7.4.44">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.4.47<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Quick drawing of the directed graph for the relation <span class="process-math">\(\{(1,0),(1,1)\}\)</span> on <span class="process-math">\(\{0,1\}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.4.47"><a tabindex="-1" href="#fig_reln_01_quick" title="Copy heading and permalink for Figure 7.4.47" aria-label="Copy heading and permalink for Figure 7.4.47">🔗</a></div></figcaption>
 </figure><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_all_relations_01-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 22.(a)"><a tabindex="-1" href="#exer_all_relations_01-2-1-2-1" title="Copy heading and permalink for Item 22.(a)" aria-label="Copy heading and permalink for Item 22.(a)">🔗</a></div>
@@ -2544,12 +2569,12 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 22: Understand"><a tabindex="-1" href="#exer_all_relations_01" title="  22: Understand" aria-label="  22: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_directed_graph_rel_infinite"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_directed_graph_rel_infinite"><h4 class="heading">
 <span class="codenumber">23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_directed_graph_rel_infinite-2-1">
 <div class="para">Draw the directed graph of each relation on <span class="process-math">\(\mathbb{Z}^+\text{.}\)</span> Show the vertices <span class="process-math">\(0,1,2,3,\ldots, 10\)</span> and make sure to include the … on the right.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_directed_graph_rel_infinite-2-1-4">
+<ol class="lower-alpha" id="exer_directed_graph_rel_infinite-2-1-4">
 <li id="exer_directed_graph_rel_infinite-2-1-4-1">
 <div class="para" id="exer_directed_graph_rel_infinite-2-1-4-1-1">
 <span class="process-math">\(\displaystyle R = \{ (a,b) \mid b = a+1\}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_directed_graph_rel_infinite-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2573,9 +2598,9 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 23: Understand"><a tabindex="-1" href="#exer_directed_graph_rel_infinite" title="  23: Understand" aria-label="  23: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_distance_relation"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_distance_relation"><h4 class="heading">
 <span class="codenumber">24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_distance_relation-2-1">
 <div class="para">Define a relation on <span class="process-math">\(\mathbb{R}^2\)</span> by <span class="process-math">\((x_1,y_1) \sim (x_2,y_2)\)</span> if</div>
 <div class="displaymath process-math" id="exer_distance_relation-2-1-3">
@@ -2583,7 +2608,7 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2} \le 5
 \end{equation*}
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_distance_relation-2-1-4">
+<ol class="lower-alpha" id="exer_distance_relation-2-1-4">
 <li id="exer_distance_relation-2-1-4-1">
 <div class="para" id="exer_distance_relation-2-1-4-1-1">Is <span class="process-math">\((1,2) \sim (4,6)\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_distance_relation-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2617,9 +2642,9 @@ f(A) = (\fn{min}(A), \fn{max}(A), \fn{median}(A))
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 24: Understand"><a tabindex="-1" href="#exer_distance_relation" title="  24: Understand" aria-label="  24: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_slope_relation"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_slope_relation"><h4 class="heading">
 <span class="codenumber">25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_slope_relation-2-1">
 <div class="para">Consider the relation <span class="process-math">\(\sim\)</span> defined on <span class="process-math">\(\mathbb{R}^2\)</span> by <span class="process-math">\((x_1,y_1) \sim (x_2,y_2)\)</span> if</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/act_relations.html" id="exer_slope_relation-2-1-4">
@@ -2628,7 +2653,7 @@ y_1-y_3=3(x_1-x_2)
 \end{equation*}
 </div>
 <div class="para">which we saw in <a href="sec_relations.html#act_relations" class="xref" data-knowl="./knowl/xref/act_relations.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.4.C: Relations">Activity 7.4.C</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_slope_relation-2-1-6">
+<ol class="lower-alpha" id="exer_slope_relation-2-1-6">
 <li id="exer_slope_relation-2-1-6-1">
 <div class="para" id="exer_slope_relation-2-1-6-1-1">Describe the set of points <span class="process-math">\((x,y)\)</span> such that <span class="process-math">\((x,y) \sim (0,0)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_slope_relation-2-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2645,7 +2670,7 @@ y_1-y_3=3(x_1-x_2)
 <div class="solutions">
 <details id="exer_slope_relation-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_slope_relation-3-1">
+<ol class="lower-alpha" id="exer_slope_relation-3-1">
 <li id="exer_slope_relation-3-1-1">
 <div class="para" id="exer_slope_relation-3-1-1-1">Hint: If <span class="process-math">\((x,y) \sim (0,0)\text{,}\)</span> then <span class="process-math">\(y-0=3(x-0)\text{.}\)</span> Simplify and explain what line that is (slope and <span class="process-math">\(y\)</span>-intercept.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_slope_relation-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2662,12 +2687,12 @@ y_1-y_3=3(x_1-x_2)
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 25: Understand"><a tabindex="-1" href="#exer_slope_relation" title="  25: Understand" aria-label="  25: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_is_graph_function"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_is_graph_function"><h4 class="heading">
 <span class="codenumber">26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_is_graph_function-2-1">
 <div class="para">For each relation, decide if the relation is the graph of a function or not.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_is_graph_function-2-1-1">
+<ol class="lower-alpha" id="exer_is_graph_function-2-1-1">
 <li id="exer_is_graph_function-2-1-1-1">
 <div class="para" id="exer_is_graph_function-2-1-1-1-1">
 <span class="process-math">\(R = \{(0,a), (2,c)\}\)</span> from <span class="process-math">\(X = \{0,1,2\}\)</span> to <span class="process-math">\(Y= \{a,b,c\}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_is_graph_function-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2697,12 +2722,12 @@ y_1-y_3=3(x_1-x_2)
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 26: Understand"><a tabindex="-1" href="#exer_is_graph_function" title="  26: Understand" aria-label="  26: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_relations"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_relations"><h4 class="heading">
 <span class="codenumber">27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_relations-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_relations-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_relations-2-1-2">
 <li id="exer_dyk_relations-2-1-2-1">
 <div class="para" id="exer_dyk_relations-2-1-2-1-1">What a relation is?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_relations-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2728,12 +2753,12 @@ y_1-y_3=3(x_1-x_2)
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 27: Recap"><a tabindex="-1" href="#exer_dyk_relations" title="  27: Recap" aria-label="  27: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_relation_bs"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_relation_bs"><h4 class="heading">
 <span class="codenumber">28<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_relation_bs-2-1">
 <div class="para">As usual, let <span class="process-math">\(\mathbb{B}^*\)</span> denote the set of all (non-empty) bit strings. Define a relation on <span class="process-math">\(\mathbb{B}^*\)</span> by <span class="process-math">\(b \sim c\)</span> if <span class="process-math">\(b\)</span> is a substring of <span class="process-math">\(c\text{;}\)</span> that is, if the bit string <span class="process-math">\(b\)</span> appears in consecutive order within the bit string <span class="process-math">\(c\text{.}\)</span> For example, <span class="process-math">\(\bs{101} \sim \bs{11}\underline{\bs{101}}\bs{0}\)</span> but <span class="process-math">\(\bs{00} \not\sim \bs{111010}\)</span> because <span class="process-math">\(\bs{111010}\)</span> does not contain two consecutive <span class="process-math">\(\bs{0}\)</span> s.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_relation_bs-2-1-12">
+<ol class="lower-alpha" id="exer_relation_bs-2-1-12">
 <li id="exer_relation_bs-2-1-12-1">
 <div class="para" id="exer_relation_bs-2-1-12-1-1">Is <span class="process-math">\(11 \sim 101\text{?}\)</span> Explain.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_relation_bs-2-1-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2760,7 +2785,7 @@ y_1-y_3=3(x_1-x_2)
 <div class="solutions">
 <details id="exer_relation_bs-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_relation_bs-3-1">
+<ol class="lower-alpha" id="exer_relation_bs-3-1">
 <li id="exer_relation_bs-3-1-1">
 <div class="para" id="exer_relation_bs-3-1-1-1">Hint: The answer is no.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_relation_bs-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2787,13 +2812,13 @@ y_1-y_3=3(x_1-x_2)
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 28: Explore"><a tabindex="-1" href="#exer_relation_bs" title="  28: Explore" aria-label="  28: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_relations_on_power_set"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_relations_on_power_set"><h4 class="heading">
 <span class="codenumber">29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_relations_on_power_set-2-1">
 <div class="para">For the set <span class="process-math">\(S = \{1, 2, 3\}\text{,}\)</span> consider the following relations on <span class="process-math">\(\mathscr{P}(S)\text{,}\)</span> the power set of <span class="process-math">\(S\text{.}\)</span> For each relation, decide if <span class="process-math">\(\{1,2\} \sim \{2,3\}\)</span> and decide if <span class="process-math">\(\varnothing \sim S\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_relations_on_power_set-2-1-6">
+<ol class="lower-alpha" id="exer_relations_on_power_set-2-1-6">
 <li id="exer_relations_on_power_set-2-1-6-1">
 <div class="para" id="exer_relations_on_power_set-2-1-6-1-1">
 <span class="process-math">\(A \sim B\)</span> if <span class="process-math">\(A \subseteq B\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_relations_on_power_set-2-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2831,9 +2856,9 @@ y_1-y_3=3(x_1-x_2)
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 29: Explore"><a tabindex="-1" href="#exer_relations_on_power_set" title="  29: Explore" aria-label="  29: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_count_all_relations"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_count_all_relations"><h4 class="heading">
 <span class="codenumber">30<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para" id="exer_count_all_relations-2-1">For a finite set <span class="process-math">\(X\)</span> with <span class="process-math">\(|X|=n\text{,}\)</span> how many relations are there on <span class="process-math">\(X\text{?}\)</span> Your conjecture should involve <span class="process-math">\(n\text{.}\)</span> Explain how you figured out your answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_count_all_relations-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 30: Explore"><a tabindex="-1" href="#exer_count_all_relations" title="  30: Explore" aria-label="  30: Explore">🔗</a></div>

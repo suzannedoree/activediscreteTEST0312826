@@ -31,6 +31,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@ htmlPresentation: false,
 <meta property="og:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta property="book:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.46"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.53"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.53"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -61,21 +62,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1bda041f5a098305.css">
+<script src="_static/prefix-runtime.8b982cdcb4aa84b9.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.0499040fbb8ea56b.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></div>
 <p class="byline">Dr. Suzanne Dorée</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -88,7 +89,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -273,7 +284,9 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_prologue.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue</span></a></div>
-<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_prologue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_handshakes.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Handshakes</span></a></div>
 <ul id="ptx-toc-group-sec_handshakes" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_handshakes.html#sec_handshakes-3" class="internal"><span class="codenumber">1.1.A</span> <span class="title">Counting Handshakes</span></a></div></li>
@@ -287,11 +300,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_counting.html" class="internal"><span class="codenumber">2</span> <span class="title">Listing and Counting</span></a></div>
 <ul id="ptx-toc-group-ch_counting" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_counting-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_listing.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Organized Listing</span></a></div>
 <ul id="ptx-toc-group-sec_listing" class="structural toc-item-list">
@@ -365,6 +380,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_graph_theory.html" class="internal"><span class="codenumber">3</span> <span class="title">Graph Theory</span></a></div>
 <ul id="ptx-toc-group-ch_graph_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_graph_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_graph_models.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Modeling with Graphs</span></a></div>
 <ul id="ptx-toc-group-sec_graph_models" class="structural toc-item-list">
@@ -450,6 +466,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_number_theory.html" class="internal"><span class="codenumber">4</span> <span class="title">Number Theory</span></a></div>
 <ul id="ptx-toc-group-ch_number_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_number_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_even_odd_divides.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integer Division</span></a></div>
 <ul id="ptx-toc-group-sec_even_odd_divides" class="structural toc-item-list">
@@ -537,6 +554,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_logic_proof.html" class="internal"><span class="codenumber">5</span> <span class="title">Logic and Proof</span></a></div>
 <ul id="ptx-toc-group-ch_logic_proof" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_logic_proof-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
@@ -633,6 +651,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch_functions.html" class="internal"><span class="codenumber">6</span> <span class="title">Functions</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch_functions">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_functions-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_functions.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Functions and Their Representations</span></a></div>
 <ul id="ptx-toc-group-sec_functions" class="structural toc-item-list">
@@ -722,6 +741,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sets_rel.html" class="internal"><span class="codenumber">7</span> <span class="title">Sets and Relations</span></a></div>
 <ul id="ptx-toc-group-ch_sets_rel" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sets_rel-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_sets.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sets</span></a></div>
 <ul id="ptx-toc-group-sec_sets" class="structural toc-item-list">
@@ -806,6 +826,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_recursion_induction.html" class="internal"><span class="codenumber">8</span> <span class="title">Recursion and Induction</span></a></div>
 <ul id="ptx-toc-group-ch_recursion_induction" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_recursion_induction-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_recursively_defined_sequences.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Recursively-defined Sequences</span></a></div>
 <ul id="ptx-toc-group-sec_recursively_defined_sequences" class="structural toc-item-list">
@@ -893,6 +914,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sum_prod.html" class="internal"><span class="codenumber">9</span> <span class="title">Sums and Products</span></a></div>
 <ul id="ptx-toc-group-ch_sum_prod" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sum_prod-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_model_sum_prod.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Modeling with Sums and Products</span></a></div>
 <ul id="ptx-toc-group-sec_model_sum_prod" class="structural toc-item-list">
@@ -976,20 +998,23 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_epilogue.html" class="internal"><span class="codenumber">10</span> <span class="title">Epilogue</span></a></div>
-<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_epilogue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_hotelinfinity.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Hotel Infinity</span></a></div>
 <ul id="ptx-toc-group-sec_hotelinfinity" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_hotel_infinity" class="internal"><span class="codenumber">10.1.A</span> <span class="title">Hotel Infinity</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_countable" class="internal"><span class="codenumber">10.1.B</span> <span class="title">The Definition of Discrete</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec_explicitly_defined_sequences">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explicitly-defined Sequences</span>
-</h2>
+</h1>
 <section class="introduction" id="sec_explicitly_defined_sequences-2">
 <div class="para logical" id="sec_explicitly_defined_sequences-2-1">
 <div class="para">We began our exploration of discrete mathematics by listing and counting objects. But what exactly is a “list” when the list is infinite such as</div>
@@ -1003,17 +1028,17 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="sec_explicitly_defined_sequences-2-2">In this section, we define such infinite lists (sequences) using functions, look at examples of evaluating sequences, and practice modeling with sequences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_explicitly_defined_sequences-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="sub_defn_seq">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Definition of Sequence</span>
-</h3>
+</h2>
 <div class="para" id="sub_defn_seq-2">We begin with a formal definition.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_seq-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_seq"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequence.</span>
-</h4>
+<article class="definition definition-like" id="defn_seq"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequence.</span>
+</h3>
 <div class="para logical" id="defn_seq-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_seq-2-1-2">
+<ol class="lower-alpha" id="defn_seq-2-1-2">
 <li id="part_defn_seq">
 <div class="para logical" id="part_defn_seq-1">
 <div class="para">A <dfn class="terminology">sequence</dfn> is a function whose domain is a set of the form <span class="process-math">\(\{s,s+1,s+2,s+3,\ldots\}\)</span> where <span class="process-math">\(s\)</span> is an integer. Note that when <span class="process-math">\(s=0\)</span> this set is <span class="process-math">\(\mathbb{N}\)</span> and when <span class="process-math">\(s=1\)</span> this set is <span class="process-math">\(\mathbb{Z}^+\text{.}\)</span> For example, the function <span class="process-math">\(f: \mathbb{N} \to \mathbb{Q}\)</span> defined by</div>
@@ -1156,13 +1181,13 @@ a_5 \amp  = \frac{5-1}{5+1}=\frac{4}{6}=\frac{2}{3}
 </article>
 <div class="para" id="sub_defn_seq-4">Let’s look at some examples of sequences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_seq-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_eval_seq" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating explicitly-defined sequences.</span>
-</h4></summary>
+<details id="exam_eval_seq" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating explicitly-defined sequences.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_eval_seq-2-1">
 <div class="para">For each sequence, evaluate the first four terms and evaluate the 100th term.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_eval_seq-2-1-1">
+<ol class="lower-alpha" id="exam_eval_seq-2-1-1">
 <li id="part_eval_seq_linear">
 <div class="para" id="part_eval_seq_linear-1">The sequence <span class="process-math">\(a\)</span> is defined by <span class="process-math">\(a_n= 2n\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span> 
 <details id="part_eval_seq_linear-1-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1247,13 +1272,13 @@ a_5 \amp  = \frac{5-1}{5+1}=\frac{4}{6}=\frac{2}{3}
 </article></details>
 <div class="para" id="sub_defn_seq-6">Like any function, a sequence can have a rule defined in words and can involve discrete objects.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_seq-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_eval_seq_words" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating sequences with rules defined in words.</span>
-</h4></summary>
+<details id="exam_eval_seq_words" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating sequences with rules defined in words.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_eval_seq_words-2-1">
 <div class="para">For each sequence, evaluate the first seven terms.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_eval_seq_words-2-1-1">
+<ol class="lower-alpha" id="exam_eval_seq_words-2-1-1">
 <li id="exam_eval_seq_words-2-1-1-1">
 <div class="para" id="exam_eval_seq_words-2-1-1-1-1">The sequence <span class="process-math">\(d\)</span> is defined by <span class="process-math">\(d_k =\)</span> the number of digits in <span class="process-math">\(2^k\)</span> for <span class="process-math">\(k \ge 1\text{.}\)</span> 
 <details id="exam_eval_seq_words-2-1-1-1-1-5" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1337,13 +1362,13 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 </article></details>
 <div class="para" id="sub_defn_seq-8">Try working with sequences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_defn_seq-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_eval_seq"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.A</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating explicitly-defined sequences.</span>
-</h4>
+<article class="activity project-like" id="act_eval_seq"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating explicitly-defined sequences.</span>
+</h3>
 <div class="para logical" id="act_eval_seq-2">
 <div class="para">For each sequence, evaluate the first five terms and the term with index <span class="process-math">\(20\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_eval_seq-2-2">
+<ol class="lower-alpha" id="act_eval_seq-2-2">
 <li id="act_eval_seq-2-2-1">
 <div class="para" id="act_eval_seq-2-2-1-1">The sequence <span class="process-math">\(a\)</span> is defined by <span class="process-math">\(a_n=10n + 2\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_eval_seq-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1376,17 +1401,17 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 6.5.A: The Definition of Sequence"><a tabindex="-1" href="#sub_defn_seq" title="Copy heading and permalink for Subsection 6.5.A: The Definition of Sequence" aria-label="Copy heading and permalink for Subsection 6.5.A: The Definition of Sequence">🔗</a></div>
 </section>
 <section class="subsection" id="sub_model_seq">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with Explicitly-defined Sequences</span>
-</h3>
+</h2>
 <div class="para" id="sub_model_seq-2">In the examples we have seen so far, we have gone from a sequence defined by a rule to a list or table. It is particularly useful to go the opposite direction, from the list or table to a rule. Let’s try modeling with sequences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_model_seq-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_next_term_explicit"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.B</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with explicitly-defined sequences.</span>
-</h4>
+<article class="activity project-like" id="act_next_term_explicit"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with explicitly-defined sequences.</span>
+</h3>
 <div class="para logical" id="act_next_term_explicit-2">
 <div class="para">Write a simple explicit rule that generates each sequence. It might help to write the terms in a table. Make sure you say where the index starts. There are hints at the end.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_next_term_explicit-2-1">
+<ol class="lower-alpha" id="act_next_term_explicit-2-1">
 <li id="act_next_term_explicit-2-1-1">
 <div class="para" id="act_next_term_explicit-2-1-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(4,4,4,4,4,4,4,4,\ldots\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_next_term_explicit-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1457,7 +1482,7 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 </div>
 <details id="act_next_term_explicit-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="act_next_term_explicit-3-1">
+<ol class="lower-alpha" id="act_next_term_explicit-3-1">
 <li id="act_next_term_explicit-3-1-1">
 <div class="para" id="act_next_term_explicit-3-1-1-1">Start the index at 0.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_next_term_explicit-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1529,20 +1554,20 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 </article>
 <div class="para" id="sub_model_seq-4">Let’s look at some examples similar to the sequences in <a href="sec_explicitly_defined_sequences.html#act_next_term_explicit" class="xref" data-knowl="./knowl/xref/act_next_term_explicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 6.5.B: Modeling with explicitly-defined sequences">Activity 6.5.B</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_model_seq-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_next_term_explicit" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with explicitly-defined sequences.</span>
-</h4></summary>
+<details id="exam_next_term_explicit" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with explicitly-defined sequences.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_next_term_explicit-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_next_term_explicit-2-1-1">
+<ol class="lower-alpha" id="exam_next_term_explicit-2-1-1">
 <li id="part_NTE_exam_frac">
 <div class="para" id="part_NTE_exam_frac-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(1, \frac{1}{2}, \frac{1}{3},\frac{1}{4},\frac{1}{5},\ldots\text{.}\)</span> 
 <details id="part_NTE_exam_frac-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_frac-1-3-1">Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> the numerator sequence, and the denominator sequence, in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_frac" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_frac.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.7: The sequence from Example 6.5.6 (a)">Table 6.5.7</a>. Notice that the numerator is the constant 1 and the denominator equals the index <span class="process-math">\(n\)</span> if we start at <span class="process-math">\(n=1\text{.}\)</span> A possible formula is <span class="process-math">\(a_n = \frac{1}{n}\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_frac-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_frac-1-3-1">Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> the numerator sequence, and the denominator sequence, in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_frac" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_frac.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.9: The sequence from Example 6.5.8 (a)">Table 6.5.9</a>. Notice that the numerator is the constant 1 and the denominator equals the index <span class="process-math">\(n\)</span> if we start at <span class="process-math">\(n=1\text{.}\)</span> A possible formula is <span class="process-math">\(a_n = \frac{1}{n}\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_frac-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_frac"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (a)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.7: The sequence from Example 6.5.6 (a)"><a tabindex="-1" href="#tab_NTE_exam_frac" title="Copy heading and permalink for Table 6.5.7: The sequence from Example 6.5.6 (a)" aria-label="Copy heading and permalink for Table 6.5.7: The sequence from Example 6.5.6 (a)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_frac"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (a)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.9: The sequence from Example 6.5.8 (a)"><a tabindex="-1" href="#tab_NTE_exam_frac" title="Copy heading and permalink for Table 6.5.9: The sequence from Example 6.5.8 (a)" aria-label="Copy heading and permalink for Table 6.5.9: The sequence from Example 6.5.8 (a)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -1609,9 +1634,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_linear-1">The sequence <span class="process-math">\(b\)</span> begins <span class="process-math">\(5,8,11,14,17,20,\ldots\text{.}\)</span> 
 <details id="part_NTE_exam_linear-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_linear-1-3-1">We add three to get from each term to the next, so the answer likely involves <span class="process-math">\(3+3+\ldots +3 = 3n\text{.}\)</span> Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(3n\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_linear" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_linear.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.8: The sequence from Example 6.5.6 (b)">Table 6.5.8</a>. Notice that we can get from <span class="process-math">\(3n\)</span> to <span class="process-math">\(b_n\)</span> by adding five. A possible formula is <span class="process-math">\(b_n = 3n+5\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_linear-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_linear-1-3-1">We add three to get from each term to the next, so the answer likely involves <span class="process-math">\(3+3+\ldots +3 = 3n\text{.}\)</span> Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(3n\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_linear" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_linear.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.10: The sequence from Example 6.5.8 (b)">Table 6.5.10</a>. Notice that we can get from <span class="process-math">\(3n\)</span> to <span class="process-math">\(b_n\)</span> by adding five. A possible formula is <span class="process-math">\(b_n = 3n+5\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_linear-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_linear"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (b)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.8: The sequence from Example 6.5.6 (b)"><a tabindex="-1" href="#tab_NTE_exam_linear" title="Copy heading and permalink for Table 6.5.8: The sequence from Example 6.5.6 (b)" aria-label="Copy heading and permalink for Table 6.5.8: The sequence from Example 6.5.6 (b)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_linear"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (b)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.10: The sequence from Example 6.5.8 (b)"><a tabindex="-1" href="#tab_NTE_exam_linear" title="Copy heading and permalink for Table 6.5.10: The sequence from Example 6.5.8 (b)" aria-label="Copy heading and permalink for Table 6.5.10: The sequence from Example 6.5.8 (b)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">0</td>
@@ -1676,9 +1701,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_alt_linear-1">The sequence <span class="process-math">\(c\)</span> begins <span class="process-math">\(2, -3, 4, -5, 6, -7,\ldots\text{.}\)</span> 
 <details id="part_NTE_exam_alt_linear-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_alt_linear-1-3-1">We can use <span class="process-math">\((-1)^n\)</span> to get the alternation, so let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\((-1)^n\text{,}\)</span> and the absolute value of the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_alt_linear" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_alt_linear.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.9: The sequence from Example 6.5.6 (c)">Table 6.5.9</a>. Notice that the absolute value of the terms of the sequence are two more than the index <span class="process-math">\(n\text{.}\)</span> A possible formula is <span class="process-math">\(c_n = (-1)^n(n+2)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_alt_linear-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_alt_linear-1-3-1">We can use <span class="process-math">\((-1)^n\)</span> to get the alternation, so let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\((-1)^n\text{,}\)</span> and the absolute value of the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_alt_linear" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_alt_linear.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.11: The sequence from Example 6.5.8 (c)">Table 6.5.11</a>. Notice that the absolute value of the terms of the sequence are two more than the index <span class="process-math">\(n\text{.}\)</span> A possible formula is <span class="process-math">\(c_n = (-1)^n(n+2)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_alt_linear-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_alt_linear"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (c)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.9: The sequence from Example 6.5.6 (c)"><a tabindex="-1" href="#tab_NTE_exam_alt_linear" title="Copy heading and permalink for Table 6.5.9: The sequence from Example 6.5.6 (c)" aria-label="Copy heading and permalink for Table 6.5.9: The sequence from Example 6.5.6 (c)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_alt_linear"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (c)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.11: The sequence from Example 6.5.8 (c)"><a tabindex="-1" href="#tab_NTE_exam_alt_linear" title="Copy heading and permalink for Table 6.5.11: The sequence from Example 6.5.8 (c)" aria-label="Copy heading and permalink for Table 6.5.11: The sequence from Example 6.5.8 (c)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">0</td>
@@ -1761,9 +1786,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_frac_odds-1">The sequence <span class="process-math">\(d\)</span> begins <span class="process-math">\(\frac{2}{3}, \frac{4}{7}, \frac{6}{11}, \frac{8}{15}, \ldots\text{.}\)</span> 
 <details id="part_NTE_exam_frac_odds-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_frac_odds-1-3-1">Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> the numerator sequence, the denominator sequence, and the terms of the sequence starting at <span class="process-math">\(n=1\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_frac_odds" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_frac_odds.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.10: The sequence from Example 6.5.6 (d)">Table 6.5.10</a>. Notice the numerator is twice the index so it equals <span class="process-math">\(2n\text{.}\)</span> For the denominator, we add four to get from each term to the next, so the answer likely involves <span class="process-math">\(4+4+\ldots +4 = 4n\text{.}\)</span> Let’s add a row for <span class="process-math">\(4n\)</span> to our table. We can get from <span class="process-math">\(4n\)</span> to the denominator by subtracting one. A possible formula is <span class="process-math">\(d_n = \frac{2n}{4n-1}\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_frac_odds-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_frac_odds-1-3-1">Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> the numerator sequence, the denominator sequence, and the terms of the sequence starting at <span class="process-math">\(n=1\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_frac_odds" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_frac_odds.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.12: The sequence from Example 6.5.8 (d)">Table 6.5.12</a>. Notice the numerator is twice the index so it equals <span class="process-math">\(2n\text{.}\)</span> For the denominator, we add four to get from each term to the next, so the answer likely involves <span class="process-math">\(4+4+\ldots +4 = 4n\text{.}\)</span> Let’s add a row for <span class="process-math">\(4n\)</span> to our table. We can get from <span class="process-math">\(4n\)</span> to the denominator by subtracting one. A possible formula is <span class="process-math">\(d_n = \frac{2n}{4n-1}\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_frac_odds-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_frac_odds"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (d)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.10: The sequence from Example 6.5.6 (d)"><a tabindex="-1" href="#tab_NTE_exam_frac_odds" title="Copy heading and permalink for Table 6.5.10: The sequence from Example 6.5.6 (d)" aria-label="Copy heading and permalink for Table 6.5.10: The sequence from Example 6.5.6 (d)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_frac_odds"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (d)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.12: The sequence from Example 6.5.8 (d)"><a tabindex="-1" href="#tab_NTE_exam_frac_odds" title="Copy heading and permalink for Table 6.5.12: The sequence from Example 6.5.8 (d)" aria-label="Copy heading and permalink for Table 6.5.12: The sequence from Example 6.5.8 (d)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -1858,9 +1883,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_exp-1">The sequence <span class="process-math">\(e\)</span> begins <span class="process-math">\(2,20,200,2000,20000, \ldots\text{.}\)</span> 
 <details id="part_NTE_exam_exp-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_exp-1-3-1">We multiply by 10 to get from each term to the next, so the answer likely involves <span class="process-math">\(10 \times 10 \times \ldots \times 10 = 10^n\text{.}\)</span> Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(10^n\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_exp" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_exp.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.11: The sequence from Example 6.5.6 (e)">Table 6.5.11</a>. We can get from <span class="process-math">\(10^n\)</span> to the terms by multiplying by two. A possible formula is <span class="process-math">\(e_n = 2(10^n)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_exp-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_exp-1-3-1">We multiply by 10 to get from each term to the next, so the answer likely involves <span class="process-math">\(10 \times 10 \times \ldots \times 10 = 10^n\text{.}\)</span> Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(10^n\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_exp" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_exp.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.13: The sequence from Example 6.5.8 (e)">Table 6.5.13</a>. We can get from <span class="process-math">\(10^n\)</span> to the terms by multiplying by two. A possible formula is <span class="process-math">\(e_n = 2(10^n)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_exp-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_exp"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (e)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.11: The sequence from Example 6.5.6 (e)"><a tabindex="-1" href="#tab_NTE_exam_exp" title="Copy heading and permalink for Table 6.5.11: The sequence from Example 6.5.6 (e)" aria-label="Copy heading and permalink for Table 6.5.11: The sequence from Example 6.5.6 (e)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_exp"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (e)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.13: The sequence from Example 6.5.8 (e)"><a tabindex="-1" href="#tab_NTE_exam_exp" title="Copy heading and permalink for Table 6.5.13: The sequence from Example 6.5.8 (e)" aria-label="Copy heading and permalink for Table 6.5.13: The sequence from Example 6.5.8 (e)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">0</td>
@@ -1919,9 +1944,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_powers2_plus1-1">The sequence <span class="process-math">\(f\)</span> begins <span class="process-math">\(2, 3, 5, 9, 17, \ldots\text{.}\)</span> 
 <details id="part_NTE_exam_powers2_plus1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_powers2_plus1-1-3-1">To get from each term to the next we add two, then add four, then add eight, and then add 16 so perhaps the pattern involves powers of two again. Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(2^n\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_powers2_plus1" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_powers2_plus1.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.12: The sequence from Example 6.5.6 (f)">Table 6.5.12</a>. We can get from <span class="process-math">\(2^n\)</span> to the terms by adding one. A possible formula is <span class="process-math">\(f_n = 2^n+1\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_powers2_plus1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_powers2_plus1-1-3-1">To get from each term to the next we add two, then add four, then add eight, and then add 16 so perhaps the pattern involves powers of two again. Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(2^n\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_powers2_plus1" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_powers2_plus1.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.14: The sequence from Example 6.5.8 (f)">Table 6.5.14</a>. We can get from <span class="process-math">\(2^n\)</span> to the terms by adding one. A possible formula is <span class="process-math">\(f_n = 2^n+1\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_powers2_plus1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_powers2_plus1"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (f)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.12: The sequence from Example 6.5.6 (f)"><a tabindex="-1" href="#tab_NTE_exam_powers2_plus1" title="Copy heading and permalink for Table 6.5.12: The sequence from Example 6.5.6 (f)" aria-label="Copy heading and permalink for Table 6.5.12: The sequence from Example 6.5.6 (f)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_powers2_plus1"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (f)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.14: The sequence from Example 6.5.8 (f)"><a tabindex="-1" href="#tab_NTE_exam_powers2_plus1" title="Copy heading and permalink for Table 6.5.14: The sequence from Example 6.5.8 (f)" aria-label="Copy heading and permalink for Table 6.5.14: The sequence from Example 6.5.8 (f)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">0</td>
@@ -1980,9 +2005,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_powers2_minus1-1">The sequence <span class="process-math">\(s\)</span> begins <span class="process-math">\(1, 3, 7, 15, 31, \ldots\text{.}\)</span> 
 <details id="part_NTE_exam_powers2_minus1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_powers2_minus1-1-3-1">To get from each term to the next we add one, add two, then add four, then add eight, so perhaps the pattern involves powers of two. Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(2^n\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_powers2_minus1" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_powers2_minus1.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.13: The sequence from Example 6.5.6 (g)">Table 6.5.13</a>. The powers of two and the terms differ by one, but they are not aligned. Let’s write each term using powers of two. We see the power of two is one larger than the index, so the pattern involves <span class="process-math">\(2^{n+1}\text{.}\)</span> A possible formula is <span class="process-math">\(s_n = 2^{n+1}-1\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_powers2_minus1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_powers2_minus1-1-3-1">To get from each term to the next we add one, add two, then add four, then add eight, so perhaps the pattern involves powers of two. Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(2^n\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=0\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_powers2_minus1" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_powers2_minus1.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.15: The sequence from Example 6.5.8 (g)">Table 6.5.15</a>. The powers of two and the terms differ by one, but they are not aligned. Let’s write each term using powers of two. We see the power of two is one larger than the index, so the pattern involves <span class="process-math">\(2^{n+1}\text{.}\)</span> A possible formula is <span class="process-math">\(s_n = 2^{n+1}-1\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_powers2_minus1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_powers2_minus1"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (g)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.13: The sequence from Example 6.5.6 (g)"><a tabindex="-1" href="#tab_NTE_exam_powers2_minus1" title="Copy heading and permalink for Table 6.5.13: The sequence from Example 6.5.6 (g)" aria-label="Copy heading and permalink for Table 6.5.13: The sequence from Example 6.5.6 (g)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_powers2_minus1"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (g)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.15: The sequence from Example 6.5.8 (g)"><a tabindex="-1" href="#tab_NTE_exam_powers2_minus1" title="Copy heading and permalink for Table 6.5.15: The sequence from Example 6.5.8 (g)" aria-label="Copy heading and permalink for Table 6.5.15: The sequence from Example 6.5.8 (g)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">0</td>
@@ -2049,9 +2074,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_factorial-1">The sequence <span class="process-math">\(t\)</span> begins <span class="process-math">\(4, 5, 9, 27, 123, 603, \ldots\text{.}\)</span> 
 <details id="part_NTE_exam_factorial-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_factorial-1-3-1">The terms are growing large quickly. Let’s look at their ratios <span class="process-math">\(\frac{5}{4} = 1.25\text{,}\)</span> <span class="process-math">\(\frac{9}{5} = 1.8\text{,}\)</span> <span class="process-math">\(\frac{27}{9}=3\text{,}\)</span> <span class="process-math">\(\frac{123}{27} = 4.55.\text{..,}\)</span> <span class="process-math">\(\frac{603}{123} = 4.90.\text{...}\)</span> It’s almost like we are multiplying by one, then multiplying by two, then by three, then by four, then by five. That pattern would involve <span class="process-math">\(1 \times 2 \times \cdots \times n =n!\)</span> Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(n!\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_factorial" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_factorial.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.14: The sequence from Example 6.5.6 (h)">Table 6.5.14</a>. A possible formula is <span class="process-math">\(t_n = n!+3\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_factorial-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_factorial-1-3-1">The terms are growing large quickly. Let’s look at their ratios <span class="process-math">\(\frac{5}{4} = 1.25\text{,}\)</span> <span class="process-math">\(\frac{9}{5} = 1.8\text{,}\)</span> <span class="process-math">\(\frac{27}{9}=3\text{,}\)</span> <span class="process-math">\(\frac{123}{27} = 4.55.\text{..,}\)</span> <span class="process-math">\(\frac{603}{123} = 4.90.\text{...}\)</span> It’s almost like we are multiplying by one, then multiplying by two, then by three, then by four, then by five. That pattern would involve <span class="process-math">\(1 \times 2 \times \cdots \times n =n!\)</span> Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(n!\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_factorial" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_factorial.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.16: The sequence from Example 6.5.8 (h)">Table 6.5.16</a>. A possible formula is <span class="process-math">\(t_n = n!+3\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_factorial-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_factorial"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (h)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.14: The sequence from Example 6.5.6 (h)"><a tabindex="-1" href="#tab_NTE_exam_factorial" title="Copy heading and permalink for Table 6.5.14: The sequence from Example 6.5.6 (h)" aria-label="Copy heading and permalink for Table 6.5.14: The sequence from Example 6.5.6 (h)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_factorial"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (h)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.16: The sequence from Example 6.5.8 (h)"><a tabindex="-1" href="#tab_NTE_exam_factorial" title="Copy heading and permalink for Table 6.5.16: The sequence from Example 6.5.8 (h)" aria-label="Copy heading and permalink for Table 6.5.16: The sequence from Example 6.5.8 (h)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -2116,9 +2141,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_hs-1">The sequence <span class="process-math">\(u\)</span> begins <span class="process-math">\(3, 9, 18, 30, 45, 63, \ldots\text{.}\)</span> 
 <details id="part_NTE_exam_hs-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_hs-1-3-1">Since all the terms are multiples of three, let’s start by factoring out three from each term to get <span class="process-math">\(1, 3, 6, 10, 15, 21, \ldots\text{.}\)</span> To get from each term to the next we add one, add two, then add three, then add four, so the answer likely involves <span class="process-math">\(1+2+3+ \ldots n-1=\frac{n(n-1)}{2}\)</span> or <span class="process-math">\(1+2+3+ \ldots n = \frac{n(n+1)}{2}\text{,}\)</span> which we first saw in the Handshakes Puzzle <a href="sec_handshakes.html#act_handshakes" class="xref" data-knowl="./knowl/xref/act_handshakes.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 1.1.A: Handshakes puzzle">Activity 1.1.A</a>. Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\frac{n(n-1)}{2}\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_hs" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_hs.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.15: The sequence from Example 6.5.6 (i)">Table 6.5.15</a>. Notice that we can get from the handshake numbers to the terms by multiplying by three. A possible formula is <span class="process-math">\(u_n = 3\frac{n(n-1)}{2}\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_hs-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_hs-1-3-1">Since all the terms are multiples of three, let’s start by factoring out three from each term to get <span class="process-math">\(1, 3, 6, 10, 15, 21, \ldots\text{.}\)</span> To get from each term to the next we add one, add two, then add three, then add four, so the answer likely involves <span class="process-math">\(1+2+3+ \ldots n-1=\frac{n(n-1)}{2}\)</span> or <span class="process-math">\(1+2+3+ \ldots n = \frac{n(n+1)}{2}\text{,}\)</span> which we first saw in the Handshakes Puzzle <a href="sec_handshakes.html#act_handshakes" class="xref" data-knowl="./knowl/xref/act_handshakes.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 1.1.A: Handshakes puzzle">Activity 1.1.A</a>. Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\frac{n(n-1)}{2}\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_hs" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_hs.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.17: The sequence from Example 6.5.8 (i)">Table 6.5.17</a>. Notice that we can get from the handshake numbers to the terms by multiplying by three. A possible formula is <span class="process-math">\(u_n = 3\frac{n(n-1)}{2}\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_hs-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_hs"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (i)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.15: The sequence from Example 6.5.6 (i)"><a tabindex="-1" href="#tab_NTE_exam_hs" title="Copy heading and permalink for Table 6.5.15: The sequence from Example 6.5.6 (i)" aria-label="Copy heading and permalink for Table 6.5.15: The sequence from Example 6.5.6 (i)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_hs"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (i)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.17: The sequence from Example 6.5.8 (i)"><a tabindex="-1" href="#tab_NTE_exam_hs" title="Copy heading and permalink for Table 6.5.17: The sequence from Example 6.5.8 (i)" aria-label="Copy heading and permalink for Table 6.5.17: The sequence from Example 6.5.8 (i)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -2183,9 +2208,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_factor-1">The sequence <span class="process-math">\(v\)</span> begins <span class="process-math">\(1, 6, 15, 28, 45, \ldots\text{.}\)</span> Hint: Factor. 
 <details id="part_NTE_exam_factor-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_factor-1-3-1">Let’s make a table comparing <span class="process-math">\(n\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\)</span> in factored form, in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_factor" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_factor.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.16: The sequence from Example 6.5.6 (j)">Table 6.5.16</a>. Notice that <span class="process-math">\(v_n\)</span> is the product of <span class="process-math">\(n\)</span> and the odds. A possible formula is <span class="process-math">\(v_n = n(2n+1)\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_factor-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_factor-1-3-1">Let’s make a table comparing <span class="process-math">\(n\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\)</span> in factored form, in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_factor" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_factor.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.18: The sequence from Example 6.5.8 (j)">Table 6.5.18</a>. Notice that <span class="process-math">\(v_n\)</span> is the product of <span class="process-math">\(n\)</span> and the odds. A possible formula is <span class="process-math">\(v_n = n(2n+1)\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_factor-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_factor"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (j)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.16: The sequence from Example 6.5.6 (j)"><a tabindex="-1" href="#tab_NTE_exam_factor" title="Copy heading and permalink for Table 6.5.16: The sequence from Example 6.5.6 (j)" aria-label="Copy heading and permalink for Table 6.5.16: The sequence from Example 6.5.6 (j)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_factor"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (j)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.18: The sequence from Example 6.5.8 (j)"><a tabindex="-1" href="#tab_NTE_exam_factor" title="Copy heading and permalink for Table 6.5.18: The sequence from Example 6.5.8 (j)" aria-label="Copy heading and permalink for Table 6.5.18: The sequence from Example 6.5.8 (j)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -2228,9 +2253,9 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_ceil-1">The sequence <span class="process-math">\(w\)</span> begins <span class="process-math">\(1,1,2,2,3,3,4,4, \ldots\text{.}\)</span> 
 <details id="part_NTE_exam_ceil-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_ceil-1-3-1">Notice that the terms repeat, so floor or ceiling is likely involved. Since each term repeats twice, let’s try <span class="process-math">\(\frac{n}{2}\text{.}\)</span> Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\frac{n}{2}\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_ceil" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_ceil.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.17: The sequence from Example 6.5.6 (k)">Table 6.5.17</a>. Notice that the ceiling function works. A possible formula is <span class="process-math">\(w_n = \lceil \frac{n}{2} \rceil\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_ceil-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_ceil-1-3-1">Notice that the terms repeat, so floor or ceiling is likely involved. Since each term repeats twice, let’s try <span class="process-math">\(\frac{n}{2}\text{.}\)</span> Let’s make a table comparing <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\frac{n}{2}\text{,}\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\text{,}\)</span> in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_ceil" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_ceil.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.19: The sequence from Example 6.5.8 (k)">Table 6.5.19</a>. Notice that the ceiling function works. A possible formula is <span class="process-math">\(w_n = \lceil \frac{n}{2} \rceil\)</span> for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_ceil-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_ceil"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (k)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.17: The sequence from Example 6.5.6 (k)"><a tabindex="-1" href="#tab_NTE_exam_ceil" title="Copy heading and permalink for Table 6.5.17: The sequence from Example 6.5.6 (k)" aria-label="Copy heading and permalink for Table 6.5.17: The sequence from Example 6.5.6 (k)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_ceil"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (k)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.19: The sequence from Example 6.5.8 (k)"><a tabindex="-1" href="#tab_NTE_exam_ceil" title="Copy heading and permalink for Table 6.5.19: The sequence from Example 6.5.8 (k)" aria-label="Copy heading and permalink for Table 6.5.19: The sequence from Example 6.5.8 (k)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -2307,11 +2332,11 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 <div class="para" id="part_NTE_exam_sq-1">The sequence <span class="process-math">\(x\)</span> begins <span class="process-math">\(0, 3, 8, 15, 24, 35, \ldots\text{.}\)</span> 
 <details id="part_NTE_exam_sq-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_NTE_exam_sq-1-3-1">Let’s make a table comparing <span class="process-math">\(n\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\)</span> in factored form, in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_sq" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_sq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.18: The sequence from Example 6.5.6 (l)">Table 6.5.18</a>. Notice the first term in the product is one less than <span class="process-math">\(n\)</span> and the second term in the product is one more than <span class="process-math">\(n\text{.}\)</span> (We could have factored 0 in many ways, but writing <span class="process-math">\(0 = 0(2)\)</span> continues the pattern.) A possible formula is <span class="process-math">\(x_n = (n-1)(n+1)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_sq-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_sq-1-3-1">Let’s make a table comparing <span class="process-math">\(n\)</span> and the terms of the sequence starting at <span class="process-math">\(n=1\)</span> in factored form, in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_sq" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_sq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.20: The sequence from Example 6.5.8 (l)">Table 6.5.20</a>. Notice the first term in the product is one less than <span class="process-math">\(n\)</span> and the second term in the product is one more than <span class="process-math">\(n\text{.}\)</span> (We could have factored 0 in many ways, but writing <span class="process-math">\(0 = 0(2)\)</span> continues the pattern.) A possible formula is <span class="process-math">\(x_n = (n-1)(n+1)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_sq-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="part_NTE_exam_sq-1-3-2">Note that <span class="process-math">\((n+1)(n-1) = n^2-1\)</span> and so there is a quicker way to have found this pattern, provided we thought to compare the terms to <span class="process-math">\(n^2\)</span> instead, as in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_sq_easier" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_sq_easier.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.19: The sequence from Example 6.5.6 (l) revisited">Table 6.5.19</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_sq-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_NTE_exam_sq-1-3-2">Note that <span class="process-math">\((n+1)(n-1) = n^2-1\)</span> and so there is a quicker way to have found this pattern, provided we thought to compare the terms to <span class="process-math">\(n^2\)</span> instead, as in <a href="sec_explicitly_defined_sequences.html#tab_NTE_exam_sq_easier" class="xref" data-knowl="./knowl/xref/tab_NTE_exam_sq_easier.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.21: The sequence from Example 6.5.8 (l) revisited">Table 6.5.21</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_NTE_exam_sq-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="tab_NTE_exam_sq"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (l)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.18: The sequence from Example 6.5.6 (l)"><a tabindex="-1" href="#tab_NTE_exam_sq" title="Copy heading and permalink for Table 6.5.18: The sequence from Example 6.5.6 (l)" aria-label="Copy heading and permalink for Table 6.5.18: The sequence from Example 6.5.6 (l)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_sq"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (l)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.20: The sequence from Example 6.5.8 (l)"><a tabindex="-1" href="#tab_NTE_exam_sq" title="Copy heading and permalink for Table 6.5.20: The sequence from Example 6.5.8 (l)" aria-label="Copy heading and permalink for Table 6.5.20: The sequence from Example 6.5.8 (l)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -2350,7 +2375,7 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 </tr>
 </table></div>
 </figure>
-<figure class="table table-like" id="tab_NTE_exam_sq_easier"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.6 (l) revisited<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.19: The sequence from Example 6.5.6 (l) revisited"><a tabindex="-1" href="#tab_NTE_exam_sq_easier" title="Copy heading and permalink for Table 6.5.19: The sequence from Example 6.5.6 (l) revisited" aria-label="Copy heading and permalink for Table 6.5.19: The sequence from Example 6.5.6 (l) revisited">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="tab_NTE_exam_sq_easier"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.8 (l) revisited<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.21: The sequence from Example 6.5.8 (l) revisited"><a tabindex="-1" href="#tab_NTE_exam_sq_easier" title="Copy heading and permalink for Table 6.5.21: The sequence from Example 6.5.8 (l) revisited" aria-label="Copy heading and permalink for Table 6.5.21: The sequence from Example 6.5.8 (l) revisited">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -2414,29 +2439,29 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_next_term_explicit-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 6.5.6: Modeling with explicitly-defined sequences"><a tabindex="-1" href="#exam_next_term_explicit" title="Copy heading and permalink for Example 6.5.6: Modeling with explicitly-defined sequences" aria-label="Copy heading and permalink for Example 6.5.6: Modeling with explicitly-defined sequences">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 6.5.8: Modeling with explicitly-defined sequences"><a tabindex="-1" href="#exam_next_term_explicit" title="Copy heading and permalink for Example 6.5.8: Modeling with explicitly-defined sequences" aria-label="Copy heading and permalink for Example 6.5.8: Modeling with explicitly-defined sequences">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 6.5.B: Modeling with Explicitly-defined Sequences"><a tabindex="-1" href="#sub_model_seq" title="Copy heading and permalink for Subsection 6.5.B: Modeling with Explicitly-defined Sequences" aria-label="Copy heading and permalink for Subsection 6.5.B: Modeling with Explicitly-defined Sequences">🔗</a></div>
 </section>
 <section class="subsection" id="sub_seq_primes">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Detour: Sequences Involving Primes</span>
-</h3>
+</h2>
 <div class="para" id="sub_seq_primes-2">The rule for a sequence can depend on prime factorization or the sequence of primes. Let’s look at a few examples involving prime factorization.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_seq_primes-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_seq_prime_fact" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequences involving prime factorization.</span>
-</h4></summary>
+<details id="exam_seq_prime_fact" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.22</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequences involving prime factorization.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_seq_prime_fact-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_seq_prime_fact-2-1-2">
+<ol class="lower-alpha" id="exam_seq_prime_fact-2-1-2">
 <li id="part_seq_number_odd_prime_div">
 <div class="para" id="part_seq_number_odd_prime_div-1">Evaluate the first fifteen terms of the sequence defined by <span class="process-math">\(a_k =\)</span> the number of distinct odd primes dividing <span class="process-math">\(k\)</span> for <span class="process-math">\(k \ge 1\text{.}\)</span> 
 <details id="part_seq_number_odd_prime_div-1-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="part_seq_number_odd_prime_div-1-4-1">
 <div class="para">
-<a href="sec_explicitly_defined_sequences.html#table_seq_odd_prime_divisors" class="xref" data-knowl="./knowl/xref/table_seq_odd_prime_divisors.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.21: The sequence from Example 6.5.20 (a)">Table 6.5.21</a> shows the odd prime divisors and the value of <span class="process-math">\(a_k\)</span> of each integer <span class="process-math">\(k = 1,2, 3, \ldots 15\text{.}\)</span> The first fifteen terms are</div>
+<a href="sec_explicitly_defined_sequences.html#table_seq_odd_prime_divisors" class="xref" data-knowl="./knowl/xref/table_seq_odd_prime_divisors.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.23: The sequence from Example 6.5.22 (a)">Table 6.5.23</a> shows the odd prime divisors and the value of <span class="process-math">\(a_k\)</span> of each integer <span class="process-math">\(k = 1,2, 3, \ldots 15\text{.}\)</span> The first fifteen terms are</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/table_seq_odd_prime_divisors.html" id="part_seq_number_odd_prime_div-1-4-1-4">
 \begin{equation*}
 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 2
@@ -2444,7 +2469,7 @@ p_m = \left\{ \begin{array}{cl} \frac{m}{2} \amp  \text{ if }  m \text{ is even 
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_seq_number_odd_prime_div-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="table_seq_odd_prime_divisors"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.20 (a)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.21: The sequence from Example 6.5.20 (a)"><a tabindex="-1" href="#table_seq_odd_prime_divisors" title="Copy heading and permalink for Table 6.5.21: The sequence from Example 6.5.20 (a)" aria-label="Copy heading and permalink for Table 6.5.21: The sequence from Example 6.5.20 (a)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table_seq_odd_prime_divisors"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.22 (a)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.23: The sequence from Example 6.5.22 (a)"><a tabindex="-1" href="#table_seq_odd_prime_divisors" title="Copy heading and permalink for Table 6.5.23: The sequence from Example 6.5.22 (a)" aria-label="Copy heading and permalink for Table 6.5.23: The sequence from Example 6.5.22 (a)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(k\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -2591,7 +2616,7 @@ s_m= \left\{ \begin{array}{cc} 1 \amp  \text{ if }  m=1 \\ m \amp  \text{ if }  
 <details id="part_seq_prime_smallest_odd_prime_div-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="part_seq_prime_smallest_odd_prime_div-1-2-1">
-<div class="para">It can be helpful to look at the terms listed with their index as in <a href="sec_explicitly_defined_sequences.html#table_seq_prime_smallest_odd_prime_div" class="xref" data-knowl="./knowl/xref/table_seq_prime_smallest_odd_prime_div.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.22: The sequence from Example 6.5.20 (d)">Table 6.5.22</a>. Notice that the terms of the sequence <span class="process-math">\(a_n\)</span> are either 1 or an odd prime. The terms equal to 1 are <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(a_4\text{,}\)</span> <span class="process-math">\(a_8\text{,}\)</span> and <span class="process-math">\(a_{16}\text{,}\)</span> namely where the index is a power of 2, which no odd prime divides. The terms equal to 3 are <span class="process-math">\(a_3\text{,}\)</span> <span class="process-math">\(a_6\text{,}\)</span> <span class="process-math">\(a_9\text{,}\)</span> <span class="process-math">\(a_{12}\text{,}\)</span> and <span class="process-math">\(a_{15}\text{,}\)</span> namely where the index is multiple of 3. The terms equal to 5 are <span class="process-math">\(a_5\text{,}\)</span> <span class="process-math">\(a_{10}\text{,}\)</span> and <span class="process-math">\(a_{20}\)</span> where the index is a multiple of 5, although <span class="process-math">\(a_{15} \neq 5\text{.}\)</span> The terms equal to 7 are <span class="process-math">\(a_7\)</span> and <span class="process-math">\(a_{14}\)</span> where the index is a multiple of 7, although <span class="process-math">\(a_{21} \neq 7\text{.}\)</span> In each case, the term is an odd prime dividing the index. The last clues are the exceptions <span class="process-math">\(a_{15}=3\)</span> even though 15 is divisible by both 3 and 5 and <span class="process-math">\(a_{21}=3\)</span> even though 21 is divisible by both 3 and 7. My guess is that</div>
+<div class="para">It can be helpful to look at the terms listed with their index as in <a href="sec_explicitly_defined_sequences.html#table_seq_prime_smallest_odd_prime_div" class="xref" data-knowl="./knowl/xref/table_seq_prime_smallest_odd_prime_div.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.24: The sequence from Example 6.5.22 (d)">Table 6.5.24</a>. Notice that the terms of the sequence <span class="process-math">\(a_n\)</span> are either 1 or an odd prime. The terms equal to 1 are <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(a_4\text{,}\)</span> <span class="process-math">\(a_8\text{,}\)</span> and <span class="process-math">\(a_{16}\text{,}\)</span> namely where the index is a power of 2, which no odd prime divides. The terms equal to 3 are <span class="process-math">\(a_3\text{,}\)</span> <span class="process-math">\(a_6\text{,}\)</span> <span class="process-math">\(a_9\text{,}\)</span> <span class="process-math">\(a_{12}\text{,}\)</span> and <span class="process-math">\(a_{15}\text{,}\)</span> namely where the index is multiple of 3. The terms equal to 5 are <span class="process-math">\(a_5\text{,}\)</span> <span class="process-math">\(a_{10}\text{,}\)</span> and <span class="process-math">\(a_{20}\)</span> where the index is a multiple of 5, although <span class="process-math">\(a_{15} \neq 5\text{.}\)</span> The terms equal to 7 are <span class="process-math">\(a_7\)</span> and <span class="process-math">\(a_{14}\)</span> where the index is a multiple of 7, although <span class="process-math">\(a_{21} \neq 7\text{.}\)</span> In each case, the term is an odd prime dividing the index. The last clues are the exceptions <span class="process-math">\(a_{15}=3\)</span> even though 15 is divisible by both 3 and 5 and <span class="process-math">\(a_{21}=3\)</span> even though 21 is divisible by both 3 and 7. My guess is that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/table_seq_prime_smallest_odd_prime_div.html" id="part_seq_prime_smallest_odd_prime_div-1-2-1-22">
 \begin{equation*}
 a_n= \left\{ \begin{array}{cc} 1 \amp  \text{ if }  n \text{ is a power of 2 }  \\ \text{ the smallest odd prime divisor of } n \amp  \text{ otherwise } \end{array}  \right.\text{.}
@@ -2600,7 +2625,7 @@ a_n= \left\{ \begin{array}{cc} 1 \amp  \text{ if }  n \text{ is a power of 2 }  
 <div class="para">We use the phrase <dfn class="terminology">otherwise</dfn> to indicate any cases not covered earlier. In this example, those cases are when <span class="process-math">\(n\)</span> is not a power of 2.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_seq_prime_smallest_odd_prime_div-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="table_seq_prime_smallest_odd_prime_div"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.20 (d)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.22: The sequence from Example 6.5.20 (d)"><a tabindex="-1" href="#table_seq_prime_smallest_odd_prime_div" title="Copy heading and permalink for Table 6.5.22: The sequence from Example 6.5.20 (d)" aria-label="Copy heading and permalink for Table 6.5.22: The sequence from Example 6.5.20 (d)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table_seq_prime_smallest_odd_prime_div"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sequence from Example 6.5.22 (d)<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.24: The sequence from Example 6.5.22 (d)"><a tabindex="-1" href="#table_seq_prime_smallest_odd_prime_div" title="Copy heading and permalink for Table 6.5.24: The sequence from Example 6.5.22 (d)" aria-label="Copy heading and permalink for Table 6.5.24: The sequence from Example 6.5.22 (d)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -2684,13 +2709,13 @@ a_n= \left\{ \begin{array}{cc} 1 \amp  \text{ if }  n \text{ is a power of 2 }  
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_seq_prime_fact-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 6.5.20: Sequences involving prime factorization"><a tabindex="-1" href="#exam_seq_prime_fact" title="Copy heading and permalink for Example 6.5.20: Sequences involving prime factorization" aria-label="Copy heading and permalink for Example 6.5.20: Sequences involving prime factorization">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 6.5.22: Sequences involving prime factorization"><a tabindex="-1" href="#exam_seq_prime_fact" title="Copy heading and permalink for Example 6.5.22: Sequences involving prime factorization" aria-label="Copy heading and permalink for Example 6.5.22: Sequences involving prime factorization">🔗</a></div>
 </article></details>
 <div class="para" id="sub_seq_primes-4">The rule for a sequence can involve the primes themselves. We give a name to the sequence of primes.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_seq_primes-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_seq_primes"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.23</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequence of primes.</span>
-</h4>
+<article class="definition definition-like" id="defn_seq_primes"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.25</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequence of primes.</span>
+</h3>
 <div class="para logical" id="defn_seq_primes-2-1">
 <div class="para">The <dfn class="terminology">sequence of primes</dfn>, denoted <span class="process-math">\(\pi_n\text{,}\)</span> for <span class="process-math">\(n \ge 1\)</span> is defined by</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/table_prime_seq.html" id="defn_seq_primes-2-1-4">
@@ -2699,13 +2724,13 @@ a_n= \left\{ \begin{array}{cc} 1 \amp  \text{ if }  n \text{ is a power of 2 }  
 \end{equation*}
 </div>
 <div class="para">
-<a href="sec_explicitly_defined_sequences.html#table_prime_seq" class="xref" data-knowl="./knowl/xref/table_prime_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.24: The first ten terms of the sequence of primes from Definition 6.5.23">Table 6.5.24</a> lists the first ten terms of this sequence. For example, the first prime is <span class="process-math">\(\pi_1=2\)</span> and the seventh prime is <span class="process-math">\(\pi_7=17\text{.}\)</span>
+<a href="sec_explicitly_defined_sequences.html#table_prime_seq" class="xref" data-knowl="./knowl/xref/table_prime_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.26: The first ten terms of the sequence of primes from Definition 6.5.25">Table 6.5.26</a> lists the first ten terms of this sequence. For example, the first prime is <span class="process-math">\(\pi_1=2\)</span> and the seventh prime is <span class="process-math">\(\pi_7=17\text{.}\)</span>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_seq_primes-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Definition 6.5.23: Sequence of primes"><a tabindex="-1" href="#defn_seq_primes" title="Copy heading and permalink for Definition 6.5.23: Sequence of primes" aria-label="Copy heading and permalink for Definition 6.5.23: Sequence of primes">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 6.5.25: Sequence of primes"><a tabindex="-1" href="#defn_seq_primes" title="Copy heading and permalink for Definition 6.5.25: Sequence of primes" aria-label="Copy heading and permalink for Definition 6.5.25: Sequence of primes">🔗</a></div>
 </article>
-<figure class="table table-like" id="table_prime_seq"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The first ten terms of the sequence of primes from Definition 6.5.23<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.24: The first ten terms of the sequence of primes from Definition 6.5.23"><a tabindex="-1" href="#table_prime_seq" title="Copy heading and permalink for Table 6.5.24: The first ten terms of the sequence of primes from Definition 6.5.23" aria-label="Copy heading and permalink for Table 6.5.24: The first ten terms of the sequence of primes from Definition 6.5.23">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table_prime_seq"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The first ten terms of the sequence of primes from Definition 6.5.25<div class="autopermalink" aria-hidden="true" data-description="Table 6.5.26: The first ten terms of the sequence of primes from Definition 6.5.25"><a tabindex="-1" href="#table_prime_seq" title="Copy heading and permalink for Table 6.5.26: The first ten terms of the sequence of primes from Definition 6.5.25" aria-label="Copy heading and permalink for Table 6.5.26: The first ten terms of the sequence of primes from Definition 6.5.25">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(n\)</span></td>
 <td class="c m b0 r0 l0 t0 lines">1</td>
@@ -2749,13 +2774,13 @@ a_n= \left\{ \begin{array}{cc} 1 \amp  \text{ if }  n \text{ is a power of 2 }  
 </figure>
 <div class="para" id="sub_seq_primes-7">Here is an example of a sequences that involve the sequence of primes<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_seq_primes-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="seq_involving_pisubn" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.25</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequences involving <span class="process-math">\(\pi_n\)</span>.</span>
-</h4></summary>
+<details id="seq_involving_pisubn" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.27</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequences involving <span class="process-math">\(\pi_n\)</span>.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="seq_involving_pisubn-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="seq_involving_pisubn-2-1-2">
+<ol class="lower-alpha" id="seq_involving_pisubn-2-1-2">
 <li id="seq_involving_pisubn-2-1-2-1">
 <div class="para" id="seq_involving_pisubn-2-1-2-1-1">Evaluate the first five terms of the sequence defined by <span class="process-math">\(w_i=\pi_i^2 + \pi_i\)</span> for <span class="process-math">\(i \ge 1\text{.}\)</span> 
 <details id="seq_involving_pisubn-2-1-2-1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -2807,7 +2832,7 @@ w_5 = \pi_5^2 + \pi_5 = 11^2 + 11 = 132\text{.}
 <details id="seq_involving_pisubn-2-1-2-2-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para logical" id="seq_involving_pisubn-2-1-2-2-1-3-1">
-<div class="para">It is helpful to look at the prime sequence in <a href="sec_explicitly_defined_sequences.html#table_prime_seq" class="xref" data-knowl="./knowl/xref/table_prime_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.24: The first ten terms of the sequence of primes from Definition 6.5.23">Table 6.5.24</a>. Notice that our sequence <span class="process-math">\(b_n\)</span> has</div>
+<div class="para">It is helpful to look at the prime sequence in <a href="sec_explicitly_defined_sequences.html#table_prime_seq" class="xref" data-knowl="./knowl/xref/table_prime_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 6.5.26: The first ten terms of the sequence of primes from Definition 6.5.25">Table 6.5.26</a>. Notice that our sequence <span class="process-math">\(b_n\)</span> has</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/table_prime_seq.html" id="seq_involving_pisubn-2-1-2-2-1-3-1-3">
 \begin{equation*}
 b_1 =\pi_1+\pi_2=2+3=5\text{,}
@@ -2874,16 +2899,16 @@ b_n=\pi_n + \pi_{n+1}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#seq_involving_pisubn-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 6.5.25: Sequences involving \pi_n"><a tabindex="-1" href="#seq_involving_pisubn" title="Copy heading and permalink for Example 6.5.25: Sequences involving \pi_n" aria-label="Copy heading and permalink for Example 6.5.25: Sequences involving \pi_n">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 6.5.27: Sequences involving \pi_n"><a tabindex="-1" href="#seq_involving_pisubn" title="Copy heading and permalink for Example 6.5.27: Sequences involving \pi_n" aria-label="Copy heading and permalink for Example 6.5.27: Sequences involving \pi_n">🔗</a></div>
 </article></details>
 <div class="para" id="sub_seq_primes-9">It is your turn to work with sequences involving prime factorization or primes.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_seq_primes-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_seq_primes"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.C</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequences involving prime factorization or primes.</span>
-</h4>
+<article class="activity project-like" id="act_seq_primes"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sequences involving prime factorization or primes.</span>
+</h3>
 <div class="para logical" id="act_seq_primes-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_seq_primes-2-2">
+<ol class="lower-alpha" id="act_seq_primes-2-2">
 <li id="act_seq_primes-2-2-1">
 <div class="para" id="act_seq_primes-2-2-1-1">Evaluate the first twenty terms of the sequence defined by <span class="process-math">\(a_n=\)</span> the largest prime divisor of <span class="process-math">\(n\)</span> for <span class="process-math">\(n \ge 2\text{.}\)</span> Also evaluate <span class="process-math">\(a_{100}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_seq_primes-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2926,7 +2951,7 @@ s_m= \left\{ \begin{array}{cc} m \amp  \text{ if }  m=1 \text{ or if }  m \text{
 0,1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1, 1, 2, 1, 2,\ldots
 \end{equation*}
 </div>
-<div class="para">Start the index at 1. Hints: make a table as in <a href="sec_explicitly_defined_sequences.html#exam_seq_prime_fact" class="xref" data-knowl="./knowl/xref/exam_seq_prime_fact.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.5.20: Sequences involving prime factorization">Example 6.5.20</a> showing the index for each term. The rule involves the prime factorization of the index. The first term greater than 2 is <span class="process-math">\(a_{30}=3\text{.}\)</span>
+<div class="para">Start the index at 1. Hints: make a table as in <a href="sec_explicitly_defined_sequences.html#exam_seq_prime_fact" class="xref" data-knowl="./knowl/xref/exam_seq_prime_fact.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.5.22: Sequences involving prime factorization">Example 6.5.22</a> showing the index for each term. The rule involves the prime factorization of the index. The first term greater than 2 is <span class="process-math">\(a_{30}=3\text{.}\)</span>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_seq_primes-2-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2946,7 +2971,7 @@ a_n = \left\{ \begin{array}{ll} \underline{\hspace{.5in}} \amp  \text{ if }  n=1
 0, 1, 1, -1, 1, -1, 1, -1, -1, -1, 1, -1, 1,,\ldots\text{.}
 \end{equation*}
 </div>
-<div class="para">Start the index at 1. Hint: make a table as in <a href="sec_explicitly_defined_sequences.html#exam_seq_prime_fact" class="xref" data-knowl="./knowl/xref/exam_seq_prime_fact.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.5.20: Sequences involving prime factorization">Example 6.5.20</a> showing the index for each term.</div>
+<div class="para">Start the index at 1. Hint: make a table as in <a href="sec_explicitly_defined_sequences.html#exam_seq_prime_fact" class="xref" data-knowl="./knowl/xref/exam_seq_prime_fact.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.5.22: Sequences involving prime factorization">Example 6.5.22</a> showing the index for each term.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_seq_primes-2-2-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item (g)"><a tabindex="-1" href="#act_seq_primes-2-2-7" title="Copy heading and permalink for Item (g)" aria-label="Copy heading and permalink for Item (g)">🔗</a></div>
@@ -2971,19 +2996,19 @@ a_n = \left\{ \begin{array}{ll} \underline{\hspace{.5in}} \amp  \text{ if }  n=1
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 6.5.C: Detour: Sequences Involving Primes"><a tabindex="-1" href="#sub_seq_primes" title="Copy heading and permalink for Subsection 6.5.C: Detour: Sequences Involving Primes" aria-label="Copy heading and permalink for Subsection 6.5.C: Detour: Sequences Involving Primes">🔗</a></div>
 </section>
 <section class="subsection" id="sec_explicitly_defined_sequences-6">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
-</h3>
+</h2>
 <section class="subsubsection" id="sec_explicitly_defined_sequences-6-2">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 6.5.A The Definition of Sequence</span>
-</h4>
-<article class="exercise exercise-like" id="exer_eval_seq_first_six"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_eval_seq_first_six"><h4 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_first_six-2-1">
 <div class="para">Evaluate the first six terms of each sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_first_six-2-1-1">
+<ol class="lower-alpha" id="exer_eval_seq_first_six-2-1-1">
 <li id="exer_eval_seq_first_six-2-1-1-1">
 <div class="para" id="exer_eval_seq_first_six-2-1-1-1-1">
 <span class="process-math">\(a_n = 2^n +1\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_first_six-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3014,7 +3039,7 @@ a_n = \left\{ \begin{array}{ll} \underline{\hspace{.5in}} \amp  \text{ if }  n=1
 <div class="solutions">
 <details id="exer_eval_seq_first_six-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_first_six-3-1">
+<ol class="lower-alpha" id="exer_eval_seq_first_six-3-1">
 <li id="exer_eval_seq_first_six-3-1-1">
 <div class="para" id="exer_eval_seq_first_six-3-1-1-1">Hint: It begins <span class="process-math">\(2, 3, 5\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_first_six-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3041,12 +3066,12 @@ a_n = \left\{ \begin{array}{ll} \underline{\hspace{.5in}} \amp  \text{ if }  n=1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 1: Practice"><a tabindex="-1" href="#exer_eval_seq_first_six" title="  1: Practice" aria-label="  1: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_seq_100th_term"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_seq_100th_term"><h4 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_100th_term-2-1">
 <div class="para">For each sequence, evaluate the term with index 100.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_100th_term-2-1-1">
+<ol class="lower-alpha" id="exer_eval_seq_100th_term-2-1-1">
 <li id="exer_eval_seq_100th_term-2-1-1-1">
 <div class="para" id="exer_eval_seq_100th_term-2-1-1-1-1">
 <span class="process-math">\(\displaystyle a_n= 5n\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_100th_term-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3082,12 +3107,12 @@ a_n = \left\{ \begin{array}{ll} \underline{\hspace{.5in}} \amp  \text{ if }  n=1
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 2: Practice"><a tabindex="-1" href="#exer_eval_seq_100th_term" title="  2: Practice" aria-label="  2: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_seq_piecewise"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_seq_piecewise"><h4 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_piecewise-2-1">
 <div class="para">Evaluate the first six terms of each sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_piecewise-2-1-1">
+<ol class="lower-alpha" id="exer_eval_seq_piecewise-2-1-1">
 <li id="exer_eval_seq_piecewise-2-1-1-1">
 <div class="para" id="exer_eval_seq_piecewise-2-1-1-1-1">
 <span class="process-math">\(r_n = 
@@ -3133,7 +3158,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_eval_seq_piecewise-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_piecewise-3-1">
+<ol class="lower-alpha" id="exer_eval_seq_piecewise-3-1">
 <li id="exer_eval_seq_piecewise-3-1-1">
 <div class="para" id="exer_eval_seq_piecewise-3-1-1-1">Hint: It begins <span class="process-math">\(0,1,0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_piecewise-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3155,12 +3180,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 3: Understand"><a tabindex="-1" href="#exer_eval_seq_piecewise" title="  3: Understand" aria-label="  3: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_seq_words"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_seq_words"><h4 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_words-2-1">
 <div class="para">Evaluate the first four terms and the 12th term of each sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_words-2-1-1">
+<ol class="lower-alpha" id="exer_eval_seq_words-2-1-1">
 <li id="exer_eval_seq_words-2-1-1-1">
 <div class="para" id="exer_eval_seq_words-2-1-1-1-1">
 <span class="process-math">\(a_m=\)</span> the last digit of <span class="process-math">\(3m\)</span> for <span class="process-math">\(m \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_words-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3185,7 +3210,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_eval_seq_words-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_words-3-1">
+<ol class="lower-alpha" id="exer_eval_seq_words-3-1">
 <li id="exer_eval_seq_words-3-1-1">
 <div class="para" id="exer_eval_seq_words-3-1-1-1">Hint: <span class="process-math">\(a_{12} = 6\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_words-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3207,12 +3232,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 4: Understand"><a tabindex="-1" href="#exer_eval_seq_words" title="  4: Understand" aria-label="  4: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_seq_numberthy_functions"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_seq_numberthy_functions"><h4 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_numberthy_functions-2-1">
 <div class="para">Evaluate the first four terms of each sequence and the 10th term.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_numberthy_functions-2-1-1">
+<ol class="lower-alpha" id="exer_eval_seq_numberthy_functions-2-1-1">
 <li id="exer_eval_seq_numberthy_functions-2-1-1-1">
 <div class="para" id="exer_eval_seq_numberthy_functions-2-1-1-1-1">
 <span class="process-math">\(a_n = \fn{gcd}(n,15)\)</span> for <span class="process-math">\(n \ge 1\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_numberthy_functions-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3237,7 +3262,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_eval_seq_numberthy_functions-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_numberthy_functions-3-1">
+<ol class="lower-alpha" id="exer_eval_seq_numberthy_functions-3-1">
 <li id="exer_eval_seq_numberthy_functions-3-1-1">
 <div class="para" id="exer_eval_seq_numberthy_functions-3-1-1-1">Hint: <span class="process-math">\(a_{10}=5\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_numberthy_functions-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3259,12 +3284,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 5: Understand"><a tabindex="-1" href="#exer_eval_seq_numberthy_functions" title="  5: Understand" aria-label="  5: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_seq_counting"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_seq_counting"><h4 class="heading">
 <span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_counting-2-1">
 <div class="para">Evaluate the first five terms of each sequence. Hint: If something is impossible then the number of ways to do it equals zero.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_counting-2-1-1">
+<ol class="lower-alpha" id="exer_eval_seq_counting-2-1-1">
 <li id="exer_eval_seq_counting-2-1-1-1">
 <div class="para" id="exer_eval_seq_counting-2-1-1-1-1">
 <span class="process-math">\(a_n =\)</span> the number of ways to select two people to work on a project out of a group of <span class="process-math">\(n\)</span> people for <span class="process-math">\(n \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_counting-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3294,12 +3319,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 6: Understand"><a tabindex="-1" href="#exer_eval_seq_counting" title="  6: Understand" aria-label="  6: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_seq_discrete"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_seq_discrete"><h4 class="heading">
 <span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_discrete-2-1">
 <div class="para">Evaluate the first four terms of each sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_discrete-2-1-1">
+<ol class="lower-alpha" id="exer_eval_seq_discrete-2-1-1">
 <li id="exer_eval_seq_discrete-2-1-1-1">
 <div class="para" id="exer_eval_seq_discrete-2-1-1-1-1">
 <span class="process-math">\(a_k =\)</span> the bit string consisting of <span class="process-math">\(k\)</span> 1s followed by two 0s for <span class="process-math">\(k \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_discrete-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3323,12 +3348,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 7: Understand"><a tabindex="-1" href="#exer_eval_seq_discrete" title="  7: Understand" aria-label="  7: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_explicit_seq"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_explicit_seq"><h4 class="heading">
 <span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_explicit_seq-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_explicit_seq-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_explicit_seq-2-1-2">
 <li id="exer_dyk_explicit_seq-2-1-2-1">
 <div class="para" id="exer_dyk_explicit_seq-2-1-2-1-1">Which of <span class="process-math">\(n\)</span> or <span class="process-math">\(a_n\)</span> is the term and which is the index?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_explicit_seq-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3346,15 +3371,15 @@ n \amp \text{ if } n \text{ is odd }
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 6.5.A The Definition of Sequence"><a tabindex="-1" href="#sec_explicitly_defined_sequences-6-2" title="Copy heading and permalink for Subsubsection: Exercises for 6.5.A The Definition of Sequence" aria-label="Copy heading and permalink for Subsubsection: Exercises for 6.5.A The Definition of Sequence">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_explicitly_defined_sequences-6-3">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 6.5.B Modeling with Explicitly-defined Sequences</span>
-</h4>
-<article class="exercise exercise-like" id="exer_NTE_constants_alt"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_NTE_constants_alt"><h4 class="heading">
 <span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_constants_alt-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_constants_alt-2-1-2">
+<ol class="lower-alpha" id="exer_NTE_constants_alt-2-1-2">
 <li id="exer_NTE_constants_alt-2-1-2-1">
 <div class="para" id="exer_NTE_constants_alt-2-1-2-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(1, 1, 1, 1, 1, 1, \ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_constants_alt-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3381,7 +3406,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_NTE_constants_alt-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_constants_alt-3-1">
+<ol class="lower-alpha" id="exer_NTE_constants_alt-3-1">
 <li id="exer_NTE_constants_alt-3-1-1">
 <div class="para" id="exer_NTE_constants_alt-3-1-1-1">
 <span class="process-math">\(a_n=1\)</span> for <span class="process-math">\(n \ge 0\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_constants_alt-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3409,12 +3434,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 9: Practice"><a tabindex="-1" href="#exer_NTE_constants_alt" title="  9: Practice" aria-label="  9: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_lin_exp"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_lin_exp"><h4 class="heading">
 <span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_lin_exp-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Hint: Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_lin_exp-2-1-2">
+<ol class="lower-alpha" id="exer_NTE_lin_exp-2-1-2">
 <li id="exer_NTE_lin_exp-2-1-2-1">
 <div class="para" id="exer_NTE_lin_exp-2-1-2-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(1, 6, 11, 16, 21, \ldots\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_lin_exp-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3441,7 +3466,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_NTE_lin_exp-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_lin_exp-3-1">
+<ol class="lower-alpha" id="exer_NTE_lin_exp-3-1">
 <li id="exer_NTE_lin_exp-3-1-1">
 <div class="para" id="exer_NTE_lin_exp-3-1-1-1">Hint: The answer involves <span class="process-math">\(5n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_lin_exp-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3468,12 +3493,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 10: Practice"><a tabindex="-1" href="#exer_NTE_lin_exp" title="  10: Practice" aria-label="  10: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_complicated"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_complicated"><h4 class="heading">
 <span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_complicated-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence. Each rule involves a factorial, handshake, floor, or ceiling function.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_complicated-2-1-2">
+<ol class="lower-alpha" id="exer_NTE_complicated-2-1-2">
 <li id="exer_NTE_complicated-2-1-2-1">
 <div class="para" id="exer_NTE_complicated-2-1-2-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(2,6,12,20,30, \ldots\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_complicated-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3500,7 +3525,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_NTE_complicated-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_complicated-3-1">
+<ol class="lower-alpha" id="exer_NTE_complicated-3-1">
 <li id="exer_NTE_complicated-3-1-1">
 <div class="para" id="exer_NTE_complicated-3-1-1-1">Hint: Involve the handshake numbers such as <span class="process-math">\(\frac{n(n-1)}{2}\)</span> or <span class="process-math">\(\frac{n(n+1)}{2}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_complicated-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3527,12 +3552,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 11: Understand"><a tabindex="-1" href="#exer_NTE_complicated" title="  11: Understand" aria-label="  11: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_shifts"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_shifts"><h4 class="heading">
 <span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_shifts-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Hints: Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence. Each rule involves adding or subtracting a constant.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_shifts-2-1-2">
+<ol class="lower-alpha" id="exer_NTE_shifts-2-1-2">
 <li id="exer_NTE_shifts-2-1-2-1">
 <div class="para" id="exer_NTE_shifts-2-1-2-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(7,8, 9, 10, 11, 12, 13, \ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_shifts-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3559,7 +3584,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_NTE_shifts-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_shifts-3-1">
+<ol class="lower-alpha" id="exer_NTE_shifts-3-1">
 <li id="exer_NTE_shifts-3-1-1">
 <div class="para" id="exer_NTE_shifts-3-1-1-1">
 <span class="process-math">\(a_n=n+7\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_shifts-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3587,12 +3612,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 12: Understand"><a tabindex="-1" href="#exer_NTE_shifts" title="  12: Understand" aria-label="  12: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_fractions"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_fractions"><h4 class="heading">
 <span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_fractions-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Hint: Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_fractions-2-1-2">
+<ol class="lower-alpha" id="exer_NTE_fractions-2-1-2">
 <li id="exer_NTE_fractions-2-1-2-1">
 <div class="para" id="exer_NTE_fractions-2-1-2-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(\frac{1}{3}, \frac{1}{4}, \frac{1}{5}, \frac{1}{6}, \frac{1}{7}, \ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_fractions-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3619,7 +3644,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_NTE_fractions-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_fractions-3-1">
+<ol class="lower-alpha" id="exer_NTE_fractions-3-1">
 <li id="exer_NTE_fractions-3-1-1">
 <div class="para" id="exer_NTE_fractions-3-1-1-1">
 <span class="process-math">\(a_n =\frac{1}{n+3}\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_fractions-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3647,12 +3672,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 13: Understand"><a tabindex="-1" href="#exer_NTE_fractions" title="  13: Understand" aria-label="  13: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_factor"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_factor"><h4 class="heading">
 <span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_factor-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_factor-2-1-1">
+<ol class="lower-alpha" id="exer_NTE_factor-2-1-1">
 <li id="exer_NTE_factor-2-1-1-1">
 <div class="para" id="exer_NTE_factor-2-1-1-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(0, 5, 12, 21, 32, 45, \ldots\text{.}\)</span> Hint: Start the index at 0. Factor.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_factor-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3674,7 +3699,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_NTE_factor-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_factor-3-1">
+<ol class="lower-alpha" id="exer_NTE_factor-3-1">
 <li id="exer_NTE_factor-3-1-1">
 <div class="para" id="exer_NTE_factor-3-1-1-1">Hint: <span class="process-math">\(n\)</span> is a factor.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_factor-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3697,12 +3722,12 @@ n \amp \text{ if } n \text{ is odd }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 14: Understand"><a tabindex="-1" href="#exer_NTE_factor" title="  14: Understand" aria-label="  14: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_piecewise"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_piecewise"><h4 class="heading">
 <span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_piecewise-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Use a piecewise-defined rule. Hint: Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_piecewise-2-1-2">
+<ol class="lower-alpha" id="exer_NTE_piecewise-2-1-2">
 <li id="exer_NTE_piecewise-2-1-2-1">
 <div class="para" id="exer_NTE_piecewise-2-1-2-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(0, 2, 0, 2, 0, 2, \ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_piecewise-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3724,7 +3749,7 @@ n \amp \text{ if } n \text{ is odd }
 <div class="solutions">
 <details id="exer_NTE_piecewise-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_piecewise-3-1">
+<ol class="lower-alpha" id="exer_NTE_piecewise-3-1">
 <li id="exer_NTE_piecewise-3-1-1">
 <div class="para logical" id="exer_NTE_piecewise-3-1-1-1">
 <div class="para">Hint: The answer can be written in the form</div>
@@ -3755,12 +3780,12 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 15: Understand"><a tabindex="-1" href="#exer_NTE_piecewise" title="  15: Understand" aria-label="  15: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_next_term"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_next_term"><h4 class="heading">
 <span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_next_term-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_next_term-2-1-1">
+<ol class="lower-alpha" id="exer_next_term-2-1-1">
 <li id="exer_next_term-2-1-1-1">
 <div class="para" id="exer_next_term-2-1-1-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(0.1, 0.01, 0.001, 0.0001, \ldots\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_next_term-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3786,12 +3811,12 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 16: Understand"><a tabindex="-1" href="#exer_next_term" title="  16: Understand" aria-label="  16: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_model_seq_sets_bs"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_model_seq_sets_bs"><h4 class="heading">
 <span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_model_seq_sets_bs-2-1">
 <div class="para">Write a simple explicit rule in words that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_model_seq_sets_bs-2-1-1">
+<ol class="lower-alpha" id="exer_model_seq_sets_bs-2-1-1">
 <li id="exer_model_seq_sets_bs-2-1-1-1">
 <div class="para" id="exer_model_seq_sets_bs-2-1-1-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(\{0,1\}, \{1,2\}, \{2,3\}, \{3,4\},\ldots\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_model_seq_sets_bs-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3817,12 +3842,12 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 17: Understand"><a tabindex="-1" href="#exer_model_seq_sets_bs" title="  17: Understand" aria-label="  17: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_next_term_explicit"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_next_term_explicit"><h4 class="heading">
 <span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_next_term_explicit-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_next_term_explicit-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_next_term_explicit-2-1-2">
 <li id="exer_dyk_next_term_explicit-2-1-2-1">
 <div class="para" id="exer_dyk_next_term_explicit-2-1-2-1-1">What type of rule follows the pattern that each term of the sequence is the previous term plus a constant? Times a constant?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_next_term_explicit-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3848,12 +3873,12 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 18: Recap"><a tabindex="-1" href="#exer_dyk_next_term_explicit" title="  18: Recap" aria-label="  18: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_alternate"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_alternate"><h4 class="heading">
 <span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_alternate-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Do not a piecewise-defined rule. Hint: Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_alternate-2-1-2">
+<ol class="lower-alpha" id="exer_NTE_alternate-2-1-2">
 <li id="exer_NTE_alternate-2-1-2-1">
 <div class="para" id="exer_NTE_alternate-2-1-2-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(0, 2, 0, 2, 0, 2, \ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_alternate-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3869,12 +3894,12 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 19: Explore"><a tabindex="-1" href="#exer_NTE_alternate" title="  19: Explore" aria-label="  19: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_number_theoretic"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_number_theoretic"><h4 class="heading">
 <span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_number_theoretic-2-1">
 <div class="para">Write a simple explicit rule that generates each sequence. Start the index at 0 or 1 (your choice), being sure to state where your sequence starts. Hint: Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_number_theoretic-2-1-2">
+<ol class="lower-alpha" id="exer_NTE_number_theoretic-2-1-2">
 <li id="exer_NTE_number_theoretic-2-1-2-1">
 <div class="para" id="exer_NTE_number_theoretic-2-1-2-1-1">The sequence <span class="process-math">\(s\)</span> begins <span class="process-math">\(0,1,2,3,0,1,2,3\text{.}\)</span> Note: Do not a piecewise-defined rule. Can you write a rule involving \text{ mod } instead?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_number_theoretic-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3896,7 +3921,7 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 <div class="solutions">
 <details id="exer_NTE_number_theoretic-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_number_theoretic-3-1">
+<ol class="lower-alpha" id="exer_NTE_number_theoretic-3-1">
 <li id="exer_NTE_number_theoretic-3-1-1">
 <div class="para" id="exer_NTE_number_theoretic-3-1-1-1">
 <span class="process-math">\(s_n=a \fn{ mod } 3\)</span> for <span class="process-math">\(n \ge 0\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_number_theoretic-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3921,15 +3946,15 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 6.5.B Modeling with Explicitly-defined Sequences"><a tabindex="-1" href="#sec_explicitly_defined_sequences-6-3" title="Copy heading and permalink for Subsubsection: Exercises for 6.5.B Modeling with Explicitly-defined Sequences" aria-label="Copy heading and permalink for Subsubsection: Exercises for 6.5.B Modeling with Explicitly-defined Sequences">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_explicitly_defined_sequences-6-4">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 6.5.C Detour: Sequences Involving Primes</span>
-</h4>
-<article class="exercise exercise-like" id="exer_eval_seq_prime_fact"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_eval_seq_prime_fact"><h4 class="heading">
 <span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_prime_fact-2-1">
 <div class="para">Evaluate the first six terms of each sequence and also the 100th term.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_prime_fact-2-1-1">
+<ol class="lower-alpha" id="exer_eval_seq_prime_fact-2-1-1">
 <li id="exer_eval_seq_prime_fact-2-1-1-1">
 <div class="para" id="exer_eval_seq_prime_fact-2-1-1-1-1">
 <span class="process-math">\(t_m=\)</span> the highest power of 5 that divides <span class="process-math">\(m\)</span> for <span class="process-math">\(m \ge 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_prime_fact-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -3954,7 +3979,7 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 <div class="solutions">
 <details id="exer_eval_seq_prime_fact-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_prime_fact-3-1">
+<ol class="lower-alpha" id="exer_eval_seq_prime_fact-3-1">
 <li id="exer_eval_seq_prime_fact-3-1-1">
 <div class="para" id="exer_eval_seq_prime_fact-3-1-1-1">Hint: <span class="process-math">\(t_{100}=25\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_prime_fact-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3976,13 +4001,13 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 21: Practice"><a tabindex="-1" href="#exer_eval_seq_prime_fact" title="  21: Practice" aria-label="  21: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_seq_involving_pisubn"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_seq_involving_pisubn"><h4 class="heading">
 <span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_involving_pisubn-2-1">
 <div class="para">Evaluate first six terms of the each sequence where <span class="process-math">\(\pi_n\)</span> is the sequence of primes for <span class="process-math">\(n \ge 1\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_involving_pisubn-2-1-3">
+<ol class="lower-alpha" id="exer_eval_seq_involving_pisubn-2-1-3">
 <li id="exer_eval_seq_involving_pisubn-2-1-3-1">
 <div class="para" id="exer_eval_seq_involving_pisubn-2-1-3-1-1">
 <span class="process-math">\(a_n=10\pi_n\)</span> for <span class="process-math">\(n \ge 1\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_involving_pisubn-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -4001,7 +4026,7 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 <div class="solutions">
 <details id="exer_eval_seq_involving_pisubn-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_involving_pisubn-3-1">
+<ol class="lower-alpha" id="exer_eval_seq_involving_pisubn-3-1">
 <li id="exer_eval_seq_involving_pisubn-3-1-1">
 <div class="para" id="exer_eval_seq_involving_pisubn-3-1-1-1">Hint: It begins <span class="process-math">\(20, 30, 50, \ldots\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_involving_pisubn-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4018,13 +4043,13 @@ a_n= \left\{ \begin{array}{cl} 0 \amp  \text{ if }  n \text{ is \underline{\hspa
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 22: Practice"><a tabindex="-1" href="#exer_eval_seq_involving_pisubn" title="  22: Practice" aria-label="  22: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_seq_piecewise_prime"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_seq_piecewise_prime"><h4 class="heading">
 <span class="codenumber">23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_seq_piecewise_prime-2-1">
 <div class="para">Evaluate the first six terms of each sequence starting at <span class="process-math">\(n=1\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_piecewise_prime-2-1-2">
+<ol class="lower-alpha" id="exer_eval_seq_piecewise_prime-2-1-2">
 <li id="exer_eval_seq_piecewise_prime-2-1-2-1">
 <div class="para logical" id="exer_eval_seq_piecewise_prime-2-1-2-1-1">
 <div class="displaymath process-math" id="exer_eval_seq_piecewise_prime-2-1-2-1-1-1">
@@ -4053,7 +4078,7 @@ v_i= \left\{ \begin{array}{ll} 1 \amp  \text{ if }  i=1 \\ i^2 \amp  \text{ if }
 <div class="solutions">
 <details id="exer_eval_seq_piecewise_prime-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_seq_piecewise_prime-3-1">
+<ol class="lower-alpha" id="exer_eval_seq_piecewise_prime-3-1">
 <li id="exer_eval_seq_piecewise_prime-3-1-1">
 <div class="para" id="exer_eval_seq_piecewise_prime-3-1-1-1">Hint: It begins <span class="process-math">\(1,0,0,4\ldots\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_seq_piecewise_prime-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4070,12 +4095,12 @@ v_i= \left\{ \begin{array}{ll} 1 \amp  \text{ if }  i=1 \\ i^2 \amp  \text{ if }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 23: Understand"><a tabindex="-1" href="#exer_eval_seq_piecewise_prime" title="  23: Understand" aria-label="  23: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_prime_fact"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_prime_fact"><h4 class="heading">
 <span class="codenumber">24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_prime_fact-2-1">
 <div class="para">Write a simple explicit rule in words that generates each sequence. Start the index at 1. Hint: Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence. The rule involves the prime factorization of the index.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_prime_fact-2-1-2">
+<ol class="lower-alpha" id="exer_NTE_prime_fact-2-1-2">
 <li id="exer_NTE_prime_fact-2-1-2-1">
 <div class="para" id="exer_NTE_prime_fact-2-1-2-1-1">The sequence <span class="process-math">\(x\)</span> begins <span class="process-math">\(1, 2, 1, 4, 1, 2, 1, 8, 1, 2, 1, 4, 1, 2, 1, \underline{~},\ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_prime_fact-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4092,7 +4117,7 @@ v_i= \left\{ \begin{array}{ll} 1 \amp  \text{ if }  i=1 \\ i^2 \amp  \text{ if }
 <div class="solutions">
 <details id="exer_NTE_prime_fact-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_prime_fact-3-1">
+<ol class="lower-alpha" id="exer_NTE_prime_fact-3-1">
 <li id="exer_NTE_prime_fact-3-1-1">
 <div class="para" id="exer_NTE_prime_fact-3-1-1-1">Hint: Every term in the sequence is a power of two and a divisor of the index.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_prime_fact-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4109,9 +4134,9 @@ v_i= \left\{ \begin{array}{ll} 1 \amp  \text{ if }  i=1 \\ i^2 \amp  \text{ if }
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 24: Understand"><a tabindex="-1" href="#exer_NTE_prime_fact" title="  24: Understand" aria-label="  24: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_piecewise_prime"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_piecewise_prime"><h4 class="heading">
 <span class="codenumber">25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_piecewise_prime-2-1">
 <div class="para">For each sequence, write a simple explicit rule of the form</div>
 <div class="displaymath process-math" id="exer_NTE_piecewise_prime-2-1-1">
@@ -4120,7 +4145,7 @@ a_n = \left\{ \begin{array}{ll}  \underline{\hspace{.5in}} \amp  \text{ if }  n=
 \end{equation*}
 </div>
 <div class="para">that generates the sequence. Start the index at 1. Hint: Make a table showing the index <span class="process-math">\(n\)</span> and the terms of the sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_piecewise_prime-2-1-3">
+<ol class="lower-alpha" id="exer_NTE_piecewise_prime-2-1-3">
 <li id="exer_NTE_piecewise_prime-2-1-3-1">
 <div class="para" id="exer_NTE_piecewise_prime-2-1-3-1-1">The sequence <span class="process-math">\(a\)</span> begins <span class="process-math">\(0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0,\ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_piecewise_prime-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4137,7 +4162,7 @@ a_n = \left\{ \begin{array}{ll}  \underline{\hspace{.5in}} \amp  \text{ if }  n=
 <div class="solutions">
 <details id="exer_NTE_piecewise_prime-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_piecewise_prime-3-1">
+<ol class="lower-alpha" id="exer_NTE_piecewise_prime-3-1">
 <li id="exer_NTE_piecewise_prime-3-1-1">
 <div class="para" id="exer_NTE_piecewise_prime-3-1-1-1">Hint: Where are the 1s?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_piecewise_prime-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4154,12 +4179,12 @@ a_n = \left\{ \begin{array}{ll}  \underline{\hspace{.5in}} \amp  \text{ if }  n=
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 25: Understand"><a tabindex="-1" href="#exer_NTE_piecewise_prime" title="  25: Understand" aria-label="  25: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_pisubn"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_pisubn"><h4 class="heading">
 <span class="codenumber">26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_pisubn-2-1">
 <div class="para">Write a simple explicit rule in words that generates the each sequence. Start the index at 1. Hints: The rule involves the prime sequence <span class="process-math">\(\pi_n\text{.}\)</span> Make a table showing the index <span class="process-math">\(n\text{,}\)</span> the value of <span class="process-math">\(\pi_n\text{,}\)</span> and the terms of the sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_pisubn-2-1-4">
+<ol class="lower-alpha" id="exer_NTE_pisubn-2-1-4">
 <li id="exer_NTE_pisubn-2-1-4-1">
 <div class="para" id="exer_NTE_pisubn-2-1-4-1-1">The sequence <span class="process-math">\(c\)</span> begins <span class="process-math">\(4, 9, 25, 49, 121, 169, 289,\ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_pisubn-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4176,7 +4201,7 @@ a_n = \left\{ \begin{array}{ll}  \underline{\hspace{.5in}} \amp  \text{ if }  n=
 <div class="solutions">
 <details id="exer_NTE_pisubn-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_pisubn-3-1">
+<ol class="lower-alpha" id="exer_NTE_pisubn-3-1">
 <li id="exer_NTE_pisubn-3-1-1">
 <div class="para" id="exer_NTE_pisubn-3-1-1-1">Hint: Square<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_pisubn-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4193,12 +4218,12 @@ a_n = \left\{ \begin{array}{ll}  \underline{\hspace{.5in}} \amp  \text{ if }  n=
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 26: Understand"><a tabindex="-1" href="#exer_NTE_pisubn" title="  26: Understand" aria-label="  26: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_seq_primes"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_seq_primes"><h4 class="heading">
 <span class="codenumber">27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_seq_primes-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_seq_primes-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_seq_primes-2-1-2">
 <li id="exer_dyk_seq_primes-2-1-2-1">
 <div class="para" id="exer_dyk_seq_primes-2-1-2-1-1">How to evaluate or model a sequence where the terms depend on the prime factorization of the index?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_seq_primes-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4224,12 +4249,12 @@ a_n = \left\{ \begin{array}{ll}  \underline{\hspace{.5in}} \amp  \text{ if }  n=
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 27: Recap"><a tabindex="-1" href="#exer_dyk_seq_primes" title="  27: Recap" aria-label="  27: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_NTE_pisubn_continued"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_NTE_pisubn_continued"><h4 class="heading">
 <span class="codenumber">28<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_NTE_pisubn_continued-2-1">
 <div class="para">Write a simple explicit rule in words that generates the each sequence. Start the index at 1. Hints: The rule involves the prime sequence <span class="process-math">\(\pi_n\text{.}\)</span> Make a table showing the index <span class="process-math">\(n\text{,}\)</span> the value of <span class="process-math">\(\pi_n\text{,}\)</span> and the terms of the sequence.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_pisubn_continued-2-1-4">
+<ol class="lower-alpha" id="exer_NTE_pisubn_continued-2-1-4">
 <li id="exer_NTE_pisubn_continued-2-1-4-1">
 <div class="para" id="exer_NTE_pisubn_continued-2-1-4-1-1">The sequence <span class="process-math">\(s\)</span> begins <span class="process-math">\(2, 5, 11, 17, 23, 31, 41,\ldots\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_pisubn_continued-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -4246,7 +4271,7 @@ a_n = \left\{ \begin{array}{ll}  \underline{\hspace{.5in}} \amp  \text{ if }  n=
 <div class="solutions">
 <details id="exer_NTE_pisubn_continued-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_NTE_pisubn_continued-3-1">
+<ol class="lower-alpha" id="exer_NTE_pisubn_continued-3-1">
 <li id="exer_NTE_pisubn_continued-3-1-1">
 <div class="para" id="exer_NTE_pisubn_continued-3-1-1-1">Hint: Write each term as <span class="process-math">\(\pi_n\text{.}\)</span> For example, <span class="process-math">\(2 = \pi_1\)</span> and <span class="process-math">\(5 = \pi_3\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_NTE_pisubn_continued-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>

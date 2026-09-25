@@ -31,6 +31,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@ htmlPresentation: false,
 <meta property="og:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta property="book:title" content="Active Discrete Mathematics: Patterns, Structures, and Proof">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.46"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.53"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.53"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -61,21 +62,21 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1bda041f5a098305.css">
+<script src="_static/prefix-runtime.8b982cdcb4aa84b9.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.0499040fbb8ea56b.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Active Discrete Mathematics: Patterns, Structures, and Proof</span></a></div>
 <p class="byline">Dr. Suzanne Dorée</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
@@ -88,7 +89,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -273,7 +284,9 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_prologue.html" class="internal"><span class="codenumber">1</span> <span class="title">Prologue</span></a></div>
-<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_prologue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_prologue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_handshakes.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Handshakes</span></a></div>
 <ul id="ptx-toc-group-sec_handshakes" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_handshakes.html#sec_handshakes-3" class="internal"><span class="codenumber">1.1.A</span> <span class="title">Counting Handshakes</span></a></div></li>
@@ -287,11 +300,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_counting.html" class="internal"><span class="codenumber">2</span> <span class="title">Listing and Counting</span></a></div>
 <ul id="ptx-toc-group-ch_counting" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_counting-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_listing.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Organized Listing</span></a></div>
 <ul id="ptx-toc-group-sec_listing" class="structural toc-item-list">
@@ -365,6 +380,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_graph_theory.html" class="internal"><span class="codenumber">3</span> <span class="title">Graph Theory</span></a></div>
 <ul id="ptx-toc-group-ch_graph_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_graph_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_graph_models.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Modeling with Graphs</span></a></div>
 <ul id="ptx-toc-group-sec_graph_models" class="structural toc-item-list">
@@ -450,6 +466,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_number_theory.html" class="internal"><span class="codenumber">4</span> <span class="title">Number Theory</span></a></div>
 <ul id="ptx-toc-group-ch_number_theory" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_number_theory-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_even_odd_divides.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Integer Division</span></a></div>
 <ul id="ptx-toc-group-sec_even_odd_divides" class="structural toc-item-list">
@@ -537,6 +554,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_logic_proof.html" class="internal"><span class="codenumber">5</span> <span class="title">Logic and Proof</span></a></div>
 <ul id="ptx-toc-group-ch_logic_proof" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_logic_proof-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_logic_connectives.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Logical Connectives</span></a></div>
 <ul id="ptx-toc-group-sec_logic_connectives" class="structural toc-item-list">
@@ -633,6 +651,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_functions.html" class="internal"><span class="codenumber">6</span> <span class="title">Functions</span></a></div>
 <ul id="ptx-toc-group-ch_functions" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_functions-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_functions.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Functions and Their Representations</span></a></div>
 <ul id="ptx-toc-group-sec_functions" class="structural toc-item-list">
@@ -722,6 +741,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sets_rel.html" class="internal"><span class="codenumber">7</span> <span class="title">Sets and Relations</span></a></div>
 <ul id="ptx-toc-group-ch_sets_rel" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sets_rel-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_sets.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Sets</span></a></div>
 <ul id="ptx-toc-group-sec_sets" class="structural toc-item-list">
@@ -806,6 +826,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch_recursion_induction.html" class="internal"><span class="codenumber">8</span> <span class="title">Recursion and Induction</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch_recursion_induction">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_recursion_induction-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_recursively_defined_sequences.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Recursively-defined Sequences</span></a></div>
 <ul id="ptx-toc-group-sec_recursively_defined_sequences" class="structural toc-item-list">
@@ -893,6 +914,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_sum_prod.html" class="internal"><span class="codenumber">9</span> <span class="title">Sums and Products</span></a></div>
 <ul id="ptx-toc-group-ch_sum_prod" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_sum_prod-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_model_sum_prod.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Modeling with Sums and Products</span></a></div>
 <ul id="ptx-toc-group-sec_model_sum_prod" class="structural toc-item-list">
@@ -976,35 +998,38 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch_epilogue.html" class="internal"><span class="codenumber">10</span> <span class="title">Epilogue</span></a></div>
-<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list"><li class="toc-item toc-section">
+<ul id="ptx-toc-group-ch_epilogue" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="ch_epilogue-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_hotelinfinity.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Hotel Infinity</span></a></div>
 <ul id="ptx-toc-group-sec_hotelinfinity" class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_hotel_infinity" class="internal"><span class="codenumber">10.1.A</span> <span class="title">Hotel Infinity</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_hotelinfinity.html#sub_countable" class="internal"><span class="codenumber">10.1.B</span> <span class="title">The Definition of Discrete</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+</ul>
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec_fibonacci_higher">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Fibonacci Sequence and Higher Order Recursions</span>
-</h2>
+</h1>
 <section class="introduction" id="sec_fibonacci_higher-2">
 <div class="para" id="sec_fibonacci_higher-2-1">In this section, we return to look at higher order recursively-defined sequences, especially the famous Fibonacci sequence. We look at how to model sequences using higher order recursions and how to use recursions to solve counting problems. Next, the Fibonacci sequence has many patterns, which we explore and prove using mathematical induction. Finally, we introduce a strong form of mathematical induction that, among other things, can be used to prove explicit forms for higher order recursively-defined sequences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec_fibonacci_higher-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
 <section class="subsection" id="sub_fibonacci">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Fibonacci Sequence and Higher Order Recursions</span>
-</h3>
+</h2>
 <div class="para" id="sub_fibonacci-2">In the Squares and Dominoes puzzle <a href="sec_listing.html#act_squares_dominoes" class="xref" data-knowl="./knowl/xref/act_squares_dominoes.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 2.1.A: Squares and Dominoes Puzzle">Activity 2.1.A</a>, the Proper Bit Strings puzzle <a href="sec_rec_def_structures.html#act_proper_bs" class="xref" data-knowl="./knowl/xref/act_proper_bs.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.4.A: Proper Bit Strings Puzzle">Activity 8.4.A</a>, and the lopsided tree activity <a href="sec_rec_def_structures.html#act_rec_trees" class="xref" data-knowl="./knowl/xref/act_rec_trees.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.4.C: Lopsided trees">Activity 8.4.C</a>, we saw a sequence where each term was the sum of the two previous terms. The most famous sequence satisfying that recursion is the Fibonacci sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fibonacci-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_fibonacci"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonacci sequence.</span>
-</h4>
+<article class="definition definition-like" id="defn_fibonacci"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonacci sequence.</span>
+</h3>
 <div class="para logical" id="defn_fibonacci-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_fibonacci-2-1-2">
+<ol class="lower-alpha" id="defn_fibonacci-2-1-2">
 <li id="defn_fibonacci-2-1-2-1">
 <div class="para logical" id="defn_fibonacci-2-1-2-1-1">
 <div class="para">The <dfn class="terminology">Fibonacci sequence</dfn> is defined by <span class="process-math">\(F_0=0\text{,}\)</span> <span class="process-math">\(F_1=1\)</span> and</div>
@@ -1036,9 +1061,9 @@ F_n=F_{n-1}+F_{n-2}
 </article>
 <div class="para" id="sub_fibonacci-4">Let’s see how we found the terms of the Fibonacci sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fibonacci-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_fib_list" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Fibonacci sequence.</span>
-</h4></summary>
+<details id="exam_fib_list" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Fibonacci sequence.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="exam_fib_list-2-1">Find the first twenty terms of the Fibonacci sequence: <span class="process-math">\(F_0, F_1, \ldots, F_{19}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_fib_list-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
@@ -1139,13 +1164,13 @@ F_{15}=F_{14}+F_{13} = 377+233=610\text{.}
 </article></details>
 <div class="para" id="sub_fibonacci-6">Let’s practice using the recursion for the Fibonacci sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fibonacci-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_write_as_fib" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Write as a single Fibonacci number.</span>
-</h4></summary>
+<details id="exam_write_as_fib" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Write as a single Fibonacci number.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_write_as_fib-2-1">
 <div class="para">Use the recursive rule for the Fibonacci sequence to simplify each expression as a single Fibonacci number.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_write_as_fib-2-1-1">
+<ol class="lower-alpha" id="exam_write_as_fib-2-1-1">
 <li id="exam_write_as_fib-2-1-1-1">
 <div class="para" id="exam_write_as_fib-2-1-1-1-1">
 <span class="process-math">\(F_{98} + F_{99}\)</span> 
@@ -1189,12 +1214,12 @@ F_{15}=F_{14}+F_{13} = 377+233=610\text{.}
 </article></details>
 <div class="para" id="sub_fibonacci-8">Notice that the recursive rule for the Fibonacci sequence uses two previous terms. We have a name for sequences defined by recursions that use more than one previous term.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fibonacci-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="definition definition-like" id="defn_higher_order_rec"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Higher order recursions.</span>
-</h4>
+<article class="definition definition-like" id="defn_higher_order_rec"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Higher order recursions.</span>
+</h3>
 <div class="para logical" id="defn_higher_order_rec-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="defn_higher_order_rec-2-1-2">
+<ol class="lower-alpha" id="defn_higher_order_rec-2-1-2">
 <li id="defn_higher_order_rec-2-1-2-1">
 <div class="para" id="defn_higher_order_rec-2-1-2-1-1">A recursive rule that involves the two previous terms is <dfn class="terminology">second order</dfn>. The most famous second order recursion is the Fibonacci sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#defn_higher_order_rec-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1217,13 +1242,13 @@ F_{15}=F_{14}+F_{13} = 377+233=610\text{.}
 </article>
 <div class="para" id="sub_fibonacci-10">Let’s look at examples of evaluating higher order recursively-defined sequences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fibonacci-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_rec_seq_higher_order" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating higher order recursively-defined sequences.</span>
-</h4></summary>
+<details id="exam_rec_seq_higher_order" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluating higher order recursively-defined sequences.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_rec_seq_higher_order-2-1">
 <div class="para">Write the first five terms of each sequence. Your list should begin with the initial conditions.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_rec_seq_higher_order-2-1-1">
+<ol class="lower-alpha" id="exam_rec_seq_higher_order-2-1-1">
 <li id="exam_rec_seq_higher_order-2-1-1-1">
 <div class="para logical" id="exam_rec_seq_higher_order-2-1-1-1-1">
 <div class="para">The <dfn class="terminology">Lucas sequence</dfn> is defined by <span class="process-math">\(L_0=2\text{,}\)</span> <span class="process-math">\(L_1=1\text{,}\)</span> and</div>
@@ -1309,7 +1334,7 @@ a_5=a_3+(-1)^{5+1}2=4+2=6\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_rec_seq_higher_order-2-1-1-2-1-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="exam_rec_seq_higher_order-2-1-1-2-1-7-4">The first five terms are <span class="process-math">\(2,-3,4,-5,6\text{.}\)</span> We saw this sequence in <a href="sec_explicitly_defined_sequences.html#exam_next_term_explicit" class="xref" data-knowl="./knowl/xref/exam_next_term_explicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.5.6: Modeling with explicitly-defined sequences">Example 6.5.6</a><a href="sec_explicitly_defined_sequences.html#part_NTE_exam_alt_linear" class="xref" data-knowl="./knowl/xref/part_NTE_exam_alt_linear.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (c)">(c)</a> and found an explicit rule for this sequence is <span class="process-math">\(a_n=(-1)^n(n+2)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_rec_seq_higher_order-2-1-1-2-1-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_rec_seq_higher_order-2-1-1-2-1-7-4">The first five terms are <span class="process-math">\(2,-3,4,-5,6\text{.}\)</span> We saw this sequence in <a href="sec_explicitly_defined_sequences.html#exam_next_term_explicit" class="xref" data-knowl="./knowl/xref/exam_next_term_explicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 6.5.8: Modeling with explicitly-defined sequences">Example 6.5.8</a><a href="sec_explicitly_defined_sequences.html#part_NTE_exam_alt_linear" class="xref" data-knowl="./knowl/xref/part_NTE_exam_alt_linear.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (c)">(c)</a> and found an explicit rule for this sequence is <span class="process-math">\(a_n=(-1)^n(n+2)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_rec_seq_higher_order-2-1-1-2-1-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Solution 1"><a tabindex="-1" href="#exam_rec_seq_higher_order-2-1-1-2-1-7" title="Copy heading and permalink for Solution 1" aria-label="Copy heading and permalink for Solution 1">🔗</a></div>
 </div></details>
@@ -1363,12 +1388,12 @@ t_4=t_3+t_2+t_1=2+1+1=4\text{.}
 </article></details>
 <div class="para" id="sub_fibonacci-12">Try working with the Fibonaccis and higher order recursions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fibonacci-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_eval_model_higher_order"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.A</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Higher order recursively-defined sequences.</span>
-</h4>
+<article class="activity project-like" id="act_eval_model_higher_order"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.A</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Higher order recursively-defined sequences.</span>
+</h3>
 <div class="para logical" id="act_eval_model_higher_order-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_eval_model_higher_order-2-2">
+<ol class="lower-alpha" id="act_eval_model_higher_order-2-2">
 <li id="act_eval_model_higher_order-2-2-1">
 <div class="para" id="act_eval_model_higher_order-2-2-1-1">Use the recursion that defines Fibonacci sequence: <span class="process-math">\(F_n=F_{n-1}+F_{n-2}\)</span> and that <span class="process-math">\(F_5=5\)</span> and <span class="process-math">\(F_6=8\)</span> to calculate <span class="process-math">\(F_7\text{,}\)</span> <span class="process-math">\(F_8\text{,}\)</span> <span class="process-math">\(F_9\text{,}\)</span> and <span class="process-math">\(F_{10}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_eval_model_higher_order-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1413,18 +1438,18 @@ w_n = w_{n-1}w_{n-2}w_{n-3}
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 8.5.A: The Fibonacci Sequence and Higher Order Recursions"><a tabindex="-1" href="#sub_fibonacci" title="Copy heading and permalink for Subsection 8.5.A: The Fibonacci Sequence and Higher Order Recursions" aria-label="Copy heading and permalink for Subsection 8.5.A: The Fibonacci Sequence and Higher Order Recursions">🔗</a></div>
 </section>
 <section class="subsection" id="sub_model_higher_order_rec">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with Higher Order Recursions</span>
-</h3>
+</h2>
 <div class="para" id="sub_model_higher_order_rec-2">Higher order recursions can be used to describe sequences and also to count.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_model_higher_order_rec-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_ntr_higher" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with higher order recursively-defined sequences.</span>
-</h4></summary>
+<details id="exam_ntr_higher" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with higher order recursively-defined sequences.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_ntr_higher-2-1">
 <div class="para">For each list, find a simple pattern generating a sequence. Write the initial conditions and a higher order recursive rule for the sequence. Start your indexing at 0.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_ntr_higher-2-1-1">
+<ol class="lower-alpha" id="exam_ntr_higher-2-1-1">
 <li id="exam_ntr_higher-2-1-1-1">
 <div class="para" id="exam_ntr_higher-2-1-1-1-1">The sequence <span class="process-math">\(a\)</span> begins 2, 5, 6, 10, 15, 24, 38, …. 
 <details id="exam_ntr_higher-2-1-1-1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1450,13 +1475,13 @@ w_n = w_{n-1}w_{n-2}w_{n-3}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_ntr_higher-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.7: Modeling with higher order recursively-defined sequences"><a tabindex="-1" href="#exam_ntr_higher" title="Copy heading and permalink for Example 8.5.7: Modeling with higher order recursively-defined sequences" aria-label="Copy heading and permalink for Example 8.5.7: Modeling with higher order recursively-defined sequences">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.8: Modeling with higher order recursively-defined sequences"><a tabindex="-1" href="#exam_ntr_higher" title="Copy heading and permalink for Example 8.5.8: Modeling with higher order recursively-defined sequences" aria-label="Copy heading and permalink for Example 8.5.8: Modeling with higher order recursively-defined sequences">🔗</a></div>
 </article></details>
 <div class="para" id="sub_model_higher_order_rec-4">Sometimes there are different order recursions that generate the same sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_model_higher_order_rec-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_diff_order_rec" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Different order recursions.</span>
-</h4></summary>
+<details id="exam_diff_order_rec" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.9</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Different order recursions.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_diff_order_rec-2-1">
 <div class="para">Consider the sequence <span class="process-math">\(c\)</span> that begins</div>
@@ -1465,7 +1490,7 @@ w_n = w_{n-1}w_{n-2}w_{n-3}
 2, 5, 10, 13, 18, 21, 26, \ldots
 \end{equation*}
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_diff_order_rec-2-1-3">
+<ol class="lower-alpha" id="exam_diff_order_rec-2-1-3">
 <li id="exam_diff_order_rec-2-1-3-1">
 <div class="para" id="exam_diff_order_rec-2-1-3-1-1">Write a third order recursive definition for the sequence, starting your index at 0. 
 <details id="exam_diff_order_rec-2-1-3-1-1-1" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1500,29 +1525,29 @@ w_n = w_{n-1}w_{n-2}w_{n-3}
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_diff_order_rec-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.8: Different order recursions"><a tabindex="-1" href="#exam_diff_order_rec" title="Copy heading and permalink for Example 8.5.8: Different order recursions" aria-label="Copy heading and permalink for Example 8.5.8: Different order recursions">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.9: Different order recursions"><a tabindex="-1" href="#exam_diff_order_rec" title="Copy heading and permalink for Example 8.5.9: Different order recursions" aria-label="Copy heading and permalink for Example 8.5.9: Different order recursions">🔗</a></div>
 </article></details>
 <div class="para" id="sub_model_higher_order_rec-6">Recursions can also be used to list or count objects. Let’s start with a first order recursion to get the idea.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_model_higher_order_rec-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_count_bit_strings_using_recursion_first" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using a recursion to count bit strings containing at least one <span class="process-math">\(\bs{0}\)</span>.</span>
-</h4></summary>
+<details id="exam_count_bit_strings_using_recursion_first" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.10</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using a recursion to count bit strings containing at least one <span class="process-math">\(\bs{0}\)</span>.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="exam_count_bit_strings_using_recursion_first-2-1">  How many bit strings of length <span class="process-math">\(n\)</span> include at least one <span class="process-math">\(\bs{0}\text{?}\)</span> Count directly and then show how to write a recursion to count.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exam_count_bit_strings_using_recursion_first-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="exam_count_bit_strings_using_recursion_first-3-1">By <a href="sec_bit_strings.html#thm_number_bit_strings" class="xref" data-knowl="./knowl/xref/thm_number_bit_strings.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.7: Number of bit strings of length n">Theorem 2.4.7</a>, there are <span class="process-math">\(2^n\)</span> bit strings of length <span class="process-math">\(n\text{.}\)</span> The only bit string that does not have any <span class="process-math">\(\bs{0}\)</span> s is <span class="process-math">\(\bs{11}\)</span> <span class="process-math">\(\cdots\)</span> <span class="process-math">\(\bs{1}\text{.}\)</span> Therefore, by <a href="sec_counting_steps_cases.html#thm_count_complement" class="xref" data-knowl="./knowl/xref/thm_count_complement.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.8: Counting the opposite">Theorem 2.2.8</a>, there are <span class="process-math">\(2^n-1\)</span> bit strings of length <span class="process-math">\(n\)</span> that include at least one <span class="process-math">\(\bs{0}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_count_bit_strings_using_recursion_first-3-1">By <a href="sec_bit_strings.html#thm_number_bit_strings" class="xref" data-knowl="./knowl/xref/thm_number_bit_strings.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.8: Number of bit strings of length n">Theorem 2.4.8</a>, there are <span class="process-math">\(2^n\)</span> bit strings of length <span class="process-math">\(n\text{.}\)</span> The only bit string that does not have any <span class="process-math">\(\bs{0}\)</span> s is <span class="process-math">\(\bs{11}\)</span> <span class="process-math">\(\cdots\)</span> <span class="process-math">\(\bs{1}\text{.}\)</span> Therefore, by <a href="sec_counting_steps_cases.html#thm_count_complement" class="xref" data-knowl="./knowl/xref/thm_count_complement.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.9: Counting the opposite">Theorem 2.2.9</a>, there are <span class="process-math">\(2^n-1\)</span> bit strings of length <span class="process-math">\(n\)</span> that include at least one <span class="process-math">\(\bs{0}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="exam_count_bit_strings_using_recursion_first-3-2">How can we write a recursion to count? Write <span class="process-math">\(z_n=\)</span> the number of bit strings of length <span class="process-math">\(n\)</span> that include at least one <span class="process-math">\(\bs{0}\text{.}\)</span> Note that the only bit string of length 1 that includes at least one <span class="process-math">\(\bs{0}\)</span> is <span class="process-math">\(\bs{0}\)</span> itself and so <span class="process-math">\(z_1=1\text{.}\)</span> Given a bit string of length <span class="process-math">\(n\)</span> that has at least one <span class="process-math">\(\bs{0}\text{,}\)</span> we consider two cases.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="exam_count_bit_strings_using_recursion_first-3-3">Case 1: The bit string begins with <span class="process-math">\(\bs{1}\text{.}\)</span> In this case, the other <span class="process-math">\(n-1\)</span> bits must include at least one <span class="process-math">\(\bs{0}\text{.}\)</span> There are <span class="process-math">\(z_{n-1}\)</span> such bit strings.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="exam_count_bit_strings_using_recursion_first-3-4">Case 2: The bit string begins with <span class="process-math">\(\bs{0}\text{.}\)</span> In this case, we have at least one <span class="process-math">\(\bs{0}\)</span> no matter what the other <span class="process-math">\(n-1\)</span> bits are. They can be any bit string of length <span class="process-math">\(n-1\text{.}\)</span> By <a href="sec_bit_strings.html#thm_number_bit_strings" class="xref" data-knowl="./knowl/xref/thm_number_bit_strings.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.7: Number of bit strings of length n">Theorem 2.4.7</a>, there are <span class="process-math">\(2^{n-1}\)</span> bit strings of length <span class="process-math">\(n-1\text{.}\)</span> Therefore, there are <span class="process-math">\(2^{n-1}\)</span> such bit strings.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_count_bit_strings_using_recursion_first-3-4">Case 2: The bit string begins with <span class="process-math">\(\bs{0}\text{.}\)</span> In this case, we have at least one <span class="process-math">\(\bs{0}\)</span> no matter what the other <span class="process-math">\(n-1\)</span> bits are. They can be any bit string of length <span class="process-math">\(n-1\text{.}\)</span> By <a href="sec_bit_strings.html#thm_number_bit_strings" class="xref" data-knowl="./knowl/xref/thm_number_bit_strings.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.4.8: Number of bit strings of length n">Theorem 2.4.8</a>, there are <span class="process-math">\(2^{n-1}\)</span> bit strings of length <span class="process-math">\(n-1\text{.}\)</span> Therefore, there are <span class="process-math">\(2^{n-1}\)</span> such bit strings.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="exam_count_bit_strings_using_recursion_first-3-5">
-<div class="para">Since cases add <a href="sec_counting_steps_cases.html#thm_cases_add" class="xref" data-knowl="./knowl/xref/thm_cases_add.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.6: Cases add">Theorem 2.2.6</a>, we get</div>
+<div class="para">Since cases add <a href="sec_counting_steps_cases.html#thm_cases_add" class="xref" data-knowl="./knowl/xref/thm_cases_add.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.7: Cases add">Theorem 2.2.7</a>, we get</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_cases_add.html" id="exam_count_bit_strings_using_recursion_first-3-5-2">
 \begin{equation*}
 z_n=z_{n-1}+2^{n-1}
@@ -1532,16 +1557,16 @@ z_n=z_{n-1}+2^{n-1}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 8.5.9.1"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-3" title="Copy heading and permalink for Solution 8.5.9.1" aria-label="Copy heading and permalink for Solution 8.5.9.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 8.5.10.1"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first-3" title="Copy heading and permalink for Solution 8.5.10.1" aria-label="Copy heading and permalink for Solution 8.5.10.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.9: Using a recursion to count bit strings containing at least one \bs{0}"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first" title="Copy heading and permalink for Example 8.5.9: Using a recursion to count bit strings containing at least one \bs{0}" aria-label="Copy heading and permalink for Example 8.5.9: Using a recursion to count bit strings containing at least one \bs{0}">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.10: Using a recursion to count bit strings containing at least one \bs{0}"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_first" title="Copy heading and permalink for Example 8.5.10: Using a recursion to count bit strings containing at least one \bs{0}" aria-label="Copy heading and permalink for Example 8.5.10: Using a recursion to count bit strings containing at least one \bs{0}">🔗</a></div>
 </article></details>
 <div class="para" id="sub_model_higher_order_rec-8">We can also count using higher order recursions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_model_higher_order_rec-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_count_bit_strings_using_recursion_second" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using a recursion to count bit strings that do not contain <span class="process-math">\(\bs{00}\)</span>.</span>
-</h4></summary>
+<details id="exam_count_bit_strings_using_recursion_second" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.11</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using a recursion to count bit strings that do not contain <span class="process-math">\(\bs{00}\)</span>.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="exam_count_bit_strings_using_recursion_second-2-1">Write a recursion that counts the number of bit strings of length <span class="process-math">\(n\)</span> that do not contain <span class="process-math">\(\bs{00}\text{,}\)</span> meaning they do not contain two or more consecutive zeros.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_second-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1555,7 +1580,7 @@ z_n=z_{n-1}+2^{n-1}
 <div class="para" id="exam_count_bit_strings_using_recursion_second-3-3">Case 2: The bit string begins with <span class="process-math">\(\bs{0}\text{.}\)</span> In this case, the next bit must be <span class="process-math">\(\bs{1}\)</span> so that we avoid <span class="process-math">\(\bs{00}\text{.}\)</span> The other <span class="process-math">\(n-2\)</span> bits cannot include <span class="process-math">\(\bs{00}\text{.}\)</span> There are <span class="process-math">\(c_{n-2}\)</span> such bit strings.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_second-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="exam_count_bit_strings_using_recursion_second-3-4">
-<div class="para">Since cases add <a href="sec_counting_steps_cases.html#thm_cases_add" class="xref" data-knowl="./knowl/xref/thm_cases_add.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.6: Cases add">Theorem 2.2.6</a>, we have</div>
+<div class="para">Since cases add <a href="sec_counting_steps_cases.html#thm_cases_add" class="xref" data-knowl="./knowl/xref/thm_cases_add.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.2.7: Cases add">Theorem 2.2.7</a>, we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm_cases_add.html" id="exam_count_bit_strings_using_recursion_second-3-4-2">
 \begin{equation*}
 c_n=c_{n-1}+c_{n-2}
@@ -1565,19 +1590,19 @@ c_n=c_{n-1}+c_{n-2}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_second-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 8.5.10.1"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_second-3" title="Copy heading and permalink for Solution 8.5.10.1" aria-label="Copy heading and permalink for Solution 8.5.10.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 8.5.11.1"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_second-3" title="Copy heading and permalink for Solution 8.5.11.1" aria-label="Copy heading and permalink for Solution 8.5.11.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.10: Using a recursion to count bit strings that do not contain \bs{00}"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_second" title="Copy heading and permalink for Example 8.5.10: Using a recursion to count bit strings that do not contain \bs{00}" aria-label="Copy heading and permalink for Example 8.5.10: Using a recursion to count bit strings that do not contain \bs{00}">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.11: Using a recursion to count bit strings that do not contain \bs{00}"><a tabindex="-1" href="#exam_count_bit_strings_using_recursion_second" title="Copy heading and permalink for Example 8.5.11: Using a recursion to count bit strings that do not contain \bs{00}" aria-label="Copy heading and permalink for Example 8.5.11: Using a recursion to count bit strings that do not contain \bs{00}">🔗</a></div>
 </article></details>
 <div class="para" id="sub_model_higher_order_rec-10">Try modeling with higher order recursively-defined sequences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_model_higher_order_rec-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_model_higher_order_rec"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.B</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with higher order recursively-defined sequences.</span>
-</h4>
+<article class="activity project-like" id="act_model_higher_order_rec"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.B</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling with higher order recursively-defined sequences.</span>
+</h3>
 <div class="para logical" id="act_model_higher_order_rec-2">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_model_higher_order_rec-2-2">
+<ol class="lower-alpha" id="act_model_higher_order_rec-2-2">
 <li id="act_model_higher_order_rec-2-2-1">
 <div class="para logical" id="act_model_higher_order_rec-2-2-1-1">
 <div class="para">Find a simple pattern generating a sequence <span class="process-math">\(a\)</span> that begins</div>
@@ -1603,17 +1628,17 @@ c_n=c_{n-1}+c_{n-2}
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 8.5.B: Modeling with Higher Order Recursions"><a tabindex="-1" href="#sub_model_higher_order_rec" title="Copy heading and permalink for Subsection 8.5.B: Modeling with Higher Order Recursions" aria-label="Copy heading and permalink for Subsection 8.5.B: Modeling with Higher Order Recursions">🔗</a></div>
 </section>
 <section class="subsection" id="sub_fib_patterns_proof">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Detour: Fibonacci Patterns and Proof</span>
-</h3>
+</h2>
 <div class="para" id="sub_fib_patterns_proof-2">There are many patterns satisfied by the Fibonacci sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fib_patterns_proof-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_fib_patterns"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.C</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonacci patterns.</span>
-</h4>
+<article class="activity project-like" id="act_fib_patterns"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.C</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonacci patterns.</span>
+</h3>
 <div class="para logical" id="act_fib_patterns-2">
 <div class="para">For this activity, it is useful have a list of the first twenty Fibonacci numbers, as in <a href="sec_fibonacci_higher.html#table_first20_fib" class="xref" data-knowl="./knowl/xref/table_first20_fib.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 8.5.3: The first twenty Fibonacci numbers">Table 8.5.3</a>.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_fib_patterns-2-2">
+<ol class="lower-alpha" id="act_fib_patterns-2-2">
 <li id="part_fib_conj_even">
 <div class="para" id="part_fib_conj_even-1">Which Fibonacci numbers are even? Begin your conjecture “<span class="process-math">\(F_n\)</span> is even if …”.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_fib_conj_even-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1655,13 +1680,13 @@ F_5 \cdot F_7 = (5)(13) = 65 = 8^2 + 1 = F_6^2 + 1\text{.}
 </article>
 <div class="para" id="sub_fib_patterns_proof-4">Let’s explore some patterns similar to <a href="sec_fibonacci_higher.html#act_fib_patterns" class="xref" data-knowl="./knowl/xref/act_fib_patterns.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.5.C: Fibonacci patterns">Activity 8.5.C</a> and also discuss how to prove these patterns hold. First, we look at a divisibility statement that involves the Fibonacci sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fib_patterns_proof-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_fib_mult3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonacci numbers that are multiples of three.</span>
-</h4></summary>
+<details id="exam_fib_mult3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.14</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonacci numbers that are multiples of three.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_fib_mult3-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_fib_mult3-2-1-2">
+<ol class="lower-alpha" id="exam_fib_mult3-2-1-2">
 <li id="part_fib_conj_mult3">
 <div class="para" id="part_fib_conj_mult3-1">When does <span class="process-math">\(3 \mid F_n\text{?}\)</span> State your answer as a conjecture. 
 <details id="part_fib_conj_mult3-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1727,17 +1752,17 @@ F_{4n} \amp  = 5 F_{4n-4} + 3F_{4n-5}\\
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_fib_mult3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.11: Fibonacci numbers that are multiples of three"><a tabindex="-1" href="#exam_fib_mult3" title="Copy heading and permalink for Example 8.5.11: Fibonacci numbers that are multiples of three" aria-label="Copy heading and permalink for Example 8.5.11: Fibonacci numbers that are multiples of three">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.14: Fibonacci numbers that are multiples of three"><a tabindex="-1" href="#exam_fib_mult3" title="Copy heading and permalink for Example 8.5.14: Fibonacci numbers that are multiples of three" aria-label="Copy heading and permalink for Example 8.5.14: Fibonacci numbers that are multiples of three">🔗</a></div>
 </article></details>
 <div class="para" id="sub_fib_patterns_proof-6">Let’s look at the greatest common divisor of Fibonacci numbers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fib_patterns_proof-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_fib_gcd" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonaccis and the <span class="process-math">\(\fn{gcd}\)</span>.</span>
-</h4></summary>
+<details id="exam_fib_gcd" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.15</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonaccis and the <span class="process-math">\(\fn{gcd}\)</span>.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_fib_gcd-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_fib_gcd-2-1-2">
+<ol class="lower-alpha" id="exam_fib_gcd-2-1-2">
 <li id="exam_fib_gcd-2-1-2-1">
 <div class="para" id="exam_fib_gcd-2-1-2-1-1">Use the Euclidean Algorithm <a href="sec_gcd.html#sub_euclidean_alg" class="internal" title="Subsection 4.5.B: The Euclidean Algorithm">Subsection 4.5.B</a> to evaluate <span class="process-math">\(\fn{gcd}(F_{10},F_9)=\fn{gcd}(55,34)\text{.}\)</span> What do you notice? 
 <details id="exam_fib_gcd-2-1-2-1-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1830,18 +1855,18 @@ F_{4n} \amp  = 5 F_{4n-4} + 3F_{4n-5}\\
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_fib_gcd-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.12: Fibonaccis and the \fn{gcd}"><a tabindex="-1" href="#exam_fib_gcd" title="Copy heading and permalink for Example 8.5.12: Fibonaccis and the \fn{gcd}" aria-label="Copy heading and permalink for Example 8.5.12: Fibonaccis and the \fn{gcd}">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.15: Fibonaccis and the \fn{gcd}"><a tabindex="-1" href="#exam_fib_gcd" title="Copy heading and permalink for Example 8.5.15: Fibonaccis and the \fn{gcd}" aria-label="Copy heading and permalink for Example 8.5.15: Fibonaccis and the \fn{gcd}">🔗</a></div>
 </article></details>
 <div class="para" id="sub_fib_patterns_proof-8">Next, let’s look at the matrix with powers that involve the Fibonacci sequence from <a href="sec_fibonacci_higher.html#act_fib_patterns" class="xref" data-knowl="./knowl/xref/act_fib_patterns.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.5.C: Fibonacci patterns">Activity 8.5.C</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_fib_patterns_proof-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_fib_matrix" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonacci matrix.</span>
-</h4></summary>
+<details id="exam_fib_matrix" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.16</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fibonacci matrix.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_fib_matrix-2-1">
 <div class="para">Consider the <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(A= \left[ \begin{array}{cc} 1 \amp  1\\ 1 \amp  0 \end{array}  \right]\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exam_fib_matrix-2-1-3">
+<ol class="lower-alpha" id="exam_fib_matrix-2-1-3">
 <li id="exam_fib_matrix-2-1-3-1">
 <div class="para" id="exam_fib_matrix-2-1-3-1-1">Calculate <span class="process-math">\(A^2\text{,}\)</span> <span class="process-math">\(A^3\text{,}\)</span> and <span class="process-math">\(A^4\text{.}\)</span> 
 <details id="exam_fib_matrix-2-1-3-1-1-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -1905,10 +1930,10 @@ A^n= \left[ \begin{array}{cc} F_{n+1} \amp  F_n \\ F_n \amp  F_{n-1} \end{array}
 <div class="autopermalink" aria-hidden="true" data-description="Item (b)"><a tabindex="-1" href="#exam_fib_matrix-2-1-3-2" title="Copy heading and permalink for Item (b)" aria-label="Copy heading and permalink for Item (b)">🔗</a></div>
 </li>
 <li id="part_proof_matrix_fib">
-<div class="para" id="part_proof_matrix_fib-1">Use mathematical induction <a href="sec_matrix.html#pff_math_ind_matrix" class="xref" data-knowl="./knowl/xref/pff_math_ind_matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.3.5: Proof Format: Mathematical Induction (Power of Matrix)">Theorem 8.3.5</a> to prove your conjecture. 
+<div class="para" id="part_proof_matrix_fib-1">Use mathematical induction <a href="sec_matrix.html#pff_math_ind_matrix" class="xref" data-knowl="./knowl/xref/pff_math_ind_matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.3.6: Proof Format: Mathematical Induction (Power of Matrix)">Theorem 8.3.6</a> to prove your conjecture. 
 <details id="part_proof_matrix_fib-1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="part_proof_matrix_fib-1-2-1">We use <a href="sec_matrix.html#pff_math_ind_matrix" class="xref" data-knowl="./knowl/xref/pff_math_ind_matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.3.5: Proof Format: Mathematical Induction (Power of Matrix)">Theorem 8.3.5</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_proof_matrix_fib-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="part_proof_matrix_fib-1-2-1">We use <a href="sec_matrix.html#pff_math_ind_matrix" class="xref" data-knowl="./knowl/xref/pff_math_ind_matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.3.6: Proof Format: Mathematical Induction (Power of Matrix)">Theorem 8.3.6</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_proof_matrix_fib-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="part_proof_matrix_fib-1-2-2">
 <em class="emphasis">Proof.</em> Induct on <span class="process-math">\(n\text{.}\)</span> Write <span class="process-math">\(M_n = \left[ \begin{array}{cc} F_{n+1} \amp F_n \\ F_n \amp F_{n-1} \end{array} \right]\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_proof_matrix_fib-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1946,23 +1971,23 @@ F_n \amp  F_{n-1} \end{array} \right]\\
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_fib_matrix-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.13: Fibonacci matrix"><a tabindex="-1" href="#exam_fib_matrix" title="Copy heading and permalink for Example 8.5.13: Fibonacci matrix" aria-label="Copy heading and permalink for Example 8.5.13: Fibonacci matrix">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.16: Fibonacci matrix"><a tabindex="-1" href="#exam_fib_matrix" title="Copy heading and permalink for Example 8.5.16: Fibonacci matrix" aria-label="Copy heading and permalink for Example 8.5.16: Fibonacci matrix">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 8.5.C: Detour: Fibonacci Patterns and Proof"><a tabindex="-1" href="#sub_fib_patterns_proof" title="Copy heading and permalink for Subsection 8.5.C: Detour: Fibonacci Patterns and Proof" aria-label="Copy heading and permalink for Subsection 8.5.C: Detour: Fibonacci Patterns and Proof">🔗</a></div>
 </section>
 <section class="subsection" id="sub_pff_strong_math_ind">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format: Strong Mathematical Induction</span>
-</h3>
+</h2>
 <div class="para" id="sub_pff_strong_math_ind-2">There are stronger forms of mathematical induction for proving some statement <span class="process-math">\(P(n)\)</span> for all integers <span class="process-math">\(n \ge s\)</span> for some integer <span class="process-math">\(s\text{.}\)</span> In this section we look at two special cases.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_strong_math_ind-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sub_pff_strong_math_ind-3">First, we consider the case where <span class="process-math">\(P(n)\)</span> can be defined using a single initial condition and some recursion. In this case, the proof begins with the same base case, where we check <span class="process-math">\(P(s)\text{.}\)</span> In the induction step, instead of just assuming <span class="process-math">\(P(n-1)\text{,}\)</span> we assume <span class="process-math">\(P(k)\)</span> for <span class="process-math">\(k= s, s+1, \ldots, n-2, n-1\text{.}\)</span> That is, we assume <span class="process-math">\(P(k)\)</span> whenever <span class="process-math">\(s \le k \lt n\text{.}\)</span> As before, we use this assumption to prove <span class="process-math">\(P(n)\text{.}\)</span> Here is the formal proof format.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_strong_math_ind-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="pff_strong_math_ind"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format: Mathematical Induction (First-order Strong).</span>
-</h4>
+<article class="theorem theorem-like" id="pff_strong_math_ind"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.17</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format: Mathematical Induction (First-order Strong).</span>
+</h3>
 <div class="para" id="pff_strong_math_ind-2-1">Assuming that <span class="process-math">\(P(n)\)</span> can be defined by a single initial condition and a recursion, we can prove <span class="process-math">\(P(n)\)</span> for all integers <span class="process-math">\(n \ge s\)</span> using (first-order) strong mathematical induction by adapting the following proof format.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_strong_math_ind-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<details id="pff_strong_math_ind-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5></summary>
+<details id="pff_strong_math_ind-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">
 <div class="para" id="pff_strong_math_ind-2-2-1">Induct on <span class="process-math">\(n\text{.}\)</span> First, when <span class="process-math">\(n=s\)</span> (explain why <span class="process-math">\(P(s)\)</span> is true).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_strong_math_ind-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1971,15 +1996,15 @@ F_n \amp  F_{n-1} \end{array} \right]\\
 <div class="para" id="pff_strong_math_ind-2-2-3">Then (explain why <span class="process-math">\(P(n)\)</span> is true).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_strong_math_ind-2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 1"><a tabindex="-1" href="#pff_strong_math_ind-2-2" title="Copy heading and permalink for Proof 1" aria-label="Copy heading and permalink for Proof 1">🔗</a></div>
-</article></details><div class="autopermalink" aria-hidden="true" data-description="Theorem 8.5.14: Proof Format: Mathematical Induction (First-order Strong)"><a tabindex="-1" href="#pff_strong_math_ind" title="Copy heading and permalink for Theorem 8.5.14: Proof Format: Mathematical Induction (First-order Strong)" aria-label="Copy heading and permalink for Theorem 8.5.14: Proof Format: Mathematical Induction (First-order Strong)">🔗</a></div>
+</article></details><div class="autopermalink" aria-hidden="true" data-description="Theorem 8.5.17: Proof Format: Mathematical Induction (First-order Strong)"><a tabindex="-1" href="#pff_strong_math_ind" title="Copy heading and permalink for Theorem 8.5.17: Proof Format: Mathematical Induction (First-order Strong)" aria-label="Copy heading and permalink for Theorem 8.5.17: Proof Format: Mathematical Induction (First-order Strong)">🔗</a></div>
 </article>
 <div class="para" id="sub_pff_strong_math_ind-5">We consider an example.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_strong_math_ind-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_strong_math_ind" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using strong mathematical induction.</span>
-</h4></summary>
+<details id="exam_strong_math_ind" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.18</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using strong mathematical induction.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
-<div class="para" id="exam_strong_math_ind-2-1">Use (first-order) strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.14: Proof Format: Mathematical Induction (First-order Strong)">Theorem 8.5.14</a> to prove that every integer can be written as the product of a power of two and an odd integer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_strong_math_ind-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exam_strong_math_ind-2-1">Use (first-order) strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.17: Proof Format: Mathematical Induction (First-order Strong)">Theorem 8.5.17</a> to prove that every integer can be written as the product of a power of two and an odd integer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_strong_math_ind-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exam_strong_math_ind-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -2005,19 +2030,19 @@ n=2k=2\left(2^im\right)=2^{i+1}m
 </div>
 <div class="para" id="exam_strong_math_ind-3-6">In either case, <span class="process-math">\(n\)</span> can be written as the product of a power of two and an odd integer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_strong_math_ind-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 8.5.15.1"><a tabindex="-1" href="#exam_strong_math_ind-3" title="Copy heading and permalink for Solution 8.5.15.1" aria-label="Copy heading and permalink for Solution 8.5.15.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 8.5.18.1"><a tabindex="-1" href="#exam_strong_math_ind-3" title="Copy heading and permalink for Solution 8.5.18.1" aria-label="Copy heading and permalink for Solution 8.5.18.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.15: Using strong mathematical induction"><a tabindex="-1" href="#exam_strong_math_ind" title="Copy heading and permalink for Example 8.5.15: Using strong mathematical induction" aria-label="Copy heading and permalink for Example 8.5.15: Using strong mathematical induction">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.18: Using strong mathematical induction"><a tabindex="-1" href="#exam_strong_math_ind" title="Copy heading and permalink for Example 8.5.18: Using strong mathematical induction" aria-label="Copy heading and permalink for Example 8.5.18: Using strong mathematical induction">🔗</a></div>
 </article></details>
 <div class="para" id="sub_pff_strong_math_ind-7">There is another special case of strong mathematical induction we can use to verify an explicit rule for a second-order recursively-defined sequence. Strong mathematical induction can be extended to any higher order recursion.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_strong_math_ind-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="theorem theorem-like" id="pff_strong_math_ind_seq"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format: Mathematical Induction (Second-order Sequence).</span>
-</h4>
+<article class="theorem theorem-like" id="pff_strong_math_ind_seq"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.19</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof Format: Mathematical Induction (Second-order Sequence).</span>
+</h3>
 <div class="para" id="pff_strong_math_ind_seq-2-1">Given the sequence <span class="process-math">\(a\)</span> defined recursively by <span class="process-math">\(a_s=\)</span> and <span class="process-math">\(a_{s+1}=\)</span> (initial conditions) and <span class="process-math">\(a_n=\)</span> (recursive rule)for <span class="process-math">\(n \ge s+2\text{,}\)</span> we can prove <span class="process-math">\(a_n=\)</span> (explicit rule) for <span class="process-math">\(n \ge s\)</span> using mathematical induction by adapting the following proof format.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_strong_math_ind_seq-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<details id="pff_strong_math_ind_seq-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5></summary>
+<details id="pff_strong_math_ind_seq-2-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">
 <div class="para" id="pff_strong_math_ind_seq-2-2-1">Write <span class="process-math">\(f(n) =\)</span>(explicit rule). Induct on <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_strong_math_ind_seq-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2041,13 +2066,13 @@ a_{n-1} \text{ by }  f(n-1) \text{ and }  a_{n-2} \text{ by }  f(n-2)\text{)} \c
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#pff_strong_math_ind_seq-2-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Proof 1"><a tabindex="-1" href="#pff_strong_math_ind_seq-2-2" title="Copy heading and permalink for Proof 1" aria-label="Copy heading and permalink for Proof 1">🔗</a></div>
-</article></details><div class="autopermalink" aria-hidden="true" data-description="Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)"><a tabindex="-1" href="#pff_strong_math_ind_seq" title="Copy heading and permalink for Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)" aria-label="Copy heading and permalink for Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)">🔗</a></div>
+</article></details><div class="autopermalink" aria-hidden="true" data-description="Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)"><a tabindex="-1" href="#pff_strong_math_ind_seq" title="Copy heading and permalink for Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)" aria-label="Copy heading and permalink for Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)">🔗</a></div>
 </article>
 <div class="para" id="sub_pff_strong_math_ind-9">As usual, when we introduce a new proof format, we give you an example of a proof to copy and edit.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_strong_math_ind-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="activity project-like" id="act_strong_math_ind_lucas"><h4 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.D</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Strong mathematical induction.</span>
-</h4>
+<article class="activity project-like" id="act_strong_math_ind_lucas"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.D</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Strong mathematical induction.</span>
+</h3>
 <div class="para logical" id="act_strong_math_ind_lucas-2">
 <div class="para">In <a href="sec_fibonacci_higher.html#exam_rec_seq_higher_order" class="xref" data-knowl="./knowl/xref/exam_rec_seq_higher_order.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.6: Evaluating higher order recursively-defined sequences">Example 8.5.6</a> we saw the <dfn class="terminology">Lucas numbers</dfn> defined by <span class="process-math">\(L_0=2\text{,}\)</span> <span class="process-math">\(L_1=1\text{,}\)</span> and</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exam_rec_seq_higher_order.html ./knowl/xref/pff_strong_math_ind_seq.html ./knowl/xref/pff_strong_math_ind_seq.html ./knowl/xref/act_rec_trees.html" id="act_strong_math_ind_lucas-2-5">
@@ -2063,10 +2088,10 @@ F_n=f_{n-1}+F_{n-2}
 </div>
 <div class="para">for <span class="process-math">\(n \ge 2\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="act_strong_math_ind_lucas-2-11">
+<ol class="lower-alpha" id="act_strong_math_ind_lucas-2-11">
 <li id="act_strong_math_ind_lucas-2-11-1">
 <div class="para logical" id="act_strong_math_ind_lucas-2-11-1-1">
-<div class="para">Copy the following proof. Use mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.16</a> to prove that</div>
+<div class="para">Copy the following proof. Use mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.19</a> to prove that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/pff_strong_math_ind_seq.html" id="act_strong_math_ind_lucas-2-11-1-1-2">
 \begin{equation*}
 L_n = 2F_{n+1}-F_{n}
@@ -2076,7 +2101,7 @@ L_n = 2F_{n+1}-F_{n}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_strong_math_ind_lucas-2-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="act_strong_math_ind_lucas-2-11-1-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5></summary>
+<details id="act_strong_math_ind_lucas-2-11-1-2" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary>
 <article class="hiddenproof knowl__content">
 <div class="para" id="act_strong_math_ind_lucas-2-11-1-2-1">Write <span class="process-math">\(f(n) = 2F_{n+1}-F_{n}\text{.}\)</span> Induct on <span class="process-math">\(n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act_strong_math_ind_lucas-2-11-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2151,7 +2176,7 @@ v_n=v_{n-1}+v_{n-2}+1
 w_n = w_{n-1}+w_{n-2}
 \end{equation*}
 </div>
-<div class="para">for <span class="process-math">\(n\ge 5\text{.}\)</span> Use mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.16</a> to prove that</div>
+<div class="para">for <span class="process-math">\(n\ge 5\text{.}\)</span> Use mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.19</a> to prove that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/pff_strong_math_ind_seq.html ./knowl/xref/act_rec_trees.html" id="act_strong_math_ind_lucas-2-11-3-1-12">
 \begin{equation*}
 v_n=2w_n-1
@@ -2170,9 +2195,9 @@ v_n=2w_n-1
 </article>
 <div class="para" id="sub_pff_strong_math_ind-11">Let’s look at another example of using strong mathematical induction to verify the explicit form of a second order recursively-defined sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sub_pff_strong_math_ind-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="exam_strong_math_ind_explicit" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Verifying the explicit form of second order recursively-defined sequence.</span>
-</h4></summary>
+<details id="exam_strong_math_ind_explicit" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.21</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Verifying the explicit form of second order recursively-defined sequence.</span>
+</h3></summary>
 <article class="example example-like knowl__content">
 <div class="para logical" id="exam_strong_math_ind_explicit-2-1">
 <div class="para">Consider the sequence <span class="process-math">\(a_n\)</span> defined recursively by <span class="process-math">\(a_0= 1\text{,}\)</span> <span class="process-math">\(a_1 =6\text{,}\)</span> and</div>
@@ -2181,7 +2206,7 @@ v_n=2w_n-1
 a_n =6a_{n-1} -9a_{n-2}
 \end{equation*}
 </div>
-<div class="para">for <span class="process-math">\(n \ge 2\text{.}\)</span> Use mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.16</a> to prove that <span class="process-math">\(a_n = (n+1)3^n\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span>
+<div class="para">for <span class="process-math">\(n \ge 2\text{.}\)</span> Use mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.19</a> to prove that <span class="process-math">\(a_n = (n+1)3^n\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_strong_math_ind_explicit-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2239,26 +2264,26 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="para" id="exam_strong_math_ind_explicit-3-5">Notice it was convenient to write <span class="process-math">\(6=2\cdot 3\)</span> because <span class="process-math">\(3 \cdot 3^{n-1} = 3^n\text{.}\)</span> Similarly, it was convenient to write <span class="process-math">\(9 = 3^2\)</span> because <span class="process-math">\(3^2\cdot3^{n-2}=3^n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exam_strong_math_ind_explicit-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Solution 8.5.17.1"><a tabindex="-1" href="#exam_strong_math_ind_explicit-3" title="Copy heading and permalink for Solution 8.5.17.1" aria-label="Copy heading and permalink for Solution 8.5.17.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 8.5.21.1"><a tabindex="-1" href="#exam_strong_math_ind_explicit-3" title="Copy heading and permalink for Solution 8.5.21.1" aria-label="Copy heading and permalink for Solution 8.5.21.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.17: Verifying the explicit form of second order recursively-defined sequence"><a tabindex="-1" href="#exam_strong_math_ind_explicit" title="Copy heading and permalink for Example 8.5.17: Verifying the explicit form of second order recursively-defined sequence" aria-label="Copy heading and permalink for Example 8.5.17: Verifying the explicit form of second order recursively-defined sequence">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 8.5.21: Verifying the explicit form of second order recursively-defined sequence"><a tabindex="-1" href="#exam_strong_math_ind_explicit" title="Copy heading and permalink for Example 8.5.21: Verifying the explicit form of second order recursively-defined sequence" aria-label="Copy heading and permalink for Example 8.5.21: Verifying the explicit form of second order recursively-defined sequence">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection 8.5.D: Proof Format: Strong Mathematical Induction"><a tabindex="-1" href="#sub_pff_strong_math_ind" title="Copy heading and permalink for Subsection 8.5.D: Proof Format: Strong Mathematical Induction" aria-label="Copy heading and permalink for Subsection 8.5.D: Proof Format: Strong Mathematical Induction">🔗</a></div>
 </section>
 <section class="subsection" id="sec_fibonacci_higher-7">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.5.E</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
-</h3>
+</h2>
 <section class="subsubsection" id="part_third_order_rec">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 8.5.A The Fibonacci Sequence and Higher Order Recursions</span>
-</h4>
-<article class="exercise exercise-like" id="exer_list_fibs"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_list_fibs"><h4 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_list_fibs-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_list_fibs-2-1-2">
+<ol class="lower-alpha" id="exer_list_fibs-2-1-2">
 <li id="exer_list_fibs-2-1-2-1">
 <div class="para" id="exer_list_fibs-2-1-2-1-1">List all Fibonacci numbers less than 1000 without looking at <a href="sec_fibonacci_higher.html#table_first20_fib" class="xref" data-knowl="./knowl/xref/table_first20_fib.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 8.5.3: The first twenty Fibonacci numbers">Table 8.5.3</a> or any other resources, except to check.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_list_fibs-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2275,7 +2300,7 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 <div class="solutions">
 <details id="exer_list_fibs-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_list_fibs-3-1">
+<ol class="lower-alpha" id="exer_list_fibs-3-1">
 <li id="exer_list_fibs-3-1-1">
 <div class="para" id="exer_list_fibs-3-1-1-1">Hint: You can use <a href="sec_fibonacci_higher.html#table_first20_fib" class="xref" data-knowl="./knowl/xref/table_first20_fib.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 8.5.3: The first twenty Fibonacci numbers">Table 8.5.3</a> to check.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_list_fibs-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2292,12 +2317,12 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 1: Practice"><a tabindex="-1" href="#exer_list_fibs" title="  1: Practice" aria-label="  1: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_terms_higher_order"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_terms_higher_order"><h4 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_terms_higher_order-2-1">
 <div class="para">Evaluate the first five terms of each sequence. Your list should begin with the initial conditions.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_terms_higher_order-2-1-1">
+<ol class="lower-alpha" id="exer_eval_terms_higher_order-2-1-1">
 <li id="exer_eval_terms_higher_order-2-1-1-1">
 <div class="para" id="exer_eval_terms_higher_order-2-1-1-1-1">The sequence defined by <span class="process-math">\(a_1=3\text{,}\)</span> <span class="process-math">\(a_2=2\)</span> and <span class="process-math">\(a_i = a_{i-1}a_{i-2}\)</span> for <span class="process-math">\(i \ge 3\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_terms_higher_order-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2319,7 +2344,7 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 <div class="solutions">
 <details id="exer_eval_terms_higher_order-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_terms_higher_order-3-1">
+<ol class="lower-alpha" id="exer_eval_terms_higher_order-3-1">
 <li id="exer_eval_terms_higher_order-3-1-1">
 <div class="para" id="exer_eval_terms_higher_order-3-1-1-1">Hint: <span class="process-math">\(a_5=72\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_terms_higher_order-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2341,12 +2366,12 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 2: Practice"><a tabindex="-1" href="#exer_eval_terms_higher_order" title="  2: Practice" aria-label="  2: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_write_single_fib"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_write_single_fib"><h4 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_write_single_fib-2-1">
 <div class="para">Use the recursive rule for the Fibonacci sequence to simplify each expression as a single Fibonacci number.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_write_single_fib-2-1-1">
+<ol class="lower-alpha" id="exer_write_single_fib-2-1-1">
 <li id="exer_write_single_fib-2-1-1-1">
 <div class="para" id="exer_write_single_fib-2-1-1-1-1">
 <span class="process-math">\(\displaystyle F_{23}+F_{24}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_write_single_fib-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2382,12 +2407,12 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 3: Understand"><a tabindex="-1" href="#exer_write_single_fib" title="  3: Understand" aria-label="  3: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_eval_specific_term_higher_order"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_eval_specific_term_higher_order"><h4 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_eval_specific_term_higher_order-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_eval_specific_term_higher_order-2-1-2">
+<ol class="lower-alpha" id="exer_eval_specific_term_higher_order-2-1-2">
 <li id="exer_eval_specific_term_higher_order-2-1-2-1">
 <div class="para" id="exer_eval_specific_term_higher_order-2-1-2-1-1">Evaluate <span class="process-math">\(u_4\)</span> where <span class="process-math">\(u_0=2\text{,}\)</span> <span class="process-math">\(u_1=2\)</span> and <span class="process-math">\(u_n = u_{n-1}u_{n-2}\)</span> for <span class="process-math">\(n \ge 2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_eval_specific_term_higher_order-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2416,12 +2441,12 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 4: Understand"><a tabindex="-1" href="#exer_eval_specific_term_higher_order" title="  4: Understand" aria-label="  4: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_third_order"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_third_order"><h4 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_third_order-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_third_order-2-1-2">
+<ol class="lower-alpha" id="exer_third_order-2-1-2">
 <li id="exer_third_order-2-1-2-1">
 <div class="para" id="exer_third_order-2-1-2-1-1">Evaluate the first five terms of the sequence defined by <span class="process-math">\(c_0=1\text{,}\)</span> <span class="process-math">\(c_1=2\text{,}\)</span> <span class="process-math">\(c_2=3\)</span> and <span class="process-math">\(c_n = c_{n-1}+c_{n-2}-c_{n-3}\)</span> and <span class="process-math">\(n \ge 3\text{.}\)</span> Your list should begin with the initial conditions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_third_order-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2437,12 +2462,12 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 5: Understand"><a tabindex="-1" href="#exer_third_order" title="  5: Understand" aria-label="  5: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_fib_higher"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_fib_higher"><h4 class="heading">
 <span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_fib_higher-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_fib_higher-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_fib_higher-2-1-2">
 <li id="exer_dyk_fib_higher-2-1-2-1">
 <div class="para" id="exer_dyk_fib_higher-2-1-2-1-1">What the initial conditions and recursive rule are that define the Fibonacci sequence?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_fib_higher-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2475,15 +2500,15 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 8.5.A The Fibonacci Sequence and Higher Order Recursions"><a tabindex="-1" href="#part_third_order_rec" title="Copy heading and permalink for Subsubsection: Exercises for 8.5.A The Fibonacci Sequence and Higher Order Recursions" aria-label="Copy heading and permalink for Subsubsection: Exercises for 8.5.A The Fibonacci Sequence and Higher Order Recursions">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_fibonacci_higher-7-3">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 8.5.B Modeling with Higher Order Recursions</span>
-</h4>
-<article class="exercise exercise-like" id="exer_model_higher_order"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_model_higher_order"><h4 class="heading">
 <span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_model_higher_order-2-1">
 <div class="para">For each list, find a simple pattern generating a sequence. Write the initial conditions and a second order recursive rule for the sequence. Start your indexing at 0 or 1 (your choice).</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_model_higher_order-2-1-1">
+<ol class="lower-alpha" id="exer_model_higher_order-2-1-1">
 <li id="exer_model_higher_order-2-1-1-1">
 <div class="para" id="exer_model_higher_order-2-1-1-1-1">
 <span class="process-math">\(3, 1, 4, 5, 9, 14, 23, 37, \underline{\hspace{.3in}~}, \ldots\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_model_higher_order-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -2508,7 +2533,7 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 <div class="solutions">
 <details id="exer_model_higher_order-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_model_higher_order-3-1">
+<ol class="lower-alpha" id="exer_model_higher_order-3-1">
 <li id="exer_model_higher_order-3-1-1">
 <div class="para" id="exer_model_higher_order-3-1-1-1">Hint: Add<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_model_higher_order-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2530,12 +2555,12 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 7: Practice"><a tabindex="-1" href="#exer_model_higher_order" title="  7: Practice" aria-label="  7: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_squares_triominoes"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_squares_triominoes"><h4 class="heading">
 <span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_squares_triominoes-2-1">
 <div class="para">Let <span class="process-math">\(b_n\)</span> count the number of ways to tile a <span class="process-math">\(1 \times n\)</span> grid using squares (<span class="process-math">\(1 \times 1\)</span>) and triominoes (<span class="process-math">\(1 \times 3\)</span>).</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_squares_triominoes-2-1-5">
+<ol class="lower-alpha" id="exer_squares_triominoes-2-1-5">
 <li id="exer_squares_triominoes-2-1-5-1">
 <div class="para" id="exer_squares_triominoes-2-1-5-1-1">Calculate <span class="process-math">\(b_1\text{,}\)</span> <span class="process-math">\(b_2\text{,}\)</span> <span class="process-math">\(b_3\text{,}\)</span> and <span class="process-math">\(b_4\)</span> by listing the options.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_squares_triominoes-2-1-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2556,12 +2581,12 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 8: Understand"><a tabindex="-1" href="#exer_squares_triominoes" title="  8: Understand" aria-label="  8: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_count_colored_tilings_first"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_count_colored_tilings_first"><h4 class="heading">
 <span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_count_colored_tilings_first-2-1">
 <div class="para">We want to count ways to tile a <span class="process-math">\(1 \times n\)</span> board using red (<span class="process-math">\(\str{R}\)</span>), blue (<span class="process-math">\(\str{B}\)</span>), and green (<span class="process-math">\(\str{G}\)</span>) <span class="process-math">\(1 \times 1\)</span> square tiles.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_count_colored_tilings_first-2-1-6">
+<ol class="lower-alpha" id="exer_count_colored_tilings_first-2-1-6">
 <li id="part_red_green_tiles">
 <div class="para" id="part_red_green_tiles-1">Let <span class="process-math">\(a_n\)</span> be the number of tilings that do not use any blue tiles. Write an explicit rule for <span class="process-math">\(a_n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#part_red_green_tiles-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2583,7 +2608,7 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 <div class="solutions">
 <details id="exer_count_colored_tilings_first-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_count_colored_tilings_first-3-1">
+<ol class="lower-alpha" id="exer_count_colored_tilings_first-3-1">
 <li id="exer_count_colored_tilings_first-3-1-1">
 <div class="para" id="exer_count_colored_tilings_first-3-1-1-1">Hint: There are two choices for each tile. Steps multiply.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_count_colored_tilings_first-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2605,19 +2630,19 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 9: Understand"><a tabindex="-1" href="#exer_count_colored_tilings_first" title="  9: Understand" aria-label="  9: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_bs_without_000"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_bs_without_000"><h4 class="heading">
 <span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
-<div class="para" id="exer_bs_without_000-2-1">Calculate the initial conditions and write a recursive rule defining <span class="process-math">\(r_n=\)</span> the number of bit strings of length <span class="process-math">\(n\)</span> that do not contain <span class="process-math">\(\bs{000}\text{,}\)</span> meaning that do not contain three or more consecutive <span class="process-math">\(\bs{0}\)</span> s, for <span class="process-math">\(n \ge 1\text{.}\)</span> Hint: Look at <a href="sec_fibonacci_higher.html#exam_count_bit_strings_using_recursion_second" class="xref" data-knowl="./knowl/xref/exam_count_bit_strings_using_recursion_second.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.10: Using a recursion to count bit strings that do not contain \bs{00}">Example 8.5.10</a>. What are the cases here?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_bs_without_000-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_bs_without_000-2-1">Calculate the initial conditions and write a recursive rule defining <span class="process-math">\(r_n=\)</span> the number of bit strings of length <span class="process-math">\(n\)</span> that do not contain <span class="process-math">\(\bs{000}\text{,}\)</span> meaning that do not contain three or more consecutive <span class="process-math">\(\bs{0}\)</span> s, for <span class="process-math">\(n \ge 1\text{.}\)</span> Hint: Look at <a href="sec_fibonacci_higher.html#exam_count_bit_strings_using_recursion_second" class="xref" data-knowl="./knowl/xref/exam_count_bit_strings_using_recursion_second.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.11: Using a recursion to count bit strings that do not contain \bs{00}">Example 8.5.11</a>. What are the cases here?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_bs_without_000-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 10: Understand"><a tabindex="-1" href="#exer_bs_without_000" title="  10: Understand" aria-label="  10: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_model_higher_rec"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_model_higher_rec"><h4 class="heading">
 <span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_model_higher_rec-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_model_higher_rec-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_model_higher_rec-2-1-2">
 <li id="exer_dyk_model_higher_rec-2-1-2-1">
 <div class="para" id="exer_dyk_model_higher_rec-2-1-2-1-1">How to find a higher order recursive definition for a sequence?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_model_higher_rec-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2643,13 +2668,13 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 11: Recap"><a tabindex="-1" href="#exer_dyk_model_higher_rec" title="  11: Recap" aria-label="  11: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_rec_count_partitions"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_rec_count_partitions"><h4 class="heading">
 <span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_rec_count_partitions-2-1">
 <div class="para">
 <a class="external" href="https://www.youtube.com/watch?v=F4zYDx-EfZI" target="_blank">Watch a video</a>  that explains how to count partitions of an integer (as defined in <a href="sec_partitions.html" class="internal" title="Section 7.3: Excursion: Partitions">Section 7.3</a>) using recursions.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_rec_count_partitions-2-1-3">
+<ol class="lower-alpha" id="exer_rec_count_partitions-2-1-3">
 <li id="exer_rec_count_partitions-2-1-3-1">
 <div class="para" id="exer_rec_count_partitions-2-1-3-1-1">According to the video, what is <span class="process-math">\(P_k(n)\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_rec_count_partitions-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2672,15 +2697,15 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 8.5.B Modeling with Higher Order Recursions"><a tabindex="-1" href="#sec_fibonacci_higher-7-3" title="Copy heading and permalink for Subsubsection: Exercises for 8.5.B Modeling with Higher Order Recursions" aria-label="Copy heading and permalink for Subsubsection: Exercises for 8.5.B Modeling with Higher Order Recursions">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_fibonacci_higher-7-4">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 8.5.C Detour: Fibonacci Patterns and Proof</span>
-</h4>
-<article class="exercise exercise-like" id="exer_fib_mult5_mult8"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_fib_mult5_mult8"><h4 class="heading">
 <span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_fib_mult5_mult8-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fib_mult5_mult8-2-1-2">
+<ol class="lower-alpha" id="exer_fib_mult5_mult8-2-1-2">
 <li id="exer_fib_mult5_mult8-2-1-2-1">
 <div class="para" id="exer_fib_mult5_mult8-2-1-2-1-1">Which Fibonacci numbers are divisible by 5? Include some examples to support your conjecture.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_mult5_mult8-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2697,7 +2722,7 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 <div class="solutions">
 <details id="exer_fib_mult5_mult8-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fib_mult5_mult8-3-1">
+<ol class="lower-alpha" id="exer_fib_mult5_mult8-3-1">
 <li id="exer_fib_mult5_mult8-3-1-1">
 <div class="para" id="exer_fib_mult5_mult8-3-1-1-1">Hint: 0, 5, 55, and 610 are all divisible by 5. Which terms of the Fibonacci sequence are those?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_mult5_mult8-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2714,13 +2739,13 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 13: Practice"><a tabindex="-1" href="#exer_fib_mult5_mult8" title="  13: Practice" aria-label="  13: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fib_matrix_another_conj"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fib_matrix_another_conj"><h4 class="heading">
 <span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_fib_matrix_another_conj-2-1">
 <div class="para">Consider the <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(B= \left[\begin{array}{cc} 0 \amp 1\\ 1 \amp 1 \end{array} \right]\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fib_matrix_another_conj-2-1-3">
+<ol class="lower-alpha" id="exer_fib_matrix_another_conj-2-1-3">
 <li id="exer_fib_matrix_another_conj-2-1-3-1">
 <div class="para" id="exer_fib_matrix_another_conj-2-1-3-1-1">Calculate <span class="process-math">\(B^2\text{,}\)</span> <span class="process-math">\(B^3\text{,}\)</span> and <span class="process-math">\(B^4\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_matrix_another_conj-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2737,7 +2762,7 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 <div class="solutions">
 <details id="exer_fib_matrix_another_conj-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fib_matrix_another_conj-3-1">
+<ol class="lower-alpha" id="exer_fib_matrix_another_conj-3-1">
 <li id="exer_fib_matrix_another_conj-3-1-1">
 <div class="para" id="exer_fib_matrix_another_conj-3-1-1-1">Hint: <span class="process-math">\(B^4=\left[\begin{array}{cc} 2 \amp 3\\ 3 \amp 5 \end{array} \right]\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_matrix_another_conj-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2754,12 +2779,12 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 14: Practice"><a tabindex="-1" href="#exer_fib_matrix_another_conj" title="  14: Practice" aria-label="  14: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fib_gcd_eval"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fib_gcd_eval"><h4 class="heading">
 <span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_fib_gcd_eval-2-1">
 <div class="para">In each part, find the <span class="process-math">\(\str{gcd}\)</span> using the Euclidean Algorithm.</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fib_gcd_eval-2-1-2">
+<ol class="lower-alpha" id="exer_fib_gcd_eval-2-1-2">
 <li id="exer_fib_gcd_eval-2-1-2-1">
 <div class="para" id="exer_fib_gcd_eval-2-1-2-1-1">Evaluate <span class="process-math">\(\fn{gcd}(F_4,F_6)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_gcd_eval-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2793,12 +2818,12 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 15: Practice"><a tabindex="-1" href="#exer_fib_gcd_eval" title="  15: Practice" aria-label="  15: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fib_honsberger"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fib_honsberger"><h4 class="heading">
 <span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_fib_honsberger-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fib_honsberger-2-1-2">
+<ol class="lower-alpha" id="exer_fib_honsberger-2-1-2">
 <li id="exer_fib_honsberger-2-1-2-1">
 <div class="para" id="exer_fib_honsberger-2-1-2-1-1">Evaluate <span class="process-math">\(F_2F_4+F_3F_5\)</span> and write your answer as a single Fibonacci number.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_honsberger-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2819,9 +2844,9 @@ a_n \amp  = 6a_{n-1} -9a_{n-2}\\
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 16: Understand"><a tabindex="-1" href="#exer_fib_honsberger" title="  16: Understand" aria-label="  16: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_even_fib_identity"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_even_fib_identity"><h4 class="heading">
 <span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_even_fib_identity-2-1">
 <div class="para">Prove that the Fibonacci numbers satisfy the identity</div>
 <div class="displaymath process-math" id="exer_even_fib_identity-2-1-1">
@@ -2843,10 +2868,10 @@ F_{3n}= 2F_{3n-2}+F_{3n-3}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 17: Understand"><a tabindex="-1" href="#exer_even_fib_identity" title="  17: Understand" aria-label="  17: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_even_fib_proof"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_even_fib_proof"><h4 class="heading">
 <span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
-<div class="para" id="exer_even_fib_proof-2-1">Copy and edit the proof from <a href="sec_fibonacci_higher.html#exam_fib_mult3" class="xref" data-knowl="./knowl/xref/exam_fib_mult3.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.11: Fibonacci numbers that are multiples of three">Example 8.5.11</a> <a href="sec_fibonacci_higher.html#part_fib_mult3_proof" class="xref" data-knowl="./knowl/xref/part_fib_mult3_proof.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (c)">(c)</a> to use mathematical induction to prove that <span class="process-math">\(F_{3n}\)</span> is even for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_even_fib_proof-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_even_fib_proof-2-1">Copy and edit the proof from <a href="sec_fibonacci_higher.html#exam_fib_mult3" class="xref" data-knowl="./knowl/xref/exam_fib_mult3.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.14: Fibonacci numbers that are multiples of three">Example 8.5.14</a> <a href="sec_fibonacci_higher.html#part_fib_mult3_proof" class="xref" data-knowl="./knowl/xref/part_fib_mult3_proof.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (c)">(c)</a> to use mathematical induction to prove that <span class="process-math">\(F_{3n}\)</span> is even for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_even_fib_proof-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_even_fib_proof-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -2858,43 +2883,43 @@ F_{3n}= 2F_{3n-2}+F_{3n-3}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 18: Understand"><a tabindex="-1" href="#exer_even_fib_proof" title="  18: Understand" aria-label="  18: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_mult5_fib_identity"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_mult5_fib_identity"><h4 class="heading">
 <span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para" id="exer_mult5_fib_identity-2-1">Use the recursive rule and algebra to prove <span class="process-math">\(F_{5n} =5F_{5n-4} + 3F_{5n-5}\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_mult5_fib_identity-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 19: Understand"><a tabindex="-1" href="#exer_mult5_fib_identity" title="  19: Understand" aria-label="  19: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fib_div5_proof"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fib_div5_proof"><h4 class="heading">
 <span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
+</h4>
 <div class="para" id="exer_fib_div5_proof-2-1">Use mathematical induction and the identity from Exercise <a href="sec_fibonacci_higher.html#exer_mult5_fib_identity" class="xref" data-knowl="./knowl/xref/exer_mult5_fib_identity.html" data-reveal-label="Reveal" data-close-label="Close" title=" 19: Understand">19</a> to prove that <span class="process-math">\(5 \mid F_{5n}\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_div5_proof-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 20: Understand"><a tabindex="-1" href="#exer_fib_div5_proof" title="  20: Understand" aria-label="  20: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fib_matrix_another_proof"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fib_matrix_another_proof"><h4 class="heading">
 <span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
-<div class="para" id="exer_fib_matrix_another_proof-2-1">Consider the <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(B= \left[ \begin{array}{cc} 0 \amp 1\\ 1 \amp 1 \end{array} \right]\text{.}\)</span> Use mathematical induction <a href="sec_matrix.html#pff_math_ind_matrix" class="xref" data-knowl="./knowl/xref/pff_math_ind_matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.3.5: Proof Format: Mathematical Induction (Power of Matrix)">Theorem 8.3.5</a> to prove your conjecture about <span class="process-math">\(B^n\)</span> from Exercise <a href="sec_fibonacci_higher.html#exer_fib_matrix_another_conj" class="xref" data-knowl="./knowl/xref/exer_fib_matrix_another_conj.html" data-reveal-label="Reveal" data-close-label="Close" title=" 14: Practice">14</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_matrix_another_proof-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_fib_matrix_another_proof-2-1">Consider the <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(B= \left[ \begin{array}{cc} 0 \amp 1\\ 1 \amp 1 \end{array} \right]\text{.}\)</span> Use mathematical induction <a href="sec_matrix.html#pff_math_ind_matrix" class="xref" data-knowl="./knowl/xref/pff_math_ind_matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.3.6: Proof Format: Mathematical Induction (Power of Matrix)">Theorem 8.3.6</a> to prove your conjecture about <span class="process-math">\(B^n\)</span> from Exercise <a href="sec_fibonacci_higher.html#exer_fib_matrix_another_conj" class="xref" data-knowl="./knowl/xref/exer_fib_matrix_another_conj.html" data-reveal-label="Reveal" data-close-label="Close" title=" 14: Practice">14</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_matrix_another_proof-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_fib_matrix_another_proof-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<div class="para" id="exer_fib_matrix_another_proof-3-1">Hint: Copy and edit the proof from <a href="sec_fibonacci_higher.html#exam_fib_matrix" class="xref" data-knowl="./knowl/xref/exam_fib_matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.13: Fibonacci matrix">Example 8.5.13</a> <a href="sec_fibonacci_higher.html#part_proof_matrix_fib" class="xref" data-knowl="./knowl/xref/part_proof_matrix_fib.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (c)">(c)</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_matrix_another_proof-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_fib_matrix_another_proof-3-1">Hint: Copy and edit the proof from <a href="sec_fibonacci_higher.html#exam_fib_matrix" class="xref" data-knowl="./knowl/xref/exam_fib_matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.16: Fibonacci matrix">Example 8.5.16</a> <a href="sec_fibonacci_higher.html#part_proof_matrix_fib" class="xref" data-knowl="./knowl/xref/part_proof_matrix_fib.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (c)">(c)</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_matrix_another_proof-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Check 21.1"><a tabindex="-1" href="#exer_fib_matrix_another_proof-3" title="Check Check 21.1" aria-label="Check Check 21.1">🔗</a></div>
 </div></details>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 21: Understand"><a tabindex="-1" href="#exer_fib_matrix_another_proof" title="  21: Understand" aria-label="  21: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fib_gcd_conj"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fib_gcd_conj"><h4 class="heading">
 <span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand greatest common divisors of Fibonaccis conjecture.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_fib_gcd_conj-2-1">
 <div class="para"> </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_fib_gcd_conj-2-1-2">
+<ol class="lower-alpha" id="exer_fib_gcd_conj-2-1-2">
 <li id="exer_fib_gcd_conj-2-1-2-1">
-<div class="para" id="exer_fib_gcd_conj-2-1-2-1-1">In <a href="sec_fibonacci_higher.html#exam_fib_gcd" class="xref" data-knowl="./knowl/xref/exam_fib_gcd.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.12: Fibonaccis and the \fn{gcd}">Example 8.5.12</a>, we saw <span class="process-math">\(\fn{gcd}(F_{10},F_{9}) = 1 = F_1\)</span> and <span class="process-math">\(\fn{gcd}(F_{12},F_9)=F_3\text{.}\)</span> Now write each of your answers to Exercise <a href="sec_fibonacci_higher.html#exer_fib_gcd_eval" class="xref" data-knowl="./knowl/xref/exer_fib_gcd_eval.html" data-reveal-label="Reveal" data-close-label="Close" title=" 15: Practice">15</a> as a Fibonacci number.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_gcd_conj-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_fib_gcd_conj-2-1-2-1-1">In <a href="sec_fibonacci_higher.html#exam_fib_gcd" class="xref" data-knowl="./knowl/xref/exam_fib_gcd.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.15: Fibonaccis and the \fn{gcd}">Example 8.5.15</a>, we saw <span class="process-math">\(\fn{gcd}(F_{10},F_{9}) = 1 = F_1\)</span> and <span class="process-math">\(\fn{gcd}(F_{12},F_9)=F_3\text{.}\)</span> Now write each of your answers to Exercise <a href="sec_fibonacci_higher.html#exer_fib_gcd_eval" class="xref" data-knowl="./knowl/xref/exer_fib_gcd_eval.html" data-reveal-label="Reveal" data-close-label="Close" title=" 15: Practice">15</a> as a Fibonacci number.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_gcd_conj-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 22.(a)"><a tabindex="-1" href="#exer_fib_gcd_conj-2-1-2-1" title="Copy heading and permalink for Item 22.(a)" aria-label="Copy heading and permalink for Item 22.(a)">🔗</a></div>
 </li>
@@ -2908,12 +2933,12 @@ F_{3n}= 2F_{3n-2}+F_{3n-3}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 22: Understand greatest common divisors of Fibonaccis conjecture"><a tabindex="-1" href="#exer_fib_gcd_conj" title="  22: Understand greatest common divisors of Fibonaccis conjecture" aria-label="  22: Understand greatest common divisors of Fibonaccis conjecture">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_fib_patterns"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_fib_patterns"><h4 class="heading">
 <span class="codenumber">23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_fib_patterns-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_fib_patterns-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_fib_patterns-2-1-2">
 <li id="exer_dyk_fib_patterns-2-1-2-1">
 <div class="para" id="exer_dyk_fib_patterns-2-1-2-1-1">How to recognize and describe patterns in the Fibonacci sequence?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_fib_patterns-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -2939,23 +2964,23 @@ F_{3n}= 2F_{3n-2}+F_{3n-3}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 23: Recap"><a tabindex="-1" href="#exer_dyk_fib_patterns" title="  23: Recap" aria-label="  23: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_fib_gen_div_conj"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_fib_gen_div_conj"><h4 class="heading">
 <span class="codenumber">24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
-<div class="para" id="exer_fib_gen_div_conj-2-1">  When does <span class="process-math">\(F_k \mid F_n\text{?}\)</span> Include some examples to support your conjecture. Hint: Look at <a href="sec_fibonacci_higher.html#act_fib_patterns" class="xref" data-knowl="./knowl/xref/act_fib_patterns.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.5.C: Fibonacci patterns">Activity 8.5.C</a>, <a href="sec_fibonacci_higher.html#exam_fib_mult3" class="xref" data-knowl="./knowl/xref/exam_fib_mult3.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.11: Fibonacci numbers that are multiples of three">Example 8.5.11</a>, and Exercise <a href="sec_fibonacci_higher.html#exer_fib_mult5_mult8" class="xref" data-knowl="./knowl/xref/exer_fib_mult5_mult8.html" data-reveal-label="Reveal" data-close-label="Close" title=" 13: Practice">13</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_gen_div_conj-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_fib_gen_div_conj-2-1">  When does <span class="process-math">\(F_k \mid F_n\text{?}\)</span> Include some examples to support your conjecture. Hint: Look at <a href="sec_fibonacci_higher.html#act_fib_patterns" class="xref" data-knowl="./knowl/xref/act_fib_patterns.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.5.C: Fibonacci patterns">Activity 8.5.C</a>, <a href="sec_fibonacci_higher.html#exam_fib_mult3" class="xref" data-knowl="./knowl/xref/exam_fib_mult3.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.14: Fibonacci numbers that are multiples of three">Example 8.5.14</a>, and Exercise <a href="sec_fibonacci_higher.html#exer_fib_mult5_mult8" class="xref" data-knowl="./knowl/xref/exer_fib_mult5_mult8.html" data-reveal-label="Reveal" data-close-label="Close" title=" 13: Practice">13</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_fib_gen_div_conj-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 24: Explore"><a tabindex="-1" href="#exer_fib_gen_div_conj" title="  24: Explore" aria-label="  24: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_consec_fib_coprime_proof"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_consec_fib_coprime_proof"><h4 class="heading">
 <span class="codenumber">25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para" id="exer_consec_fib_coprime_proof-2-1">Use mathematical induction to prove that consecutive Fibonacci numbers are coprime, meaning <span class="process-math">\(\fn{gcd}(F_n,F_{n+1})=1\text{.}\)</span> Hint: In the inductive step, write <span class="process-math">\(d = \fn{gcd}(F_n,F_{n+1})\)</span> and note <span class="process-math">\(d \ge 1\text{.}\)</span> By definition of greatest common divisor, it follows that <span class="process-math">\(d \mid F_n\)</span> and <span class="process-math">\(d \mid F_{n+1}\text{.}\)</span> Use the recursive rule for the Fibonacci sequence to show that <span class="process-math">\(d \mid F_{n-1}\text{.}\)</span> Since then <span class="process-math">\(d \mid F_{n-1}\)</span> and <span class="process-math">\(d \mid F_n\text{,}\)</span> it follows that <span class="process-math">\(d\)</span> is a positive common divisor of <span class="process-math">\(F_{n-1}\)</span> and <span class="process-math">\(F_n\text{.}\)</span> Explain why it follows that <span class="process-math">\(d=1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_consec_fib_coprime_proof-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 25: Explore"><a tabindex="-1" href="#exer_consec_fib_coprime_proof" title="  25: Explore" aria-label="  25: Explore">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="sec_fibonacci_higher-7-4-15"><h5 class="heading">
+<article class="exercise exercise-like" id="sec_fibonacci_higher-7-4-15"><h4 class="heading">
 <span class="codenumber">26<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para logical" id="sec_fibonacci_higher-7-4-15-2-1">
 <div class="para">Use mathematical induction to prove our conjecture from <a href="sec_fibonacci_higher.html#act_fib_patterns" class="xref" data-knowl="./knowl/xref/act_fib_patterns.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.5.C: Fibonacci patterns">Activity 8.5.C</a> <a href="sec_fibonacci_higher.html#part_fib_cassini_conj" class="xref" data-knowl="./knowl/xref/part_fib_cassini_conj.html" data-reveal-label="Reveal" data-close-label="Close" title="Item (b)">(b)</a> that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/act_fib_patterns.html ./knowl/xref/part_fib_cassini_conj.html" id="sec_fibonacci_higher-7-4-15-2-1-3">
@@ -2971,20 +2996,20 @@ F_{n-1} F_{n+1} = F_n^2 + (-1)^n
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Exercises for 8.5.C Detour: Fibonacci Patterns and Proof"><a tabindex="-1" href="#sec_fibonacci_higher-7-4" title="Copy heading and permalink for Subsubsection: Exercises for 8.5.C Detour: Fibonacci Patterns and Proof" aria-label="Copy heading and permalink for Subsubsection: Exercises for 8.5.C Detour: Fibonacci Patterns and Proof">🔗</a></div>
 </section>
 <section class="subsubsection" id="sec_fibonacci_higher-7-5">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for 8.5.D Proof Format: Strong Mathematical Induction</span>
-</h4>
-<article class="exercise exercise-like" id="exer_properbs_number0s"><h5 class="heading">
+</h3>
+<article class="exercise exercise-like" id="exer_properbs_number0s"><h4 class="heading">
 <span class="codenumber">27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
-<div class="para" id="exer_properbs_number0s-2-1">For <a href="sec_rec_def_structures.html#act_proper_bs" class="xref" data-knowl="./knowl/xref/act_proper_bs.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.4.A: Proper Bit Strings Puzzle">Activity 8.4.A</a>, we defined proper bit strings. Use strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.14: Proof Format: Mathematical Induction (First-order Strong)">Theorem 8.5.14</a> to prove that any proper bit string has an even number of <span class="process-math">\(\bs{1}\)</span> s. Hint: In the inductive step consider two cases based on if the bit string ends in <span class="process-math">\(\bs{1}\)</span> or ends in <span class="process-math">\(\bs{0}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_properbs_number0s-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_properbs_number0s-2-1">For <a href="sec_rec_def_structures.html#act_proper_bs" class="xref" data-knowl="./knowl/xref/act_proper_bs.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.4.A: Proper Bit Strings Puzzle">Activity 8.4.A</a>, we defined proper bit strings. Use strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.17: Proof Format: Mathematical Induction (First-order Strong)">Theorem 8.5.17</a> to prove that any proper bit string has an even number of <span class="process-math">\(\bs{1}\)</span> s. Hint: In the inductive step consider two cases based on if the bit string ends in <span class="process-math">\(\bs{1}\)</span> or ends in <span class="process-math">\(\bs{0}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_properbs_number0s-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 27: Practice"><a tabindex="-1" href="#exer_properbs_number0s" title="  27: Practice" aria-label="  27: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_math_ind_second_order_linear"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_math_ind_second_order_linear"><h4 class="heading">
 <span class="codenumber">28<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Practice.</span>
-</h5>
-<div class="para" id="exer_math_ind_second_order_linear-2-1">Consider the sequence <span class="process-math">\(a\)</span> defined recursively by <span class="process-math">\(a_0= 3\text{,}\)</span> <span class="process-math">\(a_1 =5\text{,}\)</span> and <span class="process-math">\(a_n =2a_{n-1} -a_{n-2}\)</span> for <span class="process-math">\(n \ge 2\text{.}\)</span> Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.16</a> to prove that <span class="process-math">\(a_n = 2n+3\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_math_ind_second_order_linear-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_math_ind_second_order_linear-2-1">Consider the sequence <span class="process-math">\(a\)</span> defined recursively by <span class="process-math">\(a_0= 3\text{,}\)</span> <span class="process-math">\(a_1 =5\text{,}\)</span> and <span class="process-math">\(a_n =2a_{n-1} -a_{n-2}\)</span> for <span class="process-math">\(n \ge 2\text{.}\)</span> Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.19</a> to prove that <span class="process-math">\(a_n = 2n+3\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_math_ind_second_order_linear-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_math_ind_second_order_linear-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -2996,48 +3021,48 @@ F_{n-1} F_{n+1} = F_n^2 + (-1)^n
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 28: Practice"><a tabindex="-1" href="#exer_math_ind_second_order_linear" title="  28: Practice" aria-label="  28: Practice">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_properbs_starting0s"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_properbs_starting0s"><h4 class="heading">
 <span class="codenumber">29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
-<div class="para" id="exer_properbs_starting0s-2-1">For <a href="sec_rec_def_structures.html#act_proper_bs" class="xref" data-knowl="./knowl/xref/act_proper_bs.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.4.A: Proper Bit Strings Puzzle">Activity 8.4.A</a>, we defined proper bit strings. Use strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.14: Proof Format: Mathematical Induction (First-order Strong)">Theorem 8.5.14</a> to prove that if a proper bit string <span class="process-math">\(b\)</span> of length <span class="process-math">\(n\)</span> has exactly weight <span class="process-math">\(2k\text{,}\)</span> then <span class="process-math">\(b\)</span> begins with (at least) <span class="process-math">\(k\)</span> <span class="process-math">\(\bs{1}\)</span> s. Hint: In the inductive step, consider two cases based on if <span class="process-math">\(b\)</span> ends in <span class="process-math">\(\bs{1}\)</span> or ends in <span class="process-math">\(\bs{0}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_properbs_starting0s-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_properbs_starting0s-2-1">For <a href="sec_rec_def_structures.html#act_proper_bs" class="xref" data-knowl="./knowl/xref/act_proper_bs.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 8.4.A: Proper Bit Strings Puzzle">Activity 8.4.A</a>, we defined proper bit strings. Use strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.17: Proof Format: Mathematical Induction (First-order Strong)">Theorem 8.5.17</a> to prove that if a proper bit string <span class="process-math">\(b\)</span> of length <span class="process-math">\(n\)</span> has exactly weight <span class="process-math">\(2k\text{,}\)</span> then <span class="process-math">\(b\)</span> begins with (at least) <span class="process-math">\(k\)</span> <span class="process-math">\(\bs{1}\)</span> s. Hint: In the inductive step, consider two cases based on if <span class="process-math">\(b\)</span> ends in <span class="process-math">\(\bs{1}\)</span> or ends in <span class="process-math">\(\bs{0}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_properbs_starting0s-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 29: Understand"><a tabindex="-1" href="#exer_properbs_starting0s" title="  29: Understand" aria-label="  29: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_math_ind_second_order_powerof2"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_math_ind_second_order_powerof2"><h4 class="heading">
 <span class="codenumber">30<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
-<div class="para" id="exer_math_ind_second_order_powerof2-2-1">Consider the sequence <span class="process-math">\(b_n\)</span> defined recursively by <span class="process-math">\(b_0= 0\text{,}\)</span> <span class="process-math">\(b_1 =2\text{,}\)</span> and <span class="process-math">\(b_n =4b_{n-1} -4b_{n-2}\)</span> for <span class="process-math">\(n \ge 2\text{.}\)</span> Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.16</a> to prove that <span class="process-math">\(b_n = n2^n\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_math_ind_second_order_powerof2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_math_ind_second_order_powerof2-2-1">Consider the sequence <span class="process-math">\(b_n\)</span> defined recursively by <span class="process-math">\(b_0= 0\text{,}\)</span> <span class="process-math">\(b_1 =2\text{,}\)</span> and <span class="process-math">\(b_n =4b_{n-1} -4b_{n-2}\)</span> for <span class="process-math">\(n \ge 2\text{.}\)</span> Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.19</a> to prove that <span class="process-math">\(b_n = n2^n\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_math_ind_second_order_powerof2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="exer_math_ind_second_order_powerof2-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Check</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<div class="para" id="exer_math_ind_second_order_powerof2-3-1">Hint: Copy and edit the proof in <a href="sec_fibonacci_higher.html#exam_strong_math_ind_explicit" class="xref" data-knowl="./knowl/xref/exam_strong_math_ind_explicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.17: Verifying the explicit form of second order recursively-defined sequence">Example 8.5.17</a>. It is convenient to write <span class="process-math">\(4 = 2^2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_math_ind_second_order_powerof2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer_math_ind_second_order_powerof2-3-1">Hint: Copy and edit the proof in <a href="sec_fibonacci_higher.html#exam_strong_math_ind_explicit" class="xref" data-knowl="./knowl/xref/exam_strong_math_ind_explicit.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.21: Verifying the explicit form of second order recursively-defined sequence">Example 8.5.21</a>. It is convenient to write <span class="process-math">\(4 = 2^2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_math_ind_second_order_powerof2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Check 30.1"><a tabindex="-1" href="#exer_math_ind_second_order_powerof2-3" title="Check Check 30.1" aria-label="Check Check 30.1">🔗</a></div>
 </div></details>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 30: Understand"><a tabindex="-1" href="#exer_math_ind_second_order_powerof2" title="  30: Understand" aria-label="  30: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_math_ind_second_order_powerof5"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_math_ind_second_order_powerof5"><h4 class="heading">
 <span class="codenumber">31<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
-<div class="para" id="exer_math_ind_second_order_powerof5-2-1">Consider the sequence <span class="process-math">\(c\)</span> defined recursively by <span class="process-math">\(c_0=3\text{,}\)</span> <span class="process-math">\(c_1=20\text{,}\)</span> and <span class="process-math">\(c_n=10c_{n-1} -25c_{n-2}\)</span> for <span class="process-math">\(n \ge 2\text{.}\)</span> Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.16</a> to prove that <span class="process-math">\(c_n=(n+3)5^n\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_math_ind_second_order_powerof5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_math_ind_second_order_powerof5-2-1">Consider the sequence <span class="process-math">\(c\)</span> defined recursively by <span class="process-math">\(c_0=3\text{,}\)</span> <span class="process-math">\(c_1=20\text{,}\)</span> and <span class="process-math">\(c_n=10c_{n-1} -25c_{n-2}\)</span> for <span class="process-math">\(n \ge 2\text{.}\)</span> Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.19</a> to prove that <span class="process-math">\(c_n=(n+3)5^n\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_math_ind_second_order_powerof5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 31: Understand"><a tabindex="-1" href="#exer_math_ind_second_order_powerof5" title="  31: Understand" aria-label="  31: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_strong_math_ind_alternating"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_strong_math_ind_alternating"><h4 class="heading">
 <span class="codenumber">32<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Understand.</span>
-</h5>
-<div class="para" id="exer_strong_math_ind_alternating-2-1">Consider the sequence <span class="process-math">\(a_n\)</span> is defined by <span class="process-math">\(a_1=2\text{,}\)</span> <span class="process-math">\(a_2=-3\text{,}\)</span> and <span class="process-math">\(a_n=a_{n-2}+(-1)^{n+1}2\)</span> for <span class="process-math">\(n\ge 3\text{.}\)</span> We saw this sequence in <a href="sec_fibonacci_higher.html#exam_rec_seq_higher_order" class="xref" data-knowl="./knowl/xref/exam_rec_seq_higher_order.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.6: Evaluating higher order recursively-defined sequences">Example 8.5.6</a>. Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.16</a> to prove that <span class="process-math">\(a_n=(-1)^n(n+2)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_strong_math_ind_alternating-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4>
+<div class="para" id="exer_strong_math_ind_alternating-2-1">Consider the sequence <span class="process-math">\(a_n\)</span> is defined by <span class="process-math">\(a_1=2\text{,}\)</span> <span class="process-math">\(a_2=-3\text{,}\)</span> and <span class="process-math">\(a_n=a_{n-2}+(-1)^{n+1}2\)</span> for <span class="process-math">\(n\ge 3\text{.}\)</span> We saw this sequence in <a href="sec_fibonacci_higher.html#exam_rec_seq_higher_order" class="xref" data-knowl="./knowl/xref/exam_rec_seq_higher_order.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 8.5.6: Evaluating higher order recursively-defined sequences">Example 8.5.6</a>. Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.19</a> to prove that <span class="process-math">\(a_n=(-1)^n(n+2)\)</span> for <span class="process-math">\(n \ge 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_strong_math_ind_alternating-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 32: Understand"><a tabindex="-1" href="#exer_strong_math_ind_alternating" title="  32: Understand" aria-label="  32: Understand">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_dyk_strong_math_ind"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_dyk_strong_math_ind"><h4 class="heading">
 <span class="codenumber">33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Recap.</span>
-</h5>
+</h4>
 <div class="para logical" id="exer_dyk_strong_math_ind-2-1">
 <div class="para">Do you know …</div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_dyk_strong_math_ind-2-1-2">
+<ol class="lower-alpha" id="exer_dyk_strong_math_ind-2-1-2">
 <li id="exer_dyk_strong_math_ind-2-1-2-1">
 <div class="para" id="exer_dyk_strong_math_ind-2-1-2-1-1">What strong mathematical induction is?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_dyk_strong_math_ind-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3053,15 +3078,15 @@ F_{n-1} F_{n+1} = F_n^2 + (-1)^n
 </div>
 <div class="autopermalink" aria-hidden="true" data-description=" 33: Recap"><a tabindex="-1" href="#exer_dyk_strong_math_ind" title="  33: Recap" aria-label="  33: Recap">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="exer_binets_formula"><h5 class="heading">
+<article class="exercise exercise-like" id="exer_binets_formula"><h4 class="heading">
 <span class="codenumber">34<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explore.</span>
-</h5>
+</h4>
 <div class="para" id="exer_binets_formula-2-1">Our goal for this exercise is to prove an explicit formula for the Fibonacci sequence.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binets_formula-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
 <div class="para logical" id="exer_binets_formula-2-2">
 <div class="para">Write <span class="process-math">\(\alpha = \displaystyle \frac{1+\sqrt{5}}{2}\)</span> and <span class="process-math">\(\beta = \displaystyle \frac{1-\sqrt{5}}{2}\text{.}\)</span>
 </div>
-<ol class="lower-alpha lower-alpha-level-1" id="exer_binets_formula-2-2-3">
+<ol class="lower-alpha" id="exer_binets_formula-2-2-3">
 <li id="exer_binets_formula-2-2-3-1">
 <div class="para" id="exer_binets_formula-2-2-3-1-1">Check that <span class="process-math">\(\alpha^2 = \alpha + 1\text{.}\)</span> It turns out that <span class="process-math">\(\beta^2 = \beta + 1\text{,}\)</span> but you are not asked to check that.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exer_binets_formula-2-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -3069,7 +3094,7 @@ F_{n-1} F_{n+1} = F_n^2 + (-1)^n
 </li>
 <li id="exer_binets_formula-2-2-3-2">
 <div class="para logical" id="exer_binets_formula-2-2-3-2-1">
-<div class="para">Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.16: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.16</a> to prove <dfn class="terminology">Binet’s formula</dfn>:</div>
+<div class="para">Use the special case of strong mathematical induction <a href="sec_fibonacci_higher.html#pff_strong_math_ind_seq" class="xref" data-knowl="./knowl/xref/pff_strong_math_ind_seq.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 8.5.19: Proof Format: Mathematical Induction (Second-order Sequence)">Theorem 8.5.19</a> to prove <dfn class="terminology">Binet’s formula</dfn>:</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/pff_strong_math_ind_seq.html" id="exer_binets_formula-2-2-3-2-1-3">
 \begin{equation*}
 F_n = \frac{1}{\sqrt{5}}\left(\alpha^n-\beta^n\right)
